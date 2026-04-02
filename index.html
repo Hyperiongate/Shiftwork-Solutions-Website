@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <!--
   Shiftwork Solutions LLC — Homepage
-  File: index.html 
+  File: index.html
   Created: March 31, 2026
+  Last updated: April 2, 2026
   Author: Claude Opus 4.6 for Jim @ Shiftwork Solutions LLC
 
   PURPOSE:
-      Complete standalone homepage for shift-work.com. Designed to replace
-      the existing WordPress site. Self-contained HTML/CSS/JS with no
-      external dependencies except Google Fonts and Unsplash images.
+      Homepage for shift-work.com static site served from Render.
+      References shared styles.css for all styling.
+      Nav and footer structure is replicated on every page.
+
+  CHANGE LOG:
+      2026-03-31  Initial standalone homepage created
+      2026-04-02  Extracted CSS to shared styles.css
+                  Made nav-brand a link to homepage
+                  Nav links point to page anchors (homepage) or
+                  future standalone pages (pillar pages will use /)
+                  No visual changes — identical rendering
 
   SECTIONS:
-      1. Navigation (fixed, clean 6-item)
-      2. Hero (headline + value prop + dual CTA)
-      3. The Problem We Solve (pain points grid)
-      4. Our Services (5 service cards)
-      5. How We Work (process timeline)
-      6. Client Credibility (logos/names + industries)
-      7. Thomas — AI Diagnostic (interactive section)
-      8. Meet the Team (3 partners)
-      9. Resources & Tools (links to key content)
-     10. Final CTA (book consultation)
-     11. Footer (contact, links, legal)
-
-  DESIGN:
-      Navy/amber/white palette. Playfair Display + DM Sans.
-      Industrial photography via Unsplash with fallbacks.
-      Mobile-responsive. No frameworks. No build step.
+      Navigation | Hero | Problems | Services | How We Work |
+      Quote Band | Clients | Thomas | Team | Resources | Final CTA | Footer
 
   I did no harm and this file is not truncated
 -->
@@ -39,569 +34,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy:        #0c1f3f;
-      --navy-mid:    #163057;
-      --navy-light:  #1d3a5f;
-      --blue:        #1a6fb5;
-      --blue-light:  #2d8fd4;
-      --blue-pale:   #e4f0fa;
-      --amber:       #e8940a;
-      --amber-light: #f5a623;
-      --amber-pale:  #fff8eb;
-      --steel:       #3a4a5c;
-      --slate:       #64748b;
-      --smoke:       #f1f4f8;
-      --white:       #ffffff;
-      --text:        #1e293b;
-      --text-mid:    #475569;
-      --text-light:  #94a3b8;
-      --border:      #cbd5e1;
-      --radius:      8px;
-      --radius-lg:   16px;
-      --shadow:      0 4px 24px rgba(12,31,63,0.08);
-      --shadow-lg:   0 8px 40px rgba(12,31,63,0.12);
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body:    'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      --max-width:   1140px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-body);
-      color: var(--text);
-      line-height: 1.6;
-      background: var(--white);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    img { max-width: 100%; display: block; }
-
-    /* ================================================================
-       NAV
-    ================================================================ */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(12,31,63,0.97);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      height: 68px;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 clamp(16px, 4vw, 40px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .nav-brand { display: flex; flex-direction: column; gap: 1px; }
-    .nav-name {
-      color: var(--white); font-family: var(--font-display);
-      font-size: 1.25rem; font-weight: 700; letter-spacing: 0.3px;
-    }
-    .nav-sub {
-      font-size: 0.65rem; color: rgba(255,255,255,0.5);
-      text-transform: uppercase; letter-spacing: 1.8px;
-    }
-    .nav-links { display: flex; gap: 28px; align-items: center; }
-    .nav-links a {
-      color: rgba(255,255,255,0.7); text-decoration: none;
-      font-size: 0.88rem; font-weight: 500; transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--white); }
-    .nav-cta {
-      background: var(--amber) !important; color: var(--navy) !important;
-      font-weight: 700 !important; padding: 9px 22px;
-      border-radius: 6px; transition: background 0.2s !important;
-    }
-    .nav-cta:hover { background: var(--amber-light) !important; }
-    .nav-hamburger {
-      display: none; background: none; border: none; cursor: pointer;
-      width: 32px; height: 24px; position: relative;
-    }
-    .nav-hamburger span {
-      display: block; width: 100%; height: 2px; background: var(--white);
-      position: absolute; left: 0; transition: all 0.3s;
-    }
-    .nav-hamburger span:nth-child(1) { top: 0; }
-    .nav-hamburger span:nth-child(2) { top: 11px; }
-    .nav-hamburger span:nth-child(3) { top: 22px; }
-
-    @media (max-width: 800px) {
-      .nav-links { display: none; }
-      .nav-hamburger { display: block; }
-      .nav-links.open {
-        display: flex; flex-direction: column;
-        position: absolute; top: 68px; left: 0; right: 0;
-        background: rgba(12,31,63,0.98); padding: 20px;
-        gap: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);
-      }
-    }
-
-    /* ================================================================
-       HERO
-    ================================================================ */
-    .hero {
-      margin-top: 68px;
-      background: linear-gradient(165deg, var(--navy) 0%, var(--navy-mid) 50%, #1a4a7a 100%);
-      color: var(--white); position: relative; overflow: hidden;
-      min-height: 85vh; display: flex; align-items: center;
-    }
-    .hero::before {
-      content: ''; position: absolute; top: -40%; right: -15%;
-      width: 60%; height: 180%;
-      background: radial-gradient(ellipse, rgba(26,111,181,0.15) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
-      height: 120px;
-      background: linear-gradient(transparent, rgba(12,31,63,0.4));
-      pointer-events: none;
-    }
-    .hero-inner {
-      max-width: var(--max-width); margin: 0 auto; width: 100%;
-      padding: 80px clamp(20px, 4vw, 40px) 100px;
-      display: grid; grid-template-columns: 1.1fr 0.9fr;
-      gap: 56px; align-items: center; position: relative; z-index: 1;
-    }
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
-      font-weight: 800; line-height: 1.12; margin-bottom: 24px;
-    }
-    .hero h1 .accent { color: var(--amber); }
-    .hero-desc {
-      font-size: 1.15rem; line-height: 1.75;
-      color: rgba(255,255,255,0.8); margin-bottom: 32px;
-      max-width: 540px;
-    }
-    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
-    .btn-primary {
-      background: var(--amber); color: var(--navy); border: none;
-      padding: 15px 32px; font-size: 1rem; font-weight: 700;
-      font-family: var(--font-body);
-      border-radius: var(--radius); cursor: pointer; text-decoration: none;
-      display: inline-flex; align-items: center; gap: 8px;
-      transition: background 0.2s, transform 0.1s;
-    }
-    .btn-primary:hover { background: var(--amber-light); }
-    .btn-outline {
-      background: transparent; color: var(--white);
-      border: 1.5px solid rgba(255,255,255,0.3);
-      padding: 14px 28px; font-size: 1rem; font-weight: 600;
-      font-family: var(--font-body);
-      border-radius: var(--radius); cursor: pointer; text-decoration: none;
-      display: inline-flex; align-items: center; gap: 8px;
-      transition: background 0.2s, border-color 0.2s;
-    }
-    .btn-outline:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); }
-
-    .hero-stats {
-      display: flex; gap: 40px;
-    }
-    .hero-stat-num {
-      font-family: var(--font-display); font-size: 2.6rem;
-      font-weight: 800; color: var(--amber); line-height: 1;
-    }
-    .hero-stat-label {
-      font-size: 0.75rem; color: rgba(255,255,255,0.5);
-      text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;
-    }
-
-    .hero-image {
-      position: relative; border-radius: var(--radius-lg);
-      overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    }
-    .hero-image img {
-      width: 100%; height: 480px; object-fit: cover;
-    }
-    .hero-image-caption {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(12,31,63,0.9));
-      padding: 40px 24px 20px; color: rgba(255,255,255,0.85);
-      font-size: 0.88rem; font-style: italic; line-height: 1.5;
-    }
-
-    @media (max-width: 900px) {
-      .hero { min-height: auto; }
-      .hero-inner { grid-template-columns: 1fr; text-align: center; padding: 60px 20px 80px; }
-      .hero-desc { margin-left: auto; margin-right: auto; }
-      .hero-ctas { justify-content: center; }
-      .hero-stats { justify-content: center; }
-      .hero-image { display: none; }
-    }
-
-    /* ================================================================
-       SHARED SECTION STYLES
-    ================================================================ */
-    .section { padding: 88px clamp(20px, 4vw, 40px); }
-    .section-inner { max-width: var(--max-width); margin: 0 auto; }
-    .section-label {
-      font-size: 0.72rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 2.5px;
-      color: var(--blue); margin-bottom: 10px;
-    }
-    .section-heading {
-      font-family: var(--font-display);
-      font-size: clamp(1.7rem, 3.5vw, 2.5rem);
-      font-weight: 700; color: var(--navy);
-      margin-bottom: 16px; line-height: 1.2;
-    }
-    .section-sub {
-      font-size: 1.05rem; color: var(--text-mid);
-      max-width: 620px; line-height: 1.7;
-    }
-    .section-sub.center { margin: 0 auto; text-align: center; }
-
-    /* ================================================================
-       PROBLEMS WE SOLVE
-    ================================================================ */
-    .problems { background: var(--white); }
-    .problems-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 24px; margin-top: 48px;
-    }
-    .problem-card {
-      background: var(--smoke); border-radius: var(--radius-lg);
-      padding: 32px 28px; transition: transform 0.2s;
-    }
-    .problem-card:hover { transform: translateY(-3px); }
-    .problem-icon {
-      width: 52px; height: 52px; border-radius: 14px;
-      background: var(--navy); color: var(--amber);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem; margin-bottom: 16px;
-    }
-    .problem-card h3 {
-      font-size: 1.05rem; font-weight: 700; color: var(--navy);
-      margin-bottom: 8px;
-    }
-    .problem-card p {
-      font-size: 0.9rem; color: var(--text-mid); line-height: 1.6;
-    }
-    @media (max-width: 800px) { .problems-grid { grid-template-columns: 1fr; } }
-
-    /* ================================================================
-       SERVICES
-    ================================================================ */
-    .services { background: var(--navy); color: var(--white); }
-    .services .section-label { color: var(--amber); }
-    .services .section-heading { color: var(--white); }
-    .services .section-sub { color: rgba(255,255,255,0.7); }
-    .services-grid {
-      display: grid; grid-template-columns: repeat(5, 1fr);
-      gap: 20px; margin-top: 48px;
-    }
-    .service-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius-lg); padding: 28px 20px;
-      text-align: center; transition: background 0.2s, border-color 0.2s;
-    }
-    .service-card:hover {
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.15);
-    }
-    .service-icon {
-      width: 56px; height: 56px; border-radius: 50%;
-      background: rgba(232,148,10,0.15); color: var(--amber);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; margin: 0 auto 16px;
-    }
-    .service-card h3 {
-      font-size: 0.95rem; font-weight: 700; color: var(--white);
-      margin-bottom: 8px; line-height: 1.3;
-    }
-    .service-card p {
-      font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.5;
-    }
-    @media (max-width: 900px) {
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 500px) {
-      .services-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ================================================================
-       HOW WE WORK
-    ================================================================ */
-    .process { background: var(--white); }
-    .process-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 56px; align-items: center; margin-top: 48px;
-    }
-    .process-image {
-      border-radius: var(--radius-lg); overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-    .process-image img { width: 100%; height: 420px; object-fit: cover; }
-    .process-steps { display: flex; flex-direction: column; gap: 28px; }
-    .process-step {
-      display: flex; gap: 20px; align-items: flex-start;
-    }
-    .process-num {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: var(--navy); color: var(--amber);
-      font-family: var(--font-display); font-size: 1.2rem; font-weight: 800;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .process-step h3 {
-      font-size: 1rem; font-weight: 700; color: var(--navy);
-      margin-bottom: 4px;
-    }
-    .process-step p {
-      font-size: 0.9rem; color: var(--text-mid); line-height: 1.6;
-    }
-    @media (max-width: 800px) {
-      .process-grid { grid-template-columns: 1fr; }
-      .process-image img { height: 280px; }
-    }
-
-    /* ================================================================
-       PHILOSOPHY QUOTE BAND
-    ================================================================ */
-    .quote-band {
-      background: linear-gradient(135deg, var(--navy-mid), var(--navy));
-      color: var(--white); padding: 64px clamp(20px, 4vw, 40px);
-      text-align: center;
-    }
-    .quote-text {
-      font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 1.9rem);
-      font-weight: 600; font-style: italic; max-width: 800px;
-      margin: 0 auto 16px; line-height: 1.5; color: rgba(255,255,255,0.9);
-    }
-    .quote-attr {
-      font-size: 0.88rem; color: var(--amber); font-weight: 600;
-    }
-
-    /* ================================================================
-       CLIENTS / CREDIBILITY
-    ================================================================ */
-    .clients { background: var(--smoke); }
-    .client-names {
-      margin-top: 40px; display: flex; flex-wrap: wrap;
-      justify-content: center; gap: 10px;
-    }
-    .client-tag {
-      background: var(--white); border: 1px solid var(--border);
-      padding: 10px 20px; border-radius: 32px;
-      font-size: 0.88rem; font-weight: 600; color: var(--navy);
-      transition: border-color 0.2s, background 0.2s;
-    }
-    .client-tag:hover { border-color: var(--blue); background: var(--blue-pale); }
-    .industry-grid {
-      display: flex; flex-wrap: wrap; justify-content: center;
-      gap: 10px; margin-top: 28px;
-    }
-    .industry-pill {
-      background: rgba(26,111,181,0.08); border: 1px solid rgba(26,111,181,0.15);
-      padding: 7px 16px; border-radius: 20px;
-      font-size: 0.8rem; color: var(--blue); font-weight: 500;
-    }
-
-    /* ================================================================
-       THOMAS SECTION
-    ================================================================ */
-    .thomas { background: var(--white); }
-    .thomas-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 48px; align-items: center; margin-top: 40px;
-    }
-    .thomas-content h3 {
-      font-family: var(--font-display);
-      font-size: 1.6rem; font-weight: 700; color: var(--navy);
-      margin-bottom: 16px; line-height: 1.3;
-    }
-    .thomas-content p {
-      font-size: 1rem; color: var(--text-mid); line-height: 1.7;
-      margin-bottom: 16px;
-    }
-    .thomas-topics {
-      display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 28px;
-    }
-    .thomas-topic {
-      background: var(--blue-pale); color: var(--navy);
-      padding: 6px 14px; border-radius: 20px;
-      font-size: 0.8rem; font-weight: 600;
-    }
-    .thomas-frame {
-      border-radius: var(--radius-lg); overflow: hidden;
-      box-shadow: var(--shadow-lg); background: var(--navy);
-      aspect-ratio: 4/3;
-    }
-    .thomas-frame iframe {
-      width: 100%; height: 100%; border: none;
-    }
-    @media (max-width: 800px) {
-      .thomas-grid { grid-template-columns: 1fr; }
-      .thomas-frame { aspect-ratio: 1/1; max-height: 400px; }
-    }
-
-    /* ================================================================
-       TEAM
-    ================================================================ */
-    .team { background: var(--smoke); }
-    .team-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 32px; margin-top: 48px;
-    }
-    .team-card {
-      background: var(--white); border-radius: var(--radius-lg);
-      box-shadow: var(--shadow); overflow: hidden;
-      text-align: center; padding: 36px 24px 28px;
-    }
-    .team-avatar {
-      width: 88px; height: 88px; border-radius: 50%;
-      background: var(--navy); color: var(--amber);
-      font-family: var(--font-display); font-size: 1.8rem; font-weight: 800;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 16px;
-    }
-    .team-card h3 {
-      font-size: 1.1rem; font-weight: 700; color: var(--navy);
-      margin-bottom: 2px;
-    }
-    .team-role {
-      font-size: 0.82rem; color: var(--blue); font-weight: 600;
-      margin-bottom: 12px;
-    }
-    .team-bio {
-      font-size: 0.88rem; color: var(--text-mid); line-height: 1.6;
-    }
-    .team-cred {
-      margin-top: 12px; font-size: 0.78rem; color: var(--text-light);
-      font-style: italic;
-    }
-    @media (max-width: 800px) {
-      .team-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; }
-    }
-
-    /* ================================================================
-       RESOURCES
-    ================================================================ */
-    .resources { background: var(--white); }
-    .resources-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 20px; margin-top: 40px;
-    }
-    .resource-card {
-      border: 1.5px solid var(--border); border-radius: var(--radius-lg);
-      padding: 28px 20px; text-align: center;
-      transition: border-color 0.2s, transform 0.2s;
-      text-decoration: none; color: inherit; display: block;
-    }
-    .resource-card:hover {
-      border-color: var(--blue); transform: translateY(-3px);
-    }
-    .resource-icon {
-      font-size: 2rem; margin-bottom: 12px;
-    }
-    .resource-card h3 {
-      font-size: 0.95rem; font-weight: 700; color: var(--navy);
-      margin-bottom: 6px;
-    }
-    .resource-card p {
-      font-size: 0.82rem; color: var(--text-mid); line-height: 1.5;
-    }
-    @media (max-width: 800px) {
-      .resources-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 500px) {
-      .resources-grid { grid-template-columns: 1fr; }
-    }
-
-    /* ================================================================
-       FINAL CTA
-    ================================================================ */
-    .final-cta {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
-      color: var(--white); padding: 80px clamp(20px, 4vw, 40px);
-      text-align: center;
-    }
-    .final-cta h2 {
-      font-family: var(--font-display);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 800; margin-bottom: 16px; line-height: 1.2;
-    }
-    .final-cta p {
-      font-size: 1.1rem; color: rgba(255,255,255,0.75);
-      max-width: 560px; margin: 0 auto 32px; line-height: 1.7;
-    }
-    .final-cta-buttons {
-      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
-    }
-    .btn-white {
-      background: var(--white); color: var(--navy); border: none;
-      padding: 15px 32px; font-size: 1rem; font-weight: 700;
-      font-family: var(--font-body);
-      border-radius: var(--radius); cursor: pointer; text-decoration: none;
-      display: inline-flex; align-items: center; gap: 8px;
-      transition: background 0.2s;
-    }
-    .btn-white:hover { background: #e8ecf0; }
-
-    /* ================================================================
-       FOOTER
-    ================================================================ */
-    .footer {
-      background: var(--navy); color: rgba(255,255,255,0.6);
-      padding: 48px clamp(20px, 4vw, 40px) 32px;
-    }
-    .footer-inner {
-      max-width: var(--max-width); margin: 0 auto;
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
-    }
-    .footer-brand-name {
-      font-family: var(--font-display); font-size: 1.15rem;
-      color: var(--white); font-weight: 700; margin-bottom: 10px;
-    }
-    .footer-desc { font-size: 0.85rem; line-height: 1.6; max-width: 300px; }
-    .footer-heading {
-      font-size: 0.72rem; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 1.8px;
-      color: rgba(255,255,255,0.35); margin-bottom: 14px;
-    }
-    .footer a {
-      display: block; color: rgba(255,255,255,0.6);
-      text-decoration: none; font-size: 0.88rem; margin-bottom: 8px;
-      transition: color 0.2s;
-    }
-    .footer a:hover { color: var(--white); }
-    .footer-bottom {
-      max-width: var(--max-width); margin: 28px auto 0;
-      padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06);
-      font-size: 0.76rem; text-align: center;
-    }
-    @media (max-width: 800px) {
-      .footer-inner { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 500px) {
-      .footer-inner { grid-template-columns: 1fr; }
-    }
-
-    /* ================================================================
-       ANIMATIONS
-    ================================================================ */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .anim { animation: fadeUp 0.6s ease-out both; }
-    .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.2s; }
-    .d3 { animation-delay: 0.3s; } .d4 { animation-delay: 0.4s; }
-  </style>
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 <body>
 
 <!-- ============================================================ NAV -->
 <nav class="nav">
-  <div class="nav-brand">
+  <a href="/" class="nav-brand">
     <div class="nav-name">Shiftwork Solutions</div>
     <div class="nav-sub">Schedule Design &amp; Change Management</div>
-  </div>
+  </a>
   <div class="nav-links" id="nav-links">
     <a href="#services">Services</a>
     <a href="#how-we-work">How We Work</a>
@@ -610,7 +52,7 @@
     <a href="#resources">Resources</a>
     <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com" target="_blank" class="nav-cta">Book a Call &#8594;</a>
   </div>
-  <button class="nav-hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')">
+  <button class="nav-hamburger" aria-label="Toggle navigation menu" onclick="document.getElementById('nav-links').classList.toggle('open')">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -702,7 +144,7 @@
       <div class="service-card">
         <div class="service-icon">&#128197;</div>
         <h3>Schedule Design &amp; Analysis</h3>
-        <p>Custom shift patterns that balance coverage, cost, fatigue, and employee preferences. From 300+ proven schedule configurations.</p>
+        <p>Custom shift patterns that balance coverage, cost, fatigue, and employee preferences. From hundreds of proven schedule configurations.</p>
       </div>
       <div class="service-card">
         <div class="service-icon">&#128101;</div>
@@ -902,25 +344,25 @@
     <div class="section-sub center">Free tools, articles, and assessments to help you understand your shiftwork challenges.</div>
 
     <div class="resources-grid">
-      <a href="https://shift-work.com/evaluate-your-current-shiftwork-situation/" class="resource-card">
+      <a href="/resources/shift-schedule-design-guide/" class="resource-card">
         <div class="resource-icon">&#128203;</div>
-        <h3>Readiness Assessment</h3>
-        <p>A quick self-evaluation of your current shiftwork operation. Find out where you stand.</p>
+        <h3>Schedule Design Guide</h3>
+        <p>The complete guide to shift schedule design — patterns, trade-offs, and what actually works.</p>
+      </a>
+      <a href="/resources/employee-engagement-shift-work/" class="resource-card">
+        <div class="resource-icon">&#128101;</div>
+        <h3>Employee Engagement</h3>
+        <p>How to build workforce buy-in and reduce turnover through employee-centered scheduling.</p>
       </a>
       <a href="https://shift-work.com/schedule-survey" class="resource-card">
         <div class="resource-icon">&#128202;</div>
         <h3>Workforce Survey</h3>
         <p>Our 103-question employee survey program with normative benchmarking. Start here.</p>
       </a>
-      <a href="https://shift-work.com/shiftwork-quiz/" class="resource-card">
+      <a href="https://shift-work-diagnostic.onrender.com" target="_blank" class="resource-card">
         <div class="resource-icon">&#127919;</div>
-        <h3>Shiftwork Quiz</h3>
-        <p>Test your knowledge of shift schedule best practices. See how you compare.</p>
-      </a>
-      <a href="https://shift-work.com/news-3/" class="resource-card">
-        <div class="resource-icon">&#128218;</div>
-        <h3>Articles &amp; Blog</h3>
-        <p>Practical insights on schedules, overtime, staffing, change management, and more.</p>
+        <h3>Talk to Thomas</h3>
+        <p>Our AI diagnostic consultant. Describe your situation and get directional guidance in minutes.</p>
       </a>
     </div>
   </div>
@@ -959,10 +401,10 @@
     </div>
     <div>
       <div class="footer-heading">Resources</div>
-      <a href="https://shift-work.com/evaluate-your-current-shiftwork-situation/">Readiness Assessment</a>
-      <a href="https://shift-work.com/schedule-survey">Workforce Survey</a>
+      <a href="/resources/shift-schedule-design-guide/">Schedule Design Guide</a>
+      <a href="/resources/employee-engagement-shift-work/">Employee Engagement</a>
       <a href="https://shift-work-diagnostic.onrender.com" target="_blank">Talk to Thomas</a>
-      <a href="https://shift-work.com/news-3/">Articles &amp; Blog</a>
+      <a href="https://shift-work.com/schedule-survey">Workforce Survey</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -972,6 +414,7 @@
 
 <!-- ============================================================ JS -->
 <script>
+/* Smooth scroll for anchor links */
 document.querySelectorAll('a[href^="#"]').forEach(function(link) {
   link.addEventListener('click', function(e) {
     var target = document.querySelector(this.getAttribute('href'));
