@@ -13,6 +13,18 @@
 
   URL: /newsletter/
 
+  CHANGE LOG:
+      2026-04-02  (v1) Initial build — navy/amber/Playfair design system
+      2026-04-02  (v2) Full rebuild to new design system per
+                  Pillar_Page_Layout_Guidelines_4_2_26.docx:
+                  - White nav bar, navy CTA button
+                  - Light grey footer (#F4F4F4)
+                  - Arial/system sans-serif throughout
+                  - New color scale: #1F4E79 navy, #E8610A orange accent
+                  - Single column centered form card
+                  - Phone: (415) 265-1621
+                  - "hundreds" throughout
+
   FORM BACKEND:
       POST https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe
       Stored in: newsletter_subscribers table (PostgreSQL on Swarm)
@@ -24,18 +36,12 @@
   ANTI-SPAM LAYERS:
       1. Honeypot field (_gotcha) — hidden via CSS
       2. Timestamp validation — rejects instant submits (< 2 seconds)
-      3. Client-side rate limit — disables button for 30s after submit
-      4. Server-side duplicate check + rate limiting on the Swarm endpoint
+      3. Client-side rate limit — button disabled for 30s after submit
+      4. Server-side duplicate check + rate limiting on Swarm endpoint
 
-  DESIGN:
-      Navy/amber/white palette. Playfair Display + DM Sans.
-      Self-contained — all CSS inline for standalone preview.
-
-  NOTES FOR FUTURE:
-      - Referenced in footer of all pages and optionally in sidebars
-      - Subscribers can be exported from PostgreSQL as CSV anytime
-      - Consider adding double opt-in (confirmation email) later
-      - No third-party email service yet — just collects addresses
+  NOTES:
+      - No third-party email service yet — collects addresses in PostgreSQL
+      - Consider double opt-in confirmation email in future
 
   I did no harm and this file is not truncated
 -->
@@ -43,184 +49,567 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sign up for the Shiftwork Solutions newsletter. Practical insights on shift schedule design, overtime management, employee engagement, and 24/7 operations — delivered to your inbox." />
+  <meta name="description" content="Sign up for the Shiftwork Solutions newsletter. Practical insights on shift schedule design, overtime management, employee engagement, and 24/7 operations." />
   <title>Newsletter — Shiftwork Solutions LLC</title>
   <link rel="canonical" href="https://shift-work.com/newsletter/" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --navy: #0c1f3f; --navy-mid: #163057; --navy-light: #1d3a5f;
-      --blue: #1a6fb5; --blue-light: #2d8fd4; --blue-pale: #e4f0fa;
-      --amber: #e8940a; --amber-light: #f5a623; --amber-pale: #fff8eb;
-      --smoke: #f1f4f8; --white: #ffffff;
-      --text: #1e293b; --text-mid: #475569; --text-light: #94a3b8;
-      --border: #cbd5e1; --radius: 8px; --radius-lg: 16px;
-      --shadow: 0 4px 24px rgba(12,31,63,0.08);
-      --shadow-lg: 0 8px 40px rgba(12,31,63,0.12);
-      --font-display: 'Playfair Display', Georgia, serif;
-      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      --max-width: 1140px;
+      --navy:       #1F4E79;
+      --navy-dark:  #0D1F3C;
+      --mid-blue:   #85B7EB;
+      --blue-pale:  #EEF3F8;
+      --orange:     #E8610A;
+      --white:      #FFFFFF;
+      --footer-bg:  #F4F4F4;
+      --body:       #1A1A1A;
+      --muted:      #666666;
+      --smoke:      #F4F6F8;
+      --border:     #E0E0E0;
+      --text-mid:   #444444;
+      --max-content: 860px;
+      --radius:     6px;
+      --radius-lg:  10px;
+      --shadow-lg:  0 8px 32px rgba(0,0,0,0.12);
     }
+
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); color: var(--text); line-height: 1.6; background: var(--white); -webkit-font-smoothing: antialiased; }
-    img { max-width: 100%; display: block; }
-
-    /* NAV */
-    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(12,31,63,0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); height: 68px; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(16px, 4vw, 40px); border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .nav-brand { display: flex; flex-direction: column; gap: 1px; text-decoration: none; }
-    .nav-brand:hover { opacity: 0.9; }
-    .nav-name { color: var(--white); font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; letter-spacing: 0.3px; }
-    .nav-sub { font-size: 0.65rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1.8px; }
-    .nav-links { display: flex; gap: 28px; align-items: center; }
-    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--white); }
-    .nav-cta { background: var(--amber) !important; color: var(--navy) !important; font-weight: 700 !important; padding: 9px 22px; border-radius: 6px; transition: background 0.2s !important; }
-    .nav-cta:hover { background: var(--amber-light) !important; }
-    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; width: 32px; height: 24px; position: relative; }
-    .nav-hamburger span { display: block; width: 100%; height: 2px; background: var(--white); position: absolute; left: 0; transition: all 0.3s; }
-    .nav-hamburger span:nth-child(1) { top: 0; } .nav-hamburger span:nth-child(2) { top: 11px; } .nav-hamburger span:nth-child(3) { top: 22px; }
-    @media (max-width: 800px) {
-      .nav-links { display: none; } .nav-hamburger { display: block; }
-      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: rgba(12,31,63,0.98); padding: 20px; gap: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    body {
+      font-family: Arial, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--body);
+      line-height: 1.6;
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* BUTTONS */
-    .btn-primary { background: var(--amber); color: var(--navy); border: none; padding: 15px 32px; font-size: 1rem; font-weight: 700; font-family: var(--font-body); border-radius: var(--radius); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; }
-    .btn-primary:hover { background: var(--amber-light); }
-    .btn-primary:disabled { background: var(--border); color: var(--text-light); cursor: not-allowed; }
-    .btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.3); padding: 14px 28px; font-size: 1rem; font-weight: 600; font-family: var(--font-body); border-radius: var(--radius); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s, border-color 0.2s; }
-    .btn-outline:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); }
-    .btn-white { background: var(--white); color: var(--navy); border: none; padding: 15px 32px; font-size: 1rem; font-weight: 700; font-family: var(--font-body); border-radius: var(--radius); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; }
-    .btn-white:hover { background: #e8ecf0; }
+    /* ================================================================
+       NAV
+    ================================================================ */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      height: 64px;
+      display: flex;
+      align-items: center;
+    }
 
-    /* CENTERED CONTENT */
+    .header-inner {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+    }
+
+    .site-logo {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+      white-space: nowrap;
+      margin-right: 24px;
+      flex-shrink: 0;
+      letter-spacing: -0.2px;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      flex: 1;
+    }
+
+    .main-nav > ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex: 1;
+    }
+
+    .main-nav > ul > li { position: relative; }
+
+    .main-nav > ul > li > a {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 20px 13px;
+      font-size: 13.5px;
+      font-weight: 400;
+      color: #333333;
+      text-decoration: none;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .main-nav > ul > li > a:hover { color: var(--navy); }
+
+    .nav-arrow { font-size: 9px; opacity: 0.5; transition: transform 0.2s; }
+
+    .nav-dropdown {
+      position: absolute;
+      top: 100%; left: 0;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--navy);
+      border-radius: 0 0 6px 6px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+      min-width: 280px;
+      max-height: 520px;
+      overflow-y: auto;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4px);
+      transition: opacity 0.18s, visibility 0.18s, transform 0.18s;
+      padding: 8px 0;
+      z-index: 300;
+    }
+
+    .main-nav > ul > li:hover > .nav-dropdown {
+      opacity: 1; visibility: visible; transform: translateY(0);
+    }
+    .main-nav > ul > li:hover > a .nav-arrow { transform: rotate(180deg); }
+
+    .dropdown-label {
+      padding: 10px 18px 4px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    .nav-dropdown a {
+      display: block;
+      padding: 7px 18px;
+      font-size: 13px;
+      color: #333333;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-dropdown a:hover { background: var(--blue-pale); color: var(--navy); }
+    .dropdown-divider { height: 1px; background: #f0f0f0; margin: 6px 0; }
+
+    .nav-cta { margin-left: auto; flex-shrink: 0; }
+    .nav-cta a {
+      display: inline-block;
+      padding: 9px 20px;
+      background: var(--navy);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .nav-cta a:hover { background: #163a5c; }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      margin-left: auto;
+    }
+    .mobile-toggle span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--navy);
+      margin: 5px 0;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 960px) {
+      .main-nav {
+        display: none;
+        position: absolute;
+        top: 64px; left: 0; right: 0;
+        background: #ffffff;
+        flex-direction: column;
+        padding: 16px 0 24px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        border-top: 1px solid var(--border);
+        max-height: calc(100vh - 64px);
+        overflow-y: auto;
+        align-items: stretch;
+      }
+      .main-nav.open { display: flex; }
+      .main-nav > ul { flex-direction: column; width: 100%; }
+      .main-nav > ul > li > a { padding: 12px 24px; font-size: 14px; }
+      .nav-dropdown {
+        position: static;
+        opacity: 1; visibility: visible; transform: none;
+        box-shadow: none; border: none; border-radius: 0;
+        max-height: none; background: #f8f9fa;
+        display: none; padding: 0; min-width: 100%;
+      }
+      .main-nav > ul > li.mobile-open > .nav-dropdown { display: block; }
+      .nav-dropdown a { padding: 9px 36px; color: #444; }
+      .dropdown-label { padding: 8px 36px 2px; }
+      .nav-cta { margin: 12px 24px 0; }
+      .nav-cta a { display: block; text-align: center; }
+      .mobile-toggle { display: block; }
+    }
+
+    /* ================================================================
+       NEWSLETTER PAGE — Navy hero, centered card
+    ================================================================ */
     .newsletter-page {
-      margin-top: 68px;
-      min-height: calc(100vh - 68px - 200px);
-      display: flex; align-items: center; justify-content: center;
-      padding: 60px clamp(20px, 4vw, 40px);
-      background: linear-gradient(165deg, var(--navy) 0%, var(--navy-mid) 50%, #1a4a7a 100%);
-      position: relative; overflow: hidden;
+      margin-top: 64px;
+      min-height: calc(100vh - 64px - 180px);
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 56px 24px;
+      position: relative;
+      overflow: hidden;
     }
+
+    /* Subtle depth circles */
     .newsletter-page::before {
-      content: ''; position: absolute; top: -40%; right: -15%; width: 60%; height: 180%;
-      background: radial-gradient(ellipse, rgba(26,111,181,0.15) 0%, transparent 70%);
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 360px; height: 360px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
       pointer-events: none;
     }
+    .newsletter-page::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -60px;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      pointer-events: none;
+    }
+
     .newsletter-container {
-      max-width: 560px; width: 100%; position: relative; z-index: 1;
+      max-width: 520px;
+      width: 100%;
+      position: relative;
+      z-index: 1;
     }
+
     .newsletter-card {
-      background: var(--white); border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-lg); padding: 48px 40px;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      padding: 44px 40px;
     }
-    @media (max-width: 600px) {
-      .newsletter-card { padding: 36px 24px; }
+
+    @media (max-width: 580px) {
+      .newsletter-card { padding: 32px 22px; }
     }
+
+    .nl-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
     .newsletter-card h1 {
-      font-family: var(--font-display); font-size: 1.8rem;
-      font-weight: 800; color: var(--navy); line-height: 1.2;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--body);
+      line-height: 1.25;
       margin-bottom: 12px;
     }
-    .newsletter-card h1 .accent { color: var(--amber); }
-    .newsletter-card .desc {
-      font-size: 1rem; color: var(--text-mid); line-height: 1.7;
-      margin-bottom: 28px;
-    }
-    .newsletter-topics {
-      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px;
-    }
-    .newsletter-topic {
-      background: var(--blue-pale); color: var(--navy);
-      padding: 5px 12px; border-radius: 16px;
-      font-size: 0.78rem; font-weight: 600;
+
+    .newsletter-card .nl-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 20px;
     }
 
-    /* FORM */
-    .form-group { margin-bottom: 18px; }
-    .form-label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
-    .form-label .required { color: var(--amber); margin-left: 2px; }
-    .form-label .optional { color: var(--text-light); font-weight: 400; font-size: 0.8rem; margin-left: 4px; }
+    .nl-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 24px;
+    }
+
+    .nl-topic {
+      background: var(--blue-pale);
+      color: var(--navy);
+      padding: 4px 11px;
+      border-radius: 14px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* Form */
+    .form-group { margin-bottom: 16px; }
+
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--body);
+      margin-bottom: 5px;
+    }
+    .form-label .req { color: var(--orange); margin-left: 2px; }
+    .form-label .opt { color: var(--muted); font-weight: 400; margin-left: 4px; }
+
     .form-input {
-      width: 100%; padding: 12px 16px; font-size: 0.95rem;
-      font-family: var(--font-body); color: var(--text);
-      background: var(--smoke); border: 1.5px solid var(--border);
-      border-radius: var(--radius); transition: border-color 0.2s, box-shadow 0.2s;
+      width: 100%;
+      padding: 10px 13px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: var(--body);
+      background: var(--smoke);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      transition: border-color 0.2s, box-shadow 0.2s;
       outline: none;
     }
-    .form-input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(26,111,181,0.12); }
-
-    .ohnohoney { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
-
-    .form-status { padding: 14px 18px; border-radius: var(--radius); margin-bottom: 18px; font-size: 0.92rem; line-height: 1.6; display: none; }
-    .form-status.success { background: #ecfdf5; border: 1px solid #6ee7b7; color: #065f46; display: block; }
-    .form-status.error { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; display: block; }
-
-    .newsletter-privacy {
-      font-size: 0.78rem; color: var(--text-light); margin-top: 14px;
-      text-align: center; line-height: 1.5;
+    .form-input:focus {
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(31,78,121,0.10);
     }
 
-    /* Below-card text */
+    /* Honeypot */
+    .ohnohoney {
+      position: absolute;
+      left: -9999px;
+      opacity: 0;
+      height: 0;
+      width: 0;
+      overflow: hidden;
+    }
+
+    .form-status {
+      padding: 12px 16px;
+      border-radius: var(--radius);
+      margin-bottom: 16px;
+      font-size: 13px;
+      line-height: 1.55;
+      display: none;
+    }
+    .form-status.success {
+      background: #ecfdf5;
+      border: 1px solid #6ee7b7;
+      color: #065f46;
+      display: block;
+    }
+    .form-status.error {
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      color: #991b1b;
+      display: block;
+    }
+
+    .btn-subscribe {
+      display: block;
+      width: 100%;
+      padding: 13px 24px;
+      background: var(--navy);
+      color: var(--white);
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius);
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .btn-subscribe:hover { background: #163a5c; }
+    .btn-subscribe:disabled { background: #a0a0a0; cursor: not-allowed; }
+
+    .nl-privacy {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    /* Below-card links */
     .newsletter-below {
-      text-align: center; margin-top: 28px; color: rgba(255,255,255,0.6);
-      font-size: 0.88rem;
+      text-align: center;
+      margin-top: 24px;
+      color: rgba(255,255,255,0.55);
+      font-size: 13px;
+      line-height: 1.7;
     }
-    .newsletter-below a { color: var(--amber); text-decoration: none; font-weight: 600; }
-    .newsletter-below a:hover { color: var(--amber-light); }
+    .newsletter-below a {
+      color: var(--mid-blue);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .newsletter-below a:hover { color: var(--white); }
 
-    /* FOOTER */
-    .footer { background: var(--navy); color: rgba(255,255,255,0.6); padding: 48px clamp(20px, 4vw, 40px) 32px; }
-    .footer-inner { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
-    .footer-brand-name { font-family: var(--font-display); font-size: 1.15rem; color: var(--white); font-weight: 700; margin-bottom: 10px; }
-    .footer-desc { font-size: 0.85rem; line-height: 1.6; max-width: 300px; }
-    .footer-heading { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: rgba(255,255,255,0.35); margin-bottom: 14px; }
-    .footer a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.88rem; margin-bottom: 8px; transition: color 0.2s; }
-    .footer a:hover { color: var(--white); }
-    .footer-bottom { max-width: var(--max-width); margin: 28px auto 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.76rem; text-align: center; }
-    @media (max-width: 800px) { .footer-inner { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 500px) { .footer-inner { grid-template-columns: 1fr; } }
+    /* ================================================================
+       FOOTER
+    ================================================================ */
+    .site-footer {
+      background: var(--footer-bg);
+      color: #444444;
+      padding: 48px clamp(20px, 4vw, 40px) 28px;
+      border-top: 1px solid #e0e0e0;
+    }
+    .footer-inner { max-width: 1140px; margin: 0 auto; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 36px;
+    }
+    .footer-col-brand .footer-logo {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .footer-col-brand p {
+      font-size: 13px;
+      line-height: 1.65;
+      color: #555555;
+      max-width: 300px;
+      margin-bottom: 14px;
+    }
+    .footer-contact-line { font-size: 13px; color: #444444; margin-bottom: 5px; }
+    .footer-contact-line a { color: var(--navy); text-decoration: none; font-weight: 600; }
+    .footer-contact-line a:hover { text-decoration: underline; }
+    .footer-col h4 {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 8px; }
+    .footer-col ul li a { font-size: 13px; color: #444444; text-decoration: none; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: var(--navy); }
+    .footer-bottom {
+      border-top: 1px solid #d8d8d8;
+      padding-top: 20px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+    @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; } }
+    @media (max-width: 540px) { .footer-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <a href="/" class="nav-brand">
-    <div class="nav-name">Shiftwork Solutions</div>
-    <div class="nav-sub">Schedule Design &amp; Change Management</div>
-  </a>
-  <div class="nav-links" id="nav-links">
-    <a href="/services/">Services</a>
-    <a href="/#how-we-work">How We Work</a>
-    <a href="https://shift-work-diagnostic.onrender.com" target="_blank">Talk to Thomas</a>
-    <a href="/#team">Our Team</a>
-    <a href="/contact/">Contact</a>
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com" target="_blank" class="nav-cta">Book a Call &#8594;</a>
-  </div>
-  <button class="nav-hamburger" aria-label="Toggle navigation menu" onclick="document.getElementById('nav-links').classList.toggle('open')">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<!-- ================================================================
+     SITE HEADER & NAVIGATION
+================================================================ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">Shiftwork Solutions LLC</a>
 
-<!-- NEWSLETTER SECTION -->
+    <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="main-nav">
+      <ul>
+        <li><a href="/">Home</a></li>
+
+        <li>
+          <a href="/services/">Our Services <span class="nav-arrow">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="/services/">Service Overview</a>
+            <div class="dropdown-divider"></div>
+            <a href="/services/#schedule-design">Schedule Design &amp; Analysis</a>
+            <a href="/services/#staffing-strategy">Staffing Strategy</a>
+            <a href="/services/#change-management">Change Management</a>
+            <a href="/services/#workforce-surveys">Workforce Surveys</a>
+            <a href="/services/#cost-analysis">Cost Analysis</a>
+            <a href="/services/#policy-development">Policy Development</a>
+          </div>
+        </li>
+
+        <li>
+          <a href="/resources/">Resources <span class="nav-arrow">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="/resources/">All Resources</a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-label">Pillar Guides</div>
+            <a href="/resources/shift-schedule-design-guide/">Shift Schedule Design Guide</a>
+            <a href="/resources/shift-schedule-patterns-guide/">Schedule Patterns &amp; Examples</a>
+            <a href="/resources/equipment-utilization-shift-scheduling/">Equipment Utilization</a>
+            <a href="/resources/managing-variable-workloads/">Managing Variable Workloads</a>
+            <a href="/resources/overtime-management-guide/">Overtime Management</a>
+            <a href="/resources/schedule-change-management/">Schedule Change Management</a>
+            <a href="/resources/employee-engagement-shift-work/">Employee Engagement</a>
+            <a href="/resources/shift-work-best-practices/">Operational Best Practices</a>
+            <a href="/resources/absenteeism-relief-coverage-management/">Absenteeism &amp; Coverage</a>
+            <a href="/resources/shift-work-policies-guide/">Shift Work Policies</a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-label">Tools</div>
+            <a href="/resources/26-warning-signs-schedule-problems/">26 Warning Signs</a>
+            <a href="/resources/shiftwork-assessment/">Free Assessment Tool</a>
+          </div>
+        </li>
+
+        <li>
+          <a href="/industries/">Industries <span class="nav-arrow">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="/industries/">All Industries</a>
+            <div class="dropdown-divider"></div>
+            <a href="/industries/manufacturing-assembly-operations/">Manufacturing &amp; Assembly</a>
+            <a href="/industries/distribution-logistics-operations/">Distribution &amp; Logistics</a>
+            <a href="/industries/mining-extraction-industries/">Mining &amp; Extraction</a>
+            <a href="/industries/refining-utilities-operations/">Refining &amp; Utilities</a>
+            <a href="/industries/food-beverage-manufacturing/">Food &amp; Beverage</a>
+            <a href="/industries/chemical-pharmaceutical-operations/">Chemical &amp; Pharmaceutical</a>
+          </div>
+        </li>
+
+        <li>
+          <a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a>
+          <div class="nav-dropdown">
+            <a href="/why-shiftwork-solutions/">Why Shiftwork Solutions</a>
+            <a href="/why-shiftwork-solutions/#team-section">Meet Our Team</a>
+            <a href="https://shift-work-diagnostic.onrender.com" target="_blank">Talk to Thomas (AI Advisor)</a>
+          </div>
+        </li>
+
+        <li><a href="/contact/">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com" target="_blank">Get a Free Consultation</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<!-- ================================================================
+     NEWSLETTER SECTION — Navy background, centered card
+================================================================ -->
 <section class="newsletter-page">
   <div class="newsletter-container">
     <div class="newsletter-card">
-      <h1>Stay Sharp on <span class="accent">Shift Operations</span></h1>
-      <p class="desc">Practical insights from three decades of helping hundreds of 24/7 operations. No fluff, no spam — just the things operations leaders actually need to know.</p>
+      <div class="nl-eyebrow">Newsletter</div>
+      <h1>Stay Sharp on Shift Operations</h1>
+      <p class="nl-desc">Practical insights from three decades of helping hundreds of 24/7 operations. No fluff, no spam — just the things operations leaders actually need to know.</p>
 
-      <div class="newsletter-topics">
-        <span class="newsletter-topic">Schedule Design</span>
-        <span class="newsletter-topic">Overtime Strategies</span>
-        <span class="newsletter-topic">Employee Engagement</span>
-        <span class="newsletter-topic">Change Management</span>
-        <span class="newsletter-topic">Industry Trends</span>
-        <span class="newsletter-topic">Best Practices</span>
+      <div class="nl-topics">
+        <span class="nl-topic">Schedule Design</span>
+        <span class="nl-topic">Overtime Strategies</span>
+        <span class="nl-topic">Employee Engagement</span>
+        <span class="nl-topic">Change Management</span>
+        <span class="nl-topic">Industry Trends</span>
+        <span class="nl-topic">Best Practices</span>
       </div>
 
       <div id="form-status" class="form-status"></div>
@@ -234,76 +623,128 @@
         <input type="hidden" name="_loaded" id="_loaded" value="" />
 
         <div class="form-group">
-          <label class="form-label" for="nl-email">Email Address <span class="required">*</span></label>
+          <label class="form-label" for="nl-email">Email Address <span class="req">*</span></label>
           <input class="form-input" type="email" id="nl-email" name="email" required placeholder="you@company.com" />
         </div>
 
         <div class="form-group">
-          <label class="form-label" for="nl-name">Your Name <span class="optional">(optional)</span></label>
+          <label class="form-label" for="nl-name">Your Name <span class="opt">(optional)</span></label>
           <input class="form-input" type="text" id="nl-name" name="name" placeholder="First and last name" />
         </div>
 
-        <button type="submit" class="btn-primary" id="submit-btn" style="width:100%; justify-content:center; font-size:1.05rem; padding:16px 32px;">
-          Subscribe &#8594;
-        </button>
+        <button type="submit" class="btn-subscribe" id="submit-btn">Subscribe →</button>
 
-        <p class="newsletter-privacy">
-          We'll never share your email. Unsubscribe anytime. No spam — we promise.
-        </p>
+        <p class="nl-privacy">We'll never share your email. Unsubscribe anytime. No spam — we promise.</p>
       </form>
     </div>
 
     <div class="newsletter-below">
-      Have a question about your operation right now?<br/>
-      <a href="https://shift-work-diagnostic.onrender.com" target="_blank">Talk to Thomas</a> &nbsp;or&nbsp;
+      Have a question about your operation right now?<br />
+      <a href="https://shift-work-diagnostic.onrender.com" target="_blank">Talk to Thomas</a>
+      &nbsp;or&nbsp;
       <a href="/contact/">Contact us directly</a>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="footer">
+<!-- ================================================================
+     SECTION L: FOOTER
+================================================================ -->
+<footer class="site-footer">
   <div class="footer-inner">
-    <div>
-      <div class="footer-brand-name">Shiftwork Solutions LLC</div>
-      <p class="footer-desc">Over three decades helping hundreds of facilities across 16+ industries optimize shift operations through employee-centered data analysis and change management.</p>
+    <div class="footer-grid">
+
+      <div class="footer-col footer-col-brand">
+        <div class="footer-logo">Shiftwork Solutions LLC</div>
+        <p>Fixed-fee management consulting for shift schedule optimization, workforce engagement, and 24/7 industrial operations. Over three decades helping hundreds of facilities across 16+ industries.</p>
+        <div class="footer-contact-line"><a href="tel:+14152651621">(415) 265-1621</a></div>
+        <div class="footer-contact-line"><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services/">Service Overview</a></li>
+          <li><a href="/services/#schedule-design">Schedule Design</a></li>
+          <li><a href="/services/#change-management">Change Management</a></li>
+          <li><a href="/services/#workforce-surveys">Workforce Surveys</a></li>
+          <li><a href="/services/#cost-analysis">Cost Analysis</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="/resources/">All Resources</a></li>
+          <li><a href="/resources/shift-schedule-design-guide/">Schedule Design Guide</a></li>
+          <li><a href="/resources/employee-engagement-shift-work/">Employee Engagement</a></li>
+          <li><a href="/resources/26-warning-signs-schedule-problems/">26 Warning Signs</a></li>
+          <li><a href="/resources/shiftwork-assessment/">Free Assessment</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="/contact/">Contact Us</a></li>
+          <li><a href="/newsletter/">Newsletter</a></li>
+          <li><a href="https://shift-work-diagnostic.onrender.com" target="_blank">Talk to Thomas</a></li>
+          <li><a href="/why-shiftwork-solutions/">Why Us</a></li>
+          <li><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com" target="_blank">Book a Consultation</a></li>
+        </ul>
+      </div>
+
     </div>
-    <div>
-      <div class="footer-heading">Contact</div>
-      <a href="tel:+14152651621">(415) 265-1621</a>
-      <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
-      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com" target="_blank">Book a Consultation</a>
+
+    <div class="footer-bottom">
+      &copy; 2026 Shiftwork Solutions LLC. All rights reserved. &nbsp;&middot;&nbsp; shift-work.com &nbsp;&middot;&nbsp; Hundreds of clients. 16+ industries. 30+ years experience.
     </div>
-    <div>
-      <div class="footer-heading">Services</div>
-      <a href="/services/">Schedule Design</a>
-      <a href="/services/">Change Management</a>
-      <a href="/services/">Workforce Surveys</a>
-      <a href="/services/">Cost Analysis</a>
-    </div>
-    <div>
-      <div class="footer-heading">Resources</div>
-      <a href="/resources/shift-schedule-design-guide/">Schedule Design Guide</a>
-      <a href="/resources/employee-engagement-shift-work/">Employee Engagement</a>
-      <a href="https://shift-work-diagnostic.onrender.com" target="_blank">Talk to Thomas</a>
-      <a href="/newsletter/">Newsletter Signup</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    &copy; 2026 Shiftwork Solutions LLC. All rights reserved. &nbsp;|&nbsp; shift-work.com &nbsp;|&nbsp; Hundreds of clients. 16+ industries. 30+ years experience.
   </div>
 </footer>
 
-<!-- JS -->
+<!-- ================================================================
+     JS
+================================================================ -->
 <script>
 /* Set load timestamp */
 document.getElementById('_loaded').value = Date.now().toString();
 
 var NEWSLETTER_API = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
 
+/* Mobile hamburger toggle */
+document.getElementById('mobile-toggle').addEventListener('click', function() {
+  document.getElementById('main-nav').classList.toggle('open');
+});
+
+/* Mobile dropdown toggles */
+document.querySelectorAll('.main-nav > ul > li > a').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    if (window.innerWidth <= 960) {
+      var li = this.parentElement;
+      var dropdown = li.querySelector('.nav-dropdown');
+      if (dropdown) {
+        e.preventDefault();
+        var wasOpen = li.classList.contains('mobile-open');
+        document.querySelectorAll('.main-nav > ul > li.mobile-open').forEach(function(d) {
+          d.classList.remove('mobile-open');
+        });
+        if (!wasOpen) li.classList.add('mobile-open');
+      }
+    }
+  });
+});
+
+/* Close nav on outside click */
+document.addEventListener('click', function(e) {
+  var header = document.querySelector('.site-header');
+  if (header && !header.contains(e.target)) {
+    document.getElementById('main-nav').classList.remove('open');
+  }
+});
+
+/* Newsletter form submission */
 document.getElementById('newsletter-form').addEventListener('submit', function(e) {
   e.preventDefault();
-
   var btn = document.getElementById('submit-btn');
   var status = document.getElementById('form-status');
 
@@ -311,7 +752,6 @@ document.getElementById('newsletter-form').addEventListener('submit', function(e
   if (document.getElementById('_gotcha_nl').value !== '') {
     status.className = 'form-status success';
     status.textContent = 'Thank you! You have been subscribed.';
-    status.style.display = 'block';
     this.reset();
     return;
   }
@@ -321,7 +761,6 @@ document.getElementById('newsletter-form').addEventListener('submit', function(e
   if (Date.now() - loadedAt < 2000) {
     status.className = 'form-status error';
     status.textContent = 'Please take a moment before submitting.';
-    status.style.display = 'block';
     return;
   }
 
@@ -331,14 +770,12 @@ document.getElementById('newsletter-form').addEventListener('submit', function(e
   if (!email) {
     status.className = 'form-status error';
     status.textContent = 'Please enter your email address.';
-    status.style.display = 'block';
     return;
   }
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     status.className = 'form-status error';
     status.textContent = 'Please enter a valid email address.';
-    status.style.display = 'block';
     return;
   }
 
@@ -356,7 +793,6 @@ document.getElementById('newsletter-form').addEventListener('submit', function(e
       if (response.ok && data.success) {
         status.className = 'form-status success';
         status.textContent = data.message || 'Thank you! You have been subscribed.';
-        status.style.display = 'block';
         document.getElementById('newsletter-form').reset();
         document.getElementById('_loaded').value = Date.now().toString();
         setTimeout(function() { btn.disabled = false; btn.textContent = 'Subscribe \u2192'; }, 30000);
@@ -370,17 +806,8 @@ document.getElementById('newsletter-form').addEventListener('submit', function(e
     status.textContent = err.message === 'This email is already subscribed.'
       ? 'This email is already subscribed. Thank you!'
       : 'Something went wrong. Please try again or email Contact@shift-work.com.';
-    status.style.display = 'block';
     btn.disabled = false;
     btn.textContent = 'Subscribe \u2192';
-  });
-});
-
-/* Mobile nav */
-document.querySelectorAll('a[href^="#"]').forEach(function(link) {
-  link.addEventListener('click', function(e) {
-    var target = document.querySelector(this.getAttribute('href'));
-    if (target) { e.preventDefault(); document.getElementById('nav-links').classList.remove('open'); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   });
 });
 </script>
