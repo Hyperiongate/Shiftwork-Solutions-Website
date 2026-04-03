@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<!--
+  Shiftwork Solutions LLC — Newsletter Signup
+  File: newsletter.html (deploys as /newsletter/index.html on Render)
+  Created: April 2, 2026
+  Last updated: April 2, 2026
+  Author: Claude Opus 4.6 for Jim @ Shiftwork Solutions LLC
+
+  PURPOSE:
+      Newsletter signup page for shift-work.com. Submits to the AI Swarm
+      Orchestrator's /api/newsletter/subscribe endpoint, which stores
+      subscribers in PostgreSQL.
+
+  URL: /newsletter/
+
+  FORM BACKEND:
+      POST https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe
+      Stored in: newsletter_subscribers table (PostgreSQL on Swarm)
+
+  FIELDS:
+      Required: Email
+      Optional: Name
+
+  ANTI-SPAM LAYERS:
+      1. Honeypot field (_gotcha) — hidden via CSS
+      2. Timestamp validation — rejects instant submits (< 2 seconds)
+      3. Client-side rate limit — disables button for 30s after submit
+      4. Server-side duplicate check + rate limiting on the Swarm endpoint
+
+  DESIGN:
+      Navy/amber/white palette. Playfair Display + DM Sans.
+      Self-contained — all CSS inline for standalone preview.
+
+  NOTES FOR FUTURE:
+      - Referenced in footer of all pages and optionally in sidebars
+      - Subscribers can be exported from PostgreSQL as CSV anytime
+      - Consider adding double opt-in (confirmation email) later
+      - No third-party email service yet — just collects addresses
+
+  I did no harm and this file is not truncated
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sign up for the Shiftwork Solutions newsletter. Practical insights on shift schedule design, overtime management, employee engagement, and 24/7 operations — delivered to your inbox." />
+  <title>Newsletter — Shiftwork Solutions LLC</title>
+  <link rel="canonical" href="https://shift-work.com/newsletter/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #0c1f3f; --navy-mid: #163057; --navy-light: #1d3a5f;
+      --blue: #1a6fb5; --blue-light: #2d8fd4; --blue-pale: #e4f0fa;
+      --amber: #e8940a; --amber-light: #f5a623; --amber-pale: #fff8eb;
+      --smoke: #f1f4f8; --white: #ffffff;
+      --text: #1e293b; --text-mid: #475569; --text-light: #94a3b8;
+      --border: #cbd5e1; --radius: 8px; --radius-lg: 16px;
+      --shadow: 0 4px 24px rgba(12,31,63,0.08);
+      --shadow-lg: 0 8px 40px rgba(12,31,63,0.12);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --max-width: 1140px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text); line-height: 1.6; background: var(--white); -webkit-font-smoothing: antialiased; }
+    img { max-width: 100%; display: block; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(12,31,63,0.97); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); height: 68px; display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(16px, 4vw, 40px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-brand { display: flex; flex-direction: column; gap: 1px; text-decoration: none; }
+    .nav-brand:hover { opacity: 0.9; }
+    .nav-name { color: var(--white); font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; letter-spacing: 0.3px; }
+    .nav-sub { font-size: 0.65rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1.8px; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta { background: var(--amber) !important; color: var(--navy) !important; font-weight: 700 !important; padding: 9px 22px; border-radius: 6px; transition: background 0.2s !important; }
+    .nav-cta:hover { background: var(--amber-light) !important; }
+    .nav-hamburger { display: none; background: none; border: none; cursor: pointer; width: 32px; height: 24px; position: relative; }
+    .nav-hamburger span { display: block; width: 100%; height: 2px; background: var(--white); position: absolute; left: 0; transition: all 0.3s; }
+    .nav-hamburger span:nth-child(1) { top: 0; } .nav-hamburger span:nth-child(2) { top: 11px; } .nav-hamburger span:nth-child(3) { top: 22px; }
+    @media (max-width: 800px) {
+      .nav-links { display: none; } .nav-hamburger { display: block; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: rgba(12,31,63,0.98); padding: 20px; gap: 16px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    }
+
+    /* BUTTONS */
+    .btn-primary { background: var(--amber); color: var(--navy); border: none; padding: 15px 32px; font-size: 1rem; font-weight: 700; font-family: var(--font-body); border-radius: var(--radius); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; }
+    .btn-primary:hover { background: var(--amber-light); }
+    .btn-primary:disabled { background: var(--border); color: var(--text-light); cursor: not-allowed; }
+    .btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.3); padding: 14px 28px; font-size: 1rem; font-weight: 600; font-family: var(--font-body); border-radius: var(--radius); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s, border-color 0.2s; }
+    .btn-outline:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); }
+    .btn-white { background: var(--white); color: var(--navy); border: none; padding: 15px 32px; font-size: 1rem; font-weight: 700; font-family: var(--font-body); border-radius: var(--radius); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; }
+    .btn-white:hover { background: #e8ecf0; }
+
+    /* CENTERED CONTENT */
+    .newsletter-page {
+      margin-top: 68px;
+      min-height: calc(100vh - 68px - 200px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 60px clamp(20px, 4vw, 40px);
+      background: linear-gradient(165deg, var(--navy) 0%, var(--navy-mid) 50%, #1a4a7a 100%);
+      position: relative; overflow: hidden;
+    }
+    .newsletter-page::before {
+      content: ''; position: absolute; top: -40%; right: -15%; width: 60%; height: 180%;
+      background: radial-gradient(ellipse, rgba(26,111,181,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .newsletter-container {
+      max-width: 560px; width: 100%; position: relative; z-index: 1;
+    }
+    .newsletter-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg); padding: 48px 40px;
+    }
+    @media (max-width: 600px) {
+      .newsletter-card { padding: 36px 24px; }
+    }
+    .newsletter-card h1 {
+      font-family: var(--font-display); font-size: 1.8rem;
+      font-weight: 800; color: var(--navy); line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .newsletter-card h1 .accent { color: var(--amber); }
+    .newsletter-card .desc {
+      font-size: 1rem; color: var(--text-mid); line-height: 1.7;
+      margin-bottom: 28px;
+    }
+    .newsletter-topics {
+      display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px;
+    }
+    .newsletter-topic {
+      background: var(--blue-pale); color: var(--navy);
+      padding: 5px 12px; border-radius: 16px;
+      font-size: 0.78rem; font-weight: 600;
+    }
+
+    /* FORM */
+    .form-group { margin-bottom: 18px; }
+    .form-label { display: block; font-size: 0.88rem; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+    .form-label .required { color: var(--amber); margin-left: 2px; }
+    .form-label .optional { color: var(--text-light); font-weight: 400; font-size: 0.8rem; margin-left: 4px; }
+    .form-input {
+      width: 100%; padding: 12px 16px; font-size: 0.95rem;
+      font-family: var(--font-body); color: var(--text);
+      background: var(--smoke); border: 1.5px solid var(--border);
+      border-radius: var(--radius); transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    .form-input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(26,111,181,0.12); }
+
+    .ohnohoney { position: absolute; left: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
+
+    .form-status { padding: 14px 18px; border-radius: var(--radius); margin-bottom: 18px; font-size: 0.92rem; line-height: 1.6; display: none; }
+    .form-status.success { background: #ecfdf5; border: 1px solid #6ee7b7; color: #065f46; display: block; }
+    .form-status.error { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; display: block; }
+
+    .newsletter-privacy {
+      font-size: 0.78rem; color: var(--text-light); margin-top: 14px;
+      text-align: center; line-height: 1.5;
+    }
+
+    /* Below-card text */
+    .newsletter-below {
+      text-align: center; margin-top: 28px; color: rgba(255,255,255,0.6);
+      font-size: 0.88rem;
+    }
+    .newsletter-below a { color: var(--amber); text-decoration: none; font-weight: 600; }
+    .newsletter-below a:hover { color: var(--amber-light); }
+
+    /* FOOTER */
+    .footer { background: var(--navy); color: rgba(255,255,255,0.6); padding: 48px clamp(20px, 4vw, 40px) 32px; }
+    .footer-inner { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; }
+    .footer-brand-name { font-family: var(--font-display); font-size: 1.15rem; color: var(--white); font-weight: 700; margin-bottom: 10px; }
+    .footer-desc { font-size: 0.85rem; line-height: 1.6; max-width: 300px; }
+    .footer-heading { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.8px; color: rgba(255,255,255,0.35); margin-bottom: 14px; }
+    .footer a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.88rem; margin-bottom: 8px; transition: color 0.2s; }
+    .footer a:hover { color: var(--white); }
+    .footer-bottom { max-width: var(--max-width); margin: 28px auto 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.76rem; text-align: center; }
+    @media (max-width: 800px) { .footer-inner { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 500px) { .footer-inner { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="/" class="nav-brand">
+    <div class="nav-name">Shiftwork Solutions</div>
+    <div class="nav-sub">Schedule Design &amp; Change Management</div>
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="/services/">Services</a>
+    <a href="/#how-we-work">How We Work</a>
+    <a href="https://shift-work-diagnostic.onrender.com" target="_blank">Talk to Thomas</a>
+    <a href="/#team">Our Team</a>
+    <a href="/contact/">Contact</a>
+    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com" target="_blank" class="nav-cta">Book a Call &#8594;</a>
+  </div>
+  <button class="nav-hamburger" aria-label="Toggle navigation menu" onclick="document.getElementById('nav-links').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- NEWSLETTER SECTION -->
+<section class="newsletter-page">
+  <div class="newsletter-container">
+    <div class="newsletter-card">
+      <h1>Stay Sharp on <span class="accent">Shift Operations</span></h1>
+      <p class="desc">Practical insights from three decades of helping hundreds of 24/7 operations. No fluff, no spam — just the things operations leaders actually need to know.</p>
+
+      <div class="newsletter-topics">
+        <span class="newsletter-topic">Schedule Design</span>
+        <span class="newsletter-topic">Overtime Strategies</span>
+        <span class="newsletter-topic">Employee Engagement</span>
+        <span class="newsletter-topic">Change Management</span>
+        <span class="newsletter-topic">Industry Trends</span>
+        <span class="newsletter-topic">Best Practices</span>
+      </div>
+
+      <div id="form-status" class="form-status"></div>
+
+      <form id="newsletter-form" novalidate>
+        <!-- Honeypot -->
+        <div class="ohnohoney">
+          <label for="_gotcha_nl">Leave empty</label>
+          <input type="text" name="_gotcha" id="_gotcha_nl" tabindex="-1" autocomplete="off" />
+        </div>
+        <input type="hidden" name="_loaded" id="_loaded" value="" />
+
+        <div class="form-group">
+          <label class="form-label" for="nl-email">Email Address <span class="required">*</span></label>
+          <input class="form-input" type="email" id="nl-email" name="email" required placeholder="you@company.com" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="nl-name">Your Name <span class="optional">(optional)</span></label>
+          <input class="form-input" type="text" id="nl-name" name="name" placeholder="First and last name" />
+        </div>
+
+        <button type="submit" class="btn-primary" id="submit-btn" style="width:100%; justify-content:center; font-size:1.05rem; padding:16px 32px;">
+          Subscribe &#8594;
+        </button>
+
+        <p class="newsletter-privacy">
+          We'll never share your email. Unsubscribe anytime. No spam — we promise.
+        </p>
+      </form>
+    </div>
+
+    <div class="newsletter-below">
+      Have a question about your operation right now?<br/>
+      <a href="https://shift-work-diagnostic.onrender.com" target="_blank">Talk to Thomas</a> &nbsp;or&nbsp;
+      <a href="/contact/">Contact us directly</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand-name">Shiftwork Solutions LLC</div>
+      <p class="footer-desc">Over three decades helping hundreds of facilities across 16+ industries optimize shift operations through employee-centered data analysis and change management.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <a href="tel:+14152651621">(415) 265-1621</a>
+      <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com" target="_blank">Book a Consultation</a>
+    </div>
+    <div>
+      <div class="footer-heading">Services</div>
+      <a href="/services/">Schedule Design</a>
+      <a href="/services/">Change Management</a>
+      <a href="/services/">Workforce Surveys</a>
+      <a href="/services/">Cost Analysis</a>
+    </div>
+    <div>
+      <div class="footer-heading">Resources</div>
+      <a href="/resources/shift-schedule-design-guide/">Schedule Design Guide</a>
+      <a href="/resources/employee-engagement-shift-work/">Employee Engagement</a>
+      <a href="https://shift-work-diagnostic.onrender.com" target="_blank">Talk to Thomas</a>
+      <a href="/newsletter/">Newsletter Signup</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2026 Shiftwork Solutions LLC. All rights reserved. &nbsp;|&nbsp; shift-work.com &nbsp;|&nbsp; Hundreds of clients. 16+ industries. 30+ years experience.
+  </div>
+</footer>
+
+<!-- JS -->
+<script>
+/* Set load timestamp */
+document.getElementById('_loaded').value = Date.now().toString();
+
+var NEWSLETTER_API = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
+
+document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  var btn = document.getElementById('submit-btn');
+  var status = document.getElementById('form-status');
+
+  /* Honeypot check */
+  if (document.getElementById('_gotcha_nl').value !== '') {
+    status.className = 'form-status success';
+    status.textContent = 'Thank you! You have been subscribed.';
+    status.style.display = 'block';
+    this.reset();
+    return;
+  }
+
+  /* Timing check — reject if under 2 seconds */
+  var loadedAt = parseInt(document.getElementById('_loaded').value, 10);
+  if (Date.now() - loadedAt < 2000) {
+    status.className = 'form-status error';
+    status.textContent = 'Please take a moment before submitting.';
+    status.style.display = 'block';
+    return;
+  }
+
+  var email = document.getElementById('nl-email').value.trim();
+  var name = document.getElementById('nl-name').value.trim();
+
+  if (!email) {
+    status.className = 'form-status error';
+    status.textContent = 'Please enter your email address.';
+    status.style.display = 'block';
+    return;
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    status.className = 'form-status error';
+    status.textContent = 'Please enter a valid email address.';
+    status.style.display = 'block';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Subscribing...';
+  status.style.display = 'none';
+
+  fetch(NEWSLETTER_API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({ email: email, name: name || null, source: 'website-newsletter-page' })
+  })
+  .then(function(response) {
+    return response.json().then(function(data) {
+      if (response.ok && data.success) {
+        status.className = 'form-status success';
+        status.textContent = data.message || 'Thank you! You have been subscribed.';
+        status.style.display = 'block';
+        document.getElementById('newsletter-form').reset();
+        document.getElementById('_loaded').value = Date.now().toString();
+        setTimeout(function() { btn.disabled = false; btn.textContent = 'Subscribe \u2192'; }, 30000);
+      } else {
+        throw new Error(data.error || 'Subscription failed');
+      }
+    });
+  })
+  .catch(function(err) {
+    status.className = 'form-status error';
+    status.textContent = err.message === 'This email is already subscribed.'
+      ? 'This email is already subscribed. Thank you!'
+      : 'Something went wrong. Please try again or email Contact@shift-work.com.';
+    status.style.display = 'block';
+    btn.disabled = false;
+    btn.textContent = 'Subscribe \u2192';
+  });
+});
+
+/* Mobile nav */
+document.querySelectorAll('a[href^="#"]').forEach(function(link) {
+  link.addEventListener('click', function(e) {
+    var target = document.querySelector(this.getAttribute('href'));
+    if (target) { e.preventDefault(); document.getElementById('nav-links').classList.remove('open'); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+</script>
+
+</body>
+</html>
+<!-- I did no harm and this file is not truncated -->
