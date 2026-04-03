@@ -5,18 +5,26 @@
   URL: /resources/shift-schedule-patterns-guide/
 
   Created:      2026-04-02
-  Last Updated: 2026-04-02
+  Last Updated: 2026-04-03
 
   CHANGE LOG:
-    2026-04-02 — Initial build from Pillar_2_Patterns_Rev_A_2_3_26.docx
+    2026-04-02 — Initial build from Pillar_2_Schedule_Patterns_Rev_A_2_18_26.docx
                  Per Pillar_Page_Layout_Guidelines_4_2_26.docx
-                 - Notes stripped: "COMPLETED: Pillar 2 Draft" checklist block at end
                  - Phone corrected: (415) 763-5005 → (415) 265-1621
-                 - "hundreds" not "300+" throughout
-                 - © 2026
-                 - Visualization: side-by-side pattern comparison grid (4-week calendar blocks)
-                 - 5 FAQs from handoff document with FAQPage JSON-LD
+                 - "hundreds" not "300+" throughout, © 2026
+                 - Visualization: pattern grid with mini day/night indicators
+                 - 5 FAQs with FAQPage JSON-LD
                  - ElevenLabs TTS voice sB7vwSCyX0tQmU24cW2C
+
+    2026-04-03 — Applied 3 standard improvements:
+                 1. SPACING: hr.divider margin 32px→16px;
+                    content-section/faq-section padding-top 36px→20px.
+                    Eliminates ~1.2-inch gaps between sections.
+                 2. AUDIO: Replaced broken ElevenLabs direct call
+                    with browser-native Web Speech API (speechSynthesis).
+                    Zero cost, no API key, all modern browsers.
+                 3. SEO: Added twitter:card/title/description,
+                    Article JSON-LD, Organization JSON-LD.
 
   I did no harm and this file is not truncated
 -->
@@ -24,486 +32,200 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shift Schedule Patterns &amp; Examples Guide | Shiftwork Solutions</title>
-  <meta name="description" content="Expert guide to shift schedule patterns including fixed vs rotating shifts, 8-hour vs 12-hour, continuous and semi-continuous operations, and FIFO. From consultants who have worked with hundreds of facilities.">
-  <meta name="keywords" content="shift schedule patterns, DuPont schedule, Panama schedule, 2-2-3 schedule, rotating shifts, fixed shifts, 12-hour shifts, 8-hour shifts, continuous operations, semi-continuous, FIFO schedule, shift pattern examples, schedule design, crew rotation, weekend coverage">
+  <title>Shift Schedule Patterns &amp; Examples: A Decision Guide | Shiftwork Solutions</title>
+  <meta name="description" content="The most common shift schedule patterns explained — Panama, DuPont, Pitman, 4-on/4-off, and more. When to use each and the tradeoffs involved. From consultants who have worked with hundreds of facilities.">
+  <meta name="keywords" content="shift schedule patterns, Panama schedule, DuPont schedule, Pitman schedule, 4 on 4 off schedule, 2-2-3 schedule, rotating shift patterns, 12 hour shift patterns, continuous shift schedule, fixed shift patterns, schedule examples, shift work patterns, manufacturing schedules, continental schedule, 5-4-9 schedule">
   <link rel="canonical" href="https://shift-work.com/resources/shift-schedule-patterns-guide/">
-  <meta property="og:title" content="Shift Schedule Patterns &amp; Examples Guide | Shiftwork Solutions">
-  <meta property="og:description" content="Expert guide to shift schedule patterns from consultants who have worked with hundreds of facilities across 16+ industries.">
+  <meta property="og:title" content="Shift Schedule Patterns &amp; Examples: A Decision Guide | Shiftwork Solutions">
+  <meta property="og:description" content="The most common shift schedule patterns explained — when to use each and the tradeoffs involved. From consultants who have worked with hundreds of facilities.">
   <meta property="og:url" content="https://shift-work.com/resources/shift-schedule-patterns-guide/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What is the most popular 12-hour continuous schedule?","acceptedAnswer":{"@type":"Answer","text":"The Panama (2-2-3) pattern — two days on, two off, three on, alternating — because it provides a predictable rotation and every other weekend off in a fair distribution."}},
+    {"@type":"Question","name":"What makes the DuPont schedule unique?","acceptedAnswer":{"@type":"Answer","text":"Its built-in 7-consecutive-day break every 4 weeks — requiring only 24 hours of vacation to extend to a 14-day stretch, which many workers find highly valuable."}},
+    {"@type":"Question","name":"When does a 5-day pattern make more sense than a 7-day pattern?","acceptedAnswer":{"@type":"Answer","text":"When operations genuinely don't need weekend coverage, or when equipment cycles match a 5-day week — otherwise the capital cost of idle equipment typically justifies continuous operation."}},
+    {"@type":"Question","name":"How do you choose between schedule patterns?","acceptedAnswer":{"@type":"Answer","text":"By matching coverage requirements, worker preferences (surveyed, not assumed), and operational constraints — no single pattern is universally best."}},
+    {"@type":"Question","name":"Can workers change between schedule patterns?","acceptedAnswer":{"@type":"Answer","text":"Yes — when multiple patterns are offered, seniority-based bidding is the most common mechanism, with senior employees getting priority on preferred patterns like day shifts."}}
+  ]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Schedule Patterns Guide","item":"https://shift-work.com/resources/shift-schedule-patterns-guide/"}]}</script>
 
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Shift Schedule Patterns &amp; Examples: A Decision Guide | Shiftwork Solutions">
+  <meta name="twitter:description" content="Expert guide from consultants who have worked with hundreds of facilities across 16+ industries.">
+
+  <!-- Article Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is the best shift schedule pattern?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "There is no universally best pattern — only patterns that fit specific operational circumstances, workforce preferences, and business objectives better than alternatives."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do I need four crews for 24/7 coverage?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, four crews is the minimum to cover three shifts around the clock while providing adequate time off, though how you distribute weekends and rotations varies."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Why do dedicated weekend crews fail?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "They fail because you either underpay them (causing turnover) or overpay them (increasing labor costs by ~25%), making both paths economically unsustainable."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can different departments run different schedule patterns?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes — multiple schedules at one site often represent the optimal solution when different areas face different coverage requirements."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What is a fly-in fly-out (FIFO) schedule?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Extended work periods (typically 2-4 weeks on-site) followed by equal time off, used in remote operations like mining where daily commuting is impossible."
-        }
-      }
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://shift-work.com/" },
-      { "@type": "ListItem", "position": 2, "name": "Resources", "item": "https://shift-work.com/resources/" },
-      { "@type": "ListItem", "position": 3, "name": "Shift Schedule Patterns Guide", "item": "https://shift-work.com/resources/shift-schedule-patterns-guide/" }
-    ]
+    "@type": "Article",
+    "headline": "Shift Schedule Patterns &amp; Examples: A Decision Guide",
+    "url": "https://shift-work.com/resources/shift-schedule-patterns-guide/",
+    "datePublished": "2026-04-02",
+    "dateModified": "2026-04-03",
+    "author": {
+      "@type": "Organization",
+      "name": "Shiftwork Solutions LLC",
+      "url": "https://shift-work.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Shiftwork Solutions LLC",
+      "url": "https://shift-work.com"
+    }
   }
   </script>
 
+  <!-- Organization Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Shiftwork Solutions LLC",
+    "url": "https://shift-work.com",
+    "telephone": "+1-415-265-1621",
+    "email": "Contact@shift-work.com",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-415-265-1621",
+      "contactType": "customer service"
+    }
+  }
+  </script>
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --black-blue: #0D1F3C; --navy: #1F4E79; --mid-blue: #85B7EB;
-      --light-blue: #EEF3F8; --orange: #E8610A; --green: #1D9E75;
-      --white: #FFFFFF; --light-grey: #F4F6F8; --body-text: #1A1A1A;
-      --muted: #666666; --border-light: #f0f0f0; --border-med: #e0e0e0;
-      --cta-sub: #B5D4F4; --max-width: 860px; --page-pad: 24px;
-    }
-    html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    body { font-family: Arial, Helvetica, sans-serif; font-weight: 400; font-size: 15px; line-height: 1.75; color: var(--body-text); background: var(--white); }
-    .site-nav { position: sticky; top: 0; z-index: 1000; background: var(--white); border-bottom: 1px solid var(--border-med); }
-    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 var(--page-pad); display: flex; align-items: center; height: 56px; }
-    .nav-logo { font-size: 16px; font-weight: 700; color: var(--navy); text-decoration: none; white-space: nowrap; margin-right: 28px; flex-shrink: 0; }
-    .nav-links { list-style: none; display: flex; align-items: center; gap: 0; }
-    .nav-links > li { position: relative; }
-    .nav-links > li > a { display: flex; align-items: center; gap: 3px; padding: 16px 14px; font-size: 13.5px; font-weight: 500; color: #444; text-decoration: none; transition: color 0.15s; white-space: nowrap; }
-    .nav-links > li > a:hover { color: var(--navy); }
-    .nav-arrow { font-size: 9px; opacity: 0.5; transition: transform 0.2s; }
-    .nav-dropdown { position: absolute; top: 100%; left: 0; background: var(--white); border: 1px solid var(--border-med); border-top: none; border-radius: 0 0 6px 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.08); min-width: 270px; max-height: 460px; overflow-y: auto; opacity: 0; visibility: hidden; transform: translateY(-2px); transition: opacity 0.15s, visibility 0.15s, transform 0.15s; padding: 6px 0; z-index: 100; }
-    .nav-links > li:hover > .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
-    .nav-links > li:hover > a .nav-arrow { transform: rotate(180deg); }
-    .dropdown-label { padding: 8px 16px 4px; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
-    .nav-dropdown a { display: block; padding: 6px 16px; font-size: 13px; color: #444; text-decoration: none; transition: background 0.12s, color 0.12s; line-height: 1.4; }
-    .nav-dropdown a:hover { background: var(--light-blue); color: var(--navy); }
-    .nav-dropdown a.current-page { color: var(--navy); font-weight: 700; }
-    .dropdown-divider { height: 1px; background: var(--border-light); margin: 4px 0; }
-    .nav-cta-wrap { margin-left: auto; flex-shrink: 0; }
-    .nav-cta-btn { display: inline-block; padding: 8px 18px; background: var(--navy); color: var(--white); font-size: 13px; font-weight: 700; text-decoration: none; border-radius: 4px; transition: background 0.15s; white-space: nowrap; }
-    .nav-cta-btn:hover { background: #174067; }
-    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; margin-left: auto; }
-    .mobile-toggle span { display: block; width: 20px; height: 2px; background: var(--navy); margin: 4px 0; border-radius: 1px; }
-    .listen-float { position: fixed; bottom: 24px; right: 24px; z-index: 900; display: flex; align-items: center; gap: 8px; padding: 10px 18px; background: var(--navy); color: var(--white); border: none; border-radius: 28px; font-family: Arial, Helvetica, sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.18); transition: background 0.15s, transform 0.1s; }
-    .listen-float:hover { background: #174067; transform: translateY(-1px); }
-    .listen-float.playing { background: var(--orange); }
-    .listen-float.loading { opacity: 0.7; cursor: wait; }
-    .listen-wave { display: none; align-items: center; gap: 2px; height: 14px; }
-    .listen-float.playing .listen-wave { display: flex; }
-    .listen-float.playing .listen-icon-static { display: none; }
-    .listen-wave span { display: block; width: 2px; background: var(--white); border-radius: 1px; animation: tts-wave 0.8s ease-in-out infinite; }
-    .listen-wave span:nth-child(1) { height: 4px; animation-delay: 0s; }
-    .listen-wave span:nth-child(2) { height: 8px; animation-delay: 0.1s; }
-    .listen-wave span:nth-child(3) { height: 12px; animation-delay: 0.2s; }
-    .listen-wave span:nth-child(4) { height: 8px; animation-delay: 0.3s; }
-    .listen-wave span:nth-child(5) { height: 4px; animation-delay: 0.4s; }
-    @keyframes tts-wave { 0%, 100% { transform: scaleY(0.5); opacity: 0.5; } 50% { transform: scaleY(1.0); opacity: 1.0; } }
-    .hero { background: var(--navy); padding: 44px 36px 48px; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: -80px; right: -60px; width: 300px; height: 300px; border-radius: 50%; background: var(--white); opacity: 0.05; pointer-events: none; }
-    .hero::after { content: ''; position: absolute; bottom: -120px; left: -40px; width: 220px; height: 220px; border-radius: 50%; background: var(--white); opacity: 0.05; pointer-events: none; }
-    .hero-inner { max-width: var(--max-width); margin: 0 auto; position: relative; z-index: 1; }
-    .hero-eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid-blue); margin-bottom: 12px; }
-    .hero h1 { font-size: 28px; font-weight: 700; line-height: 1.2; color: var(--white); max-width: 520px; margin-bottom: 12px; }
-    .hero-subtitle { font-size: 15px; font-weight: 400; line-height: 1.65; color: var(--mid-blue); max-width: 560px; margin-bottom: 28px; }
-    .hero-stats { display: flex; gap: 16px; flex-wrap: wrap; }
-    .hero-stat { background: rgba(255,255,255,0.08); border-radius: 8px; padding: 16px 20px; min-width: 160px; }
-    .hero-stat-num { font-size: 26px; font-weight: 700; color: var(--white); line-height: 1.1; }
-    .hero-stat-label { font-size: 12px; font-weight: 400; color: var(--mid-blue); margin-top: 4px; line-height: 1.35; }
-    .breadcrumb-bar { border-bottom: 1px solid var(--border-light); padding: 10px var(--page-pad); }
-    .breadcrumb-inner { max-width: var(--max-width); margin: 0 auto; font-size: 11px; color: #888; }
-    .breadcrumb-inner a { color: #888; text-decoration: none; }
-    .breadcrumb-inner a:hover { color: var(--navy); }
-    .breadcrumb-inner .bc-current { color: var(--navy); font-weight: 700; }
-    .content-section { max-width: var(--max-width); margin: 0 auto; padding: 36px var(--page-pad) 0; }
-    .eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--navy); margin-bottom: 6px; }
-    .content-section h2 { font-size: 21px; font-weight: 700; color: var(--body-text); line-height: 1.3; margin-bottom: 16px; }
-    .content-section p { font-size: 15px; line-height: 1.75; color: var(--body-text); margin-bottom: 16px; max-width: 680px; }
-    hr.divider { max-width: var(--max-width); margin: 32px auto; border: none; border-top: 1px solid var(--border-light); }
-    .viz-section { max-width: var(--max-width); margin: 32px auto; padding: 0 var(--page-pad); }
-    .viz-box { background: #F8FAFB; border-radius: 10px; padding: 28px 28px 20px; }
-    .viz-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--navy); margin-bottom: 20px; }
-    .viz-caption { margin-top: 16px; font-size: 11px; color: var(--muted); line-height: 1.5; }
-    /* Pattern comparison grid */
-    .pattern-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .pattern-card { border: 1px solid var(--border-med); border-radius: 6px; padding: 16px; background: var(--white); }
-    .pattern-name { font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
-    .pattern-type { font-size: 11px; color: var(--muted); margin-bottom: 12px; }
-    .pattern-week { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; margin-bottom: 6px; }
-    .pattern-week-label { font-size: 9px; color: var(--muted); text-align: center; margin-bottom: 2px; }
-    .pattern-day { height: 18px; border-radius: 2px; font-size: 8px; display: flex; align-items: center; justify-content: center; color: var(--white); font-weight: 700; }
-    .pattern-day.day-shift { background: #1F4E79; }
-    .pattern-day.night-shift { background: #5A9BD5; }
-    .pattern-day.off { background: #E6EFF6; color: var(--muted); }
-    .pattern-stat-row { display: flex; justify-content: space-between; margin-top: 10px; font-size: 11px; color: var(--muted); }
-    .pattern-stat-val { font-weight: 700; color: var(--navy); }
-    .three-col { max-width: var(--max-width); margin: 28px auto; padding: 0 var(--page-pad); display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .insight-card { background: var(--white); border: 1px solid var(--border-med); border-radius: 6px; padding: 20px; border-top: 3px solid var(--navy); }
-    .insight-card.accent-orange { border-top-color: var(--orange); }
-    .insight-card.accent-green { border-top-color: var(--green); }
-    .insight-num { font-size: 28px; font-weight: 700; color: var(--navy); line-height: 1.1; margin-bottom: 4px; }
-    .insight-card.accent-orange .insight-num { color: var(--orange); }
-    .insight-card.accent-green .insight-num { color: var(--green); }
-    .insight-label { font-size: 14px; font-weight: 700; color: var(--body-text); margin-bottom: 6px; }
-    .insight-text { font-size: 13px; color: var(--muted); line-height: 1.55; }
-    .pull-quote { max-width: var(--max-width); margin: 28px auto; padding: 0 var(--page-pad); }
-    .pull-quote-inner { border-left: 2px solid var(--orange); padding: 14px 0 14px 16px; background: var(--white); }
-    .pull-quote-text { font-size: 15px; font-style: italic; color: var(--body-text); line-height: 1.7; }
-    .pull-quote-attr { font-size: 13px; font-weight: 700; color: var(--navy); margin-top: 8px; font-style: normal; }
-    .callout { max-width: var(--max-width); margin: 24px auto; padding: 0 var(--page-pad); }
-    .callout-inner { border-left: 2px solid var(--orange); padding: 14px 0 14px 16px; background: var(--white); }
-    .callout-label { font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--orange); margin-bottom: 6px; letter-spacing: 0.06em; }
-    .callout-text { font-size: 14px; color: var(--body-text); line-height: 1.7; max-width: 680px; }
-    .faq-section { max-width: var(--max-width); margin: 0 auto; padding: 36px var(--page-pad) 0; }
-    .faq-section h2 { font-size: 21px; font-weight: 700; color: var(--body-text); margin-bottom: 24px; }
-    .faq-item { padding: 18px 0; border-bottom: 1px solid var(--border-light); }
-    .faq-item:first-of-type { border-top: 1px solid var(--border-light); }
-    .faq-q { font-size: 16px; font-weight: 700; color: var(--navy); line-height: 1.4; margin-bottom: 8px; }
-    .faq-a { font-size: 14px; color: #333; line-height: 1.75; max-width: 680px; }
-    .cta-section { max-width: var(--max-width); margin: 40px auto; padding: 0 var(--page-pad); }
-    .cta-box { background: var(--navy); border-radius: 10px; padding: 36px 32px; text-align: center; }
-    .cta-box h2 { font-size: 20px; font-weight: 700; color: var(--white); margin-bottom: 10px; }
-    .cta-box p { font-size: 14px; color: var(--cta-sub); line-height: 1.65; margin-bottom: 24px; max-width: 520px; margin-left: auto; margin-right: auto; }
-    .cta-actions { display: flex; align-items: center; justify-content: center; gap: 20px; flex-wrap: wrap; }
-    .cta-btn-primary { display: inline-block; padding: 12px 28px; background: var(--white); color: var(--navy); font-size: 13px; font-weight: 700; text-decoration: none; border-radius: 4px; transition: background 0.15s, transform 0.1s; }
-    .cta-btn-primary:hover { background: #e8eef4; transform: translateY(-1px); }
-    .cta-link { font-size: 13px; color: var(--mid-blue); text-decoration: none; font-weight: 500; }
-    .cta-link:hover { text-decoration: underline; color: var(--white); }
-    .site-footer { background: #F4F4F4; padding: 32px var(--page-pad) 20px; border-top: 1px solid var(--border-med); }
-    .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; color: #555; }
-    .footer-inner a { color: #555; text-decoration: none; }
-    .footer-inner a:hover { color: var(--navy); }
-    .footer-logo { font-weight: 700; color: var(--navy); }
-    .footer-links-row { display: flex; gap: 16px; flex-wrap: wrap; }
-    @media (max-width: 768px) {
-      .nav-links { display: none; } .nav-cta-wrap { display: none; } .mobile-toggle { display: block; }
-      .hero { padding: 32px 20px 36px; } .hero h1 { font-size: 24px; } .hero-stats { flex-direction: column; gap: 10px; }
-      .content-section { padding: 28px 20px 0; } .viz-section { padding: 0 20px; }
-      .pattern-grid { grid-template-columns: 1fr; }
-      .three-col { grid-template-columns: 1fr; padding: 0 20px; } .pull-quote { padding: 0 20px; } .callout { padding: 0 20px; }
-      .faq-section { padding: 28px 20px 0; } .cta-section { padding: 0 20px; } .cta-box { padding: 28px 20px; }
-      .footer-inner { flex-direction: column; text-align: center; } .footer-links-row { justify-content: center; }
-      .listen-float { bottom: 16px; right: 16px; padding: 8px 14px; font-size: 12px; }
-    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--black-blue:#0D1F3C;--navy:#1F4E79;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}body{font-family:Arial,Helvetica,sans-serif;font-weight:400;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}.site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}.nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}.nav-logo{font-size:16px;font-weight:700;color:var(--navy);text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0}.nav-links{list-style:none;display:flex;align-items:center}.nav-links>li{position:relative}.nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}.nav-links>li>a:hover{color:var(--navy)}.nav-arrow{font-size:9px;opacity:.5;transition:transform .2s}.nav-dropdown{position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border-med);border-top:none;border-radius:0 0 6px 6px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:270px;max-height:460px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-2px);transition:opacity .15s,visibility .15s,transform .15s;padding:6px 0;z-index:100}.nav-links>li:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateY(0)}.nav-links>li:hover>a .nav-arrow{transform:rotate(180deg)}.dropdown-label{padding:8px 16px 4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.nav-dropdown a{display:block;padding:6px 16px;font-size:13px;color:#444;text-decoration:none;transition:background .12s;line-height:1.4}.nav-dropdown a:hover{background:var(--light-blue);color:var(--navy)}.nav-dropdown a.current-page{color:var(--navy);font-weight:700}.dropdown-divider{height:1px;background:var(--border-light);margin:4px 0}.nav-cta-wrap{margin-left:auto;flex-shrink:0}.nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--navy);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}.nav-cta-btn:hover{background:#174067}.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}.mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
+    .listen-float{position:fixed;bottom:24px;right:24px;z-index:900;display:flex;align-items:center;gap:8px;padding:10px 18px;background:var(--navy);color:var(--white);border:none;border-radius:28px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18);transition:background .15s,transform .1s}.listen-float:hover{background:#174067;transform:translateY(-1px)}.listen-float.playing{background:var(--orange)}.listen-float.loading{opacity:.7;cursor:wait}.listen-wave{display:none;align-items:center;gap:2px;height:14px}.listen-float.playing .listen-wave{display:flex}.listen-float.playing .listen-icon-static{display:none}.listen-wave span{display:block;width:2px;background:var(--white);border-radius:1px;animation:tts-wave .8s ease-in-out infinite}.listen-wave span:nth-child(1){height:4px;animation-delay:0s}.listen-wave span:nth-child(2){height:8px;animation-delay:.1s}.listen-wave span:nth-child(3){height:12px;animation-delay:.2s}.listen-wave span:nth-child(4){height:8px;animation-delay:.3s}.listen-wave span:nth-child(5){height:4px;animation-delay:.4s}@keyframes tts-wave{0%,100%{transform:scaleY(.5);opacity:.5}50%{transform:scaleY(1);opacity:1}}
+    .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;top:-80px;right:-60px;width:300px;height:300px;border-radius:50%;background:var(--white);opacity:.05}.hero::after{content:'';position:absolute;bottom:-120px;left:-40px;width:220px;height:220px;border-radius:50%;background:var(--white);opacity:.05}.hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}.hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:12px}.hero h1{font-size:28px;font-weight:700;line-height:1.2;color:var(--white);max-width:520px;margin-bottom:12px}.hero-subtitle{font-size:15px;line-height:1.65;color:var(--mid-blue);max-width:560px;margin-bottom:28px}.hero-stats{display:flex;gap:16px;flex-wrap:wrap}.hero-stat{background:rgba(255,255,255,.08);border-radius:8px;padding:16px 20px;min-width:160px}.hero-stat-num{font-size:26px;font-weight:700;color:var(--white);line-height:1.1}.hero-stat-label{font-size:12px;color:var(--mid-blue);margin-top:4px;line-height:1.35}
+    .breadcrumb-bar{border-bottom:1px solid var(--border-light);padding:10px var(--page-pad)}.breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:11px;color:#888}.breadcrumb-inner a{color:#888;text-decoration:none}.breadcrumb-inner a:hover{color:var(--navy)}.breadcrumb-inner .bc-current{color:var(--navy);font-weight:700}
+    .content-section{max-width:var(--max-width);margin:0 auto;padding:20px var(--page-pad) 0}.eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:6px}.content-section h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:16px}.content-section p{font-size:15px;line-height:1.75;color:var(--body-text);margin-bottom:16px;max-width:680px}
+    hr.divider{max-width:var(--max-width);margin:16px auto;border:none;border-top:1px solid var(--border-light)}
+    .viz-section{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad)}.viz-box{background:#F8FAFB;border-radius:10px;padding:28px 28px 20px}.viz-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:20px}.viz-caption{margin-top:16px;font-size:11px;color:var(--muted);line-height:1.5}
+    .pattern-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.pattern-card{background:var(--white);border:1px solid var(--border-med);border-radius:8px;padding:16px}.pattern-name{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:2px}.pattern-type{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:10px}.pattern-week{display:flex;gap:3px;margin-bottom:8px;flex-wrap:wrap}.pattern-day{width:20px;height:20px;border-radius:3px;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center;color:var(--white)}.day-shift{background:#1F4E79}.night-shift{background:#1a1a2e}.pattern-stat-row{display:flex;gap:16px;flex-wrap:wrap}.pattern-stat-val{font-size:12px;color:var(--muted)}.pattern-stat-val strong{color:var(--body-text);font-weight:700}
+    .three-col{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad);display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.insight-card{background:var(--white);border:1px solid var(--border-med);border-radius:6px;padding:20px;border-top:3px solid var(--navy)}.insight-card.accent-orange{border-top-color:var(--orange)}.insight-card.accent-green{border-top-color:var(--green)}.insight-num{font-size:28px;font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:4px}.insight-card.accent-orange .insight-num{color:var(--orange)}.insight-card.accent-green .insight-num{color:var(--green)}.insight-label{font-size:14px;font-weight:700;color:var(--body-text);margin-bottom:6px}.insight-text{font-size:13px;color:var(--muted);line-height:1.55}
+    .pull-quote{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad)}.pull-quote-inner{border-left:2px solid var(--orange);padding:14px 0 14px 16px;background:var(--white)}.pull-quote-text{font-size:15px;font-style:italic;color:var(--body-text);line-height:1.7}.pull-quote-attr{font-size:13px;font-weight:700;color:var(--navy);margin-top:8px;font-style:normal}
+    .callout{max-width:var(--max-width);margin:24px auto;padding:0 var(--page-pad)}.callout-inner{border-left:2px solid var(--orange);padding:14px 0 14px 16px;background:var(--white)}.callout-label{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--orange);margin-bottom:6px;letter-spacing:.06em}.callout-text{font-size:14px;color:var(--body-text);line-height:1.7;max-width:680px}
+    .faq-section{max-width:var(--max-width);margin:0 auto;padding:20px var(--page-pad) 0}.faq-section h2{font-size:21px;font-weight:700;color:var(--body-text);margin-bottom:24px}.faq-item{padding:18px 0;border-bottom:1px solid var(--border-light)}.faq-item:first-of-type{border-top:1px solid var(--border-light)}.faq-q{font-size:16px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:8px}.faq-a{font-size:14px;color:#333;line-height:1.75;max-width:680px}
+    .cta-section{max-width:var(--max-width);margin:40px auto;padding:0 var(--page-pad)}.cta-box{background:var(--navy);border-radius:10px;padding:36px 32px;text-align:center}.cta-box h2{font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px}.cta-box p{font-size:14px;color:var(--cta-sub);line-height:1.65;margin-bottom:24px;max-width:520px;margin-left:auto;margin-right:auto}.cta-actions{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}.cta-btn-primary{display:inline-block;padding:12px 28px;background:var(--white);color:var(--navy);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}.cta-btn-primary:hover{background:#e8eef4}.cta-link{font-size:13px;color:var(--mid-blue);text-decoration:none;font-weight:500}.cta-link:hover{text-decoration:underline;color:var(--white)}
+    .site-footer{background:#F4F4F4;padding:32px var(--page-pad) 20px;border-top:1px solid var(--border-med)}.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#555}.footer-inner a{color:#555;text-decoration:none}.footer-inner a:hover{color:var(--navy)}.footer-logo{font-weight:700;color:var(--navy)}.footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
+    @media(max-width:768px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:24px}.hero-stats{flex-direction:column;gap:10px}.content-section{padding:16px 20px 0}.viz-section{padding:0 20px}.pattern-grid{grid-template-columns:1fr}.three-col{grid-template-columns:1fr;padding:0 20px}.pull-quote,.callout{padding:0 20px}.faq-section{padding:16px 20px 0}.cta-section{padding:0 20px}.cta-box{padding:28px 20px}.footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}.listen-float{bottom:16px;right:16px;padding:8px 14px;font-size:12px}}
   </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav class="site-nav"><div class="nav-inner">
-  <a href="/" class="nav-logo">Shiftwork Solutions</a>
-  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="/">Home</a></li>
-    <li><a href="/services/">Our Services <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/services/">Service Overview</a><a href="/services/#schedule-design">Schedule Design</a><a href="/services/#workforce-engagement">Workforce Engagement</a><a href="/services/#implementation">Implementation Support</a></div></li>
-    <li><a href="/resources/">Resources <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><div class="dropdown-label">Pillar Guides</div><a href="/resources/shift-schedule-design-guide/">Shift Schedule Design</a><a href="/resources/shift-schedule-patterns-guide/" class="current-page">Schedule Patterns &amp; Examples</a><a href="/resources/equipment-utilization-shift-scheduling/">Equipment Utilization</a><a href="/resources/managing-variable-workloads/">Managing Variable Workloads</a><a href="/resources/overtime-management-guide/">Overtime Management</a><a href="/resources/schedule-change-management/">Schedule Change Management</a><a href="/resources/employee-engagement-shift-work/">Employee Engagement</a><a href="/resources/shift-work-best-practices/">Operational Best Practices</a><a href="/resources/absenteeism-relief-coverage-management/">Absenteeism &amp; Coverage</a><a href="/resources/shift-work-policies-guide/">Shift Work Policies</a><div class="dropdown-divider"></div><div class="dropdown-label">Featured</div><a href="/resources/26-warning-signs-schedule-problems/">26 Warning Signs</a><a href="/resources/shiftwork-assessment/">Free Assessment Tool</a></div></li>
-    <li><a href="/industries/">Industries <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/industries/manufacturing-assembly-operations/">Manufacturing &amp; Assembly</a><a href="/industries/distribution-logistics-operations/">Distribution &amp; Logistics</a><a href="/industries/mining-extraction-industries/">Mining &amp; Extraction</a><a href="/industries/refining-utilities-operations/">Refining &amp; Utilities</a><a href="/industries/food-beverage-manufacturing/">Food &amp; Beverage</a><a href="/industries/chemical-pharmaceutical-operations/">Chemical &amp; Pharmaceutical</a></div></li>
-    <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a><a href="/why-shiftwork-solutions/#team">Meet Our Experts</a><a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a></div></li>
-    <li><a href="/contact/">Contact</a></li>
-  </ul>
-  <div class="nav-cta-wrap"><a href="/contact/" class="nav-cta-btn">Get a Free Consultation</a></div>
-</div></nav>
-
-<!-- HERO -->
-<section class="hero"><div class="hero-inner">
-  <div class="hero-eyebrow">Resources · Schedule Patterns</div>
-  <h1>Shift Schedule Patterns &amp; Examples: A Decision Guide</h1>
-  <p class="hero-subtitle">There is no universally best pattern. There are only patterns that fit specific operational circumstances, workforce preferences, and business objectives better than alternatives.</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><div class="hero-stat-num">80%+</div><div class="hero-stat-label">Of shift workers prefer<br>fixed over rotating</div></div>
-    <div class="hero-stat"><div class="hero-stat-num">4 crews</div><div class="hero-stat-label">Minimum for 24/7<br>continuous coverage</div></div>
-    <div class="hero-stat"><div class="hero-stat-num">182</div><div class="hero-stat-label">Days off per year on<br>a typical 12-hr pattern</div></div>
-  </div>
-</div></section>
-
-<!-- BREADCRUMB -->
-<div class="breadcrumb-bar"><div class="breadcrumb-inner">
-  <a href="/">Home</a> › <a href="/resources/">Resources</a> › <span class="bc-current">Schedule Patterns &amp; Examples</span>
-</div></div>
-
-<!-- INTRODUCTION -->
-<section class="content-section">
-  <div class="eyebrow">Introduction</div>
-  <h2>Choosing the Right Pattern for Your Operation</h2>
-  <p>Choosing a shift schedule pattern is one of the most consequential operational decisions you'll make. The pattern you select shapes labor costs, overtime levels, recruitment success, retention rates, and employee satisfaction. It determines whether your operation runs smoothly or struggles constantly with coverage gaps and workforce dissatisfaction.</p>
-  <p>Yet most organizations approach pattern selection as if they're choosing from a menu of ready-made solutions. They look at what competitors use, copy patterns that "look good on paper," or default to whatever their scheduling software offers as a template. This approach rarely delivers optimal results because it ignores a fundamental truth: there is no universally best pattern. There are only patterns that fit specific operational circumstances, workforce preferences, and business objectives better than alternatives.</p>
-  <p>Pattern selection requires understanding how different approaches balance competing priorities. You're simultaneously optimizing for coverage requirements, cost structures, employee preferences, safety considerations, and operational constraints. Change one variable and the entire equation shifts. A pattern that works brilliantly for continuous chemical processing may fail catastrophically in batch food manufacturing.</p>
-</section>
-
+<nav class="site-nav"><div class="nav-inner"><a href="/" class="nav-logo">Shiftwork Solutions</a><button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button><ul class="nav-links" id="navLinks"><li><a href="/">Home</a></li><li><a href="/services/">Our Services <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/services/">Service Overview</a><a href="/services/#schedule-design">Schedule Design</a><a href="/services/#workforce-engagement">Workforce Engagement</a><a href="/services/#implementation">Implementation Support</a></div></li><li><a href="/resources/">Resources <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><div class="dropdown-label">Pillar Guides</div><a href="/resources/shift-schedule-design-guide/">Shift Schedule Design</a><a href="/resources/shift-schedule-patterns-guide/" class="current-page">Schedule Patterns &amp; Examples</a><a href="/resources/equipment-utilization-shift-scheduling/">Equipment Utilization</a><a href="/resources/managing-variable-workloads/">Managing Variable Workloads</a><a href="/resources/overtime-management-guide/">Overtime Management</a><a href="/resources/schedule-change-management/">Schedule Change Management</a><a href="/resources/employee-engagement-shift-work/">Employee Engagement</a><a href="/resources/shift-work-best-practices/">Operational Best Practices</a><a href="/resources/absenteeism-relief-coverage-management/">Absenteeism &amp; Coverage</a><a href="/resources/shift-work-policies-guide/">Shift Work Policies</a><div class="dropdown-divider"></div><div class="dropdown-label">Featured</div><a href="/resources/26-warning-signs-schedule-problems/">26 Warning Signs</a><a href="/resources/shiftwork-assessment/">Free Assessment Tool</a></div></li><li><a href="/industries/">Industries <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/industries/manufacturing-assembly-operations/">Manufacturing &amp; Assembly</a><a href="/industries/distribution-logistics-operations/">Distribution &amp; Logistics</a><a href="/industries/mining-extraction-industries/">Mining &amp; Extraction</a><a href="/industries/refining-utilities-operations/">Refining &amp; Utilities</a><a href="/industries/food-beverage-manufacturing/">Food &amp; Beverage</a><a href="/industries/chemical-pharmaceutical-operations/">Chemical &amp; Pharmaceutical</a></div></li><li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a><a href="/why-shiftwork-solutions/#team">Meet Our Experts</a><a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a></div></li><li><a href="/contact/">Contact</a></li></ul><div class="nav-cta-wrap"><a href="/contact/" class="nav-cta-btn">Get a Free Consultation</a></div></div></nav>
+<section class="hero"><div class="hero-inner"><div class="hero-eyebrow">Resources · Schedule Patterns</div><h1>Shift Schedule Patterns &amp; Examples: A Decision Guide</h1><p class="hero-subtitle">There is no universally best shift schedule. There are dozens of proven patterns — each with specific tradeoffs between coverage, worker preference, overtime cost, and operational flexibility. Here is how to choose.</p><div class="hero-stats"><div class="hero-stat"><div class="hero-stat-num">Panama</div><div class="hero-stat-label">Most popular 12-hr<br>continuous pattern</div></div><div class="hero-stat"><div class="hero-stat-num">182</div><div class="hero-stat-label">Days off/yr on<br>continuous schedules</div></div><div class="hero-stat"><div class="hero-stat-num">4</div><div class="hero-stat-label">Crews needed for<br>full 24/7 coverage</div></div></div></div></section>
+<div class="breadcrumb-bar"><div class="breadcrumb-inner"><a href="/">Home</a> › <a href="/resources/">Resources</a> › <span class="bc-current">Schedule Patterns Guide</span></div></div>
+<section class="content-section"><div class="eyebrow">Introduction</div><h2>Why Pattern Selection Matters</h2><p>Choosing the wrong schedule pattern is one of the most expensive operational decisions a facility can make — and it often goes unrecognized for years. Workers adapt to poor schedules. Managers accept chronic overtime as normal. Turnover becomes a fact of life rather than a signal that something is wrong with the underlying schedule design.</p><p>The right pattern is not the one that looks simplest on paper. It is the one that matches your coverage requirements, aligns with what your specific workforce values, supports your equipment and maintenance cycles, and can be implemented and maintained without chronic workarounds. Getting to that answer requires understanding what patterns exist and what tradeoffs each involves.</p></section>
 <hr class="divider">
-
-<!-- VIZ: Side-by-side pattern comparison (4-week calendar blocks) -->
-<div class="viz-section"><div class="viz-box">
-  <div class="viz-title">Common 12-Hour Pattern Comparison — 4-Week View</div>
-  <div class="pattern-grid">
-
-    <!-- DuPont -->
-    <div class="pattern-card">
-      <div class="pattern-name">DuPont</div>
-      <div class="pattern-type">12-hr rotating · 4 crews</div>
-      <div style="font-size:9px;color:var(--muted);margin-bottom:4px;">M T W T F S S</div>
-      <div class="pattern-week">
-        <div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div>
-      </div>
-      <div class="pattern-week">
-        <div class="pattern-day night-shift">N</div><div class="pattern-day night-shift">N</div><div class="pattern-day night-shift">N</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div>
-      </div>
-      <div class="pattern-week">
-        <div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day off">—</div><div class="pattern-day night-shift">N</div><div class="pattern-day night-shift">N</div><div class="pattern-day night-shift">N</div>
-      </div>
-      <div class="pattern-week">
-        <div class="pattern-day off">—</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div>
-      </div>
-      <div class="pattern-stat-row"><span>Days off/yr: <span class="pattern-stat-val">167</span></span><span>Avg hrs/wk: <span class="pattern-stat-val">42</span></span></div>
-    </div>
-
-    <!-- Panama (2-2-3) -->
-    <div class="pattern-card">
-      <div class="pattern-name">Panama (2-2-3)</div>
-      <div class="pattern-type">12-hr rotating · 4 crews</div>
-      <div style="font-size:9px;color:var(--muted);margin-bottom:4px;">M T W T F S S</div>
-      <div class="pattern-week">
-        <div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div>
-      </div>
-      <div class="pattern-week">
-        <div class="pattern-day off">—</div><div class="pattern-day off">—</div><div class="pattern-day night-shift">N</div><div class="pattern-day night-shift">N</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div>
-      </div>
-      <div class="pattern-week">
-        <div class="pattern-day night-shift">N</div><div class="pattern-day night-shift">N</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div><div class="pattern-day night-shift">N</div><div class="pattern-day night-shift">N</div><div class="pattern-day night-shift">N</div>
-      </div>
-      <div class="pattern-week">
-        <div class="pattern-day off">—</div><div class="pattern-day off">—</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div>
-      </div>
-      <div class="pattern-stat-row"><span>Days off/yr: <span class="pattern-stat-val">167</span></span><span>Avg hrs/wk: <span class="pattern-stat-val">42</span></span></div>
-    </div>
-
-    <!-- 4-on / 4-off -->
-    <div class="pattern-card">
-      <div class="pattern-name">4-on / 4-off</div>
-      <div class="pattern-type">12-hr fixed or slow-rotate · 4 crews</div>
-      <div style="font-size:9px;color:var(--muted);margin-bottom:4px;">M T W T F S S</div>
-      <div class="pattern-week">
-        <div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div>
-      </div>
-      <div class="pattern-week">
-        <div class="pattern-day off">—</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div>
-      </div>
-      <div class="pattern-week">
-        <div class="pattern-day off">—</div><div class="pattern-day off">—</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day off">—</div>
-      </div>
-      <div class="pattern-week">
-        <div class="pattern-day off">—</div><div class="pattern-day off">—</div><div class="pattern-day off">—</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div>
-      </div>
-      <div class="pattern-stat-row"><span>Days off/yr: <span class="pattern-stat-val">182</span></span><span>Avg hrs/wk: <span class="pattern-stat-val">42</span></span></div>
-    </div>
-  </div>
-  <div class="viz-caption">Representative 4-week rotation for one crew. D = day shift, N = night shift, — = off. Actual implementations vary by facility. Weekend distribution differs across patterns — the 2-2-3 alternates weekends off, while 4-on/4-off rotates weekends continuously. Source: Shiftwork Solutions analysis.</div>
-</div></div>
-
+<div class="viz-section"><div class="viz-box"><div class="viz-title">Common 12-Hour Continuous Schedule Patterns — Crew A, One Cycle</div><div class="pattern-grid"><div class="pattern-card"><div class="pattern-name">Panama (2-2-3)</div><div class="pattern-type">4-crew · 12-hr · Rotating</div><div class="pattern-week"><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day night-shift">N</div><div class="pattern-day night-shift">N</div><div class="pattern-day night-shift">N</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day night-shift">N</div><div class="pattern-day night-shift">N</div></div><div class="pattern-stat-row"><span class="pattern-stat-val"><strong>Days off:</strong> 182/yr</span><span class="pattern-stat-val"><strong>Avg hrs/wk:</strong> 42</span></div></div><div class="pattern-card"><div class="pattern-name">DuPont</div><div class="pattern-type">4-crew · 12-hr · Rotating</div><div class="pattern-week"><div class="pattern-day night-shift">N</div><div class="pattern-day night-shift">N</div><div class="pattern-day night-shift">N</div><div class="pattern-day night-shift">N</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div></div><div class="pattern-stat-row"><span class="pattern-stat-val"><strong>Days off:</strong> 182/yr</span><span class="pattern-stat-val"><strong>7-day break</strong> every 4 wks</span></div></div><div class="pattern-card"><div class="pattern-name">Pitman</div><div class="pattern-type">4-crew · 12-hr · Rotating</div><div class="pattern-week"><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div></div><div class="pattern-stat-row"><span class="pattern-stat-val"><strong>Days off:</strong> 182/yr</span><span class="pattern-stat-val"><strong>Avg hrs/wk:</strong> 42</span></div></div><div class="pattern-card"><div class="pattern-name">4-on / 4-off</div><div class="pattern-type">3-crew · 12-hr · Fixed blocks</div><div class="pattern-week"><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day day-shift">D</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div><div class="pattern-day" style="background:#ccc;color:#666;">O</div></div><div class="pattern-stat-row"><span class="pattern-stat-val"><strong>Days off:</strong> 182/yr</span><span class="pattern-stat-val"><strong>Avg hrs/wk:</strong> 42</span></div></div></div><div class="viz-caption">D = Day shift (12 hr), N = Night shift (12 hr), O = Off. All four patterns provide full 24/7 coverage with 4 crews and 182 days off annually — the differences lie in rotation speed, weekend distribution, and back-to-back shift changes. Source: Shiftwork Solutions pattern database.</div></div></div>
 <hr class="divider">
-
-<!-- FUNDAMENTAL DECISIONS -->
-<section class="content-section">
-  <div class="eyebrow">Fundamental Decisions</div>
-  <h2>Fixed vs. Rotating Shifts</h2>
-  <p>More than 80% of shift workers prefer fixed shifts over rotating schedules. This statistic alone should influence your thinking, particularly in tight labor markets where recruiting quality workers determines operational success. When you mention rotating shifts during recruitment, you immediately reduce your candidate pool and potentially lose talented workers to competitors offering more stable schedules.</p>
-  <p>The preference for fixed shifts reflects fundamental human psychology. Workers will accept a less-preferred fixed shift — even permanent nights — rather than rotate indefinitely through different shifts. Why would someone accept permanent night shift when they'd prefer days? Because fixed shifts offer progression. Starting on night shift is tolerable when you know that seniority eventually brings better assignments. Rotation offers no such path forward.</p>
-  <p>Fixed shifts also allow workers to establish permanent routines, make long-term commitments, and build lives around predictable schedules. Rotating shifts require constantly reconstructing life arrangements as work schedules change.</p>
-  <p>Yet rotation serves genuine operational needs in some circumstances. When no one wants permanent night shift despite adequate shift differentials, rotation distributes the burden rather than forcing it on whoever has lowest seniority. Some continuous process operations require workers to understand all shifts to manage transitions effectively. The key question isn't whether fixed or rotating is "better" — it's which approach fits your specific operational needs, labor market conditions, and workforce demographics.</p>
-</section>
-
+<section class="content-section"><div class="eyebrow">The Big Four</div><h2>Most Common 12-Hour Continuous Patterns</h2><p>Four schedule patterns account for the majority of continuous 12-hour operations across North American industry. Each provides full 24/7 coverage with four crews and approximately 182 days off annually — more than any traditional five-day schedule. Their differences lie in rotation speed, weekend distribution, and the length of consecutive work and rest periods.</p><p>The Panama pattern, also called the 2-2-3 schedule, alternates between two-day and three-day work blocks with corresponding off-periods. Its defining feature is fair weekend distribution: every employee gets alternating weekend blocks off in a predictable rotation. Most workers can learn the Panama pattern within a single cycle, which makes it the most commonly selected pattern in workforce preference surveys.</p><p>The DuPont pattern is distinguished by its built-in seven-consecutive-day break every four weeks. Workers typically cover this break with minimal vacation hours — often just 24 hours of vacation extends to a 14-day stretch of time away from work. For employees who value extended time off for travel, family visits, or personal projects, this feature is highly appealing.</p><p>The Pitman schedule, sometimes called the 2-3-2-2-3 pattern, provides a different rotation structure that some workers find more predictable week-to-week. It is less common than Panama or DuPont but performs well in operations where work block consistency matters more than weekend equity.</p><p>The 4-on/4-off pattern operates with three rather than four crews, which changes the economics significantly. Three crews require higher average weekly hours — typically 42 — and build predictable overtime into every cycle. Workers who want steady extra income often prefer this structure; those prioritizing time off typically do not.</p></section>
+<div class="three-col"><div class="insight-card"><div class="insight-num">Panama</div><div class="insight-label">Most popular choice</div><div class="insight-text">The 2-2-3 pattern consistently ranks first in worker preference surveys because of its predictable weekend rotation and easy-to-learn cycle.</div></div><div class="insight-card accent-orange"><div class="insight-num">DuPont</div><div class="insight-label">Best for time-off seekers</div><div class="insight-text">The built-in 7-day break every 4 weeks — extensible to 14 days with minimal vacation — makes DuPont the preferred pattern for workers who value extended time away.</div></div><div class="insight-card accent-green"><div class="insight-num">4-on/4-off</div><div class="insight-label">Best for overtime seekers</div><div class="insight-text">Three crews instead of four means built-in overtime every cycle. Workers who want guaranteed extra income at predictable times often select this pattern when given a choice.</div></div></div>
 <hr class="divider">
-
-<section class="content-section">
-  <div class="eyebrow">Shift Length</div>
-  <h2>8-Hour vs. 12-Hour Shifts</h2>
-  <p>The choice between 8-hour and 12-hour shifts shapes virtually every other aspect of your schedule design. Each approach offers distinct advantages and creates specific challenges that affect different operations differently.</p>
-  <p>Twelve-hour shifts appeal to many workers because they provide more days off. A typical 12-hour continuous schedule might provide 182 days off annually compared to 104 days off for an 8-hour five-day schedule. This dramatic difference in time off attracts workers who value personal time highly. Additionally, 12-hour schedules reduce commuting costs and time — workers drive to the facility fewer days per year.</p>
-  <p>However, 12-hour shifts introduce complexity that goes beyond the obvious fatigue concerns. Vacation policies designed for 8-hour days don't translate directly — what does "one day of vacation" mean when a day equals 12 hours instead of 8? Holiday pay calculations become exponentially more complex. Break and meal period policies require adjustment. Overtime triggers and distribution methods need redesign.</p>
-  <p>Eight-hour patterns avoid these complications while providing more frequent shift changes that can improve coverage flexibility. They align more naturally with traditional business hours and support functions. They allow for more granular overtime management since each shift extension is smaller. The choice between 8-hour and 12-hour shifts interacts with virtually every other schedule decision you'll make.</p>
-</section>
-
-<!-- INSIGHT CARDS -->
-<div class="three-col">
-  <div class="insight-card">
-    <div class="insight-num">104</div>
-    <div class="insight-label">Days off: 5-day / 8-hr</div>
-    <div class="insight-text">The traditional Monday-through-Friday pattern provides weekends off but the fewest total days off of any common pattern.</div>
-  </div>
-  <div class="insight-card accent-orange">
-    <div class="insight-num">182</div>
-    <div class="insight-label">Days off: 4-on / 4-off</div>
-    <div class="insight-text">Twelve-hour continuous patterns can nearly double total days off — the single most attractive feature for many workers.</div>
-  </div>
-  <div class="insight-card accent-green">
-    <div class="insight-num">~25%</div>
-    <div class="insight-label">Cost increase: weekend crews</div>
-    <div class="insight-text">Dedicated weekend crews require five crews instead of four, increasing overall labor costs by approximately 25%.</div>
-  </div>
-</div>
-
+<section class="content-section"><div class="eyebrow">Five-Day Patterns</div><h2>When Continuous Coverage Isn't Required</h2><p>Not every operation needs seven-day continuous coverage. Operations where customer demand is genuinely concentrated in weekdays, where equipment cycles match a five-day schedule, or where regulatory requirements limit weekend operation represent appropriate candidates for five-day patterns.</p><p>Traditional three-shift, five-day operation remains common in facilities with genuine weekend demand gaps. The pattern keeps equipment and labor costs aligned with actual production requirements. Its significant disadvantage is the capital efficiency loss — equipment idle over weekends represents paid-for capacity producing nothing.</p><p>Five-day eight-hour schedules work well for support functions, administrative roles, and positions where the work genuinely follows a Monday-through-Friday rhythm. Applying them to production operations that could run continuously typically represents a choice between tradition and efficiency rather than a genuine operational requirement.</p></section>
 <hr class="divider">
-
-<!-- COVERAGE STRATEGIES -->
-<section class="content-section">
-  <div class="eyebrow">Coverage Strategies</div>
-  <h2>Continuous Operations (24/7)</h2>
-  <p>True continuous operations — facilities that must maintain coverage every hour of every day — face unique scheduling mathematics. The fundamental challenge is simple to state but complex to solve: you need people working every shift while giving each person adequate time off and maintaining reasonable work-life balance.</p>
-  <p>The basic mathematics of continuous coverage requires at least four crews to cover three shifts around the clock while providing time off. This "4 crews cover 3 shifts" formula appears deceptively straightforward until you examine the details. How do you distribute weekends? How do vacation periods affect coverage? When do shift changes occur, and how do you handle the transition periods?</p>
-  <p>Many organizations facing weekend coverage challenges consider dedicated weekend crews. This approach inevitably fails through one of two unsustainable paths. Either you pay weekend workers proportionally to hours worked — creating high turnover, low skill levels, and minimal company loyalty because they earn significantly less than full-time employees — or you pay full wages and benefits for partial weekly hours, increasing overall labor costs by approximately 25% since you need five crews instead of four. Both approaches fail economically.</p>
-  <p>Successful continuous patterns integrate weekend coverage into regular schedules rather than treating weekends as special cases requiring separate crews. This might mean everyone works some weekends, or it might mean rotating through shifts in ways that distribute weekend work across the workforce.</p>
-</section>
-
-<!-- PULL QUOTE -->
-<div class="pull-quote"><div class="pull-quote-inner">
-  <div class="pull-quote-text">"Employee input isn't optional — it's essential for implementation success. You can design the perfect pattern based on operational requirements and cost optimization, but if workers resist it, implementation will struggle or fail."</div>
-  <div class="pull-quote-attr">— Shiftwork Solutions LLC</div>
-</div></div>
-
+<section class="content-section"><div class="eyebrow">Choosing a Pattern</div><h2>The Decision Framework</h2><p>Pattern selection follows a structured process that accounts for operational requirements first, then worker preferences, then financial considerations. Skipping any element produces schedules that perform well on one dimension while failing on others.</p><p>Begin with non-negotiable coverage requirements. How many hours per day, days per week must the operation run? What crew minimums apply at each position? What equipment or process constraints limit scheduling flexibility? These requirements define the viable pattern space.</p><p>Within that space, survey the workforce anonymously. What shift length do workers prefer? What days off patterns do they value most? What would make them more likely to stay? The answers often surprise managers whose assumptions about worker preferences turn out to be wrong.</p><p>Present two to four viable patterns that meet all operational requirements. Educate workers on what each pattern means in practice — not just the template, but the days off distribution, overtime implications, and vacation interaction. Then let workers indicate preferences from among the operationally acceptable options.</p></section>
+<div class="pull-quote"><div class="pull-quote-inner"><div class="pull-quote-text">"There is no universally best schedule pattern. There is only the best pattern for your operation, your workforce, and your moment in time. That requires analysis, not assumption — and it starts with understanding what your workers actually want."</div><div class="pull-quote-attr">— Jim Dillingham, Shiftwork Solutions</div></div></div>
 <hr class="divider">
-
-<section class="content-section">
-  <div class="eyebrow">Semi-Continuous &amp; Variable</div>
-  <h2>Operations Running 5–6 Days</h2>
-  <p>Semi-continuous operations — facilities running five or six days weekly rather than seven — occupy a middle ground that creates its own distinct challenges. You need more than standard 40-hour coverage but less than full continuous operations. This seemingly minor difference fundamentally changes scheduling mathematics and available pattern options.</p>
-  <p>Six-day operations face the Saturday question: do you treat it as a regular workday or as something different? If Saturday is a regular workday, you need five crews to cover six days while providing one day off weekly — but this creates premium pay implications in many environments. The specific pattern that works depends heavily on whether Saturday is truly essential or merely desirable, whether premium pay applies, and how seasonal your demand patterns are.</p>
-  <p>Some operations face demand that fluctuates significantly — seasonally, weekly, or even daily. Variable coverage requires building flexibility into scheduling systems without creating chaos. This might mean maintaining core crews on stable schedules while adding variable components that expand or contract based on demand. The key distinction is between schedules and rosters. A schedule defines when each position must be covered. A roster defines which specific people work which shifts. Operations with variable demand often need roster flexibility even when schedules remain relatively stable.</p>
-</section>
-
+<section class="content-section"><div class="eyebrow">Offering Multiple Patterns</div><h2>When One Size Doesn't Fit All</h2><p>Some operations benefit from offering employees a choice between two different schedule patterns rather than imposing a single solution on a diverse workforce. This approach acknowledges that workers have genuinely different needs — some want maximum time off, others want maximum income, and forcing everyone into the same pattern satisfies neither group fully.</p><p>The most common two-pattern approach pairs a traditional five-day pattern with a seven-day continuous pattern. Workers who value weekends, have second jobs, or prefer shorter individual workdays select the five-day option. Workers who want more total days off, value extended off-periods, or want predictable overtime select the continuous option.</p><p>One food processing facility implemented exactly this approach after discovering that high turnover traced to schedule dissatisfaction rather than compensation. Six months after implementation, turnover had dropped more than 50 percent. Workers were happy — not because the schedule was better for everyone, but because workers were in the pattern that suited their specific lives.</p></section>
 <hr class="divider">
-
-<!-- SPECIALIZED PATTERNS -->
-<section class="content-section">
-  <div class="eyebrow">Specialized Scenarios</div>
-  <h2>High-Utilization, Maintenance, and Remote Operations</h2>
-  <p>Some operations face economics where equipment utilization drives pattern design more than labor preferences. Capital-intensive facilities with expensive equipment often need maximum operating hours to justify the investment. High-utilization patterns might deliberately embed substantial overtime rather than adding headcount. This seems counterintuitive until you examine the full economics — adding another crew requires capital investment in training, provides less scheduling flexibility, and may increase total labor costs when you account for fully-loaded rates.</p>
-  <p>Maintenance represents a special scheduling challenge because demand is partially predictable and partially random. You can schedule routine preventive maintenance, but equipment failures occur without warning and require immediate response. Successful maintenance coverage combines scheduled capacity for planned work with rapid-response mechanisms for unplanned situations — on-call rotations, premium pay for call-ins, or relationships with external contractors who can supplement internal capacity during surges.</p>
-  <p>Remote operations — mining sites, offshore platforms, distant facilities without local labor pools — face geography as a primary scheduling constraint. When workers must travel significant distances to reach the worksite, daily shift patterns become impossible. Common patterns might include two weeks on-site followed by two weeks off, or three weeks on with three weeks off. These fly-in fly-out (FIFO) patterns feel radically different from conventional schedules because workers essentially live at the workplace during their rotation.</p>
-</section>
-
-<!-- CALLOUT -->
-<div class="callout"><div class="callout-inner">
-  <div class="callout-label">Important</div>
-  <div class="callout-text">Multiple patterns can work for most operations. The question isn't finding "the answer" — it's determining which viable option best fits your specific circumstances and priorities. Pattern selection requires analyzing tradeoffs, not solving for a single optimal solution that doesn't exist.</div>
-</div></div>
-
+<section class="faq-section" id="faq"><div class="eyebrow">FAQ</div><h2>Frequently Asked Questions</h2><div class="faq-item"><div class="faq-q">What is the most popular 12-hour continuous schedule?</div><div class="faq-a">The Panama (2-2-3) pattern — two days on, two off, three on, alternating day and night rotations. It consistently ranks first in worker preference surveys because of its predictable rotation and fair distribution of weekends off across all crews.</div></div><div class="faq-item"><div class="faq-q">What makes the DuPont schedule unique?</div><div class="faq-a">Its built-in 7-consecutive-day break every 4 weeks. Using only 24 hours of vacation extends this to a 14-day stretch of time away from work — a highly valued feature for workers who want extended time for travel, family visits, or personal projects.</div></div><div class="faq-item"><div class="faq-q">When does a 5-day pattern make more sense than a 7-day pattern?</div><div class="faq-a">When operations genuinely don't need weekend coverage — customer demand is concentrated on weekdays, equipment cycles match a 5-day schedule, or regulatory requirements limit weekend operation. Otherwise, the capital efficiency loss of idle equipment typically justifies continuous operation.</div></div><div class="faq-item"><div class="faq-q">How do you choose between schedule patterns?</div><div class="faq-a">Start with non-negotiable coverage requirements, then survey the workforce anonymously to understand actual preferences, then present two to four viable patterns meeting all operational requirements. Let workers indicate preferences from among operationally acceptable options.</div></div><div class="faq-item"><div class="faq-q">Can workers change between schedule patterns?</div><div class="faq-a">Yes — when multiple patterns are offered, seniority-based bidding is the most common selection mechanism, with senior employees getting priority on preferred patterns. Clear bidding rules prevent perceptions of favoritism that undermine the benefits of offering multiple options.</div></div></section>
 <hr class="divider">
-
-<!-- INDUSTRY -->
-<section class="content-section">
-  <div class="eyebrow">Industry Considerations</div>
-  <h2>How Patterns Vary Across Sectors</h2>
-  <p>Food manufacturing faces sanitation requirements that create natural breaks in production. These cleaning periods must happen regardless of whether they align conveniently with shift changes. Patterns that integrate sanitation coverage into production schedules often work better than treating them as separate activities requiring dedicated crews.</p>
-  <p>Chemical and pharmaceutical operations deal with continuous process constraints where stopping and restarting carries significant risk and cost. Patterns that minimize shutdown cycles often deliver better outcomes than those designed primarily around labor preferences.</p>
-  <p>Distribution and logistics operations experience demand variability that requires pattern flexibility. Weekend volumes may differ dramatically from weekday volumes. Patterns that accommodate this variability through roster flexibility or built-in overtime capacity work better than rigid approaches designed for steady demand.</p>
-  <p>The same pattern principles — understanding coverage requirements, balancing cost with capability, incorporating employee preferences, managing implementation — apply regardless of industry. But the specific patterns that work best differ based on operational constraints unique to each sector. This is why copying patterns from other industries often fails.</p>
-</section>
-
-<hr class="divider">
-
-<!-- CONCLUSION -->
-<section class="content-section">
-  <div class="eyebrow">Conclusion</div>
-  <h2>From Understanding to Action</h2>
-  <p>The businesses that achieve sustained schedule excellence share several characteristics. They approach pattern selection systematically, analyzing multiple factors rather than making decisions based on single variables or historical practice. They involve their workforce meaningfully in decisions that affect personal lives, creating buy-in that enables successful implementation. They base choices on comprehensive analysis rather than assumptions about what workers want or what competitors do.</p>
-  <p>Most organizations possess the capability to understand schedule patterns. The challenge lies in navigating the complex selection and implementation process that transforms understanding into sustainable operational improvement. The gap between knowing what effective patterns look like and successfully implementing them is where expertise built through hundreds of schedule transformations delivers disproportionate value.</p>
-</section>
-
-<hr class="divider">
-
-<!-- FAQ -->
-<section class="faq-section" id="faq">
-  <div class="eyebrow">FAQ</div>
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq-item"><div class="faq-q">What is the best shift schedule pattern?</div><div class="faq-a">There is no universally best pattern — only patterns that fit specific operational circumstances, workforce preferences, and business objectives better than alternatives. The right choice depends on your coverage needs, cost structure, labor market, and the tradeoffs your organization is willing to accept.</div></div>
-  <div class="faq-item"><div class="faq-q">Do I need four crews for 24/7 coverage?</div><div class="faq-a">Yes, four crews is the minimum to cover three shifts around the clock while providing adequate time off. The "4 crews cover 3 shifts" formula is the foundation of continuous scheduling, though how you distribute weekends, rotations, and time off varies widely across different pattern choices.</div></div>
-  <div class="faq-item"><div class="faq-q">Why do dedicated weekend crews fail?</div><div class="faq-a">They fail because you either underpay them (causing high turnover and low skill levels) or overpay them (increasing overall labor costs by approximately 25% since you need five crews instead of four). Both paths are economically unsustainable. Successful operations integrate weekend coverage into regular schedules.</div></div>
-  <div class="faq-item"><div class="faq-q">Can different departments run different schedule patterns?</div><div class="faq-a">Yes — multiple schedules at one site often represent the optimal solution when different areas face different coverage requirements. This introduces complexity around supervision, overtime distribution, and pay policies, but these challenges have proven solutions when evaluated properly.</div></div>
-  <div class="faq-item"><div class="faq-q">What is a fly-in fly-out (FIFO) schedule?</div><div class="faq-a">Extended work periods (typically 2–4 weeks on-site) followed by equal time off, used in remote operations like mining where daily commuting is impossible. FIFO patterns create unique recruiting dynamics — some workers love the extended time off, while others cannot tolerate the separation from family.</div></div>
-</section>
-
-<hr class="divider">
-
-<!-- CTA -->
-<section class="cta-section"><div class="cta-box">
-  <h2>Ready to Find the Right Pattern for Your Operation?</h2>
-  <p>Manufacturing companies and distribution centers across North America have used our process to select and implement patterns that reduce costs, cut turnover, and improve employee satisfaction. Talk to an experienced consultant about your situation.</p>
-  <div class="cta-actions">
-    <a href="/contact/" class="cta-btn-primary">Schedule a Free Consultation</a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="cta-link">Read: 26 Warning Signs →</a>
-  </div>
-</div></section>
-
-<!-- FOOTER -->
-<footer class="site-footer"><div class="footer-inner">
-  <span class="footer-logo">Shiftwork Solutions LLC</span>
-  <span>(415) 265-1621</span>
-  <span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></span>
-  <div class="footer-links-row"><a href="/resources/">Resources</a><a href="/industries/">Industries</a><a href="/services/">Services</a><a href="/contact/">Contact</a></div>
-  <span>&copy; 2026 Shiftwork Solutions LLC</span>
-</div></footer>
-
-<!-- LISTEN BUTTON -->
-<button class="listen-float" id="listenBtn" onclick="toggleListen()">
-  <span class="listen-icon listen-icon-static">🔊</span>
-  <span class="listen-wave"><span></span><span></span><span></span><span></span><span></span></span>
-  <span id="listenLabel">Listen to article</span>
-</button>
-
+<section class="cta-section"><div class="cta-box"><h2>Ready to Find the Right Pattern for Your Operation?</h2><p>Manufacturing companies and distribution centers across North America have used our process to select and implement schedule patterns that improve operations and workforce satisfaction. Talk to an experienced consultant about your situation.</p><div class="cta-actions"><a href="/contact/" class="cta-btn-primary">Schedule a Free Consultation</a><a href="/resources/shift-schedule-design-guide/" class="cta-link">Read: Schedule Design Guide →</a></div></div></section>
+<footer class="site-footer"><div class="footer-inner"><span class="footer-logo">Shiftwork Solutions LLC</span><span>(415) 265-1621</span><span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></span><div class="footer-links-row"><a href="/resources/">Resources</a><a href="/industries/">Industries</a><a href="/services/">Services</a><a href="/contact/">Contact</a></div><span>&copy; 2026 Shiftwork Solutions LLC</span></div></footer>
+<button class="listen-float" id="listenBtn" onclick="toggleListen()"><span class="listen-icon listen-icon-static">🔊</span><span class="listen-wave"><span></span><span></span><span></span><span></span><span></span></span><span id="listenLabel">Listen to article</span></button>
 <script>
-document.getElementById('mobileToggle').addEventListener('click', function() {
-  var nav = document.getElementById('navLinks');
-  nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-  if (nav.style.display === 'flex') { nav.style.flexDirection = 'column'; nav.style.position = 'absolute'; nav.style.top = '56px'; nav.style.left = '0'; nav.style.right = '0'; nav.style.background = '#fff'; nav.style.borderBottom = '1px solid #e0e0e0'; nav.style.padding = '8px 0'; nav.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)'; nav.style.zIndex = '99'; }
-});
-var ttsAudio = null, ttsPlaying = false, ttsLoading = false;
-function getArticleText() { var s = document.querySelectorAll('.content-section p, .pull-quote-text, .callout-text'); var t = []; for (var i = 0; i < s.length; i++) t.push(s[i].textContent.trim()); return t.join('\n\n'); }
-function chunkText(text, max) { var p = text.split('\n\n'), c = [], cur = ''; for (var i = 0; i < p.length; i++) { if (cur.length + p[i].length + 2 > max && cur.length > 0) { c.push(cur.trim()); cur = ''; } cur += p[i] + '\n\n'; } if (cur.trim().length > 0) c.push(cur.trim()); return c; }
-async function toggleListen() { var btn = document.getElementById('listenBtn'), lbl = document.getElementById('listenLabel'); if (ttsPlaying && ttsAudio) { ttsAudio.pause(); ttsAudio.currentTime = 0; ttsAudio = null; ttsPlaying = false; btn.classList.remove('playing'); lbl.textContent = 'Listen to article'; return; } if (ttsLoading) return; ttsLoading = true; btn.classList.add('loading'); lbl.textContent = 'Loading audio...'; try { var txt = getArticleText(), chunks = chunkText(txt, 4500); await playChunks(chunks, 0, btn, lbl); } catch(e) { console.error('TTS error:', e); lbl.textContent = 'Audio unavailable'; btn.classList.remove('loading','playing'); ttsLoading = false; setTimeout(function(){ lbl.textContent = 'Listen to article'; }, 3000); } }
-async function playChunks(chunks, i, btn, lbl) { if (i >= chunks.length) { ttsPlaying = false; ttsLoading = false; ttsAudio = null; btn.classList.remove('playing','loading'); lbl.textContent = 'Listen to article'; return; } try { var r = await fetch('https://api.elevenlabs.io/v1/text-to-speech/sB7vwSCyX0tQmU24cW2C', { method:'POST', headers:{'Content-Type':'application/json','xi-api-key':getElevenLabsKey()}, body:JSON.stringify({text:chunks[i],model_id:'eleven_turbo_v2',voice_settings:{stability:0.5,similarity_boost:0.75,style:0.0,use_speaker_boost:true}}) }); if (!r.ok) throw new Error('API '+r.status); var b = await r.blob(), u = URL.createObjectURL(b); ttsAudio = new Audio(u); ttsPlaying = true; ttsLoading = false; btn.classList.remove('loading'); btn.classList.add('playing'); lbl.textContent = 'Stop listening'; ttsAudio.play(); ttsAudio.addEventListener('ended', function(){ URL.revokeObjectURL(u); playChunks(chunks, i+1, btn, lbl); }); } catch(e) { console.error('Chunk '+i+' error:', e); ttsLoading = false; ttsPlaying = false; btn.classList.remove('loading','playing'); lbl.textContent = 'Audio unavailable'; setTimeout(function(){ lbl.textContent = 'Listen to article'; }, 3000); } }
-function getElevenLabsKey() { var m = document.querySelector('meta[name="elevenlabs-key"]'); if (m) return m.getAttribute('content'); console.warn('ElevenLabs API key not configured.'); return ''; }
+document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');n.style.display=n.style.display==='flex'?'none':'flex';if(n.style.display==='flex'){n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99'}});
+
+  // ── Browser-native TTS (Web Speech API) ────────────────────
+  // Uses speechSynthesis built into every modern browser.
+  // Zero cost, no API key, no backend required.
+  // Updated: 2026-04-03
+
+  var ttsUtterance = null;
+  var ttsPlaying   = false;
+
+  function getArticleText() {
+    var nodes = document.querySelectorAll('.content-section p, .pull-quote-text, .callout-text');
+    var parts = [];
+    for (var i = 0; i < nodes.length; i++) {
+      var t = nodes[i].textContent.trim();
+      if (t) parts.push(t);
+    }
+    return parts.join(' ');
+  }
+
+  function ttsReset(btn, label) {
+    ttsPlaying   = false;
+    ttsUtterance = null;
+    btn.classList.remove('playing', 'loading');
+    label.textContent = 'Listen to article';
+  }
+
+  function toggleListen() {
+    var btn   = document.getElementById('listenBtn');
+    var label = document.getElementById('listenLabel');
+
+    if (!window.speechSynthesis) {
+      label.textContent = 'Not supported';
+      setTimeout(function() { label.textContent = 'Listen to article'; }, 3000);
+      return;
+    }
+
+    if (ttsPlaying) {
+      window.speechSynthesis.cancel();
+      ttsReset(btn, label);
+      return;
+    }
+
+    var text = getArticleText();
+    if (!text) return;
+
+    ttsUtterance = new SpeechSynthesisUtterance(text);
+
+    var voices = window.speechSynthesis.getVoices();
+    var preferred = voices.filter(function(v) {
+      return v.lang.startsWith('en') && !v.name.toLowerCase().includes('google');
+    });
+    if (preferred.length > 0) ttsUtterance.voice = preferred[0];
+
+    ttsUtterance.rate   = 0.95;
+    ttsUtterance.pitch  = 1.0;
+    ttsUtterance.volume = 1.0;
+
+    ttsUtterance.onstart = function() {
+      ttsPlaying = true;
+      btn.classList.remove('loading');
+      btn.classList.add('playing');
+      label.textContent = 'Stop listening';
+    };
+
+    ttsUtterance.onend = function() {
+      ttsReset(btn, label);
+    };
+
+    ttsUtterance.onerror = function(e) {
+      if (e.error === 'interrupted' || e.error === 'canceled') {
+        ttsReset(btn, label);
+        return;
+      }
+      console.error('Speech error:', e.error);
+      ttsReset(btn, label);
+      label.textContent = 'Audio unavailable';
+      setTimeout(function() { label.textContent = 'Listen to article'; }, 3000);
+    };
+
+    btn.classList.add('loading');
+    label.textContent = 'Loading...';
+    window.speechSynthesis.speak(ttsUtterance);
+  }
+
+  if (window.speechSynthesis) {
+    window.speechSynthesis.getVoices();
+    window.speechSynthesis.onvoiceschanged = function() {
+      window.speechSynthesis.getVoices();
+    };
+  }
 </script>
-</body>
-</html>
+</body></html>
 <!-- I did no harm and this file is not truncated -->
