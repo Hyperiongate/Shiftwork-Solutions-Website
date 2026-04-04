@@ -18,6 +18,18 @@
                  /resources/reshoring-boom-us-manufacturing/ →
                  /resources/reshoring-manufacturing-workforce/
                  All 8 trending article links now verified correct.
+    2026-04-04 — NAV RESTRUCTURE (site-wide change):
+                 - Resources: removed dropdown, direct link to /resources/
+                 - Our Services: removed dropdown, direct link to /services/
+                 - Why Us: keeps dropdown, "Meet Our Team" now links to /our_team/
+                 - Industries: keeps dropdown (unchanged)
+    2026-04-04 — GUIDES SECTION LAYOUT REDESIGN:
+                 - 10 pillar guide tiles now in a centered 2-column grid (5 rows)
+                 - Left sidebar tile: Contact info + inline newsletter signup
+                 - Right sidebar tile: Book a Meeting + Talk to Thomas
+                 - Both sidebar tiles use navy-dark background with orange buttons
+                 - Layout is 3-column on desktop: sidebar | guides | sidebar
+                 - Collapses gracefully on mobile to single column
 
   I did no harm and this file is not truncated
 -->
@@ -39,9 +51,12 @@
     :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--max-width:1060px;--page-pad:24px}
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
+
+    /* ── NAV ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo{font-size:16px;font-weight:700;color:var(--navy);text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0}
+    .nav-logo img{height:36px;width:auto;display:block}
     .nav-links{list-style:none;display:flex;align-items:center}
     .nav-links>li{position:relative}
     .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
@@ -60,6 +75,8 @@
     .nav-cta-btn:hover{background:#174067}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
+
+    /* ── HERO ── */
     .hero{background:var(--navy);padding:52px 36px 56px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;top:-80px;right:-60px;width:340px;height:340px;border-radius:50%;background:var(--white);opacity:.04}
     .hero::after{content:'';position:absolute;bottom:-120px;left:-40px;width:260px;height:260px;border-radius:50%;background:var(--white);opacity:.04}
@@ -67,10 +84,14 @@
     .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
     .hero h1{font-size:32px;font-weight:700;line-height:1.2;color:var(--white);max-width:620px;margin-bottom:14px}
     .hero-subtitle{font-size:16px;line-height:1.65;color:var(--mid-blue);max-width:620px}
+
+    /* ── SHARED SECTION STYLES ── */
     .section-wrap{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad)}
     .section-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
     .section-heading{font-size:22px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:8px}
     .section-sub{font-size:14px;color:var(--muted);line-height:1.65;max-width:680px;margin-bottom:28px}
+
+    /* ── START HERE ── */
     .start-here{padding:52px var(--page-pad) 56px;background:var(--white)}
     .start-here .section-eyebrow{color:var(--muted)}
     .start-here-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:4px}
@@ -81,21 +102,44 @@
     .start-tile p{font-size:13px;color:var(--mid-blue);line-height:1.6;margin-bottom:18px}
     .start-arrow{font-size:13px;font-weight:700;color:var(--orange);text-decoration:none}
     .start-arrow::after{content:' →'}
+
+    /* ── GUIDES SECTION — 3-COLUMN LAYOUT (sidebar | guides | sidebar) ── */
     .guides-section{padding:56px var(--page-pad) 60px;background:var(--white);border-top:1px solid var(--border-light)}
-    .guides-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .guides-layout{display:grid;grid-template-columns:240px 1fr 240px;gap:24px;margin-top:28px;align-items:start}
+    .guides-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
     .guide-tile{background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:6px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:border-top-color .15s,box-shadow .15s}
     .guide-tile:hover{border-top-color:var(--orange);box-shadow:0 4px 20px rgba(0,0,0,.09)}
-    .guide-tile:hover .guide-img{opacity:.88}
-    .guide-img{width:100%;height:160px;background:#c8d4de;display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0;position:relative}
-    .guide-img::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,#b0c4d8 0%,#8fa8be 100%)}
-    .guide-img img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:1}
     .guide-body{padding:18px 16px 20px;display:flex;flex-direction:column;flex:1}
     .guide-num{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mid-blue);margin-bottom:6px}
-    .guide-title{font-size:15px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:8px}
-    .guide-desc{font-size:13px;color:var(--muted);line-height:1.6;flex:1}
-    .guide-link{display:inline-block;margin-top:14px;font-size:12px;font-weight:700;color:var(--navy);text-decoration:none}
+    .guide-title{font-size:14px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:8px}
+    .guide-desc{font-size:12px;color:var(--muted);line-height:1.55;flex:1}
+    .guide-link{display:inline-block;margin-top:12px;font-size:12px;font-weight:700;color:var(--navy);text-decoration:none}
     .guide-link::after{content:' →'}
     .guide-tile:hover .guide-link{color:var(--orange)}
+
+    /* ── SIDEBAR TILES ── */
+    .sidebar-tile{background:var(--navy-dark);border-radius:8px;padding:28px 22px;position:sticky;top:80px}
+    .sidebar-tile-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:10px}
+    .sidebar-tile-title{font-size:16px;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:10px}
+    .sidebar-tile-text{font-size:13px;color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:16px}
+    .sidebar-tile-divider{height:1px;background:rgba(255,255,255,.12);margin:20px 0}
+    .sidebar-tile-btn{display:inline-block;width:100%;padding:11px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;text-align:center;transition:background .15s;margin-bottom:10px}
+    .sidebar-tile-btn:hover{background:#c4510a}
+    .sidebar-tile-btn:last-child{margin-bottom:0}
+    .sidebar-tile-secondary{display:inline-block;width:100%;padding:10px 18px;background:transparent;color:var(--mid-blue);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;text-align:center;border:1.5px solid rgba(255,255,255,.25);transition:background .15s,border-color .15s}
+    .sidebar-tile-secondary:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4)}
+    /* Sidebar newsletter form */
+    .sidebar-nl-input{width:100%;padding:9px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s;margin-bottom:8px}
+    .sidebar-nl-input::placeholder{color:rgba(255,255,255,.4)}
+    .sidebar-nl-input:focus{border-color:var(--mid-blue)}
+    .sidebar-nl-msg{font-size:11px;margin-top:4px;min-height:14px}
+    .sidebar-nl-msg.ok{color:#6ee7b7}
+    .sidebar-nl-msg.err{color:#fca5a5}
+    .sidebar-contact-line{font-size:13px;color:rgba(255,255,255,.65);line-height:1.6;margin-bottom:6px}
+    .sidebar-contact-line a{color:var(--mid-blue);text-decoration:none;font-weight:600}
+    .sidebar-contact-line a:hover{color:var(--white)}
+
+    /* ── TOPICS SECTION ── */
     .topics-section{padding:56px var(--page-pad) 60px;background:var(--white);border-top:1px solid var(--border-light)}
     .topics-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
     .topic-tile{background:var(--white);border:1px solid var(--border-med);border-top:3px solid #1a2744;border-radius:6px;padding:22px 20px;text-decoration:none;display:block;transition:border-top-color .15s,box-shadow .15s}
@@ -105,6 +149,8 @@
     .topic-link{font-size:12px;font-weight:700;color:var(--navy)}
     .topic-link::after{content:' →'}
     .topic-tile:hover .topic-link{color:var(--orange)}
+
+    /* ── TRENDING SECTION ── */
     .trending-section{background:var(--light-grey);padding:56px var(--page-pad) 60px;border-top:1px solid var(--border-light)}
     .trending-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
     .trending-tile{background:var(--white);border:1px solid var(--border-med);border-top:3px solid #aaaaaa;border-radius:6px;padding:20px 18px;text-decoration:none;display:block;transition:border-top-color .15s,box-shadow .15s}
@@ -114,25 +160,27 @@
     .trending-link{font-size:12px;font-weight:700;color:var(--muted)}
     .trending-link::after{content:' →'}
     .trending-tile:hover .trending-link{color:var(--orange)}
+
+    /* ── CTA BAND ── */
     .cta-band{background:var(--navy-dark);padding:56px var(--page-pad)}
     .cta-band-inner{max-width:var(--max-width);margin:0 auto;text-align:center}
     .cta-band h2{font-size:24px;font-weight:700;color:var(--white);margin-bottom:12px}
     .cta-band p{font-size:15px;color:var(--mid-blue);line-height:1.65;max-width:560px;margin:0 auto 28px}
     .cta-actions{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
-    .cta-btn{display:inline-block;padding:13px 30px;background:var(--white);color:var(--navy-dark);font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
-    .cta-btn:hover{background:#dde6f0}
+    .cta-btn{display:inline-block;padding:13px 30px;background:var(--orange);color:var(--white);font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
+    .cta-btn:hover{background:#c4510a}
     .cta-text-link{font-size:14px;color:var(--mid-blue);text-decoration:none;font-weight:500}
     .cta-text-link:hover{color:var(--white);text-decoration:underline}
+
+    /* ── FOOTER ── */
     .site-footer{background:#F4F4F4;padding:32px var(--page-pad) 20px;border-top:1px solid var(--border-med)}
     .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#555}
     .footer-inner a{color:#555;text-decoration:none}
     .footer-inner a:hover{color:var(--navy)}
     .footer-logo{font-weight:700;color:var(--navy)}
     .footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
-    @media(max-width:900px){.guides-grid{grid-template-columns:repeat(2,1fr)}.trending-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:36px 20px 40px}.hero h1{font-size:24px}.start-here{padding:36px 20px 40px}.start-here-grid{grid-template-columns:1fr}.guides-section{padding:36px 20px 40px}.guides-grid{grid-template-columns:1fr}.topics-section{padding:36px 20px 40px}.topics-grid{grid-template-columns:1fr}.trending-section{padding:36px 20px 40px}.trending-grid{grid-template-columns:1fr}.cta-band{padding:40px 20px}.cta-band h2{font-size:20px}.footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}}
 
-    /* ── ENGAGE BAND (Thomas + Newsletter) ── Added 2026-04-03 */
+    /* ── ENGAGE BAND ── */
     .engage-band{background:var(--navy-dark,#0D1F3C);padding:40px var(--page-pad)}
     .engage-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
     .engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue,#85B7EB);margin-bottom:8px}
@@ -149,26 +197,56 @@
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
     .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
-    @media(max-width:640px){.engage-inner{grid-template-columns:1fr}.engage-band{padding:32px 20px}}
-    /* ── NAV LOGO IMG ── Added 2026-04-03 */
-    .nav-logo img{height:36px;width:auto;display:block}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1100px){
+      .guides-layout{grid-template-columns:220px 1fr 220px;gap:18px}
+    }
+    @media(max-width:900px){
+      .guides-layout{grid-template-columns:1fr;gap:24px}
+      .guides-grid{grid-template-columns:repeat(2,1fr)}
+      .sidebar-tile{position:static}
+      .trending-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:640px){
+      .nav-links{display:none}
+      .nav-cta-wrap{display:none}
+      .mobile-toggle{display:block}
+      .hero{padding:36px 20px 40px}
+      .hero h1{font-size:24px}
+      .start-here{padding:36px 20px 40px}
+      .start-here-grid{grid-template-columns:1fr}
+      .guides-section{padding:36px 20px 40px}
+      .guides-layout{grid-template-columns:1fr;gap:20px}
+      .guides-grid{grid-template-columns:1fr}
+      .topics-section{padding:36px 20px 40px}
+      .topics-grid{grid-template-columns:1fr}
+      .trending-section{padding:36px 20px 40px}
+      .trending-grid{grid-template-columns:1fr}
+      .cta-band{padding:40px 20px}
+      .cta-band h2{font-size:20px}
+      .footer-inner{flex-direction:column;text-align:center}
+      .footer-links-row{justify-content:center}
+      .engage-inner{grid-template-columns:1fr}
+      .engage-band{padding:32px 20px}
+    }
   </style>
 </head>
 <body>
 
+<!-- ══════════════════════════════════════════════════════════════
+     NAVIGATION — Updated 2026-04-04
+     Resources: no dropdown, direct link
+     Our Services: no dropdown, direct link
+     Why Us: dropdown with Meet Our Team → /our_team/
+     Industries: dropdown (unchanged)
+════════════════════════════════════════════════════════════════ -->
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;"></a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
-    <li><a href="/services/">Our Services <span class="nav-arrow">▾</span></a>
-      <div class="nav-dropdown">
-        <a href="/services/">Service Overview</a>
-        <a href="/services/#schedule-design">Schedule Design</a>
-        <a href="/services/#workforce-engagement">Workforce Engagement</a>
-        <a href="/services/#implementation">Implementation Support</a>
-      </div>
-    </li>
+    <li><a href="/services/">Our Services</a></li>
     <li><a href="/resources/" class="nav-active">Resources</a></li>
     <li><a href="/industries/">Industries <span class="nav-arrow">▾</span></a>
       <div class="nav-dropdown">
@@ -183,7 +261,7 @@
     <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a>
       <div class="nav-dropdown">
         <a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a>
-        <a href="/why-shiftwork-solutions/#team">Meet Our Experts</a>
+        <a href="/our_team/">Meet Our Team</a>
         <a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a>
       </div>
     </li>
@@ -194,12 +272,18 @@
   </div>
 </div></nav>
 
+<!-- ══════════════════════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════════════════════════ -->
 <section class="hero"><div class="hero-inner">
   <div class="hero-eyebrow">Resources</div>
   <h1>Everything You Need to Understand Shift Work</h1>
   <p class="hero-subtitle">Ten comprehensive guides, targeted articles, and timely insights — built from decades of work across hundreds of 24/7 operations in manufacturing and distribution.</p>
 </div></section>
 
+<!-- ══════════════════════════════════════════════════════════════
+     START HERE
+════════════════════════════════════════════════════════════════ -->
 <section class="start-here"><div class="section-wrap">
   <div class="section-eyebrow">Start Here</div>
   <div class="section-heading">Not sure where to begin? These two tools will orient you.</div>
@@ -219,24 +303,75 @@
   </div>
 </div></section>
 
+<!-- ══════════════════════════════════════════════════════════════
+     COMPLETE GUIDES — 3-column layout with sidebar tiles
+     Left sidebar: Contact + Newsletter
+     Center: 10 guide tiles in 2-column grid (centered)
+     Right sidebar: Book Meeting + Talk to Thomas
+════════════════════════════════════════════════════════════════ -->
 <section class="guides-section"><div class="section-wrap">
   <div class="section-eyebrow">Complete Guides</div>
   <div class="section-heading">Ten in-depth resources covering every dimension of shift work</div>
   <p class="section-sub">Each guide is 2,000+ words — written for operations leaders who want to understand a topic fully before making decisions.</p>
-  <div class="guides-grid">
-    <a href="/resources/shift-schedule-design-guide/" class="guide-tile"><div class="guide-img"></div><div class="guide-body"><div class="guide-num">Guide 01</div><div class="guide-title">Complete Guide to Shift Schedule Design</div><div class="guide-desc">The foundations of schedule design — fixed vs. rotating, shift length, cost structure, and why small decisions have large consequences.</div><span class="guide-link">Read the guide</span></div></a>
-    <a href="/resources/shift-schedule-patterns-guide/" class="guide-tile"><div class="guide-img"></div><div class="guide-body"><div class="guide-num">Guide 02</div><div class="guide-title">Shift Schedule Patterns &amp; Examples</div><div class="guide-desc">DuPont, Panama, 4-on/4-off, and more — a decision guide to the most common 24/7 patterns and the tradeoffs of each.</div><span class="guide-link">Read the guide</span></div></a>
-    <a href="/resources/equipment-utilization-shift-scheduling/" class="guide-tile"><div class="guide-img"></div><div class="guide-body"><div class="guide-num">Guide 03</div><div class="guide-title">Maximizing Equipment Utilization</div><div class="guide-desc">How schedule design directly drives equipment uptime — and why most facilities leave 40% of their capacity on the table.</div><span class="guide-link">Read the guide</span></div></a>
-    <a href="/resources/managing-variable-workloads/" class="guide-tile"><div class="guide-img"></div><div class="guide-body"><div class="guide-num">Guide 04</div><div class="guide-title">Managing Variable Workloads</div><div class="guide-desc">Four proven strategies for matching staffing to fluctuating demand without chronic overtime or expensive idle time.</div><span class="guide-link">Read the guide</span></div></a>
-    <a href="/resources/overtime-management-guide/" class="guide-tile"><div class="guide-img"></div><div class="guide-body"><div class="guide-num">Guide 05</div><div class="guide-title">Overtime Management</div><div class="guide-desc">Strategy, distribution, and cost control — including why the true cost of overtime is far closer to straight time than most managers assume.</div><span class="guide-link">Read the guide</span></div></a>
-    <a href="/resources/schedule-change-management/" class="guide-tile"><div class="guide-img"></div><div class="guide-body"><div class="guide-num">Guide 06</div><div class="guide-title">Schedule Change Management</div><div class="guide-desc">From planning to implementation — why well-designed changes fail and what communication and policy alignment actually require.</div><span class="guide-link">Read the guide</span></div></a>
-    <a href="/resources/employee-engagement-shift-work/" class="guide-tile"><div class="guide-img"></div><div class="guide-body"><div class="guide-num">Guide 07</div><div class="guide-title">Building Employee Engagement</div><div class="guide-desc">What shift workers actually value — and why engagement strategies designed for offices consistently fail on the plant floor.</div><span class="guide-link">Read the guide</span></div></a>
-    <a href="/resources/shift-work-best-practices/" class="guide-tile"><div class="guide-img"></div><div class="guide-body"><div class="guide-num">Guide 08</div><div class="guide-title">Operational Best Practices</div><div class="guide-desc">The fundamentals that separate excellent 24/7 operations from struggling ones — schedule, equipment, labor economics, and communication.</div><span class="guide-link">Read the guide</span></div></a>
-    <a href="/resources/absenteeism-relief-coverage-management/" class="guide-tile"><div class="guide-img"></div><div class="guide-body"><div class="guide-num">Guide 09</div><div class="guide-title">Managing Absenteeism &amp; Coverage Gaps</div><div class="guide-desc">How to build coverage systems that handle absences without daily scrambles — relief crews, skill balance, and cost modeling.</div><span class="guide-link">Read the guide</span></div></a>
-    <a href="/resources/shift-work-policies-guide/" class="guide-tile"><div class="guide-img"></div><div class="guide-body"><div class="guide-num">Guide 10</div><div class="guide-title">Shift Work Policies: Pay, Time-Off &amp; Compliance</div><div class="guide-desc">Why pay and time-off policies designed for 8-hour schedules break immediately on 12-hour or continuous operations.</div><span class="guide-link">Read the guide</span></div></a>
-  </div>
+
+  <div class="guides-layout">
+
+    <!-- ── LEFT SIDEBAR: Contact + Newsletter ── -->
+    <div class="sidebar-tile">
+      <div class="sidebar-tile-label">Get in Touch</div>
+      <div class="sidebar-tile-title">Contact Us</div>
+      <div class="sidebar-contact-line"><a href="tel:+14152651621">(415) 265-1621</a></div>
+      <div class="sidebar-contact-line"><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
+      <div class="sidebar-tile-divider"></div>
+      <div class="sidebar-tile-label">Newsletter</div>
+      <div class="sidebar-tile-text">Practical insights from decades of work across hundreds of 24/7 operations.</div>
+      <input type="email" class="sidebar-nl-input" placeholder="your@company.com" id="sidebarNLEmail">
+      <a href="#" class="sidebar-tile-btn" id="sidebarNLBtn" onclick="sidebarNLSubmit(event)">Subscribe &#x2192;</a>
+      <div class="sidebar-nl-msg" id="sidebarNLMsg"></div>
+    </div>
+
+    <!-- ── CENTER: 10 Guide Tiles (2-col grid) ── -->
+    <div class="guides-grid">
+      <a href="/resources/shift-schedule-design-guide/" class="guide-tile"><div class="guide-body"><div class="guide-num">Guide 01</div><div class="guide-title">Complete Guide to Shift Schedule Design</div><div class="guide-desc">The foundations of schedule design — fixed vs. rotating, shift length, cost structure, and why small decisions have large consequences.</div><span class="guide-link">Read the guide</span></div></a>
+
+      <a href="/resources/shift-schedule-patterns-guide/" class="guide-tile"><div class="guide-body"><div class="guide-num">Guide 02</div><div class="guide-title">Shift Schedule Patterns &amp; Examples</div><div class="guide-desc">DuPont, Panama, 4-on/4-off, and more — a decision guide to the most common 24/7 patterns and the tradeoffs of each.</div><span class="guide-link">Read the guide</span></div></a>
+
+      <a href="/resources/equipment-utilization-shift-scheduling/" class="guide-tile"><div class="guide-body"><div class="guide-num">Guide 03</div><div class="guide-title">Maximizing Equipment Utilization</div><div class="guide-desc">How schedule design directly drives equipment uptime — and why most facilities leave 40% of their capacity on the table.</div><span class="guide-link">Read the guide</span></div></a>
+
+      <a href="/resources/managing-variable-workloads/" class="guide-tile"><div class="guide-body"><div class="guide-num">Guide 04</div><div class="guide-title">Managing Variable Workloads</div><div class="guide-desc">Four proven strategies for matching staffing to fluctuating demand without chronic overtime or expensive idle time.</div><span class="guide-link">Read the guide</span></div></a>
+
+      <a href="/resources/overtime-management-guide/" class="guide-tile"><div class="guide-body"><div class="guide-num">Guide 05</div><div class="guide-title">Overtime Management</div><div class="guide-desc">Strategy, distribution, and cost control — including why the true cost of overtime is far closer to straight time than most managers assume.</div><span class="guide-link">Read the guide</span></div></a>
+
+      <a href="/resources/schedule-change-management/" class="guide-tile"><div class="guide-body"><div class="guide-num">Guide 06</div><div class="guide-title">Schedule Change Management</div><div class="guide-desc">From planning to implementation — why well-designed changes fail and what communication and policy alignment actually require.</div><span class="guide-link">Read the guide</span></div></a>
+
+      <a href="/resources/employee-engagement-shift-work/" class="guide-tile"><div class="guide-body"><div class="guide-num">Guide 07</div><div class="guide-title">Building Employee Engagement</div><div class="guide-desc">What shift workers actually value — and why engagement strategies designed for offices consistently fail on the plant floor.</div><span class="guide-link">Read the guide</span></div></a>
+
+      <a href="/resources/shift-work-best-practices/" class="guide-tile"><div class="guide-body"><div class="guide-num">Guide 08</div><div class="guide-title">Operational Best Practices</div><div class="guide-desc">The fundamentals that separate excellent 24/7 operations from struggling ones — schedule, equipment, labor economics, and communication.</div><span class="guide-link">Read the guide</span></div></a>
+
+      <a href="/resources/absenteeism-relief-coverage-management/" class="guide-tile"><div class="guide-body"><div class="guide-num">Guide 09</div><div class="guide-title">Managing Absenteeism &amp; Coverage Gaps</div><div class="guide-desc">How to build coverage systems that handle absences without daily scrambles — relief crews, skill balance, and cost modeling.</div><span class="guide-link">Read the guide</span></div></a>
+
+      <a href="/resources/shift-work-policies-guide/" class="guide-tile"><div class="guide-body"><div class="guide-num">Guide 10</div><div class="guide-title">Shift Work Policies: Pay, Time-Off &amp; Compliance</div><div class="guide-desc">Why pay and time-off policies designed for 8-hour schedules break immediately on 12-hour or continuous operations.</div><span class="guide-link">Read the guide</span></div></a>
+    </div>
+
+    <!-- ── RIGHT SIDEBAR: Book Meeting + Thomas ── -->
+    <div class="sidebar-tile">
+      <div class="sidebar-tile-label">Schedule a Call</div>
+      <div class="sidebar-tile-title">Book a Free Meeting</div>
+      <div class="sidebar-tile-text">Talk directly with a senior consultant who has led hundreds of schedule transformations. No cost, no obligation.</div>
+      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="sidebar-tile-btn" target="_blank" rel="noopener">Book a Meeting &#x2192;</a>
+      <div class="sidebar-tile-divider"></div>
+      <div class="sidebar-tile-label">AI Advisor</div>
+      <div class="sidebar-tile-title">Talk to Thomas</div>
+      <div class="sidebar-tile-text">Got a question about your operation? Thomas is our AI shift operations advisor — available now.</div>
+      <a href="https://shift-work-diagnostic.onrender.com/" class="sidebar-tile-btn" target="_blank" rel="noopener">Start a Conversation &#x2192;</a>
+    </div>
+
+  </div><!-- /guides-layout -->
 </div></section>
 
+<!-- ══════════════════════════════════════════════════════════════
+     FOCUSED TOPICS
+════════════════════════════════════════════════════════════════ -->
 <section class="topics-section"><div class="section-wrap">
   <div class="section-eyebrow">Focused Topics</div>
   <div class="section-heading">Targeted articles on specific challenges</div>
@@ -253,7 +388,9 @@
   </div>
 </div></section>
 
-<!-- ── TRENDING TOPICS ── All 8 slugs verified 2026-04-04 -->
+<!-- ══════════════════════════════════════════════════════════════
+     TRENDING TOPICS — All 8 slugs verified 2026-04-04
+════════════════════════════════════════════════════════════════ -->
 <section class="trending-section"><div class="section-wrap">
   <div class="section-eyebrow">What's Happening Now</div>
   <div class="section-heading">Timely insights on legislation, labor markets, and emerging issues</div>
@@ -307,6 +444,9 @@
   </div>
 </div></section>
 
+<!-- ══════════════════════════════════════════════════════════════
+     CTA BAND — Orange button on navy background
+════════════════════════════════════════════════════════════════ -->
 <div class="cta-band"><div class="cta-band-inner">
   <h2>Ready to talk about your operation?</h2>
   <p>Manufacturing companies and distribution centers running 24/7 operations typically have more room to improve than they realize. The first conversation is always free.</p>
@@ -316,7 +456,9 @@
   </div>
 </div></div>
 
-<!-- ── ENGAGE BAND (Thomas + Newsletter) ── Added 2026-04-03 -->
+<!-- ══════════════════════════════════════════════════════════════
+     ENGAGE BAND (Thomas + Newsletter) — Added 2026-04-03
+════════════════════════════════════════════════════════════════ -->
 <div class="engage-band">
   <div class="engage-inner">
     <div class="engage-thomas">
@@ -338,6 +480,9 @@
   </div>
 </div>
 
+<!-- ══════════════════════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════════════════════ -->
 <footer class="site-footer"><div class="footer-inner">
   <span class="footer-logo">Shiftwork Solutions LLC</span>
   <span>(415) 265-1621</span>
@@ -351,7 +496,11 @@
   <span>&copy; 2026 Shiftwork Solutions LLC</span>
 </div></footer>
 
+<!-- ══════════════════════════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════════════════════════════ -->
 <script>
+  // Mobile nav toggle
   document.getElementById('mobileToggle').addEventListener('click', function () {
     var n = document.getElementById('navLinks');
     var open = n.style.display === 'flex';
@@ -365,7 +514,42 @@
 </script>
 
 <script>
-  // ── Engage Band Newsletter Subscribe ── Added 2026-04-03
+  // ── Sidebar Newsletter Subscribe ──
+  (function(){
+    var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
+    window.sidebarNLSubmit=function(e){
+      e.preventDefault();
+      var btn=document.getElementById('sidebarNLBtn');
+      var msg=document.getElementById('sidebarNLMsg');
+      var email=document.getElementById('sidebarNLEmail').value.trim();
+      if(!email)return;
+      btn.style.pointerEvents='none';btn.style.opacity='.5';btn.textContent='Subscribing...';
+      fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({email:email,source:'website-sidebar-resources'})})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(d.success){
+          msg.className='sidebar-nl-msg ok';
+          msg.textContent='\u2713 Subscribed. Thank you.';
+          document.getElementById('sidebarNLEmail').value='';
+          btn.textContent='Subscribed \u2713';
+        } else {
+          throw new Error(d.error||'Failed');
+        }
+      })
+      .catch(function(err){
+        msg.className='sidebar-nl-msg err';
+        msg.textContent=err.message==='This email is already subscribed.'
+          ?'Already subscribed \u2014 thank you!'
+          :'Something went wrong. Try again.';
+        btn.style.pointerEvents='auto';btn.style.opacity='1';btn.textContent='Subscribe \u2192';
+      });
+    };
+  })();
+</script>
+
+<script>
+  // ── Engage Band Newsletter Subscribe ──
   (function(){
     var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
     window.engageNLSubmit=function(e){
