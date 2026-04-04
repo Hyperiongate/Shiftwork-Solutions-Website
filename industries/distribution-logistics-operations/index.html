@@ -14,6 +14,25 @@
     2026-04-04 — Initial build. Full article content from source Word doc.
                  Even article: shutterstock_1502038526.jpg hero vector.
 
+    2026-04-04 — NAV + BUTTON + SEO AUDIT:
+                 1. NAV: Services → direct link (no dropdown)
+                    Resources → direct link (no dropdown)
+                    Why Us dropdown: "Meet Our Team" → /our_team/
+                    "Client Testimonials" → /why-shiftwork-solutions/#testimonials
+                 2. BUTTONS: Nav CTA → ORANGE (#E8610A)
+                    Listen button → ORANGE
+                    Subscribe button → ORANGE
+                 3. SEO: Added Twitter Card meta tags
+                    Added FAQPage JSON-LD for 4 FAQ questions
+
+  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn
+  BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
+
+  DESIGN SYSTEM:
+    --navy: #1F4E79  --mid-blue: #85B7EB  --light-blue: #EEF3F8
+    --orange: #E8610A  --green: #1D9E75  --body-text: #1A1A1A
+    --max-width: 860px  Font: Arial, Helvetica, sans-serif
+
   I did no harm and this file is not truncated
 -->
 <html lang="en">
@@ -28,6 +47,12 @@
   <meta property="og:url" content="https://shift-work.com/industries/distribution-logistics-operations/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Distribution, Fulfillment &amp; Port Scheduling | Shiftwork Solutions LLC">
+  <meta name="twitter:description" content="Adverse cost modeling, variable demand planning, and union change management for distribution, fulfillment, and port operations.">
+
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
@@ -51,8 +76,9 @@
     .nav-dropdown a:hover{background:var(--light-blue);color:var(--navy)}
     .dropdown-divider{height:1px;background:var(--border-light);margin:4px 0}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
-    .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--navy);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
-    .nav-cta-btn:hover{background:#174067}
+    /* UPDATED 2026-04-04: Nav CTA → ORANGE */
+    .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
+    .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
@@ -133,8 +159,9 @@
     .engage-nl-input{flex:1;min-width:180px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
     .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
     .engage-nl-input:focus{border-color:var(--mid-blue)}
-    .engage-nl-btn{padding:10px 18px;background:var(--navy);color:#fff;border:1.5px solid rgba(255,255,255,.3);border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s,border-color .15s;white-space:nowrap}
-    .engage-nl-btn:hover{background:var(--mid-blue);border-color:var(--mid-blue);color:var(--navy)}
+    /* UPDATED 2026-04-04: Subscribe button → ORANGE */
+    .engage-nl-btn{padding:10px 18px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
+    .engage-nl-btn:hover{background:#c4510a}
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
     .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
@@ -144,8 +171,9 @@
     .footer-inner a:hover{color:var(--navy)}
     .footer-logo{font-weight:700;color:var(--navy)}
     .footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
-    .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--navy);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
-    .listen-btn:hover{background:#174067}
+    /* UPDATED 2026-04-04: Listen button → ORANGE */
+    .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
+    .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
     @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.inline-cta{flex-direction:column;align-items:flex-start}}
     @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.insight-cards{grid-template-columns:1fr}.engage-inner{grid-template-columns:1fr}.engage-band{padding:32px 20px}.footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}.cta-section{padding:36px 20px}.next-steps{padding:36px 20px 40px}}
@@ -153,17 +181,25 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Distribution, Fulfillment & Logistics Operations","description":"Shift scheduling for distribution centers, fulfillment operations, and port terminals. Adverse cost modeling, variable demand planning, and union change management.","url":"https://shift-work.com/industries/distribution-logistics-operations/","datePublished":"2026-04-04","dateModified":"2026-04-04","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"distribution center shift scheduling, port terminal scheduling, logistics workforce planning, adverse cost modeling, fulfillment center scheduling, union scheduling ILWU ILA"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://shift-work.com/industries/"},{"@type":"ListItem","position":3,"name":"Distribution & Logistics","item":"https://shift-work.com/industries/distribution-logistics-operations/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}</script>
+  <!-- FAQPage JSON-LD added 2026-04-04 -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What shift length works best for port terminal operations?","acceptedAnswer":{"@type":"Answer","text":"Twelve-hour shifts are most practical for port terminals. Vessel calls don't arrive on a predictable clock, and when a ship berths, the operation needs a full, qualified crew on-site for the duration. Changing crews mid-call introduces handover complexity at the worst possible moment."}},
+    {"@type":"Question","name":"Why is overtime so high at port terminals, and is that a problem?","acceptedAnswer":{"@type":"Answer","text":"High overtime at port terminals is often financially optimal. When operators spend paid hours on standby waiting for vessels, adding more operators multiplies the standby-pay problem. A lean core crew working overtime during active berthing windows typically costs less than a larger roster waiting together."}},
+    {"@type":"Question","name":"What is adverse cost and why does it matter for logistics staffing decisions?","acceptedAnswer":{"@type":"Answer","text":"Adverse cost is the additional expense from not being perfectly staffed — on either side. Understaffing generates overtime premiums. Overstaffing generates full wages for idle labor. Overstaffing typically costs more per hour but gets less attention because idle time doesn't appear on overtime reports."}},
+    {"@type":"Question","name":"How does union contract complexity affect scheduling at port terminals versus distribution centers?","acceptedAnswer":{"@type":"Answer","text":"Port terminals operate under some of the most detailed collective bargaining agreements in American industry. ILWU and ILA contracts govern shift structures, guaranteed hours, callout provisions, and seniority with specificity that requires careful navigation. Distribution centers typically operate under less complex agreements but face the same core challenge: changes the workforce doesn't support don't deliver results."}}
+  ]}</script>
 </head>
 <body>
+<!-- NAV — Updated 2026-04-04: Services direct, Resources direct, Why Us dropdown fixed -->
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36"></a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
-    <li><a href="/services/">Our Services <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/services/">Service Overview</a><a href="/services/#schedule-design">Schedule Design</a><a href="/services/#workforce-engagement">Workforce Engagement</a><a href="/services/#implementation">Implementation Support</a></div></li>
-    <li><a href="/resources/">Resources <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><div class="dropdown-label">Complete Guides</div><a href="/resources/shift-schedule-design-guide/">Shift Schedule Design</a><a href="/resources/shift-schedule-patterns-guide/">Schedule Patterns &amp; Examples</a><a href="/resources/equipment-utilization-shift-scheduling/">Equipment Utilization</a><a href="/resources/managing-variable-workloads/">Managing Variable Workloads</a><a href="/resources/overtime-management-guide/">Overtime Management</a><a href="/resources/schedule-change-management/">Schedule Change Management</a><a href="/resources/employee-engagement-shift-work/">Employee Engagement</a><a href="/resources/shift-work-best-practices/">Operational Best Practices</a><a href="/resources/absenteeism-relief-coverage-management/">Absenteeism &amp; Coverage</a><a href="/resources/shift-work-policies-guide/">Shift Work Policies</a><div class="dropdown-divider"></div><div class="dropdown-label">Featured</div><a href="/resources/26-warning-signs-schedule-problems/">26 Warning Signs</a><a href="/resources/shiftwork-assessment/">Free Assessment Tool</a></div></li>
+    <li><a href="/services/">Our Services</a></li>
+    <li><a href="/resources/">Resources</a></li>
     <li><a href="/industries/" class="nav-active">Industries <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/industries/manufacturing-assembly-operations/">Manufacturing &amp; Assembly</a><a href="/industries/distribution-logistics-operations/">Distribution &amp; Logistics</a><a href="/industries/mining-extraction-industries/">Mining &amp; Extraction</a><a href="/industries/refining-utilities-operations/">Refining &amp; Utilities</a><a href="/industries/food-beverage-manufacturing/">Food &amp; Beverage</a><a href="/industries/chemical-pharmaceutical-operations/">Chemical &amp; Pharmaceutical</a></div></li>
-    <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a><a href="/why-shiftwork-solutions/#team">Meet Our Experts</a><a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a></div></li>
+    <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a><a href="/our_team/">Meet Our Team</a><a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a></div></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
