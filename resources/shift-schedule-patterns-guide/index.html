@@ -29,28 +29,14 @@
     2026-04-03 — FULL CONTENT REBUILD from source Word document
                  Pillar_2_Patterns_Rev_A_2_3_26.docx
                  Previous version dropped majority of content. This version
-                 faithfully converts ALL sections:
-                 - Full intro (4 paragraphs)
-                 - The Fundamental Pattern Decisions header
-                 - Fixed vs. Rotating Shifts (5 paragraphs)
-                 - Shift Length 8-Hour vs. 12-Hour (5 paragraphs)
-                 - Coverage Strategy Patterns header
-                 - Continuous Operations 24/7 (4 paragraphs)
-                 - Semi-Continuous Operations 5-6 Days (3 paragraphs)
-                 - Variable Coverage Requirements (3 paragraphs)
-                 - Specialized Pattern Scenarios header
-                 - High-Utilization Operations (3 paragraphs)
-                 - Maintenance Coverage Patterns (3 paragraphs)
-                 - Remote/Fly-In Fly-Out Operations (4 paragraphs)
-                 - Pattern Selection Framework header
-                 - Key Decision Factors (5 paragraphs)
-                 - Common Selection Mistakes (4 paragraphs)
-                 - The Reality of Pattern Selection (3 paragraphs)
-                 - Industry Considerations (2 paragraphs)
-                 - Moving From Understanding to Action (4 paragraphs)
-                 - Next Steps & Resources with 3 resource cards
-                 Fixed old phone (415) 763-5005 → (415) 265-1621
-                 Design enhancements kept as supplements, not replacements.
+                 faithfully converts ALL sections. Fixed old phone 763-5005
+                 → 265-1621. Design enhancements kept as supplements.
+
+    2026-04-03 — Hero vector legibility fix (Option D):
+                 Vector stays full-bleed in hero background.
+                 Added ::before overlay rgba(13,31,60,0.82) to darken vector
+                 so white text is always legible regardless of vector content.
+                 Darkened base background to #0a1e38 for better contrast base.
 
   DESIGN SYSTEM:
     --navy: #1F4E79  --mid-blue: #85B7EB  --light-blue: #EEF3F8
@@ -194,9 +180,9 @@
     @keyframes tts-wave{0%,100%{transform:scaleY(.5);opacity:.5}50%{transform:scaleY(1);opacity:1}}
 
     /* ── HERO ── */
-    .hero{background:var(--navy) url('/images/Invert%20vector%20image%20V2%20PNG.png') center center / cover no-repeat;padding:44px 36px 48px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;top:-80px;right:-60px;width:300px;height:300px;border-radius:50%;background:var(--white);opacity:.05}
-    .hero::after{content:'';position:absolute;bottom:-120px;left:-40px;width:220px;height:220px;border-radius:50%;background:var(--white);opacity:.05}
+    .hero{background:#0a1e38 url('/images/Invert%20vector%20image%20V2%20PNG.png') center center / cover no-repeat;padding:44px 36px 48px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:rgba(13,31,60,0.82);z-index:0}
+    .hero::after{content:'';position:absolute;bottom:-120px;left:-40px;width:220px;height:220px;border-radius:50%;background:var(--white);opacity:.03;z-index:0}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
     .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:12px}
     .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:var(--white);max-width:520px;margin-bottom:12px}
