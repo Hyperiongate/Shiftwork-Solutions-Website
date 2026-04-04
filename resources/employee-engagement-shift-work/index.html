@@ -11,23 +11,17 @@
     2026-04-02 — Initial build from Pillar_7_Employee_Engagement_Rev_A_2_20_26.docx
     2026-04-03 — Applied standard improvements (spacing, audio, SEO)
     2026-04-03 — Engagement Layer applied (nav logo, booking CTA, engage band, vectors)
-
-    2026-04-04 — Full content audit and fix against Word doc:
-                 1. Hero updated to new standard split layout (odd pillar →
-                    shutterstock_1497086771.jpg replacing old Invert vector + circles)
-                 2. Unique Challenges: added missing paragraphs 1 & 2 (lifestyle
-                    challenges; shift workers not simply day workers)
-                 3. What Shift Workers Want p1: added missing phrase
-                    "The ability to trade shifts with colleagues"
-                 4. ADDED: "Recognition: Simple But Underdelivered" section (3 paragraphs)
-                    — missing entirely from prior version
-                 5. Dan pull quote: moved from after Supervisor to after Recognition
-                    (correct per Word doc order)
-                 6. Conclusion: added missing paragraph 3
-                    ("From understanding comes targeted action...")
-                 7. ADDED: Next Steps & Resources section (3 resource cards)
-                 8. CTA button: updated from /contact/ to Outlook booking URL
-                 9. Fixed old phone (415) 763-5005 → (415) 265-1621
+    2026-04-04 — Full content audit and fix against Word doc
+    
+    2026-04-04 — NAV RESTRUCTURE (site-wide change):
+                 - Resources: removed dropdown, direct link to /resources/
+                 - Our Services: removed dropdown, direct link to /services/
+                 - Why Us: keeps dropdown, "Meet Our Team" now links to /our_team/
+                 - Industries: keeps dropdown (unchanged)
+                 - Nav CTA button changed to ORANGE
+                 - Listen button changed to ORANGE
+                 - Engage band Subscribe button changed to ORANGE
+                 - CTA "Schedule a Free Consultation" button changed to ORANGE
 
   DESIGN SYSTEM:
     --navy: #1F4E79  --mid-blue: #85B7EB  --light-blue: #EEF3F8
@@ -73,18 +67,15 @@
     .nav-dropdown{position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border-med);border-top:none;border-radius:0 0 6px 6px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:270px;max-height:460px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-2px);transition:opacity .15s,visibility .15s,transform .15s;padding:6px 0;z-index:100}
     .nav-links>li:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateY(0)}
     .nav-links>li:hover>a .nav-arrow{transform:rotate(180deg)}
-    .dropdown-label{padding:8px 16px 4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
     .nav-dropdown a{display:block;padding:6px 16px;font-size:13px;color:#444;text-decoration:none;transition:background .12s;line-height:1.4}
     .nav-dropdown a:hover{background:var(--light-blue);color:var(--navy)}
-    .nav-dropdown a.current-page{color:var(--navy);font-weight:700}
-    .dropdown-divider{height:1px;background:var(--border-light);margin:4px 0}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
-    .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--navy);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
-    .nav-cta-btn:hover{background:#174067}
+    .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
+    .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-    .listen-float{position:fixed;bottom:24px;right:24px;z-index:900;display:flex;align-items:center;gap:8px;padding:10px 18px;background:var(--navy);color:var(--white);border:none;border-radius:28px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18);transition:background .15s,transform .1s}
-    .listen-float:hover{background:#174067;transform:translateY(-1px)}
+    .listen-float{position:fixed;bottom:24px;right:24px;z-index:900;display:flex;align-items:center;gap:8px;padding:10px 18px;background:var(--orange);color:var(--white);border:none;border-radius:28px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18);transition:background .15s,transform .1s}
+    .listen-float:hover{background:#c4510a;transform:translateY(-1px)}
     .listen-float.playing{background:var(--orange)}
     .listen-float.loading{opacity:.7;cursor:wait}
     .listen-wave{display:none;align-items:center;gap:2px;height:14px}
@@ -97,7 +88,6 @@
     .listen-wave span:nth-child(4){height:8px;animation-delay:.3s}
     .listen-wave span:nth-child(5){height:4px;animation-delay:.4s}
     @keyframes tts-wave{0%,100%{transform:scaleY(.5);opacity:.5}50%{transform:scaleY(1);opacity:1}}
-    /* ── HERO — New standard split layout (odd pillar) ── */
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:url('/images/shutterstock_1497086771.jpg') right center / auto 100% no-repeat;opacity:1;z-index:0}
     .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right, var(--navy) 45%, rgba(31,78,121,0.85) 65%, transparent 100%);z-index:0}
@@ -140,7 +130,6 @@
     .pull-quote-inner{border-left:2px solid var(--orange);padding:14px 0 14px 16px;background:var(--white)}
     .pull-quote-text{font-size:15px;font-style:italic;color:var(--body-text);line-height:1.7}
     .pull-quote-attr{font-size:13px;font-weight:700;color:var(--navy);margin-top:8px;font-style:normal}
-    /* ── NEXT STEPS ── */
     .next-steps-grid{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad);display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .next-step-card{background:var(--light-blue);border-radius:8px;padding:24px;border-top:3px solid var(--navy);display:flex;flex-direction:column;gap:12px}
     .next-step-icon{font-size:24px;line-height:1}
@@ -159,8 +148,8 @@
     .cta-box h2{font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px}
     .cta-box p{font-size:14px;color:var(--cta-sub);line-height:1.65;margin-bottom:24px;max-width:520px;margin-left:auto;margin-right:auto}
     .cta-actions{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
-    .cta-btn-primary{display:inline-block;padding:12px 28px;background:var(--white);color:var(--navy);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
-    .cta-btn-primary:hover{background:#e8eef4}
+    .cta-btn-primary{display:inline-block;padding:12px 28px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
+    .cta-btn-primary:hover{background:#c4510a}
     .cta-link{font-size:13px;color:var(--mid-blue);text-decoration:none;font-weight:500}
     .cta-link:hover{text-decoration:underline;color:var(--white)}
     .cta-vector{position:absolute;right:-20px;bottom:-20px;width:200px;height:200px;background-size:cover;background-position:left top;opacity:.25;pointer-events:none}
@@ -170,7 +159,6 @@
     .footer-inner a:hover{color:var(--navy)}
     .footer-logo{font-weight:700;color:var(--navy)}
     .footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
-    /* ── ENGAGE BAND ── */
     .engage-band{background:var(--navy-dark,#0D1F3C);padding:40px var(--page-pad)}
     .engage-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
     .engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue,#85B7EB);margin-bottom:8px}
@@ -182,8 +170,8 @@
     .engage-nl-input{flex:1;min-width:180px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
     .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
     .engage-nl-input:focus{border-color:var(--mid-blue,#85B7EB)}
-    .engage-nl-btn{padding:10px 18px;background:var(--navy,#1F4E79);color:#fff;border:1.5px solid rgba(255,255,255,.3);border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s,border-color .15s;white-space:nowrap}
-    .engage-nl-btn:hover{background:var(--mid-blue,#85B7EB);border-color:var(--mid-blue,#85B7EB);color:var(--navy,#1F4E79)}
+    .engage-nl-btn{padding:10px 18px;background:var(--orange,#E8610A);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
+    .engage-nl-btn:hover{background:#c4510a}
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
     .engage-nl-msg.ok{color:#6ee7b7}
@@ -191,10 +179,8 @@
     @media(max-width:768px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
       .hero{padding:32px 20px 36px}.hero h1{font-size:24px}.hero-stats{flex-direction:column;gap:10px}
-      .content-section{padding:16px 20px 0}.viz-section{padding:0 20px}
-      .viz-bar-label{width:140px;font-size:12px}
-      .three-col{grid-template-columns:1fr;padding:0 20px}
-      .pull-quote{padding:0 20px}
+      .content-section{padding:16px 20px 0}.viz-section{padding:0 20px}.viz-bar-label{width:140px;font-size:12px}
+      .three-col{grid-template-columns:1fr;padding:0 20px}.pull-quote{padding:0 20px}
       .faq-section{padding:16px 20px 0}.cta-section{padding:0 20px}.cta-box{padding:28px 20px}
       .footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}
       .listen-float{bottom:16px;right:16px;padding:8px 14px;font-size:12px}
@@ -210,10 +196,10 @@
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
-    <li><a href="/services/">Our Services <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/services/">Service Overview</a><a href="/services/#schedule-design">Schedule Design</a><a href="/services/#workforce-engagement">Workforce Engagement</a><a href="/services/#implementation">Implementation Support</a></div></li>
-    <li><a href="/resources/">Resources <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><div class="dropdown-label">Pillar Guides</div><a href="/resources/shift-schedule-design-guide/">Shift Schedule Design</a><a href="/resources/shift-schedule-patterns-guide/">Schedule Patterns &amp; Examples</a><a href="/resources/equipment-utilization-shift-scheduling/">Equipment Utilization</a><a href="/resources/managing-variable-workloads/">Managing Variable Workloads</a><a href="/resources/overtime-management-guide/">Overtime Management</a><a href="/resources/schedule-change-management/">Schedule Change Management</a><a href="/resources/employee-engagement-shift-work/" class="current-page">Employee Engagement</a><a href="/resources/shift-work-best-practices/">Operational Best Practices</a><a href="/resources/absenteeism-relief-coverage-management/">Absenteeism &amp; Coverage</a><a href="/resources/shift-work-policies-guide/">Shift Work Policies</a><div class="dropdown-divider"></div><div class="dropdown-label">Featured</div><a href="/resources/26-warning-signs-schedule-problems/">26 Warning Signs</a><a href="/resources/shiftwork-assessment/">Free Assessment Tool</a></div></li>
+    <li><a href="/services/">Our Services</a></li>
+    <li><a href="/resources/">Resources</a></li>
     <li><a href="/industries/">Industries <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/industries/manufacturing-assembly-operations/">Manufacturing &amp; Assembly</a><a href="/industries/distribution-logistics-operations/">Distribution &amp; Logistics</a><a href="/industries/mining-extraction-industries/">Mining &amp; Extraction</a><a href="/industries/refining-utilities-operations/">Refining &amp; Utilities</a><a href="/industries/food-beverage-manufacturing/">Food &amp; Beverage</a><a href="/industries/chemical-pharmaceutical-operations/">Chemical &amp; Pharmaceutical</a></div></li>
-    <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a><a href="/why-shiftwork-solutions/#team">Meet Our Experts</a><a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a></div></li>
+    <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a><a href="/our_team/">Meet Our Team</a><a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a></div></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
@@ -230,11 +216,8 @@
   </div>
 </div></section>
 
-<div class="breadcrumb-bar"><div class="breadcrumb-inner">
-  <a href="/">Home</a> › <a href="/resources/">Resources</a> › <span class="bc-current">Employee Engagement</span>
-</div></div>
+<div class="breadcrumb-bar"><div class="breadcrumb-inner"><a href="/">Home</a> › <a href="/resources/">Resources</a> › <span class="bc-current">Employee Engagement</span></div></div>
 
-<!-- INTRODUCTION -->
 <section class="content-section">
   <div class="eyebrow">Introduction</div>
   <h2>Why Traditional Engagement Approaches Fail in Shift Work</h2>
@@ -244,7 +227,6 @@
 
 <hr class="divider">
 
-<!-- VISUALIZATION -->
 <div class="viz-section"><div class="viz-box">
   <div class="viz-title">What Shift Workers Value Most — Key Engagement Drivers</div>
   <div class="viz-bar-row"><div class="viz-bar-label">Involvement in decisions</div><div class="viz-bar-track"><div class="viz-bar-fill" style="width:95%;background:#1F4E79;">High</div></div></div>
@@ -257,7 +239,6 @@
 
 <hr class="divider">
 
-<!-- WHY ENGAGEMENT MATTERS MORE -->
 <section class="content-section">
   <div class="eyebrow">The Business Case</div>
   <h2>Why Engagement Matters More in Shift Operations</h2>
@@ -274,7 +255,6 @@
 
 <hr class="divider">
 
-<!-- THE UNIQUE CHALLENGES -->
 <section class="content-section">
   <div class="eyebrow">Unique Challenges</div>
   <h2>The Unique Challenges of Shift Work Engagement</h2>
@@ -285,7 +265,6 @@
 
 <hr class="divider">
 
-<!-- WHAT SHIFT WORKERS ACTUALLY WANT -->
 <section class="content-section">
   <div class="eyebrow">What Workers Want</div>
   <h2>Understanding Shift Worker Priorities</h2>
@@ -301,7 +280,6 @@
 
 <hr class="divider">
 
-<!-- THE POWER OF INVOLVEMENT -->
 <section class="content-section">
   <div class="eyebrow">The Power of Involvement</div>
   <h2>Why Employee Choice Transforms Outcomes</h2>
@@ -313,7 +291,6 @@
 
 <hr class="divider">
 
-<!-- COMMUNICATION -->
 <section class="content-section">
   <div class="eyebrow">Communication</div>
   <h2>Reaching Workers Across All Shifts</h2>
@@ -324,7 +301,6 @@
 
 <hr class="divider">
 
-<!-- RECOGNITION: SIMPLE BUT UNDERDELIVERED -->
 <section class="content-section">
   <div class="eyebrow">Recognition</div>
   <h2>Recognition: Simple But Underdelivered</h2>
@@ -340,7 +316,6 @@
 
 <hr class="divider">
 
-<!-- THE SUPERVISOR'S CENTRAL ROLE -->
 <section class="content-section">
   <div class="eyebrow">Supervision</div>
   <h2>The Supervisor's Central Role</h2>
@@ -351,7 +326,6 @@
 
 <hr class="divider">
 
-<!-- BUILDING A STICKY WORKFORCE -->
 <section class="content-section">
   <div class="eyebrow">Retention</div>
   <h2>Building a "Sticky" Workforce</h2>
@@ -363,7 +337,6 @@
 
 <hr class="divider">
 
-<!-- CONCLUSION -->
 <section class="content-section">
   <div class="eyebrow">Conclusion</div>
   <h2>Moving from Understanding to Action</h2>
@@ -375,7 +348,6 @@
 
 <hr class="divider">
 
-<!-- NEXT STEPS & RESOURCES -->
 <section class="content-section">
   <div class="eyebrow">Next Steps &amp; Resources</div>
   <h2>Ready to Improve Engagement in Your Shift Operation?</h2>
@@ -383,30 +355,9 @@
 </section>
 
 <div class="next-steps-grid">
-  <div class="next-step-card">
-    <div class="next-step-icon">📞</div>
-    <div>
-      <div class="next-step-title">Consultation</div>
-      <div class="next-step-text">Discuss your specific situation with consultants who have helped hundreds of organizations improve workforce engagement. We'll help you understand where you stand and what actions would deliver the greatest impact.</div>
-      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="next-step-link" target="_blank" rel="noopener">Book a free meeting →</a>
-    </div>
-  </div>
-  <div class="next-step-card">
-    <div class="next-step-icon">📊</div>
-    <div>
-      <div class="next-step-title">Free Schedule Assessment</div>
-      <div class="next-step-text">Evaluate your current schedule's impact on employee experience and identify opportunities for improvement that directly affect engagement and retention.</div>
-      <a href="/resources/shiftwork-assessment/" class="next-step-link">Take the assessment →</a>
-    </div>
-  </div>
-  <div class="next-step-card">
-    <div class="next-step-icon">⚠️</div>
-    <div>
-      <div class="next-step-title">26 Warning Signs Diagnostic</div>
-      <div class="next-step-text">Our checklist of operational symptoms that signal when your shiftwork system needs attention — identify issues early before they become costly problems.</div>
-      <a href="/resources/26-warning-signs-schedule-problems/" class="next-step-link">Read the checklist →</a>
-    </div>
-  </div>
+  <div class="next-step-card"><div class="next-step-icon">📞</div><div><div class="next-step-title">Consultation</div><div class="next-step-text">Discuss your specific situation with consultants who have helped hundreds of organizations improve workforce engagement. We'll help you understand where you stand and what actions would deliver the greatest impact.</div><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="next-step-link" target="_blank" rel="noopener">Book a free meeting →</a></div></div>
+  <div class="next-step-card"><div class="next-step-icon">📊</div><div><div class="next-step-title">Free Schedule Assessment</div><div class="next-step-text">Evaluate your current schedule's impact on employee experience and identify opportunities for improvement that directly affect engagement and retention.</div><a href="/resources/shiftwork-assessment/" class="next-step-link">Take the assessment →</a></div></div>
+  <div class="next-step-card"><div class="next-step-icon">⚠️</div><div><div class="next-step-title">26 Warning Signs Diagnostic</div><div class="next-step-text">Our checklist of operational symptoms that signal when your shiftwork system needs attention — identify issues early before they become costly problems.</div><a href="/resources/26-warning-signs-schedule-problems/" class="next-step-link">Read the checklist →</a></div></div>
 </div>
 
 <section class="content-section">
@@ -415,7 +366,6 @@
 
 <hr class="divider">
 
-<!-- FAQ -->
 <section class="faq-section" id="faq">
   <div class="eyebrow">FAQ</div>
   <h2>Frequently Asked Questions</h2>
@@ -429,7 +379,6 @@
 
 <hr class="divider">
 
-<!-- CTA -->
 <section class="cta-section"><div class="cta-box">
   <h2>Ready to Improve Engagement in Your Shift Operation?</h2>
   <p>Operations leaders across manufacturing, distribution, chemicals, food processing, and mining have used our process to build workforce engagement that reduces turnover and improves operational performance.</p>
@@ -440,27 +389,24 @@
   <div class="cta-vector" style="background-image:url('/images/shutterstock_1497086771.jpg')"></div>
 </div></section>
 
-<!-- ENGAGE BAND -->
-<div class="engage-band">
-  <div class="engage-inner">
-    <div class="engage-thomas">
-      <div class="engage-label">AI ADVISOR</div>
-      <div class="engage-thomas-title">Talk to Thomas</div>
-      <p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
-      <a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
-    </div>
-    <div class="engage-nl">
-      <div class="engage-label">NEWSLETTER</div>
-      <div class="engage-nl-title">Stay Sharp on Shift Operations</div>
-      <p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
-      <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
-        <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
-        <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
-      </form>
-      <div class="engage-nl-msg" id="engageNLMsg"></div>
-    </div>
+<div class="engage-band"><div class="engage-inner">
+  <div class="engage-thomas">
+    <div class="engage-label">AI ADVISOR</div>
+    <div class="engage-thomas-title">Talk to Thomas</div>
+    <p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
+    <a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
   </div>
-</div>
+  <div class="engage-nl">
+    <div class="engage-label">NEWSLETTER</div>
+    <div class="engage-nl-title">Stay Sharp on Shift Operations</div>
+    <p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
+    <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
+      <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
+      <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
+    </form>
+    <div class="engage-nl-msg" id="engageNLMsg"></div>
+  </div>
+</div></div>
 
 <footer class="site-footer"><div class="footer-inner">
   <span class="footer-logo">Shiftwork Solutions LLC</span>
