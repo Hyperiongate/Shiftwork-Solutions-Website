@@ -5,7 +5,7 @@
   Deploy to: resources/shift-schedule-design-guide/index.html
 
   Created:      2026-04-02
-  Last Updated: 2026-04-03
+  Last Updated: 2026-04-04
 
   CHANGE LOG:
     2026-04-02 — Initial build from Pillar_1_Shift_Schedule_Design_Rev_A_2_18_26.docx
@@ -38,6 +38,12 @@
                  cards (Consultation, Free Assessment, 26 Warning Signs).
                  Fixed old phone (415) 763-5005 → (415) 265-1621 in Next Steps.
                  Fixed image paths (spaces encoded as %20).
+
+    2026-04-04 — NAV RESTRUCTURE (site-wide change):
+                 - Resources: removed dropdown, direct link to /resources/
+                 - Our Services: removed dropdown, direct link to /services/
+                 - Why Us: keeps dropdown, "Meet Our Team" now links to /our_team/
+                 - Industries: keeps dropdown (unchanged)
 
   DESIGN SYSTEM:
     --navy: #1F4E79  --mid-blue: #85B7EB  --light-blue: #EEF3F8
@@ -88,7 +94,7 @@
     "headline": "The Complete Guide to Shift Schedule Design",
     "url": "https://shift-work.com/resources/shift-schedule-design-guide/",
     "datePublished": "2026-04-02",
-    "dateModified": "2026-04-03",
+    "dateModified": "2026-04-04",
     "author": {
       "@type": "Organization",
       "name": "Shiftwork Solutions LLC",
@@ -352,7 +358,11 @@
 <body>
 
 <!-- ══════════════════════════════════════════════════════════════
-     NAVIGATION
+     NAVIGATION — Updated 2026-04-04
+     Resources: no dropdown, direct link
+     Our Services: no dropdown, direct link
+     Why Us: dropdown with Meet Our Team → /our_team/
+     Industries: dropdown (unchanged)
 ════════════════════════════════════════════════════════════════ -->
 <nav class="site-nav">
   <div class="nav-inner">
@@ -364,35 +374,8 @@
     </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="/">Home</a></li>
-      <li>
-        <a href="/services/">Our Services <span class="nav-arrow">▾</span></a>
-        <div class="nav-dropdown">
-          <a href="/services/">Service Overview</a>
-          <a href="/services/#schedule-design">Schedule Design</a>
-          <a href="/services/#workforce-engagement">Workforce Engagement</a>
-          <a href="/services/#implementation">Implementation Support</a>
-        </div>
-      </li>
-      <li>
-        <a href="/resources/">Resources <span class="nav-arrow">▾</span></a>
-        <div class="nav-dropdown">
-          <div class="dropdown-label">Pillar Guides</div>
-          <a href="/resources/shift-schedule-design-guide/" class="current-page">Shift Schedule Design</a>
-          <a href="/resources/shift-schedule-patterns-guide/">Schedule Patterns &amp; Examples</a>
-          <a href="/resources/equipment-utilization-shift-scheduling/">Equipment Utilization</a>
-          <a href="/resources/managing-variable-workloads/">Managing Variable Workloads</a>
-          <a href="/resources/overtime-management-guide/">Overtime Management</a>
-          <a href="/resources/schedule-change-management/">Schedule Change Management</a>
-          <a href="/resources/employee-engagement-shift-work/">Employee Engagement</a>
-          <a href="/resources/shift-work-best-practices/">Operational Best Practices</a>
-          <a href="/resources/absenteeism-relief-coverage-management/">Absenteeism &amp; Coverage</a>
-          <a href="/resources/shift-work-policies-guide/">Shift Work Policies</a>
-          <div class="dropdown-divider"></div>
-          <div class="dropdown-label">Featured</div>
-          <a href="/resources/26-warning-signs-schedule-problems/">26 Warning Signs</a>
-          <a href="/resources/shiftwork-assessment/">Free Assessment Tool</a>
-        </div>
-      </li>
+      <li><a href="/services/">Our Services</a></li>
+      <li><a href="/resources/">Resources</a></li>
       <li>
         <a href="/industries/">Industries <span class="nav-arrow">▾</span></a>
         <div class="nav-dropdown">
@@ -408,7 +391,7 @@
         <a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a>
         <div class="nav-dropdown">
           <a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a>
-          <a href="/why-shiftwork-solutions/#team">Meet Our Experts</a>
+          <a href="/our_team/">Meet Our Team</a>
           <a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a>
         </div>
       </li>
@@ -517,7 +500,6 @@
   <p>Then layer in the human dimension. More than 80% of shift workers prefer fixed shifts over rotating schedules, yet many operations default to rotation without questioning whether it serves their actual needs. Approximately 20% of any workforce actively seeks maximum overtime while a different 20% wants none — meaning identical overtime policies affect different employees in dramatically opposite ways. Workers will accept a less-preferred fixed shift rather than rotate indefinitely. Why? Because fixed schedules offer progression toward better assignments. Rotation offers only perpetual uncertainty.</p>
 </section>
 
-<!-- Design enhancement: key insight cards -->
 <div class="three-col">
   <div class="insight-card">
     <div class="insight-num">10×</div>
@@ -546,7 +528,6 @@
   <h2>The Five Pillars of Effective Schedule Design</h2>
   <p style="font-size:15px;line-height:1.75;color:var(--body-text);margin-bottom:24px;max-width:680px;">Successful schedule design rests on five fundamental pillars. Each requires careful attention, and weakness in any single area undermines the entire structure.</p>
 
-  <!-- Pillar 1: Coverage -->
   <div class="pillar-block">
     <h3>1. Coverage Requirements and Operational Rhythm</h3>
     <p>Your schedule must deliver the coverage your operation requires when it requires it. This sounds obvious, yet many facilities design schedules around internal preferences — traditional patterns, equipment availability, historical practice — rather than aligning production capacity with actual demand patterns.</p>
@@ -555,7 +536,6 @@
     <p>Understanding your true coverage needs requires analyzing demand patterns across multiple time horizons — daily, weekly, seasonal — and mapping those patterns against operational constraints. Maintenance windows, shift-change logistics, sanitation requirements, and quality checkpoints all consume time that must be factored into coverage calculations.</p>
   </div>
 
-  <!-- Pillar 2: Cost Structure -->
   <div class="pillar-block accent-orange">
     <h3>2. Cost Structure and Economic Optimization</h3>
     <p>Every schedule carries a specific cost structure determined by how it uses labor. The relationship between straight time and overtime costs is more nuanced than most managers realize. When you account for fully loaded labor costs — including benefits, paid time off, training, and administrative overhead — straight time and overtime are typically within 5–10% of each other in total cost, not the 50% premium the "time-and-a-half" phrase suggests.</p>
@@ -564,7 +544,6 @@
     <p>Weekend premiums present a different challenge. Once established, they become essentially permanent — employees who expect premium pay for Sundays will resist any attempt to eliminate it. Linking premium wages to specific days of the week locks you into paying those premiums forever, regardless of business conditions. Better approaches tie premium compensation to variables you control directly, such as consecutive days worked or total hours. This allows you to reduce premium expenses through strategic staffing decisions rather than calendar constants you cannot change.</p>
   </div>
 
-  <!-- Pillar 3: Employee Preferences -->
   <div class="pillar-block accent-green">
     <h3>3. Employee Preferences and Work-Life Integration</h3>
     <p>Shift workers build their entire lives around their work schedules. They coordinate with spouses, arrange childcare, manage transportation, schedule medical appointments, and fulfill personal commitments — all based on when they work. The schedule isn't just a work issue. It's a family issue, a lifestyle issue, and a quality-of-life issue.</p>
@@ -573,7 +552,6 @@
     <p>The distribution of overtime preferences within any workforce follows predictable patterns. Roughly 20% will work all available overtime, 20% want none, and 60% will work what they consider a fair share without complaint. This means overtime distribution strategy matters more than total overtime volume for overall workforce satisfaction. Consider the contrast: a facility with higher total overtime channeled primarily to employees who want it often has happier workers than a facility with lower overtime distributed equally, regardless of individual preferences.</p>
   </div>
 
-  <!-- Pillar 4: Safety & Fatigue -->
   <div class="pillar-block accent-mid">
     <h3>4. Safety, Fatigue, and Human Performance</h3>
     <p>Fatigue affects judgment, reaction time, error rates, and decision quality in ways that directly impact safety, quality, and productivity. High overtime, rotating shifts, early start times, and poor understanding of circadian rhythms all contribute to workforces operating below full alertness.</p>
@@ -582,7 +560,6 @@
     <p>The relationship between equipment starts/stops and breakdown risk also factors into schedule design. Equipment startup represents the highest risk period for failures. Schedules that minimize unnecessary shutdowns — running continuously through breaks and shift changes rather than stopping equipment — reduce breakdown frequency and extend equipment life while simultaneously improving safety by reducing exposure to high-risk startup conditions.</p>
   </div>
 
-  <!-- Pillar 5: Change Management -->
   <div class="pillar-block accent-dark">
     <h3>5. Change Management and Implementation</h3>
     <p>The gap between understanding what should be done and successfully implementing sustainable change is where most improvement efforts struggle or fail. Change in shiftwork operations faces unique challenges because it affects people's personal lives in ways that most business changes don't.</p>
@@ -592,7 +569,6 @@
   </div>
 </section>
 
-<!-- Design enhancement: Pull quote on communication -->
 <div class="pull-quote">
   <div class="pull-quote-inner">
     <div class="pull-quote-text">"If you're implementing a change that should be received positively, but employees don't perceive it that way, you've under-communicated. There is no such thing as over-communicating when it comes to workplace changes that affect personal lives."</div>
@@ -659,7 +635,6 @@
   </div>
 </section>
 
-<!-- Design enhancement: callout -->
 <div class="callout">
   <div class="callout-inner">
     <div class="callout-label">Design Principle</div>
@@ -680,7 +655,6 @@
   <p>The selection process requires structured employee input through surveys, focus groups, and facilitated discussions that capture preferences and concerns. Workers must understand the tradeoffs inherent in different options — more time off versus more income, fixed versus rotating shifts, extended work periods versus frequent short breaks. The goal is informed decision-making where employees genuinely understand what they're choosing and why.</p>
 </section>
 
-<!-- Design enhancement: pull quote on employee choice -->
 <div class="pull-quote">
   <div class="pull-quote-inner">
     <div class="pull-quote-text">"The schedule workers select — even if it's not management's first preference — will always perform better than a superior schedule imposed without input. Ownership and buy-in translate directly into compliance, morale, and retention."</div>
@@ -700,7 +674,6 @@
   <p>Understanding how your specific industry's operational characteristics interact with schedule design fundamentals shapes which approaches work best. There's rarely a single "right" answer; instead, there are multiple workable solutions, each with different tradeoffs between competing priorities. The art of schedule design lies in understanding these tradeoffs and selecting approaches that optimize for your specific circumstances.</p>
 </section>
 
-<!-- Design enhancement: insight cards for industries -->
 <div class="three-col">
   <div class="insight-card">
     <div class="insight-label">Food &amp; Beverage</div>
