@@ -5,16 +5,19 @@
   URL: /resources/
 
   Created:      2026-04-03
-  Last Updated: 2026-04-03
+  Last Updated: 2026-04-04
 
   CHANGE LOG:
     2026-04-03 — Initial build per Resources_Hub_Specification_V2_with_pic_4_3_26.docx
-
     2026-04-03 — Engagement Layer applied (4 changes):
                  1. NAV LOGO: Text replaced with logo image
                  2. NAV CTA: Changed to direct Outlook booking URL
                  3. ENGAGE BAND: Thomas AI + Newsletter pre-footer band added
                  4. VECTORS: Hero background + CTA accent (pillar pages only)
+    2026-04-04 — Trending grid: fixed reshoring slug from
+                 /resources/reshoring-boom-us-manufacturing/ →
+                 /resources/reshoring-manufacturing-workforce/
+                 All 8 trending article links now verified correct.
 
   I did no harm and this file is not truncated
 -->
@@ -128,7 +131,7 @@
     .footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
     @media(max-width:900px){.guides-grid{grid-template-columns:repeat(2,1fr)}.trending-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:36px 20px 40px}.hero h1{font-size:24px}.start-here{padding:36px 20px 40px}.start-here-grid{grid-template-columns:1fr}.guides-section{padding:36px 20px 40px}.guides-grid{grid-template-columns:1fr}.topics-section{padding:36px 20px 40px}.topics-grid{grid-template-columns:1fr}.trending-section{padding:36px 20px 40px}.trending-grid{grid-template-columns:1fr}.cta-band{padding:40px 20px}.cta-band h2{font-size:20px}.footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}}
-  
+
     /* ── ENGAGE BAND (Thomas + Newsletter) ── Added 2026-04-03 */
     .engage-band{background:var(--navy-dark,#0D1F3C);padding:40px var(--page-pad)}
     .engage-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
@@ -152,32 +155,70 @@
   </style>
 </head>
 <body>
+
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;"></a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
-    <li><a href="/services/">Our Services <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/services/">Service Overview</a><a href="/services/#schedule-design">Schedule Design</a><a href="/services/#workforce-engagement">Workforce Engagement</a><a href="/services/#implementation">Implementation Support</a></div></li>
+    <li><a href="/services/">Our Services <span class="nav-arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <a href="/services/">Service Overview</a>
+        <a href="/services/#schedule-design">Schedule Design</a>
+        <a href="/services/#workforce-engagement">Workforce Engagement</a>
+        <a href="/services/#implementation">Implementation Support</a>
+      </div>
+    </li>
     <li><a href="/resources/" class="nav-active">Resources</a></li>
-    <li><a href="/industries/">Industries <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/industries/manufacturing-assembly-operations/">Manufacturing &amp; Assembly</a><a href="/industries/distribution-logistics-operations/">Distribution &amp; Logistics</a><a href="/industries/mining-extraction-industries/">Mining &amp; Extraction</a><a href="/industries/refining-utilities-operations/">Refining &amp; Utilities</a><a href="/industries/food-beverage-manufacturing/">Food &amp; Beverage</a><a href="/industries/chemical-pharmaceutical-operations/">Chemical &amp; Pharmaceutical</a></div></li>
-    <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a><a href="/why-shiftwork-solutions/#team">Meet Our Experts</a><a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a></div></li>
+    <li><a href="/industries/">Industries <span class="nav-arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <a href="/industries/manufacturing-assembly-operations/">Manufacturing &amp; Assembly</a>
+        <a href="/industries/distribution-logistics-operations/">Distribution &amp; Logistics</a>
+        <a href="/industries/mining-extraction-industries/">Mining &amp; Extraction</a>
+        <a href="/industries/refining-utilities-operations/">Refining &amp; Utilities</a>
+        <a href="/industries/food-beverage-manufacturing/">Food &amp; Beverage</a>
+        <a href="/industries/chemical-pharmaceutical-operations/">Chemical &amp; Pharmaceutical</a>
+      </div>
+    </li>
+    <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a>
+      <div class="nav-dropdown">
+        <a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a>
+        <a href="/why-shiftwork-solutions/#team">Meet Our Experts</a>
+        <a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a>
+      </div>
+    </li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
-  <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
+  <div class="nav-cta-wrap">
+    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a>
+  </div>
 </div></nav>
+
 <section class="hero"><div class="hero-inner">
   <div class="hero-eyebrow">Resources</div>
   <h1>Everything You Need to Understand Shift Work</h1>
   <p class="hero-subtitle">Ten comprehensive guides, targeted articles, and timely insights — built from decades of work across hundreds of 24/7 operations in manufacturing and distribution.</p>
 </div></section>
+
 <section class="start-here"><div class="section-wrap">
   <div class="section-eyebrow">Start Here</div>
   <div class="section-heading">Not sure where to begin? These two tools will orient you.</div>
   <div class="start-here-grid">
-    <a href="/resources/26-warning-signs-schedule-problems/" class="start-tile"><span class="start-badge">Free diagnostic</span><h3>26 Warning Signs Your Schedule Needs Attention</h3><p>Twenty-six operational symptoms that signal your shiftwork system may need a reset.</p><span class="start-arrow">Read the diagnostic</span></a>
-    <a href="/resources/shiftwork-assessment/" class="start-tile"><span class="start-badge">Free assessment</span><h3>Evaluate Your Current Shiftwork Situation</h3><p>Answer a short set of questions and get a personalized picture of where your schedule stands.</p><span class="start-arrow">Take the assessment</span></a>
+    <a href="/resources/26-warning-signs-schedule-problems/" class="start-tile">
+      <span class="start-badge">Free diagnostic</span>
+      <h3>26 Warning Signs Your Schedule Needs Attention</h3>
+      <p>Twenty-six operational symptoms that signal your shiftwork system may need a reset.</p>
+      <span class="start-arrow">Read the diagnostic</span>
+    </a>
+    <a href="/resources/shiftwork-assessment/" class="start-tile">
+      <span class="start-badge">Free assessment</span>
+      <h3>Evaluate Your Current Shiftwork Situation</h3>
+      <p>Answer a short set of questions and get a personalized picture of where your schedule stands.</p>
+      <span class="start-arrow">Take the assessment</span>
+    </a>
   </div>
 </div></section>
+
 <section class="guides-section"><div class="section-wrap">
   <div class="section-eyebrow">Complete Guides</div>
   <div class="section-heading">Ten in-depth resources covering every dimension of shift work</div>
@@ -195,6 +236,7 @@
     <a href="/resources/shift-work-policies-guide/" class="guide-tile"><div class="guide-img"></div><div class="guide-body"><div class="guide-num">Guide 10</div><div class="guide-title">Shift Work Policies: Pay, Time-Off &amp; Compliance</div><div class="guide-desc">Why pay and time-off policies designed for 8-hour schedules break immediately on 12-hour or continuous operations.</div><span class="guide-link">Read the guide</span></div></a>
   </div>
 </div></section>
+
 <section class="topics-section"><div class="section-wrap">
   <div class="section-eyebrow">Focused Topics</div>
   <div class="section-heading">Targeted articles on specific challenges</div>
@@ -210,22 +252,61 @@
     <a href="/resources/" class="topic-tile" style="border-style:dashed;border-color:var(--border-med);opacity:.55;pointer-events:none;"><div class="topic-title" style="color:var(--muted);">Coming Soon</div><div class="topic-desc">An additional focused topic article is in development.</div></a>
   </div>
 </div></section>
+
+<!-- ── TRENDING TOPICS ── All 8 slugs verified 2026-04-04 -->
 <section class="trending-section"><div class="section-wrap">
   <div class="section-eyebrow">What's Happening Now</div>
   <div class="section-heading">Timely insights on legislation, labor markets, and emerging issues</div>
   <p class="section-sub">Updated as the landscape changes — these articles address what operations leaders are asking about right now.</p>
   <div class="trending-grid">
-    <a href="/resources/reshoring-boom-us-manufacturing/" class="trending-tile"><div class="trending-tag">Trending</div><div class="trending-title">The Reshoring Boom: Why U.S. Manufacturing Is Coming Home</div><span class="trending-link">Read</span></a>
-    <a href="/resources/overtime-tax-break-businesses/" class="trending-tile"><div class="trending-tag">Legislation</div><div class="trending-title">Overtime Tax Break: What It Means for Businesses</div><span class="trending-link">Read</span></a>
-    <a href="/resources/32-hour-workweek-manufacturing/" class="trending-tile"><div class="trending-tag">Trending</div><div class="trending-title">The 32-Hour Workweek: What It Means for 24/7 Manufacturing</div><span class="trending-link">Read</span></a>
-    <a href="/resources/tapping-untapped-workforce/" class="trending-tile"><div class="trending-tag">Labor Markets</div><div class="trending-title">Tapping Into the Untapped Workforce</div><span class="trending-link">Read</span></a>
-    <a href="/resources/mixed-signals-economy/" class="trending-tile"><div class="trending-tag">Economy</div><div class="trending-title">The Mixed Signals Economy</div><span class="trending-link">Read</span></a>
-    <a href="/resources/schedule-looks-fine-on-paper/" class="trending-tile"><div class="trending-tag">Operations</div><div class="trending-title">When the Schedule Looks Fine on Paper</div><span class="trending-link">Read</span></a>
-    <a href="/resources/ai-on-the-plant-floor/" class="trending-tile"><div class="trending-tag">Technology</div><div class="trending-title">AI on the Plant Floor</div><span class="trending-link">Read</span></a>
-    <a href="/resources/management-by-walking-around/" class="trending-tile"><div class="trending-tag">Leadership</div><div class="trending-title">Management By Walking Around: A Tale of Two Plants</div><span class="trending-link">Read</span></a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="trending-tile"><div class="trending-tag">Diagnostic</div><div class="trending-title">26 Warning Signs Your Schedule Needs Attention</div><span class="trending-link">Read</span></a>
+    <a href="/resources/reshoring-manufacturing-workforce/" class="trending-tile">
+      <div class="trending-tag">Trending</div>
+      <div class="trending-title">Reshoring Manufacturing? The Workforce Problem Most Companies Don't See Coming</div>
+      <span class="trending-link">Read</span>
+    </a>
+    <a href="/resources/overtime-tax-break-businesses/" class="trending-tile">
+      <div class="trending-tag">Legislation</div>
+      <div class="trending-title">Overtime Tax Break: What It Means for Businesses</div>
+      <span class="trending-link">Read</span>
+    </a>
+    <a href="/resources/32-hour-workweek-manufacturing/" class="trending-tile">
+      <div class="trending-tag">Trending</div>
+      <div class="trending-title">The 32-Hour Workweek: What It Means for 24/7 Manufacturing</div>
+      <span class="trending-link">Read</span>
+    </a>
+    <a href="/resources/tapping-untapped-workforce/" class="trending-tile">
+      <div class="trending-tag">Labor Markets</div>
+      <div class="trending-title">Tapping Into the Untapped Workforce</div>
+      <span class="trending-link">Read</span>
+    </a>
+    <a href="/resources/mixed-signals-economy/" class="trending-tile">
+      <div class="trending-tag">Economy</div>
+      <div class="trending-title">The Mixed Signals Economy</div>
+      <span class="trending-link">Read</span>
+    </a>
+    <a href="/resources/schedule-looks-fine-on-paper/" class="trending-tile">
+      <div class="trending-tag">Operations</div>
+      <div class="trending-title">When the Schedule Looks Fine on Paper</div>
+      <span class="trending-link">Read</span>
+    </a>
+    <a href="/resources/ai-on-the-plant-floor/" class="trending-tile">
+      <div class="trending-tag">Technology</div>
+      <div class="trending-title">AI on the Plant Floor</div>
+      <span class="trending-link">Read</span>
+    </a>
+    <a href="/resources/management-by-walking-around/" class="trending-tile">
+      <div class="trending-tag">Leadership</div>
+      <div class="trending-title">Management By Walking Around: A Tale of Two Plants</div>
+      <span class="trending-link">Read</span>
+    </a>
+    <a href="/resources/26-warning-signs-schedule-problems/" class="trending-tile">
+      <div class="trending-tag">Diagnostic</div>
+      <div class="trending-title">26 Warning Signs Your Schedule Needs Attention</div>
+      <span class="trending-link">Read</span>
+    </a>
   </div>
 </div></section>
+
 <div class="cta-band"><div class="cta-band-inner">
   <h2>Ready to talk about your operation?</h2>
   <p>Manufacturing companies and distribution centers running 24/7 operations typically have more room to improve than they realize. The first conversation is always free.</p>
@@ -261,15 +342,24 @@
   <span class="footer-logo">Shiftwork Solutions LLC</span>
   <span>(415) 265-1621</span>
   <span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></span>
-  <div class="footer-links-row"><a href="/resources/">Resources</a><a href="/industries/">Industries</a><a href="/services/">Services</a><a href="/contact/">Contact</a></div>
+  <div class="footer-links-row">
+    <a href="/resources/">Resources</a>
+    <a href="/industries/">Industries</a>
+    <a href="/services/">Services</a>
+    <a href="/contact/">Contact</a>
+  </div>
   <span>&copy; 2026 Shiftwork Solutions LLC</span>
 </div></footer>
+
 <script>
   document.getElementById('mobileToggle').addEventListener('click', function () {
     var n = document.getElementById('navLinks');
     var open = n.style.display === 'flex';
     if (open) { n.style.display = 'none'; } else {
-      n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';
+      n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';
+      n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';
+      n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';
+      n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';
     }
   });
 </script>
