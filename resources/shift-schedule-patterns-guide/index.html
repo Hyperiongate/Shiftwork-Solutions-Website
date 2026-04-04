@@ -32,11 +32,10 @@
                  faithfully converts ALL sections. Fixed old phone 763-5005
                  → 265-1621. Design enhancements kept as supplements.
 
-    2026-04-03 — Hero vector legibility fix (Option D):
-                 Vector stays full-bleed in hero background.
-                 Added ::before overlay rgba(13,31,60,0.82) to darken vector
-                 so white text is always legible regardless of vector content.
-                 Darkened base background to #0a1e38 for better contrast base.
+    2026-04-03 — Hero vector updated to shutterstock_1502038526.jpg
+                 Split hero approach: navy left (text always legible),
+                 vector anchored right, gradient fade bridges the two.
+                 ::before = vector image, ::after = gradient overlay.
 
   DESIGN SYSTEM:
     --navy: #1F4E79  --mid-blue: #85B7EB  --light-blue: #EEF3F8
@@ -180,9 +179,9 @@
     @keyframes tts-wave{0%,100%{transform:scaleY(.5);opacity:.5}50%{transform:scaleY(1);opacity:1}}
 
     /* ── HERO ── */
-    .hero{background:#0a1e38 url('/images/Invert%20vector%20image%20V2%20PNG.png') right center / cover no-repeat;padding:44px 36px 48px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;inset:0;background:rgba(13,31,60,0.82);z-index:0}
-    .hero::after{content:'';position:absolute;bottom:-120px;left:-40px;width:220px;height:220px;border-radius:50%;background:var(--white);opacity:.03;z-index:0}
+    .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:url('/images/shutterstock_1502038526.jpg') right center / auto 100% no-repeat;opacity:1;z-index:0}
+    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right, var(--navy) 45%, rgba(31,78,121,0.85) 65%, transparent 100%);z-index:0}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
     .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:12px}
     .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:var(--white);max-width:520px;margin-bottom:12px}
