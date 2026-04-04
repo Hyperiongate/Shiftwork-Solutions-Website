@@ -45,10 +45,21 @@
                  - Why Us: keeps dropdown, "Meet Our Team" now links to /our_team/
                  - Industries: keeps dropdown (unchanged)
 
+    2026-04-04 — BUTTON COLOR AUDIT (site-wide standard):
+                 All CTA buttons on dark backgrounds changed to ORANGE (#E8610A):
+                 1. Nav CTA "Book a Free Meeting" → orange bg, white text
+                 2. Listen to Article floating button → orange bg (was navy)
+                 3. Engage band "Subscribe" button → orange bg (was navy)
+                 4. CTA section "Schedule a Free Consultation" → orange bg, white text
+                 No functionality changes. No content changes.
+
   DESIGN SYSTEM:
     --navy: #1F4E79  --mid-blue: #85B7EB  --light-blue: #EEF3F8
     --orange: #E8610A  --green: #1D9E75  --body-text: #1A1A1A
     --max-width: 860px  Font: Arial, Helvetica, sans-serif
+
+  NAV SYSTEM: This page uses .site-nav / .nav-links / .nav-cta-btn
+  BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
 
   I did no harm and this file is not truncated
 -->
@@ -168,15 +179,17 @@
     .nav-dropdown a.current-page{color:var(--navy);font-weight:700}
     .dropdown-divider{height:1px;background:var(--border-light);margin:4px 0}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
-    .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--navy);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
-    .nav-cta-btn:hover{background:#174067}
+    /* UPDATED 2026-04-04: Nav CTA button → ORANGE per site-wide standard */
+    .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
+    .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
 
     /* ── LISTEN BUTTON ── */
-    .listen-float{position:fixed;bottom:24px;right:24px;z-index:900;display:flex;align-items:center;gap:8px;padding:10px 18px;background:var(--navy);color:var(--white);border:none;border-radius:28px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18);transition:background .15s,transform .1s}
-    .listen-float:hover{background:#174067;transform:translateY(-1px)}
-    .listen-float.playing{background:var(--orange)}
+    /* UPDATED 2026-04-04: Listen float button → ORANGE per site-wide standard */
+    .listen-float{position:fixed;bottom:24px;right:24px;z-index:900;display:flex;align-items:center;gap:8px;padding:10px 18px;background:var(--orange);color:var(--white);border:none;border-radius:28px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18);transition:background .15s,transform .1s}
+    .listen-float:hover{background:#c4510a;transform:translateY(-1px)}
+    .listen-float.playing{background:var(--navy)}
     .listen-float.loading{opacity:.7;cursor:wait}
     .listen-wave{display:none;align-items:center;gap:2px;height:14px}
     .listen-float.playing .listen-wave{display:flex}
@@ -291,8 +304,9 @@
     .cta-box h2{font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px}
     .cta-box p{font-size:14px;color:var(--cta-sub);line-height:1.65;margin-bottom:24px;max-width:520px;margin-left:auto;margin-right:auto}
     .cta-actions{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
-    .cta-btn-primary{display:inline-block;padding:12px 28px;background:var(--white);color:var(--navy);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
-    .cta-btn-primary:hover{background:#e8eef4}
+    /* UPDATED 2026-04-04: CTA primary button → ORANGE per site-wide standard */
+    .cta-btn-primary{display:inline-block;padding:12px 28px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
+    .cta-btn-primary:hover{background:#c4510a}
     .cta-link{font-size:13px;color:var(--mid-blue);text-decoration:none;font-weight:500}
     .cta-link:hover{text-decoration:underline;color:var(--white)}
     .cta-vector{position:absolute;right:-20px;bottom:-20px;width:200px;height:200px;background-size:cover;background-position:left top;opacity:.12;pointer-events:none}
@@ -309,8 +323,9 @@
     .engage-nl-input{flex:1;min-width:180px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
     .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
     .engage-nl-input:focus{border-color:var(--mid-blue,#85B7EB)}
-    .engage-nl-btn{padding:10px 18px;background:var(--navy,#1F4E79);color:#fff;border:1.5px solid rgba(255,255,255,.3);border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s,border-color .15s;white-space:nowrap}
-    .engage-nl-btn:hover{background:var(--mid-blue,#85B7EB);border-color:var(--mid-blue,#85B7EB);color:var(--navy,#1F4E79)}
+    /* UPDATED 2026-04-04: Newsletter Subscribe button → ORANGE per site-wide standard */
+    .engage-nl-btn{padding:10px 18px;background:var(--orange,#E8610A);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
+    .engage-nl-btn:hover{background:#c4510a}
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
     .engage-nl-msg.ok{color:#6ee7b7}
@@ -363,6 +378,7 @@
      Our Services: no dropdown, direct link
      Why Us: dropdown with Meet Our Team → /our_team/
      Industries: dropdown (unchanged)
+     Book a Free Meeting: ORANGE button (#E8610A)
 ════════════════════════════════════════════════════════════════ -->
 <nav class="site-nav">
   <div class="nav-inner">
