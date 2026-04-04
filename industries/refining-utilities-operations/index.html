@@ -16,6 +16,25 @@
                  Clients: ComEd, TXU, Southern Company, CenterPoint, PG&E,
                  Bell Canada, Chevron, Marathon, Arco.
 
+    2026-04-04 — NAV + BUTTON + SEO AUDIT:
+                 1. NAV: Services → direct link (no dropdown)
+                    Resources → direct link (no dropdown)
+                    Why Us dropdown: "Meet Our Team" → /our_team/
+                    "Client Testimonials" → /why-shiftwork-solutions/#testimonials
+                 2. BUTTONS: Nav CTA → ORANGE (#E8610A)
+                    Listen button → ORANGE
+                    Subscribe button → ORANGE
+                 3. SEO: Added Twitter Card meta tags
+                    Added FAQPage JSON-LD for 5 FAQ questions
+
+  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn
+  BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
+
+  DESIGN SYSTEM:
+    --navy: #1F4E79  --mid-blue: #85B7EB  --light-blue: #EEF3F8
+    --orange: #E8610A  --green: #1D9E75  --body-text: #1A1A1A
+    --max-width: 860px  Font: Arial, Helvetica, sans-serif
+
   I did no harm and this file is not truncated
 -->
 <html lang="en">
@@ -30,6 +49,12 @@
   <meta property="og:url" content="https://shift-work.com/industries/refining-utilities-operations/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Shift Scheduling for Refining &amp; Utilities | Shiftwork Solutions LLC">
+  <meta name="twitter:description" content="Shift scheduling for refineries, power plants, and utilities. Schedule modernization, 5-crew nuclear scheduling, union change management.">
+
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
@@ -53,8 +78,8 @@
     .nav-dropdown a:hover{background:var(--light-blue);color:var(--navy)}
     .dropdown-divider{height:1px;background:var(--border-light);margin:4px 0}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
-    .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--navy);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
-    .nav-cta-btn:hover{background:#174067}
+    .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
+    .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
@@ -132,8 +157,8 @@
     .engage-nl-input{flex:1;min-width:180px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
     .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
     .engage-nl-input:focus{border-color:var(--mid-blue)}
-    .engage-nl-btn{padding:10px 18px;background:var(--navy);color:#fff;border:1.5px solid rgba(255,255,255,.3);border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s,border-color .15s;white-space:nowrap}
-    .engage-nl-btn:hover{background:var(--mid-blue);border-color:var(--mid-blue);color:var(--navy)}
+    .engage-nl-btn{padding:10px 18px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
+    .engage-nl-btn:hover{background:#c4510a}
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
     .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
@@ -143,8 +168,8 @@
     .footer-inner a:hover{color:var(--navy)}
     .footer-logo{font-weight:700;color:var(--navy)}
     .footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
-    .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--navy);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
-    .listen-btn:hover{background:#174067}
+    .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
+    .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
     @media(max-width:760px){.ns-cards{grid-template-columns:1fr}.inline-cta{flex-direction:column;align-items:flex-start}}
     @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.engage-inner{grid-template-columns:1fr}.engage-band{padding:32px 20px}.footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}.cta-section{padding:36px 20px}.next-steps{padding:36px 20px 40px}}
@@ -152,6 +177,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Refining & Utilities: When the Plant Never Stops","description":"Shift scheduling for refineries, power plants, and utilities. Schedule modernization, 5-crew nuclear scheduling, union change management.","url":"https://shift-work.com/industries/refining-utilities-operations/","datePublished":"2026-04-04","dateModified":"2026-04-04","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"refinery shift scheduling, utility shift scheduling, nuclear power plant scheduling, 5-crew schedule, continuous operations workforce, union schedule change management, power plant workforce planning"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://shift-work.com/industries/"},{"@type":"ListItem","position":3,"name":"Refining & Utilities","item":"https://shift-work.com/industries/refining-utilities-operations/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why do refineries and utilities need to revisit schedules they've run for decades?","acceptedAnswer":{"@type":"Answer","text":"Workforce demographics shift over decades. A schedule designed for a 35-year-old workforce does not automatically serve a 52-year-old workforce. Overtime drift, shift-specific turnover, and recruiting difficulty are signals the schedule no longer fits."}},{"@type":"Question","name":"Why do nuclear power plants benefit from a five-crew structure?","acceptedAnswer":{"@type":"Answer","text":"Mandatory NRC training requirements consume significant operator hours. Four-crew structures have no margin to absorb training without pulling operators off shift or building structural overtime. Five crews provide the needed staffing depth."}},{"@type":"Question","name":"How do outdated union contract provisions affect schedule design?","acceptedAnswer":{"@type":"Answer","text":"Contracts often codify specific scheduling provisions written to formalize existing schedules. Changing the schedule without addressing the contract creates conflict. Both must be approached as the same problem, not separate ones."}},{"@type":"Question","name":"How do you change a schedule at a facility that cannot shut down?","acceptedAnswer":{"@type":"Answer","text":"The existing schedule must remain fully intact until the new one is ready. Transition design, staffing models, communication, and policy alignment must all be worked out before going live — not discovered as problems during implementation."}},{"@type":"Question","name":"What triggers a schedule review at a long-running facility?","acceptedAnswer":{"@type":"Answer","text":"Rarely a single event — more often gradual signals: overtime above plan, shift-specific turnover, recruiting difficulty, or union negotiations surfacing dissatisfaction locked in by contract language. By the time signals are clear, the mismatch has been building for years."}}]}</script>
 </head>
 <body>
 <nav class="site-nav"><div class="nav-inner">
@@ -159,10 +185,10 @@
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
-    <li><a href="/services/">Our Services <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/services/">Service Overview</a><a href="/services/#schedule-design">Schedule Design</a><a href="/services/#workforce-engagement">Workforce Engagement</a><a href="/services/#implementation">Implementation Support</a></div></li>
-    <li><a href="/resources/">Resources <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><div class="dropdown-label">Complete Guides</div><a href="/resources/shift-schedule-design-guide/">Shift Schedule Design</a><a href="/resources/shift-schedule-patterns-guide/">Schedule Patterns &amp; Examples</a><a href="/resources/equipment-utilization-shift-scheduling/">Equipment Utilization</a><a href="/resources/managing-variable-workloads/">Managing Variable Workloads</a><a href="/resources/overtime-management-guide/">Overtime Management</a><a href="/resources/schedule-change-management/">Schedule Change Management</a><a href="/resources/employee-engagement-shift-work/">Employee Engagement</a><a href="/resources/shift-work-best-practices/">Operational Best Practices</a><a href="/resources/absenteeism-relief-coverage-management/">Absenteeism &amp; Coverage</a><a href="/resources/shift-work-policies-guide/">Shift Work Policies</a><div class="dropdown-divider"></div><div class="dropdown-label">Featured</div><a href="/resources/26-warning-signs-schedule-problems/">26 Warning Signs</a><a href="/resources/shiftwork-assessment/">Free Assessment Tool</a></div></li>
+    <li><a href="/services/">Our Services</a></li>
+    <li><a href="/resources/">Resources</a></li>
     <li><a href="/industries/" class="nav-active">Industries <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/industries/manufacturing-assembly-operations/">Manufacturing &amp; Assembly</a><a href="/industries/distribution-logistics-operations/">Distribution &amp; Logistics</a><a href="/industries/mining-extraction-industries/">Mining &amp; Extraction</a><a href="/industries/refining-utilities-operations/">Refining &amp; Utilities</a><a href="/industries/food-beverage-manufacturing/">Food &amp; Beverage</a><a href="/industries/chemical-pharmaceutical-operations/">Chemical &amp; Pharmaceutical</a></div></li>
-    <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a><a href="/why-shiftwork-solutions/#team">Meet Our Experts</a><a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a></div></li>
+    <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a><a href="/our_team/">Meet Our Team</a><a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a></div></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
@@ -180,120 +206,58 @@
 </div></div>
 
 <div class="article-wrap">
-  <div class="article-meta">
-    <span class="meta-tag">Industry Guide</span>
-    <span class="meta-read">8 min read</span>
-  </div>
+  <div class="article-meta"><span class="meta-tag">Industry Guide</span><span class="meta-read">8 min read</span></div>
 
   <p>Refineries and utilities occupy a category of industrial operations with no equivalent elsewhere: they run continuously, and nearly everything about how they are staffed and scheduled reflects that reality. Planned outages — for maintenance turnarounds, equipment inspection, or regulatory compliance — occur every few years and can run from days to several weeks. Outside those windows, the plant runs. The grid stays energized. The crude keeps moving.</p>
-
   <p>The workforce turns over, demographics shift, preferences evolve — and in many cases, the schedule does not.</p>
 
-  <div class="client-strip">
-    <div class="client-strip-label">Representative Clients</div>
-    <p>ComEd, TXU, Southern Company, CenterPoint, PG&amp;E, Bell Canada — plus refining clients including Chevron, Marathon, and Arco — across multiple decades and operating environments.</p>
-  </div>
+  <div class="client-strip"><div class="client-strip-label">Representative Clients</div><p>ComEd, TXU, Southern Company, CenterPoint, PG&amp;E, Bell Canada — plus refining clients including Chevron, Marathon, and Arco — across multiple decades and operating environments.</p></div>
 
   <h2>Born Into 24/7: Why "We've Always Done It This Way" Is Not a Strategy</h2>
-
   <p>Most industries transition into continuous operations at some identifiable point. Refineries and utilities never made that transition. They were designed from the outset to run without interruption, and their schedules, policies, and labor agreements reflect decades of accumulated decisions made under very different conditions.</p>
-
   <p>That history creates a specific problem. Schedule designs built around workforce preferences that no longer exist, overtime policies that made sense under one contract but create perverse incentives under another, and contract language that constrains schedule design in ways that neither side fully intended — these accumulate quietly, without a single triggering event that would prompt a review.</p>
-
   <p>The signal that something has drifted is usually gradual: overtime that has crept above what the operation budgeted, turnover on certain shifts that was not a problem a decade ago, survey data showing the workforce profile has changed enough that the current schedule no longer fits the people working it. By the time those signals are visible enough to prompt action, the underlying mismatch has typically been building for years.</p>
 
   <h2>The Demographic Shift Nobody Planned For</h2>
-
   <p>Continuous operations that have run the same schedule for twenty or thirty years have often done so with a workforce that was, for much of that time, relatively stable in age and life stage. Senior workers who built their lives around the existing rotation — who arranged childcare, planned vacations, and structured their households around a known schedule — were satisfied with a pattern that fit how they lived. That workforce is now retiring.</p>
-
   <p>The workers replacing them have different preferences, different family structures, and a different relationship to work-life balance. A schedule the departing generation defended vigorously may be precisely the schedule making the operation unattractive to the workers it needs to recruit and retain. That mismatch does not resolve itself — it compounds. Turnover among newer workers increases. Overtime climbs to cover the gaps. The remaining experienced workforce carries more than its share of the burden.</p>
-
   <p>Understanding what the current workforce actually prefers — not what management assumes, and not what the previous generation preferred — requires asking. The employee survey process is where that understanding is built, and where schedule modernization in these industries has to start.</p>
 
   <h2>The Nuclear Case: Why Five Crews Changes the Calculation</h2>
-
   <p>Nuclear power generation has a scheduling requirement that sets it apart from other utility environments: mandatory annual training. NRC-mandated qualification maintenance, simulator training, emergency procedure reviews, and license renewal requirements collectively consume a meaningful portion of each licensed operator's available work hours every year. A four-crew structure provides no margin to absorb that training load without pulling operators off shift or building chronic overtime into the coverage model.</p>
-
   <p>A five-crew structure addresses this directly. The fifth crew provides the staffing depth that makes training requirements manageable without compressing coverage or generating structural overtime. It is not a luxury — it is the configuration that makes the staffing model work when mandatory training hours are factored in rather than managed around.</p>
 
-  <div class="callout-box">
-    <div class="cb-label">The Nuclear Staffing Math</div>
-    <p>Operations still running on four crews in a nuclear environment are typically carrying overtime and coverage risk that the move to five crews would resolve — but the transition interacts with contract language in ways that require careful planning before any change is proposed. The staffing math changes substantially once mandatory training hours are treated as a fixed constraint rather than a variable to manage around.</p>
-  </div>
+  <div class="callout-box"><div class="cb-label">The Nuclear Staffing Math</div><p>Operations still running on four crews in a nuclear environment are typically carrying overtime and coverage risk that the move to five crews would resolve — but the transition interacts with contract language in ways that require careful planning before any change is proposed. The staffing math changes substantially once mandatory training hours are treated as a fixed constraint rather than a variable to manage around.</p></div>
 
   <h2>Outdated Schedules, Outdated Policies — and the Contract That Locked Them In</h2>
-
   <p>In refining and utilities, collective bargaining agreements govern not just wages but shift timing, rotation direction, premium pay structures, overtime distribution, callout provisions, and the specific language that defines what constitutes a schedule change requiring negotiation. In many cases, that contract language was drafted to formalize a schedule already in place — which means the contract and the schedule are deeply intertwined, and changing one without addressing the other creates conflict.</p>
-
   <p>The result is that many operations are running schedules whose specific provisions have been effectively frozen by contract language that neither side has had sufficient reason to reopen. Management has learned to work around the constraints. The workforce has organized its expectations around them. The aggregate effect is a schedule design that no longer reflects what either side would choose if designing it today.</p>
 
-  <div class="pull-quote">
-    <p>"In refining and utilities, the schedule has usually been 'good enough' for so long that no one has stopped to ask whether it's still the right one. The workforce has changed. The question is rarely whether a better design exists — it almost always does — but whether the organization has the process and patience to find it."</p>
-    <div class="pq-attr">— Jim Dillingham, Shiftwork Solutions LLC</div>
-  </div>
+  <div class="pull-quote"><p>"In refining and utilities, the schedule has usually been 'good enough' for so long that no one has stopped to ask whether it's still the right one. The workforce has changed. The question is rarely whether a better design exists — it almost always does — but whether the organization has the process and patience to find it."</p><div class="pq-attr">— Jim Dillingham, Shiftwork Solutions LLC</div></div>
 
   <h2>Implementing Change at a Facility That Cannot Shut Down</h2>
-
   <p>Schedule transitions in continuous process environments carry a constraint that most industries do not face: coverage cannot lapse, even for a day. That means the transition from an existing schedule to a new one must be designed so the current schedule remains intact until the new one is fully ready to take over. There is no pilot run in the conventional sense, no grace period during which partial coverage is acceptable.</p>
-
   <p>The implementation sequence, transition staffing plan, and communication approach are as important as the schedule design itself — and this is where the difference between a technically sound schedule and one that actually gets implemented cleanly becomes visible. Operations that underestimate the implementation complexity, or that treat it as a logistics problem rather than a change management problem, regularly encounter workforce resistance that was not anticipated, policy conflicts that were not identified in advance, and contractual provisions that create obstacles once the change is in motion.</p>
-
   <p>Shiftwork Solutions manages the implementation as an integrated part of every refining and utility engagement, not as a separate phase that begins after the schedule is designed. The workforce engagement, the communication plan, the transition staffing model, and the policy review process are all developed in parallel with the schedule design itself.</p>
 
-  <div class="inline-cta">
-    <div class="inline-cta-text">
-      <h3>Is your current schedule still serving your operation?</h3>
-      <p>Whether you're managing overtime that has drifted above budget, a workforce whose preferences no longer align with your schedule, or preparing to renegotiate contract language around shift provisions — we can help. The first conversation is free.</p>
-    </div>
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="inline-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a>
-  </div>
+  <div class="inline-cta"><div class="inline-cta-text"><h3>Is your current schedule still serving your operation?</h3><p>Whether you're managing overtime that has drifted above budget, a workforce whose preferences no longer align with your schedule, or preparing to renegotiate contract language around shift provisions — we can help. The first conversation is free.</p></div><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="inline-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
 
   <div class="faq-section">
     <h2>Frequently Asked Questions</h2>
-    <div class="faq-item">
-      <div class="faq-q">Why do refineries and utilities need to revisit schedules they've run for decades?</div>
-      <div class="faq-a">Two structural features make periodic schedule review particularly important. First, age — most refineries and utilities were born into 24/7 operations from day one, which means a facility running for 50 years may still be running a schedule that is also 50 years old. No other design decision from that era would be left unexamined for half a century. Second, workforce aging — the pay and stability that refining and utility jobs offer attracts workers who stay for an entire career, which means the workforce ages as a cohort. Workers who were fighting for weekend coverage in their thirties become empty nesters who care less about weekends but more about consecutive days off. A schedule designed for a 35-year-old workforce does not automatically serve a 52-year-old workforce.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Why do nuclear power plants benefit from a five-crew structure?</div>
-      <div class="faq-a">Mandatory NRC training requirements consume a significant portion of each licensed operator's available work hours annually. A four-crew structure has no margin to absorb that training load without either pulling operators off shift or building structural overtime into the coverage model. A five-crew structure provides the staffing depth that makes training requirements manageable without generating chronic overtime. The staffing math changes substantially once mandatory training hours are treated as a fixed constraint rather than a variable to manage around — and most four-crew nuclear operations are absorbing costs that a properly modeled five-crew structure would eliminate.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">How do outdated union contract provisions affect schedule design in these industries?</div>
-      <div class="faq-a">Collective bargaining agreements in refining and utilities often codify specific scheduling provisions — rotation direction, shift overlap, overtime distribution procedures — that were written to formalize a schedule already in place. That makes the contract and the schedule deeply interdependent. Changing the schedule without addressing the contract creates conflict. Changing the contract requires building a case that demonstrates genuine value to both sides, not just to management. The operations that navigate this successfully recognize early that the contractual negotiation and the workforce engagement are the same problem, not separate ones, and approach them accordingly.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">How do you change a schedule at a facility that cannot shut down?</div>
-      <div class="faq-a">The implementation has to be designed so coverage is never at risk — which means the existing schedule remains fully intact until the new one is ready to take over completely. That constraint makes the transition design as consequential as the schedule design itself. The sequencing, the transition staffing model, the communication approach, and the policy alignment all have to be worked out before the change goes live, not discovered as problems during it. In continuous process environments, implementation complexity is where well-designed schedule changes fail in practice. It is also where experience across hundreds of engagements makes the most visible difference.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">What triggers a schedule review at a facility that has run the same schedule for years?</div>
-      <div class="faq-a">Rarely a single event — more often a slow accumulation of signals: overtime that has drifted above plan, turnover on specific shifts that was not a problem a decade ago, difficulty recruiting candidates who find the current schedule incompatible with the life they want, or union negotiations that surface workforce dissatisfaction that the contract has effectively locked in place. By the time those signals are clear enough to prompt action, the underlying mismatch has typically been building for years. Operations that wait for a crisis to prompt the review pay more to get to the same place than those that act on early signals.</div>
-    </div>
+    <div class="faq-item"><div class="faq-q">Why do refineries and utilities need to revisit schedules they've run for decades?</div><div class="faq-a">Two structural features make periodic schedule review particularly important. First, age — most refineries and utilities were born into 24/7 operations from day one, which means a facility running for 50 years may still be running a schedule that is also 50 years old. No other design decision from that era would be left unexamined for half a century. Second, workforce aging — the pay and stability that refining and utility jobs offer attracts workers who stay for an entire career, which means the workforce ages as a cohort. Workers who were fighting for weekend coverage in their thirties become empty nesters who care less about weekends but more about consecutive days off. A schedule designed for a 35-year-old workforce does not automatically serve a 52-year-old workforce.</div></div>
+    <div class="faq-item"><div class="faq-q">Why do nuclear power plants benefit from a five-crew structure?</div><div class="faq-a">Mandatory NRC training requirements consume a significant portion of each licensed operator's available work hours annually. A four-crew structure has no margin to absorb that training load without either pulling operators off shift or building structural overtime into the coverage model. A five-crew structure provides the staffing depth that makes training requirements manageable without generating chronic overtime. The staffing math changes substantially once mandatory training hours are treated as a fixed constraint rather than a variable to manage around — and most four-crew nuclear operations are absorbing costs that a properly modeled five-crew structure would eliminate.</div></div>
+    <div class="faq-item"><div class="faq-q">How do outdated union contract provisions affect schedule design in these industries?</div><div class="faq-a">Collective bargaining agreements in refining and utilities often codify specific scheduling provisions — rotation direction, shift overlap, overtime distribution procedures — that were written to formalize a schedule already in place. That makes the contract and the schedule deeply interdependent. Changing the schedule without addressing the contract creates conflict. Changing the contract requires building a case that demonstrates genuine value to both sides, not just to management. The operations that navigate this successfully recognize early that the contractual negotiation and the workforce engagement are the same problem, not separate ones, and approach them accordingly.</div></div>
+    <div class="faq-item"><div class="faq-q">How do you change a schedule at a facility that cannot shut down?</div><div class="faq-a">The implementation has to be designed so coverage is never at risk — which means the existing schedule remains fully intact until the new one is ready to take over completely. That constraint makes the transition design as consequential as the schedule design itself. The sequencing, the transition staffing model, the communication approach, and the policy alignment all have to be worked out before the change goes live, not discovered as problems during it. In continuous process environments, implementation complexity is where well-designed schedule changes fail in practice. It is also where experience across hundreds of engagements makes the most visible difference.</div></div>
+    <div class="faq-item"><div class="faq-q">What triggers a schedule review at a facility that has run the same schedule for years?</div><div class="faq-a">Rarely a single event — more often a slow accumulation of signals: overtime that has drifted above plan, turnover on specific shifts that was not a problem a decade ago, difficulty recruiting candidates who find the current schedule incompatible with the life they want, or union negotiations that surface workforce dissatisfaction that the contract has effectively locked in place. By the time those signals are clear enough to prompt action, the underlying mismatch has typically been building for years. Operations that wait for a crisis to prompt the review pay more to get to the same place than those that act on early signals.</div></div>
   </div>
 </div>
 
 <section class="next-steps"><div class="next-steps-inner">
   <h2>Next Steps &amp; Resources</h2>
   <div class="ns-cards">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card" target="_blank" rel="noopener">
-      <div class="ns-card-label">Free Consultation</div>
-      <h3>Talk to a Shiftwork Expert</h3>
-      <p>Share the basics of your current schedule, staffing model, and workforce dynamics. We'll identify where the analysis is most likely to find value.</p>
-      <span class="ns-card-link">Book a free meeting</span>
-    </a>
-    <a href="/resources/schedule-change-management/" class="ns-card">
-      <div class="ns-card-label">Complete Guide</div>
-      <h3>Schedule Change Management</h3>
-      <p>From planning to implementation — why well-designed changes fail and what communication and policy alignment actually require in continuous operations.</p>
-      <span class="ns-card-link">Read the guide</span>
-    </a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card">
-      <div class="ns-card-label">Diagnostic Tool</div>
-      <h3>26 Warning Signs</h3>
-      <p>The operational symptoms that signal your shiftwork system may have drifted — including the overtime and retention signals most common in refining and utility environments.</p>
-      <span class="ns-card-link">Read the diagnostic</span>
-    </a>
+    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card" target="_blank" rel="noopener"><div class="ns-card-label">Free Consultation</div><h3>Talk to a Shiftwork Expert</h3><p>Share the basics of your current schedule, staffing model, and workforce dynamics. We'll identify where the analysis is most likely to find value.</p><span class="ns-card-link">Book a free meeting</span></a>
+    <a href="/resources/schedule-change-management/" class="ns-card"><div class="ns-card-label">Complete Guide</div><h3>Schedule Change Management</h3><p>From planning to implementation — why well-designed changes fail and what communication and policy alignment actually require in continuous operations.</p><span class="ns-card-link">Read the guide</span></a>
+    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card"><div class="ns-card-label">Diagnostic Tool</div><h3>26 Warning Signs</h3><p>The operational symptoms that signal your shiftwork system may have drifted — including the overtime and retention signals most common in refining and utility environments.</p><span class="ns-card-link">Read the diagnostic</span></a>
   </div>
   <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
 </div></section>
