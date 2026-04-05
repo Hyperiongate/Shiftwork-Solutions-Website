@@ -5,15 +5,14 @@
   URL: /resources/mixed-signals-economy/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-04
-
-  SOURCE DOC: 7_The_Mixed_Signals_Economy_V1_Sonnet_3_31_26.docx
-  CATEGORY: Trending Topics
+  Last Updated: 2026-04-05
 
   CHANGE LOG:
-    2026-04-04 — Initial build. Full article content from source Word doc.
-                 Matches site design system: nav, hero (even vector), engage band,
-                 footer, structured data, listen button.
+    2026-04-04 — Initial build from source Word doc.
+
+    2026-04-05 — NAV + BUTTON + SEO AUDIT:
+                 Services/Resources → direct links. Why Us → /our_team/.
+                 Subscribe + Listen buttons → ORANGE. Twitter cards added.
 
   I did no harm and this file is not truncated
 -->
@@ -29,6 +28,9 @@
   <meta property="og:url" content="https://shift-work.com/resources/mixed-signals-economy/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="The Mixed Signals Economy | Shiftwork Solutions LLC">
+  <meta name="twitter:description" content="Manufacturing output is up. Employment is down. What do contradictory signals mean for your workforce strategy?">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
@@ -41,19 +43,16 @@
     .nav-links{list-style:none;display:flex;align-items:center}
     .nav-links>li{position:relative}
     .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
-    .nav-links>li>a:hover,.nav-links>li>a.nav-active{color:var(--navy)}
-    .nav-links>li>a.nav-active{font-weight:700;text-decoration:underline;text-underline-offset:3px}
+    .nav-links>li>a:hover{color:var(--navy)}
     .nav-arrow{font-size:9px;opacity:.5;transition:transform .2s}
     .nav-dropdown{position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border-med);border-top:none;border-radius:0 0 6px 6px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:270px;max-height:460px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-2px);transition:opacity .15s,visibility .15s,transform .15s;padding:6px 0;z-index:100}
     .nav-links>li:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateY(0)}
     .nav-links>li:hover>a .nav-arrow{transform:rotate(180deg)}
-    .dropdown-label{padding:8px 16px 4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
     .nav-dropdown a{display:block;padding:6px 16px;font-size:13px;color:#444;text-decoration:none;transition:background .12s;line-height:1.4}
     .nav-dropdown a:hover{background:var(--light-blue);color:var(--navy)}
-    .dropdown-divider{height:1px;background:var(--border-light);margin:4px 0}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
-    .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--navy);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
-    .nav-cta-btn:hover{background:#174067}
+    .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
+    .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
@@ -135,8 +134,8 @@
     .engage-nl-input{flex:1;min-width:180px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
     .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
     .engage-nl-input:focus{border-color:var(--mid-blue)}
-    .engage-nl-btn{padding:10px 18px;background:var(--navy);color:#fff;border:1.5px solid rgba(255,255,255,.3);border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s,border-color .15s;white-space:nowrap}
-    .engage-nl-btn:hover{background:var(--mid-blue);border-color:var(--mid-blue);color:var(--navy)}
+    .engage-nl-btn{padding:10px 18px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
+    .engage-nl-btn:hover{background:#c4510a}
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
     .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
@@ -146,13 +145,13 @@
     .footer-inner a:hover{color:var(--navy)}
     .footer-logo{font-weight:700;color:var(--navy)}
     .footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
-    .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--navy);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
-    .listen-btn:hover{background:#174067}
+    .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
+    .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
     @media(max-width:760px){.signal-cards{grid-template-columns:1fr 1fr}.insight-cards{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.inline-cta{flex-direction:column;align-items:flex-start}}
     @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.signal-cards{grid-template-columns:1fr 1fr}.insight-cards{grid-template-columns:1fr}.engage-inner{grid-template-columns:1fr}.engage-band{padding:32px 20px}.footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}.cta-section{padding:36px 20px}.next-steps{padding:36px 20px 40px}}
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Mixed Signals Economy: What Shifting Labor Markets Mean for 24/7 Operations","description":"Manufacturing output is up. Employment is down. Unemployment is rising. What do contradictory economic signals mean for your workforce strategy right now?","url":"https://shift-work.com/resources/mixed-signals-economy/","datePublished":"2026-04-04","dateModified":"2026-04-04","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"manufacturing labor market 2026, mixed signals economy manufacturing, workforce strategy uncertainty, 24/7 operations labor planning"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Mixed Signals Economy: What Shifting Labor Markets Mean for 24/7 Operations","description":"Manufacturing output is up. Employment is down. Unemployment is rising. What do contradictory economic signals mean for your workforce strategy right now?","url":"https://shift-work.com/resources/mixed-signals-economy/","datePublished":"2026-04-04","dateModified":"2026-04-05","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"manufacturing labor market 2026, mixed signals economy manufacturing, workforce strategy uncertainty, 24/7 operations labor planning"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"The Mixed Signals Economy","item":"https://shift-work.com/resources/mixed-signals-economy/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}</script>
 </head>
@@ -162,10 +161,10 @@
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
-    <li><a href="/services/">Our Services <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/services/">Service Overview</a><a href="/services/#schedule-design">Schedule Design</a><a href="/services/#workforce-engagement">Workforce Engagement</a><a href="/services/#implementation">Implementation Support</a></div></li>
-    <li><a href="/resources/" class="nav-active">Resources <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><div class="dropdown-label">Complete Guides</div><a href="/resources/shift-schedule-design-guide/">Shift Schedule Design</a><a href="/resources/shift-schedule-patterns-guide/">Schedule Patterns &amp; Examples</a><a href="/resources/equipment-utilization-shift-scheduling/">Equipment Utilization</a><a href="/resources/managing-variable-workloads/">Managing Variable Workloads</a><a href="/resources/overtime-management-guide/">Overtime Management</a><a href="/resources/schedule-change-management/">Schedule Change Management</a><a href="/resources/employee-engagement-shift-work/">Employee Engagement</a><a href="/resources/shift-work-best-practices/">Operational Best Practices</a><a href="/resources/absenteeism-relief-coverage-management/">Absenteeism &amp; Coverage</a><a href="/resources/shift-work-policies-guide/">Shift Work Policies</a><div class="dropdown-divider"></div><div class="dropdown-label">Featured</div><a href="/resources/26-warning-signs-schedule-problems/">26 Warning Signs</a><a href="/resources/shiftwork-assessment/">Free Assessment Tool</a></div></li>
+    <li><a href="/services/">Our Services</a></li>
+    <li><a href="/resources/">Resources</a></li>
     <li><a href="/industries/">Industries <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/industries/manufacturing-assembly-operations/">Manufacturing &amp; Assembly</a><a href="/industries/distribution-logistics-operations/">Distribution &amp; Logistics</a><a href="/industries/mining-extraction-industries/">Mining &amp; Extraction</a><a href="/industries/refining-utilities-operations/">Refining &amp; Utilities</a><a href="/industries/food-beverage-manufacturing/">Food &amp; Beverage</a><a href="/industries/chemical-pharmaceutical-operations/">Chemical &amp; Pharmaceutical</a></div></li>
-    <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a><a href="/why-shiftwork-solutions/#team">Meet Our Experts</a><a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a></div></li>
+    <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a><a href="/our_team/">Meet Our Team</a><a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a></div></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
@@ -178,134 +177,65 @@
   <span class="hero-tag">Economy</span>
 </div></section>
 
-<div class="breadcrumb-bar"><div class="breadcrumb-inner">
-  <a href="/">Home</a><span>›</span><a href="/resources/">Resources</a><span>›</span>The Mixed Signals Economy
-</div></div>
+<div class="breadcrumb-bar"><div class="breadcrumb-inner"><a href="/">Home</a><span>›</span><a href="/resources/">Resources</a><span>›</span>The Mixed Signals Economy</div></div>
 
 <div class="article-wrap">
-  <div class="article-meta">
-    <span class="meta-tag">Economy</span>
-    <span class="meta-date">April 2026</span>
-    <span class="meta-read">6 min read</span>
-  </div>
+  <div class="article-meta"><span class="meta-tag">Economy</span><span class="meta-date">April 2026</span><span class="meta-read">6 min read</span></div>
 
   <p>The economic signals coming into 2026 don't tell a clean story. U.S. manufacturing output rose in February for the second consecutive month — only the third time in 40 months that the sector has expanded. Federal Reserve data puts output growth at 0.2% for the month. The ISM Manufacturing PMI confirmed the expansion, with 12 industries reporting growth.</p>
-
   <p>That sounds like good news. And in some ways it is.</p>
-
   <p>But look closer and the picture gets complicated. The ISM employment index was contracting in the same report. Total nonfarm payroll employment dropped by 92,000 in February. And price pressures — driven by tariffs, supply chain uncertainty, and volatile input costs — remain a significant headwind for manufacturers trying to plan more than a quarter ahead.</p>
 
   <div class="signal-cards">
-    <div class="signal-card up">
-      <div class="sc-icon">📈</div>
-      <div class="sc-metric">Output</div>
-      <div class="sc-value">Manufacturing output up 0.2% — 2nd consecutive month of expansion</div>
-    </div>
-    <div class="signal-card down">
-      <div class="sc-icon">📉</div>
-      <div class="sc-metric">Employment</div>
-      <div class="sc-value">ISM employment index contracting in the same report as output growth</div>
-    </div>
-    <div class="signal-card down">
-      <div class="sc-icon">⬆️</div>
-      <div class="sc-metric">Unemployment</div>
-      <div class="sc-value">Nonfarm payrolls dropped 92,000 in February</div>
-    </div>
-    <div class="signal-card mixed">
-      <div class="sc-icon">⚠️</div>
-      <div class="sc-metric">Cost Pressure</div>
-      <div class="sc-value">Tariffs, supply chain uncertainty, volatile input costs — all persistent</div>
-    </div>
+    <div class="signal-card up"><div class="sc-icon">📈</div><div class="sc-metric">Output</div><div class="sc-value">Manufacturing output up 0.2% — 2nd consecutive month of expansion</div></div>
+    <div class="signal-card down"><div class="sc-icon">📉</div><div class="sc-metric">Employment</div><div class="sc-value">ISM employment index contracting in the same report as output growth</div></div>
+    <div class="signal-card down"><div class="sc-icon">⬆️</div><div class="sc-metric">Unemployment</div><div class="sc-value">Nonfarm payrolls dropped 92,000 in February</div></div>
+    <div class="signal-card mixed"><div class="sc-icon">⚠️</div><div class="sc-metric">Cost Pressure</div><div class="sc-value">Tariffs, supply chain uncertainty, volatile input costs — all persistent</div></div>
   </div>
 
   <p>Expanding output. Shrinking employment. Rising unemployment. Persistent cost pressure. These signals aren't supposed to coexist, and yet here we are.</p>
 
   <h2>What's Actually Happening</h2>
-
   <p>The gap between output growth and employment contraction isn't a mystery — it's a pattern. When manufacturers are uncertain about whether demand will hold, they don't hire. They run existing crews harder. They extend overtime. They defer the headcount decision until the signal gets clearer.</p>
-
   <p>The result is a workforce that's producing more with the same — or fewer — people. That's sustainable for a quarter. It isn't sustainable as a strategy.</p>
-
   <p>At the same time, the labor market is softening in some places and remaining tight in others. Blue-collar workforce availability has been further complicated by policy-driven reductions in immigrant labor — a population that has historically filled a significant share of production, processing, and distribution roles. The national unemployment number ticking upward doesn't mean the worker you need is suddenly available in your region, in your industry, at your shift hours.</p>
-
   <p>The simplest version of the story — "labor is scarce, compete harder" — no longer captures what's happening. But neither does "labor is loosening up, the pressure is off." The reality is more unstable than either narrative, and instability is its own kind of operational risk.</p>
 
-  <div class="pull-quote">
-    <p>"The companies that consistently outperform through uncertain periods aren't the ones that predicted the future correctly. They're the ones that built workforce architectures flexible enough to respond in either direction."</p>
-  </div>
+  <div class="pull-quote"><p>"The companies that consistently outperform through uncertain periods aren't the ones that predicted the future correctly. They're the ones that built workforce architectures flexible enough to respond in either direction."</p></div>
 
   <h2>The Freeze Instinct Is Costly</h2>
-
   <p>When signals are mixed, the instinct is to wait. Hold off on schedule changes. Defer the workforce strategy conversation. See how things shake out before committing to anything.</p>
-
   <p>It's understandable. It's also expensive.</p>
-
   <p>Operations that freeze workforce decisions during uncertainty don't hold steady — they drift. Overtime creeps up to cover coverage gaps that were supposed to be temporary. Turnover rises because employees read the instability and start looking. Schedules that were already straining become harder to defend. And when the picture does clarify — in either direction — the organization is less prepared to move than it would have been if it had kept building.</p>
-
   <p>The companies that consistently outperform through uncertain periods aren't the ones that predicted the future correctly. They're the ones that built workforce architectures flexible enough to respond in either direction.</p>
 
   <h2>What Flexibility Actually Means</h2>
-
   <p>In a mixed-signals environment, workforce flexibility isn't a vague aspiration — it has specific, practical dimensions.</p>
-
   <p>It means knowing how much of your current coverage depends on overtime versus scheduled headcount, and whether that ratio is a choice or an accident. Operations running 15% or 20% overtime as a structural baseline have almost no room to absorb a demand spike without burning out their workforce or blowing their labor budget.</p>
-
   <p>It means understanding your workforce's actual overtime preferences — the roughly 20% who want all you can offer, the 20% who want none, and the 60% in the middle — and designing distribution policies around that reality rather than defaulting to equal distribution that satisfies almost no one.</p>
-
   <p>It means having a schedule architecture that can scale headcount up or down without requiring a complete redesign. Manufacturing companies and distribution centers that built their staffing models for a specific demand level are the most exposed when that level shifts — in either direction.</p>
-
   <p>And it means not waiting until the signal is clear to have these conversations, because by then the decisions will be reactive rather than considered.</p>
 
   <div class="insight-cards">
-    <div class="insight-card">
-      <div class="ic-label"><strong>20% / 60% / 20%</strong> — The real distribution of overtime preferences in most workforces. Policy that ignores this satisfies almost no one.</div>
-    </div>
-    <div class="insight-card">
-      <div class="ic-label"><strong>15–20% structural overtime</strong> leaves no room to absorb a demand spike — a common and costly exposure in uncertain times.</div>
-    </div>
-    <div class="insight-card">
-      <div class="ic-label"><strong>Workforce decisions deferred during uncertainty</strong> don't hold steady — they drift toward overtime creep, turnover, and coverage gaps.</div>
-    </div>
+    <div class="insight-card"><div class="ic-label"><strong>20% / 60% / 20%</strong> — The real distribution of overtime preferences in most workforces. Policy that ignores this satisfies almost no one.</div></div>
+    <div class="insight-card"><div class="ic-label"><strong>15–20% structural overtime</strong> leaves no room to absorb a demand spike — a common and costly exposure in uncertain times.</div></div>
+    <div class="insight-card"><div class="ic-label"><strong>Workforce decisions deferred during uncertainty</strong> don't hold steady — they drift toward overtime creep, turnover, and coverage gaps.</div></div>
   </div>
 
   <h2>The Honest Takeaway</h2>
-
   <p>Nobody knows exactly where this goes. Manufacturing momentum is real but fragile. Labor market softening is uneven. Cost pressures aren't resolving. Policy uncertainty adds a variable that no workforce model can fully absorb.</p>
-
   <p>What that means for operations leaders isn't paralysis — it's the opposite. The right response to an unstable environment is a more deliberate workforce strategy, not a deferred one. The organizations that will be best positioned when the picture clarifies are the ones using this period to examine what their current schedule and staffing architecture can actually handle — and what it can't.</p>
-
   <p>That's worth knowing now, regardless of what February's numbers look like in six months.</p>
 
-  <div class="inline-cta">
-    <div class="inline-cta-text">
-      <h3>Trying to make sense of what these shifts mean for your operation?</h3>
-      <p>Shiftwork Solutions works with manufacturing companies and distribution centers navigating workforce strategy in uncertain conditions. Let's talk about what your current setup can — and can't — absorb.</p>
-    </div>
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="inline-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a>
-  </div>
+  <div class="inline-cta"><div class="inline-cta-text"><h3>Trying to make sense of what these shifts mean for your operation?</h3><p>Shiftwork Solutions works with manufacturing companies and distribution centers navigating workforce strategy in uncertain conditions. Let's talk about what your current setup can — and can't — absorb.</p></div><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="inline-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
 </div>
 
 <section class="next-steps"><div class="next-steps-inner">
   <h2>Next Steps &amp; Resources</h2>
   <div class="ns-cards">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card" target="_blank" rel="noopener">
-      <div class="ns-card-label">Free Consultation</div>
-      <h3>Talk to a Shiftwork Expert</h3>
-      <p>Understand what your current schedule and staffing architecture can absorb — and where the exposure is — before conditions shift further.</p>
-      <span class="ns-card-link">Book a free meeting</span>
-    </a>
-    <a href="/resources/shiftwork-assessment/" class="ns-card">
-      <div class="ns-card-label">Free Assessment</div>
-      <h3>Evaluate Your Current Schedule</h3>
-      <p>A short set of questions that produces a personalized picture of where your shift structure stands and what the risks are.</p>
-      <span class="ns-card-link">Take the assessment</span>
-    </a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card">
-      <div class="ns-card-label">Diagnostic Tool</div>
-      <h3>26 Warning Signs</h3>
-      <p>The symptoms that signal a shiftwork system under strain — many of which accelerate when economic conditions are uncertain.</p>
-      <span class="ns-card-link">Read the diagnostic</span>
-    </a>
+    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card" target="_blank" rel="noopener"><div class="ns-card-label">Free Consultation</div><h3>Talk to a Shiftwork Expert</h3><p>Understand what your current schedule and staffing architecture can absorb — and where the exposure is — before conditions shift further.</p><span class="ns-card-link">Book a free meeting</span></a>
+    <a href="/resources/shiftwork-assessment/" class="ns-card"><div class="ns-card-label">Free Assessment</div><h3>Evaluate Your Current Schedule</h3><p>A short set of questions that produces a personalized picture of where your shift structure stands and what the risks are.</p><span class="ns-card-link">Take the assessment</span></a>
+    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card"><div class="ns-card-label">Diagnostic Tool</div><h3>26 Warning Signs</h3><p>The symptoms that signal a shiftwork system under strain — many of which accelerate when economic conditions are uncertain.</p><span class="ns-card-link">Read the diagnostic</span></a>
   </div>
   <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
 </div></section>
@@ -313,10 +243,7 @@
 <section class="cta-section"><div class="cta-section-inner">
   <h2>Uncertainty is not a reason to wait. It's a reason to know where you stand.</h2>
   <p>The organizations that navigate mixed-signal periods best are the ones that understand their schedule's actual capacity and flexibility before conditions force a reactive decision. The first conversation is free.</p>
-  <div class="cta-actions">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="cta-primary" target="_blank" rel="noopener">Book a Free Consultation</a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="cta-secondary">Read the 26 Warning Signs →</a>
-  </div>
+  <div class="cta-actions"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="cta-primary" target="_blank" rel="noopener">Book a Free Consultation</a><a href="/resources/26-warning-signs-schedule-problems/" class="cta-secondary">Read the 26 Warning Signs →</a></div>
 </div></section>
 
 <div class="engage-band"><div class="engage-inner">
@@ -325,8 +252,7 @@
 </div></div>
 
 <footer class="site-footer"><div class="footer-inner">
-  <span class="footer-logo">Shiftwork Solutions LLC</span><span>(415) 265-1621</span>
-  <span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></span>
+  <span class="footer-logo">Shiftwork Solutions LLC</span><span>(415) 265-1621</span><span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></span>
   <div class="footer-links-row"><a href="/resources/">Resources</a><a href="/industries/">Industries</a><a href="/services/">Services</a><a href="/contact/">Contact</a></div>
   <span>&copy; 2026 Shiftwork Solutions LLC</span>
 </div></footer>
@@ -334,9 +260,9 @@
 <button class="listen-btn" id="listenBtn" aria-label="Listen to this article"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg><span id="listenLabel">Listen</span></button>
 
 <script>
-  document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
-  (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
-  (function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p, h2');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim());});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
+  document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none'}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99'}});
+  (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json()}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713'}else{throw new Error(d.error||'Failed')}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192'})}})();
+  (function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p, h2');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim())});return parts.join(' ')}if(!window.speechSynthesis){btn.style.display='none';return}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume'}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause'}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause'};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen'};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen'};window.speechSynthesis.speak(utt)}})})();
 </script>
 </body>
 </html>
