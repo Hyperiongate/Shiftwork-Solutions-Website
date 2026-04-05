@@ -23,6 +23,13 @@
                   3. SEO: Added OG tags, Twitter Card tags, JSON-LD
                   4. URLs: Booking URLs → added ?ismsaljsauthenabled=true
 
+      2026-04-05  NAV — ALL DROPDOWNS REMOVED:
+                  - Industries: removed dropdown, direct link to /industries/
+                  - Why Us: removed dropdown, direct link to /why-us/
+                  - Footer "Why Us" link updated to /why-us/
+                  - Mobile dropdown JS handler removed (no longer needed)
+                  - All newsletter form functionality preserved exactly
+
   NAV SYSTEM: .site-header / .main-nav / .nav-cta a
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
 
@@ -62,18 +69,12 @@
     .main-nav>ul>li{position:relative}
     .main-nav>ul>li>a{display:flex;align-items:center;gap:4px;padding:20px 13px;font-size:13.5px;font-weight:400;color:#333333;text-decoration:none;transition:color 0.2s;white-space:nowrap}
     .main-nav>ul>li>a:hover{color:var(--navy)}
-    .nav-arrow{font-size:9px;opacity:0.5;transition:transform 0.2s}
-    .nav-dropdown{position:absolute;top:100%;left:0;background:#ffffff;border:1px solid var(--border);border-top:2px solid var(--navy);border-radius:0 0 6px 6px;box-shadow:0 8px 24px rgba(0,0,0,0.10);min-width:280px;max-height:520px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity 0.18s,visibility 0.18s,transform 0.18s;padding:8px 0;z-index:300}
-    .main-nav>ul>li:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateY(0)}
-    .main-nav>ul>li:hover>a .nav-arrow{transform:rotate(180deg)}
-    .nav-dropdown a{display:block;padding:7px 18px;font-size:13px;color:#333333;text-decoration:none;transition:background 0.15s,color 0.15s}
-    .nav-dropdown a:hover{background:var(--blue-pale);color:var(--navy)}
     .nav-cta{margin-left:auto;flex-shrink:0}
     .nav-cta a{display:inline-block;padding:9px 20px;background:var(--orange);color:#ffffff;font-size:13px;font-weight:700;text-decoration:none;border-radius:5px;transition:background 0.2s;white-space:nowrap}
     .nav-cta a:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:22px;height:2px;background:var(--navy);margin:5px 0;border-radius:2px}
-    @media(max-width:960px){.main-nav{display:none;position:absolute;top:64px;left:0;right:0;background:#ffffff;flex-direction:column;padding:16px 0 24px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border-top:1px solid var(--border);max-height:calc(100vh - 64px);overflow-y:auto;align-items:stretch}.main-nav.open{display:flex}.main-nav>ul{flex-direction:column;width:100%}.main-nav>ul>li>a{padding:12px 24px;font-size:14px}.nav-dropdown{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;border-radius:0;max-height:none;background:#f8f9fa;display:none;padding:0;min-width:100%}.main-nav>ul>li.mobile-open>.nav-dropdown{display:block}.nav-dropdown a{padding:9px 36px;color:#444}.nav-cta{margin:12px 24px 0}.nav-cta a{display:block;text-align:center}.mobile-toggle{display:block}}
+    @media(max-width:960px){.main-nav{display:none;position:absolute;top:64px;left:0;right:0;background:#ffffff;flex-direction:column;padding:16px 0 24px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border-top:1px solid var(--border);max-height:calc(100vh - 64px);overflow-y:auto;align-items:stretch}.main-nav.open{display:flex}.main-nav>ul{flex-direction:column;width:100%}.main-nav>ul>li>a{padding:12px 24px;font-size:14px}.nav-cta{margin:12px 24px 0}.nav-cta a{display:block;text-align:center}.mobile-toggle{display:block}}
     .newsletter-page{margin-top:64px;min-height:calc(100vh - 64px - 180px);background:var(--navy);display:flex;align-items:center;justify-content:center;padding:56px 24px;position:relative;overflow:hidden}
     .newsletter-page::before{content:'';position:absolute;top:-80px;right:-80px;width:360px;height:360px;border-radius:50%;background:rgba(255,255,255,0.04);pointer-events:none}
     .newsletter-page::after{content:'';position:absolute;bottom:-60px;left:-60px;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,0.04);pointer-events:none}
@@ -130,8 +131,8 @@
       <li><a href="/">Home</a></li>
       <li><a href="/services/">Our Services</a></li>
       <li><a href="/resources/">Resources</a></li>
-      <li><a href="/industries/">Industries <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/industries/manufacturing-assembly-operations/">Manufacturing &amp; Assembly</a><a href="/industries/distribution-logistics-operations/">Distribution &amp; Logistics</a><a href="/industries/mining-extraction-industries/">Mining &amp; Extraction</a><a href="/industries/refining-utilities-operations/">Refining &amp; Utilities</a><a href="/industries/food-beverage-manufacturing/">Food &amp; Beverage</a><a href="/industries/chemical-pharmaceutical-operations/">Chemical &amp; Pharmaceutical</a></div></li>
-      <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a><a href="/our_team/">Meet Our Team</a><a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a></div></li>
+      <li><a href="/industries/">Industries</a></li>
+      <li><a href="/why-us/">Why Us</a></li>
       <li><a href="/contact/">Contact</a></li>
     </ul>
     <div class="nav-cta"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" target="_blank" rel="noopener">Book a Free Meeting</a></div>
@@ -187,7 +188,7 @@
     </div>
     <div class="footer-col"><h4>Services</h4><ul><li><a href="/services/">Service Overview</a></li><li><a href="/services/#schedule-design">Schedule Design</a></li><li><a href="/services/#change-management">Change Management</a></li><li><a href="/services/#workforce-surveys">Workforce Surveys</a></li><li><a href="/services/#cost-analysis">Cost Analysis</a></li></ul></div>
     <div class="footer-col"><h4>Resources</h4><ul><li><a href="/resources/">All Resources</a></li><li><a href="/resources/shift-schedule-design-guide/">Schedule Design Guide</a></li><li><a href="/resources/employee-engagement-shift-work/">Employee Engagement</a></li><li><a href="/resources/26-warning-signs-schedule-problems/">26 Warning Signs</a></li><li><a href="/resources/shiftwork-assessment/">Free Assessment</a></li></ul></div>
-    <div class="footer-col"><h4>Connect</h4><ul><li><a href="/contact/">Contact Us</a></li><li><a href="/newsletter/">Newsletter</a></li><li><a href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener">Talk to Thomas</a></li><li><a href="/why-shiftwork-solutions/">Why Us</a></li><li><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" target="_blank" rel="noopener">Book a Consultation</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="/contact/">Contact Us</a></li><li><a href="/newsletter/">Newsletter</a></li><li><a href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener">Talk to Thomas</a></li><li><a href="/why-us/">Why Us</a></li><li><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" target="_blank" rel="noopener">Book a Consultation</a></li></ul></div>
   </div>
   <div class="footer-bottom">&copy; 2026 Shiftwork Solutions LLC. All rights reserved. &nbsp;&middot;&nbsp; shift-work.com &nbsp;&middot;&nbsp; Hundreds of clients. 16+ industries. 30+ years experience.</div>
 </div></footer>
@@ -196,7 +197,6 @@
 document.getElementById('_loaded').value=Date.now().toString();
 var NEWSLETTER_API='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
 document.getElementById('mobile-toggle').addEventListener('click',function(){document.getElementById('main-nav').classList.toggle('open')});
-document.querySelectorAll('.main-nav > ul > li > a').forEach(function(link){link.addEventListener('click',function(e){if(window.innerWidth<=960){var li=this.parentElement;var dropdown=li.querySelector('.nav-dropdown');if(dropdown){e.preventDefault();var wasOpen=li.classList.contains('mobile-open');document.querySelectorAll('.main-nav > ul > li.mobile-open').forEach(function(d){d.classList.remove('mobile-open')});if(!wasOpen)li.classList.add('mobile-open')}}})});
 document.addEventListener('click',function(e){var header=document.querySelector('.site-header');if(header&&!header.contains(e.target)){document.getElementById('main-nav').classList.remove('open')}});
 document.getElementById('newsletter-form').addEventListener('submit',function(e){e.preventDefault();var btn=document.getElementById('submit-btn');var status=document.getElementById('form-status');if(document.getElementById('_gotcha_nl').value!==''){status.className='form-status success';status.textContent='Thank you! You have been subscribed.';this.reset();return}var loadedAt=parseInt(document.getElementById('_loaded').value,10);if(Date.now()-loadedAt<2000){status.className='form-status error';status.textContent='Please take a moment before submitting.';return}var email=document.getElementById('nl-email').value.trim();var name=document.getElementById('nl-name').value.trim();if(!email){status.className='form-status error';status.textContent='Please enter your email address.';return}if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){status.className='form-status error';status.textContent='Please enter a valid email address.';return}btn.disabled=true;btn.textContent='Subscribing...';status.style.display='none';fetch(NEWSLETTER_API,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({email:email,name:name||null,source:'website-newsletter-page'})}).then(function(response){return response.json().then(function(data){if(response.ok&&data.success){status.className='form-status success';status.textContent=data.message||'Thank you! You have been subscribed.';document.getElementById('newsletter-form').reset();document.getElementById('_loaded').value=Date.now().toString();setTimeout(function(){btn.disabled=false;btn.textContent='Subscribe \u2192'},30000)}else{throw new Error(data.error||'Subscription failed')}})}).catch(function(err){status.className='form-status error';status.textContent=err.message==='This email is already subscribed.'?'This email is already subscribed. Thank you!':'Something went wrong. Please try again or email Contact@shift-work.com.';btn.disabled=false;btn.textContent='Subscribe \u2192'})});
 </script>
