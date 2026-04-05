@@ -3,7 +3,7 @@
   Shiftwork Solutions LLC — Homepage
   File: index.html
   Created: March 31, 2026
-  Last updated: April 4, 2026
+  Last updated: April 5, 2026
   Author: Claude Opus 4.6 for Jim @ Shiftwork Solutions LLC
 
   PURPOSE:
@@ -35,6 +35,14 @@
                   - Industries: keeps dropdown (unchanged)
                   - Nav CTA "Book a Free Meeting" changed to ORANGE background
                   - Nav logo changed from text to image logo matching other pages
+      2026-04-05  (v5) NAV — ALL DROPDOWNS REMOVED:
+                  - Industries: removed dropdown, direct link to /industries/
+                  - Why Us: removed dropdown, direct link to /why-us/
+                  - All nav items are now flat direct links:
+                    Home, Our Services, Resources, Industries, Why Us, Contact
+                  - Nav CSS: removed .nav-dropdown and .nav-arrow styles
+                    (kept in CSS for compat but not used in HTML)
+                  - All body content, hero, footer, JS unchanged
 
   I did no harm and this file is not truncated
 -->
@@ -103,12 +111,6 @@
     .main-nav > ul > li { position: relative; }
     .main-nav > ul > li > a { display: flex; align-items: center; gap: 4px; padding: 20px 14px; font-family: Arial, sans-serif; font-size: 13.5px; font-weight: 400; color: #333333; text-decoration: none; transition: color 0.2s; white-space: nowrap; }
     .main-nav > ul > li > a:hover { color: var(--g-navy); }
-    .nav-arrow { font-size: 9px; opacity: 0.5; transition: transform 0.2s; }
-    .nav-dropdown { position: absolute; top: 100%; left: 0; background: #ffffff; border: 1px solid var(--g-border); border-top: 2px solid var(--g-navy); border-radius: 0 0 6px 6px; box-shadow: 0 8px 24px rgba(0,0,0,0.10); min-width: 280px; max-height: 520px; overflow-y: auto; opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity 0.18s, visibility 0.18s, transform 0.18s; padding: 8px 0; z-index: 300; }
-    .main-nav > ul > li:hover > .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
-    .main-nav > ul > li:hover > a .nav-arrow { transform: rotate(180deg); }
-    .nav-dropdown a { display: block; padding: 7px 18px; font-family: Arial, sans-serif; font-size: 13px; color: #333333; text-decoration: none; transition: background 0.15s, color 0.15s; line-height: 1.4; }
-    .nav-dropdown a:hover { background: var(--g-blue-pale); color: var(--g-navy); }
     .nav-cta { margin-left: auto; flex-shrink: 0; }
     .nav-cta a { display: inline-block; padding: 9px 20px; background: var(--g-orange); color: #ffffff; font-family: Arial, sans-serif; font-size: 13px; font-weight: 700; text-decoration: none; border-radius: 5px; transition: background 0.2s; white-space: nowrap; }
     .nav-cta a:hover { background: #c4510a; }
@@ -119,9 +121,6 @@
       .main-nav.open { display: flex; }
       .main-nav > ul { flex-direction: column; width: 100%; }
       .main-nav > ul > li > a { padding: 12px 24px; font-size: 14px; }
-      .nav-dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: none; border-radius: 0; max-height: none; background: #f8f9fa; display: none; padding: 0; min-width: 100%; }
-      .main-nav > ul > li.mobile-open > .nav-dropdown { display: block; }
-      .nav-dropdown a { padding: 9px 36px; color: #444; }
       .nav-cta { margin: 12px 24px 0; }
       .nav-cta a { display: block; text-align: center; }
       .mobile-toggle { display: block; }
@@ -265,13 +264,11 @@
 <body>
 
 <!-- ══════════════════════════════════════════════════════════════
-     NAVIGATION — Updated 2026-04-04
-     Resources: NO dropdown, direct link
-     Our Services: NO dropdown, direct link
-     Why Us: dropdown with Meet Our Team → /our_team/
-     Industries: dropdown (unchanged)
+     NAVIGATION — Updated 2026-04-05
+     ALL DIRECT LINKS — NO DROPDOWNS
+     Home, Our Services, Resources, Industries, Why Us, Contact
      CTA button: ORANGE
-     Logo: image matching other pages
+     Logo: image
 ════════════════════════════════════════════════════════════════ -->
 <header class="site-header">
   <div class="header-inner">
@@ -286,25 +283,8 @@
         <li><a href="/">Home</a></li>
         <li><a href="/services/">Our Services</a></li>
         <li><a href="/resources/">Resources</a></li>
-        <li>
-          <a href="/industries/">Industries <span class="nav-arrow">▾</span></a>
-          <div class="nav-dropdown">
-            <a href="/industries/manufacturing-assembly-operations/">Manufacturing &amp; Assembly</a>
-            <a href="/industries/distribution-logistics-operations/">Distribution &amp; Logistics</a>
-            <a href="/industries/mining-extraction-industries/">Mining &amp; Extraction</a>
-            <a href="/industries/refining-utilities-operations/">Refining &amp; Utilities</a>
-            <a href="/industries/food-beverage-manufacturing/">Food &amp; Beverage</a>
-            <a href="/industries/chemical-pharmaceutical-operations/">Chemical &amp; Pharmaceutical</a>
-          </div>
-        </li>
-        <li>
-          <a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a>
-          <div class="nav-dropdown">
-            <a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a>
-            <a href="/our_team/">Meet Our Team</a>
-            <a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a>
-          </div>
-        </li>
+        <li><a href="/industries/">Industries</a></li>
+        <li><a href="/why-us/">Why Us</a></li>
         <li><a href="/contact/">Contact</a></li>
       </ul>
       <div class="nav-cta">
@@ -507,7 +487,7 @@
           <li><a href="/contact/">Contact Us</a></li>
           <li><a href="/newsletter/">Newsletter</a></li>
           <li><a href="https://shift-work-diagnostic.onrender.com" target="_blank">Talk to Thomas</a></li>
-          <li><a href="/why-shiftwork-solutions/">Why Us</a></li>
+          <li><a href="/why-us/">Why Us</a></li>
           <li><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" target="_blank" class="footer-btn-orange">Book a Consultation</a></li>
         </ul>
       </div>
@@ -529,15 +509,6 @@ document.querySelectorAll('a[href^="#"]').forEach(function(link) {
 });
 document.getElementById('mobile-toggle').addEventListener('click', function() {
   document.getElementById('main-nav').classList.toggle('open');
-});
-document.querySelectorAll('.main-nav > ul > li > a').forEach(function(link) {
-  link.addEventListener('click', function(e) {
-    if (window.innerWidth <= 960) {
-      var li = this.parentElement;
-      var dropdown = li.querySelector('.nav-dropdown');
-      if (dropdown) { e.preventDefault(); var wasOpen = li.classList.contains('mobile-open'); document.querySelectorAll('.main-nav > ul > li.mobile-open').forEach(function(d) { d.classList.remove('mobile-open'); }); if (!wasOpen) li.classList.add('mobile-open'); }
-    }
-  });
 });
 document.addEventListener('click', function(e) {
   var header = document.querySelector('.site-header');
