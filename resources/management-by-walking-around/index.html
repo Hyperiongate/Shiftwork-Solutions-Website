@@ -5,17 +5,18 @@
   URL: /resources/management-by-walking-around/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-04
-
-  SOURCE DOC: 4_Management_By_Walking_Around_V1_Sonnet_03_31_2026.docx
-  CATEGORY: Trending Topics
+  Last Updated: 2026-04-05
 
   CHANGE LOG:
-    2026-04-04 — Initial build. Full article content from source Word doc.
-                 Matches site design system: nav, hero (odd vector), engage band,
-                 footer, structured data, listen button.
-                 Note: This article is narrative/firsthand — no data tables.
-                 Visualization: contrast card layout (two plants side by side).
+    2026-04-04 — Initial build from source Word doc.
+
+    2026-04-05 — NAV + BUTTON + SEO AUDIT:
+                 1. NAV: Services → direct link (no dropdown)
+                    Resources → direct link (no dropdown)
+                    Why Us dropdown: "Meet Our Team" → /our_team/
+                 2. BUTTONS: Subscribe → ORANGE, no border
+                    Listen button → ORANGE
+                 3. SEO: Added Twitter Card tags
 
   I did no harm and this file is not truncated
 -->
@@ -27,23 +28,19 @@
   <meta name="description" content="Two plants. Two leadership styles. One thriving, one struggling. A firsthand look at why management presence on the floor changes everything in shift operations.">
   <link rel="canonical" href="https://shift-work.com/resources/management-by-walking-around/">
   <meta property="og:title" content="Management By Walking Around: A Tale of Two Plants | Shiftwork Solutions LLC">
-  <meta property="og:description" content="Two plants. Two leadership styles. One thriving, one struggling. A firsthand look at why management presence on the floor changes everything in shift operations.">
+  <meta property="og:description" content="Two plants. Two leadership styles. One thriving, one struggling. A firsthand look at why management presence on the floor changes everything.">
   <meta property="og:url" content="https://shift-work.com/resources/management-by-walking-around/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Management By Walking Around: A Tale of Two Plants | Shiftwork Solutions LLC">
+  <meta name="twitter:description" content="Two plants. Two leadership styles. One thriving, one struggling. Why management presence changes everything.">
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;
-      --orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;
-      --body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;
-      --cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px
-    }
+    :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
-
-    /* ── NAV ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo img{height:36px;width:auto;display:block}
@@ -52,7 +49,6 @@
     .nav-links>li{position:relative}
     .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
     .nav-links>li>a:hover{color:var(--navy)}
-    .nav-links>li>a.nav-active{color:var(--navy);font-weight:700;text-decoration:underline;text-underline-offset:3px}
     .nav-arrow{font-size:9px;opacity:.5;transition:transform .2s}
     .nav-dropdown{position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border-med);border-top:none;border-radius:0 0 6px 6px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:270px;max-height:460px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-2px);transition:opacity .15s,visibility .15s,transform .15s;padding:6px 0;z-index:100}
     .nav-links>li:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateY(0)}
@@ -62,12 +58,10 @@
     .nav-dropdown a:hover{background:var(--light-blue);color:var(--navy)}
     .dropdown-divider{height:1px;background:var(--border-light);margin:4px 0}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
-    .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--navy);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
-    .nav-cta-btn:hover{background:#174067}
+    .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
+    .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-
-    /* ── HERO (odd article — shutterstock_1497086771.jpg) ── */
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:url('/images/shutterstock_1497086771.jpg') right center / auto 100% no-repeat;opacity:1;z-index:0}
     .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--navy) 45%,rgba(31,78,121,0.85) 65%,transparent 100%);z-index:0}
@@ -76,30 +70,20 @@
     .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:var(--white);max-width:580px;margin-bottom:14px}
     .hero-subtitle{font-size:16px;line-height:1.65;color:var(--mid-blue);max-width:560px}
     .hero-tag{display:inline-block;margin-top:16px;background:rgba(232,97,10,0.9);color:var(--white);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 12px;border-radius:3px}
-
-    /* ── BREADCRUMB ── */
     .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
     .breadcrumb-inner a{color:var(--navy);text-decoration:none}
     .breadcrumb-inner a:hover{text-decoration:underline}
     .breadcrumb-inner span{margin:0 6px;opacity:.5}
-
-    /* ── ARTICLE BODY ── */
     .article-wrap{max-width:var(--max-width);margin:0 auto;padding:48px var(--page-pad) 56px}
     .article-meta{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border-light);flex-wrap:wrap}
     .meta-tag{display:inline-block;background:var(--light-blue);color:var(--navy);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:3px}
-    .meta-date{font-size:13px;color:var(--muted)}
-    .meta-read{font-size:13px;color:var(--muted)}
-
+    .meta-date{font-size:13px;color:var(--muted)}.meta-read{font-size:13px;color:var(--muted)}
     .article-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin:36px 0 14px}
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
     .article-wrap p:last-child{margin-bottom:0}
-
-    /* Pull quote */
     .pull-quote{border-left:4px solid var(--orange);padding:16px 24px;margin:32px 0;background:var(--light-blue);border-radius:0 6px 6px 0}
     .pull-quote p{font-size:17px;font-weight:700;line-height:1.5;color:var(--navy);margin:0;font-style:italic}
-
-    /* Two-plant contrast */
     .contrast-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:32px 0}
     .contrast-card{border-radius:8px;padding:24px 20px}
     .contrast-card.bad{background:#FEF2F2;border-top:4px solid #DC2626}
@@ -112,22 +96,16 @@
     .contrast-card.good h3{color:#166534}
     .contrast-card p{font-size:13px;line-height:1.6;margin-bottom:10px;color:var(--body-text)}
     .contrast-card p:last-child{margin-bottom:0}
-
-    /* Outcome list */
     .outcome-list{margin:24px 0;padding:0}
     .outcome-list li{list-style:none;padding:10px 0 10px 28px;border-bottom:1px solid var(--border-light);font-size:14px;line-height:1.6;position:relative}
     .outcome-list li:last-child{border-bottom:none}
     .outcome-list li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
     .outcome-list.bad li::before{content:'✗';color:#DC2626}
-
-    /* Inline CTA */
     .inline-cta{background:var(--navy-dark);border-radius:8px;padding:28px 32px;margin:40px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
     .inline-cta-text h3{font-size:17px;font-weight:700;color:var(--white);margin-bottom:6px}
     .inline-cta-text p{font-size:13px;color:var(--mid-blue);line-height:1.55;margin:0}
     .inline-cta-btn{display:inline-block;padding:11px 24px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;white-space:nowrap;transition:background .15s;flex-shrink:0}
     .inline-cta-btn:hover{background:#c4510a}
-
-    /* Next steps */
     .next-steps{padding:48px var(--page-pad) 52px;background:var(--light-grey);border-top:1px solid var(--border-light)}
     .next-steps-inner{max-width:var(--max-width);margin:0 auto}
     .next-steps h2{font-size:20px;font-weight:700;color:var(--body-text);margin-bottom:20px}
@@ -142,8 +120,6 @@
     .ns-card:hover .ns-card-link{color:var(--orange)}
     .ns-phone{margin-top:20px;font-size:13px;color:var(--muted);text-align:center}
     .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
-
-    /* CTA section */
     .cta-section{background:var(--navy);padding:52px var(--page-pad);position:relative;overflow:hidden}
     .cta-section::before{content:'';position:absolute;inset:0;background:url('/images/shutterstock_1497086771.jpg') right center / auto 100% no-repeat;opacity:.18;z-index:0}
     .cta-section-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1;text-align:center}
@@ -154,8 +130,6 @@
     .cta-primary:hover{background:#c4510a}
     .cta-secondary{font-size:14px;color:var(--mid-blue);text-decoration:none;font-weight:500}
     .cta-secondary:hover{color:var(--white);text-decoration:underline}
-
-    /* Engage band */
     .engage-band{background:var(--navy-dark);padding:40px var(--page-pad)}
     .engage-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
     .engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
@@ -167,368 +141,111 @@
     .engage-nl-input{flex:1;min-width:180px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
     .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
     .engage-nl-input:focus{border-color:var(--mid-blue)}
-    .engage-nl-btn{padding:10px 18px;background:var(--navy);color:#fff;border:1.5px solid rgba(255,255,255,.3);border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s,border-color .15s;white-space:nowrap}
-    .engage-nl-btn:hover{background:var(--mid-blue);border-color:var(--mid-blue);color:var(--navy)}
+    .engage-nl-btn{padding:10px 18px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
+    .engage-nl-btn:hover{background:#c4510a}
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
     .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
-
-    /* Footer */
     .site-footer{background:#F4F4F4;padding:32px var(--page-pad) 20px;border-top:1px solid var(--border-med)}
     .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#555}
     .footer-inner a{color:#555;text-decoration:none}
     .footer-inner a:hover{color:var(--navy)}
     .footer-logo{font-weight:700;color:var(--navy)}
     .footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
-
-    /* Listen button */
-    .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--navy);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
-    .listen-btn:hover{background:#174067}
+    .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
+    .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
-
-    /* Responsive */
-    @media(max-width:640px){
-      .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
-      .hero{padding:32px 20px 36px}.hero h1{font-size:22px}
-      .article-wrap{padding:32px 20px 40px}
-      .contrast-grid{grid-template-columns:1fr}
-      .ns-cards{grid-template-columns:1fr}
-      .inline-cta{flex-direction:column;align-items:flex-start}
-      .engage-inner{grid-template-columns:1fr}
-      .engage-band{padding:32px 20px}
-      .footer-inner{flex-direction:column;text-align:center}
-      .footer-links-row{justify-content:center}
-      .cta-section{padding:36px 20px}
-      .next-steps{padding:36px 20px 40px}
-    }
+    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.contrast-grid{grid-template-columns:1fr}.ns-cards{grid-template-columns:1fr}.inline-cta{flex-direction:column;align-items:flex-start}.engage-inner{grid-template-columns:1fr}.engage-band{padding:32px 20px}.footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}.cta-section{padding:36px 20px}.next-steps{padding:36px 20px 40px}}
   </style>
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "Management By Walking Around: A Tale of Two Plants",
-    "description": "Two plants. Two leadership styles. One thriving, one struggling. A firsthand look at why management presence on the floor changes everything in shift operations.",
-    "url": "https://shift-work.com/resources/management-by-walking-around/",
-    "datePublished": "2026-04-04",
-    "dateModified": "2026-04-04",
-    "author": {"@type": "Organization", "name": "Shiftwork Solutions LLC"},
-    "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"},
-    "keywords": "management by walking around manufacturing, MBWA plant floor leadership, employee engagement manufacturing, shift worker retention, frontline leadership 24/7 operations"
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem","position": 1,"name": "Home","item": "https://shift-work.com/"},
-      {"@type": "ListItem","position": 2,"name": "Resources","item": "https://shift-work.com/resources/"},
-      {"@type": "ListItem","position": 3,"name": "Management By Walking Around","item": "https://shift-work.com/resources/management-by-walking-around/"}
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Shiftwork Solutions LLC",
-    "url": "https://shift-work.com",
-    "telephone": "+14152651621",
-    "email": "Contact@shift-work.com",
-    "address": {"@type": "PostalAddress","addressLocality": "San Rafael","addressRegion": "CA","addressCountry": "US"}
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Management By Walking Around: A Tale of Two Plants","description":"Two plants. Two leadership styles. One thriving, one struggling. A firsthand look at why management presence on the floor changes everything in shift operations.","url":"https://shift-work.com/resources/management-by-walking-around/","datePublished":"2026-04-04","dateModified":"2026-04-05","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"management by walking around manufacturing, MBWA plant floor leadership, employee engagement manufacturing, shift worker retention, frontline leadership 24/7 operations"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Management By Walking Around","item":"https://shift-work.com/resources/management-by-walking-around/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}</script>
 </head>
 <body>
 
-<!-- ── NAV ── -->
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36"></a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
-    <li><a href="/services/">Our Services <span class="nav-arrow">▾</span></a>
-      <div class="nav-dropdown">
-        <a href="/services/">Service Overview</a>
-        <a href="/services/#schedule-design">Schedule Design</a>
-        <a href="/services/#workforce-engagement">Workforce Engagement</a>
-        <a href="/services/#implementation">Implementation Support</a>
-      </div>
-    </li>
-    <li><a href="/resources/" class="nav-active">Resources <span class="nav-arrow">▾</span></a>
-      <div class="nav-dropdown">
-        <div class="dropdown-label">Complete Guides</div>
-        <a href="/resources/shift-schedule-design-guide/">Shift Schedule Design</a>
-        <a href="/resources/shift-schedule-patterns-guide/">Schedule Patterns &amp; Examples</a>
-        <a href="/resources/equipment-utilization-shift-scheduling/">Equipment Utilization</a>
-        <a href="/resources/managing-variable-workloads/">Managing Variable Workloads</a>
-        <a href="/resources/overtime-management-guide/">Overtime Management</a>
-        <a href="/resources/schedule-change-management/">Schedule Change Management</a>
-        <a href="/resources/employee-engagement-shift-work/">Employee Engagement</a>
-        <a href="/resources/shift-work-best-practices/">Operational Best Practices</a>
-        <a href="/resources/absenteeism-relief-coverage-management/">Absenteeism &amp; Coverage</a>
-        <a href="/resources/shift-work-policies-guide/">Shift Work Policies</a>
-        <div class="dropdown-divider"></div>
-        <div class="dropdown-label">Featured</div>
-        <a href="/resources/26-warning-signs-schedule-problems/">26 Warning Signs</a>
-        <a href="/resources/shiftwork-assessment/">Free Assessment Tool</a>
-      </div>
-    </li>
-    <li><a href="/industries/">Industries <span class="nav-arrow">▾</span></a>
-      <div class="nav-dropdown">
-        <a href="/industries/manufacturing-assembly-operations/">Manufacturing &amp; Assembly</a>
-        <a href="/industries/distribution-logistics-operations/">Distribution &amp; Logistics</a>
-        <a href="/industries/mining-extraction-industries/">Mining &amp; Extraction</a>
-        <a href="/industries/refining-utilities-operations/">Refining &amp; Utilities</a>
-        <a href="/industries/food-beverage-manufacturing/">Food &amp; Beverage</a>
-        <a href="/industries/chemical-pharmaceutical-operations/">Chemical &amp; Pharmaceutical</a>
-      </div>
-    </li>
-    <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a>
-      <div class="nav-dropdown">
-        <a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a>
-        <a href="/why-shiftwork-solutions/#team">Meet Our Experts</a>
-        <a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a>
-      </div>
-    </li>
+    <li><a href="/services/">Our Services</a></li>
+    <li><a href="/resources/">Resources</a></li>
+    <li><a href="/industries/">Industries <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/industries/manufacturing-assembly-operations/">Manufacturing &amp; Assembly</a><a href="/industries/distribution-logistics-operations/">Distribution &amp; Logistics</a><a href="/industries/mining-extraction-industries/">Mining &amp; Extraction</a><a href="/industries/refining-utilities-operations/">Refining &amp; Utilities</a><a href="/industries/food-beverage-manufacturing/">Food &amp; Beverage</a><a href="/industries/chemical-pharmaceutical-operations/">Chemical &amp; Pharmaceutical</a></div></li>
+    <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a><a href="/our_team/">Meet Our Team</a><a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a></div></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
-  <div class="nav-cta-wrap">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a>
-  </div>
+  <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
 </div></nav>
 
-<!-- ── HERO ── -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow">Trending Topics</div>
-    <h1>Management By Walking Around: A Tale of Two Plants</h1>
-    <p class="hero-subtitle">Two plants. Two leadership styles. One thriving, one struggling.</p>
-    <span class="hero-tag">Leadership</span>
-  </div>
-</section>
+<section class="hero"><div class="hero-inner">
+  <div class="hero-eyebrow">Trending Topics</div>
+  <h1>Management By Walking Around: A Tale of Two Plants</h1>
+  <p class="hero-subtitle">Two plants. Two leadership styles. One thriving, one struggling.</p>
+  <span class="hero-tag">Leadership</span>
+</div></section>
 
-<!-- ── BREADCRUMB ── -->
-<div class="breadcrumb-bar"><div class="breadcrumb-inner">
-  <a href="/">Home</a><span>›</span>
-  <a href="/resources/">Resources</a><span>›</span>
-  Management By Walking Around
-</div></div>
+<div class="breadcrumb-bar"><div class="breadcrumb-inner"><a href="/">Home</a><span>›</span><a href="/resources/">Resources</a><span>›</span>Management By Walking Around</div></div>
 
-<!-- ── ARTICLE ── -->
 <div class="article-wrap">
-
-  <div class="article-meta">
-    <span class="meta-tag">Leadership</span>
-    <span class="meta-date">April 2026</span>
-    <span class="meta-read">4 min read</span>
-  </div>
+  <div class="article-meta"><span class="meta-tag">Leadership</span><span class="meta-date">April 2026</span><span class="meta-read">4 min read</span></div>
 
   <p>A few years ago, I visited a food manufacturing plant where the HR manager's office was tucked away behind a reception area. The door had a glass window — but it had been painted over with an opaque green. Curious, I asked the HR manager about it. He replied: "This way, employees can't see if I'm in. If they know I'm here, they'll come in all day, and I'll never get anything done."</p>
-
   <p>That moment stuck with me.</p>
-
   <p>The consequences were predictable. The plant was dirty. The workforce felt ignored and disconnected. Their concerns went unheard. Attendance was poor, turnover was high, and both performance and quality suffered.</p>
 
   <div class="contrast-grid">
-    <div class="contrast-card bad">
-      <div class="cc-label">Plant A — Disconnected Leadership</div>
-      <h3>The Painted-Over Window</h3>
-      <p>HR manager deliberately hid from employees. The reasoning: "If they know I'm here, they'll come in all day."</p>
-      <ul class="outcome-list bad">
-        <li>Plant was dirty and poorly maintained</li>
-        <li>Workforce felt ignored and disconnected</li>
-        <li>Attendance poor, turnover high</li>
-        <li>Performance and quality suffered</li>
-      </ul>
-    </div>
-    <div class="contrast-card good">
-      <div class="cc-label">Plant B — Visible Leadership</div>
-      <h3>The Plant Manager Who Showed Up</h3>
-      <p>Plant manager led tours personally, knew every employee by name — birthdays, congratulations, genuine interest.</p>
-      <ul class="outcome-list">
-        <li>Plant was immaculate</li>
-        <li>Problems resolved without being asked</li>
-        <li>Employees engaged and communicative</li>
-        <li>Visible pride in the facility and the work</li>
-      </ul>
-    </div>
+    <div class="contrast-card bad"><div class="cc-label">Plant A — Disconnected Leadership</div><h3>The Painted-Over Window</h3><p>HR manager deliberately hid from employees. The reasoning: "If they know I'm here, they'll come in all day."</p><ul class="outcome-list bad"><li>Plant was dirty and poorly maintained</li><li>Workforce felt ignored and disconnected</li><li>Attendance poor, turnover high</li><li>Performance and quality suffered</li></ul></div>
+    <div class="contrast-card good"><div class="cc-label">Plant B — Visible Leadership</div><h3>The Plant Manager Who Showed Up</h3><p>Plant manager led tours personally, knew every employee by name — birthdays, congratulations, genuine interest.</p><ul class="outcome-list"><li>Plant was immaculate</li><li>Problems resolved without being asked</li><li>Employees engaged and communicative</li><li>Visible pride in the facility and the work</li></ul></div>
   </div>
 
   <p>In contrast, I recently toured another food manufacturing facility. The plant manager led the tour himself. He greeted every employee by name — birthday wishes, congratulations, and genuine interest. Occasionally, someone would approach him with a question or just to chat, and he gave them his full attention.</p>
-
   <p>The plant was immaculate. At one point, he noticed a small oil leak from a machine. Without saying a word, a maintenance worker appeared shortly after and addressed it. The manager didn't mention the leak — instead, he asked the technician how his day was going. They chatted briefly, and we moved on. When we passed the same spot later, the leak was gone, and the area was spotless.</p>
 
-  <div class="pull-quote">
-    <p>"People don't just quit jobs — they quit managers. Employees don't want management on the floor because they need to be watched. They want them there because it shows that leadership sees their contributions."</p>
-  </div>
+  <div class="pull-quote"><p>"People don't just quit jobs — they quit managers. Employees don't want management on the floor because they need to be watched. They want them there because it shows that leadership sees their contributions."</p></div>
 
   <p>After visiting plant floors across the country, I've learned that nothing shapes a workplace more than leadership. You can spot it quickly — whether a facility runs on trust and visibility, or silence and detachment. Of all the sites I've walked, these two stand out as lasting lessons in what leadership presence really means.</p>
-
   <p>In today's labor market, where skilled workers are hard to find and harder to keep, it's worth remembering: people don't just quit jobs — they quit managers. Employees don't want management on the floor because they need to be watched. They want them there because it shows that leadership sees their contributions. It shows that they matter.</p>
-
   <p>Management by Walking Around doesn't require a budget or a strategy session. Just the willingness to show up, listen, and engage.</p>
-
   <p>And the best part? It works.</p>
 
-  <div class="inline-cta">
-    <div class="inline-cta-text">
-      <h3>Struggling with workforce engagement on the plant floor?</h3>
-      <p>Our employee engagement process helps leadership reconnect with frontline teams — restoring trust, improving communication, and uncovering the real issues affecting your operation.</p>
-    </div>
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="inline-cta-btn" target="_blank" rel="noopener">Start a Conversation</a>
-  </div>
-
-</div><!-- /article-wrap -->
-
-<!-- ── NEXT STEPS ── -->
-<section class="next-steps">
-  <div class="next-steps-inner">
-    <h2>Next Steps &amp; Resources</h2>
-    <div class="ns-cards">
-      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card" target="_blank" rel="noopener">
-        <div class="ns-card-label">Free Consultation</div>
-        <h3>Talk to a Shiftwork Expert</h3>
-        <p>Explore how an employee engagement process can surface what's really driving turnover, absenteeism, and morale issues in your operation.</p>
-        <span class="ns-card-link">Book a free meeting</span>
-      </a>
-      <a href="/resources/shiftwork-assessment/" class="ns-card">
-        <div class="ns-card-label">Free Assessment</div>
-        <h3>Evaluate Your Current Schedule</h3>
-        <p>Your schedule affects engagement more than most managers realize. See where your current setup stands.</p>
-        <span class="ns-card-link">Take the assessment</span>
-      </a>
-      <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card">
-        <div class="ns-card-label">Diagnostic Tool</div>
-        <h3>26 Warning Signs</h3>
-        <p>Twenty-six operational symptoms that signal your shiftwork system may need attention — many of them tied directly to engagement and retention.</p>
-        <span class="ns-card-link">Read the diagnostic</span>
-      </a>
-    </div>
-    <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
-  </div>
-</section>
-
-<!-- ── CTA SECTION ── -->
-<section class="cta-section">
-  <div class="cta-section-inner">
-    <h2>Leadership presence is free. The cost of its absence isn't.</h2>
-    <p>Workforce engagement, retention, and morale are directly shaped by how visible and accessible leadership is on the floor. The first conversation about changing that is free.</p>
-    <div class="cta-actions">
-      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="cta-primary" target="_blank" rel="noopener">Book a Free Consultation</a>
-      <a href="/resources/employee-engagement-shift-work/" class="cta-secondary">Read the Engagement Guide →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── ENGAGE BAND ── -->
-<div class="engage-band">
-  <div class="engage-inner">
-    <div class="engage-thomas">
-      <div class="engage-label">AI Advisor</div>
-      <div class="engage-thomas-title">Talk to Thomas</div>
-      <p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
-      <a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
-    </div>
-    <div class="engage-nl">
-      <div class="engage-label">Newsletter</div>
-      <div class="engage-nl-title">Stay Sharp on Shift Operations</div>
-      <p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
-      <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
-        <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
-        <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
-      </form>
-      <div class="engage-nl-msg" id="engageNLMsg"></div>
-    </div>
-  </div>
+  <div class="inline-cta"><div class="inline-cta-text"><h3>Struggling with workforce engagement on the plant floor?</h3><p>Our employee engagement process helps leadership reconnect with frontline teams — restoring trust, improving communication, and uncovering the real issues affecting your operation.</p></div><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="inline-cta-btn" target="_blank" rel="noopener">Start a Conversation</a></div>
 </div>
 
-<!-- ── FOOTER ── -->
-<footer class="site-footer"><div class="footer-inner">
-  <span class="footer-logo">Shiftwork Solutions LLC</span>
-  <span>(415) 265-1621</span>
-  <span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></span>
-  <div class="footer-links-row">
-    <a href="/resources/">Resources</a>
-    <a href="/industries/">Industries</a>
-    <a href="/services/">Services</a>
-    <a href="/contact/">Contact</a>
+<section class="next-steps"><div class="next-steps-inner">
+  <h2>Next Steps &amp; Resources</h2>
+  <div class="ns-cards">
+    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card" target="_blank" rel="noopener"><div class="ns-card-label">Free Consultation</div><h3>Talk to a Shiftwork Expert</h3><p>Explore how an employee engagement process can surface what's really driving turnover, absenteeism, and morale issues in your operation.</p><span class="ns-card-link">Book a free meeting</span></a>
+    <a href="/resources/shiftwork-assessment/" class="ns-card"><div class="ns-card-label">Free Assessment</div><h3>Evaluate Your Current Schedule</h3><p>Your schedule affects engagement more than most managers realize. See where your current setup stands.</p><span class="ns-card-link">Take the assessment</span></a>
+    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card"><div class="ns-card-label">Diagnostic Tool</div><h3>26 Warning Signs</h3><p>Twenty-six operational symptoms that signal your shiftwork system may need attention — many of them tied directly to engagement and retention.</p><span class="ns-card-link">Read the diagnostic</span></a>
   </div>
+  <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
+</div></section>
+
+<section class="cta-section"><div class="cta-section-inner">
+  <h2>Leadership presence is free. The cost of its absence isn't.</h2>
+  <p>Workforce engagement, retention, and morale are directly shaped by how visible and accessible leadership is on the floor. The first conversation about changing that is free.</p>
+  <div class="cta-actions"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="cta-primary" target="_blank" rel="noopener">Book a Free Consultation</a><a href="/resources/employee-engagement-shift-work/" class="cta-secondary">Read the Engagement Guide →</a></div>
+</div></section>
+
+<div class="engage-band"><div class="engage-inner">
+  <div class="engage-thomas"><div class="engage-label">AI Advisor</div><div class="engage-thomas-title">Talk to Thomas</div><p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p><a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a></div>
+  <div class="engage-nl"><div class="engage-label">Newsletter</div><div class="engage-nl-title">Stay Sharp on Shift Operations</div><p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
+</div></div>
+
+<footer class="site-footer"><div class="footer-inner">
+  <span class="footer-logo">Shiftwork Solutions LLC</span><span>(415) 265-1621</span><span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></span>
+  <div class="footer-links-row"><a href="/resources/">Resources</a><a href="/industries/">Industries</a><a href="/services/">Services</a><a href="/contact/">Contact</a></div>
   <span>&copy; 2026 Shiftwork Solutions LLC</span>
 </div></footer>
 
-<!-- ── LISTEN BUTTON ── -->
-<button class="listen-btn" id="listenBtn" aria-label="Listen to this article">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
-  <span id="listenLabel">Listen</span>
-</button>
+<button class="listen-btn" id="listenBtn" aria-label="Listen to this article"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg><span id="listenLabel">Listen</span></button>
 
-<!-- ── SCRIPTS ── -->
 <script>
-  document.getElementById('mobileToggle').addEventListener('click', function () {
-    var n = document.getElementById('navLinks');
-    var open = n.style.display === 'flex';
-    if (open) {
-      n.style.display = 'none';
-    } else {
-      n.style.display = 'flex'; n.style.flexDirection = 'column';
-      n.style.position = 'absolute'; n.style.top = '56px';
-      n.style.left = '0'; n.style.right = '0'; n.style.background = '#fff';
-      n.style.borderBottom = '1px solid #e0e0e0'; n.style.padding = '8px 0';
-      n.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)'; n.style.zIndex = '99';
-    }
-  });
-  (function () {
-    var SWARM = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
-    window.engageNLSubmit = function (e) {
-      e.preventDefault();
-      var btn = document.getElementById('engageNLBtn');
-      var msg = document.getElementById('engageNLMsg');
-      var email = document.getElementById('engageNLEmail').value.trim();
-      if (!email) return;
-      btn.disabled = true; btn.textContent = 'Subscribing...';
-      fetch(SWARM, { method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email, source: 'website-inline-engage' }) })
-      .then(function (r) { return r.json(); })
-      .then(function (d) {
-        if (d.success) {
-          msg.className = 'engage-nl-msg ok'; msg.textContent = '\u2713 Subscribed. Thank you.';
-          document.getElementById('engageNLEmail').value = ''; btn.textContent = 'Subscribed \u2713';
-        } else { throw new Error(d.error || 'Failed'); }
-      })
-      .catch(function (err) {
-        msg.className = 'engage-nl-msg err';
-        msg.textContent = err.message === 'This email is already subscribed.' ? 'Already subscribed \u2014 thank you!' : 'Something went wrong. Try again.';
-        btn.disabled = false; btn.textContent = 'Subscribe \u2192';
-      });
-    };
-  })();
-  (function () {
-    var btn = document.getElementById('listenBtn'); var label = document.getElementById('listenLabel');
-    var speaking = false; var paused = false;
-    function getArticleText() {
-      var wrap = document.querySelector('.article-wrap'); if (!wrap) return '';
-      var els = wrap.querySelectorAll('p, h2'); var parts = [];
-      els.forEach(function (el) { parts.push(el.textContent.trim()); }); return parts.join(' ');
-    }
-    if (!window.speechSynthesis) { btn.style.display = 'none'; return; }
-    btn.addEventListener('click', function () {
-      if (speaking && !paused) { window.speechSynthesis.pause(); paused = true; label.textContent = 'Resume'; }
-      else if (paused) { window.speechSynthesis.resume(); paused = false; label.textContent = 'Pause'; }
-      else {
-        window.speechSynthesis.cancel();
-        var utt = new SpeechSynthesisUtterance(getArticleText()); utt.rate = 0.95;
-        utt.onstart = function () { speaking = true; paused = false; label.textContent = 'Pause'; };
-        utt.onend = function () { speaking = false; paused = false; label.textContent = 'Listen'; };
-        utt.onerror = function () { speaking = false; paused = false; label.textContent = 'Listen'; };
-        window.speechSynthesis.speak(utt);
-      }
-    });
-  })();
+  document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none'}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99'}});
+  (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json()}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713'}else{throw new Error(d.error||'Failed')}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192'})}})();
+  (function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p, h2');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim())});return parts.join(' ')}if(!window.speechSynthesis){btn.style.display='none';return}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume'}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause'}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause'};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen'};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen'};window.speechSynthesis.speak(utt)}})})();
 </script>
-
 </body>
 </html>
 <!-- I did no harm and this file is not truncated -->
