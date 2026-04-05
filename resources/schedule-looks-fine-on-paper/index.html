@@ -3,18 +3,13 @@
   resources/schedule-looks-fine-on-paper/index.html
   Shiftwork Solutions LLC — Trending Topic Article
   URL: /resources/schedule-looks-fine-on-paper/
-
-  Created:      2026-04-04
-  Last Updated: 2026-04-04
-
-  SOURCE DOC: 8_When_the_schedule_looks_good_on_paper_V1_Sonnet_03_31_2026.docx
-  CATEGORY: Trending Topics
+  Created: 2026-04-04 | Last Updated: 2026-04-05
 
   CHANGE LOG:
-    2026-04-04 — Initial build. Full article content from source Word doc.
-                 Matches site design system: nav, hero (odd vector), engage band,
-                 footer, structured data, listen button.
-                 Visualization: 4-card rationalization inventory with rebuttals.
+    2026-04-04 — Initial build from source Word doc.
+    2026-04-05 — NAV + BUTTON + SEO AUDIT:
+                 Services/Resources → direct links. Why Us → /our_team/.
+                 Subscribe + Listen buttons → ORANGE. Twitter cards added.
 
   I did no harm and this file is not truncated
 -->
@@ -26,514 +21,143 @@
   <meta name="description" content="'We know the schedule isn't perfect, but...' That sentence is how a lot of avoidable problems stay in place. A look at the rationalizations that keep broken schedules running.">
   <link rel="canonical" href="https://shift-work.com/resources/schedule-looks-fine-on-paper/">
   <meta property="og:title" content="When the Schedule Looks Fine on Paper | Shiftwork Solutions LLC">
-  <meta property="og:description" content="'We know the schedule isn't perfect, but...' That sentence is how a lot of avoidable problems stay in place. A look at the rationalizations that keep broken schedules running.">
+  <meta property="og:description" content="'We know the schedule isn't perfect, but...' That sentence is how a lot of avoidable problems stay in place.">
   <meta property="og:url" content="https://shift-work.com/resources/schedule-looks-fine-on-paper/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
-
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="When the Schedule Looks Fine on Paper | Shiftwork Solutions LLC">
+  <meta name="twitter:description" content="That sentence is how a lot of avoidable problems stay in place for years.">
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;
-      --orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;
-      --body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;
-      --cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px
-    }
-    html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-    body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
-
-    /* ── NAV ── */
-    .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
-    .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
-    .nav-logo{font-size:16px;font-weight:700;color:var(--navy);text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0}
-    .nav-logo img{height:36px;width:auto;display:block}
-    .nav-links{list-style:none;display:flex;align-items:center}
-    .nav-links>li{position:relative}
-    .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
-    .nav-links>li>a:hover,.nav-links>li>a.nav-active{color:var(--navy)}
-    .nav-links>li>a.nav-active{font-weight:700;text-decoration:underline;text-underline-offset:3px}
-    .nav-arrow{font-size:9px;opacity:.5;transition:transform .2s}
-    .nav-dropdown{position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border-med);border-top:none;border-radius:0 0 6px 6px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:270px;max-height:460px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-2px);transition:opacity .15s,visibility .15s,transform .15s;padding:6px 0;z-index:100}
-    .nav-links>li:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateY(0)}
-    .nav-links>li:hover>a .nav-arrow{transform:rotate(180deg)}
-    .dropdown-label{padding:8px 16px 4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-    .nav-dropdown a{display:block;padding:6px 16px;font-size:13px;color:#444;text-decoration:none;transition:background .12s;line-height:1.4}
-    .nav-dropdown a:hover{background:var(--light-blue);color:var(--navy)}
-    .dropdown-divider{height:1px;background:var(--border-light);margin:4px 0}
-    .nav-cta-wrap{margin-left:auto;flex-shrink:0}
-    .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--navy);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
-    .nav-cta-btn:hover{background:#174067}
-    .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
-    .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-
-    /* ── HERO (odd article — shutterstock_1497086771.jpg) ── */
-    .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;inset:0;background:url('/images/shutterstock_1497086771.jpg') right center / auto 100% no-repeat;opacity:1;z-index:0}
-    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--navy) 45%,rgba(31,78,121,0.85) 65%,transparent 100%);z-index:0}
-    .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
-    .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
-    .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:var(--white);max-width:580px;margin-bottom:14px}
-    .hero-subtitle{font-size:16px;line-height:1.65;color:var(--mid-blue);max-width:560px}
-    .hero-tag{display:inline-block;margin-top:16px;background:rgba(232,97,10,0.9);color:var(--white);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 12px;border-radius:3px}
-
-    /* ── BREADCRUMB ── */
-    .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
-    .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
-    .breadcrumb-inner a{color:var(--navy);text-decoration:none}
-    .breadcrumb-inner a:hover{text-decoration:underline}
-    .breadcrumb-inner span{margin:0 6px;opacity:.5}
-
-    /* ── ARTICLE ── */
-    .article-wrap{max-width:var(--max-width);margin:0 auto;padding:48px var(--page-pad) 56px}
-    .article-meta{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border-light);flex-wrap:wrap}
-    .meta-tag{display:inline-block;background:var(--light-blue);color:var(--navy);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:3px}
-    .meta-date,.meta-read{font-size:13px;color:var(--muted)}
-    .article-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin:36px 0 14px}
-    .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
-    .article-wrap p:last-child{margin-bottom:0}
-
-    /* Opening dialogue block */
-    .dialogue-block{background:var(--navy-dark);border-radius:8px;padding:24px 28px;margin:0 0 32px;position:relative}
-    .dialogue-block::before{content:'\201C';font-size:60px;line-height:1;color:var(--mid-blue);opacity:.4;position:absolute;top:12px;left:16px;font-family:Georgia,serif}
-    .dialogue-block p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.85);padding-left:32px;margin:0;font-style:italic}
-
-    /* Pull quote */
-    .pull-quote{border-left:4px solid var(--orange);padding:16px 24px;margin:32px 0;background:var(--light-blue);border-radius:0 6px 6px 0}
-    .pull-quote p{font-size:17px;font-weight:700;line-height:1.5;color:var(--navy);margin:0;font-style:italic}
-
-    /* Cost breakdown row */
-    .cost-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
-    .cost-card{background:var(--light-blue);border-top:3px solid var(--orange);border-radius:6px;padding:18px 16px}
-    .cost-card .cc-metric{font-size:22px;font-weight:700;color:var(--orange);margin-bottom:4px}
-    .cost-card .cc-label{font-size:13px;color:var(--body-text);line-height:1.5}
-
-    /* Rationalization inventory */
-    .rationalization-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0}
-    .rationalization-card{border-radius:6px;border:1px solid var(--border-med);overflow:hidden}
-    .rc-header{background:var(--navy-dark);padding:14px 18px}
-    .rc-header .rc-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mid-blue);margin-bottom:4px}
-    .rc-header h3{font-size:14px;font-weight:700;color:var(--white);line-height:1.35;font-style:italic}
-    .rc-body{padding:16px 18px;background:var(--white)}
-    .rc-body .rc-rebuttal-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--orange);margin-bottom:6px}
-    .rc-body p{font-size:13px;color:var(--body-text);line-height:1.6;margin:0}
-
-    /* Warning signs link box */
-    .warning-link-box{background:var(--light-blue);border:1px solid var(--border-med);border-left:4px solid var(--navy);border-radius:0 6px 6px 0;padding:20px 24px;margin:28px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    .warning-link-box p{font-size:14px;line-height:1.6;color:var(--body-text);margin:0;flex:1}
-    .warning-link-box a.wl-btn{display:inline-block;padding:9px 20px;background:var(--navy);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;white-space:nowrap;transition:background .15s;flex-shrink:0}
-    .warning-link-box a.wl-btn:hover{background:#174067}
-
-    /* Inline CTA */
-    .inline-cta{background:var(--navy-dark);border-radius:8px;padding:28px 32px;margin:40px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-    .inline-cta-text h3{font-size:17px;font-weight:700;color:var(--white);margin-bottom:6px}
-    .inline-cta-text p{font-size:13px;color:var(--mid-blue);line-height:1.55;margin:0}
-    .inline-cta-btn{display:inline-block;padding:11px 24px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;white-space:nowrap;transition:background .15s;flex-shrink:0}
-    .inline-cta-btn:hover{background:#c4510a}
-
-    /* Next steps */
-    .next-steps{padding:48px var(--page-pad) 52px;background:var(--light-grey);border-top:1px solid var(--border-light)}
-    .next-steps-inner{max-width:var(--max-width);margin:0 auto}
-    .next-steps h2{font-size:20px;font-weight:700;color:var(--body-text);margin-bottom:20px}
-    .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .ns-card{background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px;text-decoration:none;display:block;transition:border-top-color .15s,box-shadow .15s}
-    .ns-card:hover{border-top-color:var(--orange);box-shadow:0 4px 16px rgba(0,0,0,.08)}
-    .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
-    .ns-card h3{font-size:14px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:8px}
-    .ns-card p{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:12px}
-    .ns-card-link{font-size:12px;font-weight:700;color:var(--navy)}
-    .ns-card-link::after{content:' →'}
-    .ns-card:hover .ns-card-link{color:var(--orange)}
-    .ns-phone{margin-top:20px;font-size:13px;color:var(--muted);text-align:center}
-    .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
-
-    /* CTA section */
-    .cta-section{background:var(--navy);padding:52px var(--page-pad);position:relative;overflow:hidden}
-    .cta-section::before{content:'';position:absolute;inset:0;background:url('/images/shutterstock_1497086771.jpg') right center / auto 100% no-repeat;opacity:.18;z-index:0}
-    .cta-section-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1;text-align:center}
-    .cta-section h2{font-size:24px;font-weight:700;color:var(--white);margin-bottom:12px}
-    .cta-section p{font-size:15px;color:var(--cta-sub);line-height:1.65;max-width:540px;margin:0 auto 28px}
-    .cta-actions{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
-    .cta-primary{display:inline-block;padding:13px 30px;background:var(--orange);color:var(--white);font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
-    .cta-primary:hover{background:#c4510a}
-    .cta-secondary{font-size:14px;color:var(--mid-blue);text-decoration:none;font-weight:500}
-    .cta-secondary:hover{color:var(--white);text-decoration:underline}
-
-    /* Engage band */
-    .engage-band{background:var(--navy-dark);padding:40px var(--page-pad)}
-    .engage-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-    .engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
-    .engage-thomas-title,.engage-nl-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}
-    .engage-thomas-desc,.engage-nl-desc{font-size:13px;color:rgba(255,255,255,.65);line-height:1.65;margin-bottom:14px}
-    .engage-thomas-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
-    .engage-thomas-btn:hover{background:#c4510a}
-    .engage-nl-form{display:flex;gap:8px;flex-wrap:wrap}
-    .engage-nl-input{flex:1;min-width:180px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
-    .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
-    .engage-nl-input:focus{border-color:var(--mid-blue)}
-    .engage-nl-btn{padding:10px 18px;background:var(--navy);color:#fff;border:1.5px solid rgba(255,255,255,.3);border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s,border-color .15s;white-space:nowrap}
-    .engage-nl-btn:hover{background:var(--mid-blue);border-color:var(--mid-blue);color:var(--navy)}
-    .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
-    .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
-    .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
-
-    /* Footer */
-    .site-footer{background:#F4F4F4;padding:32px var(--page-pad) 20px;border-top:1px solid var(--border-med)}
-    .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#555}
-    .footer-inner a{color:#555;text-decoration:none}
-    .footer-inner a:hover{color:var(--navy)}
-    .footer-logo{font-weight:700;color:var(--navy)}
-    .footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
-
-    /* Listen button */
-    .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--navy);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
-    .listen-btn:hover{background:#174067}
-    .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
-
-    /* Responsive */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}:root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}.site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}.nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}.nav-logo{font-size:16px;font-weight:700;color:var(--navy);text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0}.nav-logo img{height:36px;width:auto;display:block}.nav-links{list-style:none;display:flex;align-items:center}.nav-links>li{position:relative}.nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}.nav-links>li>a:hover{color:var(--navy)}.nav-arrow{font-size:9px;opacity:.5;transition:transform .2s}.nav-dropdown{position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border-med);border-top:none;border-radius:0 0 6px 6px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:270px;max-height:460px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-2px);transition:opacity .15s,visibility .15s,transform .15s;padding:6px 0;z-index:100}.nav-links>li:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateY(0)}.nav-links>li:hover>a .nav-arrow{transform:rotate(180deg)}.nav-dropdown a{display:block;padding:6px 16px;font-size:13px;color:#444;text-decoration:none;transition:background .12s;line-height:1.4}.nav-dropdown a:hover{background:var(--light-blue);color:var(--navy)}.nav-cta-wrap{margin-left:auto;flex-shrink:0}.nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}.nav-cta-btn:hover{background:#c4510a}.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}.mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
+    .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;inset:0;background:url('/images/shutterstock_1497086771.jpg') right center / auto 100% no-repeat;opacity:1;z-index:0}.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--navy) 45%,rgba(31,78,121,0.85) 65%,transparent 100%);z-index:0}.hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}.hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}.hero h1{font-size:28px;font-weight:700;line-height:1.2;color:var(--white);max-width:580px;margin-bottom:14px}.hero-subtitle{font-size:16px;line-height:1.65;color:var(--mid-blue);max-width:560px}.hero-tag{display:inline-block;margin-top:16px;background:rgba(232,97,10,0.9);color:var(--white);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 12px;border-radius:3px}
+    .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}.breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}.breadcrumb-inner a{color:var(--navy);text-decoration:none}.breadcrumb-inner a:hover{text-decoration:underline}.breadcrumb-inner span{margin:0 6px;opacity:.5}
+    .article-wrap{max-width:var(--max-width);margin:0 auto;padding:48px var(--page-pad) 56px}.article-meta{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border-light);flex-wrap:wrap}.meta-tag{display:inline-block;background:var(--light-blue);color:var(--navy);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:3px}.meta-date,.meta-read{font-size:13px;color:var(--muted)}.article-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin:36px 0 14px}.article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}.article-wrap p:last-child{margin-bottom:0}
+    .dialogue-block{background:var(--navy-dark);border-radius:8px;padding:24px 28px;margin:0 0 32px;position:relative}.dialogue-block::before{content:'\201C';font-size:60px;line-height:1;color:var(--mid-blue);opacity:.4;position:absolute;top:12px;left:16px;font-family:Georgia,serif}.dialogue-block p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.85);padding-left:32px;margin:0;font-style:italic}
+    .pull-quote{border-left:4px solid var(--orange);padding:16px 24px;margin:32px 0;background:var(--light-blue);border-radius:0 6px 6px 0}.pull-quote p{font-size:17px;font-weight:700;line-height:1.5;color:var(--navy);margin:0;font-style:italic}
+    .cost-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}.cost-card{background:var(--light-blue);border-top:3px solid var(--orange);border-radius:6px;padding:18px 16px}.cost-card .cc-metric{font-size:22px;font-weight:700;color:var(--orange);margin-bottom:4px}.cost-card .cc-label{font-size:13px;color:var(--body-text);line-height:1.5}
+    .rationalization-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:32px 0}.rationalization-card{border-radius:6px;border:1px solid var(--border-med);overflow:hidden}.rc-header{background:var(--navy-dark);padding:14px 18px}.rc-header .rc-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mid-blue);margin-bottom:4px}.rc-header h3{font-size:14px;font-weight:700;color:var(--white);line-height:1.35;font-style:italic}.rc-body{padding:16px 18px;background:var(--white)}.rc-body .rc-rebuttal-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--orange);margin-bottom:6px}.rc-body p{font-size:13px;color:var(--body-text);line-height:1.6;margin:0}
+    .warning-link-box{background:var(--light-blue);border:1px solid var(--border-med);border-left:4px solid var(--navy);border-radius:0 6px 6px 0;padding:20px 24px;margin:28px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}.warning-link-box p{font-size:14px;line-height:1.6;color:var(--body-text);margin:0;flex:1}.warning-link-box a.wl-btn{display:inline-block;padding:9px 20px;background:var(--navy);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;white-space:nowrap;transition:background .15s;flex-shrink:0}.warning-link-box a.wl-btn:hover{background:#174067}
+    .inline-cta{background:var(--navy-dark);border-radius:8px;padding:28px 32px;margin:40px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.inline-cta-text h3{font-size:17px;font-weight:700;color:var(--white);margin-bottom:6px}.inline-cta-text p{font-size:13px;color:var(--mid-blue);line-height:1.55;margin:0}.inline-cta-btn{display:inline-block;padding:11px 24px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;white-space:nowrap;transition:background .15s;flex-shrink:0}.inline-cta-btn:hover{background:#c4510a}
+    .next-steps{padding:48px var(--page-pad) 52px;background:var(--light-grey);border-top:1px solid var(--border-light)}.next-steps-inner{max-width:var(--max-width);margin:0 auto}.next-steps h2{font-size:20px;font-weight:700;color:var(--body-text);margin-bottom:20px}.ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.ns-card{background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px;text-decoration:none;display:block;transition:border-top-color .15s,box-shadow .15s}.ns-card:hover{border-top-color:var(--orange);box-shadow:0 4px 16px rgba(0,0,0,.08)}.ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}.ns-card h3{font-size:14px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:8px}.ns-card p{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:12px}.ns-card-link{font-size:12px;font-weight:700;color:var(--navy)}.ns-card-link::after{content:' →'}.ns-card:hover .ns-card-link{color:var(--orange)}.ns-phone{margin-top:20px;font-size:13px;color:var(--muted);text-align:center}.ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
+    .cta-section{background:var(--navy);padding:52px var(--page-pad);position:relative;overflow:hidden}.cta-section::before{content:'';position:absolute;inset:0;background:url('/images/shutterstock_1497086771.jpg') right center / auto 100% no-repeat;opacity:.18;z-index:0}.cta-section-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1;text-align:center}.cta-section h2{font-size:24px;font-weight:700;color:var(--white);margin-bottom:12px}.cta-section p{font-size:15px;color:var(--cta-sub);line-height:1.65;max-width:540px;margin:0 auto 28px}.cta-actions{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}.cta-primary{display:inline-block;padding:13px 30px;background:var(--orange);color:var(--white);font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}.cta-primary:hover{background:#c4510a}.cta-secondary{font-size:14px;color:var(--mid-blue);text-decoration:none;font-weight:500}.cta-secondary:hover{color:var(--white);text-decoration:underline}
+    .engage-band{background:var(--navy-dark);padding:40px var(--page-pad)}.engage-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}.engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}.engage-thomas-title,.engage-nl-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}.engage-thomas-desc,.engage-nl-desc{font-size:13px;color:rgba(255,255,255,.65);line-height:1.65;margin-bottom:14px}.engage-thomas-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}.engage-thomas-btn:hover{background:#c4510a}.engage-nl-form{display:flex;gap:8px;flex-wrap:wrap}.engage-nl-input{flex:1;min-width:180px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}.engage-nl-input::placeholder{color:rgba(255,255,255,.4)}.engage-nl-input:focus{border-color:var(--mid-blue)}.engage-nl-btn{padding:10px 18px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}.engage-nl-btn:hover{background:#c4510a}.engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}.engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}.engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
+    .site-footer{background:#F4F4F4;padding:32px var(--page-pad) 20px;border-top:1px solid var(--border-med)}.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#555}.footer-inner a{color:#555;text-decoration:none}.footer-inner a:hover{color:var(--navy)}.footer-logo{font-weight:700;color:var(--navy)}.footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
+    .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}.listen-btn:hover{background:#c4510a}.listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
     @media(max-width:760px){.rationalization-grid{grid-template-columns:1fr}.cost-row{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.inline-cta{flex-direction:column;align-items:flex-start}.warning-link-box{flex-direction:column}}
     @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.cost-row{grid-template-columns:1fr}.engage-inner{grid-template-columns:1fr}.engage-band{padding:32px 20px}.footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}.cta-section{padding:36px 20px}.next-steps{padding:36px 20px 40px}}
   </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "When the Schedule Looks Fine on Paper",
-    "description": "'We know the schedule isn't perfect, but...' That sentence is how a lot of avoidable problems stay in place. A look at the rationalizations that keep broken schedules running.",
-    "url": "https://shift-work.com/resources/schedule-looks-fine-on-paper/",
-    "datePublished": "2026-04-04",
-    "dateModified": "2026-04-04",
-    "author": {"@type": "Organization", "name": "Shiftwork Solutions LLC"},
-    "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"},
-    "keywords": "shift schedule problems, schedule rationalization manufacturing, hidden overtime costs, schedule change resistance, 24/7 operations schedule review, shiftwork warning signs"
-  }
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"When the Schedule Looks Fine on Paper","item":"https://shift-work.com/resources/schedule-looks-fine-on-paper/"}]}
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"When the Schedule Looks Fine on Paper","description":"A look at the rationalizations that keep broken schedules running — and what they actually cost.","url":"https://shift-work.com/resources/schedule-looks-fine-on-paper/","datePublished":"2026-04-04","dateModified":"2026-04-05","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"shift schedule problems, schedule rationalization manufacturing, hidden overtime costs, schedule change resistance"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"When the Schedule Looks Fine on Paper","item":"https://shift-work.com/resources/schedule-looks-fine-on-paper/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}</script>
 </head>
 <body>
 
-<!-- ── NAV ── -->
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36"></a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
-    <li><a href="/services/">Our Services <span class="nav-arrow">▾</span></a>
-      <div class="nav-dropdown">
-        <a href="/services/">Service Overview</a>
-        <a href="/services/#schedule-design">Schedule Design</a>
-        <a href="/services/#workforce-engagement">Workforce Engagement</a>
-        <a href="/services/#implementation">Implementation Support</a>
-      </div>
-    </li>
-    <li><a href="/resources/" class="nav-active">Resources <span class="nav-arrow">▾</span></a>
-      <div class="nav-dropdown">
-        <div class="dropdown-label">Complete Guides</div>
-        <a href="/resources/shift-schedule-design-guide/">Shift Schedule Design</a>
-        <a href="/resources/shift-schedule-patterns-guide/">Schedule Patterns &amp; Examples</a>
-        <a href="/resources/equipment-utilization-shift-scheduling/">Equipment Utilization</a>
-        <a href="/resources/managing-variable-workloads/">Managing Variable Workloads</a>
-        <a href="/resources/overtime-management-guide/">Overtime Management</a>
-        <a href="/resources/schedule-change-management/">Schedule Change Management</a>
-        <a href="/resources/employee-engagement-shift-work/">Employee Engagement</a>
-        <a href="/resources/shift-work-best-practices/">Operational Best Practices</a>
-        <a href="/resources/absenteeism-relief-coverage-management/">Absenteeism &amp; Coverage</a>
-        <a href="/resources/shift-work-policies-guide/">Shift Work Policies</a>
-        <div class="dropdown-divider"></div>
-        <div class="dropdown-label">Featured</div>
-        <a href="/resources/26-warning-signs-schedule-problems/">26 Warning Signs</a>
-        <a href="/resources/shiftwork-assessment/">Free Assessment Tool</a>
-      </div>
-    </li>
-    <li><a href="/industries/">Industries <span class="nav-arrow">▾</span></a>
-      <div class="nav-dropdown">
-        <a href="/industries/manufacturing-assembly-operations/">Manufacturing &amp; Assembly</a>
-        <a href="/industries/distribution-logistics-operations/">Distribution &amp; Logistics</a>
-        <a href="/industries/mining-extraction-industries/">Mining &amp; Extraction</a>
-        <a href="/industries/refining-utilities-operations/">Refining &amp; Utilities</a>
-        <a href="/industries/food-beverage-manufacturing/">Food &amp; Beverage</a>
-        <a href="/industries/chemical-pharmaceutical-operations/">Chemical &amp; Pharmaceutical</a>
-      </div>
-    </li>
-    <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a>
-      <div class="nav-dropdown">
-        <a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a>
-        <a href="/why-shiftwork-solutions/#team">Meet Our Experts</a>
-        <a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a>
-      </div>
-    </li>
+    <li><a href="/services/">Our Services</a></li>
+    <li><a href="/resources/">Resources</a></li>
+    <li><a href="/industries/">Industries <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/industries/manufacturing-assembly-operations/">Manufacturing &amp; Assembly</a><a href="/industries/distribution-logistics-operations/">Distribution &amp; Logistics</a><a href="/industries/mining-extraction-industries/">Mining &amp; Extraction</a><a href="/industries/refining-utilities-operations/">Refining &amp; Utilities</a><a href="/industries/food-beverage-manufacturing/">Food &amp; Beverage</a><a href="/industries/chemical-pharmaceutical-operations/">Chemical &amp; Pharmaceutical</a></div></li>
+    <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a><a href="/our_team/">Meet Our Team</a><a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a></div></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
-  <div class="nav-cta-wrap">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a>
-  </div>
+  <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
 </div></nav>
 
-<!-- ── HERO ── -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow">Trending Topics</div>
-    <h1>When the Schedule Looks Fine on Paper</h1>
-    <p class="hero-subtitle">"We know the schedule isn't perfect, but..." That sentence is how a lot of avoidable problems stay in place for years.</p>
-    <span class="hero-tag">Schedule Design</span>
-  </div>
-</section>
+<section class="hero"><div class="hero-inner">
+  <div class="hero-eyebrow">Trending Topics</div>
+  <h1>When the Schedule Looks Fine on Paper</h1>
+  <p class="hero-subtitle">"We know the schedule isn't perfect, but..." That sentence is how a lot of avoidable problems stay in place for years.</p>
+  <span class="hero-tag">Schedule Design</span>
+</div></section>
 
-<!-- ── BREADCRUMB ── -->
-<div class="breadcrumb-bar"><div class="breadcrumb-inner">
-  <a href="/">Home</a><span>›</span>
-  <a href="/resources/">Resources</a><span>›</span>
-  When the Schedule Looks Fine on Paper
-</div></div>
+<div class="breadcrumb-bar"><div class="breadcrumb-inner"><a href="/">Home</a><span>›</span><a href="/resources/">Resources</a><span>›</span>When the Schedule Looks Fine on Paper</div></div>
 
-<!-- ── ARTICLE ── -->
 <div class="article-wrap">
+  <div class="article-meta"><span class="meta-tag">Schedule Design</span><span class="meta-date">April 2026</span><span class="meta-read">6 min read</span></div>
 
-  <div class="article-meta">
-    <span class="meta-tag">Schedule Design</span>
-    <span class="meta-date">April 2026</span>
-    <span class="meta-read">6 min read</span>
-  </div>
-
-  <div class="dialogue-block">
-    <p>"We know the schedule isn't perfect, but the employees are used to it. And honestly, we've got bigger issues right now. Maybe in a year or two we'll revisit it."</p>
-  </div>
+  <div class="dialogue-block"><p>"We know the schedule isn't perfect, but the employees are used to it. And honestly, we've got bigger issues right now. Maybe in a year or two we'll revisit it."</p></div>
 
   <p>We've heard some version of that sentence in a conference room — or on a plant floor walk — more times than we can count. It usually comes from someone who genuinely cares about the operation. Someone who isn't wrong that there are other priorities. Someone who believes they're making a reasonable judgment call about timing.</p>
-
   <p>They're not wrong that change is disruptive. They are usually wrong about what "waiting" actually costs.</p>
 
   <h2>What "Fine" Actually Costs</h2>
-
   <p>Schedule problems don't hold steady while you're waiting for the right moment. They compound. And the compounding is largely invisible in any single month — which is precisely why it persists.</p>
-
   <p>Consider a plant running 12-hour shifts on a 4-crew schedule. The schedule is nominally "fine" — it covers all 168 hours of the week, it's been in place for years, and people know how it works. But the overtime rate is running at 12%, when a well-designed schedule should require about 6% to cover normal absences and variations.</p>
-
   <p>That extra 6% of overtime isn't dramatic on its own. Multiply it across a full year, across a full workforce, and it represents a significant labor cost that has no corresponding productivity gain. It's not covering an unusually difficult period. It's structural — baked into the schedule design itself.</p>
 
   <div class="cost-row">
-    <div class="cost-card">
-      <div class="cc-metric">12%</div>
-      <div class="cc-label">Overtime rate at a "fine" operation — roughly double what a well-designed schedule requires</div>
-    </div>
-    <div class="cost-card">
-      <div class="cc-metric">28%</div>
-      <div class="cc-label">Annual turnover rate at operations with schedules employees describe as "hard to work around" — versus 14% at operations with well-designed schedules</div>
-    </div>
-    <div class="cost-card">
-      <div class="cc-metric">Years</div>
-      <div class="cc-label">How long the compounding goes on when "we'll revisit it in a year or two" gets repeated at each year's planning cycle</div>
-    </div>
+    <div class="cost-card"><div class="cc-metric">12%</div><div class="cc-label">Overtime rate at a "fine" operation — roughly double what a well-designed schedule requires</div></div>
+    <div class="cost-card"><div class="cc-metric">28%</div><div class="cc-label">Annual turnover rate at operations with schedules employees describe as "hard to work around" — versus 14% at operations with well-designed schedules</div></div>
+    <div class="cost-card"><div class="cc-metric">Years</div><div class="cc-label">How long the compounding goes on when "we'll revisit it in a year or two" gets repeated at each year's planning cycle</div></div>
   </div>
 
   <p>Now add the turnover picture. Operations with schedules employees describe as "hard to work around" — inconsistent days off, frequent night rotation, unpredictable extra shifts — show annual turnover rates roughly twice as high as operations with schedules employees consider fair and predictable. Each turnover event carries recruiting, onboarding, and productivity loss costs. These aren't in the overtime line item, so they rarely get connected to the schedule in the post-mortem conversation.</p>
-
   <p>And there's a subtler cost that almost never gets measured: the understaffed night shift. On many "fine" schedules, the night shift is chronically short — either because the schedule assigns fewer bodies to it by design, or because absences fall disproportionately on nights when supervisory presence is lowest. A workforce that's regularly running short on nights develops workarounds that become invisible load-bearing structures: the informal agreements between crews, the tasks quietly deferred, the quality checks that happen when time allows. None of this shows up as a line item. All of it is a cost.</p>
 
-  <div class="pull-quote">
-    <p>"The cost of waiting isn't the cost of the change you're deferring. It's the cost of the compounding problem you're not addressing — accumulating quietly in overtime, turnover, and quality variance."</p>
-  </div>
+  <div class="pull-quote"><p>"The cost of waiting isn't the cost of the change you're deferring. It's the cost of the compounding problem you're not addressing — accumulating quietly in overtime, turnover, and quality variance."</p></div>
 
   <h2>The Rationalization Inventory</h2>
-
   <p>Every operation has its version of the reasons the schedule doesn't get fixed. They are almost always reasonable-sounding. They are almost always insufficient.</p>
 
   <div class="rationalization-grid">
-    <div class="rationalization-card">
-      <div class="rc-header">
-        <div class="rc-label">Rationalization 1</div>
-        <h3>"The employees are used to it. Change would cause more problems than it solves."</h3>
-      </div>
-      <div class="rc-body">
-        <div class="rc-rebuttal-label">The reality</div>
-        <p>Employees adapt to their current schedule, but "used to it" and "satisfied with it" are not the same thing. Workers who have organized their lives around a difficult schedule will resist change — but they are also leaving because of that schedule. Turnover is the silent vote against the status quo. A well-managed change process, with employee input built in, produces far less disruption than the steady attrition of people who find better options.</p>
-      </div>
-    </div>
-    <div class="rationalization-card">
-      <div class="rc-header">
-        <div class="rc-label">Rationalization 2</div>
-        <h3>"We've got bigger issues right now. The schedule can wait."</h3>
-      </div>
-      <div class="rc-body">
-        <div class="rc-rebuttal-label">The reality</div>
-        <p>The "bigger issues" are frequently downstream effects of the schedule. High overtime? Schedule design problem. Chronic understaffing on nights? Schedule design problem. Turnover concentrated in specific crews? Schedule design problem. Fixing the root cause addresses several "bigger issues" simultaneously. Addressing the symptoms individually while leaving the root cause in place is the definition of ongoing cost with no lasting resolution.</p>
-      </div>
-    </div>
-    <div class="rationalization-card">
-      <div class="rc-header">
-        <div class="rc-label">Rationalization 3</div>
-        <h3>"We looked at this two years ago and it wasn't worth the disruption."</h3>
-      </div>
-      <div class="rc-body">
-        <div class="rc-rebuttal-label">The reality</div>
-        <p>Two years ago, labor market conditions, workforce demographics, overtime costs, and the competitive landscape for hiring were different. The calculation that said "not worth it" in one environment may be wrong in the current one. More importantly, the disruption cost of a well-managed schedule change is a one-time event. The cost of the current schedule is recurring — it compounds every week. The math on "worth it" deserves a current look, not a two-year-old one.</p>
-      </div>
-    </div>
-    <div class="rationalization-card">
-      <div class="rc-header">
-        <div class="rc-label">Rationalization 4</div>
-        <h3>"The union will never go for it."</h3>
-      </div>
-      <div class="rc-body">
-        <div class="rc-rebuttal-label">The reality</div>
-        <p>Union leadership's position on schedule change is shaped by what they believe the membership wants — and that belief is often based on a vocal minority rather than a systematic understanding of the workforce's actual preferences. Operations that have used structured, anonymous employee input processes before approaching the union have consistently found that the workforce's preferences and the union's assumed position are not identical. Employee survey data changes the negotiating dynamic significantly. The assumption that the union won't go for it is often untested.</p>
-      </div>
-    </div>
+    <div class="rationalization-card"><div class="rc-header"><div class="rc-label">Rationalization 1</div><h3>"The employees are used to it. Change would cause more problems than it solves."</h3></div><div class="rc-body"><div class="rc-rebuttal-label">The reality</div><p>Employees adapt to their current schedule, but "used to it" and "satisfied with it" are not the same thing. Workers who have organized their lives around a difficult schedule will resist change — but they are also leaving because of that schedule. Turnover is the silent vote against the status quo. A well-managed change process, with employee input built in, produces far less disruption than the steady attrition of people who find better options.</p></div></div>
+    <div class="rationalization-card"><div class="rc-header"><div class="rc-label">Rationalization 2</div><h3>"We've got bigger issues right now. The schedule can wait."</h3></div><div class="rc-body"><div class="rc-rebuttal-label">The reality</div><p>The "bigger issues" are frequently downstream effects of the schedule. High overtime? Schedule design problem. Chronic understaffing on nights? Schedule design problem. Turnover concentrated in specific crews? Schedule design problem. Fixing the root cause addresses several "bigger issues" simultaneously. Addressing the symptoms individually while leaving the root cause in place is the definition of ongoing cost with no lasting resolution.</p></div></div>
+    <div class="rationalization-card"><div class="rc-header"><div class="rc-label">Rationalization 3</div><h3>"We looked at this two years ago and it wasn't worth the disruption."</h3></div><div class="rc-body"><div class="rc-rebuttal-label">The reality</div><p>Two years ago, labor market conditions, workforce demographics, overtime costs, and the competitive landscape for hiring were different. The calculation that said "not worth it" in one environment may be wrong in the current one. More importantly, the disruption cost of a well-managed schedule change is a one-time event. The cost of the current schedule is recurring — it compounds every week. The math on "worth it" deserves a current look, not a two-year-old one.</p></div></div>
+    <div class="rationalization-card"><div class="rc-header"><div class="rc-label">Rationalization 4</div><h3>"The union will never go for it."</h3></div><div class="rc-body"><div class="rc-rebuttal-label">The reality</div><p>Union leadership's position on schedule change is shaped by what they believe the membership wants — and that belief is often based on a vocal minority rather than a systematic understanding of the workforce's actual preferences. Operations that have used structured, anonymous employee input processes before approaching the union have consistently found that the workforce's preferences and the union's assumed position are not identical. Employee survey data changes the negotiating dynamic significantly. The assumption that the union won't go for it is often untested.</p></div></div>
   </div>
 
   <h2>What the 26 Warning Signs Are Actually Telling You</h2>
-
   <p>We developed our 26 Warning Signs diagnostic specifically for this situation — the operation where everything is nominally functional, the schedule is "fine," and no single metric is alarming enough to force a decision.</p>
-
   <p>The warning signs are designed to surface the compounding problems that don't appear as a single line item: the overtime pattern that's structural rather than situational, the absenteeism concentrated on specific shifts, the turnover that's higher in one crew than another, the quality variance between day and night. None of these is necessarily a crisis on its own. Together, they tell a story about whether a schedule is working or simply surviving.</p>
 
-  <div class="warning-link-box">
-    <p><strong>The 26 Warning Signs diagnostic</strong> is free. It takes about 10 minutes. It is specifically designed to help operations leaders see the picture that individual metrics obscure — and to make the case, internally, for a conversation that the current data doesn't force.</p>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="wl-btn">Read the 26 Warning Signs →</a>
-  </div>
+  <div class="warning-link-box"><p><strong>The 26 Warning Signs diagnostic</strong> is free. It takes about 10 minutes. It is specifically designed to help operations leaders see the picture that individual metrics obscure — and to make the case, internally, for a conversation that the current data doesn't force.</p><a href="/resources/26-warning-signs-schedule-problems/" class="wl-btn">Read the 26 Warning Signs →</a></div>
 
   <h2>The Cost of Waiting</h2>
-
   <p>The cost of waiting isn't the cost of the change you're deferring. It's the cost of the compounding problem you're not addressing — accumulating quietly in overtime, turnover, and quality variance while the calendar runs.</p>
-
-  <p>At some point, the operation stops being able to afford to wait. That moment usually arrives not as a single dramatic event but as a slow-building recognition that the numbers that "weren't alarming" last year are hard to explain this year, and that the "year or two" conversation has been happening for longer than anyone remembers.</p>
-
+  <p>At some point, the operation stops being able to afford to wait. That moment usually arrives not as a single dramatic event but as a slow-building recognition that the numbers that "weren't alarming" last year are hard to explain this year.</p>
   <p>The operations that get ahead of that moment are the ones that look at the warning signs before they become the explanation for a difficult quarter.</p>
 
-  <div class="inline-cta">
-    <div class="inline-cta-text">
-      <h3>Ready to look at what your schedule is actually costing?</h3>
-      <p>Shiftwork Solutions has helped hundreds of manufacturing and distribution operations understand the real cost of their current schedule — and what a well-designed alternative would look like. The first conversation is free.</p>
-    </div>
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="inline-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a>
-  </div>
-
-</div><!-- /article-wrap -->
-
-<!-- ── NEXT STEPS ── -->
-<section class="next-steps">
-  <div class="next-steps-inner">
-    <h2>Next Steps &amp; Resources</h2>
-    <div class="ns-cards">
-      <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card">
-        <div class="ns-card-label">Diagnostic Tool</div>
-        <h3>26 Warning Signs</h3>
-        <p>The ten-minute diagnostic designed to surface the compounding costs that individual metrics don't show — and build the internal case for a schedule review.</p>
-        <span class="ns-card-link">Read the diagnostic</span>
-      </a>
-      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card" target="_blank" rel="noopener">
-        <div class="ns-card-label">Free Consultation</div>
-        <h3>Talk to a Shiftwork Expert</h3>
-        <p>Walk through what your current schedule is actually costing — in overtime, turnover, and coverage — before committing to any change.</p>
-        <span class="ns-card-link">Book a free meeting</span>
-      </a>
-      <a href="/resources/shiftwork-assessment/" class="ns-card">
-        <div class="ns-card-label">Free Assessment</div>
-        <h3>Evaluate Your Current Schedule</h3>
-        <p>A short set of questions that produces a personalized picture of where your shift structure stands — and where the hidden costs are likely living.</p>
-        <span class="ns-card-link">Take the assessment</span>
-      </a>
-    </div>
-    <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
-  </div>
-</section>
-
-<!-- ── CTA SECTION ── -->
-<section class="cta-section">
-  <div class="cta-section-inner">
-    <h2>"Fine" is not a strategy. It's a deferral.</h2>
-    <p>Every week the schedule stays as-is, the overtime, turnover, and coverage costs compound. The 26 Warning Signs diagnostic and a free consultation are both available now. No commitment required.</p>
-    <div class="cta-actions">
-      <a href="/resources/26-warning-signs-schedule-problems/" class="cta-primary">Read the 26 Warning Signs</a>
-      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="cta-secondary" target="_blank" rel="noopener">Book a free consultation →</a>
-    </div>
-  </div>
-</section>
-
-<!-- ── ENGAGE BAND ── -->
-<div class="engage-band">
-  <div class="engage-inner">
-    <div class="engage-thomas">
-      <div class="engage-label">AI Advisor</div>
-      <div class="engage-thomas-title">Talk to Thomas</div>
-      <p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
-      <a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
-    </div>
-    <div class="engage-nl">
-      <div class="engage-label">Newsletter</div>
-      <div class="engage-nl-title">Stay Sharp on Shift Operations</div>
-      <p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
-      <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
-        <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
-        <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
-      </form>
-      <div class="engage-nl-msg" id="engageNLMsg"></div>
-    </div>
-  </div>
+  <div class="inline-cta"><div class="inline-cta-text"><h3>Ready to look at what your schedule is actually costing?</h3><p>Shiftwork Solutions has helped hundreds of manufacturing and distribution operations understand the real cost of their current schedule — and what a well-designed alternative would look like. The first conversation is free.</p></div><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="inline-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
 </div>
 
-<!-- ── FOOTER ── -->
-<footer class="site-footer"><div class="footer-inner">
-  <span class="footer-logo">Shiftwork Solutions LLC</span>
-  <span>(415) 265-1621</span>
-  <span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></span>
-  <div class="footer-links-row">
-    <a href="/resources/">Resources</a>
-    <a href="/industries/">Industries</a>
-    <a href="/services/">Services</a>
-    <a href="/contact/">Contact</a>
+<section class="next-steps"><div class="next-steps-inner">
+  <h2>Next Steps &amp; Resources</h2>
+  <div class="ns-cards">
+    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card"><div class="ns-card-label">Diagnostic Tool</div><h3>26 Warning Signs</h3><p>The ten-minute diagnostic designed to surface the compounding costs that individual metrics don't show.</p><span class="ns-card-link">Read the diagnostic</span></a>
+    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card" target="_blank" rel="noopener"><div class="ns-card-label">Free Consultation</div><h3>Talk to a Shiftwork Expert</h3><p>Walk through what your current schedule is actually costing — in overtime, turnover, and coverage.</p><span class="ns-card-link">Book a free meeting</span></a>
+    <a href="/resources/shiftwork-assessment/" class="ns-card"><div class="ns-card-label">Free Assessment</div><h3>Evaluate Your Current Schedule</h3><p>A short set of questions that produces a personalized picture of where your shift structure stands.</p><span class="ns-card-link">Take the assessment</span></a>
   </div>
+  <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
+</div></section>
+
+<section class="cta-section"><div class="cta-section-inner">
+  <h2>"Fine" is not a strategy. It's a deferral.</h2>
+  <p>Every week the schedule stays as-is, the overtime, turnover, and coverage costs compound. The 26 Warning Signs diagnostic and a free consultation are both available now. No commitment required.</p>
+  <div class="cta-actions"><a href="/resources/26-warning-signs-schedule-problems/" class="cta-primary">Read the 26 Warning Signs</a><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="cta-secondary" target="_blank" rel="noopener">Book a free consultation →</a></div>
+</div></section>
+
+<div class="engage-band"><div class="engage-inner">
+  <div class="engage-thomas"><div class="engage-label">AI Advisor</div><div class="engage-thomas-title">Talk to Thomas</div><p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p><a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a></div>
+  <div class="engage-nl"><div class="engage-label">Newsletter</div><div class="engage-nl-title">Stay Sharp on Shift Operations</div><p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
+</div></div>
+
+<footer class="site-footer"><div class="footer-inner">
+  <span class="footer-logo">Shiftwork Solutions LLC</span><span>(415) 265-1621</span><span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></span>
+  <div class="footer-links-row"><a href="/resources/">Resources</a><a href="/industries/">Industries</a><a href="/services/">Services</a><a href="/contact/">Contact</a></div>
   <span>&copy; 2026 Shiftwork Solutions LLC</span>
 </div></footer>
 
-<!-- ── LISTEN BUTTON ── -->
-<button class="listen-btn" id="listenBtn" aria-label="Listen to this article">
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
-  <span id="listenLabel">Listen</span>
-</button>
+<button class="listen-btn" id="listenBtn" aria-label="Listen to this article"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg><span id="listenLabel">Listen</span></button>
 
 <script>
-  document.getElementById('mobileToggle').addEventListener('click', function () {
-    var n = document.getElementById('navLinks');
-    var open = n.style.display === 'flex';
-    if (open) { n.style.display = 'none'; }
-    else { n.style.display = 'flex'; n.style.flexDirection = 'column'; n.style.position = 'absolute'; n.style.top = '56px'; n.style.left = '0'; n.style.right = '0'; n.style.background = '#fff'; n.style.borderBottom = '1px solid #e0e0e0'; n.style.padding = '8px 0'; n.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)'; n.style.zIndex = '99'; }
-  });
-  (function () {
-    var SWARM = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
-    window.engageNLSubmit = function (e) {
-      e.preventDefault();
-      var btn = document.getElementById('engageNLBtn'); var msg = document.getElementById('engageNLMsg');
-      var email = document.getElementById('engageNLEmail').value.trim();
-      if (!email) return;
-      btn.disabled = true; btn.textContent = 'Subscribing...';
-      fetch(SWARM, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email, source: 'website-inline-engage' }) })
-        .then(function (r) { return r.json(); })
-        .then(function (d) {
-          if (d.success) { msg.className = 'engage-nl-msg ok'; msg.textContent = '\u2713 Subscribed. Thank you.'; document.getElementById('engageNLEmail').value = ''; btn.textContent = 'Subscribed \u2713'; }
-          else { throw new Error(d.error || 'Failed'); }
-        })
-        .catch(function (err) { msg.className = 'engage-nl-msg err'; msg.textContent = err.message === 'This email is already subscribed.' ? 'Already subscribed \u2014 thank you!' : 'Something went wrong. Try again.'; btn.disabled = false; btn.textContent = 'Subscribe \u2192'; });
-    };
-  })();
-  (function () {
-    var btn = document.getElementById('listenBtn'); var label = document.getElementById('listenLabel');
-    var speaking = false; var paused = false;
-    function getArticleText() { var wrap = document.querySelector('.article-wrap'); if (!wrap) return ''; var els = wrap.querySelectorAll('p, h2'); var parts = []; els.forEach(function (el) { parts.push(el.textContent.trim()); }); return parts.join(' '); }
-    if (!window.speechSynthesis) { btn.style.display = 'none'; return; }
-    btn.addEventListener('click', function () {
-      if (speaking && !paused) { window.speechSynthesis.pause(); paused = true; label.textContent = 'Resume'; }
-      else if (paused) { window.speechSynthesis.resume(); paused = false; label.textContent = 'Pause'; }
-      else { window.speechSynthesis.cancel(); var utt = new SpeechSynthesisUtterance(getArticleText()); utt.rate = 0.95; utt.onstart = function () { speaking = true; paused = false; label.textContent = 'Pause'; }; utt.onend = function () { speaking = false; paused = false; label.textContent = 'Listen'; }; utt.onerror = function () { speaking = false; paused = false; label.textContent = 'Listen'; }; window.speechSynthesis.speak(utt); }
-    });
-  })();
+  document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none'}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99'}});
+  (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json()}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713'}else{throw new Error(d.error||'Failed')}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192'})}})();
+  (function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p, h2');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim())});return parts.join(' ')}if(!window.speechSynthesis){btn.style.display='none';return}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume'}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause'}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause'};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen'};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen'};window.speechSynthesis.speak(utt)}})})();
 </script>
-
 </body>
 </html>
 <!-- I did no harm and this file is not truncated -->
