@@ -5,7 +5,7 @@
   URL: /resources/
 
   Created:      2026-04-03
-  Last Updated: 2026-04-04
+  Last Updated: 2026-04-05
 
   CHANGE LOG:
     2026-04-03 — Initial build per Resources_Hub_Specification_V2_with_pic_4_3_26.docx
@@ -35,6 +35,11 @@
                  - Engage band "Subscribe" button: ORANGE
                  - CTA band "Book a Free Consultation": ORANGE on navy
                  - All action tile buttons: ORANGE on navy-dark
+    2026-04-05 — NAV — ALL DROPDOWNS REMOVED:
+                 - Industries: removed dropdown, direct link to /industries/
+                 - Why Us: removed dropdown, direct link to /why-us/
+                 - All nav items are now flat direct links
+                 - All page content preserved exactly
 
   I did no harm and this file is not truncated
 -->
@@ -65,12 +70,6 @@
     .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
     .nav-links>li>a:hover{color:var(--navy)}
     .nav-links>li>a.nav-active{color:var(--navy);font-weight:700;text-decoration:underline;text-underline-offset:3px}
-    .nav-arrow{font-size:9px;opacity:.5;transition:transform .2s}
-    .nav-dropdown{position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border-med);border-top:none;border-radius:0 0 6px 6px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:270px;max-height:460px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-2px);transition:opacity .15s,visibility .15s,transform .15s;padding:6px 0;z-index:100}
-    .nav-links>li:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateY(0)}
-    .nav-links>li:hover>a .nav-arrow{transform:rotate(180deg)}
-    .nav-dropdown a{display:block;padding:6px 16px;font-size:13px;color:#444;text-decoration:none;transition:background .12s;line-height:1.4}
-    .nav-dropdown a:hover{background:var(--light-blue);color:var(--navy)}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
     .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
     .nav-cta-btn:hover{background:#c4510a}
@@ -108,7 +107,6 @@
     .guide-link{display:inline-block;margin-top:14px;font-size:12px;font-weight:700;color:var(--navy);text-decoration:none}
     .guide-link::after{content:' →'}
     .guide-tile:hover .guide-link{color:var(--orange)}
-    /* ── ACTION TILES (row 4 left + right) ── */
     .action-tile{background:var(--navy-dark);border-radius:6px;padding:24px 20px;display:flex;flex-direction:column;justify-content:center}
     .action-tile-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
     .action-tile-title{font-size:16px;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:8px}
@@ -187,23 +185,8 @@
     <li><a href="/">Home</a></li>
     <li><a href="/services/">Our Services</a></li>
     <li><a href="/resources/" class="nav-active">Resources</a></li>
-    <li><a href="/industries/">Industries <span class="nav-arrow">▾</span></a>
-      <div class="nav-dropdown">
-        <a href="/industries/manufacturing-assembly-operations/">Manufacturing &amp; Assembly</a>
-        <a href="/industries/distribution-logistics-operations/">Distribution &amp; Logistics</a>
-        <a href="/industries/mining-extraction-industries/">Mining &amp; Extraction</a>
-        <a href="/industries/refining-utilities-operations/">Refining &amp; Utilities</a>
-        <a href="/industries/food-beverage-manufacturing/">Food &amp; Beverage</a>
-        <a href="/industries/chemical-pharmaceutical-operations/">Chemical &amp; Pharmaceutical</a>
-      </div>
-    </li>
-    <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a>
-      <div class="nav-dropdown">
-        <a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a>
-        <a href="/our_team/">Meet Our Team</a>
-        <a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a>
-      </div>
-    </li>
+    <li><a href="/industries/">Industries</a></li>
+    <li><a href="/why-us/">Why Us</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap">
@@ -236,7 +219,6 @@
   </div>
 </div></section>
 
-<!-- ── COMPLETE GUIDES: 4 rows of 3. Row 4 = action tile | Guide 10 | action tile ── -->
 <section class="guides-section"><div class="section-wrap">
   <div class="section-eyebrow">Complete Guides</div>
   <div class="section-heading">Ten in-depth resources covering every dimension of shift work</div>
@@ -251,8 +233,6 @@
     <a href="/resources/employee-engagement-shift-work/" class="guide-tile"><div class="guide-body"><div class="guide-num">Guide 07</div><div class="guide-title">Building Employee Engagement</div><div class="guide-desc">What shift workers actually value — and why engagement strategies designed for offices consistently fail on the plant floor.</div><span class="guide-link">Read the guide</span></div></a>
     <a href="/resources/shift-work-best-practices/" class="guide-tile"><div class="guide-body"><div class="guide-num">Guide 08</div><div class="guide-title">Operational Best Practices</div><div class="guide-desc">The fundamentals that separate excellent 24/7 operations from struggling ones — schedule, equipment, labor economics, and communication.</div><span class="guide-link">Read the guide</span></div></a>
     <a href="/resources/absenteeism-relief-coverage-management/" class="guide-tile"><div class="guide-body"><div class="guide-num">Guide 09</div><div class="guide-title">Managing Absenteeism &amp; Coverage Gaps</div><div class="guide-desc">How to build coverage systems that handle absences without daily scrambles — relief crews, skill balance, and cost modeling.</div><span class="guide-link">Read the guide</span></div></a>
-
-    <!-- ROW 4: Contact/Newsletter | Guide 10 | Book Meeting/Thomas -->
     <div class="action-tile">
       <div class="action-tile-label">Get in Touch</div>
       <div class="action-tile-title">Contact Us</div>
