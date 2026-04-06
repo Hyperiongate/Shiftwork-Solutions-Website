@@ -5,24 +5,21 @@
   URL: /industries/
 
   Created:      2026-04-05
-  Last Updated: 2026-04-05
+  Last Updated: 2026-04-06
 
   CHANGE LOG:
     2026-04-05 — Initial build. Tile-based landing page for 6 industry pages.
                  Modeled after resources/index.html layout and design system.
                  Nav: .site-nav system (sticky, 56px), NO dropdowns anywhere.
-                 All nav items are direct links:
-                   Home → /
-                   Our Services → /services/
-                   Resources → /resources/
-                   Industries → /industries/ (current page, nav-active)
-                   Why Us → /why-us/
-                   Contact → /contact/
+                 All nav items are direct links.
                  CTA button: ORANGE (#E8610A)
                  Engage band: Thomas AI + Newsletter (Swarm API)
                  Footer: standard site footer
-                 6 industry tiles — name + "Learn more →" only
-                 Hero section with navy background
+
+    2026-04-06 — Added Paper & Packaging tile (7th industry).
+                 Updated heading from "Six industries" to "Seven industries".
+                 Updated meta description to include paper & packaging.
+                 All other content, nav, JS preserved exactly.
 
   DESIGN SYSTEM:
     Navy: #1F4E79 (primary), #0D1F3C (dark anchor)
@@ -41,116 +38,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Industries We Serve | Shiftwork Solutions — 24/7 Operations Consulting</title>
-  <meta name="description" content="Shiftwork Solutions serves six core industries with custom shift schedule design and workforce optimization — manufacturing, distribution, mining, refining, food & beverage, and chemical operations.">
+  <meta name="description" content="Shiftwork Solutions serves seven core industries with custom shift schedule design and workforce optimization — manufacturing, distribution, mining, refining, food & beverage, chemical, and paper & packaging operations.">
   <link rel="canonical" href="https://shift-work.com/industries/">
   <meta property="og:title" content="Industries We Serve | Shiftwork Solutions">
-  <meta property="og:description" content="Custom shift schedule consulting for six core industries running 24/7 operations.">
+  <meta property="og:description" content="Custom shift schedule consulting for seven core industries running 24/7 operations.">
   <meta property="og:url" content="https://shift-work.com/industries/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Industries We Serve | Shiftwork Solutions">
-  <meta name="twitter:description" content="Custom shift schedule consulting for six core industries running 24/7 operations.">
+  <meta name="twitter:description" content="Custom shift schedule consulting for seven core industries running 24/7 operations.">
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--max-width:1060px;--page-pad:24px}
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
-
-    /* ── NAV (.site-nav — sticky, 56px, NO dropdowns) ── */
-    .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
-    .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
-    .nav-logo{font-size:16px;font-weight:700;color:var(--navy);text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0}
-    .nav-logo img{height:36px;width:auto;display:block}
-    .nav-links{list-style:none;display:flex;align-items:center}
-    .nav-links>li{position:relative}
-    .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
-    .nav-links>li>a:hover{color:var(--navy)}
-    .nav-links>li>a.nav-active{color:var(--navy);font-weight:700;text-decoration:underline;text-underline-offset:3px}
-    .nav-cta-wrap{margin-left:auto;flex-shrink:0}
-    .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
-    .nav-cta-btn:hover{background:#c4510a}
-    .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
-    .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-
-    /* ── HERO ── */
-    .hero{background:var(--navy);padding:52px 36px 56px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;top:-80px;right:-60px;width:340px;height:340px;border-radius:50%;background:var(--white);opacity:.04}
-    .hero::after{content:'';position:absolute;bottom:-120px;left:-40px;width:260px;height:260px;border-radius:50%;background:var(--white);opacity:.04}
-    .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
-    .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
-    .hero h1{font-size:32px;font-weight:700;line-height:1.2;color:var(--white);max-width:620px;margin-bottom:14px}
-    .hero-subtitle{font-size:16px;line-height:1.65;color:var(--mid-blue);max-width:620px}
-
-    /* ── INDUSTRIES TILES SECTION ── */
-    .industries-section{padding:56px var(--page-pad) 60px;background:var(--white)}
-    .section-wrap{max-width:var(--max-width);margin:0 auto}
-    .section-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
-    .section-heading{font-size:22px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:8px}
-    .section-sub{font-size:14px;color:var(--muted);line-height:1.65;max-width:680px;margin-bottom:28px}
-    .industries-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .industry-tile{background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:6px;padding:28px 24px;text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;min-height:140px;transition:border-top-color .15s,box-shadow .15s}
-    .industry-tile:hover{border-top-color:var(--orange);box-shadow:0 4px 20px rgba(0,0,0,.09)}
-    .industry-title{font-size:17px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:16px}
-    .industry-link{font-size:12px;font-weight:700;color:var(--navy);text-decoration:none}
-    .industry-link::after{content:' →'}
-    .industry-tile:hover .industry-link{color:var(--orange)}
-
-    /* ── CTA BAND ── */
-    .cta-band{background:var(--navy-dark);padding:56px var(--page-pad)}
-    .cta-band-inner{max-width:var(--max-width);margin:0 auto;text-align:center}
-    .cta-band h2{font-size:24px;font-weight:700;color:var(--white);margin-bottom:12px}
-    .cta-band p{font-size:15px;color:var(--mid-blue);line-height:1.65;max-width:560px;margin:0 auto 28px}
-    .cta-actions{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
-    .cta-btn{display:inline-block;padding:13px 30px;background:var(--orange);color:var(--white);font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
-    .cta-btn:hover{background:#c4510a}
-    .cta-text-link{font-size:14px;color:var(--mid-blue);text-decoration:none;font-weight:500}
-    .cta-text-link:hover{color:var(--white);text-decoration:underline}
-
-    /* ── ENGAGE BAND ── */
-    .engage-band{background:var(--navy-dark);padding:40px var(--page-pad)}
-    .engage-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-    .engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
-    .engage-thomas-title,.engage-nl-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}
-    .engage-thomas-desc,.engage-nl-desc{font-size:13px;color:rgba(255,255,255,.65);line-height:1.65;margin-bottom:14px}
-    .engage-thomas-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
-    .engage-thomas-btn:hover{background:#c4510a}
-    .engage-nl-form{display:flex;gap:8px;flex-wrap:wrap}
-    .engage-nl-input{flex:1;min-width:180px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
-    .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
-    .engage-nl-input:focus{border-color:var(--mid-blue)}
-    .engage-nl-btn{padding:10px 18px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
-    .engage-nl-btn:hover{background:#c4510a}
-    .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
-    .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
-    .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
-
-    /* ── FOOTER ── */
-    .site-footer{background:#F4F4F4;padding:32px var(--page-pad) 20px;border-top:1px solid var(--border-med)}
-    .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#555}
-    .footer-inner a{color:#555;text-decoration:none}
-    .footer-inner a:hover{color:var(--navy)}
-    .footer-logo{font-weight:700;color:var(--navy)}
-    .footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
-
-    /* ── RESPONSIVE ── */
+    .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}.nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}.nav-logo{font-size:16px;font-weight:700;color:var(--navy);text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0}.nav-logo img{height:36px;width:auto;display:block}.nav-links{list-style:none;display:flex;align-items:center}.nav-links>li{position:relative}.nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}.nav-links>li>a:hover{color:var(--navy)}.nav-links>li>a.nav-active{color:var(--navy);font-weight:700;text-decoration:underline;text-underline-offset:3px}.nav-cta-wrap{margin-left:auto;flex-shrink:0}.nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}.nav-cta-btn:hover{background:#c4510a}.mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}.mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
+    .hero{background:var(--navy);padding:52px 36px 56px;position:relative;overflow:hidden}.hero::before{content:'';position:absolute;top:-80px;right:-60px;width:340px;height:340px;border-radius:50%;background:var(--white);opacity:.04}.hero::after{content:'';position:absolute;bottom:-120px;left:-40px;width:260px;height:260px;border-radius:50%;background:var(--white);opacity:.04}.hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}.hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}.hero h1{font-size:32px;font-weight:700;line-height:1.2;color:var(--white);max-width:620px;margin-bottom:14px}.hero-subtitle{font-size:16px;line-height:1.65;color:var(--mid-blue);max-width:620px}
+    .industries-section{padding:56px var(--page-pad) 60px;background:var(--white)}.section-wrap{max-width:var(--max-width);margin:0 auto}.section-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}.section-heading{font-size:22px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:8px}.section-sub{font-size:14px;color:var(--muted);line-height:1.65;max-width:680px;margin-bottom:28px}.industries-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.industry-tile{background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:6px;padding:28px 24px;text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;min-height:140px;transition:border-top-color .15s,box-shadow .15s}.industry-tile:hover{border-top-color:var(--orange);box-shadow:0 4px 20px rgba(0,0,0,.09)}.industry-title{font-size:17px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:16px}.industry-link{font-size:12px;font-weight:700;color:var(--navy);text-decoration:none}.industry-link::after{content:' →'}.industry-tile:hover .industry-link{color:var(--orange)}
+    .cta-band{background:var(--navy-dark);padding:56px var(--page-pad)}.cta-band-inner{max-width:var(--max-width);margin:0 auto;text-align:center}.cta-band h2{font-size:24px;font-weight:700;color:var(--white);margin-bottom:12px}.cta-band p{font-size:15px;color:var(--mid-blue);line-height:1.65;max-width:560px;margin:0 auto 28px}.cta-actions{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}.cta-btn{display:inline-block;padding:13px 30px;background:var(--orange);color:var(--white);font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}.cta-btn:hover{background:#c4510a}.cta-text-link{font-size:14px;color:var(--mid-blue);text-decoration:none;font-weight:500}.cta-text-link:hover{color:var(--white);text-decoration:underline}
+    .engage-band{background:var(--navy-dark);padding:40px var(--page-pad)}.engage-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}.engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}.engage-thomas-title,.engage-nl-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}.engage-thomas-desc,.engage-nl-desc{font-size:13px;color:rgba(255,255,255,.65);line-height:1.65;margin-bottom:14px}.engage-thomas-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}.engage-thomas-btn:hover{background:#c4510a}.engage-nl-form{display:flex;gap:8px;flex-wrap:wrap}.engage-nl-input{flex:1;min-width:180px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}.engage-nl-input::placeholder{color:rgba(255,255,255,.4)}.engage-nl-input:focus{border-color:var(--mid-blue)}.engage-nl-btn{padding:10px 18px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}.engage-nl-btn:hover{background:#c4510a}.engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}.engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}.engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
+    .site-footer{background:#F4F4F4;padding:32px var(--page-pad) 20px;border-top:1px solid var(--border-med)}.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#555}.footer-inner a{color:#555;text-decoration:none}.footer-inner a:hover{color:var(--navy)}.footer-logo{font-weight:700;color:var(--navy)}.footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
     @media(max-width:900px){.industries-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:640px){
-      .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
-      .hero{padding:36px 20px 40px}.hero h1{font-size:24px}
-      .industries-section{padding:36px 20px 40px}
-      .industries-grid{grid-template-columns:1fr}
-      .cta-band{padding:40px 20px}.cta-band h2{font-size:20px}
-      .footer-inner{flex-direction:column;text-align:center}
-      .footer-links-row{justify-content:center}
-      .engage-inner{grid-template-columns:1fr}.engage-band{padding:32px 20px}
-    }
+    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:36px 20px 40px}.hero h1{font-size:24px}.industries-section{padding:36px 20px 40px}.industries-grid{grid-template-columns:1fr}.cta-band{padding:40px 20px}.cta-band h2{font-size:20px}.footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}.engage-inner{grid-template-columns:1fr}.engage-band{padding:32px 20px}}
   </style>
 </head>
 <body>
 
-<!-- ── NAV — No dropdowns, all direct links ── -->
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;"></a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -167,17 +82,15 @@
   </div>
 </div></nav>
 
-<!-- ── HERO ── -->
 <section class="hero"><div class="hero-inner">
   <div class="hero-eyebrow">Industries</div>
   <h1>Industries We Serve</h1>
   <p class="hero-subtitle">Decades of hands-on experience across hundreds of 24/7 operations. Every industry has unique scheduling challenges — we've solved them all.</p>
 </div></section>
 
-<!-- ── INDUSTRY TILES ── -->
 <section class="industries-section"><div class="section-wrap">
   <div class="section-eyebrow">Our Focus</div>
-  <div class="section-heading">Six industries. Hundreds of facilities. One specialty.</div>
+  <div class="section-heading">Seven industries. Hundreds of facilities. One specialty.</div>
   <p class="section-sub">We work exclusively with operations that run around the clock. Each industry page shows how shift schedule optimization applies to your specific environment.</p>
   <div class="industries-grid">
     <a href="/industries/manufacturing-assembly-operations/" class="industry-tile">
@@ -204,10 +117,13 @@
       <div class="industry-title">Chemical &amp; Pharmaceutical</div>
       <span class="industry-link">Learn more</span>
     </a>
+    <a href="/industries/paper-packaging-operations/" class="industry-tile">
+      <div class="industry-title">Paper &amp; Packaging</div>
+      <span class="industry-link">Learn more</span>
+    </a>
   </div>
 </div></section>
 
-<!-- ── CTA BAND ── -->
 <div class="cta-band"><div class="cta-band-inner">
   <h2>Ready to talk about your operation?</h2>
   <p>Whether you run a single plant or dozens of facilities, the first conversation is always free. Tell us what you're dealing with.</p>
@@ -217,7 +133,6 @@
   </div>
 </div></div>
 
-<!-- ── ENGAGE BAND ── -->
 <div class="engage-band">
   <div class="engage-inner">
     <div class="engage-thomas">
@@ -239,7 +154,6 @@
   </div>
 </div>
 
-<!-- ── FOOTER ── -->
 <footer class="site-footer"><div class="footer-inner">
   <span class="footer-logo">Shiftwork Solutions LLC</span>
   <span>(415) 265-1621</span>
@@ -253,7 +167,6 @@
   <span>&copy; 2026 Shiftwork Solutions LLC</span>
 </div></footer>
 
-<!-- ── MOBILE NAV JS ── -->
 <script>
   document.getElementById('mobileToggle').addEventListener('click', function () {
     var n = document.getElementById('navLinks');
@@ -266,8 +179,6 @@
     }
   });
 </script>
-
-<!-- ── NEWSLETTER JS ── -->
 <script>
   (function(){
     var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
