@@ -5,7 +5,7 @@
   Deploy to: resources/26-warning-signs-schedule-problems/index.html
 
   Created:      2026-04-05
-  Last Updated: 2026-04-05
+  Last Updated: 2026-04-06
 
   CHANGE LOG:
     2026-04-05 — Initial build from 26_Warning_Signs_V2_3_11_26.docx
@@ -29,6 +29,13 @@
                  - Mobile responsive
                  - URL: /resources/26-warning-signs-schedule-problems/
                    (matches all existing links across the site)
+
+    2026-04-06 — NAV CONSISTENCY FIX (site-wide standard):
+                 - Industries: removed dropdown, direct link to /industries/
+                 - Why Us: removed dropdown, direct link to /why-us/
+                   (was /why-shiftwork-solutions/ with dropdown)
+                 - All nav items are now flat direct links
+                 - All content, styles, JS, and functionality preserved exactly
 
   SEO NOTES (from source doc V2 3/11/2026):
     Primary keyword: signs shiftwork schedule problems
@@ -70,7 +77,7 @@
     {"@type":"Question","name":"Why do temporary schedule fixes become permanent?","acceptedAnswer":{"@type":"Answer","text":"Stop-gap overtime lists, borrowed staff arrangements, and informal coverage deals were implemented as short-term responses and become foundational to how the operation runs. The schedule loses its elasticity, compensated by sustained human effort that can't hold indefinitely."}}
   ]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"26 Warning Signs","item":"https://shift-work.com/resources/26-warning-signs-schedule-problems/"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"26 Warning Signs Your Shift Schedule Needs Attention","url":"https://shift-work.com/resources/26-warning-signs-schedule-problems/","datePublished":"2026-04-05","dateModified":"2026-04-05","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"26 Warning Signs Your Shift Schedule Needs Attention","url":"https://shift-work.com/resources/26-warning-signs-schedule-problems/","datePublished":"2026-04-05","dateModified":"2026-04-06","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
 
   <style>
@@ -88,12 +95,6 @@
     .nav-links>li{position:relative}
     .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
     .nav-links>li>a:hover{color:var(--navy)}
-    .nav-arrow{font-size:9px;opacity:.5;transition:transform .2s}
-    .nav-dropdown{position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border-med);border-top:none;border-radius:0 0 6px 6px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:270px;max-height:460px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-2px);transition:opacity .15s,visibility .15s,transform .15s;padding:6px 0;z-index:100}
-    .nav-links>li:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateY(0)}
-    .nav-links>li:hover>a .nav-arrow{transform:rotate(180deg)}
-    .nav-dropdown a{display:block;padding:6px 16px;font-size:13px;color:#444;text-decoration:none;transition:background .12s;line-height:1.4}
-    .nav-dropdown a:hover{background:var(--light-blue);color:var(--navy)}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
     .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
     .nav-cta-btn:hover{background:#c4510a}
@@ -253,7 +254,7 @@
 </head>
 <body>
 
-<!-- ── NAVIGATION ── -->
+<!-- ── NAVIGATION — Updated 2026-04-06: All flat links, no dropdowns ── -->
 <nav class="site-nav">
   <div class="nav-inner">
     <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;"></a>
@@ -262,25 +263,8 @@
       <li><a href="/">Home</a></li>
       <li><a href="/services/">Our Services</a></li>
       <li><a href="/resources/">Resources</a></li>
-      <li>
-        <a href="/industries/">Industries <span class="nav-arrow">▾</span></a>
-        <div class="nav-dropdown">
-          <a href="/industries/manufacturing-assembly-operations/">Manufacturing &amp; Assembly</a>
-          <a href="/industries/distribution-logistics-operations/">Distribution &amp; Logistics</a>
-          <a href="/industries/mining-extraction-industries/">Mining &amp; Extraction</a>
-          <a href="/industries/refining-utilities-operations/">Refining &amp; Utilities</a>
-          <a href="/industries/food-beverage-manufacturing/">Food &amp; Beverage</a>
-          <a href="/industries/chemical-pharmaceutical-operations/">Chemical &amp; Pharmaceutical</a>
-        </div>
-      </li>
-      <li>
-        <a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a>
-        <div class="nav-dropdown">
-          <a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a>
-          <a href="/our_team/">Meet Our Team</a>
-          <a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a>
-        </div>
-      </li>
+      <li><a href="/industries/">Industries</a></li>
+      <li><a href="/why-us/">Why Us</a></li>
       <li><a href="/contact/">Contact</a></li>
     </ul>
     <div class="nav-cta-wrap">
