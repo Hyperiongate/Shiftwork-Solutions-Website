@@ -3,13 +3,13 @@
   Shiftwork Solutions LLC — Services
   File: services.html (deploys as /services/index.html on Render)
   Created: April 2, 2026
-  Last updated: April 5, 2026
+  Last updated: April 6, 2026
   Author: Claude Opus 4.6 for Jim @ Shiftwork Solutions LLC
 
   PURPOSE:
       Services overview page for shift-work.com. Describes the six core
-      services, three engagement tiers, challenges solved, and engagement
-      model. Self-contained HTML/CSS/JS.
+      services, challenges solved, and engagement model.
+      Self-contained HTML/CSS/JS.
 
   URL: /services/
 
@@ -42,6 +42,14 @@
                   - Footer "Why Us" link updated to /why-us/
                   - Mobile dropdown JS handler removed (no longer needed)
                   - All page content preserved exactly
+      2026-04-06  (v5) CONTENT UPDATES:
+                  - Added "What We Do" section: Analyze, Engage, Implement
+                    (appears after introduction, before service tiles)
+                  - Removed Three Tiers / Engagement Options section entirely
+                  - Workforce Surveys tile: rewritten as Employee Engagement
+                    tool for shiftwork operations (removed 103-question reference,
+                    added customizable framing)
+                  - All nav, footer, JS, other content preserved exactly
 
   DESIGN SYSTEM:
       Per Pillar_Page_Layout_Guidelines_4_2_26.docx:
@@ -167,6 +175,18 @@
     @media (max-width: 760px) { .services-grid { grid-template-columns: 1fr; } }
     @media (min-width: 560px) and (max-width: 760px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
 
+    /* ── WHAT WE DO — 3 PHASES ── */
+    .phases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 28px; }
+    .phase-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px 22px; border-top: 3px solid var(--navy); }
+    .phase-card.phase-engage { border-top-color: var(--orange); }
+    .phase-card.phase-implement { border-top-color: var(--green); }
+    .phase-num { font-size: 32px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 6px; }
+    .phase-card.phase-engage .phase-num { color: var(--orange); }
+    .phase-card.phase-implement .phase-num { color: var(--green); }
+    .phase-card h3 { font-size: 16px; font-weight: 700; color: var(--body); margin-bottom: 10px; line-height: 1.3; }
+    .phase-card p { font-size: 13px; color: var(--text-mid); line-height: 1.65; }
+    @media (max-width: 760px) { .phases-grid { grid-template-columns: 1fr; } }
+
     /* ── CHALLENGES ── */
     .challenges-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
     .challenge-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); border-radius: var(--radius); padding: 20px 18px; transition: background 0.2s; }
@@ -191,23 +211,6 @@
     .insight-card .ic-label { font-size: 13px; font-weight: 700; color: var(--body); margin-bottom: 8px; }
     .insight-card .ic-body { font-size: 12px; color: var(--text-mid); line-height: 1.6; }
     @media (max-width: 680px) { .three-col { grid-template-columns: 1fr; } }
-
-    /* ── ENGAGEMENT TIERS ── */
-    .tiers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 28px; }
-    .tier-card { background: var(--white); border: 2px solid var(--border); border-radius: var(--radius-lg); padding: 28px 22px; display: flex; flex-direction: column; transition: border-color 0.2s; }
-    .tier-card:hover { border-color: var(--navy); }
-    .tier-card.featured { border-color: var(--navy); background: var(--blue-pale); }
-    .tier-badge { display: inline-block; background: var(--navy); color: var(--white); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 12px; border-radius: 20px; margin-bottom: 14px; width: fit-content; }
-    .tier-card h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 4px; line-height: 1.3; }
-    .tier-size { font-size: 12px; color: var(--muted); margin-bottom: 12px; }
-    .tier-card p { font-size: 13px; color: var(--text-mid); line-height: 1.65; margin-bottom: 16px; }
-    .tier-includes { list-style: none; margin-bottom: 24px; flex: 1; }
-    .tier-includes li { font-size: 13px; color: var(--body); padding: 6px 0 6px 20px; position: relative; border-bottom: 1px solid var(--border); line-height: 1.4; }
-    .tier-includes li:last-child { border-bottom: none; }
-    .tier-includes li::before { content: '✓'; position: absolute; left: 0; color: var(--navy); font-weight: 700; font-size: 12px; }
-    .tier-card .btn-cta { display: block; padding: 11px 18px; background: var(--navy); color: var(--white); font-size: 13px; font-weight: 700; text-decoration: none; border-radius: 5px; text-align: center; transition: background 0.2s; }
-    .tier-card .btn-cta:hover { background: #163a5c; }
-    @media (max-width: 760px) { .tiers-grid { grid-template-columns: 1fr; max-width: 480px; } }
 
     /* ── PROCESS TIMELINE ── */
     .process-timeline { margin-top: 32px; position: relative; padding-left: 44px; }
@@ -305,6 +308,39 @@
 <!-- ── BREADCRUMB ── -->
 <div class="breadcrumb"><div class="breadcrumb-inner"><a href="/">Home</a><span class="sep">›</span><span class="current">Our Services</span></div></div>
 
+<!-- ══════════════════════════════════════════════════════════════
+     WHAT WE DO — ANALYZE, ENGAGE, IMPLEMENT
+     Added 2026-04-06
+════════════════════════════════════════════════════════════════ -->
+<section class="section" id="what-we-do">
+  <div class="section-inner">
+    <div class="section-eyebrow">In Simplest Terms</div>
+    <h2 class="section-heading">We Do Three Things</h2>
+    <div class="section-body">
+      <p>Every engagement — regardless of size, industry, or complexity — follows the same proven structure. We analyze your current operation to understand what's really happening. We engage your workforce so the people affected by the schedule have a genuine voice in shaping it. And we implement — designing the solution, building the policies, and supporting the transition until it holds on its own.</p>
+    </div>
+    <div class="phases-grid">
+      <div class="phase-card">
+        <div class="phase-num">1</div>
+        <h3>Analyze the Current Situation</h3>
+        <p>We collect operating data, walk your facility, meet with leadership and supervisors, and build a clear picture of how the current schedule is performing — what it's costing, where it's creating strain, and what opportunities exist. The business analysis, cost modeling, and benchmarking against our proprietary database give you facts, not assumptions.</p>
+      </div>
+      <div class="phase-card phase-engage">
+        <div class="phase-num">2</div>
+        <h3>Engage the Workforce</h3>
+        <p>We survey every affected employee to understand what they actually value — shift preferences, overtime appetite, work-life priorities, and satisfaction with the current system. This isn't a formality. The survey data shapes the schedule options we develop, and the involvement builds the buy-in that makes implementation succeed. People support what they helped create.</p>
+      </div>
+      <div class="phase-card phase-implement">
+        <div class="phase-num">3</div>
+        <h3>Implement</h3>
+        <p>We design schedule options that meet your operational requirements and reflect what the workforce told us. We develop the pay and time-off policies that align with the new pattern. We present the options to employees, facilitate the selection process, and support the transition. The workforce chooses — and the schedule they pick becomes their schedule.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" style="max-width:860px; margin: 0 auto;" />
+
 <!-- ── INTRODUCTION + SERVICES GRID ── -->
 <section class="section" id="introduction">
   <div class="section-inner">
@@ -318,7 +354,7 @@
       <div class="service-card"><h3>Schedule Design &amp; Analysis</h3><p>Custom shift patterns that balance operational coverage, labor costs, fatigue management, and employee preferences. We don't pick from a menu — we design schedules around your specific coverage needs, demand patterns, and workforce reality.</p><div class="service-note">8-hour, 12-hour, fixed, rotating, hybrid, semi-continuous, fly-in/fly-out, and more</div></div>
       <div class="service-card" id="staffing-strategy"><h3>Staffing Strategy</h3><p>Right-size your workforce for the schedule. We model staffing scenarios for hiring, attrition, and growth — so you know exactly how many people you need before committing to a pattern. No guesswork.</p><div class="service-note">Headcount modeling, relief crew sizing, skill-balance analysis, vacancy planning</div></div>
       <div class="service-card" id="change-management"><h3>Change Management</h3><p>This is the 80% that determines success or failure. Employee-centered implementation that builds buy-in before the first shift rotates. Communication plans, on-shift meetings, leadership coaching, and the employee choice process that makes the schedule theirs.</p><div class="service-note">Communication planning, on-shift meetings, employee orientation, schedule selection facilitation</div></div>
-      <div class="service-card" id="workforce-surveys"><h3>Workforce Surveys</h3><p>Our 103-question diagnostic survey captures what employees actually think — schedule preferences, overtime appetite, work-life balance priorities, and satisfaction levels. Every result is benchmarked against our proprietary normative database from hundreds of operations across 16 industries.</p><div class="service-note">Full workforce surveys, normative benchmarking, demographic breakouts, trend tracking</div></div>
+      <div class="service-card" id="workforce-surveys"><h3>Employee Engagement Surveys</h3><p>Our proprietary employee engagement tool is purpose-built for shiftwork operations — not adapted from a generic office survey. It captures what shift workers actually think about their schedules, overtime, work-life balance, supervision, and communication. Every engagement is customized to your operation's specific circumstances, and every result is benchmarked against our normative database from hundreds of facilities across 16+ industries.</p><div class="service-note">Customizable survey instrument, normative benchmarking, demographic breakouts, trend tracking</div></div>
       <div class="service-card" id="cost-analysis"><h3>Cost Analysis</h3><p>True fully loaded cost of every schedule option — not just wages, but benefits, paid time off, training, and administrative overhead. Overtime projections, benefit impacts, and ROI modeling. Numbers your CFO will trust because they account for what most analyses miss.</p><div class="service-note">Fully loaded labor costs, adverse cost analysis, scenario comparison, break-even modeling</div></div>
       <div class="service-card" id="policy-development"><h3>Policy Development</h3><p>Schedule changes cascade into vacation accrual, holiday pay, overtime distribution, shift differentials, and call-off procedures. We develop work and pay policies that align with the new schedule and prevent the conflicts that erode trust after implementation.</p><div class="service-note">Vacation and holiday policies, shift differential structures, overtime distribution, call-off procedures</div></div>
     </div>
@@ -367,39 +403,6 @@
     <div class="pull-quote">
       <div class="pq-label">Jim Dillingham — Partner, Shiftwork Solutions LLC</div>
       <blockquote>"We don't believe in one-size-fits-all solutions. Every operation is unique, every workforce is different, and every challenge requires thoughtful analysis — and a process that gives employees a real voice in the outcome."</blockquote>
-    </div>
-  </div>
-</section>
-
-<!-- ── ENGAGEMENT TIERS ── -->
-<section class="section stripe-b" id="engagement-tiers">
-  <div class="section-inner">
-    <div class="section-eyebrow">Engagement Options</div>
-    <h2 class="section-heading">Three Tiers. Scaled to Your Operation.</h2>
-    <div class="section-body"><p>Every engagement is fixed-fee, scoped to your situation. Projects typically run 5–10 weeks, with six weeks being the average. The first conversation is always free.</p></div>
-    <div class="tiers-grid">
-      <div class="tier-card">
-        <h3>Schedule Development Advice</h3>
-        <div class="tier-size">Smaller operations &middot; 15–30 employees</div>
-        <p>Expert schedule design guidance with minimal on-site work. Ideal for operations that need direction and a proven pattern, not a full organizational change process.</p>
-        <ul class="tier-includes"><li>Schedule design recommendations</li><li>Minimal business analysis</li><li>Remote and limited on-site support</li><li>Implementation guidance</li></ul>
-        <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" target="_blank" class="btn-cta">Book a Free Consultation</a>
-      </div>
-      <div class="tier-card featured">
-        <div class="tier-badge">Most Common</div>
-        <h3>Change &amp; Implementation Assistance</h3>
-        <div class="tier-size">Mid-sized operations &middot; 30–65 employees</div>
-        <p>Business analysis, workforce survey, schedule design, and implementation support. The right fit when schedule change affects multiple departments and requires structured employee engagement.</p>
-        <ul class="tier-includes"><li>Business analysis and cost modeling</li><li>Employee survey with normative benchmarking</li><li>Custom schedule design and options</li><li>On-site implementation support</li><li>Communication planning</li><li>Policy development</li></ul>
-        <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" target="_blank" class="btn-cta">Book a Free Consultation</a>
-      </div>
-      <div class="tier-card">
-        <h3>Full Change Management Leadership</h3>
-        <div class="tier-size">Complex operations &middot; 65+ employees</div>
-        <p>Thorough business analysis, full survey administration, extensive on-site presence, and hands-on leadership through every phase. Built for complex operations, union environments, and multi-department transformations.</p>
-        <ul class="tier-includes"><li>Comprehensive business analysis</li><li>Full survey administration and processing</li><li>Extensive on-site engagement</li><li>Multi-department coordination</li><li>Union environment expertise</li><li>Complete policy framework</li><li>Post-implementation follow-up</li></ul>
-        <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" target="_blank" class="btn-cta">Book a Free Consultation</a>
-      </div>
     </div>
   </div>
 </section>
