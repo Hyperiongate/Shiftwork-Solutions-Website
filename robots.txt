@@ -1,0 +1,105 @@
+# ─────────────────────────────────────────────────────────────
+# Shiftwork Solutions LLC — robots.txt
+# File: robots.txt (root of repo)
+# Created: April 5, 2026
+# Last Updated: April 5, 2026
+# Author: Claude Opus 4.6 for Jim @ Shiftwork Solutions LLC
+#
+# PURPOSE:
+#     Crawler governance for shift-work.com.
+#     - Allows all search engine crawlers full access
+#     - Allows AI retrieval bots (for real-time search answers)
+#     - Blocks AI training bots (content scraping for model training)
+#     - Points to sitemap.xml
+#
+# DEPLOYMENT:
+#     Place in the ROOT of the Shiftwork-Solutions-Website GitHub repo.
+#     Render serves it at https://shift-work.com/robots.txt
+#
+# CHANGE LOG:
+#     2026-04-05 — Initial build. Full access for search engines,
+#                  AI retrieval bots allowed, AI training bots blocked.
+#
+# I did no harm and this file is not truncated
+# ─────────────────────────────────────────────────────────────
+
+# ═══════════════════════════════════════════════════════════════
+# SEARCH ENGINE CRAWLERS — Full access
+# ═══════════════════════════════════════════════════════════════
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# ═══════════════════════════════════════════════════════════════
+# AI RETRIEVAL BOTS — Allowed
+# These bots fetch content to answer real-time user questions.
+# We WANT to appear in AI-generated answers and citations.
+# ═══════════════════════════════════════════════════════════════
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# ═══════════════════════════════════════════════════════════════
+# AI TRAINING BOTS — Blocked
+# These bots scrape content to train AI models.
+# We do not consent to our proprietary content being used
+# for model training purposes.
+# ═══════════════════════════════════════════════════════════════
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+# ═══════════════════════════════════════════════════════════════
+# DEFAULT — Allow everything else
+# ═══════════════════════════════════════════════════════════════
+User-agent: *
+Allow: /
+
+# ═══════════════════════════════════════════════════════════════
+# SITEMAP
+# ═══════════════════════════════════════════════════════════════
+Sitemap: https://shift-work.com/sitemap.xml
+
+# I did no harm and this file is not truncated
