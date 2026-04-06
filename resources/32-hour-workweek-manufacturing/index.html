@@ -18,6 +18,12 @@
                     Listen button → ORANGE
                  3. SEO: Added Twitter Card tags
 
+    2026-04-05 — SEO & AI DISCOVERABILITY:
+                 Added FAQ section with 5 questions (visible HTML in article body)
+                 Added FAQPage JSON-LD schema (structured data in <head>)
+                 Added .faq-section/.faq-item/.faq-q/.faq-a CSS classes
+                 All other content, styles, nav, and JS unchanged
+
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
 
@@ -103,6 +109,12 @@
     .inline-cta-text p{font-size:13px;color:var(--mid-blue);line-height:1.55;margin:0}
     .inline-cta-btn{display:inline-block;padding:11px 24px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;white-space:nowrap;transition:background .15s;flex-shrink:0}
     .inline-cta-btn:hover{background:#c4510a}
+    .faq-section{margin:36px 0}
+    .faq-section h2{font-size:21px;font-weight:700;color:var(--body-text);margin-bottom:20px}
+    .faq-item{border-bottom:1px solid var(--border-light);padding:18px 0}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.4}
+    .faq-a{font-size:14px;color:var(--body-text);line-height:1.7;margin:0}
     .next-steps{padding:48px var(--page-pad) 52px;background:var(--light-grey);border-top:1px solid var(--border-light)}
     .next-steps-inner{max-width:var(--max-width);margin:0 auto}
     .next-steps h2{font-size:20px;font-weight:700;color:var(--body-text);margin-bottom:20px}
@@ -159,6 +171,14 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The 32-Hour Workweek: What It Means for 24/7 Manufacturing","description":"A 32-hour overtime threshold sounds simple. For 24/7 manufacturing and continuous operations, the staffing and cost implications are anything but.","url":"https://shift-work.com/resources/32-hour-workweek-manufacturing/","datePublished":"2026-04-04","dateModified":"2026-04-05","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"32-hour workweek manufacturing, 32-hour workweek 24/7 operations, shorter workweek manufacturing impact, overtime threshold manufacturing, crew scheduling 32-hour workweek"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"The 32-Hour Workweek","item":"https://shift-work.com/resources/32-hour-workweek-manufacturing/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}</script>
+  <!-- FAQPage JSON-LD added 2026-04-05 -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"What happens to labor costs in 24/7 operations if the overtime threshold drops to 32 hours?","acceptedAnswer":{"@type":"Answer","text":"The impact depends on the crew model. Monday-through-Friday operations (1-3 crews) would see 8 hours per employee shift from straight time to overtime — roughly a 10% labor cost increase. Four-crew 24/7 systems averaging 42 hours per week would see pay equivalents rise from 44 to approximately 47 hours — a 6.8% increase. Five-crew systems are the least affected, averaging only 1.6 hours above the 32-hour threshold."}},
+    {"@type":"Question","name":"Which crew model is best positioned for a 32-hour workweek?","acceptedAnswer":{"@type":"Answer","text":"Five-crew systems are the most adaptable. When all five crews are used for coverage rather than reserving one for relief and training, each crew averages 33.6 hours per week — only 1.6 hours above a 32-hour threshold. The cost impact is minimal. The tradeoff is losing dedicated relief and training capacity, which may push some operations toward a six-crew model."}},
+    {"@type":"Question","name":"Can a 4-crew 24/7 operation avoid overtime under a 32-hour rule?","acceptedAnswer":{"@type":"Answer","text":"Avoiding overtime in a 4-crew system would require complex overstaffing that is unlikely to yield financial benefit. The crews currently average 42 hours per week. Redesigning to bring that below 32 would require adding crews and redistributing hours in ways that typically cost more than absorbing the overtime premium on the hours above the threshold."}},
+    {"@type":"Question","name":"Should operations wait for 32-hour legislation to pass before modeling the impact?","acceptedAnswer":{"@type":"Answer","text":"No. The concept has enough momentum — in policy discussions, union negotiations, and employee expectations — that operations benefit from understanding their exposure before it becomes urgent. Proactive modeling is significantly less expensive than reactive restructuring. Key questions to work through now include how many employees regularly exceed 32 hours, what a 5-crew rotation would look like, and whether absorbing overtime premiums or redesigning for lower weekly hours is more cost-effective."}},
+    {"@type":"Question","name":"How does the 32-hour workweek differ for manufacturing versus office environments?","acceptedAnswer":{"@type":"Answer","text":"The difference is fundamental. A knowledge worker who completes their work in 32 hours has delivered full value. A production line that runs 32 hours has left 136 hours of weekly capacity unused. Continuous operations must cover every hour of the week regardless of the overtime threshold, so the question is not whether to work fewer hours but how to distribute coverage across more crews — and what that costs."}}
+  ]}</script>
 </head>
 <body>
 
@@ -224,6 +244,37 @@
   <p>A few questions worth working through now: How many of your employees regularly exceed 32 hours? What would a 5-crew rotation look like in your operation? Is it more cost-effective to absorb overtime premiums or redesign for lower weekly hours? And beyond cost — how would different approaches affect fatigue, turnover, and your ability to attract the workforce you need?</p>
 
   <div class="inline-cta"><div class="inline-cta-text"><h3>Want to understand your exposure?</h3><p>Shiftwork Solutions helps 24/7 operations model the schedule and staffing implications of workforce policy changes before they become urgent. Let's talk through your current structure.</p></div><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="inline-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
+
+  <!-- FAQ Section added 2026-04-05 -->
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">What happens to labor costs in 24/7 operations if the overtime threshold drops to 32 hours?</div>
+      <div class="faq-a">The impact depends on the crew model. Monday-through-Friday operations running 1 to 3 crews would see 8 hours per employee shift from straight time to overtime — roughly a 10% labor cost increase. Four-crew 24/7 systems averaging 42 hours per week would see pay equivalents rise from 44 to approximately 47 hours — a 6.8% increase. Five-crew systems are the least affected, averaging only 1.6 hours above the 32-hour threshold. The right response depends on which model your operation uses and what alternatives are available.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Which crew model is best positioned for a 32-hour workweek?</div>
+      <div class="faq-a">Five-crew systems are the most adaptable. When all five crews are used for coverage rather than reserving one for relief and training, each crew averages 33.6 hours per week — only 1.6 hours above a 32-hour threshold. The cost impact is minimal. The tradeoff is losing the dedicated relief and training capacity that the fifth crew currently provides, which may push some operations toward a six-crew model — a structure that is not yet widely adopted but may become more common if legislation passes.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Can a 4-crew 24/7 operation avoid overtime under a 32-hour rule?</div>
+      <div class="faq-a">Avoiding overtime entirely in a 4-crew system would require complex overstaffing that is unlikely to yield financial benefit. The crews currently average 42 hours per week. Redesigning to bring individual hours below 32 while maintaining full coverage would require adding crews and redistributing hours in ways that typically cost more than absorbing the overtime premium on the hours above the threshold. For most 4-crew operations, the practical question is not how to avoid the cost but how to manage it.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Should operations wait for 32-hour legislation to pass before modeling the impact?</div>
+      <div class="faq-a">No. The concept has enough momentum — in policy discussions, union negotiations, and employee expectations — that operations benefit from understanding their exposure before it becomes urgent. Proactive modeling is significantly less expensive than reactive restructuring. Key questions to work through now include how many employees regularly exceed 32 hours, what a 5-crew rotation would look like, and whether absorbing overtime premiums or redesigning for lower weekly hours is more cost-effective for your specific operation.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How does the 32-hour workweek differ for manufacturing versus office environments?</div>
+      <div class="faq-a">The difference is fundamental. A knowledge worker who completes their deliverables in 32 hours has produced full value — pilot programs in office environments consistently show this. A production line that runs 32 hours has left 136 hours of weekly capacity unused. Continuous operations must cover every hour of the week regardless of the overtime threshold. The question for manufacturing is not whether to work fewer hours, but how to distribute coverage across more crews without proportionally increasing cost — and that requires schedule modeling, not policy assumptions.</div>
+    </div>
+  </div>
+
 </div>
 
 <section class="next-steps"><div class="next-steps-inner">
