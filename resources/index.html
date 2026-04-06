@@ -57,7 +57,6 @@
                     → /resources/support/balancing-business-employee-needs/
                  7. /resources/schedule-change-pitfalls/
                     → /resources/support/schedule-change-pitfalls/
-
     2026-04-06 — PILLAR GUIDE IMAGES:
                  Added thumbnail images to all 10 pillar guide tiles.
                  Images: /images/pillar_1.jpg through /images/pillar_10.jpg
@@ -70,6 +69,23 @@
                  Removed inline newsletter form (covered by Engage band below).
                  Removed actionNLSubmit JS (no longer needed).
                  All nav, links, content, engage band JS preserved exactly.
+    2026-04-06 — LAYOUT REDESIGN: Focused Topics + Trending Topics sections:
+                 PER DESIGN BRIEF:
+                 1. FOCUSED TOPICS: Converted from 2-col tile grid to full-width
+                    horizontal card list. Each card: left-aligned bold title,
+                    one-line description, arrow link. Visually distinct scanning
+                    rhythm vs. pillar photo grid above.
+                 2. TRENDING TOPICS: Converted from standalone 3-col grid to a
+                    sticky right-rail sidebar (35% width) running alongside the
+                    Focused Topics list (65% width). Narrow cards show tag +
+                    headline + arrow only — no descriptions. Signals "timely,
+                    brief" vs. depth of pillars. Rail is position:sticky below nav.
+                 3. SECTION DIVIDERS: Added 2px full-bleed orange (#E8610A) rule
+                    between Start Here, Guides, and Focused+Trending sections.
+                 4. "Coming Soon" placeholder tile removed (was a grid filler;
+                    not appropriate in horizontal list format).
+                 All URLs, nav, guides section, CTA band, engage band, and JS
+                 preserved exactly.
 
   I did no harm and this file is not truncated
 -->
@@ -91,6 +107,8 @@
     :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--max-width:1060px;--page-pad:24px}
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
+
+    /* ── NAV ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo{font-size:16px;font-weight:700;color:var(--navy);text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0}
@@ -105,6 +123,8 @@
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
+
+    /* ── HERO ── */
     .hero{background:var(--navy);padding:52px 36px 56px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;top:-80px;right:-60px;width:340px;height:340px;border-radius:50%;background:var(--white);opacity:.04}
     .hero::after{content:'';position:absolute;bottom:-120px;left:-40px;width:260px;height:260px;border-radius:50%;background:var(--white);opacity:.04}
@@ -112,10 +132,17 @@
     .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
     .hero h1{font-size:32px;font-weight:700;line-height:1.2;color:var(--white);max-width:620px;margin-bottom:14px}
     .hero-subtitle{font-size:16px;line-height:1.65;color:var(--mid-blue);max-width:620px}
+
+    /* ── SHARED SECTION UTILITIES ── */
     .section-wrap{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad)}
     .section-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
     .section-heading{font-size:22px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:8px}
     .section-sub{font-size:14px;color:var(--muted);line-height:1.65;max-width:680px;margin-bottom:28px}
+
+    /* ── ORANGE SECTION DIVIDER ── */
+    .section-divider{height:2px;background:var(--orange);width:100%}
+
+    /* ── START HERE ── */
     .start-here{padding:52px var(--page-pad) 56px;background:var(--white)}
     .start-here .section-eyebrow{color:var(--muted)}
     .start-here-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:4px}
@@ -126,7 +153,9 @@
     .start-tile p{font-size:13px;color:var(--mid-blue);line-height:1.6;margin-bottom:18px}
     .start-arrow{font-size:13px;font-weight:700;color:var(--orange);text-decoration:none}
     .start-arrow::after{content:' →'}
-    .guides-section{padding:56px var(--page-pad) 60px;background:var(--white);border-top:1px solid var(--border-light)}
+
+    /* ── GUIDES (PILLAR TILES) — UNCHANGED ── */
+    .guides-section{padding:56px var(--page-pad) 60px;background:var(--white)}
     .guides-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
     .guide-tile{background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:6px;overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:border-top-color .15s,box-shadow .15s}
     .guide-tile:hover{border-top-color:var(--orange);box-shadow:0 4px 20px rgba(0,0,0,.09)}
@@ -142,36 +171,51 @@
     .action-tile-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
     .action-tile-title{font-size:16px;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:8px}
     .action-tile-text{font-size:12px;color:rgba(255,255,255,.6);line-height:1.55;margin-bottom:14px}
-    .action-tile-divider{height:1px;background:rgba(255,255,255,.12);margin:16px 0}
     .action-tile-btn{display:inline-block;width:100%;padding:10px 16px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;text-align:center;transition:background .15s;margin-bottom:8px}
     .action-tile-btn:hover{background:#c4510a}
     .action-tile-btn:last-child{margin-bottom:0}
-    .action-contact-line{font-size:12px;color:rgba(255,255,255,.6);line-height:1.5;margin-bottom:4px}
-    .action-contact-line a{color:var(--mid-blue);text-decoration:none;font-weight:600}
-    .action-contact-line a:hover{color:var(--white)}
-    .action-nl-input{width:100%;padding:9px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s;margin-bottom:8px}
-    .action-nl-input::placeholder{color:rgba(255,255,255,.4)}
-    .action-nl-input:focus{border-color:var(--mid-blue)}
-    .action-nl-msg{font-size:11px;margin-top:4px;min-height:14px}
-    .action-nl-msg.ok{color:#6ee7b7}.action-nl-msg.err{color:#fca5a5}
-    .topics-section{padding:56px var(--page-pad) 60px;background:var(--white);border-top:1px solid var(--border-light)}
-    .topics-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .topic-tile{background:var(--white);border:1px solid var(--border-med);border-top:3px solid #1a2744;border-radius:6px;padding:22px 20px;text-decoration:none;display:block;transition:border-top-color .15s,box-shadow .15s}
-    .topic-tile:hover{border-top-color:var(--orange);box-shadow:0 4px 20px rgba(0,0,0,.09)}
-    .topic-title{font-size:15px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:8px}
-    .topic-desc{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:14px}
-    .topic-link{font-size:12px;font-weight:700;color:var(--navy)}
-    .topic-link::after{content:' →'}
-    .topic-tile:hover .topic-link{color:var(--orange)}
-    .trending-section{background:var(--light-grey);padding:56px var(--page-pad) 60px;border-top:1px solid var(--border-light)}
-    .trending-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .trending-tile{background:var(--white);border:1px solid var(--border-med);border-top:3px solid #aaaaaa;border-radius:6px;padding:20px 18px;text-decoration:none;display:block;transition:border-top-color .15s,box-shadow .15s}
-    .trending-tile:hover{border-top-color:var(--orange);box-shadow:0 4px 20px rgba(0,0,0,.08)}
-    .trending-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
-    .trending-title{font-size:14px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:10px}
-    .trending-link{font-size:12px;font-weight:700;color:var(--muted)}
-    .trending-link::after{content:' →'}
-    .trending-tile:hover .trending-link{color:var(--orange)}
+
+    /* ── FOCUSED TOPICS + TRENDING RAIL — TWO-COLUMN WRAPPER ── */
+    /* The outer section provides the background and padding.
+       Inside: a 65/35 grid — left col = horizontal article cards,
+       right col = sticky trending rail. */
+    .topics-trending-section{padding:56px var(--page-pad) 60px;background:var(--light-grey)}
+    .topics-trending-inner{max-width:var(--max-width);margin:0 auto}
+    .topics-trending-grid{display:grid;grid-template-columns:65fr 35fr;gap:40px;align-items:start}
+
+    /* ── LEFT COLUMN: FOCUSED TOPICS ── */
+    .topics-col-header{margin-bottom:24px}
+    .topics-list{display:flex;flex-direction:column;gap:0}
+
+    /* Horizontal card — full width, left-aligned, scanning rhythm */
+    .topic-card{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--border-med);text-decoration:none;transition:background .12s}
+    .topic-card:first-child{border-top:1px solid var(--border-med)}
+    .topic-card:hover .topic-card-title{color:var(--orange)}
+    .topic-card:hover .topic-card-arrow{color:var(--orange)}
+    .topic-card-body{flex:1;min-width:0}
+    .topic-card-title{font-size:15px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:5px;transition:color .15s}
+    .topic-card-desc{font-size:13px;color:var(--muted);line-height:1.55}
+    .topic-card-arrow{font-size:13px;font-weight:700;color:var(--navy);white-space:nowrap;flex-shrink:0;transition:color .15s}
+    .topic-card-arrow::after{content:' →'}
+
+    /* ── RIGHT COLUMN: TRENDING RAIL ── */
+    .trending-rail{position:sticky;top:72px}/* 56px nav + 16px breathing room */
+    .trending-rail-header{margin-bottom:16px}
+    .trending-rail-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px}
+    .trending-rail-heading{font-size:17px;font-weight:700;color:var(--body-text);line-height:1.3}
+    .trending-rail-items{display:flex;flex-direction:column;gap:0}
+
+    /* Narrow trending card — tag + headline + arrow, no description */
+    .trending-item{display:block;padding:14px 0;border-bottom:1px solid var(--border-med);text-decoration:none;transition:color .12s}
+    .trending-item:first-child{border-top:1px solid var(--border-med)}
+    .trending-item:hover .trending-item-title{color:var(--orange)}
+    .trending-item:hover .trending-item-read{color:var(--orange)}
+    .trending-item-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:5px}
+    .trending-item-title{font-size:13px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:6px;transition:color .15s}
+    .trending-item-read{font-size:11px;font-weight:700;color:var(--muted);transition:color .15s}
+    .trending-item-read::after{content:' →'}
+
+    /* ── CTA BAND ── */
     .cta-band{background:var(--navy-dark);padding:56px var(--page-pad)}
     .cta-band-inner{max-width:var(--max-width);margin:0 auto;text-align:center}
     .cta-band h2{font-size:24px;font-weight:700;color:var(--white);margin-bottom:12px}
@@ -181,12 +225,16 @@
     .cta-btn:hover{background:#c4510a}
     .cta-text-link{font-size:14px;color:var(--mid-blue);text-decoration:none;font-weight:500}
     .cta-text-link:hover{color:var(--white);text-decoration:underline}
+
+    /* ── FOOTER ── */
     .site-footer{background:#F4F4F4;padding:32px var(--page-pad) 20px;border-top:1px solid var(--border-med)}
     .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#555}
     .footer-inner a{color:#555;text-decoration:none}
     .footer-inner a:hover{color:var(--navy)}
     .footer-logo{font-weight:700;color:var(--navy)}
     .footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
+
+    /* ── ENGAGE BAND ── */
     .engage-band{background:var(--navy-dark,#0D1F3C);padding:40px var(--page-pad)}
     .engage-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
     .engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue,#85B7EB);margin-bottom:8px}
@@ -203,12 +251,31 @@
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
     .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
-    @media(max-width:900px){.guides-grid{grid-template-columns:repeat(2,1fr)}.trending-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:36px 20px 40px}.hero h1{font-size:24px}.start-here{padding:36px 20px 40px}.start-here-grid{grid-template-columns:1fr}.guides-section{padding:36px 20px 40px}.guides-grid{grid-template-columns:1fr}.guide-img{height:180px}.topics-section{padding:36px 20px 40px}.topics-grid{grid-template-columns:1fr}.trending-section{padding:36px 20px 40px}.trending-grid{grid-template-columns:1fr}.cta-band{padding:40px 20px}.cta-band h2{font-size:20px}.footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}.engage-inner{grid-template-columns:1fr}.engage-band{padding:32px 20px}}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:900px){
+      .guides-grid{grid-template-columns:repeat(2,1fr)}
+      .topics-trending-grid{grid-template-columns:1fr}/* stack on tablet */
+      .trending-rail{position:static}/* unstick when stacked */
+    }
+    @media(max-width:640px){
+      .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
+      .hero{padding:36px 20px 40px}.hero h1{font-size:24px}
+      .start-here{padding:36px 20px 40px}.start-here-grid{grid-template-columns:1fr}
+      .guides-section{padding:36px 20px 40px}.guides-grid{grid-template-columns:1fr}.guide-img{height:180px}
+      .topics-trending-section{padding:36px 20px 40px}
+      .topics-trending-grid{gap:32px}
+      .cta-band{padding:40px 20px}.cta-band h2{font-size:20px}
+      .footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}
+      .engage-inner{grid-template-columns:1fr}.engage-band{padding:32px 20px}
+    }
   </style>
 </head>
 <body>
 
+<!-- ══════════════════════════════════════════════════════════════
+     NAV — UNCHANGED
+════════════════════════════════════════════════════════════════ -->
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;"></a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -225,12 +292,18 @@
   </div>
 </div></nav>
 
+<!-- ══════════════════════════════════════════════════════════════
+     HERO — UNCHANGED
+════════════════════════════════════════════════════════════════ -->
 <section class="hero"><div class="hero-inner">
   <div class="hero-eyebrow">Resources</div>
   <h1>Everything You Need to Understand Shift Work</h1>
   <p class="hero-subtitle">Ten comprehensive guides, targeted articles, and timely insights — built from decades of work across hundreds of 24/7 operations in manufacturing and distribution.</p>
 </div></section>
 
+<!-- ══════════════════════════════════════════════════════════════
+     START HERE — UNCHANGED
+════════════════════════════════════════════════════════════════ -->
 <section class="start-here"><div class="section-wrap">
   <div class="section-eyebrow">Start Here</div>
   <div class="section-heading">Not sure where to begin? These two tools will orient you.</div>
@@ -250,6 +323,12 @@
   </div>
 </div></section>
 
+<!-- ORANGE SECTION DIVIDER -->
+<div class="section-divider"></div>
+
+<!-- ══════════════════════════════════════════════════════════════
+     COMPLETE GUIDES — PILLAR TILES — UNCHANGED
+════════════════════════════════════════════════════════════════ -->
 <section class="guides-section"><div class="section-wrap">
   <div class="section-eyebrow">Complete Guides</div>
   <div class="section-heading">Ten in-depth resources covering every dimension of shift work</div>
@@ -280,44 +359,141 @@
   </div>
 </div></section>
 
+<!-- ORANGE SECTION DIVIDER -->
+<div class="section-divider"></div>
+
 <!-- ══════════════════════════════════════════════════════════════
-     FOCUSED TOPICS — SUPPORT ARTICLES
-     All 7 links corrected 2026-04-05 to use /resources/support/ paths
-     matching actual deployed file locations
+     FOCUSED TOPICS + TRENDING RAIL
+     Two-column layout: 65% article cards / 35% sticky trending rail.
+     Both sections share one outer section for visual cohesion.
+     All 7 support article URLs use verified /resources/support/ paths.
 ════════════════════════════════════════════════════════════════ -->
-<section class="topics-section"><div class="section-wrap">
-  <div class="section-eyebrow">Focused Topics</div>
-  <div class="section-heading">Targeted articles on specific challenges</div>
-  <p class="section-sub">Shorter and more focused than the complete guides — each addresses one specific operational question in depth.</p>
-  <div class="topics-grid">
-    <a href="/resources/support/scaling-production-quickly/" class="topic-tile"><div class="topic-title">How to Scale Production Up or Down Rapidly</div><div class="topic-desc">Four strategies for matching staffing to demand swings — overtime, temporary labor, discretionary work, and time-off management.</div><span class="topic-link">Read the article</span></a>
-    <a href="/resources/support/sleep-alertness-safety-shift-work/" class="topic-tile"><div class="topic-title">Sleep, Alertness &amp; Safety in Shift Operations</div><div class="topic-desc">How schedule design, shift length, and rotation patterns affect fatigue — and what that costs in safety and productivity.</div><span class="topic-link">Read the article</span></a>
-    <a href="/resources/support/maintenance-worker-scheduling/" class="topic-tile"><div class="topic-title">Maintenance Workers: Unique Scheduling Considerations</div><div class="topic-desc">Why standard shift patterns consistently fail maintenance crews — and what approaches actually work.</div><span class="topic-link">Read the article</span></a>
-    <a href="/resources/support/communicating-schedule-changes/" class="topic-tile"><div class="topic-title">Communicating Major Schedule Changes</div><div class="topic-desc">Timing, channels, and messaging that reduce resistance — and the single most reliable predictor of whether a change will succeed.</div><span class="topic-link">Read the article</span></a>
-    <a href="/resources/support/workforce-survey-analysis/" class="topic-tile"><div class="topic-title">Survey Analysis: Understanding Workforce Needs</div><div class="topic-desc">How survey data corrects the systematic misperceptions managers have about what their workforce actually wants.</div><span class="topic-link">Read the article</span></a>
-    <a href="/resources/support/balancing-business-employee-needs/" class="topic-tile"><div class="topic-title">Balancing Business &amp; Employee Needs</div><div class="topic-desc">Why the best shift schedules satisfy both operational requirements and employee lifestyle needs — and how to find them.</div><span class="topic-link">Read the article</span></a>
-    <a href="/resources/support/schedule-change-pitfalls/" class="topic-tile"><div class="topic-title">Schedule Change Pitfalls: What to Avoid</div><div class="topic-desc">The predictable reasons well-designed schedule changes fail — poor communication, policy gaps, and inadequate notice.</div><span class="topic-link">Read the article</span></a>
-    <a href="/resources/" class="topic-tile" style="border-style:dashed;border-color:var(--border-med);opacity:.55;pointer-events:none;"><div class="topic-title" style="color:var(--muted);">Coming Soon</div><div class="topic-desc">An additional focused topic article is in development.</div></a>
-  </div>
-</div></section>
+<section class="topics-trending-section">
+  <div class="topics-trending-inner">
+    <div class="topics-trending-grid">
 
-<section class="trending-section"><div class="section-wrap">
-  <div class="section-eyebrow">What's Happening Now</div>
-  <div class="section-heading">Timely insights on legislation, labor markets, and emerging issues</div>
-  <p class="section-sub">Updated as the landscape changes — these articles address what operations leaders are asking about right now.</p>
-  <div class="trending-grid">
-    <a href="/resources/reshoring-manufacturing-workforce/" class="trending-tile"><div class="trending-tag">Trending</div><div class="trending-title">Reshoring Manufacturing? The Workforce Problem Most Companies Don't See Coming</div><span class="trending-link">Read</span></a>
-    <a href="/resources/overtime-tax-break-businesses/" class="trending-tile"><div class="trending-tag">Legislation</div><div class="trending-title">Overtime Tax Break: What It Means for Businesses</div><span class="trending-link">Read</span></a>
-    <a href="/resources/32-hour-workweek-manufacturing/" class="trending-tile"><div class="trending-tag">Trending</div><div class="trending-title">The 32-Hour Workweek: What It Means for 24/7 Manufacturing</div><span class="trending-link">Read</span></a>
-    <a href="/resources/tapping-untapped-workforce/" class="trending-tile"><div class="trending-tag">Labor Markets</div><div class="trending-title">Tapping Into the Untapped Workforce</div><span class="trending-link">Read</span></a>
-    <a href="/resources/mixed-signals-economy/" class="trending-tile"><div class="trending-tag">Economy</div><div class="trending-title">The Mixed Signals Economy</div><span class="trending-link">Read</span></a>
-    <a href="/resources/schedule-looks-fine-on-paper/" class="trending-tile"><div class="trending-tag">Operations</div><div class="trending-title">When the Schedule Looks Fine on Paper</div><span class="trending-link">Read</span></a>
-    <a href="/resources/ai-on-the-plant-floor/" class="trending-tile"><div class="trending-tag">Technology</div><div class="trending-title">AI on the Plant Floor</div><span class="trending-link">Read</span></a>
-    <a href="/resources/management-by-walking-around/" class="trending-tile"><div class="trending-tag">Leadership</div><div class="trending-title">Management By Walking Around: A Tale of Two Plants</div><span class="trending-link">Read</span></a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="trending-tile"><div class="trending-tag">Diagnostic</div><div class="trending-title">26 Warning Signs Your Schedule Needs Attention</div><span class="trending-link">Read</span></a>
-  </div>
-</div></section>
+      <!-- LEFT: FOCUSED TOPICS — horizontal card list -->
+      <div class="topics-col">
+        <div class="topics-col-header">
+          <div class="section-eyebrow">Focused Topics</div>
+          <div class="section-heading">Targeted articles on specific challenges</div>
+          <p class="section-sub">Shorter and more focused than the complete guides — each addresses one specific operational question in depth.</p>
+        </div>
+        <div class="topics-list">
+          <a href="/resources/support/scaling-production-quickly/" class="topic-card">
+            <div class="topic-card-body">
+              <div class="topic-card-title">How to Scale Production Up or Down Rapidly</div>
+              <div class="topic-card-desc">Four strategies for matching staffing to demand swings — overtime, temporary labor, discretionary work, and time-off management.</div>
+            </div>
+            <span class="topic-card-arrow">Read</span>
+          </a>
+          <a href="/resources/support/sleep-alertness-safety-shift-work/" class="topic-card">
+            <div class="topic-card-body">
+              <div class="topic-card-title">Sleep, Alertness &amp; Safety in Shift Operations</div>
+              <div class="topic-card-desc">How schedule design, shift length, and rotation patterns affect fatigue — and what that costs in safety and productivity.</div>
+            </div>
+            <span class="topic-card-arrow">Read</span>
+          </a>
+          <a href="/resources/support/maintenance-worker-scheduling/" class="topic-card">
+            <div class="topic-card-body">
+              <div class="topic-card-title">Maintenance Workers: Unique Scheduling Considerations</div>
+              <div class="topic-card-desc">Why standard shift patterns consistently fail maintenance crews — and what approaches actually work.</div>
+            </div>
+            <span class="topic-card-arrow">Read</span>
+          </a>
+          <a href="/resources/support/communicating-schedule-changes/" class="topic-card">
+            <div class="topic-card-body">
+              <div class="topic-card-title">Communicating Major Schedule Changes</div>
+              <div class="topic-card-desc">Timing, channels, and messaging that reduce resistance — and the single most reliable predictor of whether a change will succeed.</div>
+            </div>
+            <span class="topic-card-arrow">Read</span>
+          </a>
+          <a href="/resources/support/workforce-survey-analysis/" class="topic-card">
+            <div class="topic-card-body">
+              <div class="topic-card-title">Survey Analysis: Understanding Workforce Needs</div>
+              <div class="topic-card-desc">How survey data corrects the systematic misperceptions managers have about what their workforce actually wants.</div>
+            </div>
+            <span class="topic-card-arrow">Read</span>
+          </a>
+          <a href="/resources/support/balancing-business-employee-needs/" class="topic-card">
+            <div class="topic-card-body">
+              <div class="topic-card-title">Balancing Business &amp; Employee Needs</div>
+              <div class="topic-card-desc">Why the best shift schedules satisfy both operational requirements and employee lifestyle needs — and how to find them.</div>
+            </div>
+            <span class="topic-card-arrow">Read</span>
+          </a>
+          <a href="/resources/support/schedule-change-pitfalls/" class="topic-card">
+            <div class="topic-card-body">
+              <div class="topic-card-title">Schedule Change Pitfalls: What to Avoid</div>
+              <div class="topic-card-desc">The predictable reasons well-designed schedule changes fail — poor communication, policy gaps, and inadequate notice.</div>
+            </div>
+            <span class="topic-card-arrow">Read</span>
+          </a>
+        </div>
+      </div><!-- /topics-col -->
 
+      <!-- RIGHT: TRENDING RAIL — sticky, tag + headline + arrow only -->
+      <div class="trending-rail">
+        <div class="trending-rail-header">
+          <div class="trending-rail-label">What's Happening Now</div>
+          <div class="trending-rail-heading">Timely insights on legislation, labor markets &amp; emerging issues</div>
+        </div>
+        <div class="trending-rail-items">
+          <a href="/resources/reshoring-manufacturing-workforce/" class="trending-item">
+            <div class="trending-item-tag">Trending</div>
+            <div class="trending-item-title">Reshoring Manufacturing? The Workforce Problem Most Companies Don't See Coming</div>
+            <span class="trending-item-read">Read</span>
+          </a>
+          <a href="/resources/overtime-tax-break-businesses/" class="trending-item">
+            <div class="trending-item-tag">Legislation</div>
+            <div class="trending-item-title">Overtime Tax Break: What It Means for Businesses</div>
+            <span class="trending-item-read">Read</span>
+          </a>
+          <a href="/resources/32-hour-workweek-manufacturing/" class="trending-item">
+            <div class="trending-item-tag">Trending</div>
+            <div class="trending-item-title">The 32-Hour Workweek: What It Means for 24/7 Manufacturing</div>
+            <span class="trending-item-read">Read</span>
+          </a>
+          <a href="/resources/tapping-untapped-workforce/" class="trending-item">
+            <div class="trending-item-tag">Labor Markets</div>
+            <div class="trending-item-title">Tapping Into the Untapped Workforce</div>
+            <span class="trending-item-read">Read</span>
+          </a>
+          <a href="/resources/mixed-signals-economy/" class="trending-item">
+            <div class="trending-item-tag">Economy</div>
+            <div class="trending-item-title">The Mixed Signals Economy</div>
+            <span class="trending-item-read">Read</span>
+          </a>
+          <a href="/resources/schedule-looks-fine-on-paper/" class="trending-item">
+            <div class="trending-item-tag">Operations</div>
+            <div class="trending-item-title">When the Schedule Looks Fine on Paper</div>
+            <span class="trending-item-read">Read</span>
+          </a>
+          <a href="/resources/ai-on-the-plant-floor/" class="trending-item">
+            <div class="trending-item-tag">Technology</div>
+            <div class="trending-item-title">AI on the Plant Floor</div>
+            <span class="trending-item-read">Read</span>
+          </a>
+          <a href="/resources/management-by-walking-around/" class="trending-item">
+            <div class="trending-item-tag">Leadership</div>
+            <div class="trending-item-title">Management By Walking Around: A Tale of Two Plants</div>
+            <span class="trending-item-read">Read</span>
+          </a>
+          <a href="/resources/26-warning-signs-schedule-problems/" class="trending-item">
+            <div class="trending-item-tag">Diagnostic</div>
+            <div class="trending-item-title">26 Warning Signs Your Schedule Needs Attention</div>
+            <span class="trending-item-read">Read</span>
+          </a>
+        </div>
+      </div><!-- /trending-rail -->
+
+    </div><!-- /topics-trending-grid -->
+  </div><!-- /topics-trending-inner -->
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════
+     CTA BAND — UNCHANGED
+════════════════════════════════════════════════════════════════ -->
 <div class="cta-band"><div class="cta-band-inner">
   <h2>Ready to talk about your operation?</h2>
   <p>Manufacturing companies and distribution centers running 24/7 operations typically have more room to improve than they realize. The first conversation is always free.</p>
@@ -327,6 +503,9 @@
   </div>
 </div></div>
 
+<!-- ══════════════════════════════════════════════════════════════
+     ENGAGE BAND — UNCHANGED
+════════════════════════════════════════════════════════════════ -->
 <div class="engage-band">
   <div class="engage-inner">
     <div class="engage-thomas">
@@ -348,6 +527,9 @@
   </div>
 </div>
 
+<!-- ══════════════════════════════════════════════════════════════
+     FOOTER — UNCHANGED
+════════════════════════════════════════════════════════════════ -->
 <footer class="site-footer"><div class="footer-inner">
   <span class="footer-logo">Shiftwork Solutions LLC</span>
   <span>(415) 265-1621</span>
@@ -361,6 +543,9 @@
   <span>&copy; 2026 Shiftwork Solutions LLC</span>
 </div></footer>
 
+<!-- ══════════════════════════════════════════════════════════════
+     JAVASCRIPT — UNCHANGED
+════════════════════════════════════════════════════════════════ -->
 <script>
   document.getElementById('mobileToggle').addEventListener('click', function () {
     var n = document.getElementById('navLinks');
