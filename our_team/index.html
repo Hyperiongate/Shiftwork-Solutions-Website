@@ -6,7 +6,7 @@
   URL: /our_team/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-04
+  Last Updated: 2026-04-06
 
   CHANGE LOG:
     2026-04-04 — Initial build. Converted from old WordPress page.
@@ -25,6 +25,15 @@
                  4. URL: Fixed canonical from /our-team/ → /our_team/
                     Fixed all internal links from /our-team/ → /our_team/
                     Fixed breadcrumb JSON-LD URL
+
+    2026-04-06 — NAV CONSISTENCY FIX (site-wide standard):
+                 - Industries: removed dropdown, direct link to /industries/
+                 - Why Us: removed dropdown, direct link to /why-us/
+                   (was /why-shiftwork-solutions/ with dropdown)
+                 - All nav items are now flat direct links
+                 - Breadcrumb visible link: /why-shiftwork-solutions/ → /why-us/
+                 - Breadcrumb JSON-LD: /why-shiftwork-solutions/ → /why-us/
+                 - All content, bios, photos, styles, JS preserved exactly
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
@@ -53,7 +62,7 @@
   <meta name="twitter:title" content="Meet Our Team | Shiftwork Solutions">
   <meta name="twitter:description" content="Three senior partners. Over 90 years of combined experience. Hundreds of facilities across 16+ industries.">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"Meet Our Team","url":"https://shift-work.com/our_team/","description":"Meet the partners of Shiftwork Solutions LLC — senior consultants with over 90 years of combined experience.","mainEntity":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","member":[{"@type":"Person","name":"Jim Dillingham","jobTitle":"Partner & Senior Consultant","description":"Over 30 years helping companies design and implement shift schedules. Naval Academy graduate. Specializes in change management and employee involvement.","alumniOf":[{"@type":"CollegeOrUniversity","name":"United States Naval Academy"},{"@type":"CollegeOrUniversity","name":"Purdue University"},{"@type":"CollegeOrUniversity","name":"ESC Rouen"}]},{"@type":"Person","name":"Dan Capshaw","jobTitle":"Partner & Senior Consultant","description":"Over 32 years developing shift schedules and work systems. Chemical engineer, Lean Six Sigma Black Belt, former submarine officer.","alumniOf":[{"@type":"CollegeOrUniversity","name":"Johns Hopkins University"},{"@type":"CollegeOrUniversity","name":"UC Berkeley Haas School of Business"}]},{"@type":"Person","name":"Ethan Franklin","jobTitle":"Partner & Senior Consultant","description":"Over 28 years helping companies evaluate, design, and implement improved shift schedules. Data-driven approach balancing business needs with employee well-being.","alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Illinois at Urbana-Champaign"},{"@type":"CollegeOrUniversity","name":"Loyola University Chicago School of Law"}]}]}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Why Us","item":"https://shift-work.com/why-shiftwork-solutions/"},{"@type":"ListItem","position":3,"name":"Our Team","item":"https://shift-work.com/our_team/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Why Us","item":"https://shift-work.com/why-us/"},{"@type":"ListItem","position":3,"name":"Our Team","item":"https://shift-work.com/our_team/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Who leads my project?","acceptedAnswer":{"@type":"Answer","text":"A senior partner — Jim, Dan, or Ethan — leads every engagement from start to finish. There are no handoffs to junior staff."}},{"@type":"Question","name":"How much experience does your team have?","acceptedAnswer":{"@type":"Answer","text":"Collectively, our three partners have over 90 years of dedicated shiftwork consulting experience across hundreds of facilities in 16+ industries."}},{"@type":"Question","name":"What industries do you serve?","acceptedAnswer":{"@type":"Answer","text":"Manufacturing, pharmaceuticals, food processing, mining, distribution, chemicals, refining, utilities, automotive, semiconductors, call centers, healthcare, packaging, paper, port operations, telecommunications, and government operations."}},{"@type":"Question","name":"Do you work with union and non-union facilities?","acceptedAnswer":{"@type":"Answer","text":"Both. Our partners have extensive experience working with union leadership, navigating collective bargaining agreements, and building consensus in both organized and non-organized workplaces."}},{"@type":"Question","name":"Where are you located?","acceptedAnswer":{"@type":"Answer","text":"Jim is based in San Rafael, California; Dan in Ivins, Utah; and Ethan in Indiana. We work with facilities nationwide and internationally."}},{"@type":"Question","name":"What does a typical engagement look like?","acceptedAnswer":{"@type":"Answer","text":"Most projects run five to ten weeks with six being the average. The process includes discovery and business analysis, an employee survey, schedule design and cost modeling, and implementation support. Every project is fixed-fee."}}]}</script>
   <style>
@@ -69,15 +78,6 @@
     .nav-links>li{position:relative}
     .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
     .nav-links>li>a:hover{color:var(--navy)}
-    .nav-arrow{font-size:9px;opacity:.5;transition:transform .2s}
-    .nav-dropdown{position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border-med);border-top:none;border-radius:0 0 6px 6px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:270px;max-height:460px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-2px);transition:opacity .15s,visibility .15s,transform .15s;padding:6px 0;z-index:100}
-    .nav-links>li:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateY(0)}
-    .nav-links>li:hover>a .nav-arrow{transform:rotate(180deg)}
-    .dropdown-label{padding:8px 16px 4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-    .nav-dropdown a{display:block;padding:6px 16px;font-size:13px;color:#444;text-decoration:none;transition:background .12s;line-height:1.4}
-    .nav-dropdown a:hover{background:var(--light-blue);color:var(--navy)}
-    .nav-dropdown a.current-page{color:var(--navy);font-weight:700}
-    .dropdown-divider{height:1px;background:var(--border-light);margin:4px 0}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
     .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
     .nav-cta-btn:hover{background:#c4510a}
@@ -182,6 +182,7 @@
 </head>
 <body>
 
+<!-- ── NAVIGATION — Updated 2026-04-06: All flat links, no dropdowns ── -->
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;"></a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -189,8 +190,8 @@
     <li><a href="/">Home</a></li>
     <li><a href="/services/">Our Services</a></li>
     <li><a href="/resources/">Resources</a></li>
-    <li><a href="/industries/">Industries <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/industries/manufacturing-assembly-operations/">Manufacturing &amp; Assembly</a><a href="/industries/distribution-logistics-operations/">Distribution &amp; Logistics</a><a href="/industries/mining-extraction-industries/">Mining &amp; Extraction</a><a href="/industries/refining-utilities-operations/">Refining &amp; Utilities</a><a href="/industries/food-beverage-manufacturing/">Food &amp; Beverage</a><a href="/industries/chemical-pharmaceutical-operations/">Chemical &amp; Pharmaceutical</a></div></li>
-    <li><a href="/why-shiftwork-solutions/">Why Us <span class="nav-arrow">▾</span></a><div class="nav-dropdown"><a href="/why-shiftwork-solutions/">About Shiftwork Solutions</a><a href="/our_team/" class="current-page">Meet Our Team</a><a href="/why-shiftwork-solutions/#testimonials">Client Testimonials</a></div></li>
+    <li><a href="/industries/">Industries</a></li>
+    <li><a href="/why-us/">Why Us</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
@@ -207,8 +208,9 @@
   </div>
 </div></section>
 
+<!-- Breadcrumb updated 2026-04-06: /why-shiftwork-solutions/ → /why-us/ -->
 <div class="breadcrumb-bar"><div class="breadcrumb-inner">
-  <a href="/">Home</a> › <a href="/why-shiftwork-solutions/">Why Us</a> › <span class="bc-current">Our Team</span>
+  <a href="/">Home</a> › <a href="/why-us/">Why Us</a> › <span class="bc-current">Our Team</span>
 </div></div>
 
 <section class="content-section">
