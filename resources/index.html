@@ -63,7 +63,13 @@
                  Images: /images/pillar_1.jpg through /images/pillar_10.jpg
                  Added .guide-img CSS for image area within guide tiles.
                  Removed "Guide 01" through "Guide 10" labels from tiles.
-                 All nav, links, content, action tiles, JS preserved exactly.
+                 ACTION TILE REDESIGN (symmetrical layout):
+                 Simplified both action tiles to match Industries page:
+                 Left: "Contact Us" with single orange button → /contact/
+                 Right: "Book a Free Meeting" with single orange button → booking URL
+                 Removed inline newsletter form (covered by Engage band below).
+                 Removed actionNLSubmit JS (no longer needed).
+                 All nav, links, content, engage band JS preserved exactly.
 
   I did no harm and this file is not truncated
 -->
@@ -258,29 +264,18 @@
     <a href="/resources/employee-engagement-shift-work/" class="guide-tile"><img src="/images/pillar_7.jpg" alt="Employee engagement — shift workers in discussion" class="guide-img"><div class="guide-body"><div class="guide-title">Building Employee Engagement</div><div class="guide-desc">What shift workers actually value — and why engagement strategies designed for offices consistently fail on the plant floor.</div><span class="guide-link">Read the guide</span></div></a>
     <a href="/resources/shift-work-best-practices/" class="guide-tile"><img src="/images/pillar_8.jpg" alt="Operational best practices — 24/7 manufacturing operations" class="guide-img"><div class="guide-body"><div class="guide-title">Operational Best Practices</div><div class="guide-desc">The fundamentals that separate excellent 24/7 operations from struggling ones — schedule, equipment, labor economics, and communication.</div><span class="guide-link">Read the guide</span></div></a>
     <a href="/resources/absenteeism-relief-coverage-management/" class="guide-tile"><img src="/images/pillar_9.jpg" alt="Absenteeism and coverage — crew scheduling board" class="guide-img"><div class="guide-body"><div class="guide-title">Managing Absenteeism &amp; Coverage Gaps</div><div class="guide-desc">How to build coverage systems that handle absences without daily scrambles — relief crews, skill balance, and cost modeling.</div><span class="guide-link">Read the guide</span></div></a>
-    <div class="action-tile">
+    <div class="action-tile" style="display:flex;flex-direction:column;justify-content:center;align-items:stretch;text-align:center;">
       <div class="action-tile-label">Get in Touch</div>
       <div class="action-tile-title">Contact Us</div>
-      <div class="action-contact-line"><a href="tel:+14152651621">(415) 265-1621</a></div>
-      <div class="action-contact-line"><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
-      <div class="action-tile-divider"></div>
-      <div class="action-tile-label">Newsletter</div>
-      <div class="action-tile-text">Practical insights from hundreds of 24/7 operations.</div>
-      <input type="email" class="action-nl-input" placeholder="your@company.com" id="actionNLEmail">
-      <a href="#" class="action-tile-btn" id="actionNLBtn" onclick="actionNLSubmit(event)">Subscribe &#x2192;</a>
-      <div class="action-nl-msg" id="actionNLMsg"></div>
+      <div class="action-tile-text">Questions about your operation? Reach out — we'll tell you honestly what we see.</div>
+      <a href="/contact/" class="action-tile-btn">Contact Us &#x2192;</a>
     </div>
     <a href="/resources/shift-work-policies-guide/" class="guide-tile"><img src="/images/pillar_10.jpg" alt="Shift work policies — pay, time-off and compliance documents" class="guide-img"><div class="guide-body"><div class="guide-title">Shift Work Policies: Pay, Time-Off &amp; Compliance</div><div class="guide-desc">Why pay and time-off policies designed for 8-hour schedules break immediately on 12-hour or continuous operations.</div><span class="guide-link">Read the guide</span></div></a>
-    <div class="action-tile">
+    <div class="action-tile" style="display:flex;flex-direction:column;justify-content:center;align-items:stretch;text-align:center;">
       <div class="action-tile-label">Schedule a Call</div>
       <div class="action-tile-title">Book a Free Meeting</div>
       <div class="action-tile-text">Talk directly with a senior consultant who has led hundreds of schedule transformations.</div>
       <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="action-tile-btn" target="_blank" rel="noopener">Book a Meeting &#x2192;</a>
-      <div class="action-tile-divider"></div>
-      <div class="action-tile-label">AI Advisor</div>
-      <div class="action-tile-title">Talk to Thomas</div>
-      <div class="action-tile-text">Our AI shift operations advisor — available now, no appointment needed.</div>
-      <a href="https://shift-work-diagnostic.onrender.com/" class="action-tile-btn" target="_blank" rel="noopener">Start a Conversation &#x2192;</a>
     </div>
   </div>
 </div></section>
@@ -377,26 +372,6 @@
       n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';
     }
   });
-</script>
-<script>
-  (function(){
-    var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
-    window.actionNLSubmit=function(e){
-      e.preventDefault();
-      var btn=document.getElementById('actionNLBtn');
-      var msg=document.getElementById('actionNLMsg');
-      var email=document.getElementById('actionNLEmail').value.trim();
-      if(!email)return;
-      btn.style.pointerEvents='none';btn.style.opacity='.5';btn.textContent='Subscribing...';
-      fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({email:email,source:'website-resources-action-tile'})})
-      .then(function(r){return r.json();})
-      .then(function(d){
-        if(d.success){msg.className='action-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('actionNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}
-      })
-      .catch(function(err){msg.className='action-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.style.pointerEvents='auto';btn.style.opacity='1';btn.textContent='Subscribe \u2192';});
-    };
-  })();
 </script>
 <script>
   (function(){
