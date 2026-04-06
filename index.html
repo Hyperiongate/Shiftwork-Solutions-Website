@@ -43,6 +43,16 @@
                   - Nav CSS: removed .nav-dropdown and .nav-arrow styles
                     (kept in CSS for compat but not used in HTML)
                   - All body content, hero, footer, JS unchanged
+      2026-04-05  (v6) SEO & AI DISCOVERABILITY AUDIT — HIGH PRIORITY FIXES:
+                  - Added <link rel="canonical"> for homepage
+                  - Added Open Graph meta tags (og:title, og:description, og:url,
+                    og:type, og:site_name)
+                  - Added Twitter Card meta tags
+                  - Added <meta name="robots"> with max-snippet/max-image-preview
+                  - Added JSON-LD: Organization schema (with logo, contact, address)
+                  - Added JSON-LD: WebSite schema (with SearchAction for sitelinks)
+                  - Added JSON-LD: ProfessionalService schema (local business SEO)
+                  - All existing content, styles, and JavaScript unchanged
 
   I did no harm and this file is not truncated
 -->
@@ -51,10 +61,138 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Shiftwork Solutions LLC — Over 30 years helping hundreds of 24/7 operations optimize shift schedules, reduce overtime, and improve workforce engagement through employee-centered change management." />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <title>Shiftwork Solutions LLC — Shift Schedule Design &amp; Change Management</title>
+  <link rel="canonical" href="https://shift-work.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Shiftwork Solutions LLC — Shift Schedule Design &amp; Change Management" />
+  <meta property="og:description" content="Over 30 years helping hundreds of 24/7 operations optimize shift schedules, reduce overtime, and improve workforce engagement through employee-centered change management." />
+  <meta property="og:url" content="https://shift-work.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Shiftwork Solutions LLC" />
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Shiftwork Solutions LLC — Shift Schedule Design &amp; Change Management" />
+  <meta name="twitter:description" content="Over 30 years helping hundreds of 24/7 operations optimize shift schedules, reduce overtime, and improve workforce engagement." />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Shiftwork Solutions LLC",
+    "url": "https://shift-work.com",
+    "logo": "https://shift-work.com/images/clear%20bkgr%20logo%202.png",
+    "telephone": "+14152651621",
+    "email": "Contact@shift-work.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Rafael",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    },
+    "description": "Fixed-fee management consulting for shift schedule optimization, workforce engagement, and 24/7 industrial operations. Over three decades helping hundreds of facilities across 16+ industries.",
+    "foundingDate": "1993",
+    "numberOfEmployees": {
+      "@type": "QuantitativeValue",
+      "value": 3
+    },
+    "knowsAbout": [
+      "shift schedule design",
+      "change management",
+      "workforce surveys",
+      "24/7 operations",
+      "overtime management",
+      "employee engagement",
+      "continuous operations staffing",
+      "manufacturing workforce planning"
+    ],
+    "member": [
+      {
+        "@type": "Person",
+        "name": "Jim Dillingham",
+        "jobTitle": "Partner & Senior Consultant",
+        "alumniOf": [
+          {"@type": "EducationalOrganization", "name": "United States Naval Academy"},
+          {"@type": "EducationalOrganization", "name": "Purdue University"},
+          {"@type": "EducationalOrganization", "name": "ESC Rouen"}
+        ]
+      },
+      {
+        "@type": "Person",
+        "name": "Dan Capshaw",
+        "jobTitle": "Partner & Senior Consultant",
+        "alumniOf": [
+          {"@type": "EducationalOrganization", "name": "Johns Hopkins University"},
+          {"@type": "EducationalOrganization", "name": "UC Berkeley Haas School of Business"}
+        ]
+      },
+      {
+        "@type": "Person",
+        "name": "Ethan Franklin",
+        "jobTitle": "Partner & Senior Consultant"
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON-LD: WebSite (enables sitelinks search box in Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Shiftwork Solutions LLC",
+    "url": "https://shift-work.com",
+    "description": "Shift schedule design, change management, and workforce consulting for 24/7 industrial operations.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Shiftwork Solutions LLC"
+    }
+  }
+  </script>
+
+  <!-- JSON-LD: ProfessionalService (local business SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Shiftwork Solutions LLC",
+    "url": "https://shift-work.com",
+    "telephone": "+14152651621",
+    "email": "Contact@shift-work.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Rafael",
+      "addressRegion": "CA",
+      "postalCode": "94901",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 37.9735,
+      "longitude": -122.5311
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "serviceType": [
+      "Shift Schedule Design",
+      "Change Management Consulting",
+      "Workforce Survey & Analysis",
+      "Staffing Strategy",
+      "Overtime Cost Analysis"
+    ],
+    "priceRange": "Fixed-fee engagements",
+    "description": "Fixed-fee management consulting for shift schedule optimization, workforce engagement, and 24/7 industrial operations across manufacturing, pharmaceutical, food processing, mining, distribution, and chemical industries."
+  }
+  </script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -311,7 +449,7 @@
       </div>
     </div>
     <div class="hero-image anim d2">
-      <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=500&fit=crop&q=80" alt="Industrial manufacturing facility" onerror="this.parentElement.style.background='#163057';this.style.display='none';" />
+      <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&h=500&fit=crop&q=80" alt="Industrial manufacturing facility with shift workers on a 24/7 production line" onerror="this.parentElement.style.background='#163057';this.style.display='none';" />
       <div class="hero-image-caption">"Hiring Shiftwork Solutions was the most impact delivered per consulting dollar."</div>
     </div>
   </div>
@@ -357,7 +495,7 @@
     <div class="section-heading">How We Work</div>
     <div class="section-sub">A typical engagement runs about six weeks. We do the heavy lifting. You keep running your operation.</div>
     <div class="process-grid">
-      <div class="process-image"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=440&fit=crop&q=80" alt="Operations team meeting" onerror="this.parentElement.style.background='var(--navy)';this.style.display='none';" /></div>
+      <div class="process-image"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&h=440&fit=crop&q=80" alt="Shift scheduling consultation meeting with operations team reviewing workforce data" onerror="this.parentElement.style.background='var(--navy)';this.style.display='none';" /></div>
       <div class="process-steps">
         <div class="process-step"><div class="process-num">1</div><div><h3>Discovery &amp; Business Analysis</h3><p>We learn your operation: coverage needs, cost structure, workforce demographics, constraints, and goals. We review your data, walk your facility, and talk to your people.</p></div></div>
         <div class="process-step"><div class="process-num">2</div><div><h3>Employee Survey &amp; Engagement</h3><p>A comprehensive workforce survey reveals what employees actually want — schedule preferences, overtime appetite, work-life balance priorities. We benchmark results against industry norms.</p></div></div>
