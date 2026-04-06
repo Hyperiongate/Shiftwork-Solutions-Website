@@ -18,6 +18,13 @@
                     Listen button → ORANGE
                  3. SEO: Added Twitter Card tags
 
+    2026-04-05 — SEO & AI DISCOVERABILITY:
+                 Added FAQ section with 5 questions (visible HTML in article body)
+                 Added FAQPage JSON-LD schema (structured data in <head>)
+                 Added .faq-section/.faq-item/.faq-q/.faq-a CSS classes
+                 Fixed missing Contact nav link in <ul class="nav-links">
+                 All other content, styles, nav, and JS unchanged
+
   I did no harm and this file is not truncated
 -->
 <html lang="en">
@@ -97,6 +104,7 @@
     .inline-cta-text p{font-size:13px;color:var(--mid-blue);line-height:1.55;margin:0}
     .inline-cta-btn{display:inline-block;padding:11px 24px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;white-space:nowrap;transition:background .15s;flex-shrink:0}
     .inline-cta-btn:hover{background:#c4510a}
+    .faq-section{margin:36px 0}.faq-section h2{font-size:21px;font-weight:700;color:var(--body-text);margin-bottom:20px}.faq-item{border-bottom:1px solid var(--border-light);padding:18px 0}.faq-item:last-child{border-bottom:none}.faq-q{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.4}.faq-a{font-size:14px;color:var(--body-text);line-height:1.7;margin:0}
     .next-steps{padding:48px var(--page-pad) 52px;background:var(--light-grey);border-top:1px solid var(--border-light)}
     .next-steps-inner{max-width:var(--max-width);margin:0 auto}
     .next-steps h2{font-size:20px;font-weight:700;color:var(--body-text);margin-bottom:20px}
@@ -153,6 +161,14 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI on the Plant Floor: What It Actually Means for Shift Design","description":"Automation is arriving faster than workforce strategies are evolving. Here's what AI on the plant floor actually changes — and what it doesn't — for 24/7 shift operations.","url":"https://shift-work.com/resources/ai-on-the-plant-floor/","datePublished":"2026-04-04","dateModified":"2026-04-05","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"AI manufacturing plant floor, automation shift scheduling, workforce strategy automation, AI impact manufacturing jobs, shift design automation"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"AI on the Plant Floor","item":"https://shift-work.com/resources/ai-on-the-plant-floor/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}</script>
+  <!-- FAQPage JSON-LD added 2026-04-05 -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How does AI and automation change shift design in manufacturing?","acceptedAnswer":{"@type":"Answer","text":"Automation changes the cognitive demand profile of work during each shift. Workers who previously performed repetitive physical tasks now monitor systems, respond to exceptions, and make decisions under uncertainty. Cognitive fatigue accumulates differently than physical fatigue — the optimal shift duration for sustained attentional work is shorter than for many forms of physical labor. Operations that move from physically intensive to cognitively intensive work without reconsidering shift structure are building fatigue into the system rather than designing it out."}},
+    {"@type":"Question","name":"Will AI eliminate manufacturing jobs or change them?","acceptedAnswer":{"@type":"Answer","text":"Both, but the near-term challenge for most 24/7 operations is managing a workforce through a rapid change in job content rather than simply reducing headcount. Automation doesn't remove jobs from a shift so much as it changes what happens during the shift. Some roles will be eliminated, but for most operations the more pressing issue is that workers now need different skills — monitoring, exception handling, system interaction — and the workforce strategy built around the old task profile no longer fits the new one."}},
+    {"@type":"Question","name":"Why is training a challenge during automation transitions in 24/7 operations?","acceptedAnswer":{"@type":"Answer","text":"A standard 4-crew 24/7 schedule has almost no structural slack for training. Every crew is needed for coverage. Pulling workers off the floor for skill development means either running short on coverage or creating overtime. Operations serious about upskilling through an automation transition need to build training capacity into the schedule architecture — through a 5-crew model, staggered shift designs that create natural training windows, or phased crew structures explicitly planned for capability development alongside production."}},
+    {"@type":"Question","name":"How does automation affect employee retention in manufacturing?","acceptedAnswer":{"@type":"Answer","text":"How workers perceive automation — as a threat to their livelihood or as a change in the nature of their work — is determined largely by how leadership manages the transition. Operations that frame automation around cost reduction tend to produce anxious, resistant workforces actively looking for exits. Operations that frame it around capability expansion and skill development with schedule stability tend to produce workforces that engage with the transition. Workers who see a clear path from current role to new role, with supported development, respond differently than workers who see ambiguity."}},
+    {"@type":"Question","name":"When should workforce strategy be redesigned relative to automation deployment?","acceptedAnswer":{"@type":"Answer","text":"Before the technology is fully deployed, not after. The workforce strategy needs to work for the operation as it exists today, remain functional during the transition, and position the facility well for the end state. If automation is changing the cognitive demand profile, the shift length and rotation pattern should be examined before deployment. If training at scale is needed, schedule capacity for it must be created before the automation timeline requires it. The operations that manage transitions well redesign workforce architecture alongside the technology."}}
+  ]}</script>
 </head>
 <body>
 
@@ -165,6 +181,7 @@
     <li><a href="/resources/">Resources</a></li>
     <li><a href="/industries/">Industries</a></li>
     <li><a href="/why-us/">Why Us</a></li>
+    <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
 </div></nav>
@@ -207,6 +224,37 @@
   <p>For most facilities mid-transition, the honest answer is that it was designed for the past and hasn't been fully reconsidered for what's coming. That gap isn't a failure of planning — automation has moved fast, and the workforce implications have genuinely been harder to predict than the technology timeline. But it is a gap that has practical costs, and those costs are worth examining now, while there's still time to design rather than react.</p>
 
   <div class="inline-cta"><div class="inline-cta-text"><h3>Is your workforce architecture ready for what automation is bringing?</h3><p>Shiftwork Solutions works with manufacturing and distribution operations to design workforce strategies and schedules that fit the operation you're building — not just the one you're running today. The first conversation is free.</p></div><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="inline-cta-btn" target="_blank" rel="noopener">Start the Conversation</a></div>
+
+  <!-- FAQ Section added 2026-04-05 -->
+  <div class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">How does AI and automation change shift design in manufacturing?</div>
+      <div class="faq-a">Automation changes the cognitive demand profile of work during each shift. Workers who previously performed repetitive physical tasks now monitor systems, respond to exceptions, and make decisions under uncertainty. Cognitive fatigue accumulates differently than physical fatigue — the optimal shift duration for sustained attentional work is shorter than for many forms of physical labor. Operations that move from physically intensive to cognitively intensive work without reconsidering their shift structure are building fatigue into the system rather than designing it out.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Will AI eliminate manufacturing jobs or change them?</div>
+      <div class="faq-a">Both, but the near-term challenge for most 24/7 operations is managing a workforce through a rapid change in job content rather than simply reducing headcount. Automation doesn't remove jobs from a shift so much as it changes what happens during the shift. Some roles will be eliminated over time. But for most operations today, the more pressing issue is that workers now need different skills — monitoring, exception handling, system interaction — and the workforce strategy built around the old task profile no longer fits the new reality.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Why is training a challenge during automation transitions in 24/7 operations?</div>
+      <div class="faq-a">A standard 4-crew 24/7 schedule has almost no structural slack for training — every crew is needed for coverage. Pulling workers off the floor for skill development means either running short on coverage or creating overtime, neither of which is sustainable as a training model at scale. Operations serious about upskilling through an automation transition need to build training capacity into the schedule architecture itself — through a 5-crew model, staggered shift designs that create natural training windows, or phased crew structures explicitly planned for capability development alongside production.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How does automation affect employee retention in manufacturing?</div>
+      <div class="faq-a">How workers perceive automation — as a threat to their livelihood or as a change in the nature of their work — is determined largely by how leadership manages the transition. Operations that frame automation around cost reduction tend to produce anxious, resistant workforces actively looking for exits. Operations that frame it around capability expansion and skill development, with schedule stability during the transition, tend to produce workforces that engage with the change. Workers who see a clear, real path from their current role to a new role respond very differently than workers who see ambiguity and uncertainty.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">When should workforce strategy be redesigned relative to automation deployment?</div>
+      <div class="faq-a">Before the technology is fully deployed, not after. The workforce strategy needs to work for the operation as it exists today, remain functional during the transition, and position the facility well for the end state. If automation is changing the cognitive demand profile of the work, shift length and rotation patterns should be examined before deployment. If training at scale is needed, schedule capacity for it must be created before the automation timeline requires it. The operations that manage transitions well redesign workforce architecture alongside the technology — not as a reaction to problems that emerge after deployment.</div>
+    </div>
+  </div>
+
 </div>
 
 <section class="next-steps"><div class="next-steps-inner">
