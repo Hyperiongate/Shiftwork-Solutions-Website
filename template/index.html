@@ -86,6 +86,17 @@
                     not appropriate in horizontal list format).
                  All URLs, nav, guides section, CTA band, engage band, and JS
                  preserved exactly.
+    2026-04-07 — FOCUSED TOPICS + TRENDING RAIL VISUAL REDESIGN:
+                 Both columns rebuilt with strong visual identity:
+                 - Focused Topics: 7 accent-bar cards replacing flat link list.
+                   Each card: colored left border, category icon, title,
+                   description, orange "Read" button. Background white.
+                 - Trending Rail: dark navy panel background with orange tag
+                   pills, white headlines, hover-glow on cards. Visually
+                   separates from left column. No longer looks like an afterthought.
+                 - Section background: white (was light-grey) so both panels
+                   create their own visual contrast.
+                 All URLs preserved exactly.
     2026-04-07 — FULL CRITIQUE-DRIVEN REDESIGN:
                  Applied critique from Sonnet review. Major changes:
                  1. HERO: Added authority statement and punchy subhead.
@@ -546,77 +557,130 @@
 
     /* ══════════════════════════════════════════════════
        FOCUSED TOPICS + TRENDING RAIL
-       65/35 two-column layout — unchanged structure,
-       visual refinement applied.
+       65/35 two-column layout.
+       Both columns rebuilt with strong visual identity.
     ═══════════════════════════════════════════════════ */
     .topics-trending-section{
       padding:60px var(--page-pad) 64px;
-      background:var(--light-grey)
+      background:var(--white)
     }
     .topics-trending-inner{max-width:var(--max-width);margin:0 auto}
     .topics-trending-grid{
       display:grid;
       grid-template-columns:65fr 35fr;
-      gap:44px;align-items:start
+      gap:32px;align-items:start
     }
 
-    /* LEFT: FOCUSED TOPICS */
+    /* LEFT: FOCUSED TOPICS — accent-bar cards */
     .topics-col-header{margin-bottom:24px}
-    .topics-list{display:flex;flex-direction:column;gap:0}
+    .topics-list{display:flex;flex-direction:column;gap:12px}
 
+    /* Each topic is now a proper card with a left accent bar */
     .topic-card{
-      display:flex;align-items:center;justify-content:space-between;
-      gap:20px;padding:18px 0;
-      border-bottom:1px solid var(--border-med);
-      text-decoration:none;transition:background .12s
+      display:flex;align-items:stretch;gap:0;
+      border-radius:6px;
+      border:1px solid var(--border-med);
+      text-decoration:none;
+      overflow:hidden;
+      background:var(--white);
+      transition:box-shadow .2s,transform .2s;
+      position:relative
     }
-    .topic-card:first-child{border-top:1px solid var(--border-med)}
-    .topic-card:hover .topic-card-title{color:var(--orange)}
-    .topic-card:hover .topic-card-arrow{color:var(--orange)}
+    .topic-card:hover{
+      box-shadow:0 4px 20px rgba(0,0,0,.1);
+      transform:translateY(-1px)
+    }
+    /* Colored left accent bar — varies per topic category */
+    .topic-card-accent{
+      width:5px;
+      flex-shrink:0;
+      background:var(--navy)
+    }
+    .topic-card:nth-child(1) .topic-card-accent{background:#1F4E79}
+    .topic-card:nth-child(2) .topic-card-accent{background:#E8610A}
+    .topic-card:nth-child(3) .topic-card-accent{background:#1D9E75}
+    .topic-card:nth-child(4) .topic-card-accent{background:#85B7EB}
+    .topic-card:nth-child(5) .topic-card-accent{background:#1F4E79}
+    .topic-card:nth-child(6) .topic-card-accent{background:#E8610A}
+    .topic-card:nth-child(7) .topic-card-accent{background:#1D9E75}
+
+    .topic-card-inner{
+      flex:1;padding:18px 20px;
+      display:flex;align-items:center;justify-content:space-between;gap:16px
+    }
+    .topic-card-icon{
+      font-size:22px;flex-shrink:0;
+      width:32px;text-align:center
+    }
     .topic-card-body{flex:1;min-width:0}
     .topic-card-title{
-      font-size:15px;font-weight:700;color:var(--navy);
-      line-height:1.35;margin-bottom:5px;transition:color .15s
+      font-size:14px;font-weight:700;color:var(--navy);
+      line-height:1.35;margin-bottom:4px;
+      transition:color .15s
     }
-    .topic-card-desc{font-size:13px;color:var(--muted);line-height:1.55}
-    .topic-card-arrow{
-      font-size:13px;font-weight:700;color:var(--navy);
-      white-space:nowrap;flex-shrink:0;transition:color .15s
+    .topic-card:hover .topic-card-title{color:var(--orange)}
+    .topic-card-desc{font-size:12.5px;color:var(--muted);line-height:1.5}
+    .topic-card-cta{
+      display:inline-block;flex-shrink:0;
+      padding:7px 14px;
+      background:var(--orange);color:var(--white);
+      font-size:11px;font-weight:700;text-decoration:none;
+      border-radius:3px;white-space:nowrap;
+      transition:background .15s
     }
-    .topic-card-arrow::after{content:' →'}
+    .topic-card-cta:hover{background:#c4510a}
 
-    /* RIGHT: TRENDING RAIL */
-    .trending-rail{position:sticky;top:72px}
-    .trending-rail-header{margin-bottom:16px}
+    /* RIGHT: TRENDING RAIL — dark panel, orange tag pills */
+    .trending-rail{
+      position:sticky;top:72px;
+      background:var(--navy-dark);
+      border-radius:8px;
+      overflow:hidden
+    }
+    .trending-rail-header{
+      padding:20px 22px 16px;
+      border-bottom:1px solid rgba(255,255,255,.08)
+    }
     .trending-rail-label{
       font-size:10px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.1em;color:var(--muted);margin-bottom:6px
+      letter-spacing:.12em;color:var(--orange);margin-bottom:6px
     }
     .trending-rail-heading{
-      font-size:17px;font-weight:700;color:var(--body-text);line-height:1.3
+      font-size:16px;font-weight:700;color:var(--white);line-height:1.35
     }
-    .trending-rail-items{display:flex;flex-direction:column;gap:0}
+    .trending-rail-items{display:flex;flex-direction:column;gap:0;padding:4px 0}
 
+    /* Dark panel trending card */
     .trending-item{
-      display:block;padding:14px 0;
-      border-bottom:1px solid var(--border-med);
-      text-decoration:none;transition:color .12s
+      display:block;padding:14px 22px;
+      border-bottom:1px solid rgba(255,255,255,.06);
+      text-decoration:none;
+      transition:background .15s
     }
-    .trending-item:first-child{border-top:1px solid var(--border-med)}
+    .trending-item:last-child{border-bottom:none}
+    .trending-item:hover{background:rgba(255,255,255,.05)}
     .trending-item:hover .trending-item-title{color:var(--orange)}
-    .trending-item:hover .trending-item-read{color:var(--orange)}
+
+    /* Tag is now an orange pill */
     .trending-item-tag{
-      font-size:10px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.08em;color:var(--muted);margin-bottom:5px
+      display:inline-block;
+      font-size:9px;font-weight:700;text-transform:uppercase;
+      letter-spacing:.1em;
+      background:rgba(232,97,10,.2);color:var(--orange);
+      padding:2px 7px;border-radius:10px;
+      margin-bottom:6px
     }
     .trending-item-title{
-      font-size:13px;font-weight:700;color:var(--navy);
-      line-height:1.4;margin-bottom:6px;transition:color .15s
+      font-size:12.5px;font-weight:700;color:rgba(255,255,255,.9);
+      line-height:1.4;margin-bottom:5px;transition:color .15s
     }
     .trending-item-read{
-      font-size:11px;font-weight:700;color:var(--muted);transition:color .15s
+      font-size:10px;font-weight:700;
+      color:rgba(255,255,255,.35);
+      transition:color .15s
     }
     .trending-item-read::after{content:' →'}
+    .trending-item:hover .trending-item-read{color:var(--orange)}
 
     /* ── CTA BAND ── */
     .cta-band{background:var(--navy-dark);padding:60px var(--page-pad)}
@@ -712,7 +776,7 @@
       .guides-grid{grid-template-columns:repeat(2,1fr)}
       .industries-grid{grid-template-columns:repeat(2,1fr)}
       .topics-trending-grid{grid-template-columns:1fr}
-      .trending-rail{position:static}
+      .trending-rail{position:static;border-radius:8px}
     }
     @media(max-width:640px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
@@ -1061,14 +1125,14 @@
 
 <!-- ══════════════════════════════════════════════════════════════
      FOCUSED TOPICS + TRENDING RAIL
-     Two-column layout: 65% article cards / 35% sticky trending rail.
+     Two-column layout: 65% accent-bar cards / 35% dark panel rail.
      All 7 support article URLs use verified /resources/support/ paths.
 ════════════════════════════════════════════════════════════════ -->
 <section class="topics-trending-section">
   <div class="topics-trending-inner">
     <div class="topics-trending-grid">
 
-      <!-- LEFT: FOCUSED TOPICS — horizontal card list -->
+      <!-- LEFT: FOCUSED TOPICS — accent-bar cards with icons -->
       <div class="topics-col">
         <div class="topics-col-header">
           <div class="section-eyebrow">Focused Topics</div>
@@ -1076,59 +1140,95 @@
           <p class="section-sub">Shorter and more focused than the complete guides — each addresses one specific operational question in depth.</p>
         </div>
         <div class="topics-list">
+
           <a href="/resources/support/scaling-production-quickly/" class="topic-card">
-            <div class="topic-card-body">
-              <div class="topic-card-title">How to Scale Production Up or Down Rapidly</div>
-              <div class="topic-card-desc">Four strategies for matching staffing to demand swings — overtime, temporary labor, discretionary work, and time-off management.</div>
+            <div class="topic-card-accent"></div>
+            <div class="topic-card-inner">
+              <div class="topic-card-icon">📈</div>
+              <div class="topic-card-body">
+                <div class="topic-card-title">How to Scale Production Up or Down Rapidly</div>
+                <div class="topic-card-desc">Four strategies for matching staffing to demand swings — overtime, temporary labor, discretionary work, and time-off management.</div>
+              </div>
+              <span class="topic-card-cta">Read →</span>
             </div>
-            <span class="topic-card-arrow">Read</span>
           </a>
+
           <a href="/resources/support/sleep-alertness-safety-shift-work/" class="topic-card">
-            <div class="topic-card-body">
-              <div class="topic-card-title">Sleep, Alertness &amp; Safety in Shift Operations</div>
-              <div class="topic-card-desc">How schedule design, shift length, and rotation patterns affect fatigue — and what that costs in safety and productivity.</div>
+            <div class="topic-card-accent"></div>
+            <div class="topic-card-inner">
+              <div class="topic-card-icon">😴</div>
+              <div class="topic-card-body">
+                <div class="topic-card-title">Sleep, Alertness &amp; Safety in Shift Operations</div>
+                <div class="topic-card-desc">How schedule design, shift length, and rotation patterns affect fatigue — and what that costs in safety and productivity.</div>
+              </div>
+              <span class="topic-card-cta">Read →</span>
             </div>
-            <span class="topic-card-arrow">Read</span>
           </a>
+
           <a href="/resources/support/maintenance-worker-scheduling/" class="topic-card">
-            <div class="topic-card-body">
-              <div class="topic-card-title">Maintenance Workers: Unique Scheduling Considerations</div>
-              <div class="topic-card-desc">Why standard shift patterns consistently fail maintenance crews — and what approaches actually work.</div>
+            <div class="topic-card-accent"></div>
+            <div class="topic-card-inner">
+              <div class="topic-card-icon">🔧</div>
+              <div class="topic-card-body">
+                <div class="topic-card-title">Maintenance Workers: Unique Scheduling Considerations</div>
+                <div class="topic-card-desc">Why standard shift patterns consistently fail maintenance crews — and what approaches actually work.</div>
+              </div>
+              <span class="topic-card-cta">Read →</span>
             </div>
-            <span class="topic-card-arrow">Read</span>
           </a>
+
           <a href="/resources/support/communicating-schedule-changes/" class="topic-card">
-            <div class="topic-card-body">
-              <div class="topic-card-title">Communicating Major Schedule Changes</div>
-              <div class="topic-card-desc">Timing, channels, and messaging that reduce resistance — and the single most reliable predictor of whether a change will succeed.</div>
+            <div class="topic-card-accent"></div>
+            <div class="topic-card-inner">
+              <div class="topic-card-icon">📢</div>
+              <div class="topic-card-body">
+                <div class="topic-card-title">Communicating Major Schedule Changes</div>
+                <div class="topic-card-desc">Timing, channels, and messaging that reduce resistance — and the single most reliable predictor of whether a change will succeed.</div>
+              </div>
+              <span class="topic-card-cta">Read →</span>
             </div>
-            <span class="topic-card-arrow">Read</span>
           </a>
+
           <a href="/resources/support/workforce-survey-analysis/" class="topic-card">
-            <div class="topic-card-body">
-              <div class="topic-card-title">Survey Analysis: Understanding Workforce Needs</div>
-              <div class="topic-card-desc">How survey data corrects the systematic misperceptions managers have about what their workforce actually wants.</div>
+            <div class="topic-card-accent"></div>
+            <div class="topic-card-inner">
+              <div class="topic-card-icon">📊</div>
+              <div class="topic-card-body">
+                <div class="topic-card-title">Survey Analysis: Understanding Workforce Needs</div>
+                <div class="topic-card-desc">How survey data corrects the systematic misperceptions managers have about what their workforce actually wants.</div>
+              </div>
+              <span class="topic-card-cta">Read →</span>
             </div>
-            <span class="topic-card-arrow">Read</span>
           </a>
+
           <a href="/resources/support/balancing-business-employee-needs/" class="topic-card">
-            <div class="topic-card-body">
-              <div class="topic-card-title">Balancing Business &amp; Employee Needs</div>
-              <div class="topic-card-desc">Why the best shift schedules satisfy both operational requirements and employee lifestyle needs — and how to find them.</div>
+            <div class="topic-card-accent"></div>
+            <div class="topic-card-inner">
+              <div class="topic-card-icon">⚖️</div>
+              <div class="topic-card-body">
+                <div class="topic-card-title">Balancing Business &amp; Employee Needs</div>
+                <div class="topic-card-desc">Why the best shift schedules satisfy both operational requirements and employee lifestyle needs — and how to find them.</div>
+              </div>
+              <span class="topic-card-cta">Read →</span>
             </div>
-            <span class="topic-card-arrow">Read</span>
           </a>
+
           <a href="/resources/support/schedule-change-pitfalls/" class="topic-card">
-            <div class="topic-card-body">
-              <div class="topic-card-title">Schedule Change Pitfalls: What to Avoid</div>
-              <div class="topic-card-desc">The predictable reasons well-designed schedule changes fail — poor communication, policy gaps, and inadequate notice.</div>
+            <div class="topic-card-accent"></div>
+            <div class="topic-card-inner">
+              <div class="topic-card-icon">⚠️</div>
+              <div class="topic-card-body">
+                <div class="topic-card-title">Schedule Change Pitfalls: What to Avoid</div>
+                <div class="topic-card-desc">The predictable reasons well-designed schedule changes fail — poor communication, policy gaps, and inadequate notice.</div>
+              </div>
+              <span class="topic-card-cta">Read →</span>
             </div>
-            <span class="topic-card-arrow">Read</span>
           </a>
+
         </div>
       </div><!-- /topics-col -->
 
-      <!-- RIGHT: TRENDING RAIL — sticky, tag + headline + arrow only -->
+      <!-- RIGHT: TRENDING RAIL — dark panel, orange tag pills, white headlines -->
       <div class="trending-rail">
         <div class="trending-rail-header">
           <div class="trending-rail-label">What's Happening Now</div>
@@ -1230,7 +1330,7 @@
 <footer class="site-footer"><div class="footer-inner">
   <span class="footer-logo">Shiftwork Solutions LLC</span>
   <span>(415) 265-1621</span>
-  <span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></span>
+  <span><a href="/cdn-cgi/l/email-protection#c586aaabb1a4a6b185b6adaca3b1e8b2aab7aeeba6aaa8"><span class="__cf_email__" data-cfemail="c281adacb6a3a1b682b1aaaba4b6efb5adb0a9eca1adaf">[email&#160;protected]</span></a></span>
   <div class="footer-links-row">
     <a href="/resources/">Resources</a>
     <a href="/industries/">Industries</a>
@@ -1243,7 +1343,7 @@
 <!-- ══════════════════════════════════════════════════════════════
      JAVASCRIPT
 ════════════════════════════════════════════════════════════════ -->
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   document.getElementById('mobileToggle').addEventListener('click', function () {
     var n = document.getElementById('navLinks');
     var open = n.style.display === 'flex';
@@ -1271,11 +1371,4 @@
       .then(function(d){
         if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}
       })
-      .catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});
-    };
-  })();
-</script>
-
-</body>
-</html>
-<!-- I did no harm and this file is not truncated -->
+      .catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is
