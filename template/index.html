@@ -753,56 +753,54 @@
     }
     .cta-text-link:hover{color:var(--white);text-decoration:underline}
 
-    /* ── FOOTER — flat 6-cell grid guarantees button alignment ── */
+    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{
       padding:44px var(--page-pad) 40px;
       border-bottom:1px solid rgba(255,255,255,.1)
     }
-    /*
-      THE DEFINITIVE BUTTON-ALIGNMENT FIX:
-      Don't put each column in its own div — flatten everything into
-      one 2-col × 3-row grid. Each row is a sibling pair of cells.
-      Row 1: both labels. Row 2: both title+desc blocks. Row 3: both CTAs.
-      Because row 3 is a single grid row shared by both CTA cells, the
-      buttons are literally on the same horizontal baseline. No subgrid,
-      no margin tricks, no flex hacks needed.
-    */
-    .footer-grid{
-      max-width:1100px;margin:0 auto;
+    .footer-wrap{max-width:1100px;margin:0 auto}
+
+    /* Content row: two columns for label + title + description */
+    .footer-content-row{
       display:grid;
       grid-template-columns:1fr 1fr;
-      grid-template-rows:auto auto auto;
-      column-gap:0;
-      row-gap:0
+      gap:0;
+      margin-bottom:28px
     }
-    /* Left column cells get right padding + border */
-    .footer-cell-left{
+    .footer-col-left{
       padding-right:44px;
       border-right:1px solid rgba(255,255,255,.08)
     }
-    /* Right column cells get left padding */
-    .footer-cell-right{
-      padding-left:44px
+    .footer-col-right{padding-left:44px}
+
+    /*
+      CTA ROW: a single flexbox container with two equal children.
+      Both children are direct flex siblings — their top edges are
+      mathematically identical. This is the only guarantee that works.
+    */
+    .footer-cta-row{
+      display:flex;
+      align-items:flex-start;
+      gap:0
     }
-    /* Row 1: labels */
-    .footer-cell-label{padding-bottom:10px}
-    /* Row 2: title + description */
-    .footer-cell-body{padding-bottom:20px}
-    /* Row 3: CTAs — both in the same grid row = same baseline */
-    .footer-cell-cta{padding-top:4px}
+    .footer-cta-col-left{
+      flex:1;
+      padding-right:44px;
+      border-right:1px solid rgba(255,255,255,.08)
+    }
+    .footer-cta-col-right{flex:1;padding-left:44px}
 
     .engage-label{
       font-size:10px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.1em;color:var(--mid-blue,#85B7EB)
-    }
-    .engage-thomas-title,.engage-nl-title{
-      font-size:16px;font-weight:700;color:#fff;
+      letter-spacing:.1em;color:var(--mid-blue,#85B7EB);
       margin-bottom:8px
     }
+    .engage-thomas-title,.engage-nl-title{
+      font-size:16px;font-weight:700;color:#fff;margin-bottom:8px
+    }
     .engage-thomas-desc,.engage-nl-desc{
-      font-size:13px;color:rgba(255,255,255,.6);
-      line-height:1.6
+      font-size:13px;color:rgba(255,255,255,.6);line-height:1.6
     }
     .engage-thomas-btn{
       display:inline-block;padding:10px 20px;
@@ -867,9 +865,12 @@
       .topics-trending-section{padding:40px 20px 44px}.topics-trending-grid{gap:32px}
       .cta-band{padding:44px 20px}.cta-band h2{font-size:22px}
       .footer-prefooter{padding:32px 20px}
-      .footer-grid{grid-template-columns:1fr;grid-template-rows:none}
-      .footer-cell-left,.footer-cell-right{padding-left:0;padding-right:0;border-right:none}
-      .footer-cell-right.footer-cell-label{border-top:1px solid rgba(255,255,255,.08);padding-top:28px;margin-top:4px}
+      .footer-content-row{grid-template-columns:1fr}
+      .footer-col-left{padding-right:0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:24px;margin-bottom:24px}
+      .footer-col-right{padding-left:0}
+      .footer-cta-row{flex-direction:column;gap:24px}
+      .footer-cta-col-left{padding-right:0;border-right:none}
+      .footer-cta-col-right{padding-left:0}
       .footer-bottom{padding:14px 20px}
       .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
       .footer-bottom-left{justify-content:center}
@@ -1439,41 +1440,39 @@
 </div></div>
 
 <!-- ══════════════════════════════════════════════════════════════
-     FOOTER — flat 6-cell grid (3 rows × 2 cols).
-     Row 3 cells are direct grid siblings → guaranteed same baseline.
+     FOOTER — content in 2-col grid, CTAs in a single shared flex row.
+     Both CTAs are flex siblings in the same container = same baseline.
 ════════════════════════════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="footer-prefooter">
-    <div class="footer-grid">
+    <div class="footer-wrap">
 
-      <!-- ROW 1: Labels -->
-      <div class="footer-cell-left footer-cell-label">
-        <div class="engage-label">AI ADVISOR</div>
-      </div>
-      <div class="footer-cell-right footer-cell-label">
-        <div class="engage-label">NEWSLETTER</div>
-      </div>
-
-      <!-- ROW 2: Title + description -->
-      <div class="footer-cell-left footer-cell-body">
-        <div class="engage-thomas-title">Talk to Thomas</div>
-        <p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
-      </div>
-      <div class="footer-cell-right footer-cell-body">
-        <div class="engage-nl-title">Stay Sharp on Shift Operations</div>
-        <p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
+      <!-- Content: two columns side by side -->
+      <div class="footer-content-row">
+        <div class="footer-col-left">
+          <div class="engage-label">AI ADVISOR</div>
+          <div class="engage-thomas-title">Talk to Thomas</div>
+          <p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
+        </div>
+        <div class="footer-col-right">
+          <div class="engage-label">NEWSLETTER</div>
+          <div class="engage-nl-title">Stay Sharp on Shift Operations</div>
+          <p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
+        </div>
       </div>
 
-      <!-- ROW 3: CTAs — same grid row = same horizontal baseline -->
-      <div class="footer-cell-left footer-cell-cta">
-        <a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
-      </div>
-      <div class="footer-cell-right footer-cell-cta">
-        <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
-          <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
-          <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
-        </form>
-        <div class="engage-nl-msg" id="engageNLMsg"></div>
+      <!-- CTAs: single flex row — both are direct siblings, same container -->
+      <div class="footer-cta-row">
+        <div class="footer-cta-col-left">
+          <a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
+        </div>
+        <div class="footer-cta-col-right">
+          <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
+            <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
+            <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
+          </form>
+          <div class="engage-nl-msg" id="engageNLMsg"></div>
+        </div>
       </div>
 
     </div>
