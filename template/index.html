@@ -775,21 +775,29 @@
     .footer-col-right{padding-left:44px}
 
     /*
-      CTA ROW: a single flexbox container with two equal children.
-      Both children are direct flex siblings — their top edges are
-      mathematically identical. This is the only guarantee that works.
+      CTA ROW: both CTAs are naked direct flex children.
+      No wrapper divs. align-items:center vertically centers
+      the button and the form on the same axis.
     */
     .footer-cta-row{
       display:flex;
-      align-items:flex-start;
+      align-items:center;
+      gap:0;
+      padding-top:8px
+    }
+    .footer-cta-left{
+      flex:0 0 50%;
+      padding-right:44px;
+      display:flex !important;
+      align-items:center
+    }
+    .footer-cta-right{
+      flex:0 0 50%;
+      padding-left:44px;
+      display:flex;
+      flex-direction:column;
       gap:0
     }
-    .footer-cta-col-left{
-      flex:1;
-      padding-right:44px;
-      border-right:1px solid rgba(255,255,255,.08)
-    }
-    .footer-cta-col-right{flex:1;padding-left:44px}
 
     .engage-label{
       font-size:10px;font-weight:700;text-transform:uppercase;
@@ -868,9 +876,9 @@
       .footer-content-row{grid-template-columns:1fr}
       .footer-col-left{padding-right:0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:24px;margin-bottom:24px}
       .footer-col-right{padding-left:0}
-      .footer-cta-row{flex-direction:column;gap:24px}
-      .footer-cta-col-left{padding-right:0;border-right:none}
-      .footer-cta-col-right{padding-left:0}
+      .footer-cta-row{flex-direction:column;align-items:flex-start;gap:24px}
+      .footer-cta-left{flex:none;padding-right:0}
+      .footer-cta-right{flex:none;padding-left:0}
       .footer-bottom{padding:14px 20px}
       .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
       .footer-bottom-left{justify-content:center}
@@ -1461,12 +1469,10 @@
         </div>
       </div>
 
-      <!-- CTAs: single flex row — both are direct siblings, same container -->
+      <!-- CTAs: naked direct flex children — zero wrapper divs between flex container and buttons -->
       <div class="footer-cta-row">
-        <div class="footer-cta-col-left">
-          <a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
-        </div>
-        <div class="footer-cta-col-right">
+        <a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn footer-cta-left" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
+        <div class="footer-cta-right">
           <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
             <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
             <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
