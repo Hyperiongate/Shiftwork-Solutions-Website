@@ -90,6 +90,16 @@
                     brighter tag pill colors for dark backgrounds. Creates
                     strong visual contrast with the white Focused Topics above.
                  All URLs, content, and functionality preserved exactly.
+    2026-04-07 — VISUAL FEEDBACK FIXES (marketing review round 3):
+                 1. HERO TEXT ANIMATION: Staggered fade-up entrance for
+                    eyebrow → h1 → subtitle → stats. H1 gets a one-time
+                    orange shimmer sweep across the text after entrance
+                    completes (gradient text animation via background-clip).
+                 2. TRENDING SECTION: Changed from dark navy background to
+                    white background. Cards themselves kept dark navy gradient
+                    (linear-gradient #0D1F3C → #162D4D) so they pop against
+                    the white. Orange bottom-bar hover animation preserved.
+                 All URLs, content, and functionality preserved exactly.
 
   I did no harm and this file is not truncated
 -->
@@ -177,6 +187,13 @@
       50%{transform:translate(20px,-20px) scale(1.05)}
     }
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
+    /* Staggered entrance animations */
+    .hero-anim{opacity:0;transform:translateY(24px);animation:hero-enter .8s cubic-bezier(.23,1,.32,1) forwards}
+    .hero-anim-1{animation-delay:.15s}
+    .hero-anim-2{animation-delay:.35s}
+    .hero-anim-3{animation-delay:.55s}
+    .hero-anim-4{animation-delay:.75s}
+    @keyframes hero-enter{to{opacity:1;transform:translateY(0)}}
     .hero-eyebrow{
       font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.2em;
       color:var(--orange);margin-bottom:20px;
@@ -187,6 +204,17 @@
       font-size:clamp(28px,4vw,42px);font-weight:700;line-height:1.15;
       color:var(--white);max-width:640px;margin-bottom:18px;
       letter-spacing:-.02em;
+      background:linear-gradient(90deg, #FFFFFF 0%, #FFFFFF 40%, var(--orange) 60%, #FFFFFF 80%, #FFFFFF 100%);
+      background-size:200% 100%;
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      animation:hero-enter .8s cubic-bezier(.23,1,.32,1) .35s forwards, hero-shimmer 3s ease-in-out 1.2s 1;
+      opacity:0;transform:translateY(24px);
+    }
+    @keyframes hero-shimmer{
+      0%{background-position:200% center}
+      100%{background-position:-200% center}
     }
     .hero-subtitle{
       font-size:17px;line-height:1.7;color:rgba(255,255,255,.8);
@@ -311,24 +339,20 @@
     .topic-card:hover .topic-card-arrow{color:var(--orange);gap:10px}
     .topic-card-arrow::after{content:'→'}
 
-    /* ── TRENDING TOPICS — DARK NAVY SECTION WITH BOLD CARDS ── */
+    /* ── TRENDING TOPICS — DARK CARDS ON WHITE BACKGROUND ── */
     .trending-section{
       padding:64px var(--page-pad) 72px;
-      background:linear-gradient(135deg, #0D1F3C 0%, #162D4D 60%, #0D1F3C 100%);
+      background:var(--white);
       position:relative;overflow:hidden;
-    }
-    .trending-section::before{
-      content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;
-      border-radius:50%;background:radial-gradient(circle,rgba(232,97,10,.06) 0%,transparent 70%);pointer-events:none;
     }
     .trending-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
     .trending-header{margin-bottom:28px}
-    .trending-header .section-heading{color:var(--white)}
     .trending-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .trending-card{
-      background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+      background:linear-gradient(135deg, #0D1F3C 0%, #162D4D 100%);
+      border:1px solid rgba(255,255,255,.06);
       border-radius:12px;padding:24px 20px;text-decoration:none;display:flex;flex-direction:column;
-      transition:transform .3s cubic-bezier(.23,1,.32,1), box-shadow .3s, background .3s, border-color .3s;
+      transition:transform .3s cubic-bezier(.23,1,.32,1), box-shadow .3s;
       position:relative;overflow:hidden;
     }
     .trending-card::before{
@@ -338,9 +362,7 @@
     }
     .trending-card:hover{
       transform:translateY(-5px);
-      box-shadow:0 12px 36px rgba(0,0,0,.25);
-      background:rgba(255,255,255,.1);
-      border-color:rgba(255,255,255,.2);
+      box-shadow:0 16px 40px rgba(13,31,60,.3);
     }
     .trending-card:hover::before{transform:scaleX(1)}
     .trending-tag{
@@ -482,10 +504,10 @@
   <div class="hero-shape hero-shape-2"></div>
   <div class="hero-shape hero-shape-3"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">Resources</div>
+    <div class="hero-eyebrow hero-anim hero-anim-1">Resources</div>
     <h1>Everything You Need to Understand Shift Work</h1>
-    <p class="hero-subtitle">Ten comprehensive guides, targeted articles, and timely insights — built from decades of work across hundreds of 24/7 operations in manufacturing and distribution.</p>
-    <div class="hero-stats">
+    <p class="hero-subtitle hero-anim hero-anim-3">Ten comprehensive guides, targeted articles, and timely insights — built from decades of work across hundreds of 24/7 operations in manufacturing and distribution.</p>
+    <div class="hero-stats hero-anim hero-anim-4">
       <div class="hero-stat">
         <div class="hero-stat-num"><span class="hero-stat-accent">10</span></div>
         <div class="hero-stat-label">In-depth guides<br>2,000+ words each</div>
