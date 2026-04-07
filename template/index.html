@@ -405,7 +405,7 @@
     }
     .segments-grid{
       max-width:var(--max-width);margin:0 auto;
-      display:grid;grid-template-columns:repeat(3,1fr);gap:20px
+      display:grid;grid-template-columns:repeat(4,1fr);gap:16px
     }
     .segment-card{
       background:var(--white);border-radius:8px;
@@ -453,7 +453,29 @@
       content:'→';
       color:var(--orange);font-size:12px;flex-shrink:0
     }
-    .segment-links li a:hover{color:var(--orange)}
+    .segment-links-tools li a{
+      display:flex;flex-direction:column;gap:2px
+    }
+    .segment-links-tools li a::before{content:none}
+    .segment-links-tools li a{
+      padding:8px 10px;
+      background:var(--light-blue);
+      border-radius:5px;
+      border-left:3px solid var(--orange);
+      transition:background .15s,border-color .15s
+    }
+    .segment-links-tools li a:hover{
+      background:#dce9f5;color:var(--navy)
+    }
+    .segment-tool-label{
+      font-size:13px;font-weight:700;color:var(--navy);
+      transition:color .15s
+    }
+    .segment-links-tools li a:hover .segment-tool-label{color:var(--orange)}
+    .segment-tool-desc{
+      font-size:11px;color:var(--muted);line-height:1.4;font-weight:400
+    }
+    .segment-card-unsure{border-top-color:var(--orange)}
 
     /* ══════════════════════════════════════════════════
        GUIDES — PILLAR TILES
@@ -891,29 +913,6 @@
     <p class="hero-authority">
       Scheduling guides, industry insights, and diagnostic tools built for operations leaders — not academics. Start with the topic most relevant to your situation.
     </p>
-    <div class="hero-cta-row">
-      <a href="/resources/26-warning-signs-schedule-problems/" class="hero-cta-primary">See the 26 Warning Signs →</a>
-      <a href="#guides" class="hero-cta-secondary">Browse all ten guides</a>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════════
-     DIAGNOSTIC CALLOUT — contained card on white background.
-     Large ghost "26" decorative number. Orange left border.
-     No longer a dark full-bleed band clashing with the hero.
-════════════════════════════════════════════════════════════════ -->
-<section class="diag-section">
-  <div class="diag-card">
-    <div>
-      <div class="diag-badge">Free Diagnostic</div>
-      <div class="diag-heading">Not sure where to start? See if your operation shows any of the 26 warning signs.</div>
-      <p class="diag-body">Twenty-six operational symptoms that signal your shiftwork system may need a reset. Most operations show at least seven. Many show fifteen or more — without knowing it.</p>
-    </div>
-    <div class="diag-actions">
-      <a href="/resources/26-warning-signs-schedule-problems/" class="diag-btn-primary">Read the Diagnostic →</a>
-      <a href="/resources/shiftwork-assessment/" class="diag-btn-secondary">Take the Assessment</a>
-    </div>
   </div>
 </section>
 
@@ -922,8 +921,8 @@
 
 <!-- ══════════════════════════════════════════════════════════════
      VISITOR INTENT SEGMENTS
-     "What problem are you solving?" — 3 cards organized by how
-     prospects actually arrive, not by internal content taxonomy.
+     "What problem are you solving?" — 4 cards.
+     4th card: Not Sure Yet — contains 26 signs, assessment, Thomas.
 ════════════════════════════════════════════════════════════════ -->
 <section class="segments-section">
   <div class="segments-intro">
@@ -966,6 +965,33 @@
         <li><a href="/resources/employee-engagement-shift-work/">Building Employee Engagement</a></li>
         <li><a href="/resources/schedule-change-management/">Schedule Change Management</a></li>
         <li><a href="/resources/shift-work-policies-guide/">Shift Work Policies: Pay, Time-Off &amp; Compliance</a></li>
+      </ul>
+    </div>
+
+    <div class="segment-card segment-card-unsure">
+      <div class="segment-number">04</div>
+      <div class="segment-label">Not Sure Yet</div>
+      <div class="segment-problem">Something feels off but you haven't pinpointed it — or you're just starting to explore</div>
+      <p class="segment-desc">Start with a diagnostic. These three tools are designed to orient you before you commit to a direction.</p>
+      <ul class="segment-links segment-links-tools">
+        <li>
+          <a href="/resources/26-warning-signs-schedule-problems/">
+            <span class="segment-tool-label">26 Warning Signs</span>
+            <span class="segment-tool-desc">See which symptoms your operation shows</span>
+          </a>
+        </li>
+        <li>
+          <a href="/resources/shiftwork-assessment/">
+            <span class="segment-tool-label">Free Online Assessment</span>
+            <span class="segment-tool-desc">Score your operation across 8 dimensions</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener">
+            <span class="segment-tool-label">Talk to Thomas</span>
+            <span class="segment-tool-desc">Our AI advisor — available now, no appointment needed</span>
+          </a>
+        </li>
       </ul>
     </div>
 
