@@ -728,32 +728,7 @@
     .trending-item-read::after{content:' →'}
     .trending-item:hover .trending-item-read{color:var(--orange)}
 
-    /* ── CTA BAND ── */
-    .cta-band{background:var(--navy-dark);padding:60px var(--page-pad)}
-    .cta-band-inner{max-width:var(--max-width);margin:0 auto;text-align:center}
-    .cta-band h2{font-size:26px;font-weight:700;color:var(--white);margin-bottom:12px}
-    .cta-band p{
-      font-size:15px;color:var(--mid-blue);line-height:1.65;
-      max-width:560px;margin:0 auto 28px
-    }
-    .cta-actions{
-      display:flex;align-items:center;justify-content:center;
-      gap:24px;flex-wrap:wrap
-    }
-    .cta-btn{
-      display:inline-block;padding:13px 32px;
-      background:var(--orange);color:var(--white);
-      font-size:14px;font-weight:700;text-decoration:none;
-      border-radius:4px;transition:background .15s
-    }
-    .cta-btn:hover{background:#c4510a}
-    .cta-text-link{
-      font-size:14px;color:var(--mid-blue);
-      text-decoration:none;font-weight:500
-    }
-    .cta-text-link:hover{color:var(--white);text-decoration:underline}
-
-    /* ── FOOTER ── */
+    /* ── FOOTER — 3 columns, shared CTA row ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{
       padding:44px var(--page-pad) 40px;
@@ -761,66 +736,57 @@
     }
     .footer-wrap{max-width:1100px;margin:0 auto}
 
-    /* Content row: two columns for label + title + description */
+    /* Content row: 3 equal columns, labels + titles + descriptions */
     .footer-content-row{
       display:grid;
-      grid-template-columns:1fr 1fr;
+      grid-template-columns:1fr 1fr 1fr;
       gap:0;
       margin-bottom:28px
     }
-    .footer-col-left{
-      padding-right:44px;
-      border-right:1px solid rgba(255,255,255,.08)
-    }
-    .footer-col-right{padding-left:44px}
+    .footer-col{padding:0 32px}
+    .footer-col-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
+    .footer-col-2{border-right:1px solid rgba(255,255,255,.08)}
+    .footer-col-3{padding-right:0}
 
     /*
-      CTA ROW: both CTAs are naked direct flex children.
-      No wrapper divs. align-items:center vertically centers
-      the button and the form on the same axis.
+      CTA ROW: 3 direct flex children, each flex:0 0 33.333%.
+      All at the same top edge. No content above them in this row.
+      This is the only reliable way to guarantee alignment.
     */
     .footer-cta-row{
       display:flex;
       align-items:center;
-      gap:0;
-      padding-top:8px
-    }
-    .footer-cta-left{
-      flex:0 0 50%;
-      padding-right:44px;
-      display:flex;
-      align-items:center
-    }
-    .footer-cta-right{
-      flex:0 0 50%;
-      padding-left:44px;
-      display:flex;
-      flex-direction:column;
       gap:0
     }
+    .footer-cta-1,.footer-cta-2,.footer-cta-3{
+      flex:0 0 33.333%;
+      padding:0 32px
+    }
+    .footer-cta-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
+    .footer-cta-2{border-right:1px solid rgba(255,255,255,.08)}
+    .footer-cta-3{padding-right:0}
 
-    .engage-label{
-      font-size:10px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.1em;color:var(--mid-blue,#85B7EB);
-      margin-bottom:8px
-    }
-    .engage-thomas-title,.engage-nl-title{
-      font-size:16px;font-weight:700;color:#fff;margin-bottom:8px
-    }
-    .engage-thomas-desc,.engage-nl-desc{
-      font-size:13px;color:rgba(255,255,255,.6);line-height:1.6
-    }
-    .engage-thomas-btn{
+    /* Shared CTA button style for col 1 + col 2 */
+    .footer-cta-btn{
       display:inline-block;padding:10px 20px;
       background:var(--orange,#E8610A);color:#fff;
       font-size:13px;font-weight:700;text-decoration:none;
       border-radius:4px;transition:background .15s;
-      align-self:flex-start
+      white-space:nowrap
     }
-    .engage-thomas-btn:hover{background:#c4510a}
+    .footer-cta-btn:hover{background:#c4510a}
+
+    .engage-label{
+      font-size:10px;font-weight:700;text-transform:uppercase;
+      letter-spacing:.1em;color:var(--mid-blue,#85B7EB);margin-bottom:8px
+    }
+    .engage-col-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
+    .engage-col-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
+
+    /* Newsletter form in col 3 */
     .engage-nl-form{display:flex;gap:8px;flex-wrap:wrap}
     .engage-nl-input{
-      flex:1;min-width:160px;padding:10px 12px;
+      flex:1;min-width:120px;padding:10px 12px;
       border:1.5px solid rgba(255,255,255,.2);border-radius:4px;
       background:rgba(255,255,255,.08);color:#fff;
       font-family:Arial,sans-serif;font-size:13px;outline:none;
@@ -838,6 +804,7 @@
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
     .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
+
     /* Bottom bar */
     .footer-bottom{padding:16px var(--page-pad)}
     .footer-bottom-inner{
@@ -875,11 +842,10 @@
       .cta-band{padding:44px 20px}.cta-band h2{font-size:22px}
       .footer-prefooter{padding:32px 20px}
       .footer-content-row{grid-template-columns:1fr}
-      .footer-col-left{padding-right:0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:24px;margin-bottom:24px}
-      .footer-col-right{padding-left:0}
-      .footer-cta-row{flex-direction:column;align-items:flex-start;gap:24px}
-      .footer-cta-left{flex:none;padding-right:0}
-      .footer-cta-right{flex:none;padding-left:0}
+      .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
+      .footer-col-3{border-bottom:none;padding-bottom:0}
+      .footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}
+      .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}
       .footer-bottom{padding:14px 20px}
       .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
       .footer-bottom-left{justify-content:center}
@@ -1435,45 +1401,47 @@
   </div><!-- /topics-trending-inner -->
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════
-     CTA BAND
-════════════════════════════════════════════════════════════════ -->
-<div class="cta-band"><div class="cta-band-inner">
-  <h2>Ready to talk about your operation?</h2>
-  <p>Manufacturing companies and distribution centers running 24/7 operations typically have more room to improve than they realize. The first conversation is always free.</p>
-  <div class="cta-actions">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true"
-       class="cta-btn" target="_blank" rel="noopener">Book a Free Consultation</a>
-    <a href="/resources/shiftwork-assessment/" class="cta-text-link">Take the Assessment first →</a>
-  </div>
-</div></div>
 
 <!-- ══════════════════════════════════════════════════════════════
-     FOOTER — content in 2-col grid, CTAs in a single shared flex row.
-     Both CTAs are flex siblings in the same container = same baseline.
+     FOOTER — 3 columns: Book Consultation | Thomas | Newsletter
+     Content row (labels + titles + descriptions) followed by a
+     single shared CTA flex row. All three buttons are direct flex
+     siblings → guaranteed same baseline.
 ════════════════════════════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="footer-prefooter">
     <div class="footer-wrap">
 
-      <!-- Content: two columns side by side -->
+      <!-- Content row: 3 columns -->
       <div class="footer-content-row">
-        <div class="footer-col-left">
-          <div class="engage-label">AI ADVISOR</div>
-          <div class="engage-thomas-title">Talk to Thomas</div>
-          <p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
+        <div class="footer-col footer-col-1">
+          <div class="engage-label">FREE CONSULTATION</div>
+          <div class="engage-col-title">Ready to talk about your operation?</div>
+          <p class="engage-col-desc">Manufacturing and distribution operations running 24/7 typically have more room to improve than they realize. The first conversation is always free.</p>
         </div>
-        <div class="footer-col-right">
+        <div class="footer-col footer-col-2">
+          <div class="engage-label">AI ADVISOR</div>
+          <div class="engage-col-title">Talk to Thomas</div>
+          <p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
+        </div>
+        <div class="footer-col footer-col-3">
           <div class="engage-label">NEWSLETTER</div>
-          <div class="engage-nl-title">Stay Sharp on Shift Operations</div>
-          <p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
+          <div class="engage-col-title">Stay Sharp on Shift Operations</div>
+          <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
         </div>
       </div>
 
-      <!-- CTAs: naked direct flex children — zero wrapper divs between flex container and buttons -->
+      <!-- Single shared CTA row — all three are direct flex siblings -->
       <div class="footer-cta-row">
-        <a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn footer-cta-left" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
-        <div class="footer-cta-right">
+        <div class="footer-cta-1">
+          <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true"
+             class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a>
+        </div>
+        <div class="footer-cta-2">
+          <a href="https://shift-work-diagnostic.onrender.com/"
+             class="footer-cta-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
+        </div>
+        <div class="footer-cta-3">
           <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
             <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
             <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
