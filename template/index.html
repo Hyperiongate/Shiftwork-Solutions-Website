@@ -5,7 +5,7 @@
   URL: /resources/
 
   Created:      2026-04-03
-  Last Updated: 2026-04-07 (3)
+  Last Updated: 2026-04-07 (4)
 
   CHANGE LOG:
     2026-04-03 — Initial build per Resources_Hub_Specification_V2_with_pic_4_3_26.docx
@@ -86,6 +86,19 @@
                     not appropriate in horizontal list format).
                  All URLs, nav, guides section, CTA band, engage band, and JS
                  preserved exactly.
+    2026-04-07 — FOOTER + DIAG BAND FIXES:
+                 1. FOOTER LAYOUT: Restructured 3-column footer so orange
+                    buttons are horizontally aligned in a shared button row
+                    above the contact info. Removed redundant company name
+                    label and nav links from footer — kept only name, phone,
+                    email. Footer-company-col removed; contact info now lives
+                    in the bottom bar. Three columns become two equal columns
+                    (Thomas | Newsletter) with contact info in bottom bar.
+                 2. DIAG BAND (26 warning signs callout): Removed full-bleed
+                    navy-dark background that clashed with hero. Replaced
+                    with a white-background contained card with an orange
+                    left accent border, a large decorative "26" number, and
+                    proper section-wrap padding. Feels designed, not accidental.
     2026-04-07 — THREE TARGETED CHANGES:
                  1. HERO BACKGROUND: Replaced CSS dot-grid ::before with
                     second.png image (same as 26-warning-signs page).
@@ -308,30 +321,39 @@
     .section-divider{height:3px;background:var(--orange);width:100%}
 
     /* ══════════════════════════════════════════════════
-       DIAGNOSTIC FEATURE BAND
-       Full-width callout — the #1 lead magnet on the site.
-       Stands alone above everything else.
+       DIAGNOSTIC CALLOUT — contained card, not full-bleed band.
+       White section background, card with orange left border,
+       decorative large "26" number as graphic element.
     ═══════════════════════════════════════════════════ */
-    .diag-band{
-      background:var(--navy-dark);
+    .diag-section{
       padding:48px var(--page-pad);
+      background:var(--white)
+    }
+    .diag-card{
+      max-width:var(--max-width);
+      margin:0 auto;
+      background:var(--light-blue);
+      border-radius:10px;
+      border-left:6px solid var(--orange);
+      padding:36px 40px;
       position:relative;
-      overflow:hidden
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:32px;
+      align-items:center
     }
-    .diag-band::after{
-      content:'';
+    /* Large decorative "26" ghost number — top right */
+    .diag-card::before{
+      content:'26';
       position:absolute;
-      right:-40px;top:-40px;
-      width:200px;height:200px;
-      border-radius:50%;
-      background:var(--orange);
-      opacity:.06
-    }
-    .diag-inner{
-      max-width:var(--max-width);margin:0 auto;
-      display:grid;grid-template-columns:1fr auto;
-      gap:32px;align-items:center;
-      position:relative;z-index:1
+      right:32px;top:50%;
+      transform:translateY(-50%);
+      font-size:120px;font-weight:700;
+      color:rgba(31,78,121,0.07);
+      line-height:1;
+      pointer-events:none;
+      user-select:none
     }
     .diag-badge{
       display:inline-block;
@@ -341,32 +363,33 @@
       margin-bottom:14px
     }
     .diag-heading{
-      font-size:24px;font-weight:700;color:var(--white);
-      line-height:1.25;margin-bottom:10px;max-width:540px
+      font-size:22px;font-weight:700;color:var(--navy);
+      line-height:1.25;margin-bottom:10px;max-width:500px
     }
     .diag-body{
-      font-size:14px;color:rgba(255,255,255,.7);
-      line-height:1.7;max-width:520px;margin-bottom:0
+      font-size:14px;color:#444;
+      line-height:1.7;max-width:500px;margin-bottom:0
     }
     .diag-actions{
       display:flex;flex-direction:column;gap:12px;
-      align-items:flex-start;flex-shrink:0
+      align-items:flex-start;flex-shrink:0;
+      position:relative;z-index:1
     }
     .diag-btn-primary{
-      display:inline-block;padding:13px 28px;
+      display:inline-block;padding:12px 24px;
       background:var(--orange);color:var(--white);
       font-size:14px;font-weight:700;text-decoration:none;
       border-radius:4px;transition:background .15s;white-space:nowrap
     }
     .diag-btn-primary:hover{background:#c4510a}
     .diag-btn-secondary{
-      display:inline-block;padding:13px 28px;
-      background:transparent;color:var(--mid-blue);
+      display:inline-block;padding:12px 24px;
+      background:transparent;color:var(--navy);
       font-size:13px;font-weight:600;text-decoration:none;
-      border:1.5px solid rgba(133,183,235,.35);
+      border:1.5px solid rgba(31,78,121,.3);
       border-radius:4px;transition:all .15s;white-space:nowrap
     }
-    .diag-btn-secondary:hover{border-color:var(--mid-blue);color:var(--white)}
+    .diag-btn-secondary:hover{border-color:var(--navy);background:rgba(31,78,121,.05)}
 
     /* ══════════════════════════════════════════════════
        VISITOR INTENT SEGMENTS
@@ -730,24 +753,27 @@
     }
     .cta-text-link:hover{color:var(--white);text-decoration:underline}
 
-    /* ── FOOTER — 3-column pre-footer + bottom bar ── */
+    /* ── FOOTER — 2-column engage + contact bottom bar ── */
     .site-footer{
       background:var(--navy-dark);
     }
-    /* Pre-footer: Thomas | Newsletter | Company info — side by side */
+    /* Pre-footer: Thomas | Newsletter — two equal columns */
     .footer-prefooter{
       padding:44px var(--page-pad) 40px;
-      border-bottom:1px solid rgba(255,255,255,.08)
+      border-bottom:1px solid rgba(255,255,255,.1)
     }
     .footer-prefooter-inner{
       max-width:1100px;margin:0 auto;
-      display:grid;grid-template-columns:1fr 1fr 1fr;
-      gap:40px;align-items:start
+      display:grid;grid-template-columns:1fr 1fr;
+      gap:0;
+      /* align-items:stretch so both columns fill the same height,
+         keeping buttons visually level */
+      align-items:stretch
     }
-    /* Dividers between columns */
+    .footer-prefooter-inner > *:first-child{padding-right:44px}
     .footer-prefooter-inner > * + *{
       border-left:1px solid rgba(255,255,255,.08);
-      padding-left:40px
+      padding-left:44px
     }
     .engage-label{
       font-size:10px;font-weight:700;text-transform:uppercase;
@@ -758,18 +784,24 @@
     }
     .engage-thomas-desc,.engage-nl-desc{
       font-size:13px;color:rgba(255,255,255,.6);
-      line-height:1.6;margin-bottom:14px
+      line-height:1.6;margin-bottom:20px
+    }
+    /* Both columns use flex column so content pushes the CTA to
+       the bottom — this is what makes buttons align horizontally */
+    .engage-thomas,.engage-nl{
+      display:flex;flex-direction:column
     }
     .engage-thomas-btn{
-      display:inline-block;padding:9px 18px;
+      display:inline-block;padding:10px 20px;
       background:var(--orange,#E8610A);color:#fff;
       font-size:13px;font-weight:700;text-decoration:none;
-      border-radius:4px;transition:background .15s
+      border-radius:4px;transition:background .15s;
+      align-self:flex-start;margin-top:auto
     }
     .engage-thomas-btn:hover{background:#c4510a}
-    .engage-nl-form{display:flex;gap:8px;flex-wrap:wrap}
+    .engage-nl-form{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
     .engage-nl-input{
-      flex:1;min-width:160px;padding:9px 12px;
+      flex:1;min-width:160px;padding:10px 12px;
       border:1.5px solid rgba(255,255,255,.2);border-radius:4px;
       background:rgba(255,255,255,.08);color:#fff;
       font-family:Arial,sans-serif;font-size:13px;outline:none;
@@ -778,7 +810,7 @@
     .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
     .engage-nl-input:focus{border-color:var(--mid-blue,#85B7EB)}
     .engage-nl-btn{
-      padding:9px 16px;background:var(--orange,#E8610A);color:#fff;
+      padding:10px 18px;background:var(--orange,#E8610A);color:#fff;
       border:none;border-radius:4px;font-family:Arial,sans-serif;
       font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;
       white-space:nowrap
@@ -787,67 +819,49 @@
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
     .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
-    /* Company info column */
-    .footer-company-col{}
-    .footer-company-logo{
-      font-size:15px;font-weight:700;color:#fff;
-      margin-bottom:14px;display:block
-    }
-    .footer-company-detail{
-      font-size:13px;color:rgba(255,255,255,.6);
-      line-height:1.8;margin-bottom:4px
-    }
-    .footer-company-detail a{color:rgba(255,255,255,.6);text-decoration:none}
-    .footer-company-detail a:hover{color:var(--orange)}
-    .footer-nav-links{
-      display:flex;flex-direction:column;gap:6px;margin-top:16px
-    }
-    .footer-nav-links a{
-      font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;
-      transition:color .15s
-    }
-    .footer-nav-links a:hover{color:var(--orange)}
-    /* Bottom bar */
+    /* Bottom bar — brand name, phone, email, copyright */
     .footer-bottom{
-      padding:16px var(--page-pad);
+      padding:16px var(--page-pad)
     }
     .footer-bottom-inner{
       max-width:1100px;margin:0 auto;
       display:flex;align-items:center;justify-content:space-between;
-      flex-wrap:wrap;gap:8px;
-      font-size:12px;color:rgba(255,255,255,.3)
+      flex-wrap:wrap;gap:12px;
+      font-size:13px;color:rgba(255,255,255,.45)
     }
+    .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
+    .footer-bottom-inner a:hover{color:var(--orange)}
+    .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
 
     /* ── RESPONSIVE ── */
     @media(max-width:960px){
-      .diag-inner{grid-template-columns:1fr}
+      .diag-card{grid-template-columns:1fr;padding:28px 24px}
+      .diag-card::before{font-size:80px;right:16px}
       .diag-actions{flex-direction:row;flex-wrap:wrap}
       .segments-grid{grid-template-columns:1fr 1fr}
       .guides-grid{grid-template-columns:repeat(2,1fr)}
       .industries-grid{grid-template-columns:repeat(2,1fr)}
       .topics-trending-grid{grid-template-columns:1fr}
       .trending-rail{position:static;border-radius:8px}
-      .footer-prefooter-inner{grid-template-columns:1fr 1fr}
-      .footer-prefooter-inner > *:nth-child(3){
-        grid-column:1/-1;border-left:none;padding-left:0;
-        border-top:1px solid rgba(255,255,255,.08);padding-top:32px
-      }
     }
     @media(max-width:640px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
       .hero{padding:40px 20px 48px}.hero h1{font-size:26px}
-      .diag-band{padding:36px 20px}
-      .diag-heading{font-size:20px}
+      .diag-section{padding:32px 20px}
+      .diag-card{padding:24px 20px}
+      .diag-heading{font-size:18px}
       .segments-section{padding:40px 20px 44px}.segments-grid{grid-template-columns:1fr}
       .guides-section{padding:40px 20px 44px}.guides-grid{grid-template-columns:1fr}.guide-img{height:180px}
       .industries-section{padding:40px 20px 44px}.industries-grid{grid-template-columns:1fr}
       .topics-trending-section{padding:40px 20px 44px}.topics-trending-grid{gap:32px}
       .cta-band{padding:44px 20px}.cta-band h2{font-size:22px}
-      .footer-prefooter{padding:32px 20px}
-      .footer-prefooter-inner{grid-template-columns:1fr;gap:28px}
-      .footer-prefooter-inner > * + *{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,.08);padding-top:28px}
+      .footer-prefooter-inner{grid-template-columns:1fr}
+      .footer-prefooter-inner > *:first-child{padding-right:0}
+      .footer-prefooter-inner > * + *{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,.08);padding-top:32px}
       .footer-bottom{padding:14px 20px}
-      .footer-bottom-inner{flex-direction:column;text-align:center;gap:4px}
+      .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
+      .footer-bottom-left{justify-content:center}
     }
   </style>
 </head>
@@ -898,12 +912,12 @@
 </section>
 
 <!-- ══════════════════════════════════════════════════════════════
-     DIAGNOSTIC FEATURED CALLOUT
-     The 26 Warning Signs diagnostic is the #1 lead magnet.
-     It earns its own full-width band — not buried in a 2-tile grid.
+     DIAGNOSTIC CALLOUT — contained card on white background.
+     Large ghost "26" decorative number. Orange left border.
+     No longer a dark full-bleed band clashing with the hero.
 ════════════════════════════════════════════════════════════════ -->
-<div class="diag-band">
-  <div class="diag-inner">
+<section class="diag-section">
+  <div class="diag-card">
     <div>
       <div class="diag-badge">Free Diagnostic</div>
       <div class="diag-heading">Not sure where to start? See if your operation shows any of the 26 warning signs.</div>
@@ -914,7 +928,7 @@
       <a href="/resources/shiftwork-assessment/" class="diag-btn-secondary">Take the Assessment</a>
     </div>
   </div>
-</div>
+</section>
 
 <!-- ORANGE SECTION DIVIDER -->
 <div class="section-divider"></div>
@@ -1414,10 +1428,8 @@
 </div></div>
 
 <!-- ══════════════════════════════════════════════════════════════
-     FOOTER — 3 columns side by side:
-     Left: Thomas AI | Center: Newsletter | Right: Company info + nav
-     Replaces separate engage-band + footer pattern.
-     All URLs, JS, and functionality preserved.
+     FOOTER — 2 columns (Thomas | Newsletter) with buttons
+     horizontally aligned. Contact info in bottom bar only.
 ════════════════════════════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="footer-prefooter">
@@ -1443,27 +1455,17 @@
         <div class="engage-nl-msg" id="engageNLMsg"></div>
       </div>
 
-      <!-- COLUMN 3: Company info + nav links -->
-      <div class="footer-company-col">
-        <div class="engage-label">SHIFTWORK SOLUTIONS LLC</div>
-        <span class="footer-company-logo">Shiftwork Solutions LLC</span>
-        <div class="footer-company-detail"><a href="tel:+14152651621">(415) 265-1621</a></div>
-        <div class="footer-company-detail"><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
-        <nav class="footer-nav-links" aria-label="Footer navigation">
-          <a href="/resources/">Resources</a>
-          <a href="/industries/">Industries</a>
-          <a href="/services/">Our Services</a>
-          <a href="/why-us/">Why Us</a>
-          <a href="/contact/">Contact</a>
-        </nav>
-      </div>
-
     </div>
   </div>
+  <!-- Bottom bar: brand name, phone, email, copyright -->
   <div class="footer-bottom">
     <div class="footer-bottom-inner">
-      <span>&copy; 2026 Shiftwork Solutions LLC. All rights reserved.</span>
-      <span>shift-work.com</span>
+      <div class="footer-bottom-left">
+        <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+        <a href="tel:+14152651621">(415) 265-1621</a>
+        <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+      </div>
+      <span>&copy; 2026 Shiftwork Solutions LLC</span>
     </div>
   </div>
 </footer>
