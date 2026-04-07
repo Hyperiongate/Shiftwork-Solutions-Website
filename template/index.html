@@ -698,11 +698,20 @@
     .trending-rail-heading{
       font-size:16px;font-weight:700;color:var(--white);line-height:1.35
     }
-    .trending-rail-items{display:flex;flex-direction:column;gap:0;padding:4px 0}
+    .trending-rail-items{
+      display:flex;flex-direction:column;
+      flex:1;
+      justify-content:space-between;
+      padding:0
+    }
 
-    /* Dark panel trending card */
+    /* Dark panel trending card — flex:1 so all items share height equally */
     .trending-item{
-      display:block;padding:14px 22px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      flex:1;
+      padding:10px 22px;
       border-bottom:1px solid rgba(255,255,255,.06);
       text-decoration:none;
       transition:background .15s
