@@ -405,7 +405,7 @@
     }
     .segments-grid{
       max-width:var(--max-width);margin:0 auto;
-      display:grid;grid-template-columns:repeat(4,1fr);gap:16px
+      display:grid;grid-template-columns:repeat(2,1fr);gap:20px
     }
     .segment-card{
       background:var(--white);border-radius:8px;
@@ -453,28 +453,8 @@
       content:'→';
       color:var(--orange);font-size:12px;flex-shrink:0
     }
-    .segment-links-tools li a{
-      display:flex;flex-direction:column;gap:2px
-    }
-    .segment-links-tools li a::before{content:none}
-    .segment-links-tools li a{
-      padding:8px 10px;
-      background:var(--light-blue);
-      border-radius:5px;
-      border-left:3px solid var(--orange);
-      transition:background .15s,border-color .15s
-    }
-    .segment-links-tools li a:hover{
-      background:#dce9f5;color:var(--navy)
-    }
-    .segment-tool-label{
-      font-size:13px;font-weight:700;color:var(--navy);
-      transition:color .15s
-    }
-    .segment-links-tools li a:hover .segment-tool-label{color:var(--orange)}
-    .segment-tool-desc{
-      font-size:11px;color:var(--muted);line-height:1.4;font-weight:400
-    }
+    .segment-links li a:hover{color:var(--orange)}
+    /* Card 4 "Not Sure Yet" uses same link style — orange top border distinguishes it */
     .segment-card-unsure{border-top-color:var(--orange)}
 
     /* ══════════════════════════════════════════════════
@@ -636,7 +616,8 @@
     .topics-trending-grid{
       display:grid;
       grid-template-columns:65fr 35fr;
-      gap:32px;align-items:start
+      gap:32px;
+      align-items:stretch
     }
 
     /* LEFT: FOCUSED TOPICS — accent-bar cards */
@@ -700,10 +681,11 @@
 
     /* RIGHT: TRENDING RAIL — dark panel, orange tag pills */
     .trending-rail{
-      position:sticky;top:72px;
       background:var(--navy-dark);
       border-radius:8px;
-      overflow:hidden
+      overflow:hidden;
+      display:flex;
+      flex-direction:column
     }
     .trending-rail-header{
       padding:20px 22px 16px;
@@ -845,11 +827,11 @@
       .diag-card{grid-template-columns:1fr;padding:28px 24px}
       .diag-card::before{font-size:80px;right:16px}
       .diag-actions{flex-direction:row;flex-wrap:wrap}
-      .segments-grid{grid-template-columns:1fr 1fr}
+      .segments-grid{grid-template-columns:1fr}
       .guides-grid{grid-template-columns:repeat(2,1fr)}
       .industries-grid{grid-template-columns:repeat(2,1fr)}
       .topics-trending-grid{grid-template-columns:1fr}
-      .trending-rail{position:static;border-radius:8px}
+      .trending-rail{border-radius:8px}
     }
     @media(max-width:640px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
@@ -973,25 +955,10 @@
       <div class="segment-label">Not Sure Yet</div>
       <div class="segment-problem">Something feels off but you haven't pinpointed it — or you're just starting to explore</div>
       <p class="segment-desc">Start with a diagnostic. These three tools are designed to orient you before you commit to a direction.</p>
-      <ul class="segment-links segment-links-tools">
-        <li>
-          <a href="/resources/26-warning-signs-schedule-problems/">
-            <span class="segment-tool-label">26 Warning Signs</span>
-            <span class="segment-tool-desc">See which symptoms your operation shows</span>
-          </a>
-        </li>
-        <li>
-          <a href="/resources/shiftwork-assessment/">
-            <span class="segment-tool-label">Free Online Assessment</span>
-            <span class="segment-tool-desc">Score your operation across 8 dimensions</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener">
-            <span class="segment-tool-label">Talk to Thomas</span>
-            <span class="segment-tool-desc">Our AI advisor — available now, no appointment needed</span>
-          </a>
-        </li>
+      <ul class="segment-links">
+        <li><a href="/resources/26-warning-signs-schedule-problems/">26 Warning Signs Your Schedule Needs Attention</a></li>
+        <li><a href="/resources/shiftwork-assessment/">Free Online Assessment</a></li>
+        <li><a href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener">Talk to Thomas — AI Shift Advisor</a></li>
       </ul>
     </div>
 
