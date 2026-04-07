@@ -5,49 +5,55 @@
   URL: /contact/
 
   Created: April 2, 2026
-  Last updated: April 5, 2026
+  Last updated: April 7, 2026
 
   PURPOSE:
-      Contact form page for shift-work.com. Submits via Formspree to
-      Contact@shift-work.com. Anti-spam: honeypot field, timestamp
-      validation, client-side rate limiting.
+      Contact form page for shift-work.com. Now routes through the
+      Swarm backend for IP logging, spam filtering, and admin visibility
+      before forwarding to Formspree for email delivery.
 
-  FORM BACKEND:
+  FORM BACKEND (primary):
+      POST https://ai-swarm-orchestrator.onrender.com/api/contact/submit
+      Logs submission with IP + user agent, runs anti-spam checks,
+      then forwards to Formspree for delivery to Contact@shift-work.com.
+
+  FORM BACKEND (fallback):
       POST https://formspree.io/f/xwvwnwea
-      Delivered to: Contact@shift-work.com
+      If the Swarm backend is unreachable, the form falls back to
+      posting directly to Formspree so leads are never lost.
 
   FIELDS:
       Required: Name, Email, Company, Message
       Optional: Phone, Number of Employees
 
   ANTI-SPAM LAYERS:
-      1. Honeypot field (_gotcha) — hidden via CSS
-      2. Timestamp validation — rejects instant submits (< 3 seconds)
-      3. Client-side rate limit — disables button for 30s after submit
-      4. Formspree built-in filtering
+      CLIENT-SIDE:
+        1. Honeypot field (_gotcha) — hidden via CSS, sent to server
+        2. Timestamp validation — page load time sent to server
+        3. Client-side rate limit — disables button for 30s after submit
+        4. Email format regex validation
+
+      SERVER-SIDE (handled by Swarm /api/contact/submit):
+        5. IP blocklist check
+        6. Server-side honeypot verification
+        7. Server-side timestamp verification (rejects < 3 seconds)
+        8. Disposable email domain blocking (120+ domains)
+        9. IP-based rate limiting (max 3 per IP per hour)
+       10. Full submission logging (IP, user agent, email domain)
 
   CHANGE LOG:
       2026-04-02  (v1) Initial build
       2026-04-02  (v2) Full rebuild to new design system
-
-      2026-04-04  NAV + BUTTON + SEO AUDIT:
-                  1. NAV: Logo → image (was text)
-                     Services → direct link (no dropdown)
-                     Resources → direct link (no dropdown)
-                     Why Us dropdown: "Meet Our Team" → /our_team/
-                     "Client Testimonials" → /why-shiftwork-solutions/#testimonials
-                  2. BUTTONS: Nav CTA → "Book a Free Meeting" ORANGE (#E8610A)
-                     CTA section button → ORANGE bg
-                  3. SEO: Added OG tags, Twitter Card tags
-                     Added Organization + BreadcrumbList JSON-LD
-                  4. URLs: All booking URLs → added ?ismsaljsauthenabled=true
-
-      2026-04-05  NAV — ALL DROPDOWNS REMOVED:
-                  - Industries: removed dropdown, direct link to /industries/
-                  - Why Us: removed dropdown, direct link to /why-us/
-                  - Footer "Why Us" link updated to /why-us/
-                  - Mobile dropdown JS handler removed (no longer needed)
-                  - All form functionality preserved exactly
+      2026-04-04  NAV + BUTTON + SEO AUDIT
+      2026-04-05  NAV — ALL DROPDOWNS REMOVED
+      2026-04-07  SECURITY HARDENING:
+                  - Form now POSTs to Swarm backend first
+                    (was: direct to Formspree)
+                  - Sends honeypot + timestamp to server for
+                    server-side verification
+                  - Fallback to direct Formspree if Swarm is down
+                  - All existing form fields and UI preserved exactly
+                  - All nav, footer, sidebar, CTA unchanged
 
   NAV SYSTEM: .site-header / .main-nav / .nav-cta a
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
@@ -243,14 +249,12 @@
       <h2>Send Us a Message</h2>
       <p class="form-intro">Tell us about your operation and what you're trying to solve. The more context you share, the more useful our first conversation will be.</p>
       <div id="form-status" class="form-status"></div>
-      <form id="contact-form" action="https://formspree.io/f/xwvwnwea" method="POST" novalidate>
+      <form id="contact-form" novalidate>
         <div class="ohnohoney">
           <label for="_gotcha">Leave this empty</label>
           <input type="text" name="_gotcha" id="_gotcha" tabindex="-1" autocomplete="off" />
         </div>
         <input type="hidden" name="_loaded" id="_loaded" value="" />
-        <input type="hidden" name="_subject" value="New Contact Form — shift-work.com" />
-        <input type="hidden" name="_next" value="https://shift-work.com/contact/?sent=true" />
         <div class="form-row">
           <div class="form-group">
             <label class="form-label" for="name">Full Name <span class="req">*</span></label>
@@ -380,65 +384,150 @@
 </footer>
 
 <script>
-document.getElementById('_loaded').value = Date.now().toString();
-document.getElementById('mobile-toggle').addEventListener('click', function() {
-  document.getElementById('main-nav').classList.toggle('open');
-});
-document.addEventListener('click', function(e) {
-  var header = document.querySelector('.site-header');
-  if (header && !header.contains(e.target)) { document.getElementById('main-nav').classList.remove('open'); }
-});
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  var form = this;
-  var btn = document.getElementById('submit-btn');
-  var status = document.getElementById('form-status');
-  if (document.getElementById('_gotcha').value !== '') {
-    status.className = 'form-status success';
-    status.textContent = 'Thank you! Your message has been sent.';
-    form.reset(); return;
-  }
-  var loadedAt = parseInt(document.getElementById('_loaded').value, 10);
-  if (Date.now() - loadedAt < 3000) {
-    status.className = 'form-status error';
-    status.textContent = 'Please take a moment to fill out the form completely.'; return;
-  }
-  var name = document.getElementById('name').value.trim();
-  var email = document.getElementById('email').value.trim();
-  var company = document.getElementById('company').value.trim();
-  var message = document.getElementById('message').value.trim();
-  if (!name || !email || !company || !message) {
-    status.className = 'form-status error';
-    status.textContent = 'Please fill in all required fields.'; return;
-  }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    status.className = 'form-status error';
-    status.textContent = 'Please enter a valid email address.'; return;
-  }
-  btn.disabled = true; btn.textContent = 'Sending...'; status.style.display = 'none';
-  fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } })
-  .then(function(response) {
-    if (response.ok) {
-      status.className = 'form-status success';
-      status.textContent = 'Thank you! Your message has been sent. We typically respond within one business day.';
-      form.reset(); document.getElementById('_loaded').value = Date.now().toString();
-      setTimeout(function() { btn.disabled = false; btn.textContent = 'Send Message \u2192'; }, 30000);
-    } else {
-      return response.json().then(function(data) { throw new Error(data.errors ? data.errors.map(function(e) { return e.message; }).join(', ') : 'Submission failed'); });
-    }
-  })
-  .catch(function() {
-    status.className = 'form-status error';
-    status.textContent = 'Something went wrong. Please try again or email Contact@shift-work.com directly.';
-    btn.disabled = false; btn.textContent = 'Send Message \u2192';
+/* ═══════════════════════════════════════════════════════════════════════
+   CONTACT FORM — Security Hardened Submission
+   Posts to Swarm backend first (IP logging + spam checks),
+   which forwards to Formspree for email delivery.
+   Falls back to direct Formspree if Swarm is unreachable.
+   Updated: April 7, 2026
+   ═══════════════════════════════════════════════════════════════════════ */
+(function() {
+  var CONTACT_API = 'https://ai-swarm-orchestrator.onrender.com/api/contact/submit';
+  var FORMSPREE_FALLBACK = 'https://formspree.io/f/xwvwnwea';
+
+  // Set page load timestamp for bot detection
+  document.getElementById('_loaded').value = Date.now().toString();
+
+  // Mobile nav toggle
+  document.getElementById('mobile-toggle').addEventListener('click', function() {
+    document.getElementById('main-nav').classList.toggle('open');
   });
-});
-if (window.location.search.indexOf('sent=true') > -1) {
-  var s = document.getElementById('form-status');
-  s.className = 'form-status success';
-  s.textContent = 'Thank you! Your message has been sent. We typically respond within one business day.';
-  history.replaceState(null, '', '/contact/');
-}
+  document.addEventListener('click', function(e) {
+    var header = document.querySelector('.site-header');
+    if (header && !header.contains(e.target)) {
+      document.getElementById('main-nav').classList.remove('open');
+    }
+  });
+
+  // Contact form submission
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var form = this;
+    var btn = document.getElementById('submit-btn');
+    var status = document.getElementById('form-status');
+
+    // Client-side honeypot check (fake success for bots)
+    if (document.getElementById('_gotcha').value !== '') {
+      status.className = 'form-status success';
+      status.textContent = 'Thank you! Your message has been sent.';
+      form.reset();
+      return;
+    }
+
+    // Client-side timestamp check
+    var loadedAt = parseInt(document.getElementById('_loaded').value, 10);
+    if (Date.now() - loadedAt < 3000) {
+      status.className = 'form-status error';
+      status.textContent = 'Please take a moment to fill out the form completely.';
+      return;
+    }
+
+    // Validate required fields
+    var name = document.getElementById('name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var company = document.getElementById('company').value.trim();
+    var message = document.getElementById('message').value.trim();
+    if (!name || !email || !company || !message) {
+      status.className = 'form-status error';
+      status.textContent = 'Please fill in all required fields.';
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      status.className = 'form-status error';
+      status.textContent = 'Please enter a valid email address.';
+      return;
+    }
+
+    // Disable button and show sending state
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    status.style.display = 'none';
+
+    // Collect form data as JSON for Swarm backend
+    var payload = {
+      name: name,
+      email: email,
+      company: company,
+      phone: document.getElementById('phone').value.trim() || null,
+      employees: document.getElementById('employees').value || null,
+      message: message,
+      source: 'website-contact-page',
+      honeypot: document.getElementById('_gotcha').value,
+      timestamp: document.getElementById('_loaded').value
+    };
+
+    // Try Swarm backend first
+    fetch(CONTACT_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(function(response) {
+      return response.json().then(function(data) {
+        if (response.ok && data.success) {
+          status.className = 'form-status success';
+          status.textContent = data.message || 'Thank you! Your message has been sent. We typically respond within one business day.';
+          form.reset();
+          document.getElementById('_loaded').value = Date.now().toString();
+          setTimeout(function() { btn.disabled = false; btn.textContent = 'Send Message \u2192'; }, 30000);
+        } else if (response.status === 429) {
+          status.className = 'form-status error';
+          status.textContent = data.error || 'Too many submissions. Please try again later.';
+          btn.disabled = false;
+          btn.textContent = 'Send Message \u2192';
+        } else {
+          throw new Error(data.error || 'Submission failed');
+        }
+      });
+    })
+    .catch(function(err) {
+      // Swarm backend failed — fall back to direct Formspree
+      console.warn('Swarm backend unavailable, falling back to Formspree:', err.message);
+      var formData = new FormData(form);
+      formData.append('_subject', 'New Contact Form — shift-work.com');
+      fetch(FORMSPREE_FALLBACK, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(function(fbResponse) {
+        if (fbResponse.ok) {
+          status.className = 'form-status success';
+          status.textContent = 'Thank you! Your message has been sent. We typically respond within one business day.';
+          form.reset();
+          document.getElementById('_loaded').value = Date.now().toString();
+          setTimeout(function() { btn.disabled = false; btn.textContent = 'Send Message \u2192'; }, 30000);
+        } else {
+          throw new Error('Fallback submission failed');
+        }
+      })
+      .catch(function() {
+        status.className = 'form-status error';
+        status.textContent = 'Something went wrong. Please try again or email Contact@shift-work.com directly.';
+        btn.disabled = false;
+        btn.textContent = 'Send Message \u2192';
+      });
+    });
+  });
+
+  // Handle ?sent=true redirect (from old Formspree direct flow — can remove later)
+  if (window.location.search.indexOf('sent=true') > -1) {
+    var s = document.getElementById('form-status');
+    s.className = 'form-status success';
+    s.textContent = 'Thank you! Your message has been sent. We typically respond within one business day.';
+    history.replaceState(null, '', '/contact/');
+  }
+})();
 </script>
 </body>
 </html>
