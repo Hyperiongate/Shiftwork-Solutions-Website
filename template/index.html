@@ -5,7 +5,7 @@
   URL: /resources/
 
   Created:      2026-04-03
-  Last Updated: 2026-04-07 (2)
+  Last Updated: 2026-04-07 (3)
 
   CHANGE LOG:
     2026-04-03 — Initial build per Resources_Hub_Specification_V2_with_pic_4_3_26.docx
@@ -86,6 +86,20 @@
                     not appropriate in horizontal list format).
                  All URLs, nav, guides section, CTA band, engage band, and JS
                  preserved exactly.
+    2026-04-07 — THREE TARGETED CHANGES:
+                 1. HERO BACKGROUND: Replaced CSS dot-grid ::before with
+                    second.png image (same as 26-warning-signs page).
+                    Dark gradient overlay preserves text readability while
+                    keeping the image's lighter highlights visible.
+                    Decorative circles and orange accent bar retained.
+                 2. HERO EYEBROW: Removed "Resource Library" label — the
+                    h1 speaks for itself.
+                 3. FOOTER REDESIGN: Merged Engage band (Thomas + Newsletter)
+                    into a 3-column pre-footer strip inside the footer.
+                    Left col: company + contact info. Center: Thomas AI.
+                    Right: Newsletter subscribe form. Removed separate
+                    .engage-band element above the footer.
+                    All JS, URLs, functionality preserved exactly.
     2026-04-07 — FOCUSED TOPICS + TRENDING RAIL VISUAL REDESIGN:
                  Both columns rebuilt with strong visual identity:
                  - Focused Topics: 7 accent-bar cards replacing flat link list.
@@ -179,18 +193,23 @@
 
     /* ── HERO ── */
     .hero{
-      background:var(--navy);
+      background:#0D1F3C url('/images/second.png') center center / cover no-repeat;
       padding:60px 36px 68px;
       position:relative;
       overflow:hidden
     }
-    /* Bold dot-grid pattern overlay for visual texture */
+    /* Dark gradient overlay — enough to keep text readable, light enough
+       to let the image's bright highlights show through */
     .hero::before{
       content:'';
       position:absolute;
       inset:0;
-      background-image:radial-gradient(circle, rgba(133,183,235,0.18) 1.5px, transparent 1.5px);
-      background-size:28px 28px;
+      background:linear-gradient(
+        to right,
+        rgba(13,31,60,0.82) 0%,
+        rgba(13,31,60,0.60) 55%,
+        rgba(13,31,60,0.30) 100%
+      );
       z-index:0
     }
     /* Large decorative circle — top right */
@@ -711,26 +730,38 @@
     }
     .cta-text-link:hover{color:var(--white);text-decoration:underline}
 
-    /* ── ENGAGE BAND ── */
-    .engage-band{background:var(--navy-dark,#0D1F3C);padding:40px var(--page-pad)}
-    .engage-inner{
-      max-width:1060px;margin:0 auto;
-      display:grid;grid-template-columns:1fr 1fr;
+    /* ── FOOTER — 3-column pre-footer + bottom bar ── */
+    .site-footer{
+      background:var(--navy-dark);
+    }
+    /* Pre-footer: Thomas | Newsletter | Company info — side by side */
+    .footer-prefooter{
+      padding:44px var(--page-pad) 40px;
+      border-bottom:1px solid rgba(255,255,255,.08)
+    }
+    .footer-prefooter-inner{
+      max-width:1100px;margin:0 auto;
+      display:grid;grid-template-columns:1fr 1fr 1fr;
       gap:40px;align-items:start
+    }
+    /* Dividers between columns */
+    .footer-prefooter-inner > * + *{
+      border-left:1px solid rgba(255,255,255,.08);
+      padding-left:40px
     }
     .engage-label{
       font-size:10px;font-weight:700;text-transform:uppercase;
       letter-spacing:.1em;color:var(--mid-blue,#85B7EB);margin-bottom:8px
     }
     .engage-thomas-title,.engage-nl-title{
-      font-size:17px;font-weight:700;color:#fff;margin-bottom:8px
+      font-size:16px;font-weight:700;color:#fff;margin-bottom:8px
     }
     .engage-thomas-desc,.engage-nl-desc{
-      font-size:13px;color:rgba(255,255,255,.65);
-      line-height:1.65;margin-bottom:14px
+      font-size:13px;color:rgba(255,255,255,.6);
+      line-height:1.6;margin-bottom:14px
     }
     .engage-thomas-btn{
-      display:inline-block;padding:10px 20px;
+      display:inline-block;padding:9px 18px;
       background:var(--orange,#E8610A);color:#fff;
       font-size:13px;font-weight:700;text-decoration:none;
       border-radius:4px;transition:background .15s
@@ -738,7 +769,7 @@
     .engage-thomas-btn:hover{background:#c4510a}
     .engage-nl-form{display:flex;gap:8px;flex-wrap:wrap}
     .engage-nl-input{
-      flex:1;min-width:180px;padding:10px 12px;
+      flex:1;min-width:160px;padding:9px 12px;
       border:1.5px solid rgba(255,255,255,.2);border-radius:4px;
       background:rgba(255,255,255,.08);color:#fff;
       font-family:Arial,sans-serif;font-size:13px;outline:none;
@@ -747,7 +778,7 @@
     .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
     .engage-nl-input:focus{border-color:var(--mid-blue,#85B7EB)}
     .engage-nl-btn{
-      padding:10px 18px;background:var(--orange,#E8610A);color:#fff;
+      padding:9px 16px;background:var(--orange,#E8610A);color:#fff;
       border:none;border-radius:4px;font-family:Arial,sans-serif;
       font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;
       white-space:nowrap
@@ -756,21 +787,36 @@
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
     .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
-
-    /* ── FOOTER ── */
-    .site-footer{
-      background:#F4F4F4;padding:32px var(--page-pad) 20px;
-      border-top:1px solid var(--border-med)
+    /* Company info column */
+    .footer-company-col{}
+    .footer-company-logo{
+      font-size:15px;font-weight:700;color:#fff;
+      margin-bottom:14px;display:block
     }
-    .footer-inner{
+    .footer-company-detail{
+      font-size:13px;color:rgba(255,255,255,.6);
+      line-height:1.8;margin-bottom:4px
+    }
+    .footer-company-detail a{color:rgba(255,255,255,.6);text-decoration:none}
+    .footer-company-detail a:hover{color:var(--orange)}
+    .footer-nav-links{
+      display:flex;flex-direction:column;gap:6px;margin-top:16px
+    }
+    .footer-nav-links a{
+      font-size:13px;color:rgba(255,255,255,.5);text-decoration:none;
+      transition:color .15s
+    }
+    .footer-nav-links a:hover{color:var(--orange)}
+    /* Bottom bar */
+    .footer-bottom{
+      padding:16px var(--page-pad);
+    }
+    .footer-bottom-inner{
       max-width:1100px;margin:0 auto;
       display:flex;align-items:center;justify-content:space-between;
-      flex-wrap:wrap;gap:12px;font-size:13px;color:#555
+      flex-wrap:wrap;gap:8px;
+      font-size:12px;color:rgba(255,255,255,.3)
     }
-    .footer-inner a{color:#555;text-decoration:none}
-    .footer-inner a:hover{color:var(--navy)}
-    .footer-logo{font-weight:700;color:var(--navy)}
-    .footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
 
     /* ── RESPONSIVE ── */
     @media(max-width:960px){
@@ -781,6 +827,11 @@
       .industries-grid{grid-template-columns:repeat(2,1fr)}
       .topics-trending-grid{grid-template-columns:1fr}
       .trending-rail{position:static;border-radius:8px}
+      .footer-prefooter-inner{grid-template-columns:1fr 1fr}
+      .footer-prefooter-inner > *:nth-child(3){
+        grid-column:1/-1;border-left:none;padding-left:0;
+        border-top:1px solid rgba(255,255,255,.08);padding-top:32px
+      }
     }
     @media(max-width:640px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
@@ -792,8 +843,11 @@
       .industries-section{padding:40px 20px 44px}.industries-grid{grid-template-columns:1fr}
       .topics-trending-section{padding:40px 20px 44px}.topics-trending-grid{gap:32px}
       .cta-band{padding:44px 20px}.cta-band h2{font-size:22px}
-      .footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}
-      .engage-inner{grid-template-columns:1fr}.engage-band{padding:32px 20px}
+      .footer-prefooter{padding:32px 20px}
+      .footer-prefooter-inner{grid-template-columns:1fr;gap:28px}
+      .footer-prefooter-inner > * + *{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,.08);padding-top:28px}
+      .footer-bottom{padding:14px 20px}
+      .footer-bottom-inner{flex-direction:column;text-align:center;gap:4px}
     }
   </style>
 </head>
@@ -832,7 +886,6 @@
   <div class="hero-circle-tr"></div>
   <div class="hero-circle-bl"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">Resource Library</div>
     <h1>Thirty Years of Shift Work Consulting.<br><em>Distilled.</em></h1>
     <p class="hero-authority">
       Scheduling guides, industry insights, and diagnostic tools built for operations leaders — not academics. Start with the topic most relevant to your situation.
@@ -1361,44 +1414,59 @@
 </div></div>
 
 <!-- ══════════════════════════════════════════════════════════════
-     ENGAGE BAND
+     FOOTER — 3 columns side by side:
+     Left: Thomas AI | Center: Newsletter | Right: Company info + nav
+     Replaces separate engage-band + footer pattern.
+     All URLs, JS, and functionality preserved.
 ════════════════════════════════════════════════════════════════ -->
-<div class="engage-band">
-  <div class="engage-inner">
-    <div class="engage-thomas">
-      <div class="engage-label">AI ADVISOR</div>
-      <div class="engage-thomas-title">Talk to Thomas</div>
-      <p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
-      <a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
-    </div>
-    <div class="engage-nl">
-      <div class="engage-label">NEWSLETTER</div>
-      <div class="engage-nl-title">Stay Sharp on Shift Operations</div>
-      <p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
-      <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
-        <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
-        <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
-      </form>
-      <div class="engage-nl-msg" id="engageNLMsg"></div>
-    </div>
-  </div>
-</div>
+<footer class="site-footer">
+  <div class="footer-prefooter">
+    <div class="footer-prefooter-inner">
 
-<!-- ══════════════════════════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════════════════════════════ -->
-<footer class="site-footer"><div class="footer-inner">
-  <span class="footer-logo">Shiftwork Solutions LLC</span>
-  <span>(415) 265-1621</span>
-  <span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></span>
-  <div class="footer-links-row">
-    <a href="/resources/">Resources</a>
-    <a href="/industries/">Industries</a>
-    <a href="/services/">Services</a>
-    <a href="/contact/">Contact</a>
+      <!-- COLUMN 1: Thomas AI Advisor -->
+      <div class="engage-thomas">
+        <div class="engage-label">AI ADVISOR</div>
+        <div class="engage-thomas-title">Talk to Thomas</div>
+        <p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
+        <a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
+      </div>
+
+      <!-- COLUMN 2: Newsletter -->
+      <div class="engage-nl">
+        <div class="engage-label">NEWSLETTER</div>
+        <div class="engage-nl-title">Stay Sharp on Shift Operations</div>
+        <p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
+        <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
+          <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
+          <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
+        </form>
+        <div class="engage-nl-msg" id="engageNLMsg"></div>
+      </div>
+
+      <!-- COLUMN 3: Company info + nav links -->
+      <div class="footer-company-col">
+        <div class="engage-label">SHIFTWORK SOLUTIONS LLC</div>
+        <span class="footer-company-logo">Shiftwork Solutions LLC</span>
+        <div class="footer-company-detail"><a href="tel:+14152651621">(415) 265-1621</a></div>
+        <div class="footer-company-detail"><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
+        <nav class="footer-nav-links" aria-label="Footer navigation">
+          <a href="/resources/">Resources</a>
+          <a href="/industries/">Industries</a>
+          <a href="/services/">Our Services</a>
+          <a href="/why-us/">Why Us</a>
+          <a href="/contact/">Contact</a>
+        </nav>
+      </div>
+
+    </div>
   </div>
-  <span>&copy; 2026 Shiftwork Solutions LLC</span>
-</div></footer>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>&copy; 2026 Shiftwork Solutions LLC. All rights reserved.</span>
+      <span>shift-work.com</span>
+    </div>
+  </div>
+</footer>
 
 <!-- ══════════════════════════════════════════════════════════════
      JAVASCRIPT
