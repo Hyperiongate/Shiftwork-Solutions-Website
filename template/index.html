@@ -753,83 +753,56 @@
     }
     .cta-text-link:hover{color:var(--white);text-decoration:underline}
 
-    /* ── FOOTER — 2-column engage + contact bottom bar ── */
-    .site-footer{
-      background:var(--navy-dark);
-    }
+    /* ── FOOTER — flat 6-cell grid guarantees button alignment ── */
+    .site-footer{background:var(--navy-dark)}
     .footer-prefooter{
       padding:44px var(--page-pad) 40px;
       border-bottom:1px solid rgba(255,255,255,.1)
     }
-    /* The key to button alignment: a 4-column grid (label | label | content | content | cta | cta)
-       — actually the cleanest approach is a single 2-col grid with explicit named rows
-       so the label row, content row, and CTA row all share the same horizontal baseline.
-       We use grid-template-rows with auto/1fr/auto: the 1fr middle row stretches equally,
-       pushing both CTAs to the same bottom row. */
-    .footer-prefooter-inner{
+    /*
+      THE DEFINITIVE BUTTON-ALIGNMENT FIX:
+      Don't put each column in its own div — flatten everything into
+      one 2-col × 3-row grid. Each row is a sibling pair of cells.
+      Row 1: both labels. Row 2: both title+desc blocks. Row 3: both CTAs.
+      Because row 3 is a single grid row shared by both CTA cells, the
+      buttons are literally on the same horizontal baseline. No subgrid,
+      no margin tricks, no flex hacks needed.
+    */
+    .footer-grid{
       max-width:1100px;margin:0 auto;
       display:grid;
       grid-template-columns:1fr 1fr;
-      grid-template-rows:auto 1fr auto;
-      gap:0
+      grid-template-rows:auto auto auto;
+      column-gap:0;
+      row-gap:0
     }
-    /* Thomas column occupies rows 1-3 of column 1 */
-    .engage-thomas{
-      grid-column:1;grid-row:1/4;
-      display:grid;
-      grid-template-rows:subgrid;
+    /* Left column cells get right padding + border */
+    .footer-cell-left{
       padding-right:44px;
       border-right:1px solid rgba(255,255,255,.08)
     }
-    /* Newsletter column occupies rows 1-3 of column 2 */
-    .engage-nl{
-      grid-column:2;grid-row:1/4;
-      display:grid;
-      grid-template-rows:subgrid;
+    /* Right column cells get left padding */
+    .footer-cell-right{
       padding-left:44px
     }
-    /* Fallback for browsers without subgrid support:
-       use flex with equal min-height enforcement */
-    @supports not (grid-template-rows: subgrid){
-      .footer-prefooter-inner{
-        display:flex;gap:0;align-items:stretch
-      }
-      .engage-thomas{
-        flex:1;display:flex;flex-direction:column;
-        padding-right:44px;
-        border-right:1px solid rgba(255,255,255,.08)
-      }
-      .engage-nl{
-        flex:1;display:flex;flex-direction:column;
-        padding-left:44px
-      }
-      .engage-thomas .footer-btn-row{margin-top:auto}
-      .engage-nl .footer-btn-row{margin-top:auto}
-    }
-    /* Row 1: eyebrow label */
-    .engage-col-label{
-      align-self:start
-    }
-    /* Row 2: title + description (stretches to fill available space) */
-    .engage-col-body{
-      align-self:start
-    }
-    /* Row 3: CTA — sits on the same horizontal line across both columns */
-    .footer-btn-row{
-      align-self:end;
-      padding-top:20px
-    }
+    /* Row 1: labels */
+    .footer-cell-label{padding-bottom:10px}
+    /* Row 2: title + description */
+    .footer-cell-body{padding-bottom:20px}
+    /* Row 3: CTAs — both in the same grid row = same baseline */
+    .footer-cell-cta{padding-top:4px}
+
     .engage-label{
       font-size:10px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.1em;color:var(--mid-blue,#85B7EB);margin-bottom:0
+      letter-spacing:.1em;color:var(--mid-blue,#85B7EB)
     }
     .engage-thomas-title,.engage-nl-title{
       font-size:16px;font-weight:700;color:#fff;
-      margin-top:8px;margin-bottom:8px
+      margin-bottom:8px
     }
     .engage-thomas-desc,.engage-nl-desc{
       font-size:13px;color:rgba(255,255,255,.6);
-      line-height:1.6;margin-bottom:0
+      line-height:1.6
     }
     .engage-thomas-btn{
       display:inline-block;padding:10px 20px;
@@ -858,10 +831,8 @@
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
     .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
-    /* Bottom bar — brand name, phone, email, copyright */
-    .footer-bottom{
-      padding:16px var(--page-pad)
-    }
+    /* Bottom bar */
+    .footer-bottom{padding:16px var(--page-pad)}
     .footer-bottom-inner{
       max-width:1100px;margin:0 auto;
       display:flex;align-items:center;justify-content:space-between;
@@ -896,9 +867,9 @@
       .topics-trending-section{padding:40px 20px 44px}.topics-trending-grid{gap:32px}
       .cta-band{padding:44px 20px}.cta-band h2{font-size:22px}
       .footer-prefooter{padding:32px 20px}
-      .footer-prefooter-inner{display:flex;flex-direction:column;gap:32px}
-      .engage-thomas,.engage-nl{padding:0!important;border:none!important}
-      .engage-thomas{border-bottom:1px solid rgba(255,255,255,.08)!important;padding-bottom:32px!important}
+      .footer-grid{grid-template-columns:1fr;grid-template-rows:none}
+      .footer-cell-left,.footer-cell-right{padding-left:0;padding-right:0;border-right:none}
+      .footer-cell-right.footer-cell-label{border-top:1px solid rgba(255,255,255,.08);padding-top:28px;margin-top:4px}
       .footer-bottom{padding:14px 20px}
       .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
       .footer-bottom-left{justify-content:center}
@@ -1468,49 +1439,45 @@
 </div></div>
 
 <!-- ══════════════════════════════════════════════════════════════
-     FOOTER — 2 columns (Thomas | Newsletter).
-     CSS subgrid (with flex fallback) ensures both orange buttons
-     sit on the same horizontal baseline regardless of content height.
+     FOOTER — flat 6-cell grid (3 rows × 2 cols).
+     Row 3 cells are direct grid siblings → guaranteed same baseline.
 ════════════════════════════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="footer-prefooter">
-    <div class="footer-prefooter-inner">
+    <div class="footer-grid">
 
-      <!-- COLUMN 1: Thomas AI Advisor -->
-      <div class="engage-thomas">
-        <div class="engage-col-label">
-          <div class="engage-label">AI ADVISOR</div>
-        </div>
-        <div class="engage-col-body">
-          <div class="engage-thomas-title">Talk to Thomas</div>
-          <p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
-        </div>
-        <div class="footer-btn-row">
-          <a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
-        </div>
+      <!-- ROW 1: Labels -->
+      <div class="footer-cell-left footer-cell-label">
+        <div class="engage-label">AI ADVISOR</div>
+      </div>
+      <div class="footer-cell-right footer-cell-label">
+        <div class="engage-label">NEWSLETTER</div>
       </div>
 
-      <!-- COLUMN 2: Newsletter -->
-      <div class="engage-nl">
-        <div class="engage-col-label">
-          <div class="engage-label">NEWSLETTER</div>
-        </div>
-        <div class="engage-col-body">
-          <div class="engage-nl-title">Stay Sharp on Shift Operations</div>
-          <p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
-        </div>
-        <div class="footer-btn-row">
-          <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
-            <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
-            <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
-          </form>
-          <div class="engage-nl-msg" id="engageNLMsg"></div>
-        </div>
+      <!-- ROW 2: Title + description -->
+      <div class="footer-cell-left footer-cell-body">
+        <div class="engage-thomas-title">Talk to Thomas</div>
+        <p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
+      </div>
+      <div class="footer-cell-right footer-cell-body">
+        <div class="engage-nl-title">Stay Sharp on Shift Operations</div>
+        <p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
+      </div>
+
+      <!-- ROW 3: CTAs — same grid row = same horizontal baseline -->
+      <div class="footer-cell-left footer-cell-cta">
+        <a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
+      </div>
+      <div class="footer-cell-right footer-cell-cta">
+        <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
+          <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
+          <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
+        </form>
+        <div class="engage-nl-msg" id="engageNLMsg"></div>
       </div>
 
     </div>
   </div>
-  <!-- Bottom bar: brand name, phone, email, copyright -->
   <div class="footer-bottom">
     <div class="footer-bottom-inner">
       <div class="footer-bottom-left">
