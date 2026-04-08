@@ -74,10 +74,10 @@
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
 
-    /* HERO — 2026-04-08: Pharma.jpg */
+    /* HERO — 2026-04-08: Pharma.jpg full-bleed, entire header background */
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;inset:0;background:url('/images/Pharma.jpg') right center / auto 100% no-repeat;opacity:1;z-index:0}
-    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--navy) 45%,rgba(31,78,121,0.85) 65%,transparent 100%);z-index:0}
+    .hero::before{content:'';position:absolute;inset:0;background:url('/images/Pharma.jpg') center center / cover no-repeat;opacity:1;z-index:0}
+    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,0.88) 0%,rgba(31,78,121,0.75) 55%,rgba(31,78,121,0.35) 100%);z-index:0}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
     .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
     .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:var(--white);max-width:600px;margin-bottom:14px}
@@ -154,15 +154,40 @@
     .cta-secondary{font-size:14px;color:var(--mid-blue);text-decoration:none;font-weight:500}
     .cta-secondary:hover{color:var(--white);text-decoration:underline}
 
-    .engage-band{background:var(--navy-dark);padding:40px var(--page-pad)}
-    .engage-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+    /* ── FOOTER — 3 columns, shared CTA row (matches resources page) ── */
+    .site-footer{background:var(--navy-dark)}
+    .footer-prefooter{
+      padding:44px var(--page-pad) 40px;
+      border-bottom:1px solid rgba(255,255,255,.1)
+    }
+    .footer-wrap{max-width:1100px;margin:0 auto}
+    .footer-content-row{
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:0;
+      margin-bottom:28px
+    }
+    .footer-col{padding:0 32px}
+    .footer-col-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
+    .footer-col-2{border-right:1px solid rgba(255,255,255,.08)}
+    .footer-col-3{padding-right:0}
+    .footer-cta-row{display:flex;align-items:center;gap:0}
+    .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:0 0 33.333%;padding:0 32px}
+    .footer-cta-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
+    .footer-cta-2{border-right:1px solid rgba(255,255,255,.08)}
+    .footer-cta-3{padding-right:0}
+    .footer-cta-btn{
+      display:inline-block;padding:10px 20px;
+      background:var(--orange);color:#fff;
+      font-size:13px;font-weight:700;text-decoration:none;
+      border-radius:4px;transition:background .15s;white-space:nowrap
+    }
+    .footer-cta-btn:hover{background:#c4510a}
     .engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
-    .engage-thomas-title,.engage-nl-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}
-    .engage-thomas-desc,.engage-nl-desc{font-size:13px;color:rgba(255,255,255,.65);line-height:1.65;margin-bottom:14px}
-    .engage-thomas-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
-    .engage-thomas-btn:hover{background:#c4510a}
+    .engage-col-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
+    .engage-col-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
     .engage-nl-form{display:flex;gap:8px;flex-wrap:wrap}
-    .engage-nl-input{flex:1;min-width:180px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
+    .engage-nl-input{flex:1;min-width:120px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
     .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
     .engage-nl-input:focus{border-color:var(--mid-blue)}
     .engage-nl-btn{padding:10px 18px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
@@ -170,20 +195,19 @@
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
     .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
-
-    .site-footer{background:#F4F4F4;padding:32px var(--page-pad) 20px;border-top:1px solid var(--border-med)}
-    .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#555}
-    .footer-inner a{color:#555;text-decoration:none}
-    .footer-inner a:hover{color:var(--navy)}
-    .footer-logo{font-weight:700;color:var(--navy)}
-    .footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
+    .footer-bottom{padding:16px var(--page-pad)}
+    .footer-bottom-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.45)}
+    .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
+    .footer-bottom-inner a:hover{color:var(--orange)}
+    .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
 
     .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
     .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
 
-    @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.inline-cta{flex-direction:column;align-items:flex-start}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.insight-cards{grid-template-columns:1fr}.engage-inner{grid-template-columns:1fr}.engage-band{padding:32px 20px}.footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}.cta-section{padding:36px 20px}.next-steps{padding:36px 20px 40px}}
+    @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.inline-cta{flex-direction:column;align-items:flex-start}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}}
+    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.insight-cards{grid-template-columns:1fr}.engage-inner{grid-template-columns:1fr}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.cta-section{padding:36px 20px}.next-steps{padding:36px 20px 40px}}
   </style>
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Chemical and Pharmaceutical Operations: Precision, Compliance, and Continuity","description":"Shift scheduling for chemical and pharmaceutical operations demands more than coverage — process continuity, regulatory compliance, and fatigue management must be built in by design.","url":"https://shift-work.com/industries/chemical-pharmaceutical-operations/","datePublished":"2026-04-04","dateModified":"2026-04-08","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"shift scheduling chemical pharmaceutical operations, pharmaceutical manufacturing shift schedule, cGMP shift work, FDA compliance scheduling, process continuity staffing, chemical plant 24/7 scheduling, validation shift scheduling, fatigue management pharmaceutical"}</script>
@@ -384,37 +408,59 @@
   </div>
 </div></section>
 
-<div class="engage-band"><div class="engage-inner">
-  <div class="engage-thomas">
-    <div class="engage-label">AI Advisor</div>
-    <div class="engage-thomas-title">Talk to Thomas</div>
-    <p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
-    <a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
-  </div>
-  <div class="engage-nl">
-    <div class="engage-label">Newsletter</div>
-    <div class="engage-nl-title">Stay Sharp on Shift Operations</div>
-    <p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
-    <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
-      <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
-      <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
-    </form>
-    <div class="engage-nl-msg" id="engageNLMsg"></div>
-  </div>
-</div></div>
+<footer class="site-footer">
+  <div class="footer-prefooter">
+    <div class="footer-wrap">
 
-<footer class="site-footer"><div class="footer-inner">
-  <span class="footer-logo">Shiftwork Solutions LLC</span>
-  <span>(415) 265-1621</span>
-  <span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></span>
-  <div class="footer-links-row">
-    <a href="/resources/">Resources</a>
-    <a href="/industries/">Industries</a>
-    <a href="/services/">Services</a>
-    <a href="/contact/">Contact</a>
+      <div class="footer-content-row">
+        <div class="footer-col footer-col-1">
+          <div class="engage-label">FREE CONSULTATION</div>
+          <div class="engage-col-title">Ready to talk about your operation?</div>
+          <p class="engage-col-desc">Chemical and pharmaceutical operations require a level of scheduling precision that generic approaches don't provide. The first conversation is always free.</p>
+        </div>
+        <div class="footer-col footer-col-2">
+          <div class="engage-label">AI ADVISOR</div>
+          <div class="engage-col-title">Talk to Thomas</div>
+          <p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
+        </div>
+        <div class="footer-col footer-col-3">
+          <div class="engage-label">NEWSLETTER</div>
+          <div class="engage-col-title">Stay Sharp on Shift Operations</div>
+          <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
+        </div>
+      </div>
+
+      <div class="footer-cta-row">
+        <div class="footer-cta-1">
+          <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true"
+             class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a>
+        </div>
+        <div class="footer-cta-2">
+          <a href="https://shift-work-diagnostic.onrender.com/"
+             class="footer-cta-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
+        </div>
+        <div class="footer-cta-3">
+          <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
+            <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
+            <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
+          </form>
+          <div class="engage-nl-msg" id="engageNLMsg"></div>
+        </div>
+      </div>
+
+    </div>
   </div>
-  <span>&copy; 2026 Shiftwork Solutions LLC</span>
-</div></footer>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <div class="footer-bottom-left">
+        <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+        <a href="tel:+14152651621">(415) 265-1621</a>
+        <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+      </div>
+      <span>&copy; 2026 Shiftwork Solutions LLC</span>
+    </div>
+  </div>
+</footer>
 
 <button class="listen-btn" id="listenBtn" aria-label="Listen to this article">
   <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
