@@ -1,48 +1,61 @@
 <!DOCTYPE html>
 <!--
   industries/chemical-pharmaceutical-operations/index.html
-  Shiftwork Solutions LLC — Industry Page
+  Shiftwork Solutions LLC — Industry Page (TEMPLATE v1)
   URL: /industries/chemical-pharmaceutical-operations/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-08
+  Last Updated: 2026-04-12
 
   SOURCE DOC: ChemicalPharmaceutical_V3_ES_Sonnet_3_31_26.docx
   CATEGORY: Industry Pages
 
   CHANGE LOG:
-    2026-04-04 — Initial build. Full article content from source Word doc.
-                 Even article: shutterstock_1502038526.jpg hero vector.
-                 Clients: Dow, Pfizer, GlaxoSmithKline, Monsanto, Sandoz,
-                 Pharmacia & Upjohn.
-                 Pull quote: Ethan Franklin, Shiftwork Solutions.
-                 6 FAQ questions.
+    2026-04-04 — Initial build from source Word doc.
+    2026-04-04 — NAV + BUTTON + SEO AUDIT.
+    2026-04-08 — Hero eyebrow removed, subtitle color fix, CTA float box,
+                 hero + CTA background image switched to Pharma.jpg.
+    2026-04-12 — TEMPLATE REBUILD (Erika feedback):
+                 1. HERO SUBTITLE: Replaced with keyword-optimized version.
+                 2. CLIENT STRIP: Redesigned — larger font, stronger intro
+                    messaging, white background with navy left-border accent.
+                    Dropped detailed company descriptions.
+                 3. INSIGHT CARDS: Visual refresh — cleaner type, no bold
+                    overload. Repositioned after Regulatory section for
+                    even distribution of breakup elements.
+                 4. CALLOUT BOX: Simplified to elevated positioning statement.
+                    Removed detailed "The Result" content.
+                 5. TYPOGRAPHY: Cleaned up bold/italic/color overload.
+                    Pull quote uses consistent style site-wide.
+                 6. DISTRIBUTION: Breakup elements evenly spaced through
+                    article: client strip → insight cards → pull quote →
+                    callout → float-CTA in FAQ.
+                 7. ADDED: "What Effective Scheduling Looks Like" section
+                    from source doc (was missing from prior build).
+                 8. ALL article text verified against source doc.
 
-    2026-04-04 — NAV + BUTTON + SEO AUDIT:
-                 1. NAV: Services direct, Resources direct, Why Us fixed
-                 2. BUTTONS: Nav CTA, Listen, Subscribe → ORANGE (#E8610A)
-                 3. SEO: Twitter Card meta tags + FAQPage JSON-LD
+  TEMPLATE NOTES (for applying to other industry pages):
+    - Hero: layered photo with gradient overlay. Image varies by industry.
+    - Hero subtitle: 3-4 short declarative sentences + keyword tie-back.
+    - Client strip: positioned after intro paragraphs. Industry-specific
+      intro line + client names. White bg, navy left-border.
+    - Breakup elements spaced ~2 sections apart:
+      client strip → insight cards → pull quote → callout → float-CTA
+    - Float-CTA: used to break up longest text section (usually FAQ).
+    - Pull quote: one per page, consistent style (orange left-border,
+      light-blue bg, navy text, no italic on attribution).
+    - Callout box: elevated positioning statement, not detailed results.
+    - Insight cards: 3 cards, placed after a conceptual section, not
+      repeating paragraph content — add new takeaway value.
 
-    2026-04-08 — THREE ARTICLE CHANGES:
-                 1. HERO EYEBROW: Removed "Industries" label.
-                 2. HERO SUBTITLE COLOR: Changed from mid-blue to
-                    rgba(255,255,255,0.85) for readability over photo bg.
-                 3. CTA SECTION: Removed standalone section. Content moved
-                    into article as a right-floated box with Pharma.jpg
-                    background + gradient overlay. Text wraps around it.
-                    Positioned after the "Hidden Constraint" case study.
-    2026-04-08 — HERO + CTA BACKGROUND IMAGE:
-                 Replaced shutterstock_1502038526.jpg with /images/Pharma.jpg
-                 in both .hero::before and .cta-section::before.
-                 All content, nav, styles, and JS preserved exactly.
-
-  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn
+  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
 
   DESIGN SYSTEM:
-    --navy: #1F4E79  --mid-blue: #85B7EB  --light-blue: #EEF3F8
-    --orange: #E8610A  --green: #1D9E75  --body-text: #1A1A1A
-    --max-width: 860px  Font: Arial, Helvetica, sans-serif
+    --navy: #1F4E79  --navy-dark: #0D1F3C  --mid-blue: #85B7EB
+    --light-blue: #EEF3F8  --orange: #E8610A  --green: #1D9E75
+    --body-text: #1A1A1A  --max-width: 860px
+    Font: Arial, Helvetica, sans-serif
 
   I did no harm and this file is not truncated
 -->
@@ -64,9 +77,17 @@
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
+    :root{
+      --navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;
+      --light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;
+      --white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;
+      --muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;
+      --cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px
+    }
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
+
+    /* ── NAV — .site-nav system (sticky, 56px) ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo img{height:36px;width:auto;display:block}
@@ -82,50 +103,117 @@
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
 
-    /* HERO — 2026-04-08: Pharma.jpg full-bleed, entire header background */
+    /* ── HERO — layered photo with gradient overlay ── */
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:url('/images/Pharma.jpg') center center / cover no-repeat;opacity:1;z-index:0}
     .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,0.88) 0%,rgba(31,78,121,0.75) 55%,rgba(31,78,121,0.35) 100%);z-index:0}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
-    .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
     .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:var(--white);max-width:600px;margin-bottom:14px}
     .hero-subtitle{font-size:16px;line-height:1.65;color:rgba(255,255,255,0.88);max-width:560px}
     .hero-tag{display:inline-block;margin-top:16px;background:rgba(232,97,10,0.9);color:var(--white);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 12px;border-radius:3px}
 
-    /* FLOATED CTA BOX — Pharma.jpg background, text wraps around it */
+    /* ── BREADCRUMB ── */
+    .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
+    .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
+    .breadcrumb-inner a{color:var(--navy);text-decoration:none}
+    .breadcrumb-inner a:hover{text-decoration:underline}
+    .breadcrumb-inner span{margin:0 6px;opacity:.5}
+
+    /* ── ARTICLE BODY ── */
+    .article-wrap{max-width:var(--max-width);margin:0 auto;padding:48px var(--page-pad) 56px}
+    .article-meta{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border-light);flex-wrap:wrap}
+    .meta-tag{display:inline-block;background:var(--light-blue);color:var(--navy);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:3px}
+    .meta-read{font-size:13px;color:var(--muted)}
+    .article-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin:36px 0 14px}
+    .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
+    .article-wrap p:last-child{margin-bottom:0}
+
+    /* ── CLIENT STRIP — redesigned (template v1) ── */
+    .client-strip{
+      background:var(--white);
+      border-left:4px solid var(--navy);
+      border-radius:0 6px 6px 0;
+      padding:24px 28px;
+      margin:32px 0;
+      box-shadow:0 1px 4px rgba(0,0,0,0.06)
+    }
+    .client-strip-intro{
+      font-size:15px;font-weight:500;color:var(--body-text);
+      line-height:1.6;margin-bottom:12px
+    }
+    .client-strip-names{
+      font-size:15px;color:var(--navy);line-height:1.6;
+      font-weight:700
+    }
+
+    /* ── PULL QUOTE — consistent style, one per page ── */
+    .pull-quote{
+      border-left:4px solid var(--orange);
+      padding:20px 24px;
+      margin:36px 0;
+      background:var(--light-blue);
+      border-radius:0 6px 6px 0
+    }
+    .pull-quote p{
+      font-size:16px;font-weight:600;line-height:1.55;
+      color:var(--navy);margin:0;font-style:italic
+    }
+    .pull-quote .pq-attr{
+      font-size:12px;font-weight:400;color:var(--muted);
+      margin-top:10px;font-style:normal
+    }
+
+    /* ── CALLOUT BOX — elevated positioning statement ── */
+    .callout-box{
+      background:var(--light-blue);
+      border-left:4px solid var(--navy);
+      border-radius:0 6px 6px 0;
+      padding:20px 24px;
+      margin:32px 0
+    }
+    .callout-box p{
+      font-size:16px;line-height:1.55;
+      color:var(--navy);font-weight:600;
+      margin:0;font-style:italic
+    }
+
+    /* ── INSIGHT CARDS — clean, even ── */
+    .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
+    .insight-card{
+      background:var(--light-blue);
+      border-top:3px solid var(--navy);
+      border-radius:6px;
+      padding:20px 18px
+    }
+    .insight-card .ic-title{
+      font-size:14px;font-weight:700;color:var(--navy);
+      margin-bottom:6px;line-height:1.3
+    }
+    .insight-card .ic-text{
+      font-size:13px;color:var(--body-text);
+      line-height:1.55;font-weight:400
+    }
+
+    /* ── FLOAT CTA BOX — photo bg, used to break long sections ── */
     .float-cta{
-      float:right;
-      width:280px;
+      float:right;width:280px;
       margin:4px 0 28px 32px;
-      border-radius:8px;
-      overflow:hidden;
-      position:relative;
-      clear:right
+      border-radius:8px;overflow:hidden;
+      position:relative;clear:right
     }
     .float-cta::before{
-      content:'';
-      position:absolute;inset:0;
+      content:'';position:absolute;inset:0;
       background:url('/images/Pharma.jpg') center center / cover no-repeat;
       opacity:1;z-index:0
     }
     .float-cta::after{
-      content:'';
-      position:absolute;inset:0;
+      content:'';position:absolute;inset:0;
       background:linear-gradient(135deg,rgba(13,31,60,0.92) 0%,rgba(31,78,121,0.80) 100%);
       z-index:0
     }
-    .float-cta-inner{
-      position:relative;z-index:1;
-      padding:24px 22px
-    }
-    .float-cta h3{
-      font-size:15px;font-weight:700;color:var(--white);
-      line-height:1.35;margin-bottom:10px
-    }
-    .float-cta p{
-      font-size:13px;color:rgba(255,255,255,0.75);
-      line-height:1.6;margin-bottom:18px
-    }
+    .float-cta-inner{position:relative;z-index:1;padding:24px 22px}
+    .float-cta h3{font-size:15px;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:10px}
+    .float-cta p{font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:18px}
     .float-cta-btn{
       display:block;padding:10px 16px;
       background:var(--orange);color:var(--white);
@@ -135,38 +223,12 @@
     .float-cta-btn:hover{background:#c4510a}
     .float-cta-link{
       display:block;text-align:center;margin-top:10px;
-      font-size:12px;color:rgba(255,255,255,0.6);
-      text-decoration:none
+      font-size:12px;color:rgba(255,255,255,0.6);text-decoration:none
     }
     .float-cta-link:hover{color:var(--white)}
     .clearfix::after{content:'';display:table;clear:both}
 
-    .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
-    .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
-    .breadcrumb-inner a{color:var(--navy);text-decoration:none}
-    .breadcrumb-inner a:hover{text-decoration:underline}
-    .breadcrumb-inner span{margin:0 6px;opacity:.5}
-
-    .article-wrap{max-width:var(--max-width);margin:0 auto;padding:48px var(--page-pad) 56px}
-    .article-meta{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border-light);flex-wrap:wrap}
-    .meta-tag{display:inline-block;background:var(--light-blue);color:var(--navy);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:3px}
-    .meta-read{font-size:13px;color:var(--muted)}
-    .article-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin:36px 0 14px}
-    .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
-    .article-wrap p:last-child{margin-bottom:0}
-
-    .pull-quote{border-left:4px solid var(--orange);padding:16px 24px;margin:32px 0;background:var(--light-blue);border-radius:0 6px 6px 0}
-    .pull-quote p{font-size:17px;font-weight:700;line-height:1.5;color:var(--navy);margin:0;font-style:italic}
-    .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
-
-    .client-strip{background:var(--light-grey);border-radius:6px;padding:16px 20px;margin:28px 0}
-    .client-strip-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
-    .client-strip p{font-size:13px;color:var(--body-text);line-height:1.6;margin:0}
-
-    .callout-box{background:var(--light-blue);border-left:4px solid var(--orange);border-radius:0 6px 6px 0;padding:18px 22px;margin:28px 0}
-    .callout-box .cb-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--orange);margin-bottom:6px}
-    .callout-box p{font-size:14px;line-height:1.6;color:var(--body-text);margin:0}
-
+    /* ── FAQ ── */
     .faq-section{margin:36px 0}
     .faq-section h2{font-size:21px;font-weight:700;color:var(--body-text);margin-bottom:20px}
     .faq-item{border-bottom:1px solid var(--border-light);padding:18px 0}
@@ -174,16 +236,14 @@
     .faq-q{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.4}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.7;margin:0}
 
-    .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
-    .insight-card{background:var(--light-blue);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
-    .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.5;font-weight:500}
-
+    /* ── INLINE CTA ── */
     .inline-cta{background:var(--navy-dark);border-radius:8px;padding:28px 32px;margin:40px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
     .inline-cta-text h3{font-size:17px;font-weight:700;color:var(--white);margin-bottom:6px}
     .inline-cta-text p{font-size:13px;color:var(--mid-blue);line-height:1.55;margin:0}
     .inline-cta-btn{display:inline-block;padding:11px 24px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;white-space:nowrap;transition:background .15s;flex-shrink:0}
     .inline-cta-btn:hover{background:#c4510a}
 
+    /* ── NEXT STEPS ── */
     .next-steps{padding:48px var(--page-pad) 52px;background:var(--light-grey);border-top:1px solid var(--border-light)}
     .next-steps-inner{max-width:var(--max-width);margin:0 auto}
     .next-steps h2{font-size:20px;font-weight:700;color:var(--body-text);margin-bottom:20px}
@@ -199,7 +259,7 @@
     .ns-phone{margin-top:20px;font-size:13px;color:var(--muted);text-align:center}
     .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
 
-    /* CTA SECTION — 2026-04-08: Pharma.jpg */
+    /* ── CTA SECTION — Pharma.jpg ── */
     .cta-section{background:var(--navy);padding:52px var(--page-pad);position:relative;overflow:hidden}
     .cta-section::before{content:'';position:absolute;inset:0;background:url('/images/Pharma.jpg') right center / auto 100% no-repeat;opacity:.18;z-index:0}
     .cta-section-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1;text-align:center}
@@ -211,19 +271,11 @@
     .cta-secondary{font-size:14px;color:var(--mid-blue);text-decoration:none;font-weight:500}
     .cta-secondary:hover{color:var(--white);text-decoration:underline}
 
-    /* ── FOOTER — 3 columns, shared CTA row (matches resources page) ── */
+    /* ── FOOTER — 3 columns, shared CTA row ── */
     .site-footer{background:var(--navy-dark)}
-    .footer-prefooter{
-      padding:44px var(--page-pad) 40px;
-      border-bottom:1px solid rgba(255,255,255,.1)
-    }
+    .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
-    .footer-content-row{
-      display:grid;
-      grid-template-columns:1fr 1fr 1fr;
-      gap:0;
-      margin-bottom:28px
-    }
+    .footer-content-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-bottom:28px}
     .footer-col{padding:0 32px}
     .footer-col-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
     .footer-col-2{border-right:1px solid rgba(255,255,255,.08)}
@@ -233,12 +285,7 @@
     .footer-cta-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
     .footer-cta-2{border-right:1px solid rgba(255,255,255,.08)}
     .footer-cta-3{padding-right:0}
-    .footer-cta-btn{
-      display:inline-block;padding:10px 20px;
-      background:var(--orange);color:#fff;
-      font-size:13px;font-weight:700;text-decoration:none;
-      border-radius:4px;transition:background .15s;white-space:nowrap
-    }
+    .footer-cta-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
     .footer-cta-btn:hover{background:#c4510a}
     .engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
     .engage-col-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
@@ -259,15 +306,39 @@
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
 
+    /* ── LISTEN BUTTON ── */
     .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
     .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
 
-    @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.inline-cta{flex-direction:column;align-items:flex-start}.float-cta{float:none;width:100%;margin:0 0 24px 0}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.insight-cards{grid-template-columns:1fr}.engage-inner{grid-template-columns:1fr}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.cta-section{padding:36px 20px}.next-steps{padding:36px 20px 40px}}
+    /* ── RESPONSIVE ── */
+    @media(max-width:760px){
+      .insight-cards{grid-template-columns:1fr 1fr}
+      .ns-cards{grid-template-columns:1fr}
+      .inline-cta{flex-direction:column;align-items:flex-start}
+      .float-cta{float:none;width:100%;margin:0 0 24px 0}
+      .footer-content-row{grid-template-columns:1fr}
+      .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
+      .footer-col-3{border-bottom:none;padding-bottom:0}
+      .footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}
+      .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}
+    }
+    @media(max-width:640px){
+      .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
+      .hero{padding:32px 20px 36px}.hero h1{font-size:22px}
+      .article-wrap{padding:32px 20px 40px}
+      .insight-cards{grid-template-columns:1fr}
+      .footer-prefooter{padding:32px 20px}
+      .footer-bottom{padding:14px 20px}
+      .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
+      .footer-bottom-left{justify-content:center}
+      .cta-section{padding:36px 20px}
+      .next-steps{padding:36px 20px 40px}
+    }
   </style>
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Chemical and Pharmaceutical Operations: Precision, Compliance, and Continuity","description":"Shift scheduling for chemical and pharmaceutical operations demands more than coverage — process continuity, regulatory compliance, and fatigue management must be built in by design.","url":"https://shift-work.com/industries/chemical-pharmaceutical-operations/","datePublished":"2026-04-04","dateModified":"2026-04-08","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"shift scheduling chemical pharmaceutical operations, pharmaceutical manufacturing shift schedule, cGMP shift work, FDA compliance scheduling, process continuity staffing, chemical plant 24/7 scheduling, validation shift scheduling, fatigue management pharmaceutical"}</script>
+  <!-- Structured Data -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Chemical and Pharmaceutical Operations: Precision, Compliance, and Continuity","description":"Shift scheduling for chemical and pharmaceutical operations demands more than coverage — process continuity, regulatory compliance, and fatigue management must be built in by design.","url":"https://shift-work.com/industries/chemical-pharmaceutical-operations/","datePublished":"2026-04-04","dateModified":"2026-04-12","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"shift scheduling chemical pharmaceutical operations, pharmaceutical manufacturing shift schedule, cGMP shift work, FDA compliance scheduling, process continuity staffing, chemical plant 24/7 scheduling, validation shift scheduling, fatigue management pharmaceutical"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://shift-work.com/industries/"},{"@type":"ListItem","position":3,"name":"Chemical & Pharmaceutical","item":"https://shift-work.com/industries/chemical-pharmaceutical-operations/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
@@ -281,6 +352,7 @@
 </head>
 <body>
 
+<!-- ── NAVIGATION ── -->
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36"></a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -295,31 +367,39 @@
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
 </div></nav>
 
+<!-- ── HERO ── -->
 <section class="hero"><div class="hero-inner">
   <h1>Shift Scheduling for Chemical &amp; Pharmaceutical Operations: Precision, Compliance, and Continuity</h1>
-  <p class="hero-subtitle">The processes are continuous in ways that make stopping genuinely dangerous. The regulatory environment is more demanding than any other manufacturing sector. The workforce takes years to develop and is difficult to replace.</p>
+  <p class="hero-subtitle">The processes are continuous in ways that make stopping genuinely dangerous. The regulatory environment is among the most demanding in any manufacturing sector. The workforce takes years to develop and is difficult to replace. Your shift schedule touches all three.</p>
   <span class="hero-tag">Chemical &amp; Pharmaceutical</span>
 </div></section>
 
+<!-- ── BREADCRUMB ── -->
 <div class="breadcrumb-bar"><div class="breadcrumb-inner">
   <a href="/">Home</a><span>›</span><a href="/industries/">Industries</a><span>›</span>Chemical &amp; Pharmaceutical
 </div></div>
 
+<!-- ══════════════════════════════════════════════════════════════════════
+     ARTICLE BODY
+     ══════════════════════════════════════════════════════════════════════ -->
 <div class="article-wrap">
   <div class="article-meta">
     <span class="meta-tag">Industry Guide</span>
     <span class="meta-read">9 min read</span>
   </div>
 
+  <!-- ── INTRO (source doc paragraphs 1–2) ── -->
   <p>Chemical and pharmaceutical manufacturing operates under a different set of constraints than almost any other industry. The processes are continuous in ways that make stopping genuinely dangerous or economically catastrophic. The regulatory environment is more demanding than any other manufacturing sector. The workforce requires specialized knowledge that takes years to develop and is difficult to replace. And the consequences of errors — in product quality, in safety protocol, in documentation — reach far beyond the production floor.</p>
 
   <p>Shift scheduling in this environment is not primarily a workforce optimization problem. It is a risk management problem. The schedule determines who is present when, how knowledge transfers between shifts, how fatigue accumulates across a workforce handling hazardous materials and precision instrumentation, and whether the operation can meet regulatory requirements consistently across every shift, every day, every year.</p>
 
+  <!-- ── BREAKUP 1: CLIENT STRIP (after intro, before first H2) ── -->
   <div class="client-strip">
-    <div class="client-strip-label">Representative Clients</div>
-    <p>Dow, Pfizer, GlaxoSmithKline, Monsanto, Sandoz, and Pharmacia &amp; Upjohn — across specialty chemical, biopharmaceutical, and large-scale pharmaceutical manufacturing environments.</p>
+    <div class="client-strip-intro">These complex, large-scale operations relied on us to improve system performance and enhance employee engagement. Clients include:</div>
+    <div class="client-strip-names">Dow, Pfizer, GlaxoSmithKline, Monsanto, Sandoz, and Pharmacia &amp; Upjohn</div>
   </div>
 
+  <!-- ── SECTION 1: Process Continuity ── -->
   <h2>Process Continuity Is Not Optional</h2>
 
   <p>In most manufacturing environments, stopping a line is an operational inconvenience. In chemical processing and pharmaceutical manufacturing, stopping a process can mean scrapping an entire batch, triggering a regulatory reporting event, or creating a safety hazard that requires emergency response. Reactions that have been running for hours or days cannot always be paused and resumed. Temperature-sensitive processes lose integrity the moment they fall outside specified parameters. Continuous distillation, fermentation, and synthesis operations are designed to run — and schedule design must support that requirement without exception.</p>
@@ -328,6 +408,7 @@
 
   <p>The implication for schedule design is straightforward but demanding: continuous process operations require coverage systems with no structural gaps, built-in redundancy for unplanned absences, and explicit attention to the quality of shift transitions — not just whether shifts are covered, but whether the knowledge transfer between crews is adequate for the process state at any given moment.</p>
 
+  <!-- ── SECTION 2: Regulatory Compliance ── -->
   <h2>Regulatory Compliance Constrains Schedule Flexibility</h2>
 
   <p>Chemical and pharmaceutical operations face regulatory requirements that directly affect what schedules are feasible. FDA current Good Manufacturing Practice (cGMP) requirements govern how pharmaceutical manufacturing is documented, supervised, and audited. EPA and OSHA regulations govern chemical exposure limits, rest requirements for workers handling specific substances, and emergency response capabilities that must be maintained around the clock.</p>
@@ -336,12 +417,23 @@
 
   <p>The practical implication is that schedule design in chemical and pharmaceutical operations requires regulatory review as a design step, not a post-design check. Changes that look operationally attractive on paper sometimes fail regulatory scrutiny in ways that only emerge late in the process — at which point reversing course is costly and disruptive.</p>
 
+  <!-- ── BREAKUP 2: INSIGHT CARDS (after Regulatory, before Validation) ── -->
   <div class="insight-cards">
-    <div class="insight-card"><div class="ic-label"><strong>No structural coverage gaps</strong> — Continuous process operations require built-in redundancy. A single missed handoff during a critical phase can cascade through compliance, quality, and safety simultaneously.</div></div>
-    <div class="insight-card"><div class="ic-label"><strong>Regulatory review is a design step</strong> — not a post-design approval. Changes that fail cGMP scrutiny late in the process are costly and disruptive to reverse. Build it in from the start.</div></div>
-    <div class="insight-card"><div class="ic-label"><strong>12–18 months to full competency</strong> — A pharmaceutical operator who leaves may take over a year to replace at full qualification. Turnover here costs far more than in less specialized environments.</div></div>
+    <div class="insight-card">
+      <div class="ic-title">Zero structural coverage gaps</div>
+      <div class="ic-text">Continuous process operations need built-in redundancy for unplanned absences — a single missed handoff during a critical phase can cascade through compliance, quality, and safety.</div>
+    </div>
+    <div class="insight-card">
+      <div class="ic-title">Regulatory review is a design step</div>
+      <div class="ic-text">Not a post-design approval. Changes that fail cGMP scrutiny late in the process are costly and disruptive to reverse. Build it in from the start.</div>
+    </div>
+    <div class="insight-card">
+      <div class="ic-title">12–18 months to replace one operator</div>
+      <div class="ic-text">A pharmaceutical operator who leaves may take over a year to replace at full qualification. Turnover here costs far more than in less specialized environments.</div>
+    </div>
   </div>
 
+  <!-- ── SECTION 3: Validation Windows ── -->
   <h2>Validation Windows and Change Control</h2>
 
   <p>Pharmaceutical manufacturing adds a layer of complexity that has no direct parallel in other industries: process validation. Before a manufacturing process can be used to produce product for commercial distribution, it must be validated — demonstrated to produce consistent results within specified parameters across multiple runs. Changes to the process, including changes to how it is staffed and supervised, can trigger revalidation requirements.</p>
@@ -350,14 +442,26 @@
 
   <p>Change control requirements add a parallel obligation. FDA-regulated facilities must document and justify changes to manufacturing processes and controls, including staffing and supervision arrangements that affect product quality. A schedule change that would take weeks to implement in a food or general manufacturing environment may take months in a pharmaceutical facility — not because the schedule itself is more complex, but because the regulatory pathway around it is. Understanding these constraints before beginning a schedule change process prevents the frustration of designing an excellent schedule that cannot be implemented on the timeline the operation needs.</p>
 
+  <!-- ── SECTION 4: Workforce Quality ── -->
   <h2>The Workforce Quality Problem</h2>
 
   <p>Chemical and pharmaceutical manufacturing requires a workforce with a level of technical knowledge, procedural discipline, and attention to detail that is genuinely difficult to develop and nearly impossible to replace quickly. Operators who understand process chemistry, can recognize abnormal process indicators, and are qualified to make real-time decisions about process adjustments are not interchangeable with general manufacturing labor.</p>
 
-  <p>This workforce characteristic shapes schedule design in two specific ways. First, turnover in this environment is more expensive than in most industries — not just in recruiting and onboarding costs, but in the time required to develop a replacement to full qualification. An operator who leaves a pharmaceutical manufacturing role may take 12 to 18 months to replace at full competency, even with an experienced hire. Schedules that drive turnover by failing to meet workforce needs are therefore more costly here than the same turnover rate in a less specialized environment.</p>
+  <p>This workforce characteristic shapes schedule design in two specific ways.</p>
 
-  <p>Second, fatigue management is more consequential in this environment than in most. A fatigued production worker in a general manufacturing setting makes errors that are usually detectable and correctable. A fatigued operator in a chemical or pharmaceutical setting may make errors that are not immediately detectable, that compound through subsequent process steps, and that ultimately affect product quality or safety in ways that only surface at final testing or in the market. Schedules that minimize chronic fatigue accumulation, provide adequate recovery time between shifts, and avoid the worst rotating patterns from a circadian disruption standpoint are not just workforce-friendly in this industry. They are operationally and regulatorily necessary.</p>
+  <p>First, turnover in this environment is more expensive than in most industries — not just in recruiting and onboarding costs, but in the time required to develop a replacement to full qualification. An operator who leaves a pharmaceutical manufacturing role may take 12 to 18 months to replace at full competency, even with an experienced hire. Schedules that drive turnover by failing to meet workforce needs are therefore more costly here than the same turnover rate in a less specialized environment.</p>
 
+  <!-- ── BREAKUP 3: PULL QUOTE (mid-article, in Workforce section) ── -->
+  <div class="pull-quote">
+    <p>"In chemical and pharmaceutical operations, the schedule affects more than productivity and labor cost. It affects product quality, regulatory standing, and the safety of the people running the process. Those stakes require a level of precision in schedule design that most generic approaches simply don't provide."</p>
+    <div class="pq-attr">— Ethan Franklin, Shiftwork Solutions</div>
+  </div>
+
+  <p>Second, fatigue management is more consequential in this environment than in most. A fatigued production worker in a general manufacturing setting makes errors that are usually detectable and correctable. A fatigued operator in a chemical or pharmaceutical setting may make errors that are not immediately detectable, that compound through subsequent process steps, and that ultimately affect product quality or safety in ways that only surface at final testing or in the market. The link between schedule-driven fatigue and error rates is well established — and its implications in a regulated, safety-critical environment are more serious than anywhere else.</p>
+
+  <p>Schedules that minimize chronic fatigue accumulation, provide adequate recovery time between shifts, and avoid the worst rotating patterns from a circadian disruption standpoint are not just workforce-friendly in this industry. They are operationally and regulatorily necessary.</p>
+
+  <!-- ── SECTION 5: Changeovers, Cleaning, Training ── -->
   <h2>Product Changeovers, Cleaning, and Training Windows</h2>
 
   <p>Like food manufacturing, chemical and pharmaceutical operations require cleaning and changeover between production runs — but the stakes are higher and the requirements more stringent. Cross-contamination between pharmaceutical products can have serious patient safety implications. Cleaning validation requirements mean that cleaning procedures must be demonstrated effective, not just performed. And training requirements for workers performing critical manufacturing steps must be current and documented at all times.</p>
@@ -366,6 +470,7 @@
 
   <p>Operations that treat these requirements as scheduling afterthoughts consistently find themselves managing compliance gaps, training backlogs, and changeover delays that affect production commitments. Operations that build them into the schedule as design constraints — allocating specific windows, staffing them appropriately, and sequencing them to minimize impact on production — convert compliance requirements from operational friction into predictable, manageable workflow.</p>
 
+  <!-- ── SECTION 6: Hidden Constraint (case study) ── -->
   <h2>When the Schedule Itself Is the Hidden Constraint</h2>
 
   <p>One of the more counterintuitive findings from our work in pharmaceutical manufacturing is how often the schedule — rather than the process — is responsible for capacity losses that appear to be process-driven.</p>
@@ -374,22 +479,27 @@
 
   <p>In practice, the schedule was creating a 24-hour cycle for a 20-hour process. Because each phase was locked to a specific shift, the second phase could not begin until night shift arrived — regardless of when the first phase finished. Four hours of potential production time were disappearing into the gap between shifts, every cycle.</p>
 
+  <p>The recommendation was cross-training both shifts so that whichever crew was present when a phase completed could immediately begin the next one. The result was a new batch starting every 20 hours instead of every 24 — a 20% increase in throughput with no new equipment, no additional headcount, and no change to the process itself.</p>
+
+  <!-- ── BREAKUP 4: CALLOUT BOX — elevated positioning statement ── -->
   <div class="callout-box">
-    <div class="cb-label">The Result</div>
-    <p>Cross-training both shifts so that whichever crew was present when a phase completed could immediately begin the next one produced a new batch starting every 20 hours instead of every 24 — a 20% increase in throughput with no new equipment, no additional headcount, and no change to the process itself. The constraint was never the process. It was the schedule built around it.</p>
+    <p>The constraint was never the process. It was the schedule that had been built around it.</p>
   </div>
 
-    <p>This pattern — a schedule that makes operational sense at the shift level but creates invisible losses at the process level — is more common in continuous pharmaceutical and chemical environments than most operations realize. It is also among the most overlooked opportunities for capacity recovery, precisely because the loss does not show up on any single shift's performance metrics.</p>
+  <p>This pattern — a schedule that makes operational sense at the shift level but creates invisible losses at the process level — is more common in continuous pharmaceutical and chemical environments than most operations realize. It is also among the most overlooked opportunities for capacity recovery, precisely because the loss does not show up on any single shift's performance metrics.</p>
 
-  <div class="pull-quote">
-    <p>"In chemical and pharmaceutical operations, the schedule affects more than productivity and labor cost. It affects product quality, regulatory standing, and the safety of the people running the process. Those stakes require a level of precision in schedule design that most generic approaches simply don't provide."</p>
-    <div class="pq-attr">— Ethan Franklin, Shiftwork Solutions</div>
-  </div>
+  <!-- ── SECTION 7: What Effective Scheduling Looks Like ── -->
+  <h2>What Effective Scheduling Looks Like in This Industry</h2>
 
+  <p>The scheduling solutions that work in chemical and pharmaceutical manufacturing share several characteristics. They provide continuous coverage with built-in redundancy. They support knowledge transfer at shift boundaries rather than just headcount coverage. They manage fatigue accumulation explicitly rather than hoping shift length alone is adequate. And they accommodate the regulatory, validation, and documentation requirements of the environment as design inputs rather than afterthoughts.</p>
+
+  <p>The gap between understanding these principles and implementing a schedule that actually achieves them is where expertise built through dozens of engagements in this specific environment delivers its value.</p>
+
+  <!-- ── FAQ SECTION ── -->
   <div class="faq-section">
     <h2>Frequently Asked Questions</h2>
 
-    <!-- Floated CTA box — sits inside FAQ where there's ample text to wrap around it -->
+    <!-- ── BREAKUP 5: FLOAT CTA (breaks up long FAQ section) ── -->
     <div class="float-cta">
       <div class="float-cta-inner">
         <h3>Schedule design in this industry is too consequential to approach generically.</h3>
@@ -432,7 +542,9 @@
   </div>
 
 </div>
+<!-- end .article-wrap -->
 
+<!-- ── NEXT STEPS ── -->
 <section class="next-steps"><div class="next-steps-inner">
   <h2>Next Steps &amp; Resources</h2>
   <div class="ns-cards">
@@ -458,6 +570,7 @@
   <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
 </div></section>
 
+<!-- ── FOOTER ── -->
 <footer class="site-footer">
   <div class="footer-prefooter">
     <div class="footer-wrap">
@@ -512,15 +625,74 @@
   </div>
 </footer>
 
+<!-- ── LISTEN BUTTON ── -->
 <button class="listen-btn" id="listenBtn" aria-label="Listen to this article">
   <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
   <span id="listenLabel">Listen</span>
 </button>
 
+<!-- ── JAVASCRIPT ── -->
 <script>
-  document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
-  (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
-  (function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p, h2');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim());});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
+  /* Mobile nav toggle */
+  document.getElementById('mobileToggle').addEventListener('click',function(){
+    var n=document.getElementById('navLinks');
+    var open=n.style.display==='flex';
+    if(open){n.style.display='none';}
+    else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}
+  });
+
+  /* Newsletter subscribe */
+  (function(){
+    var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
+    window.engageNLSubmit=function(e){
+      e.preventDefault();
+      var btn=document.getElementById('engageNLBtn');
+      var msg=document.getElementById('engageNLMsg');
+      var email=document.getElementById('engageNLEmail').value.trim();
+      if(!email)return;
+      btn.disabled=true;btn.textContent='Subscribing...';
+      fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}
+        else{throw new Error(d.error||'Failed');}
+      })
+      .catch(function(err){
+        msg.className='engage-nl-msg err';
+        msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';
+        btn.disabled=false;btn.textContent='Subscribe \u2192';
+      });
+    };
+  })();
+
+  /* Listen button — text-to-speech */
+  (function(){
+    var btn=document.getElementById('listenBtn');
+    var label=document.getElementById('listenLabel');
+    var speaking=false;var paused=false;
+    function getArticleText(){
+      var wrap=document.querySelector('.article-wrap');
+      if(!wrap)return'';
+      var els=wrap.querySelectorAll('p, h2');
+      var parts=[];
+      els.forEach(function(el){parts.push(el.textContent.trim());});
+      return parts.join(' ');
+    }
+    if(!window.speechSynthesis){btn.style.display='none';return;}
+    btn.addEventListener('click',function(){
+      if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}
+      else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}
+      else{
+        window.speechSynthesis.cancel();
+        var utt=new SpeechSynthesisUtterance(getArticleText());
+        utt.rate=0.95;
+        utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};
+        utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};
+        utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};
+        window.speechSynthesis.speak(utt);
+      }
+    });
+  })();
 </script>
 
 </body>
