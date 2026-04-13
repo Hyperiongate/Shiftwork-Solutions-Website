@@ -29,21 +29,17 @@
     2026-04-06 — NAV CONSISTENCY FIX (site-wide standard):
                  - Industries: removed dropdown, direct link to /industries/
                  - Why Us: removed dropdown, direct link to /why-us/
-                   (was /why-shiftwork-solutions/ with dropdown)
                  - All nav items are now flat direct links
-                 - Breadcrumb visible link: /why-shiftwork-solutions/ → /why-us/
-                 - Breadcrumb JSON-LD: /why-shiftwork-solutions/ → /why-us/
-                 - All content, bios, photos, styles, JS preserved exactly
+                 - Breadcrumb visible link + JSON-LD updated
 
     2026-04-13 — BIO TEXT UPDATE (v2 brief):
-                 - Jim Dillingham bio rewritten to narrative-style (conference speaker
-                   note added; PepsiCo Bottling Group reference added; same credentials)
-                 - Dan Capshaw bio rewritten to narrative-style (human side emphasis;
-                   same credentials and background)
-                 - Ethan Franklin bio rewritten to narrative-style (data-driven /
-                   people-centered framing; same credentials)
-                 - All structural elements, nav, hero, stats, pull quotes, FAQ,
-                   CTA, engage band, footer, JSON-LD, CSS, JS preserved exactly
+                 - Jim, Dan, Ethan bios rewritten to narrative-style
+                 - All structural elements preserved exactly
+
+    2026-04-13 — NAV RENAME (site-wide):
+                 - Nav link text: "Why Us" → "Our Company" (href unchanged: /why-us/)
+                 - Visible breadcrumb: "Why Us" → "Our Company"
+                 - BreadcrumbList JSON-LD: "Why Us" → "Our Company"
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
@@ -72,7 +68,7 @@
   <meta name="twitter:title" content="Meet Our Team | Shiftwork Solutions">
   <meta name="twitter:description" content="Three senior partners. Over 90 years of combined experience. Hundreds of facilities across 16+ industries.">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"Meet Our Team","url":"https://shift-work.com/our_team/","description":"Meet the partners of Shiftwork Solutions LLC — senior consultants with over 90 years of combined experience.","mainEntity":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","member":[{"@type":"Person","name":"Jim Dillingham","jobTitle":"Partner & Senior Consultant","description":"Over 30 years helping companies design and implement shift schedules. Naval Academy graduate. Specializes in change management and employee involvement.","alumniOf":[{"@type":"CollegeOrUniversity","name":"United States Naval Academy"},{"@type":"CollegeOrUniversity","name":"Purdue University"},{"@type":"CollegeOrUniversity","name":"ESC Rouen"}]},{"@type":"Person","name":"Dan Capshaw","jobTitle":"Partner & Senior Consultant","description":"Over 32 years developing shift schedules and work systems. Chemical engineer, Lean Six Sigma Black Belt, former submarine officer.","alumniOf":[{"@type":"CollegeOrUniversity","name":"Johns Hopkins University"},{"@type":"CollegeOrUniversity","name":"UC Berkeley Haas School of Business"}]},{"@type":"Person","name":"Ethan Franklin","jobTitle":"Partner & Senior Consultant","description":"Over 28 years helping companies evaluate, design, and implement improved shift schedules. Data-driven approach balancing business needs with employee well-being.","alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Illinois at Urbana-Champaign"},{"@type":"CollegeOrUniversity","name":"Loyola University Chicago School of Law"}]}]}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Why Us","item":"https://shift-work.com/why-us/"},{"@type":"ListItem","position":3,"name":"Our Team","item":"https://shift-work.com/our_team/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Our Company","item":"https://shift-work.com/why-us/"},{"@type":"ListItem","position":3,"name":"Our Team","item":"https://shift-work.com/our_team/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Who leads my project?","acceptedAnswer":{"@type":"Answer","text":"A senior partner — Jim, Dan, or Ethan — leads every engagement from start to finish. There are no handoffs to junior staff."}},{"@type":"Question","name":"How much experience does your team have?","acceptedAnswer":{"@type":"Answer","text":"Collectively, our three partners have over 90 years of dedicated shiftwork consulting experience across hundreds of facilities in 16+ industries."}},{"@type":"Question","name":"What industries do you serve?","acceptedAnswer":{"@type":"Answer","text":"Manufacturing, pharmaceuticals, food processing, mining, distribution, chemicals, refining, utilities, automotive, semiconductors, call centers, healthcare, packaging, paper, port operations, telecommunications, and government operations."}},{"@type":"Question","name":"Do you work with union and non-union facilities?","acceptedAnswer":{"@type":"Answer","text":"Both. Our partners have extensive experience working with union leadership, navigating collective bargaining agreements, and building consensus in both organized and non-organized workplaces."}},{"@type":"Question","name":"Where are you located?","acceptedAnswer":{"@type":"Answer","text":"Jim is based in San Rafael, California; Dan in Ivins, Utah; and Ethan in Indiana. We work with facilities nationwide and internationally."}},{"@type":"Question","name":"What does a typical engagement look like?","acceptedAnswer":{"@type":"Answer","text":"Most projects run five to ten weeks with six being the average. The process includes discovery and business analysis, an employee survey, schedule design and cost modeling, and implementation support. Every project is fixed-fee."}}]}</script>
   <style>
@@ -192,7 +188,6 @@
 </head>
 <body>
 
-<!-- ── NAVIGATION — Updated 2026-04-06: All flat links, no dropdowns ── -->
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;"></a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -201,14 +196,14 @@
     <li><a href="/services/">Our Services</a></li>
     <li><a href="/resources/">Resources</a></li>
     <li><a href="/industries/">Industries</a></li>
-    <li><a href="/why-us/">Why Us</a></li>
+    <li><a href="/why-us/">Our Company</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
 </div></nav>
 
 <section class="hero"><div class="hero-inner">
-  <div class="hero-eyebrow">Why Us · Our Team</div>
+  <div class="hero-eyebrow">Our Company · Our Team</div>
   <h1>Meet the People Behind the Process</h1>
   <p class="hero-subtitle">Every engagement is led by a partner — not a junior analyst. Three senior consultants with over 90 years of combined experience in shift schedule design, workforce engagement, and change management across hundreds of 24/7 operations.</p>
   <div class="hero-stats">
@@ -218,9 +213,8 @@
   </div>
 </div></section>
 
-<!-- Breadcrumb updated 2026-04-06: /why-shiftwork-solutions/ → /why-us/ -->
 <div class="breadcrumb-bar"><div class="breadcrumb-inner">
-  <a href="/">Home</a> › <a href="/why-us/">Why Us</a> › <span class="bc-current">Our Team</span>
+  <a href="/">Home</a> › <a href="/why-us/">Our Company</a> › <span class="bc-current">Our Team</span>
 </div></div>
 
 <section class="content-section">
@@ -238,7 +232,6 @@
 
 <hr class="divider">
 
-<!-- ── JIM DILLINGHAM — Updated 2026-04-13: narrative-style bio ── -->
 <div class="bio-section"><div class="bio-card">
   <div class="bio-photo"><img src="/images/jim.jpg" alt="Jim Dillingham — Partner, Shiftwork Solutions LLC"></div>
   <div class="bio-content">
@@ -264,7 +257,6 @@
 
 <hr class="divider">
 
-<!-- ── DAN CAPSHAW — Updated 2026-04-13: narrative-style bio ── -->
 <div class="bio-section"><div class="bio-card">
   <div class="bio-photo"><img src="/images/dan.jpg" alt="Dan Capshaw — Partner, Shiftwork Solutions LLC"></div>
   <div class="bio-content">
@@ -290,7 +282,6 @@
 
 <hr class="divider">
 
-<!-- ── ETHAN FRANKLIN — Updated 2026-04-13: narrative-style bio ── -->
 <div class="bio-section"><div class="bio-card">
   <div class="bio-photo"><img src="/images/ethan.jpg" alt="Ethan Franklin — Partner, Shiftwork Solutions LLC"></div>
   <div class="bio-content">
