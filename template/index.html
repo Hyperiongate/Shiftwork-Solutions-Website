@@ -5,33 +5,25 @@
   URL: /resources/
 
   Created:      2026-04-03
-  Last Updated: 2026-04-12
+  Last Updated: 2026-04-13
 
   CHANGE LOG:
     2026-04-03 — Initial build
     2026-04-03 through 2026-04-07 — Multiple iterations (see prior changelogs)
-    2026-04-12 — DRAMATIC REDESIGN: Interactive folder animation hub.
-                 PAGE CONCEPT: Two-column layout (main ~68% + sidebar ~32%).
-                 Main area has compact hero, then 4 "area of interest" buttons
-                 in a horizontal row (no numbers). Clicking one triggers a 5-second
-                 animated folder-consolidation sequence: small source folders appear
-                 on the left, documents fly out along curved bezier paths into a
-                 large central "Prepared for You" folder. Counter badge ticks up,
-                 folder pulses orange on each catch. After all documents arrive,
-                 "Click to open" prompt appears — user must click the folder.
-                 Folder scales up and fades, revealing full-width horizontal
-                 resource cards. Guides show pillar photos; focused topics and
-                 tools show custom SVG icons. Auto-scrolls to tiles.
-                 Clicking a different button replays the full animation.
-                 SIDEBAR: Three placeholder links (Complete Guides, Focused
-                 Topics, Trending Topics) styled as a dark navy sticky rail.
-                 Will eventually link to dedicated sub-pages.
-                 REMOVED: Old segments section (with inline links), Complete
-                 Guides 3-col grid, Industries section (already in main nav),
-                 Focused Topics + Trending rail two-column layout.
+    2026-04-12 — Folder animation hub with sidebar (superseded)
+    2026-04-13 — SIMPLIFIED REDESIGN per marketing feedback.
+                 REMOVED: Folder animation, sidebar rail, two-column layout.
+                 PAGE CONCEPT: Full-width single-column layout.
+                 Hero → 4 area-of-interest cards in a row → instant tile
+                 reveal below when any card is clicked → footer.
+                 Clicking a card instantly shows curated full-width
+                 horizontal resource tiles (guides with pillar photos,
+                 focused topics with SVG icons, tools with green icons).
+                 Clicking a different card swaps the tiles immediately.
+                 Auto-scrolls to tiles on reveal.
                  PRESERVED EXACTLY: Nav, Hero, Footer (3-col engage band +
-                 newsletter form + bottom bar), all JS (newsletter subscribe,
-                 mobile toggle), all booking URLs with ?ismsaljsauthenabled=true,
+                 newsletter form + bottom bar), mobile toggle JS, newsletter
+                 subscribe JS, all booking URLs with ?ismsaljsauthenabled=true,
                  all resource URLs verified against known-correct paths.
 
   CONTENT MAPPING — which tiles appear for each area of interest:
@@ -48,7 +40,6 @@
        TOOLS: 26 Warning Signs, Assessment, Thomas AI
     NOTE: Operational Best Practices (pillar_8) lives on Complete Guides sub-page.
 
-  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
     Navy: #1F4E79 | Navy-dark: #0D1F3C | Mid-blue: #85B7EB | Orange: #E8610A
     Font: Arial/system sans-serif
@@ -117,83 +108,115 @@
 
     /* ── UTILITIES ── */
     .section-divider{height:3px;background:var(--orange);width:100%}
+    .section-wrap{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad)}
     .accent-heading{font-size:22px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:10px;padding-left:14px;border-left:4px solid var(--orange)}
     .section-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
     .section-sub{font-size:14px;color:var(--muted);line-height:1.65;max-width:680px}
 
-    /* ── HUB ── */
-    .hub-section{padding:48px var(--page-pad) 60px;background:var(--light-grey);min-height:60vh}
-    .hub-inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:1fr 260px;gap:36px;align-items:start}
+    /* ══════════════════════════════════════════════════
+       HUB — full-width single-column
+       Intro → 4 cards → instant tile reveal
+    ═══════════════════════════════════════════════════ */
+    .hub-section{padding:48px var(--page-pad) 60px;background:var(--light-grey)}
+    .hub-inner{max-width:var(--max-width);margin:0 auto}
     .hub-intro{margin-bottom:28px}
 
-    /* 4 INTEREST BUTTONS */
-    .interest-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px}
-    .interest-btn{background:var(--white);border:2px solid var(--border-med);border-top:4px solid var(--navy);border-radius:8px;padding:18px 12px 16px;cursor:pointer;text-align:center;transition:all .25s ease;outline:none;font-family:Arial,Helvetica,sans-serif}
-    .interest-btn:hover{border-top-color:var(--orange);transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,0,0,.08)}
-    .interest-btn.active{border-color:var(--orange);border-top-color:var(--orange);box-shadow:0 4px 24px rgba(232,97,10,.15)}
-    .interest-btn-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--orange);margin-bottom:6px}
-    .interest-btn-title{font-size:13px;font-weight:700;color:var(--navy);line-height:1.35}
+    /* 4 INTEREST CARDS */
+    .interest-row{
+      display:grid;grid-template-columns:repeat(4,1fr);
+      gap:14px;margin-bottom:0
+    }
+    .interest-btn{
+      background:var(--white);
+      border:2px solid var(--border-med);
+      border-top:4px solid var(--navy);
+      border-radius:8px;
+      padding:22px 16px 20px;
+      cursor:pointer;text-align:center;
+      transition:all .25s ease;outline:none;
+      font-family:Arial,Helvetica,sans-serif
+    }
+    .interest-btn:hover{
+      border-top-color:var(--orange);
+      transform:translateY(-2px);
+      box-shadow:0 4px 20px rgba(0,0,0,.08)
+    }
+    .interest-btn.active{
+      border-color:var(--orange);border-top-color:var(--orange);
+      box-shadow:0 4px 24px rgba(232,97,10,.15)
+    }
+    .interest-btn-label{
+      font-size:10px;font-weight:700;text-transform:uppercase;
+      letter-spacing:.08em;color:var(--orange);margin-bottom:8px
+    }
+    .interest-btn-title{
+      font-size:14px;font-weight:700;color:var(--navy);line-height:1.35
+    }
 
-    /* FOLDER STAGE */
-    .folder-stage{position:relative;min-height:380px;overflow:hidden;border-radius:10px;background:var(--white);border:1px solid var(--border-med)}
-    .folder-prompt{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:380px;text-align:center;padding:40px 24px;color:var(--muted)}
-    .folder-prompt-icon{width:56px;height:56px;margin-bottom:14px;opacity:.35}
-    .folder-prompt-text{font-size:15px;font-weight:500;line-height:1.6}
-    .anim-layer{position:absolute;inset:0;display:none;background:var(--white);z-index:2}
-    .anim-layer.playing{display:block}
-    .anim-status{position:absolute;bottom:24px;left:0;right:0;text-align:center;font-size:12px;font-weight:600;color:var(--muted);opacity:0;transition:opacity .4s}
-    .anim-status.visible{opacity:1}
-    .main-folder-wrap{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%) scale(.85);opacity:0;transition:opacity .5s ease,transform .5s ease;z-index:3;cursor:default}
-    .main-folder-wrap.visible{opacity:1;transform:translate(-50%,-50%) scale(1)}
-    .main-folder-wrap.clickable{cursor:pointer}
-    .mf-counter{position:absolute;top:-18px;right:-14px;width:32px;height:32px;border-radius:50%;background:var(--orange);color:white;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(0);transition:opacity .3s,transform .3s cubic-bezier(.34,1.56,.64,1);z-index:10}
-    .mf-counter.visible{opacity:1;transform:scale(1)}
-    .mf-label-text{position:absolute;bottom:6px;left:0;width:100%;text-align:center;font-size:13px;font-weight:700;color:var(--navy);pointer-events:none}
-    .mf-click-prompt{position:absolute;bottom:-42px;left:0;width:100%;text-align:center;font-size:13px;font-weight:700;color:var(--orange);opacity:0;transition:opacity .4s;animation:none}
-    .mf-click-prompt.visible{opacity:1;animation:soft-bounce 1.5s ease-in-out infinite}
-    @keyframes soft-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-    @keyframes pulse-ring{0%{box-shadow:0 0 0 0 rgba(232,97,10,.4)}70%{box-shadow:0 0 0 18px rgba(232,97,10,0)}100%{box-shadow:0 0 0 0 rgba(232,97,10,0)}}
-    .main-folder-wrap.pulse .mf-body{animation:pulse-ring .7s ease}
+    /* ══════════════════════════════════════════════════
+       RESULT TILES — full-width horizontal cards
+       Guides: pillar photo on left (img tag)
+       Focused/Tools: SVG icon on left
+    ═══════════════════════════════════════════════════ */
+    .result-area{
+      display:none;
+      max-width:var(--max-width);margin:0 auto;
+      padding:32px 0 0
+    }
+    .result-area.visible{display:block;animation:fadeUp .35s ease both}
+    .result-heading{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px}
+    .result-sub{font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.5}
+    .result-list{display:flex;flex-direction:column;gap:12px}
 
-    /* RESULT TILES */
-    .result-area{display:none;padding:24px 20px 28px}
-    .result-area.visible{display:block;animation:fadeUp .5s ease both}
-    .result-heading{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:4px}
-    .result-sub{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.5}
-    .result-list{display:flex;flex-direction:column;gap:10px}
-    .result-card{display:flex;align-items:stretch;gap:0;background:var(--white);border:1px solid var(--border-med);border-left:4px solid var(--navy);border-radius:6px;overflow:hidden;text-decoration:none;transition:all .2s ease;opacity:0;animation:cardIn .4s ease forwards}
-    .result-card:hover{border-left-color:var(--orange);box-shadow:0 4px 16px rgba(0,0,0,.08);transform:translateY(-1px)}
-    @keyframes cardIn{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:translateX(0)}}
-    .result-card-img{width:110px;flex-shrink:0;object-fit:cover;background-color:var(--light-blue);display:block}
-    .result-card-icon{width:72px;min-height:76px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--light-blue)}
+    .result-card{
+      display:flex;align-items:stretch;gap:0;
+      background:var(--white);
+      border:1px solid var(--border-med);
+      border-left:4px solid var(--navy);
+      border-radius:6px;overflow:hidden;
+      text-decoration:none;
+      transition:all .2s ease;
+      opacity:0;animation:cardIn .35s ease forwards
+    }
+    .result-card:hover{
+      border-left-color:var(--orange);
+      box-shadow:0 4px 16px rgba(0,0,0,.08);
+      transform:translateY(-1px)
+    }
+    @keyframes cardIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
+
+    .result-card-img{
+      width:120px;flex-shrink:0;
+      object-fit:cover;display:block;
+      background-color:var(--light-blue)
+    }
+    .result-card-icon{
+      width:80px;min-height:80px;flex-shrink:0;
+      display:flex;align-items:center;justify-content:center;
+      background:var(--light-blue)
+    }
     .result-card-icon svg{display:block}
-    .result-card-body{flex:1;padding:12px 16px;min-width:0}
-    .result-card-tag{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:3px;margin-bottom:5px}
+    .result-card-body{flex:1;padding:14px 18px;min-width:0}
+    .result-card-tag{
+      display:inline-block;font-size:9px;font-weight:700;
+      text-transform:uppercase;letter-spacing:.06em;
+      padding:2px 8px;border-radius:3px;margin-bottom:6px
+    }
     .result-card-tag.guide{background:var(--light-blue);color:var(--navy)}
     .result-card-tag.focused{background:rgba(232,97,10,.1);color:var(--orange)}
     .result-card-tag.tool{background:rgba(29,158,117,.1);color:var(--green)}
-    .result-card-title{font-size:14px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:4px;transition:color .15s}
+    .result-card-title{
+      font-size:15px;font-weight:700;color:var(--navy);
+      line-height:1.35;margin-bottom:5px;transition:color .15s
+    }
     .result-card:hover .result-card-title{color:var(--orange)}
-    .result-card-desc{font-size:12px;color:var(--muted);line-height:1.5}
-    .result-card-arrow{flex-shrink:0;display:flex;align-items:center;padding:0 14px;font-size:16px;font-weight:700;color:var(--border-med);transition:color .2s}
+    .result-card-desc{font-size:13px;color:var(--muted);line-height:1.55}
+    .result-card-arrow{
+      flex-shrink:0;display:flex;align-items:center;
+      padding:0 16px;font-size:18px;font-weight:700;
+      color:var(--border-med);transition:color .2s
+    }
     .result-card:hover .result-card-arrow{color:var(--orange)}
-
-    /* SIDEBAR */
-    .hub-sidebar{position:sticky;top:72px;background:var(--navy-dark);border-radius:10px;overflow:hidden}
-    .sidebar-header{padding:24px 22px 18px;border-bottom:1px solid rgba(255,255,255,.08)}
-    .sidebar-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--orange);margin-bottom:6px}
-    .sidebar-heading{font-size:16px;font-weight:700;color:var(--white);line-height:1.35}
-    .sidebar-links{padding:8px 0;list-style:none}
-    .sidebar-link{display:flex;align-items:center;gap:14px;padding:16px 22px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.06);transition:background .15s}
-    .sidebar-link:last-child{border-bottom:none}
-    .sidebar-link:hover{background:rgba(255,255,255,.05)}
-    .sidebar-link-icon{flex-shrink:0;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(232,97,10,.15);border-radius:8px}
-    .sidebar-link-icon svg{display:block}
-    .sidebar-link-title{font-size:14px;font-weight:700;color:var(--white);line-height:1.3;margin-bottom:3px;transition:color .15s}
-    .sidebar-link:hover .sidebar-link-title{color:var(--orange)}
-    .sidebar-link-desc{font-size:11px;color:rgba(255,255,255,.45);line-height:1.4}
-    .sidebar-link-arrow{margin-left:auto;flex-shrink:0;font-size:14px;color:rgba(255,255,255,.3);transition:color .15s}
-    .sidebar-link:hover .sidebar-link-arrow{color:var(--orange)}
 
     /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
@@ -232,8 +255,6 @@
 
     /* ── RESPONSIVE ── */
     @media(max-width:960px){
-      .hub-inner{grid-template-columns:1fr;gap:28px}
-      .hub-sidebar{position:static}
       .interest-row{grid-template-columns:repeat(2,1fr)}
     }
     @media(max-width:640px){
@@ -241,10 +262,10 @@
       .hero{padding:40px 20px 48px}.hero h1{font-size:26px}
       .hub-section{padding:32px 16px 40px}
       .interest-row{grid-template-columns:1fr 1fr;gap:10px}
-      .interest-btn{padding:14px 10px 12px}
+      .interest-btn{padding:16px 12px 14px}
       .interest-btn-title{font-size:12px}
-      .result-card-img{width:70px}
-      .result-card-icon{width:56px;min-height:60px}
+      .result-card-img{width:80px}
+      .result-card-icon{width:60px;min-height:60px}
       .footer-prefooter{padding:32px 20px}
       .footer-content-row{grid-template-columns:1fr}
       .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
@@ -287,72 +308,39 @@
 
 <div class="section-divider"></div>
 
-<!-- HUB -->
+<!-- HUB — 4 cards + instant tile reveal -->
 <section class="hub-section">
   <div class="hub-inner">
-    <div class="hub-main">
-      <div class="hub-intro">
-        <div class="section-eyebrow">Find Your Starting Point</div>
-        <div class="accent-heading">What problem are you trying to solve?</div>
-        <p class="section-sub">Click the area that best matches your situation. We'll pull together the most relevant guides and articles for you.</p>
-      </div>
-
-      <div class="interest-row">
-        <button class="interest-btn" data-interest="expanding" onclick="selectInterest(this)">
-          <div class="interest-btn-label">Expanding Operations</div>
-          <div class="interest-btn-title">Moving to 24/7 or adding shifts</div>
-        </button>
-        <button class="interest-btn" data-interest="performance" onclick="selectInterest(this)">
-          <div class="interest-btn-label">Performance Problems</div>
-          <div class="interest-btn-title">Overtime, coverage, or productivity</div>
-        </button>
-        <button class="interest-btn" data-interest="workforce" onclick="selectInterest(this)">
-          <div class="interest-btn-label">Workforce &amp; Retention</div>
-          <div class="interest-btn-title">Turnover, engagement, or change</div>
-        </button>
-        <button class="interest-btn" data-interest="unsure" onclick="selectInterest(this)">
-          <div class="interest-btn-label">Not Sure Yet</div>
-          <div class="interest-btn-title">Help me diagnose the problem</div>
-        </button>
-      </div>
-
-      <div class="folder-stage" id="folderStage">
-        <div class="folder-prompt" id="folderPrompt">
-          <svg class="folder-prompt-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="16" width="48" height="32" rx="4" stroke="currentColor" stroke-width="2"/><path d="M4 20C4 17.8 5.8 16 8 16h14l4-6h22c2.2 0 4 1.8 4 4v2H4z" fill="currentColor" opacity="0.15"/></svg>
-          <div class="folder-prompt-text">Select an area of interest above.<br>We'll assemble the right resources for you.</div>
-        </div>
-        <div class="anim-layer" id="animLayer"></div>
-        <div class="result-area" id="resultArea">
-          <div class="result-heading" id="resultHeading"></div>
-          <div class="result-sub" id="resultSub"></div>
-          <div class="result-list" id="resultList"></div>
-        </div>
-      </div>
+    <div class="hub-intro">
+      <div class="section-eyebrow">Find Your Starting Point</div>
+      <div class="accent-heading">What problem are you trying to solve?</div>
+      <p class="section-sub">Click the area that best matches your situation. We'll show you the most relevant guides and articles.</p>
     </div>
 
-    <aside class="hub-sidebar">
-      <div class="sidebar-header">
-        <div class="sidebar-label">Browse All</div>
-        <div class="sidebar-heading">Explore by Category</div>
-      </div>
-      <ul class="sidebar-links">
-        <li><a href="#" class="sidebar-link">
-          <div class="sidebar-link-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="16" height="14" rx="2" stroke="#E8610A" stroke-width="1.5"/><path d="M5 7h10M5 10h7" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          <div class="sidebar-link-body"><div class="sidebar-link-title">Complete Guides</div><div class="sidebar-link-desc">10 in-depth resources</div></div>
-          <span class="sidebar-link-arrow">&#x2192;</span>
-        </a></li>
-        <li><a href="#" class="sidebar-link">
-          <div class="sidebar-link-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" stroke="#E8610A" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-          <div class="sidebar-link-body"><div class="sidebar-link-title">Focused Topics</div><div class="sidebar-link-desc">7 targeted articles</div></div>
-          <span class="sidebar-link-arrow">&#x2192;</span>
-        </a></li>
-        <li><a href="#" class="sidebar-link">
-          <div class="sidebar-link-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 14l4-4 3 3 7-7" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 6h4v4" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="sidebar-link-body"><div class="sidebar-link-title">Trending Topics</div><div class="sidebar-link-desc">9 timely insights</div></div>
-          <span class="sidebar-link-arrow">&#x2192;</span>
-        </a></li>
-      </ul>
-    </aside>
+    <div class="interest-row">
+      <button class="interest-btn" data-interest="expanding" onclick="selectInterest(this)">
+        <div class="interest-btn-label">Expanding Operations</div>
+        <div class="interest-btn-title">Moving to 24/7 or adding shifts</div>
+      </button>
+      <button class="interest-btn" data-interest="performance" onclick="selectInterest(this)">
+        <div class="interest-btn-label">Performance Problems</div>
+        <div class="interest-btn-title">Overtime, coverage, or productivity</div>
+      </button>
+      <button class="interest-btn" data-interest="workforce" onclick="selectInterest(this)">
+        <div class="interest-btn-label">Workforce &amp; Retention</div>
+        <div class="interest-btn-title">Turnover, engagement, or change</div>
+      </button>
+      <button class="interest-btn" data-interest="unsure" onclick="selectInterest(this)">
+        <div class="interest-btn-label">Not Sure Yet</div>
+        <div class="interest-btn-title">Help me diagnose the problem</div>
+      </button>
+    </div>
+
+    <div class="result-area" id="resultArea">
+      <div class="result-heading" id="resultHeading"></div>
+      <div class="result-sub" id="resultSub"></div>
+      <div class="result-list" id="resultList"></div>
+    </div>
   </div>
 </section>
 
@@ -428,9 +416,10 @@ document.getElementById('mobileToggle').addEventListener('click',function(){
 })();
 </script>
 
-<!-- FOLDER ANIMATION ENGINE -->
+<!-- INTEREST CARD SELECTOR + TILE REVEAL -->
 <script>
 (function(){
+
 var ICONS={
   scaling:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 20l6-6 4 4 10-10" stroke="#E8610A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 8h6v6" stroke="#E8610A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
   maintenance:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M16.5 4.5l7 7-2.5 2.5-7-7" stroke="#1F4E79" stroke-width="2" stroke-linecap="round"/><path d="M10 14l-5.5 5.5a2.1 2.1 0 003 3L13 17" stroke="#1F4E79" stroke-width="2"/><circle cx="17" cy="8" r="2" fill="#E8610A" opacity="0.5"/></svg>',
@@ -474,132 +463,57 @@ var DATA={
   ]}
 };
 
-var currentInterest=null,animating=false;
-
-function createFolderSVG(w,h,color,isMain){
-  var sw=isMain?2.5:2,tabW=isMain?w*.42:w*.45,tabH=isMain?16:11,r=isMain?7:5,bodyY=tabH-2,bodyH=h-bodyY,id='f'+Math.random().toString(36).substr(2,6);
-  var s='<svg width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'" fill="none" xmlns="http://www.w3.org/2000/svg">';
-  s+='<defs><linearGradient id="'+id+'bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="'+color+'" stop-opacity="0.25"/><stop offset="100%" stop-color="'+color+'" stop-opacity="0.06"/></linearGradient>';
-  s+='<linearGradient id="'+id+'tab" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0%" stop-color="'+color+'" stop-opacity="1"/><stop offset="100%" stop-color="'+color+'" stop-opacity="0.75"/></linearGradient>';
-  s+='<filter id="'+id+'sh"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="'+color+'" flood-opacity="0.18"/></filter></defs>';
-  s+='<g filter="url(#'+id+'sh)">';
-  s+='<rect x="1" y="'+bodyY+'" width="'+(w-2)+'" height="'+bodyH+'" rx="'+r+'" fill="url(#'+id+'bg)" stroke="'+color+'" stroke-width="'+sw+'"/>';
-  s+='<path d="M'+(1+r)+' '+bodyY+' L'+tabW+' '+bodyY+' L'+(tabW+10)+' 1 L'+(1+r)+' 1 Q1 1 1 '+(1+r)+' L1 '+bodyY+' Q1 '+bodyY+' '+(1+r)+' '+bodyY+' Z" fill="url(#'+id+'tab)"/>';
-  s+='<path d="M'+(1+r)+' '+bodyY+' L'+tabW+' '+bodyY+' L'+(tabW+10)+' 1 L'+(1+r)+' 1 Q1 1 1 '+(1+r)+' L1 '+bodyY+' Q1 '+bodyY+' '+(1+r)+' '+bodyY+' Z" stroke="'+color+'" stroke-width="'+sw+'" fill="none"/>';
-  if(isMain){s+='<rect x="'+(w*.18)+'" y="'+(bodyY+bodyH*.32)+'" width="'+(w*.64)+'" height="3" rx="1.5" fill="'+color+'" opacity="0.1"/>';s+='<rect x="'+(w*.22)+'" y="'+(bodyY+bodyH*.48)+'" width="'+(w*.46)+'" height="3" rx="1.5" fill="'+color+'" opacity="0.07"/>';s+='<rect x="'+(w*.25)+'" y="'+(bodyY+bodyH*.64)+'" width="'+(w*.38)+'" height="3" rx="1.5" fill="'+color+'" opacity="0.05"/>';}
-  s+='</g></svg>';return s;
-}
-
-function createDocSVG(w,h,color){
-  var c=7,s='<svg width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'" fill="none" xmlns="http://www.w3.org/2000/svg">';
-  s+='<defs><filter id="ds"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="'+color+'" flood-opacity="0.3"/></filter></defs>';
-  s+='<g filter="url(#ds)">';
-  s+='<path d="M2 3Q2 1 4 1L'+(w-c-1)+' 1 '+(w-1)+' '+(c+1)+' '+(w-1)+' '+(h-3)+'Q'+(w-1)+' '+(h-1)+' '+(w-3)+' '+(h-1)+'L4 '+(h-1)+'Q2 '+(h-1)+' 2 '+(h-3)+'Z" fill="white" stroke="'+color+'" stroke-width="1.2"/>';
-  s+='<path d="M'+(w-c-1)+' 1v'+c+'h'+c+'" fill="'+color+'" opacity="0.15" stroke="'+color+'" stroke-width="0.8"/>';
-  s+='<rect x="5" y="'+(h*.3)+'" width="'+(w-11)+'" height="2" rx="1" fill="'+color+'" opacity="0.4"/>';
-  s+='<rect x="5" y="'+(h*.48)+'" width="'+(w-14)+'" height="2" rx="1" fill="'+color+'" opacity="0.25"/>';
-  s+='<rect x="5" y="'+(h*.66)+'" width="'+(w-12)+'" height="2" rx="1" fill="'+color+'" opacity="0.18"/>';
-  s+='</g></svg>';return s;
-}
+var currentInterest=null;
 
 window.selectInterest=function(btn){
   var interest=btn.getAttribute('data-interest');
-  if(animating)return;if(interest===currentInterest)return;
-  currentInterest=interest;animating=true;
-  var all=document.querySelectorAll('.interest-btn');for(var i=0;i<all.length;i++)all[i].classList.remove('active');
+  if(interest===currentInterest)return;
+  currentInterest=interest;
+
+  /* Highlight active button */
+  var all=document.querySelectorAll('.interest-btn');
+  for(var i=0;i<all.length;i++)all[i].classList.remove('active');
   btn.classList.add('active');
-  playFolderAnimation(interest);
-};
 
-function playFolderAnimation(interest){
-  var data=DATA[interest],stage=document.getElementById('folderStage'),prompt=document.getElementById('folderPrompt'),anim=document.getElementById('animLayer'),result=document.getElementById('resultArea');
-  prompt.style.display='none';result.classList.remove('visible');result.style.display='none';anim.innerHTML='';anim.classList.add('playing');
-  var numDocs=data.tiles.length,colors=['#1F4E79','#E8610A','#1D9E75','#85B7EB','#9966CC','#BA7517'];
-  var stageW=stage.offsetWidth,stageH=stage.offsetHeight;
-  var srcFW=92,srcFH=64,srcX=32,gap=Math.min(68,(stageH-100)/numDocs),startY=(stageH-numDocs*gap)/2+10;
-  var mainFW=180,mainFH=128,mainCX=stageW*.62,mainCY=stageH*.44;
-
-  var mfWrap=document.createElement('div');mfWrap.className='main-folder-wrap';
-  mfWrap.style.cssText='position:absolute;left:'+mainCX+'px;top:'+mainCY+'px;width:'+mainFW+'px;height:'+(mainFH+24)+'px;';
-  mfWrap.innerHTML='<div class="mf-body">'+createFolderSVG(mainFW,mainFH,'#1F4E79',true)+'</div><div class="mf-counter" id="mfCounter">0</div><div class="mf-label-text">Prepared for You</div><div class="mf-click-prompt" id="mfClick">Click to open</div>';
-  anim.appendChild(mfWrap);
-
-  var statusEl=document.createElement('div');statusEl.className='anim-status';statusEl.textContent='Gathering your resources\u2026';anim.appendChild(statusEl);
-  setTimeout(function(){mfWrap.classList.add('visible');statusEl.classList.add('visible');},150);
-
-  var received=0;
-  /* TIMING: Total 5 seconds from button click to "click to open" prompt.
-     Budget: 150ms main folder appear + staggered launches + flight + 400ms settle.
-     Last doc must land by ~4600ms. Flight = 900ms. Last launch by ~3700ms.
-     First launch at ~400ms. Spread evenly between 400ms and 3700ms. */
-  var flightDur=900;
-  var firstLaunch=400;
-  var lastLaunch=3700;
-  var launchSpread=(numDocs>1)?(lastLaunch-firstLaunch)/(numDocs-1):0;
-
-  for(var i=0;i<numDocs;i++){(function(idx){
-    var c=colors[idx%colors.length],sy=startY+idx*gap;
-    var srcWrap=document.createElement('div');
-    srcWrap.style.cssText='position:absolute;left:'+srcX+'px;top:'+sy+'px;width:'+srcFW+'px;height:'+srcFH+'px;opacity:0;transition:opacity .4s ease,transform .4s ease;transform:translateX(-24px) scale(.9);';
-    srcWrap.innerHTML=createFolderSVG(srcFW,srcFH,c,false);anim.appendChild(srcWrap);
-    var appearAt=150+idx*(launchSpread>0?launchSpread*.6:200);
-    setTimeout(function(){srcWrap.style.opacity='1';srcWrap.style.transform='translateX(0) scale(1)';},appearAt);
-    var flyAt=firstLaunch+idx*launchSpread;
-    setTimeout(function(){
-      var docW=32,docH=42,doc=document.createElement('div');
-      var dsx=srcX+srcFW-8,dsy=sy+10;
-      doc.style.cssText='position:absolute;left:'+dsx+'px;top:'+dsy+'px;z-index:5;pointer-events:none;opacity:0;';
-      doc.innerHTML=createDocSVG(docW,docH,c);anim.appendChild(doc);doc.style.opacity='1';
-      var targetX=mainCX-mainFW/2+mainFW*.35,targetY=mainCY-mainFH/2+25;
-      var midX=(dsx+targetX)/2+(Math.random()-.5)*80,midY=Math.min(dsy,targetY)-55-Math.random()*50;
-      var startTime=null;
-      function fly(ts){
-        if(!startTime)startTime=ts;var p=Math.min((ts-startTime)/flightDur,1),ep=1-Math.pow(1-p,3);
-        var cx=(1-ep)*(1-ep)*dsx+2*(1-ep)*ep*midX+ep*ep*targetX;
-        var cy=(1-ep)*(1-ep)*dsy+2*(1-ep)*ep*midY+ep*ep*targetY;
-        var rot=p*(14+idx*3),sc=1-p*.2;
-        doc.style.transform='translate('+(cx-dsx)+'px,'+(cy-dsy)+'px) rotate('+rot+'deg) scale('+sc+')';
-        if(p>.75)doc.style.opacity=String(1-(p-.75)/.25);
-        if(p<1){requestAnimationFrame(fly);}
-        else{doc.remove();received++;mfWrap.classList.remove('pulse');void mfWrap.offsetWidth;mfWrap.classList.add('pulse');
-          var ctr=document.getElementById('mfCounter');if(ctr){ctr.textContent=received;ctr.classList.add('visible');}
-          srcWrap.style.opacity='.25';srcWrap.style.transform='scale(.85)';
-          if(received===numDocs)setTimeout(function(){allReceived();},300);
-        }
-      }
-      requestAnimationFrame(fly);
-    },flyAt);
-  })(i);}
-
-  function allReceived(){
-    statusEl.textContent='All resources gathered!';
-    var cp=document.getElementById('mfClick');if(cp)cp.classList.add('visible');
-    mfWrap.classList.add('clickable');
-    mfWrap.onclick=function(){
-      mfWrap.onclick=null;mfWrap.classList.remove('clickable');if(cp)cp.classList.remove('visible');
-      mfWrap.style.transition='opacity .5s,transform .5s';mfWrap.style.opacity='0';
-      mfWrap.style.transform='translate(-50%,-50%) scale(1.2)';statusEl.style.opacity='0';
-      setTimeout(function(){anim.classList.remove('playing');showResults(interest);animating=false;},500);
-    };
-  }
-}
-
-function showResults(interest){
-  var data=DATA[interest],area=document.getElementById('resultArea');
+  /* Show tiles instantly */
+  var data=DATA[interest];
+  var area=document.getElementById('resultArea');
   document.getElementById('resultHeading').textContent=data.heading;
   document.getElementById('resultSub').textContent=data.sub;
+
   var html='';
-  for(var i=0;i<data.tiles.length;i++){var t=data.tiles[i],target=t.external?' target="_blank" rel="noopener"':'',delay=i*.1;
+  for(var i=0;i<data.tiles.length;i++){
+    var t=data.tiles[i];
+    var target=t.external?' target="_blank" rel="noopener"':'';
+    var delay=i*0.06;
     html+='<a href="'+t.url+'" class="result-card" style="animation-delay:'+delay+'s;"'+target+'>';
-    if(t.img){html+='<img src="'+t.img+'" alt="" class="result-card-img">';}
-    else if(t.icon&&ICONS[t.icon]){html+='<div class="result-card-icon">'+ICONS[t.icon]+'</div>';}
-    html+='<div class="result-card-body"><span class="result-card-tag '+t.type+'">'+t.label+'</span><div class="result-card-title">'+t.title+'</div><div class="result-card-desc">'+t.desc+'</div></div>';
-    html+='<div class="result-card-arrow">&#x2192;</div></a>';
+    if(t.img){
+      html+='<img src="'+t.img+'" alt="" class="result-card-img">';
+    } else if(t.icon&&ICONS[t.icon]){
+      html+='<div class="result-card-icon">'+ICONS[t.icon]+'</div>';
+    }
+    html+='<div class="result-card-body">';
+    html+='<span class="result-card-tag '+t.type+'">'+t.label+'</span>';
+    html+='<div class="result-card-title">'+t.title+'</div>';
+    html+='<div class="result-card-desc">'+t.desc+'</div>';
+    html+='</div>';
+    html+='<div class="result-card-arrow">&#x2192;</div>';
+    html+='</a>';
   }
   document.getElementById('resultList').innerHTML=html;
-  area.style.display='block';void area.offsetWidth;area.classList.add('visible');
-  setTimeout(function(){area.scrollIntoView({behavior:'smooth',block:'start'});},100);
-}
+
+  /* Show area + scroll */
+  area.classList.remove('visible');
+  area.style.display='none';
+  void area.offsetWidth;
+  area.style.display='';
+  area.classList.add('visible');
+
+  setTimeout(function(){
+    area.scrollIntoView({behavior:'smooth',block:'start'});
+  },80);
+};
+
 })();
 </script>
 
