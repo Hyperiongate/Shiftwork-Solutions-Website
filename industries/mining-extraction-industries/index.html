@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <!--
   industries/mining-extraction-industries/index.html
-  Shiftwork Solutions LLC — Industry Page
+  Shiftwork Solutions LLC — Industry Page (TEMPLATE v2)
   URL: /industries/mining-extraction-industries/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-04
+  Last Updated: 2026-04-13
 
   SOURCE DOC: Mining_shift_scheduling_V2_Sonnet_03_26_2026.docx
   CATEGORY: Industry Pages
 
   CHANGE LOG:
-    2026-04-04 — Initial build. Full article content from source Word doc.
-                 Odd article: shutterstock_1497086771.jpg hero vector.
-                 Clients: BHP, Phelps Dodge, Vale, Potash, Vulcan, Amax.
+    2026-04-04 — Initial build from source Word doc.
+    2026-04-04 — NAV + BUTTON + SEO AUDIT.
+    2026-04-13 — Hero image corrected: shutterstock_1497086771.jpg → mining.jpg
+                 to match the Mining tile image on the Industries hub page.
+    2026-04-13 — TEMPLATE v2 REBUILD:
+                 Full redesign to match chemical-pharmaceutical template v2.
+                 Hero: cover/center gradient overlay, white subtitle text.
+                 Hero subtitle updated to Jim-provided text.
+                 Client strip: navy marquee with scrolling names.
+                 Pull quotes: flex layout, oversized left quote mark (Georgia),
+                   17px bold navy italic. TWO pull quotes: Jim Dillingham + Dan Capshaw.
+                 Callout box: light-grey bg, navy left border.
+                 Insight cards: transparent bg, border-top only, colored titles.
+                 FAQs: accordion with light-grey wrapper, white panels (5 items).
+                 Next Steps: dark navy animated cards (IntersectionObserver).
+                 Footer: 3-col prefooter dark navy, "Start a Conversation" capitalized.
+                 Nav: "Our Company" label (points to /why-us/), Contact confirmed.
+                 Removed: cta-section, engage-band, inline-cta blocks.
 
-    2026-04-04 — NAV + BUTTON + SEO AUDIT:
-                 1. NAV: Services → direct link (no dropdown)
-                    Resources → direct link (no dropdown)
-                    Why Us dropdown: "Meet Our Team" → /our_team/
-                    "Client Testimonials" → /why-shiftwork-solutions/#testimonials
-                 2. BUTTONS: Nav CTA → ORANGE (#E8610A)
-                    Listen button → ORANGE
-                    Subscribe button → ORANGE
-                 3. SEO: Added Twitter Card meta tags
-                    Added FAQPage JSON-LD for 5 FAQ questions
-
-  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn
+  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
+  HERO IMAGE: /images/mining.jpg
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
-
   DESIGN SYSTEM:
-    --navy: #1F4E79  --mid-blue: #85B7EB  --light-blue: #EEF3F8
-    --orange: #E8610A  --green: #1D9E75  --body-text: #1A1A1A
-    --max-width: 860px  Font: Arial, Helvetica, sans-serif
-
+    --navy:#1F4E79  --navy-dark:#0D1F3C  --mid-blue:#85B7EB
+    --light-blue:#EEF3F8  --orange:#E8610A  --green:#1D9E75
+    --body-text:#1A1A1A  --max-width:860px
+    Font: Arial, Helvetica, sans-serif
   I did no harm and this file is not truncated
 -->
 <html lang="en">
@@ -48,12 +52,9 @@
   <meta property="og:url" content="https://shift-work.com/industries/mining-extraction-industries/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
-
-  <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Mining &amp; Extraction Shift Scheduling | Shiftwork Solutions LLC">
   <meta name="twitter:description" content="Shift scheduling for mining and extraction operations: FIFO rotation design, fatigue management, hot seat transitions, and remote workforce planning.">
-
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
@@ -68,26 +69,17 @@
     .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
     .nav-links>li>a:hover,.nav-links>li>a.nav-active{color:var(--navy)}
     .nav-links>li>a.nav-active{font-weight:700;text-decoration:underline;text-underline-offset:3px}
-    .nav-arrow{font-size:9px;opacity:.5;transition:transform .2s}
-    .nav-dropdown{position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border-med);border-top:none;border-radius:0 0 6px 6px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:270px;max-height:460px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-2px);transition:opacity .15s,visibility .15s,transform .15s;padding:6px 0;z-index:100}
-    .nav-links>li:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateY(0)}
-    .nav-links>li:hover>a .nav-arrow{transform:rotate(180deg)}
-    .dropdown-label{padding:8px 16px 4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-    .nav-dropdown a{display:block;padding:6px 16px;font-size:13px;color:#444;text-decoration:none;transition:background .12s;line-height:1.4}
-    .nav-dropdown a:hover{background:var(--light-blue);color:var(--navy)}
-    .dropdown-divider{height:1px;background:var(--border-light);margin:4px 0}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
     .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;inset:0;background:url('/images/shutterstock_1497086771.jpg') right center / auto 100% no-repeat;opacity:1;z-index:0}
-    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--navy) 45%,rgba(31,78,121,0.85) 65%,transparent 100%);z-index:0}
+    .hero::before{content:'';position:absolute;inset:0;background:url('/images/mining.jpg') center center / cover no-repeat;opacity:1;z-index:0}
+    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,0.88) 0%,rgba(31,78,121,0.75) 55%,rgba(31,78,121,0.35) 100%);z-index:0}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
-    .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
-    .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:var(--white);max-width:580px;margin-bottom:14px}
-    .hero-subtitle{font-size:16px;line-height:1.65;color:var(--mid-blue);max-width:560px}
+    .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:var(--white);max-width:600px;margin-bottom:14px}
+    .hero-subtitle{font-size:16px;line-height:1.65;color:rgba(255,255,255,0.88);max-width:560px}
     .hero-tag{display:inline-block;margin-top:16px;background:rgba(232,97,10,0.9);color:var(--white);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 12px;border-radius:3px}
     .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
@@ -101,59 +93,98 @@
     .article-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin:36px 0 14px}
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
     .article-wrap p:last-child{margin-bottom:0}
-    .pull-quote{border-left:4px solid var(--orange);padding:16px 24px;margin:32px 0;background:var(--light-blue);border-radius:0 6px 6px 0}
-    .pull-quote p{font-size:17px;font-weight:700;line-height:1.5;color:var(--navy);margin:0;font-style:italic}
+    .client-strip{background:var(--navy);border-radius:8px;margin:32px 0;padding:0;overflow:hidden;position:relative}
+    .client-strip-intro{font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:.08em;padding:16px 24px 0;text-align:center}
+    .client-strip-scroll{padding:14px 0 16px;overflow:hidden;position:relative}
+    .client-strip-fade-l{position:absolute;top:0;left:0;bottom:0;width:60px;background:linear-gradient(to right,var(--navy),transparent);z-index:1;pointer-events:none}
+    .client-strip-fade-r{position:absolute;top:0;right:0;bottom:0;width:60px;background:linear-gradient(to left,var(--navy),transparent);z-index:1;pointer-events:none}
+    .client-marquee-track{display:flex;width:max-content;animation:clientScroll 22s linear infinite}
+    .client-marquee-track:hover{animation-play-state:paused}
+    @keyframes clientScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .client-tag{display:inline-block;padding:8px 28px;font-size:14px;font-weight:700;color:rgba(255,255,255,0.85);white-space:nowrap;letter-spacing:.02em}
+    .client-tag-sep{display:inline-block;color:rgba(232,97,10,0.7);font-size:18px;line-height:1;padding:0 2px;vertical-align:middle}
+    .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:flex-start;gap:16px}
+    .pull-quote-mark{flex-shrink:0;font-size:64px;line-height:0.85;font-family:Georgia,'Times New Roman',serif;color:var(--mid-blue);user-select:none}
+    .pull-quote-content{flex:1}
+    .pull-quote p{font-size:16px;font-weight:400;line-height:1.65;color:#4a6a8a;margin:0;font-style:italic}
     .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
-    .client-strip{background:var(--light-grey);border-radius:6px;padding:16px 20px;margin:28px 0}
-    .client-strip-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
-    .client-strip p{font-size:13px;color:var(--body-text);line-height:1.6;margin:0}
-    .callout-box{background:var(--light-blue);border-left:4px solid var(--green);border-radius:0 6px 6px 0;padding:18px 22px;margin:28px 0}
-    .callout-box .cb-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--green);margin-bottom:6px}
-    .callout-box p{font-size:14px;line-height:1.6;color:var(--body-text);margin:0}
-    .faq-section{margin:36px 0}
-    .faq-section h2{font-size:21px;font-weight:700;color:var(--body-text);margin-bottom:20px}
-    .faq-item{border-bottom:1px solid var(--border-light);padding:18px 0}
-    .faq-item:last-child{border-bottom:none}
-    .faq-q{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.4}
-    .faq-a{font-size:14px;color:var(--body-text);line-height:1.7;margin:0}
-    .inline-cta{background:var(--navy-dark);border-radius:8px;padding:28px 32px;margin:40px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-    .inline-cta-text h3{font-size:17px;font-weight:700;color:var(--white);margin-bottom:6px}
-    .inline-cta-text p{font-size:13px;color:var(--mid-blue);line-height:1.55;margin:0}
-    .inline-cta-btn{display:inline-block;padding:11px 24px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;white-space:nowrap;transition:background .15s;flex-shrink:0}
-    .inline-cta-btn:hover{background:#c4510a}
-    .next-steps{padding:48px var(--page-pad) 52px;background:var(--light-grey);border-top:1px solid var(--border-light)}
-    .next-steps-inner{max-width:var(--max-width);margin:0 auto}
-    .next-steps h2{font-size:20px;font-weight:700;color:var(--body-text);margin-bottom:20px}
-    .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .ns-card{background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px;text-decoration:none;display:block;transition:border-top-color .15s,box-shadow .15s}
-    .ns-card:hover{border-top-color:var(--orange);box-shadow:0 4px 16px rgba(0,0,0,.08)}
-    .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
-    .ns-card h3{font-size:14px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:8px}
-    .ns-card p{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:12px}
-    .ns-card-link{font-size:12px;font-weight:700;color:var(--navy)}
-    .ns-card-link::after{content:' →'}
-    .ns-card:hover .ns-card-link{color:var(--orange)}
-    .ns-phone{margin-top:20px;font-size:13px;color:var(--muted);text-align:center}
-    .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
-    .cta-section{background:var(--navy);padding:52px var(--page-pad);position:relative;overflow:hidden}
-    .cta-section::before{content:'';position:absolute;inset:0;background:url('/images/shutterstock_1497086771.jpg') right center / auto 100% no-repeat;opacity:.18;z-index:0}
-    .cta-section-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1;text-align:center}
-    .cta-section h2{font-size:24px;font-weight:700;color:var(--white);margin-bottom:12px}
-    .cta-section p{font-size:15px;color:var(--cta-sub);line-height:1.65;max-width:540px;margin:0 auto 28px}
-    .cta-actions{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
-    .cta-primary{display:inline-block;padding:13px 30px;background:var(--orange);color:var(--white);font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
-    .cta-primary:hover{background:#c4510a}
-    .cta-secondary{font-size:14px;color:var(--mid-blue);text-decoration:none;font-weight:500}
-    .cta-secondary:hover{color:var(--white);text-decoration:underline}
-    .engage-band{background:var(--navy-dark);padding:40px var(--page-pad)}
-    .engage-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+    .callout-box{background:linear-gradient(to right,#E4E7EB,var(--white) 40%,var(--white) 60%,#E4E7EB);border-radius:6px;padding:22px 28px;margin:32px 0;text-align:center}
+    .callout-box p{font-size:16px;line-height:1.6;color:var(--body-text);font-weight:400;margin:0;font-style:italic}
+    .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
+    .insight-card{background:transparent;border-top:3px solid var(--border-med);border-radius:0;padding:20px 18px 20px 0;transition:transform .2s ease}
+    .insight-card:hover{transform:scale(1.04)}
+    .insight-card:nth-child(1) .ic-title{color:var(--navy)}
+    .insight-card:nth-child(2) .ic-title{color:var(--orange)}
+    .insight-card:nth-child(3) .ic-title{color:var(--green)}
+    .insight-card .ic-title{font-size:14px;font-weight:700;margin-bottom:8px;line-height:1.3}
+    .insight-card .ic-text{font-size:13px;color:var(--muted);line-height:1.6;font-weight:400}
+    .faq-wrap{background:var(--light-grey);border-radius:0;padding:40px 32px;margin:36px calc(-50vw + 50%);width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;box-shadow:inset 0 2px 8px rgba(0,0,0,0.06),inset 0 -2px 8px rgba(0,0,0,0.06)}
+    .faq-wrap-inner{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad)}
+    .faq-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);margin-bottom:20px}
+    .faq-item{border-bottom:1px solid var(--border-med)}
+    .faq-item:first-of-type{border-top:1px solid var(--border-med)}
+    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:18px 0;text-align:left;gap:16px}
+    .faq-q{font-size:15px;font-weight:700;color:var(--navy);line-height:1.4;flex:1}
+    .faq-icon{flex-shrink:0;width:20px;height:20px;border-radius:50%;border:2px solid var(--navy);display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .2s ease,border-color .2s ease}
+    .faq-icon svg{width:10px;height:10px;fill:var(--navy);transition:transform .25s ease}
+    .faq-item.faq-open .faq-icon{background:var(--navy);border-color:var(--navy)}
+    .faq-item.faq-open .faq-icon svg{fill:var(--white);transform:rotate(180deg)}
+    .faq-body{overflow:hidden;max-height:0;transition:max-height .35s ease,padding .25s ease}
+    .faq-item.faq-open .faq-body{max-height:600px}
+    .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:4px 16px 20px;background:var(--white);border-radius:6px;margin-bottom:4px}
+    .next-steps{padding:56px var(--page-pad) 60px;background:var(--navy);position:relative;overflow:hidden}
+    .next-steps::before{content:'';position:absolute;width:480px;height:480px;border-radius:50%;border:1px solid rgba(255,255,255,0.06);top:-160px;right:-160px;pointer-events:none}
+    .next-steps::after{content:'';position:absolute;width:300px;height:300px;border-radius:50%;border:1px solid rgba(232,97,10,0.10);bottom:-100px;left:-80px;pointer-events:none}
+    .next-steps-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
+    .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,0.6);margin-bottom:10px}
+    .next-steps h2{font-size:22px;font-weight:700;color:var(--white);margin-bottom:8px}
+    .next-steps-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:32px;line-height:1.6}
+    .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .ns-card{background:var(--white);border:1px solid rgba(255,255,255,0.15);border-top:4px solid transparent;border-radius:8px;padding:24px 20px;text-decoration:none;display:block;position:relative;overflow:hidden;opacity:0;transform:translateY(28px);transition:opacity .5s ease,transform .5s ease,box-shadow .25s ease,border-top-color .25s ease}
+    .ns-card.ns-card-visible{opacity:1;transform:translateY(0)}
+    .ns-card:nth-child(1){transition-delay:.05s}
+    .ns-card:nth-child(2){transition-delay:.18s}
+    .ns-card:nth-child(3){transition-delay:.31s}
+    .ns-accent-blue{border-top-color:var(--mid-blue)}
+    .ns-accent-orange{border-top-color:var(--orange)}
+    .ns-accent-green{border-top-color:var(--green)}
+    .ns-accent-blue:hover{box-shadow:0 8px 28px rgba(133,183,235,0.25);transform:translateY(-5px) !important}
+    .ns-accent-orange:hover{box-shadow:0 8px 28px rgba(232,97,10,0.22);transform:translateY(-5px) !important}
+    .ns-accent-green:hover{box-shadow:0 8px 28px rgba(29,158,117,0.22);transform:translateY(-5px) !important}
+    .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+    .ns-accent-blue .ns-card-label{color:var(--mid-blue)}
+    .ns-accent-orange .ns-card-label{color:var(--orange)}
+    .ns-accent-green .ns-card-label{color:var(--green)}
+    .ns-card h3{font-size:15px;font-weight:700;color:var(--body-text);line-height:1.35;margin-bottom:8px}
+    .ns-card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px}
+    .ns-card-link{font-size:12px;font-weight:700}
+    .ns-accent-blue .ns-card-link{color:var(--mid-blue)}
+    .ns-accent-orange .ns-card-link{color:var(--orange)}
+    .ns-accent-green .ns-card-link{color:var(--green)}
+    .ns-card-link::after{content:' \2192'}
+    .ns-phone{margin-top:28px;font-size:13px;color:rgba(255,255,255,0.55);text-align:center}
+    .ns-phone a{color:var(--white);text-decoration:none;font-weight:700}
+    .ns-phone a:hover{color:var(--mid-blue)}
+    .site-footer{background:var(--navy-dark)}
+    .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer-wrap{max-width:1100px;margin:0 auto}
+    .footer-content-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-bottom:28px}
+    .footer-col{padding:0 32px}
+    .footer-col-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
+    .footer-col-2{border-right:1px solid rgba(255,255,255,.08)}
+    .footer-col-3{padding-right:0}
+    .footer-cta-row{display:flex;align-items:center;gap:0}
+    .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:0 0 33.333%;padding:0 32px}
+    .footer-cta-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
+    .footer-cta-2{border-right:1px solid rgba(255,255,255,.08)}
+    .footer-cta-3{padding-right:0}
+    .footer-cta-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
+    .footer-cta-btn:hover{background:#c4510a}
     .engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
-    .engage-thomas-title,.engage-nl-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}
-    .engage-thomas-desc,.engage-nl-desc{font-size:13px;color:rgba(255,255,255,.65);line-height:1.65;margin-bottom:14px}
-    .engage-thomas-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
-    .engage-thomas-btn:hover{background:#c4510a}
+    .engage-col-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
+    .engage-col-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
     .engage-nl-form{display:flex;gap:8px;flex-wrap:wrap}
-    .engage-nl-input{flex:1;min-width:180px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
+    .engage-nl-input{flex:1;min-width:120px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
     .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
     .engage-nl-input:focus{border-color:var(--mid-blue)}
     .engage-nl-btn{padding:10px 18px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
@@ -161,22 +192,22 @@
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
     .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
-    .site-footer{background:#F4F4F4;padding:32px var(--page-pad) 20px;border-top:1px solid var(--border-med)}
-    .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#555}
-    .footer-inner a{color:#555;text-decoration:none}
-    .footer-inner a:hover{color:var(--navy)}
-    .footer-logo{font-weight:700;color:var(--navy)}
-    .footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
+    .footer-bottom{padding:16px var(--page-pad)}
+    .footer-bottom-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.45)}
+    .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
+    .footer-bottom-inner a:hover{color:var(--orange)}
+    .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
     .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
     .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
-    @media(max-width:760px){.ns-cards{grid-template-columns:1fr}.inline-cta{flex-direction:column;align-items:flex-start}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.engage-inner{grid-template-columns:1fr}.engage-band{padding:32px 20px}.footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}.cta-section{padding:36px 20px}.next-steps{padding:36px 20px 40px}}
+    @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-wrap{padding:24px 20px}}
+    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.insight-cards{grid-template-columns:1fr}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.next-steps{padding:40px 20px 44px}}
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Mining and Extraction Operations","description":"Shift scheduling for mining and extraction operations: FIFO rotation design, fatigue management, hot seat transitions, and remote workforce planning.","url":"https://shift-work.com/industries/mining-extraction-industries/","datePublished":"2026-04-04","dateModified":"2026-04-04","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"mining shift scheduling, FIFO scheduling, fly-in fly-out operations, mining fatigue management, remote workforce scheduling, underground mining shifts, hot seat change"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Mining and Extraction Operations","description":"Shift scheduling for mining and extraction operations: FIFO rotation design, fatigue management, hot seat transitions, and remote workforce planning.","url":"https://shift-work.com/industries/mining-extraction-industries/","datePublished":"2026-04-04","dateModified":"2026-04-13","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"mining shift scheduling, FIFO scheduling, fly-in fly-out operations, mining fatigue management, remote workforce scheduling, underground mining shifts, hot seat change"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://shift-work.com/industries/"},{"@type":"ListItem","position":3,"name":"Mining & Extraction","item":"https://shift-work.com/industries/mining-extraction-industries/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What makes shift scheduling in mining different from other industries?","acceptedAnswer":{"@type":"Answer","text":"Mining combines heavy equipment, hazardous environments, on-site rotations, and fatigue risk where errors can be catastrophic. Schedule design is a safety-critical discipline, not just workforce management."}},{"@type":"Question","name":"What is a hot seat change and why does it matter for scheduling?","acceptedAnswer":{"@type":"Answer","text":"A hot seat change is an underground shift transition where the incoming operator takes over equipment in place without stopping production. It requires adequate handover time built into the schedule — compressing it creates safety risk."}},{"@type":"Question","name":"What is the right rotation length for a fly-in/fly-out operation?","acceptedAnswer":{"@type":"Answer","text":"There is no universal answer. The right rotation depends on workforce geography, role demands, on-site costs, regulations, and workforce sustainability. Operations that copy neighbors without analysis often pay through unnecessary cost or turnover."}},{"@type":"Question","name":"What does turnover actually cost a mining operation?","acceptedAnswer":{"@type":"Answer","text":"Far more than recruiting alone. Training a new operator to full competency takes 6-12 months with elevated safety risk. The conditions that caused departure will produce the next one unless the scheduling decision is addressed."}},{"@type":"Question","name":"How does fatigue management work in a mining schedule?","acceptedAnswer":{"@type":"Answer","text":"It starts with schedule design, not monitoring policy. A schedule that structurally produces accumulated fatigue creates safety exposure that policy cannot fully address. Site-specific analysis of cumulative fatigue is required."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What makes shift scheduling in mining different from other industries?","acceptedAnswer":{"@type":"Answer","text":"Mining combines heavy equipment, hazardous environments, on-site rotations, and fatigue risk where errors can be catastrophic. Schedule design is a safety-critical discipline, not just workforce management. The stakes associated with getting it wrong are qualitatively different from most industrial settings."}},{"@type":"Question","name":"What is a hot seat change and why does it matter for scheduling?","acceptedAnswer":{"@type":"Answer","text":"A hot seat change is an underground shift transition where the incoming operator takes over equipment in place without stopping production. It requires adequate handover time built into the schedule — compressing it creates safety risk that outweighs whatever production minutes are gained."}},{"@type":"Question","name":"What is the right rotation length for a fly-in/fly-out operation?","acceptedAnswer":{"@type":"Answer","text":"There is no universal answer. The right rotation depends on workforce geography, role demands, on-site cost structure, regulations, and what the workforce will sustain long-term. Operations that copy a neighboring site without analysis often pay through unnecessary cost or accelerated turnover."}},{"@type":"Question","name":"What does turnover actually cost a mining operation?","acceptedAnswer":{"@type":"Answer","text":"Far more than recruiting alone. Training a new operator to full competency takes six months to a year with elevated safety risk during that period. The conditions that caused departure will produce the next one unless the underlying scheduling decision is addressed."}},{"@type":"Question","name":"How does fatigue management work in a mining schedule?","acceptedAnswer":{"@type":"Answer","text":"It starts with schedule design, not monitoring policy. A schedule that structurally produces accumulated fatigue creates safety exposure that policy cannot fully address. Site-specific analysis of cumulative fatigue across the rotation is required — generic guidelines are insufficient."}}]}</script>
 </head>
 <body>
 <nav class="site-nav"><div class="nav-inner">
@@ -187,16 +218,15 @@
     <li><a href="/services/">Our Services</a></li>
     <li><a href="/resources/">Resources</a></li>
     <li><a href="/industries/" class="nav-active">Industries</a></li>
-    <li><a href="/why-us/">Why Us</a></li>
+    <li><a href="/why-us/">Our Company</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
 </div></nav>
 
 <section class="hero"><div class="hero-inner">
-  <div class="hero-eyebrow">Industries</div>
   <h1>Shift Scheduling for Mining and Extraction Operations</h1>
-  <p class="hero-subtitle">Heavy equipment, remote worksites, FIFO rotations, and underground transitions where the schedule is a safety document as much as an operational one.</p>
+  <p class="hero-subtitle">Remote sites, fly-in fly-out logistics, and continuous operations create scheduling complexity that standard approaches don't handle well. Fatigue risk is real, the workforce is difficult to access mid-operation, and safety compliance depends on coverage that doesn't slip. Getting the shift schedule right reduces risk, improves retention, and keeps production moving without burning out the people who make it possible.</p>
   <span class="hero-tag">Mining &amp; Extraction</span>
 </div></section>
 
@@ -205,87 +235,150 @@
 </div></div>
 
 <div class="article-wrap">
-  <div class="article-meta"><span class="meta-tag">Industry Guide</span><span class="meta-read">8 min read</span></div>
+  <div class="article-meta">
+    <span class="meta-tag">Industry Guide</span>
+    <span class="meta-read">8 min read</span>
+  </div>
 
   <p>Mining operations present scheduling challenges found in few other industries. The equipment is among the heaviest and most hazardous in any industrial sector. Locations range from sites close enough to population centers for conventional commutes to operations so remote that workers travel in by plane or bus and live on-site for their entire rotation. And in underground environments, shift transition requirements demand a level of schedule precision that most industries never encounter.</p>
 
-  <div class="client-strip"><div class="client-strip-label">Representative Clients</div><p>BHP, Phelps Dodge, Vale, Potash, Vulcan, and Amax — across surface, underground, and processing environments on multiple continents.</p></div>
+  <div class="client-strip">
+    <div class="client-strip-intro">Mining and Extraction companies that trust Shiftwork Solutions include:</div>
+    <div class="client-strip-scroll">
+      <div class="client-strip-fade-l"></div>
+      <div class="client-strip-fade-r"></div>
+      <div class="client-marquee-track" id="clientTrack">
+        <span class="client-tag">BHP</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">Phelps Dodge</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">Vale</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">Potash</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">Vulcan</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">Amax</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">BHP</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">Phelps Dodge</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">Vale</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">Potash</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">Vulcan</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">Amax</span><span class="client-tag-sep">&middot;</span>
+      </div>
+    </div>
+  </div>
 
   <h2>The Schedule as a Safety Document</h2>
+
   <p>In most industries, a poorly designed shift schedule creates operational inefficiency and workforce dissatisfaction. In mining, it creates safety exposure. The equipment is too heavy, the environments too unforgiving, and the consequences of impaired judgment too severe for schedule design to be treated as an administrative exercise.</p>
+
   <p>Fatigue is not primarily a productivity concern in mining. It is an identified safety hazard — one that belongs in the operation's safety management system alongside ground conditions, blast management, and equipment maintenance. The research on this is consistent: after extended wakefulness, reaction times, decision quality, and hazard recognition all degrade. The affected person is typically unable to accurately assess their own impairment. A fatigued operator positioning a blast or making a judgment call on ground conditions underground may not know how compromised they are.</p>
-  <p>Effective fatigue management starts with schedule design, not policy. Policy and monitoring systems have an important role — but they cannot compensate for a schedule that structurally produces accumulated fatigue. A schedule with a built-in fatigue problem is a safety liability regardless of how well the accompanying policy is written.</p>
+
+  <p>Effective fatigue management starts with schedule design, not policy. Policy and monitoring systems have an important role — but they cannot compensate for a schedule that structurally produces accumulated fatigue. A schedule with a built-in fatigue problem is a safety liability regardless of how well the accompanying policy is written. Shiftwork Solutions incorporates fatigue risk assessment into every mining engagement, evaluating cumulative fatigue across the rotation, recovery adequacy between shifts, and alignment with circadian biology.</p>
 
   <h2>Shift Transitions: From Conventional Handovers to Hot Seat Changes</h2>
-  <p>In most industrial operations, a shift change is straightforward — the outgoing crew leaves and the incoming crew arrives. Mining complicates that, particularly underground, where the distance between the active working face and surface change facilities can make a conventional transition costly in both time and production.</p>
-  <p>Many underground operations use what is called a <strong>hot seat change</strong>: the incoming operator travels to the equipment, receives an in-place briefing, and takes over without interrupting production. Whether the operation uses hot seat changes or conventional handovers, the same principle applies: the schedule must build in adequate time for a proper transition. Schedules that compress or ignore handover time in order to capture additional production minutes create safety risk that outweighs any gain.</p>
-  <p>What "adequate" means is not a number that transfers between operations. It depends on the specific distances, process complexity, and safety-critical information involved at that site.</p>
 
-  <div class="pull-quote"><p>"In mining, the schedule is a safety document as much as it is an operational one. The rotation length, the shift overlap, the recovery windows — these are not administrative details. They determine whether the people operating your equipment are fit to do so safely."</p><div class="pq-attr">— Jim Dillingham, Shiftwork Solutions LLC</div></div>
+  <p>In most industrial operations, a shift change is straightforward — the outgoing crew leaves and the incoming crew arrives. Mining complicates that, particularly underground, where the distance between the active working face and surface change facilities can make a conventional transition costly in both time and production.</p>
+
+  <p>Many underground operations use what is called a <strong>hot seat change</strong>: the incoming operator travels to the equipment, receives an in-place briefing, and takes over without interrupting production. Whether the operation uses hot seat changes or conventional handovers, the same principle applies: the schedule must build in adequate time for a proper transition. Schedules that compress or ignore handover time in order to capture additional production minutes create safety risk that outweighs any gain.</p>
+
+  <p>What "adequate" means is not a number that transfers between operations. It depends on the specific distances, process complexity, and safety-critical information involved at that site. Operations that assume their transition requirements match a neighboring mine's regularly discover they were wrong — at cost.</p>
+
+  <div class="pull-quote">
+    <span class="pull-quote-mark">&#8220;</span>
+    <div class="pull-quote-content">
+      <p>In mining, the schedule is a safety document as much as it is an operational one. The rotation length, the shift overlap, the recovery windows — these are not administrative details. They determine whether the people operating your equipment are fit to do so safely. Getting them right requires understanding the specific demands of the operation, not just applying an industry template.</p>
+      <div class="pq-attr">— Jim Dillingham, Shiftwork Solutions LLC</div>
+    </div>
+  </div>
 
   <h2>Fly-In/Fly-Out and Bus-In/Bus-Out Operations</h2>
-  <p>Where daily commuting is not feasible, fly-in/fly-out (FIFO) and bus-in/bus-out (BIBO) models introduce scheduling complexity that has no parallel in conventional operations. The economics of remote site accommodation shape both rotation length and roster size in ways that a wage-only labor analysis will miss entirely.</p>
-  <p>Rotation length in a FIFO operation is not simply a question of how long workers are willing to be away from home. It is a question of how mobilization frequency, productive time on site, accommodation costs, and workforce sustainability interact — and those interactions look different for every operation. Getting the balance wrong has compounding consequences. Too short a rotation and mobilization costs undermine the economic case. Too long and workforce fatigue and attrition erode the operational benefits.</p>
 
-  <div class="callout-box"><div class="cb-label">A Consistent Finding</div><p>Workers on well-managed FIFO operations often report better sleep quality during their rotation than they achieve at home. The camp environment removes the competing demands on rest that fragment sleep in the home environment. This has real implications for how fatigue should be modeled across a rotation — and it complicates simple assumptions about on-site versus at-home recovery.</p></div>
+  <p>Where daily commuting is not feasible, fly-in/fly-out (FIFO) and bus-in/bus-out (BIBO) models introduce scheduling complexity that has no parallel in conventional operations. The economics of remote site accommodation shape both rotation length and roster size in ways that a wage-only labor analysis will miss entirely.</p>
+
+  <p>Rotation length in a FIFO operation is not simply a question of how long workers are willing to be away from home. It is a question of how mobilization frequency, productive time on site, accommodation costs, and workforce sustainability interact — and those interactions look different for every operation. Getting the balance wrong has compounding consequences. Too short a rotation and mobilization costs undermine the economic case. Too long and workforce fatigue and attrition erode the operational benefits. The right answer requires analysis of the full on-site cost picture, not benchmarking against what neighboring sites do.</p>
+
+  <div class="callout-box">
+    <p>Workers on well-managed FIFO operations often report better sleep quality during their rotation than they achieve at home. The camp environment removes the competing demands on rest that fragment sleep in the home environment. This has real implications for how fatigue should be modeled across a rotation — and it complicates simple assumptions about on-site versus at-home recovery.</p>
+  </div>
 
   <h2>Rotation Design: Why There Is No Universal Answer</h2>
+
   <p>There is no universal right rotation length for mining operations, and operations that design their pattern based on what neighboring sites do often carry unnecessary cost or retention problems as a result. The variables that determine the right rotation are specific to each operation — workforce geography, role demands, on-site cost structure, regulatory requirements, and workforce preferences all factor in, and they interact in ways that are not always intuitive.</p>
+
   <p>A rotation that looks efficient on paper but produces chronic retention problems because workers find the time-away pattern incompatible with their family circumstances is not actually efficient. Turnover in a skilled mining workforce is expensive in ways that standard HR metrics often understate. Recruiting at remote sites is difficult. Training a new equipment operator to full site-specific competency takes six months to a year. The safety risk during a new operator's learning curve is real and measurable.</p>
-  <p>Skill and experience distribution across shifts is a related concern. Experience tends to concentrate on certain shifts over time through seniority-based bidding and informal preference. When that happens, the performance and safety profile of different shifts diverges in ways that are often attributed to individual operators rather than to the scheduling structure that created the imbalance.</p>
+
+  <div class="insight-cards">
+    <div class="insight-card"><div class="ic-title">Safety is the first constraint</div><div class="ic-text">Fatigue belongs in the safety management system alongside ground conditions and blast management — not in the HR policy manual.</div></div>
+    <div class="insight-card"><div class="ic-title">Six months to basic competency</div><div class="ic-text">Training a mining equipment operator to site-specific full qualification. Every departure restarts that clock at full cost.</div></div>
+    <div class="insight-card"><div class="ic-title">No universal rotation</div><div class="ic-text">The right FIFO rotation depends on workforce geography, cost structure, regulations, and sustainability. Benchmarking neighbors is a false shortcut.</div></div>
+  </div>
 
   <h2>Surveying a Remote and Distributed Workforce</h2>
+
   <p>The employee survey process that underpins effective schedule design is both more important and more logistically complex in mining than in conventional operations. Workers on a FIFO rotation are geographically distributed during their off period and concentrated on-site during their rotation. Reaching them meaningfully across both windows — with a process that functions within site communications infrastructure and that workers actually trust — requires more deliberate design than a standard facility survey.</p>
-  <p>Trust is the critical variable. In operations where previous schedule changes were imposed without meaningful consultation, workforce credibility is the most important thing to rebuild before any schedule option is presented. A technically sound schedule that the workforce does not trust will not perform the way it was designed to perform.</p>
 
-  <div class="inline-cta"><div class="inline-cta-text"><h3>Ready to understand what your current rotation is costing?</h3><p>In safety exposure, workforce retention, and total labor cost — a mining schedule analysis uncovers the structure that standard reporting doesn't surface. The first conversation is free.</p></div><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="inline-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
+  <p>Trust is the critical variable. In operations where previous schedule changes were imposed without meaningful consultation, workforce credibility is the most important thing to rebuild before any schedule option is presented. A technically sound schedule that the workforce does not trust will not perform the way it was designed to perform. Grievances rise. Absenteeism patterns shift. The operational benefits that justified the change fail to materialize — not because the schedule was wrong, but because the process that delivered it was.</p>
 
-  <div class="faq-section">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-item"><div class="faq-q">What makes shift scheduling in mining different from other industries?</div><div class="faq-a">Mining combines heavy equipment, hazardous environments, workforces that may live on-site for their entire rotation, and fatigue risk where the consequences of an error can be catastrophic. Schedule design here is a safety-critical discipline, not just a workforce management exercise. The stakes associated with getting it wrong are qualitatively different from most industrial settings — and the expertise required to get it right reflects that difference.</div></div>
-    <div class="faq-item"><div class="faq-q">What is a hot seat change and why does it matter for scheduling?</div><div class="faq-a">A hot seat change is an underground shift transition where the incoming operator travels to the equipment and takes over in place, without bringing production to a stop. It keeps equipment running through the shift change — but it requires adequate time built into the schedule for a proper handover. Compressing that transition to recover production time is a false economy. The safety exposure created by a rushed or incomplete handover in an underground environment is not worth whatever production minutes are gained. What "adequate" time means in practice depends on the specific site, and it varies more than most operations initially expect.</div></div>
-    <div class="faq-item"><div class="faq-q">What is the right rotation length for a fly-in/fly-out operation?</div><div class="faq-a">There is no universal answer. The right rotation depends on workforce geography, role demands, on-site cost structure, applicable regulations, and what the workforce will sustain long-term without producing chronic retention problems. Operations that copy a neighboring site's rotation without that analysis often pay for it through unnecessary cost or accelerated turnover. The rotation length decision is inseparable from the full economic picture of the operation — mobilization frequency, accommodation costs, and productive time on site all interact in ways that require proper modeling rather than benchmarking.</div></div>
-    <div class="faq-item"><div class="faq-q">What does turnover actually cost a mining operation?</div><div class="faq-a">Far more than the recruiting cost alone. Training a new equipment operator to full site-specific competency takes six months to a year. The safety risk during that period is real and measurable — newer operators have a different incident profile than experienced ones. And the conditions that produced the departure — a rotation incompatible with family circumstances, a schedule that doesn't distribute fatigue equitably, shift assignments that consistently disadvantage certain workers — will produce the next departure as well, unless the underlying scheduling decision is addressed. Every replacement cycle carries the full cost again.</div></div>
-    <div class="faq-item"><div class="faq-q">How does fatigue management work in a mining schedule?</div><div class="faq-a">It starts with schedule design, not monitoring policy. A schedule that structurally produces accumulated fatigue across a rotation creates safety exposure that policy cannot fully address after the fact. Effective fatigue management in mining requires understanding how cumulative fatigue builds across consecutive shifts, how recovery between shifts and between rotations compares to what circadian biology actually requires, and how the specific demands of the role affect the risk profile. The interaction between these factors is site-specific. It requires analysis, not the application of generic fatigue guidelines.</div></div>
+  <div class="pull-quote">
+    <span class="pull-quote-mark">&#8220;</span>
+    <div class="pull-quote-content">
+      <p>The right rotation design for a mining operation cannot be arrived at by benchmarking or by applying general workforce management principles to a safety-critical environment. It requires analysis built around the specific conditions of the operation — and the specific people who work it.</p>
+      <div class="pq-attr">— Dan Capshaw, Shiftwork Solutions LLC</div>
+    </div>
   </div>
+
+  <div class="faq-wrap"><div class="faq-wrap-inner">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What makes shift scheduling in mining different from other industries?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Mining combines heavy equipment, hazardous environments, workforces that may live on-site for their entire rotation, and fatigue risk where the consequences of an error can be catastrophic. Schedule design here is a safety-critical discipline, not just a workforce management exercise. The stakes associated with getting it wrong are qualitatively different from most industrial settings — and the expertise required to get it right reflects that difference.</div></div></div>
+
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What is a hot seat change and why does it matter for scheduling?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">A hot seat change is an underground shift transition where the incoming operator travels to the equipment and takes over in place, without bringing production to a stop. It keeps equipment running through the shift change — but it requires adequate time built into the schedule for a proper handover. Compressing that transition to recover production time is a false economy. The safety exposure created by a rushed or incomplete handover in an underground environment is not worth whatever production minutes are gained. What "adequate" time means in practice depends on the specific site, and it varies more than most operations initially expect.</div></div></div>
+
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What is the right rotation length for a fly-in/fly-out operation?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">There is no universal answer. The right rotation depends on workforce geography, role demands, on-site cost structure, applicable regulations, and what the workforce will sustain long-term without producing chronic retention problems. Operations that copy a neighboring site's rotation without that analysis often pay for it through unnecessary cost or accelerated turnover. The rotation length decision is inseparable from the full economic picture of the operation — mobilization frequency, accommodation costs, and productive time on site all interact in ways that require proper modeling rather than benchmarking.</div></div></div>
+
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What does turnover actually cost a mining operation?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Far more than the recruiting cost alone. Training a new equipment operator to full site-specific competency takes six months to a year. The safety risk during that period is real and measurable — newer operators have a different incident profile than experienced ones. And the conditions that produced the departure — a rotation incompatible with family circumstances, a schedule that doesn't distribute fatigue equitably, shift assignments that consistently disadvantage certain workers — will produce the next departure as well, unless the underlying scheduling decision is addressed. Every replacement cycle carries the full cost again.</div></div></div>
+
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How does fatigue management work in a mining schedule?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">It starts with schedule design, not monitoring policy. A schedule that structurally produces accumulated fatigue across a rotation creates safety exposure that policy cannot fully address after the fact. Effective fatigue management in mining requires understanding how cumulative fatigue builds across consecutive shifts, how recovery between shifts and between rotations compares to what circadian biology actually requires, and how the specific demands of the role — night driving on haul roads, extended underground exposure, blast management — affect the risk profile. The interaction between these factors is site-specific. It requires analysis, not the application of generic fatigue guidelines.</div></div></div>
+  </div></div>
+
 </div>
 
 <section class="next-steps"><div class="next-steps-inner">
+  <div class="next-steps-eyebrow">Where to go from here</div>
   <h2>Next Steps &amp; Resources</h2>
+  <p class="next-steps-sub">Talk to an expert, read the guide, or run a quick diagnostic on your current operation.</p>
   <div class="ns-cards">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card" target="_blank" rel="noopener"><div class="ns-card-label">Free Consultation</div><h3>Talk to a Shiftwork Expert</h3><p>Share the basics of your current rotation, workforce model, and operational pressures. We'll identify where a schedule analysis is most likely to find value.</p><span class="ns-card-link">Book a free meeting</span></a>
-    <a href="/resources/shift-schedule-patterns-guide/" class="ns-card"><div class="ns-card-label">Complete Guide</div><h3>Schedule Patterns &amp; Rotation Design</h3><p>Explore how different shift patterns handle continuous coverage, extended rotations, and variable demand — including the tradeoffs that determine which approaches work in remote and FIFO environments.</p><span class="ns-card-link">Read the guide</span></a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card"><div class="ns-card-label">Diagnostic Tool</div><h3>26 Warning Signs</h3><p>The operational symptoms that signal when your shiftwork system needs attention — including fatigue-related and retention signals most common in mining environments.</p><span class="ns-card-link">Read the diagnostic</span></a>
+    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card ns-accent-blue" target="_blank" rel="noopener"><div class="ns-card-label">Free Consultation</div><h3>Talk to a Shiftwork Expert</h3><p>Share the basics of your current rotation, workforce model, and operational pressures. We'll identify where a schedule analysis is most likely to find value.</p><span class="ns-card-link">Book a free meeting</span></a>
+    <a href="/resources/shift-schedule-patterns-guide/" class="ns-card ns-accent-orange"><div class="ns-card-label">Complete Guide</div><h3>Schedule Patterns &amp; Rotation Design</h3><p>How different shift patterns handle continuous coverage, extended rotations, and FIFO environments — including the tradeoffs that determine which approaches work in remote operations.</p><span class="ns-card-link">Read the guide</span></a>
+    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green"><div class="ns-card-label">Diagnostic Tool</div><h3>26 Warning Signs</h3><p>The operational symptoms that signal when your shiftwork system needs attention — including fatigue-related and retention signals most common in mining environments.</p><span class="ns-card-link">Read the diagnostic</span></a>
   </div>
   <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
 </div></section>
 
-<section class="cta-section"><div class="cta-section-inner">
-  <h2>The right rotation for a mining operation can't be arrived at by benchmarking.</h2>
-  <p>It requires analysis built around the specific conditions of the operation — and the specific people who work it. The first conversation is free.</p>
-  <div class="cta-actions">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="cta-primary" target="_blank" rel="noopener">Book a Free Consultation</a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="cta-secondary">Read the 26 Warning Signs →</a>
-  </div>
-</div></section>
-
-<div class="engage-band"><div class="engage-inner">
-  <div class="engage-thomas"><div class="engage-label">AI Advisor</div><div class="engage-thomas-title">Talk to Thomas</div><p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p><a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a></div>
-  <div class="engage-nl"><div class="engage-label">Newsletter</div><div class="engage-nl-title">Stay Sharp on Shift Operations</div><p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
-</div></div>
-
-<footer class="site-footer"><div class="footer-inner">
-  <span class="footer-logo">Shiftwork Solutions LLC</span><span>(415) 265-1621</span>
-  <span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></span>
-  <div class="footer-links-row"><a href="/resources/">Resources</a><a href="/industries/">Industries</a><a href="/services/">Services</a><a href="/contact/">Contact</a></div>
-  <span>&copy; 2026 Shiftwork Solutions LLC</span>
-</div></footer>
+<footer class="site-footer">
+  <div class="footer-prefooter"><div class="footer-wrap">
+    <div class="footer-content-row">
+      <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">Mining and extraction operations require schedule design that treats fatigue as a safety issue, not an operational one. The first conversation is always free.</p></div>
+      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p></div>
+      <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
+    </div>
+    <div class="footer-cta-row">
+      <div class="footer-cta-1"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a></div>
+      <div class="footer-cta-2"><a href="https://shift-work-diagnostic.onrender.com/" class="footer-cta-btn" target="_blank" rel="noopener">Start a Conversation &#x2192;</a></div>
+      <div class="footer-cta-3"><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
+    </div>
+  </div></div>
+  <div class="footer-bottom"><div class="footer-bottom-inner">
+    <div class="footer-bottom-left"><span class="footer-bottom-brand">Shiftwork Solutions LLC</span><a href="tel:+14152651621">(415) 265-1621</a><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
+    <span>&copy; 2026 Shiftwork Solutions LLC</span>
+  </div></div>
+</footer>
 
 <button class="listen-btn" id="listenBtn" aria-label="Listen to this article"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg><span id="listenLabel">Listen</span></button>
+
 <script>
-  document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
-  (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
-  (function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p, h2');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim());});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
+document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
+(function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
+(function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
+(function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
+(function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p, h2');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim());});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
 </script>
 </body>
 </html>
