@@ -23,9 +23,11 @@
                  3. SEO: Added FAQPage JSON-LD for 6 FAQ questions
                  4. URL: All /our-team/ refs → /our_team/
 
-    2026-04-13 — NAV RENAME — "Why Us" → "Our Company":
+    2026-04-13 — NAV RENAME + HERO BACKGROUND:
                  - Nav link display text changed from "Why Us" to "Our Company"
                  - URL remains /why-us/ (no URL change)
+                 - Hero background: replaced shutterstock image + gradient overlay
+                   with second.png image matching resources page treatment
                  - Footer uses simple row format — no "Why Us" link present, no change needed
                  - All body content, styles, JS, schemas unchanged
 
@@ -93,9 +95,8 @@
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-    .hero{background:var(--navy);padding:52px 36px 56px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;inset:0;background:url('/images/shutterstock_1502038526.jpg') right center / auto 100% no-repeat;opacity:1;z-index:0}
-    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right, var(--navy) 45%, rgba(31,78,121,0.85) 65%, transparent 100%);z-index:0}
+    .hero{background:#0D1F3C url('/images/second.png') center center/cover no-repeat;padding:52px 36px 56px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.82) 0%,rgba(13,31,60,.60) 55%,rgba(13,31,60,.30) 100%);z-index:0;pointer-events:none}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
     .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:12px}
     .hero h1{font-size:30px;font-weight:700;line-height:1.2;color:var(--white);max-width:540px;margin-bottom:14px}
