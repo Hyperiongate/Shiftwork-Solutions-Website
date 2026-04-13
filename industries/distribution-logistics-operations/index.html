@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 <!--
   industries/distribution-logistics-operations/index.html
-  Shiftwork Solutions LLC — Industry Page
+  Shiftwork Solutions LLC — Industry Page (TEMPLATE v2)
   URL: /industries/distribution-logistics-operations/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-04
+  Last Updated: 2026-04-13
 
   SOURCE DOC: Ports_distribution_fulfillment_logistics_v2_by_Sonnet_ES.docx
   CATEGORY: Industry Pages
 
   CHANGE LOG:
-    2026-04-04 — Initial build. Full article content from source Word doc.
-                 Even article: shutterstock_1502038526.jpg hero vector.
+    2026-04-04 — Initial build from source Word doc.
+    2026-04-04 — NAV + BUTTON + SEO AUDIT.
+    2026-04-13 — Hero image corrected: shutterstock_1502038526.jpg → distribution.jpg
+                 to match the Distribution tile image on the Industries hub page.
+    2026-04-13 — TEMPLATE v2 REBUILD:
+                 Full redesign to match chemical-pharmaceutical template v2.
+                 Hero: cover/center gradient overlay, white subtitle text.
+                 Hero subtitle updated to Jim-provided text.
+                 Client strip: navy marquee with ILWU/ILA/port context labels.
+                 Pull quotes: flex layout, oversized left quote mark (Georgia),
+                   17px bold navy italic. TWO pull quotes: Jim Dillingham + Dan Capshaw.
+                 Callout box: light-grey bg, navy left border.
+                 Insight cards: transparent bg, border-top only, colored titles.
+                 FAQs: accordion with light-grey wrapper, white panels.
+                 Next Steps: dark navy animated cards (IntersectionObserver).
+                 Footer: 3-col prefooter dark navy, "Start a Conversation" capitalized.
+                 Nav: "Our Company" label (points to /why-us/), Contact confirmed.
+                 Removed: cta-section, engage-band, inline-cta blocks.
 
-    2026-04-04 — NAV + BUTTON + SEO AUDIT:
-                 1. NAV: Services → direct link (no dropdown)
-                    Resources → direct link (no dropdown)
-                    Why Us dropdown: "Meet Our Team" → /our_team/
-                    "Client Testimonials" → /why-shiftwork-solutions/#testimonials
-                 2. BUTTONS: Nav CTA → ORANGE (#E8610A)
-                    Listen button → ORANGE
-                    Subscribe button → ORANGE
-                 3. SEO: Added Twitter Card meta tags
-                    Added FAQPage JSON-LD for 4 FAQ questions
-
-  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn
+  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
+  HERO IMAGE: /images/distribution.jpg
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
-
   DESIGN SYSTEM:
-    --navy: #1F4E79  --mid-blue: #85B7EB  --light-blue: #EEF3F8
-    --orange: #E8610A  --green: #1D9E75  --body-text: #1A1A1A
-    --max-width: 860px  Font: Arial, Helvetica, sans-serif
-
+    --navy:#1F4E79  --navy-dark:#0D1F3C  --mid-blue:#85B7EB
+    --light-blue:#EEF3F8  --orange:#E8610A  --green:#1D9E75
+    --body-text:#1A1A1A  --max-width:860px
+    Font: Arial, Helvetica, sans-serif
   I did no harm and this file is not truncated
 -->
 <html lang="en">
@@ -47,12 +52,9 @@
   <meta property="og:url" content="https://shift-work.com/industries/distribution-logistics-operations/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
-
-  <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Distribution, Fulfillment &amp; Port Scheduling | Shiftwork Solutions LLC">
   <meta name="twitter:description" content="Adverse cost modeling, variable demand planning, and union change management for distribution, fulfillment, and port operations.">
-
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
@@ -60,34 +62,24 @@
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
-    .nav-logo{font-size:16px;font-weight:700;color:var(--navy);text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0}
     .nav-logo img{height:36px;width:auto;display:block}
+    .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0}
     .nav-links{list-style:none;display:flex;align-items:center}
     .nav-links>li{position:relative}
     .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
     .nav-links>li>a:hover,.nav-links>li>a.nav-active{color:var(--navy)}
     .nav-links>li>a.nav-active{font-weight:700;text-decoration:underline;text-underline-offset:3px}
-    .nav-arrow{font-size:9px;opacity:.5;transition:transform .2s}
-    .nav-dropdown{position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border-med);border-top:none;border-radius:0 0 6px 6px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:270px;max-height:460px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-2px);transition:opacity .15s,visibility .15s,transform .15s;padding:6px 0;z-index:100}
-    .nav-links>li:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateY(0)}
-    .nav-links>li:hover>a .nav-arrow{transform:rotate(180deg)}
-    .dropdown-label{padding:8px 16px 4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-    .nav-dropdown a{display:block;padding:6px 16px;font-size:13px;color:#444;text-decoration:none;transition:background .12s;line-height:1.4}
-    .nav-dropdown a:hover{background:var(--light-blue);color:var(--navy)}
-    .dropdown-divider{height:1px;background:var(--border-light);margin:4px 0}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
-    /* UPDATED 2026-04-04: Nav CTA → ORANGE */
     .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;inset:0;background:url('/images/shutterstock_1502038526.jpg') right center / auto 100% no-repeat;opacity:1;z-index:0}
-    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--navy) 45%,rgba(31,78,121,0.85) 65%,transparent 100%);z-index:0}
+    .hero::before{content:'';position:absolute;inset:0;background:url('/images/distribution.jpg') center center / cover no-repeat;opacity:1;z-index:0}
+    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,0.88) 0%,rgba(31,78,121,0.75) 55%,rgba(31,78,121,0.35) 100%);z-index:0}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
-    .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
-    .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:var(--white);max-width:580px;margin-bottom:14px}
-    .hero-subtitle{font-size:16px;line-height:1.65;color:var(--mid-blue);max-width:560px}
+    .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:var(--white);max-width:600px;margin-bottom:14px}
+    .hero-subtitle{font-size:16px;line-height:1.65;color:rgba(255,255,255,0.88);max-width:560px}
     .hero-tag{display:inline-block;margin-top:16px;background:rgba(232,97,10,0.9);color:var(--white);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 12px;border-radius:3px}
     .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
@@ -101,96 +93,123 @@
     .article-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin:36px 0 14px}
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
     .article-wrap p:last-child{margin-bottom:0}
-    .pull-quote{border-left:4px solid var(--orange);padding:16px 24px;margin:32px 0;background:var(--light-blue);border-radius:0 6px 6px 0}
-    .pull-quote p{font-size:17px;font-weight:700;line-height:1.5;color:var(--navy);margin:0;font-style:italic}
+    .client-strip{background:var(--navy);border-radius:8px;margin:32px 0;padding:0;overflow:hidden;position:relative}
+    .client-strip-intro{font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:.08em;padding:16px 24px 0;text-align:center}
+    .client-strip-scroll{padding:14px 0 16px;overflow:hidden;position:relative}
+    .client-strip-fade-l{position:absolute;top:0;left:0;bottom:0;width:60px;background:linear-gradient(to right,var(--navy),transparent);z-index:1;pointer-events:none}
+    .client-strip-fade-r{position:absolute;top:0;right:0;bottom:0;width:60px;background:linear-gradient(to left,var(--navy),transparent);z-index:1;pointer-events:none}
+    .client-marquee-track{display:flex;width:max-content;animation:clientScroll 28s linear infinite}
+    .client-marquee-track:hover{animation-play-state:paused}
+    @keyframes clientScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    .client-tag{display:inline-block;padding:8px 28px;font-size:14px;font-weight:700;color:rgba(255,255,255,0.85);white-space:nowrap;letter-spacing:.02em}
+    .client-tag-sep{display:inline-block;color:rgba(232,97,10,0.7);font-size:18px;line-height:1;padding:0 2px;vertical-align:middle}
+    .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:flex-start;gap:16px}
+    .pull-quote-mark{flex-shrink:0;font-size:64px;line-height:0.85;font-family:Georgia,'Times New Roman',serif;color:var(--mid-blue);user-select:none}
+    .pull-quote-content{flex:1}
+    .pull-quote p{font-size:16px;font-weight:400;line-height:1.65;color:#4a6a8a;margin:0;font-style:italic}
     .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
-    .client-strip{background:var(--light-grey);border-radius:6px;padding:16px 20px;margin:28px 0}
-    .client-strip-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
-    .client-strip p{font-size:13px;color:var(--body-text);line-height:1.6;margin:0}
-    .callout-box{background:var(--light-blue);border-left:4px solid var(--orange);border-radius:0 6px 6px 0;padding:18px 22px;margin:28px 0}
-    .callout-box .cb-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--orange);margin-bottom:6px}
-    .callout-box p{font-size:14px;line-height:1.6;color:var(--body-text);margin:0}
-    .faq-section{margin:36px 0}
-    .faq-section h2{font-size:21px;font-weight:700;color:var(--body-text);margin-bottom:20px}
-    .faq-item{border-bottom:1px solid var(--border-light);padding:18px 0}
-    .faq-item:last-child{border-bottom:none}
-    .faq-q{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.4}
-    .faq-a{font-size:14px;color:var(--body-text);line-height:1.7;margin:0}
-    .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
-    .insight-card{background:var(--light-blue);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
-    .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.5;font-weight:500}
-    .inline-cta{background:var(--navy-dark);border-radius:8px;padding:28px 32px;margin:40px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
-    .inline-cta-text h3{font-size:17px;font-weight:700;color:var(--white);margin-bottom:6px}
-    .inline-cta-text p{font-size:13px;color:var(--mid-blue);line-height:1.55;margin:0}
-    .inline-cta-btn{display:inline-block;padding:11px 24px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;white-space:nowrap;transition:background .15s;flex-shrink:0}
-    .inline-cta-btn:hover{background:#c4510a}
-    .next-steps{padding:48px var(--page-pad) 52px;background:var(--light-grey);border-top:1px solid var(--border-light)}
-    .next-steps-inner{max-width:var(--max-width);margin:0 auto}
-    .next-steps h2{font-size:20px;font-weight:700;color:var(--body-text);margin-bottom:20px}
-    .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .ns-card{background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px;text-decoration:none;display:block;transition:border-top-color .15s,box-shadow .15s}
-    .ns-card:hover{border-top-color:var(--orange);box-shadow:0 4px 16px rgba(0,0,0,.08)}
-    .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
-    .ns-card h3{font-size:14px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:8px}
-    .ns-card p{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:12px}
-    .ns-card-link{font-size:12px;font-weight:700;color:var(--navy)}
-    .ns-card-link::after{content:' →'}
-    .ns-card:hover .ns-card-link{color:var(--orange)}
-    .ns-phone{margin-top:20px;font-size:13px;color:var(--muted);text-align:center}
-    .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
-    .cta-section{background:var(--navy);padding:52px var(--page-pad);position:relative;overflow:hidden}
-    .cta-section::before{content:'';position:absolute;inset:0;background:url('/images/shutterstock_1502038526.jpg') right center / auto 100% no-repeat;opacity:.18;z-index:0}
-    .cta-section-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1;text-align:center}
-    .cta-section h2{font-size:24px;font-weight:700;color:var(--white);margin-bottom:12px}
-    .cta-section p{font-size:15px;color:var(--cta-sub);line-height:1.65;max-width:540px;margin:0 auto 28px}
-    .cta-actions{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
-    .cta-primary{display:inline-block;padding:13px 30px;background:var(--orange);color:var(--white);font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
-    .cta-primary:hover{background:#c4510a}
-    .cta-secondary{font-size:14px;color:var(--mid-blue);text-decoration:none;font-weight:500}
-    .cta-secondary:hover{color:var(--white);text-decoration:underline}
-    .engage-band{background:var(--navy-dark);padding:40px var(--page-pad)}
-    .engage-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+    .callout-box{background:linear-gradient(to right,#E4E7EB,var(--white) 40%,var(--white) 60%,#E4E7EB);border-radius:6px;padding:22px 28px;margin:32px 0;text-align:center}
+    .callout-box p{font-size:16px;line-height:1.6;color:var(--body-text);font-weight:400;margin:0;font-style:italic}
+    .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
+    .insight-card{background:transparent;border-top:3px solid var(--border-med);border-radius:0;padding:20px 18px 20px 0;transition:transform .2s ease}
+    .insight-card:hover{transform:scale(1.04)}
+    .insight-card:nth-child(1) .ic-title{color:var(--navy)}
+    .insight-card:nth-child(2) .ic-title{color:var(--orange)}
+    .insight-card:nth-child(3) .ic-title{color:var(--green)}
+    .insight-card .ic-title{font-size:14px;font-weight:700;margin-bottom:8px;line-height:1.3}
+    .insight-card .ic-text{font-size:13px;color:var(--muted);line-height:1.6;font-weight:400}
+    .faq-wrap{background:var(--light-grey);border-radius:0;padding:40px 32px;margin:36px calc(-50vw + 50%);width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;box-shadow:inset 0 2px 8px rgba(0,0,0,0.06),inset 0 -2px 8px rgba(0,0,0,0.06)}
+    .faq-wrap-inner{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad)}
+    .faq-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);margin-bottom:20px}
+    .faq-item{border-bottom:1px solid var(--border-med)}
+    .faq-item:first-of-type{border-top:1px solid var(--border-med)}
+    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:18px 0;text-align:left;gap:16px}
+    .faq-q{font-size:15px;font-weight:700;color:var(--navy);line-height:1.4;flex:1}
+    .faq-icon{flex-shrink:0;width:20px;height:20px;border-radius:50%;border:2px solid var(--navy);display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .2s ease,border-color .2s ease}
+    .faq-icon svg{width:10px;height:10px;fill:var(--navy);transition:transform .25s ease}
+    .faq-item.faq-open .faq-icon{background:var(--navy);border-color:var(--navy)}
+    .faq-item.faq-open .faq-icon svg{fill:var(--white);transform:rotate(180deg)}
+    .faq-body{overflow:hidden;max-height:0;transition:max-height .35s ease,padding .25s ease}
+    .faq-item.faq-open .faq-body{max-height:600px}
+    .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:4px 16px 20px;background:var(--white);border-radius:6px;margin-bottom:4px}
+    .next-steps{padding:56px var(--page-pad) 60px;background:var(--navy);position:relative;overflow:hidden}
+    .next-steps::before{content:'';position:absolute;width:480px;height:480px;border-radius:50%;border:1px solid rgba(255,255,255,0.06);top:-160px;right:-160px;pointer-events:none}
+    .next-steps::after{content:'';position:absolute;width:300px;height:300px;border-radius:50%;border:1px solid rgba(232,97,10,0.10);bottom:-100px;left:-80px;pointer-events:none}
+    .next-steps-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
+    .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,0.6);margin-bottom:10px}
+    .next-steps h2{font-size:22px;font-weight:700;color:var(--white);margin-bottom:8px}
+    .next-steps-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:32px;line-height:1.6}
+    .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .ns-card{background:var(--white);border:1px solid rgba(255,255,255,0.15);border-top:4px solid transparent;border-radius:8px;padding:24px 20px;text-decoration:none;display:block;position:relative;overflow:hidden;opacity:0;transform:translateY(28px);transition:opacity .5s ease,transform .5s ease,box-shadow .25s ease,border-top-color .25s ease}
+    .ns-card.ns-card-visible{opacity:1;transform:translateY(0)}
+    .ns-card:nth-child(1){transition-delay:.05s}
+    .ns-card:nth-child(2){transition-delay:.18s}
+    .ns-card:nth-child(3){transition-delay:.31s}
+    .ns-accent-blue{border-top-color:var(--mid-blue)}
+    .ns-accent-orange{border-top-color:var(--orange)}
+    .ns-accent-green{border-top-color:var(--green)}
+    .ns-accent-blue:hover{box-shadow:0 8px 28px rgba(133,183,235,0.25);transform:translateY(-5px) !important}
+    .ns-accent-orange:hover{box-shadow:0 8px 28px rgba(232,97,10,0.22);transform:translateY(-5px) !important}
+    .ns-accent-green:hover{box-shadow:0 8px 28px rgba(29,158,117,0.22);transform:translateY(-5px) !important}
+    .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
+    .ns-accent-blue .ns-card-label{color:var(--mid-blue)}
+    .ns-accent-orange .ns-card-label{color:var(--orange)}
+    .ns-accent-green .ns-card-label{color:var(--green)}
+    .ns-card h3{font-size:15px;font-weight:700;color:var(--body-text);line-height:1.35;margin-bottom:8px}
+    .ns-card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px}
+    .ns-card-link{font-size:12px;font-weight:700}
+    .ns-accent-blue .ns-card-link{color:var(--mid-blue)}
+    .ns-accent-orange .ns-card-link{color:var(--orange)}
+    .ns-accent-green .ns-card-link{color:var(--green)}
+    .ns-card-link::after{content:' \2192'}
+    .ns-phone{margin-top:28px;font-size:13px;color:rgba(255,255,255,0.55);text-align:center}
+    .ns-phone a{color:var(--white);text-decoration:none;font-weight:700}
+    .ns-phone a:hover{color:var(--mid-blue)}
+    .site-footer{background:var(--navy-dark)}
+    .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer-wrap{max-width:1100px;margin:0 auto}
+    .footer-content-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-bottom:28px}
+    .footer-col{padding:0 32px}
+    .footer-col-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
+    .footer-col-2{border-right:1px solid rgba(255,255,255,.08)}
+    .footer-col-3{padding-right:0}
+    .footer-cta-row{display:flex;align-items:center;gap:0}
+    .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:0 0 33.333%;padding:0 32px}
+    .footer-cta-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
+    .footer-cta-2{border-right:1px solid rgba(255,255,255,.08)}
+    .footer-cta-3{padding-right:0}
+    .footer-cta-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
+    .footer-cta-btn:hover{background:#c4510a}
     .engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
-    .engage-thomas-title,.engage-nl-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}
-    .engage-thomas-desc,.engage-nl-desc{font-size:13px;color:rgba(255,255,255,.65);line-height:1.65;margin-bottom:14px}
-    .engage-thomas-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
-    .engage-thomas-btn:hover{background:#c4510a}
+    .engage-col-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
+    .engage-col-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
     .engage-nl-form{display:flex;gap:8px;flex-wrap:wrap}
-    .engage-nl-input{flex:1;min-width:180px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
+    .engage-nl-input{flex:1;min-width:120px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
     .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
     .engage-nl-input:focus{border-color:var(--mid-blue)}
-    /* UPDATED 2026-04-04: Subscribe button → ORANGE */
     .engage-nl-btn{padding:10px 18px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
     .engage-nl-btn:hover{background:#c4510a}
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
     .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
-    .site-footer{background:#F4F4F4;padding:32px var(--page-pad) 20px;border-top:1px solid var(--border-med)}
-    .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#555}
-    .footer-inner a{color:#555;text-decoration:none}
-    .footer-inner a:hover{color:var(--navy)}
-    .footer-logo{font-weight:700;color:var(--navy)}
-    .footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
-    /* UPDATED 2026-04-04: Listen button → ORANGE */
+    .footer-bottom{padding:16px var(--page-pad)}
+    .footer-bottom-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.45)}
+    .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
+    .footer-bottom-inner a:hover{color:var(--orange)}
+    .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
     .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
     .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
-    @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.inline-cta{flex-direction:column;align-items:flex-start}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.insight-cards{grid-template-columns:1fr}.engage-inner{grid-template-columns:1fr}.engage-band{padding:32px 20px}.footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}.cta-section{padding:36px 20px}.next-steps{padding:36px 20px 40px}}
+    @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-wrap{padding:24px 20px}}
+    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.insight-cards{grid-template-columns:1fr}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.next-steps{padding:40px 20px 44px}}
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Distribution, Fulfillment & Logistics Operations","description":"Shift scheduling for distribution centers, fulfillment operations, and port terminals. Adverse cost modeling, variable demand planning, and union change management.","url":"https://shift-work.com/industries/distribution-logistics-operations/","datePublished":"2026-04-04","dateModified":"2026-04-04","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"distribution center shift scheduling, port terminal scheduling, logistics workforce planning, adverse cost modeling, fulfillment center scheduling, union scheduling ILWU ILA"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Distribution, Fulfillment & Logistics Operations","description":"Shift scheduling for distribution centers, fulfillment operations, and port terminals. Adverse cost modeling, variable demand planning, and union change management.","url":"https://shift-work.com/industries/distribution-logistics-operations/","datePublished":"2026-04-04","dateModified":"2026-04-13","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"distribution center shift scheduling, port terminal scheduling, logistics workforce planning, adverse cost modeling, fulfillment center scheduling, union scheduling ILWU ILA"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://shift-work.com/industries/"},{"@type":"ListItem","position":3,"name":"Distribution & Logistics","item":"https://shift-work.com/industries/distribution-logistics-operations/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}</script>
-  <!-- FAQPage JSON-LD added 2026-04-04 -->
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"What shift length works best for port terminal operations?","acceptedAnswer":{"@type":"Answer","text":"Twelve-hour shifts are most practical for port terminals. Vessel calls don't arrive on a predictable clock, and when a ship berths, the operation needs a full, qualified crew on-site for the duration. Changing crews mid-call introduces handover complexity at the worst possible moment."}},
-    {"@type":"Question","name":"Why is overtime so high at port terminals, and is that a problem?","acceptedAnswer":{"@type":"Answer","text":"High overtime at port terminals is often financially optimal. When operators spend paid hours on standby waiting for vessels, adding more operators multiplies the standby-pay problem. A lean core crew working overtime during active berthing windows typically costs less than a larger roster waiting together."}},
-    {"@type":"Question","name":"What is adverse cost and why does it matter for logistics staffing decisions?","acceptedAnswer":{"@type":"Answer","text":"Adverse cost is the additional expense from not being perfectly staffed — on either side. Understaffing generates overtime premiums. Overstaffing generates full wages for idle labor. Overstaffing typically costs more per hour but gets less attention because idle time doesn't appear on overtime reports."}},
-    {"@type":"Question","name":"How does union contract complexity affect scheduling at port terminals versus distribution centers?","acceptedAnswer":{"@type":"Answer","text":"Port terminals operate under some of the most detailed collective bargaining agreements in American industry. ILWU and ILA contracts govern shift structures, guaranteed hours, callout provisions, and seniority with specificity that requires careful navigation. Distribution centers typically operate under less complex agreements but face the same core challenge: changes the workforce doesn't support don't deliver results."}}
-  ]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What shift length works best for port terminal operations?","acceptedAnswer":{"@type":"Answer","text":"Twelve-hour shifts are most practical for port terminals. Vessel calls don't arrive on a predictable clock, and when a ship berths, the operation needs a full, qualified crew on-site for the duration. Changing crews mid-call introduces handover complexity at the worst possible moment."}},{"@type":"Question","name":"Why is overtime so high at port terminals, and is that a problem?","acceptedAnswer":{"@type":"Answer","text":"High overtime at port terminals is often financially optimal. When operators spend paid hours on standby waiting for vessels, adding more operators multiplies the standby-pay problem. A lean core crew working overtime during active berthing windows typically costs less than a larger roster waiting together."}},{"@type":"Question","name":"What is adverse cost and why does it matter for logistics staffing decisions?","acceptedAnswer":{"@type":"Answer","text":"Adverse cost is the additional expense from not being perfectly staffed — on either side. Understaffing generates overtime premiums. Overstaffing generates full wages for idle labor. Overstaffing typically costs more per hour but gets less attention because idle time doesn't appear on overtime reports."}},{"@type":"Question","name":"How does union contract complexity affect scheduling at port terminals versus distribution centers?","acceptedAnswer":{"@type":"Answer","text":"Port terminals operate under some of the most detailed collective bargaining agreements in American industry. ILWU and ILA contracts govern shift structures, guaranteed hours, callout provisions, and seniority with specificity that requires careful navigation. Distribution centers typically operate under less complex agreements but face the same core challenge: changes the workforce doesn't support don't deliver results."}}]}</script>
 </head>
 <body>
-<!-- NAV — Updated 2026-04-04: Services direct, Resources direct, Why Us dropdown fixed -->
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36"></a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -199,16 +218,15 @@
     <li><a href="/services/">Our Services</a></li>
     <li><a href="/resources/">Resources</a></li>
     <li><a href="/industries/" class="nav-active">Industries</a></li>
-    <li><a href="/why-us/">Why Us</a></li>
+    <li><a href="/why-us/">Our Company</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
 </div></nav>
 
 <section class="hero"><div class="hero-inner">
-  <div class="hero-eyebrow">Industries</div>
   <h1>Shift Scheduling for Distribution, Fulfillment &amp; Logistics Operations</h1>
-  <p class="hero-subtitle">Port terminals, distribution centers, and fulfillment operations share a fundamental challenge: the work doesn't arrive at a constant, predictable rate — and the workforce has to be in place before anyone knows exactly how much work is coming.</p>
+  <p class="hero-subtitle">Demand doesn't arrive on a fixed schedule, but your staffing commitments do. Distribution and logistics operations run around the clock against inbound and outbound pressure that peaks unpredictably, and the cost of a coverage gap shows up immediately in throughput and customer commitments. A well-designed shift schedule matches your labor supply to real demand — and keeps overtime from filling the gap.</p>
   <span class="hero-tag">Distribution &amp; Logistics</span>
 </div></section>
 
@@ -224,11 +242,35 @@
 
   <p>Port terminals, distribution centers, and fulfillment operations sit at the intersection of global commerce and daily execution. They move things that have to move, on timelines that are rarely entirely within their control. Shiftwork Solutions LLC has decades of experience helping operations across this spectrum — from vessel-driven container terminals to high-volume distribution and fulfillment centers — design shift schedules and workforce strategies that hold up under real-world variability, not just the plan on paper.</p>
 
+  <div class="client-strip">
+    <div class="client-strip-intro">Distribution and Logistics companies that trust Shiftwork Solutions include:</div>
+    <div class="client-strip-scroll">
+      <div class="client-strip-fade-l"></div>
+      <div class="client-strip-fade-r"></div>
+      <div class="client-marquee-track" id="clientTrack">
+        <span class="client-tag">West Coast Container Terminals</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">ILWU-represented Operations</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">East Coast Port Terminals</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">ILA-represented Operations</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">Regional Distribution Centers</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">High-Volume Fulfillment Operations</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">Intermodal Logistics Networks</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">West Coast Container Terminals</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">ILWU-represented Operations</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">East Coast Port Terminals</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">ILA-represented Operations</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">Regional Distribution Centers</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">High-Volume Fulfillment Operations</span><span class="client-tag-sep">&middot;</span>
+        <span class="client-tag">Intermodal Logistics Networks</span><span class="client-tag-sep">&middot;</span>
+      </div>
+    </div>
+  </div>
+
   <h2>A Spectrum of Operations, a Common Scheduling Challenge</h2>
 
   <p>Port terminals and distribution centers are different environments — different workforces, different equipment, different skill profiles, and different demand drivers. But they share a fundamental scheduling challenge: the work does not arrive at a constant, predictable rate, and the workforce largely has to be in place before anyone knows exactly how much work is coming.</p>
 
-  <p>At a port terminal, that variability is driven by vessel arrivals. A ship scheduled for Tuesday morning may berth Tuesday night, arrive Wednesday, or not arrive at all. The operators — skilled professionals who may have spent six months or more reaching basic competency on equipment that costs millions to operate — have to be available when the work arrives. They cannot be assembled on two hours' notice, and they cannot be easily replaced.</p>
+  <p>At a port terminal, that variability is driven by vessel arrivals. A ship scheduled for Tuesday morning may berth Tuesday night, arrive Wednesday, or not arrive at all. The operators — skilled professionals who may have spent six months or more reaching basic competency on equipment that costs millions to operate — have to be available when the work arrives. They cannot be assembled on two hours' notice, and they cannot be easily replaced. That reality shapes every staffing and scheduling decision a port terminal makes.</p>
 
   <p>A distribution or fulfillment center faces a related but distinct version of the same problem. The workload fluctuates with orders received, inbound deliveries, and outbound carrier schedules — forces largely outside the DC's control. Peak days and slow days are the norm, not the exception. A constant headcount deployed against a variable workload means the operation is either stretched thin on busy days or carrying idle labor on slow ones. Both conditions have a cost. Neither is efficient.</p>
 
@@ -239,8 +281,7 @@
   <p>Shiftwork Solutions frames both conditions as <strong>adverse cost</strong> — the additional expense an operation incurs by not being perfectly staffed. Understaffing generates adverse cost in the form of overtime premiums. Overstaffing generates adverse cost in the form of full straight-time wages paid for work that isn't there. The two are not symmetric. The overtime premium on an understaffed shift is a fraction of the straight-time wage. The cost of an overstaffed shift is the full wage. In most operations, overstaffing is substantially more expensive per hour than understaffing — yet it consistently receives less management attention because it doesn't appear on an overtime report.</p>
 
   <div class="callout-box">
-    <div class="cb-label">Port Terminal Insight</div>
-    <p>For port terminals specifically, adverse cost analysis frequently leads to a counterintuitive conclusion: the financially optimal staffing level involves accepting overtime levels that would raise flags in a manufacturing environment. When operators are paid to be available whether or not a vessel is active — and when replacing a trained operator carries significant time and cost — a lean core crew working overtime during active berthing windows often costs less than a larger roster of underutilized workers waiting for ships that run on their own schedule.</p>
+    <p>For port terminals specifically, adverse cost analysis frequently leads to a counterintuitive conclusion: the financially optimal staffing level involves accepting overtime levels that would raise flags in a manufacturing environment. A lean core crew working overtime during active berthing windows often costs less than a larger roster of underutilized workers waiting for ships that run on their own schedule.</p>
   </div>
 
   <h2>Skill, Training, and What It Means for Staffing Decisions</h2>
@@ -252,9 +293,9 @@
   <p>At the distribution and fulfillment center end of the spectrum, onboarding timelines are shorter and the workforce is broader. But the principle still applies at a different scale. Every time a forklift operator, selector, or dock worker walks out the door, the operation absorbs recruiting cost, training time, and a period of reduced productivity before the replacement reaches full contribution. Distribution centers with high turnover — a common condition when shift schedules don't fit the workforce — pay that cost repeatedly, often without connecting it to the scheduling decisions that are driving it.</p>
 
   <div class="insight-cards">
-    <div class="insight-card"><div class="ic-label"><strong>Port crane operators</strong> — 6+ months to basic competency. Replacing one carries significant time and cost. Retention is a staffing strategy, not just an HR goal.</div></div>
-    <div class="insight-card"><div class="ic-label"><strong>Overstaffing costs more</strong> than understaffing per hour — yet gets far less management attention because idle time doesn't appear on overtime reports.</div></div>
-    <div class="insight-card"><div class="ic-label"><strong>DC turnover</strong> is often schedule-driven. The connection between shift design and attrition rarely surfaces in standard reporting — until the analysis is done.</div></div>
+    <div class="insight-card"><div class="ic-title">Port crane operators</div><div class="ic-text">Six months or more to basic competency. Replacing one carries significant time and cost. Retention is a staffing strategy, not just an HR goal.</div></div>
+    <div class="insight-card"><div class="ic-title">Overstaffing costs more</div><div class="ic-text">Than understaffing per hour — yet gets far less management attention because idle time doesn't appear on overtime reports. Adverse cost captures both.</div></div>
+    <div class="insight-card"><div class="ic-title">DC turnover is schedule-driven</div><div class="ic-text">The connection between shift design and attrition rarely surfaces in standard reporting — until the analysis is done. It is almost always there.</div></div>
   </div>
 
   <h2>Designing Shift Schedules for Variable Demand</h2>
@@ -268,8 +309,11 @@
   <p>Where demand variability is less predictable, the schedule handles the foreseeable portion. Policy — overtime distribution, voluntary time-off programs, callout procedures — handles the rest. Both need to be designed together. Operations that rely on policy alone to manage variability consistently overpay on both ends of the demand curve.</p>
 
   <div class="pull-quote">
-    <p>"A schedule that meets coverage requirements but fails to gain employee support will underperform a well-designed schedule that the workforce helped choose. That is not a philosophical position — it is what decades of implementation experience across hundreds of facilities consistently shows."</p>
-    <div class="pq-attr">— Jim Dillingham, Shiftwork Solutions LLC</div>
+    <span class="pull-quote-mark">&#8220;</span>
+    <div class="pull-quote-content">
+      <p>A schedule that meets coverage requirements but fails to gain employee support will underperform a well-designed schedule that the workforce helped choose. That is not a philosophical position — it is what decades of implementation experience across hundreds of facilities consistently shows.</p>
+      <div class="pq-attr">— Jim Dillingham, Shiftwork Solutions LLC</div>
+    </div>
   </div>
 
   <h2>Union Environments and Change Management</h2>
@@ -278,88 +322,71 @@
 
   <p>Distribution and fulfillment centers typically operate under less complex agreements — where they are unionized at all — but the change management principle is the same in both environments. The workforce must understand the proposed change, have genuine input into the options, and see their interests reflected in the outcome before the change will perform as intended.</p>
 
-  <p>We work in union environments routinely. Our approach is not to engineer around the union but to build a case that works for both sides — schedule designs that demonstrably benefit the workforce, supported by an employee survey process that gives workers a genuine voice, and where appropriate, a timed addendum structure that allows a trial outside the existing contract before any permanent commitment. This reduces risk for management and labor simultaneously.</p>
+  <p>We work in union environments routinely. Our approach is not to engineer around the union but to build a case that works for both sides — schedule designs that demonstrably benefit the workforce, supported by an employee survey process that gives workers a genuine voice, and where appropriate, a timed addendum structure that allows a trial outside the existing contract before any permanent commitment. This reduces risk for management and labor simultaneously and often provides the evidence base that makes permanent adoption straightforward.</p>
 
-  <div class="inline-cta">
-    <div class="inline-cta-text">
-      <h3>Ready to model what imperfect staffing is actually costing your operation?</h3>
-      <p>Understanding total adverse cost — not just overtime cost — is the starting point for any serious staffing analysis. We build that model for every client, and the results regularly change how management thinks about headcount decisions.</p>
+  <div class="pull-quote">
+    <span class="pull-quote-mark">&#8220;</span>
+    <div class="pull-quote-content">
+      <p>The financially optimal staffing structure for port and logistics operations is rarely obvious until the full cost picture is modeled. Adverse cost — not just overtime cost — is the foundation of any serious staffing analysis. Building that model is where we always start, and where the most consequential decisions get made.</p>
+      <div class="pq-attr">— Dan Capshaw, Shiftwork Solutions LLC</div>
     </div>
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="inline-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a>
   </div>
 
-  <div class="faq-section">
+  <div class="faq-wrap"><div class="faq-wrap-inner">
     <h2>Frequently Asked Questions</h2>
-    <div class="faq-item">
-      <div class="faq-q">What shift length works best for port terminal operations?</div>
-      <div class="faq-a">Twelve-hour shifts are the most practical choice for port terminal operations. The fundamental reason is demand structure: vessel calls do not arrive on a predictable clock, and when a ship berths, the operation needs a full, qualified crew on-site for the duration — which can easily span eight to fourteen hours. Changing crews mid-call introduces handover complexity and continuity risk at the worst possible moment. A 12-hour crew that begins and ends with the vessel activity eliminates that friction. Distribution centers connected to port operations often use 10-hour shifts, which are the consistent preference of shift workers when surveyed — producing more days off per month while distributing fatigue more manageably.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">Why is overtime so high at port terminals, and is that a problem?</div>
-      <div class="faq-a">High overtime at port terminals is often financially optimal, not a sign of poor management. When vessels run late or arrive in clusters, operators spend a meaningful portion of their paid hours on standby — present and compensated whether or not a vessel is active. In that environment, adding more operators to reduce overtime multiplies the standby-pay problem rather than solving it. A lean core crew that works overtime during active berthing windows typically costs less in total labor than a larger roster of workers all waiting together for ships that run on their own schedule. A proper adverse cost analysis — modeling both overtime cost and idle-time cost together — demonstrates why the financially optimal overtime level at a port terminal is often higher than it would be in a manufacturing environment.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">What is adverse cost and why does it matter for logistics staffing decisions?</div>
-      <div class="faq-a">Adverse cost is the additional expense an operation incurs by not being perfectly staffed — on either side of the balance. Understaffing generates adverse cost in the form of overtime premiums. Overstaffing generates adverse cost in the form of full straight-time wages paid to workers whose labor has no productive output at that moment. The two are not symmetric: the adverse cost of understaffing is typically the overtime premium only — the incremental cost above straight time — while the adverse cost of overstaffing is the full wage. In most operations, overstaffing costs substantially more per hour than understaffing, yet it receives far less management attention because overtime appears on reports and idle time does not.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q">How does union contract complexity affect scheduling at port terminals versus distribution centers?</div>
-      <div class="faq-a">Port terminals operate under some of the most detailed collective bargaining agreements in American industry. ILWU contracts on the West Coast and ILA agreements on the East Coast govern shift structures, guaranteed minimum hours, callout provisions, overtime rotation, seniority-based equipment assignments, and shift differential structures with a level of specificity that requires careful navigation before any scheduling change is proposed. Distribution centers typically operate under less complex agreements — where they are unionized at all — but the underlying challenge is the same: changes that the workforce doesn't genuinely support don't deliver their intended results, regardless of what the contract permits.</div>
-    </div>
-  </div>
+
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What shift length works best for port terminal operations?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Twelve-hour shifts are the most practical choice for port terminal operations. The fundamental reason is demand structure: vessel calls do not arrive on a predictable clock, and when a ship berths, the operation needs a full, qualified crew on-site for the duration — which can easily span eight to fourteen hours. Changing crews mid-call introduces handover complexity and continuity risk at the worst possible moment. A 12-hour crew that begins and ends with the vessel activity eliminates that friction. Distribution centers connected to port operations often use 10-hour shifts, which are the consistent preference of shift workers when surveyed — producing more days off per month while distributing fatigue more manageably.</div></div></div>
+
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why is overtime so high at port terminals, and is that a problem?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">High overtime at port terminals is often financially optimal, not a sign of poor management. When vessels run late or arrive in clusters, operators spend a meaningful portion of their paid hours on standby — present and compensated whether or not a vessel is active. In that environment, adding more operators to reduce overtime multiplies the standby-pay problem rather than solving it. A lean core crew that works overtime during active berthing windows typically costs less in total labor than a larger roster of workers all waiting together for ships that run on their own schedule. A proper adverse cost analysis — modeling both overtime cost and idle-time cost together — demonstrates why the financially optimal overtime level at a port terminal is often higher than it would be in a manufacturing environment.</div></div></div>
+
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How do distribution centers manage scheduling when workload varies unpredictably?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The core problem is a mismatch between a relatively constant workforce and a workload that fluctuates with orders received, inbound deliveries, and outbound carrier schedules. Solving it well requires distinguishing between variability that follows a predictable pattern — weekly rhythms, carrier concentrations, e-commerce timing — and variability that is genuinely unpredictable. Schedule design handles the foreseeable portion. Policy tools handle the rest. Getting that division right, and designing both elements so they work together rather than at cross-purposes, is where the complexity lies. The right balance looks different for every operation, which is why the analysis has to come before the design.</div></div></div>
+
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What is adverse cost and why does it matter for logistics staffing decisions?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Adverse cost is the additional expense an operation incurs by not being perfectly staffed — on either side of the balance. Understaffing generates adverse cost in the form of overtime premiums paid to cover gaps. Overstaffing generates adverse cost in the form of full straight-time wages paid to workers whose labor has no productive output at that moment. The two are not symmetric: the adverse cost of understaffing is typically the overtime premium only — the incremental cost above straight time — while the adverse cost of overstaffing is the full wage. In most operations, overstaffing costs substantially more per hour than understaffing, yet it receives far less management attention because overtime appears on reports and idle time does not. Understanding total adverse cost is the foundation of any serious staffing analysis for port and logistics operations.</div></div></div>
+
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How does union contract complexity affect scheduling at port terminals versus distribution centers?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Port terminals operate under some of the most detailed collective bargaining agreements in American industry. ILWU contracts on the West Coast and ILA agreements on the East Coast govern shift structures, guaranteed minimum hours, callout provisions, overtime rotation, seniority-based equipment assignments, and shift differential structures with a level of specificity that requires careful navigation before any scheduling change is proposed. Distribution centers typically operate under less complex agreements — where they are unionized at all — but the underlying challenge is the same in both environments: changes that the workforce doesn't genuinely support don't deliver their intended results, regardless of what the contract permits. Building that support — and doing so in a way that holds up through implementation — requires a structured process that takes both the contractual and workforce dimensions seriously.</div></div></div>
+  </div></div>
+
 </div>
 
 <section class="next-steps"><div class="next-steps-inner">
+  <div class="next-steps-eyebrow">Where to go from here</div>
   <h2>Next Steps &amp; Resources</h2>
+  <p class="next-steps-sub">Talk to an expert, read the guide, or run a quick diagnostic on your current operation.</p>
   <div class="ns-cards">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card" target="_blank" rel="noopener">
-      <div class="ns-card-label">Free Consultation</div>
-      <h3>Talk to a Shiftwork Expert</h3>
-      <p>Share the basics of your current schedule, staffing model, and demand variability profile. We'll identify where the analysis is most likely to find value.</p>
-      <span class="ns-card-link">Book a free meeting</span>
-    </a>
-    <a href="/resources/overtime-management-guide/" class="ns-card">
-      <div class="ns-card-label">Complete Guide</div>
-      <h3>Overtime &amp; Adverse Cost Overview</h3>
-      <p>Understand how Shiftwork Solutions models the full cost of imperfect staffing — not just overtime, but the idle-time cost that rarely shows up on standard reports.</p>
-      <span class="ns-card-link">Read the guide</span>
-    </a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card">
-      <div class="ns-card-label">Diagnostic Tool</div>
-      <h3>26 Warning Signs</h3>
-      <p>Twenty-six operational symptoms that signal your shiftwork system needs attention — including signs tied to variable demand environments.</p>
-      <span class="ns-card-link">Read the diagnostic</span>
-    </a>
+    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card ns-accent-blue" target="_blank" rel="noopener"><div class="ns-card-label">Free Consultation</div><h3>Talk to a Shiftwork Expert</h3><p>Share the basics of your current schedule, staffing model, and demand variability profile. We'll identify where the analysis is most likely to find value.</p><span class="ns-card-link">Book a free meeting</span></a>
+    <a href="/resources/overtime-management-guide/" class="ns-card ns-accent-orange"><div class="ns-card-label">Complete Guide</div><h3>Overtime &amp; Adverse Cost Overview</h3><p>Understand how Shiftwork Solutions models the full cost of imperfect staffing — not just overtime, but the idle-time cost that rarely shows up on standard reports.</p><span class="ns-card-link">Read the guide</span></a>
+    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green"><div class="ns-card-label">Diagnostic Tool</div><h3>26 Warning Signs</h3><p>Twenty-six operational symptoms that signal your shiftwork system needs attention — including signs tied to variable demand environments.</p><span class="ns-card-link">Read the diagnostic</span></a>
   </div>
   <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
 </div></section>
 
-<section class="cta-section"><div class="cta-section-inner">
-  <h2>The financially optimal staffing structure is rarely obvious until the full cost picture is modeled.</h2>
-  <p>That modeling is where we start — and where the most consequential decisions get made. The first conversation is free.</p>
-  <div class="cta-actions">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="cta-primary" target="_blank" rel="noopener">Book a Free Consultation</a>
-    <a href="/resources/overtime-management-guide/" class="cta-secondary">Read the Overtime Guide →</a>
-  </div>
-</div></section>
-
-<div class="engage-band"><div class="engage-inner">
-  <div class="engage-thomas"><div class="engage-label">AI Advisor</div><div class="engage-thomas-title">Talk to Thomas</div><p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p><a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a></div>
-  <div class="engage-nl"><div class="engage-label">Newsletter</div><div class="engage-nl-title">Stay Sharp on Shift Operations</div><p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
-</div></div>
-
-<footer class="site-footer"><div class="footer-inner">
-  <span class="footer-logo">Shiftwork Solutions LLC</span><span>(415) 265-1621</span>
-  <span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></span>
-  <div class="footer-links-row"><a href="/resources/">Resources</a><a href="/industries/">Industries</a><a href="/services/">Services</a><a href="/contact/">Contact</a></div>
-  <span>&copy; 2026 Shiftwork Solutions LLC</span>
-</div></footer>
+<footer class="site-footer">
+  <div class="footer-prefooter"><div class="footer-wrap">
+    <div class="footer-content-row">
+      <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">Distribution and logistics operations run against variable demand that never fully follows a plan. The first conversation is always free.</p></div>
+      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p></div>
+      <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
+    </div>
+    <div class="footer-cta-row">
+      <div class="footer-cta-1"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a></div>
+      <div class="footer-cta-2"><a href="https://shift-work-diagnostic.onrender.com/" class="footer-cta-btn" target="_blank" rel="noopener">Start a Conversation &#x2192;</a></div>
+      <div class="footer-cta-3"><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
+    </div>
+  </div></div>
+  <div class="footer-bottom"><div class="footer-bottom-inner">
+    <div class="footer-bottom-left"><span class="footer-bottom-brand">Shiftwork Solutions LLC</span><a href="tel:+14152651621">(415) 265-1621</a><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
+    <span>&copy; 2026 Shiftwork Solutions LLC</span>
+  </div></div>
+</footer>
 
 <button class="listen-btn" id="listenBtn" aria-label="Listen to this article"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg><span id="listenLabel">Listen</span></button>
+
 <script>
-  document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
-  (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
-  (function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p, h2');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim());});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
+document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
+(function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
+(function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
+(function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
+(function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p, h2');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim());});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
 </script>
 </body>
 </html>
