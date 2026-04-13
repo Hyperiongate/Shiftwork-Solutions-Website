@@ -27,31 +27,13 @@
                  - Hero eyebrow: "Why Us" → "Our Company"
                  - BreadcrumbList JSON-LD: "Why Us" → "Our Company"
                  - New hero copy from V5 spec
-                 - Bridge section (narrative transition paragraph)
-                 - "What Clients Gain" section rebuilt per implementation spec:
-                   • Version B summary strip (5 numbered gain lines) on top
-                   • Version A paired cards below (5 rows × 2 columns)
-                   • Left cards: "What You Gain" — white bg, bold, SVG icons
-                     in #0D1F3C circle containers with #F5C842 yellow border
-                   • Right cards: "How We Deliver It" — #f7f9fb light gray bg,
-                     muted label, smaller body text
-                   • 2-column CSS grid (NOT table), 24px gap
-                   • Hover: box-shadow 0 4px 12px rgba(0,0,0,0.05)
-                   • Mobile 768px: stack to 1fr, left above right per row
-                   • Icons: chart-bar, cost-down-arrow, people-group,
-                     checklist, upward-trend — white SVG on #0D1F3C
-                   • NO pink/coral/salmon/red anywhere
-                   • Section container 1140px, 80px top/bottom padding
-                 - Outcome strip: 4-column grid
-                 - Infographic: HTML/CSS balance diagram
-                 - New CTA section with jim@shift-work.com
-                 - Nav tiles preserved (About, Team, Testimonials)
-                 - All infrastructure preserved:
-                   Nav (.site-nav, flat links, no dropdowns, orange CTA)
-                   Engage band (Thomas AI + Newsletter via Swarm API)
-                   Footer (standard site footer)
-                   Mobile nav JS, Newsletter subscribe JS
-                 - SEO metadata updated per spec
+                 - Bridge section, gains section, outcome strip, infographic, CTA
+                 - All infrastructure preserved
+
+    2026-04-13 — HERO BACKGROUND:
+                 - Replaced solid navy + decorative circles with second.png
+                   image matching resources page treatment (dark overlay)
+                 - All body content, gains section, JS unchanged
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
@@ -133,10 +115,9 @@
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
 
-    /* ── HERO ── */
-    .hero{background:var(--navy);padding:52px 36px 56px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;top:-80px;right:-60px;width:340px;height:340px;border-radius:50%;background:var(--white);opacity:.04}
-    .hero::after{content:'';position:absolute;bottom:-120px;left:-40px;width:260px;height:260px;border-radius:50%;background:var(--white);opacity:.04}
+    /* ── HERO — second.png background with dark overlay ── */
+    .hero{background:#0D1F3C url('/images/second.png') center center/cover no-repeat;padding:52px 36px 56px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.82) 0%,rgba(13,31,60,.60) 55%,rgba(13,31,60,.30) 100%);z-index:0;pointer-events:none}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
     .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
     .hero h1{font-size:32px;font-weight:700;line-height:1.2;color:var(--white);max-width:620px;margin-bottom:14px}
@@ -164,14 +145,11 @@
 
     /* ══════════════════════════════════════════════════════════
        GAINS SECTION — What Clients Gain
-       Per implementation spec (April 2026)
        ══════════════════════════════════════════════════════════ */
     .gains-section{background:var(--navy-dark);padding:80px var(--page-pad)}
     .gains-inner{max-width:var(--gains-max);margin:0 auto}
     .gains-heading{font-size:36px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:12px;max-width:700px}
     .gains-intro{font-size:17px;color:var(--mid-blue);line-height:1.65;margin-bottom:40px;max-width:660px}
-
-    /* Version B — Summary Strip */
     .gains-strip{margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.1)}
     .gains-strip-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.45);margin-bottom:20px}
     .gains-strip-list{list-style:none;padding:0;margin:0}
@@ -179,20 +157,16 @@
     .gains-strip-list li:first-child{border-top:1px solid rgba(255,255,255,.06)}
     .strip-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.08);color:var(--mid-blue);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px}
     .strip-text{font-size:15px;color:rgba(255,255,255,.85);line-height:1.6}
-
-    /* Version A — Paired Cards */
     .gains-cards{display:flex;flex-direction:column;gap:24px}
     .gains-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
     .gain-card{border-radius:12px;padding:24px;min-height:140px;transition:box-shadow .2s}
     .gain-card:hover{box-shadow:0 4px 12px rgba(0,0,0,0.05)}
-    /* Left card — What You Gain */
     .gain-card-left{background:var(--white);border:1px solid var(--border-card);display:flex;gap:16px;align-items:flex-start}
     .gain-icon{flex-shrink:0;width:44px;height:44px;border-radius:50%;background:var(--navy-dark);border:2px solid var(--warm-yellow);display:flex;align-items:center;justify-content:center;margin-top:2px}
     .gain-icon svg{width:22px;height:22px;fill:none;stroke:var(--white);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
     .gain-card-left-content{flex:1}
     .gain-card-left-title{font-size:19px;font-weight:600;color:var(--navy-dark);line-height:1.35;margin-bottom:6px}
     .gain-card-left-text{font-size:15px;color:var(--body-text);line-height:1.65}
-    /* Right card — How We Deliver It */
     .gain-card-right{background:var(--right-card-bg);border:1px solid var(--border-card)}
     .gain-card-right-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--mid-blue);margin-bottom:10px}
     .gain-card-right-text{font-size:15px;color:var(--body-text);line-height:1.7}
@@ -360,15 +334,11 @@
 
 <!-- ══════════════════════════════════════════════════════════════
      WHAT CLIENTS GAIN — Version B Strip + Version A Paired Cards
-     Per implementation spec (April 2026)
-     Background: #0D1F3C | Cards: 2-col CSS grid | Icons: SVG
-     No pink/coral/salmon/red in this section
      ══════════════════════════════════════════════════════════════ -->
 <section class="gains-section"><div class="gains-inner">
   <h2 class="gains-heading">What Clients Gain from Working with Shiftwork Solutions</h2>
   <p class="gains-intro">When schedule decisions are built on data and workforce insight, results hold &mdash; in practice.</p>
 
-  <!-- Version B — Summary Strip -->
   <div class="gains-strip">
     <div class="gains-strip-label">At a glance</div>
     <ol class="gains-strip-list">
@@ -380,16 +350,10 @@
     </ol>
   </div>
 
-  <!-- Version A — Paired Insight Cards (5 rows × 2 columns CSS grid) -->
   <div class="gains-cards">
-
-    <!-- Row 1 — Decisions grounded in data -->
     <div class="gains-row">
       <div class="gain-card gain-card-left">
-        <div class="gain-icon">
-          <!-- Icon: bar chart (data/decisions) -->
-          <svg viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg>
-        </div>
+        <div class="gain-icon"><svg viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="9" rx="1"/><rect x="10" y="7" width="4" height="14" rx="1"/><rect x="17" y="3" width="4" height="18" rx="1"/></svg></div>
         <div class="gain-card-left-content">
           <div class="gain-card-left-title">Decisions grounded in data and employee insight &mdash; not assumptions.</div>
           <div class="gain-card-left-text">A clear view of where the operation truly stands &mdash; its strengths, its risks, and its highest-leverage opportunities &mdash; before a single change is made.</div>
@@ -400,14 +364,9 @@
         <div class="gain-card-right-text">The SBD&#x2122; Benchmarking Database and Work-Life Balance Survey&#x2122; draw on hundreds of real engagements. They surface the kind of operational intelligence that only comes from being in the room &mdash; across industries, across decades, and across every variation of the challenges operations face. We use AI-assisted analysis to model coverage scenarios and optimize schedule options against your specific demand patterns. What we bring that the tool doesn't is thirty years of knowing which mathematically correct answers fail in practice.</div>
       </div>
     </div>
-
-    <!-- Row 2 — Cost efficiency and overtime control -->
     <div class="gains-row">
       <div class="gain-card gain-card-left">
-        <div class="gain-icon">
-          <!-- Icon: downward arrow with dollar (cost reduction) -->
-          <svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><polyline points="5 15 12 22 19 15"/><line x1="5" y1="2" x2="5" y2="8"/><line x1="19" y1="2" x2="19" y2="8"/></svg>
-        </div>
+        <div class="gain-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="2" x2="12" y2="22"/><polyline points="5 15 12 22 19 15"/><line x1="5" y1="2" x2="5" y2="8"/><line x1="19" y1="2" x2="19" y2="8"/></svg></div>
         <div class="gain-card-left-content">
           <div class="gain-card-left-title">Cost efficiency and overtime control &mdash; built in, not patched in.</div>
           <div class="gain-card-left-text">Structural reductions in overtime, idle time, and coverage gaps &mdash; validated across multiple schedule scenarios before implementation begins. When volumes shift, the schedule flexes rather than breaks.</div>
@@ -418,14 +377,9 @@
         <div class="gain-card-right-text">Scenario-Based Cost Modeling&#x2122; quantifies the financial impact of every viable option. Decisions are made with full cost visibility &mdash; not estimates. The model tests what happens when demand ramps up, when it drops, and every point in between &mdash; so the schedule is built for operational reality, not just current conditions.</div>
       </div>
     </div>
-
-    <!-- Row 3 — Workforce buy-in -->
     <div class="gains-row">
       <div class="gain-card gain-card-left">
-        <div class="gain-icon">
-          <!-- Icon: people/group (workforce) -->
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
+        <div class="gain-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <div class="gain-card-left-content">
           <div class="gain-card-left-title">A workforce that accepts the change &mdash; and sustains it.</div>
           <div class="gain-card-left-text">Real buy-in, not compliance. A schedule that holds beyond rollout &mdash; because employees understand it, helped shape it, and see it as fair. And when retention is linked to a schedule that no longer fits, that connection becomes visible and actionable.</div>
@@ -436,14 +390,9 @@
         <div class="gain-card-right-text">We actively engage the workforce throughout the process &mdash; surfacing concerns, testing preferences, and building trust. As a neutral third party, we enable conversations that would not happen internally. When an experienced outside firm leads the change, the workforce dynamic is different.</div>
       </div>
     </div>
-
-    <!-- Row 4 — Implementation -->
     <div class="gains-row">
       <div class="gain-card gain-card-left">
-        <div class="gain-icon">
-          <!-- Icon: checklist (implementation) -->
-          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        </div>
+        <div class="gain-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
         <div class="gain-card-left-content">
           <div class="gain-card-left-title">Implementation that doesn't consume management bandwidth.</div>
           <div class="gain-card-left-text">A fully managed transition &mdash; communication, policy alignment, and workforce preparation &mdash; so leadership stays focused on running the operation, not managing resistance.</div>
@@ -454,14 +403,9 @@
         <div class="gain-card-right-text">We bring structured change frameworks, experienced facilitation, and a proven process. Change management is the difference between a schedule that goes live and one that takes hold. What self-managed organizations spend six to twelve months resolving, a well-run implementation prevents.</div>
       </div>
     </div>
-
-    <!-- Row 5 — Measurable impact -->
     <div class="gains-row">
       <div class="gain-card gain-card-left">
-        <div class="gain-icon">
-          <!-- Icon: upward trend (results/impact) -->
-          <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-        </div>
+        <div class="gain-icon"><svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
         <div class="gain-card-left-content">
           <div class="gain-card-left-title">Measurable impact &mdash; from partners who have done this before.</div>
           <div class="gain-card-left-text">Results that compound: higher productivity, stronger retention, and improved morale &mdash; driven by schedules that align with both operational demand and workforce reality. Operations are not revisiting the same problem two years later.</div>
@@ -472,71 +416,38 @@
         <div class="gain-card-right-text">Exclusive focus on shiftwork-intensive industries. Senior partners on every engagement. Pattern recognition built across hundreds of complex manufacturing and distribution environments &mdash; applied directly to your situation.</div>
       </div>
     </div>
-
-  </div><!-- /.gains-cards -->
-</div></section>
-
-<!-- ── OUTCOME STRIP — 4-column grid ── -->
-<section class="outcome-strip"><div class="outcome-inner">
-  <div class="outcome-grid">
-    <div class="outcome-card">
-      <div class="outcome-title">Costs Down</div>
-      <div class="outcome-desc">Overtime reduced structurally</div>
-    </div>
-    <div class="outcome-card">
-      <div class="outcome-title">Retention Up</div>
-      <div class="outcome-desc">Schedules employees sustain</div>
-    </div>
-    <div class="outcome-card">
-      <div class="outcome-title">Productivity Up</div>
-      <div class="outcome-desc">Coverage aligned to demand</div>
-    </div>
-    <div class="outcome-card">
-      <div class="outcome-title">Buy-In That Holds</div>
-      <div class="outcome-desc">Workforce prepared at launch</div>
-    </div>
   </div>
 </div></section>
 
-<!-- ── INFOGRAPHIC — Balance Diagram (HTML/CSS) ── -->
+<!-- ── OUTCOME STRIP ── -->
+<section class="outcome-strip"><div class="outcome-inner">
+  <div class="outcome-grid">
+    <div class="outcome-card"><div class="outcome-title">Costs Down</div><div class="outcome-desc">Overtime reduced structurally</div></div>
+    <div class="outcome-card"><div class="outcome-title">Retention Up</div><div class="outcome-desc">Schedules employees sustain</div></div>
+    <div class="outcome-card"><div class="outcome-title">Productivity Up</div><div class="outcome-desc">Coverage aligned to demand</div></div>
+    <div class="outcome-card"><div class="outcome-title">Buy-In That Holds</div><div class="outcome-desc">Workforce prepared at launch</div></div>
+  </div>
+</div></section>
+
+<!-- ── INFOGRAPHIC — Balance Diagram ── -->
 <section class="infographic"><div class="infographic-inner">
   <div class="infographic-heading">How We Balance Both Sides</div>
   <div class="balance-diagram">
-    <!-- LEFT: Business Needs -->
     <div class="balance-side balance-left">
       <div class="balance-side-title">Business Needs</div>
-      <ul class="balance-items">
-        <li>Coverage &amp; capacity</li>
-        <li>Cost control</li>
-        <li>Equipment utilization</li>
-        <li>Regulatory compliance</li>
-        <li>Productivity targets</li>
-      </ul>
+      <ul class="balance-items"><li>Coverage &amp; capacity</li><li>Cost control</li><li>Equipment utilization</li><li>Regulatory compliance</li><li>Productivity targets</li></ul>
     </div>
-    <!-- CENTER: Shiftwork Solutions -->
     <div class="balance-center">
       <div class="balance-arrow-left">&larr;</div>
       <div class="balance-hub">
         <div class="balance-hub-name">Shiftwork Solutions</div>
-        <ul class="balance-hub-tags">
-          <li>Data-led, people-centered</li>
-          <li>30 years &middot; Hundreds of facilities</li>
-          <li>Neutral third party</li>
-          <li>Proprietary tools</li>
-        </ul>
+        <ul class="balance-hub-tags"><li>Data-led, people-centered</li><li>30 years &middot; Hundreds of facilities</li><li>Neutral third party</li><li>Proprietary tools</li></ul>
       </div>
       <div class="balance-arrow-right">&rarr;</div>
     </div>
-    <!-- RIGHT: Employee Preferences -->
     <div class="balance-side balance-right">
       <div class="balance-side-title">Employee Preferences</div>
-      <ul class="balance-items">
-        <li>Fixed shifts when possible</li>
-        <li>Predictable schedules</li>
-        <li>Fair overtime distribution</li>
-        <li>Work-life balance</li>
-        <li>Meaningful input</li>
-      </ul>
+      <ul class="balance-items"><li>Fixed shifts when possible</li><li>Predictable schedules</li><li>Fair overtime distribution</li><li>Work-life balance</li><li>Meaningful input</li></ul>
     </div>
   </div>
   <div class="balance-tagline">Dual-track success: operational outcomes + human outcomes.</div>
@@ -586,7 +497,6 @@
   <span>&copy; 2026 Shiftwork Solutions LLC</span>
 </div></footer>
 
-<!-- ── MOBILE NAV JS ── -->
 <script>
   document.getElementById('mobileToggle').addEventListener('click', function () {
     var n = document.getElementById('navLinks');
@@ -599,8 +509,6 @@
     }
   });
 </script>
-
-<!-- ── NEWSLETTER JS ── -->
 <script>
   (function(){
     var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
