@@ -53,10 +53,12 @@
                   - Added JSON-LD: WebSite schema (with SearchAction for sitelinks)
                   - Added JSON-LD: ProfessionalService schema (local business SEO)
                   - All existing content, styles, and JavaScript unchanged
-      2026-04-13  (v7) NAV RENAME — "Why Us" → "Our Company":
+      2026-04-13  (v7) NAV RENAME + HERO BACKGROUND:
                   - Nav link display text changed from "Why Us" to "Our Company"
                   - Footer Connect column link text changed from "Why Us" to "Our Company"
                   - URL remains /why-us/ (no URL change)
+                  - Hero background: replaced CSS gradient with second.png image
+                    matching resources page treatment (dark overlay for readability)
                   - All body content, styles, JS, schemas unchanged
 
   I did no harm and this file is not truncated
@@ -270,8 +272,8 @@
     }
 
     /* ── HERO ── */
-    .hero { margin-top: 64px; background: linear-gradient(165deg, var(--navy) 0%, var(--navy-mid) 50%, #1a4a7a 100%); color: var(--white); position: relative; overflow: hidden; min-height: 85vh; display: flex; align-items: center; }
-    .hero::before { content: ''; position: absolute; top: -40%; right: -15%; width: 60%; height: 180%; background: radial-gradient(ellipse, rgba(26,111,181,0.15) 0%, transparent 70%); pointer-events: none; }
+    .hero { margin-top: 64px; background: #0D1F3C url('/images/second.png') center center/cover no-repeat; color: var(--white); position: relative; overflow: hidden; min-height: 85vh; display: flex; align-items: center; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(13,31,60,.82) 0%, rgba(13,31,60,.60) 55%, rgba(13,31,60,.30) 100%); z-index: 0; pointer-events: none; }
     .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px; background: linear-gradient(transparent, rgba(12,31,63,0.4)); pointer-events: none; }
     .hero-inner { max-width: var(--max-width); margin: 0 auto; width: 100%; padding: 80px clamp(20px, 4vw, 40px) 100px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; position: relative; z-index: 1; }
     .hero h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; line-height: 1.12; margin-bottom: 24px; }
