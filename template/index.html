@@ -5,149 +5,58 @@
   URL: /resources/
 
   Created:      2026-04-03
-  Last Updated: 2026-04-07 (4)
+  Last Updated: 2026-04-12
 
   CHANGE LOG:
-    2026-04-03 — Initial build per Resources_Hub_Specification_V2_with_pic_4_3_26.docx
-    2026-04-03 — Engagement Layer applied (4 changes):
-                 1. NAV LOGO: Text replaced with logo image
-                 2. NAV CTA: Changed to direct Outlook booking URL
-                 3. ENGAGE BAND: Thomas AI + Newsletter pre-footer band added
-                 4. VECTORS: Hero background + CTA accent (pillar pages only)
-    2026-04-04 — Trending grid: fixed reshoring slug from
-                 /resources/reshoring-boom-us-manufacturing/ →
-                 /resources/reshoring-manufacturing-workforce/
-                 All 8 trending article links now verified correct.
-    2026-04-04 — NAV RESTRUCTURE (site-wide change):
-                 - Resources: removed dropdown, direct link to /resources/
-                 - Our Services: removed dropdown, direct link to /services/
-                 - Why Us: keeps dropdown, "Meet Our Team" now links to /our_team/
-                 - Industries: keeps dropdown (unchanged)
-                 - "Book a Free Meeting" nav CTA button changed to ORANGE
-    2026-04-04 — GUIDES SECTION LAYOUT REDESIGN:
-                 - 4 rows of 3 tiles in standard 3-column grid
-                 - Rows 1-3: Guides 01-09 (3 per row)
-                 - Row 4: Contact/Newsletter tile (left), Guide 10 (center),
-                   Book Meeting/Thomas tile (right)
-                 - Action tiles use navy-dark background with orange buttons
-    2026-04-04 — BUTTON COLOR UPDATES (site-wide standard):
-                 - Nav CTA "Book a Free Meeting": ORANGE
-                 - Engage band "Subscribe" button: ORANGE
-                 - CTA band "Book a Free Consultation": ORANGE on navy
-                 - All action tile buttons: ORANGE on navy-dark
-    2026-04-05 — NAV — ALL DROPDOWNS REMOVED:
-                 - Industries: removed dropdown, direct link to /industries/
-                 - Why Us: removed dropdown, direct link to /why-us/
-                 - All nav items are now flat direct links
-                 - All page content preserved exactly
-    2026-04-05 — SEO AUDIT — BROKEN LINK FIX (7 support article URLs):
-                 All 7 "Focused Topics" links were pointing to wrong paths.
-                 Fixed:
-                 1. /resources/scaling-production-rapidly/
-                    → /resources/support/scaling-production-quickly/
-                 2. /resources/sleep-alertness-safety-shift-operations/
-                    → /resources/support/sleep-alertness-safety-shift-work/
-                 3. /resources/maintenance-workers-scheduling/
-                    → /resources/support/maintenance-worker-scheduling/
-                 4. /resources/communicating-major-schedule-changes/
-                    → /resources/support/communicating-schedule-changes/
-                 5. /resources/survey-analysis-workforce-needs/
-                    → /resources/support/workforce-survey-analysis/
-                 6. /resources/balancing-business-employee-needs/
-                    → /resources/support/balancing-business-employee-needs/
-                 7. /resources/schedule-change-pitfalls/
-                    → /resources/support/schedule-change-pitfalls/
-    2026-04-06 — PILLAR GUIDE IMAGES:
-                 Added thumbnail images to all 10 pillar guide tiles.
-                 Images: /images/pillar_1.jpg through /images/pillar_10.jpg
-                 Added .guide-img CSS for image area within guide tiles.
-                 Removed "Guide 01" through "Guide 10" labels from tiles.
-                 ACTION TILE REDESIGN (symmetrical layout):
-                 Simplified both action tiles to match Industries page:
-                 Left: "Contact Us" with single orange button → /contact/
-                 Right: "Book a Free Meeting" with single orange button → booking URL
-                 Removed inline newsletter form (covered by Engage band below).
-                 Removed actionNLSubmit JS (no longer needed).
-                 All nav, links, content, engage band JS preserved exactly.
-    2026-04-06 — LAYOUT REDESIGN: Focused Topics + Trending Topics sections:
-                 PER DESIGN BRIEF:
-                 1. FOCUSED TOPICS: Converted from 2-col tile grid to full-width
-                    horizontal card list. Each card: left-aligned bold title,
-                    one-line description, arrow link. Visually distinct scanning
-                    rhythm vs. pillar photo grid above.
-                 2. TRENDING TOPICS: Converted from standalone 3-col grid to a
-                    sticky right-rail sidebar (35% width) running alongside the
-                    Focused Topics list (65% width). Narrow cards show tag +
-                    headline + arrow only — no descriptions. Signals "timely,
-                    brief" vs. depth of pillars. Rail is position:sticky below nav.
-                 3. SECTION DIVIDERS: Added 2px full-bleed orange (#E8610A) rule
-                    between Start Here, Guides, and Focused+Trending sections.
-                 4. "Coming Soon" placeholder tile removed (was a grid filler;
-                    not appropriate in horizontal list format).
-                 All URLs, nav, guides section, CTA band, engage band, and JS
-                 preserved exactly.
-    2026-04-07 — FOOTER + DIAG BAND FIXES:
-                 1. FOOTER LAYOUT: Restructured 3-column footer so orange
-                    buttons are horizontally aligned in a shared button row
-                    above the contact info. Removed redundant company name
-                    label and nav links from footer — kept only name, phone,
-                    email. Footer-company-col removed; contact info now lives
-                    in the bottom bar. Three columns become two equal columns
-                    (Thomas | Newsletter) with contact info in bottom bar.
-                 2. DIAG BAND (26 warning signs callout): Removed full-bleed
-                    navy-dark background that clashed with hero. Replaced
-                    with a white-background contained card with an orange
-                    left accent border, a large decorative "26" number, and
-                    proper section-wrap padding. Feels designed, not accidental.
-    2026-04-07 — THREE TARGETED CHANGES:
-                 1. HERO BACKGROUND: Replaced CSS dot-grid ::before with
-                    second.png image (same as 26-warning-signs page).
-                    Dark gradient overlay preserves text readability while
-                    keeping the image's lighter highlights visible.
-                    Decorative circles and orange accent bar retained.
-                 2. HERO EYEBROW: Removed "Resource Library" label — the
-                    h1 speaks for itself.
-                 3. FOOTER REDESIGN: Merged Engage band (Thomas + Newsletter)
-                    into a 3-column pre-footer strip inside the footer.
-                    Left col: company + contact info. Center: Thomas AI.
-                    Right: Newsletter subscribe form. Removed separate
-                    .engage-band element above the footer.
-                    All JS, URLs, functionality preserved exactly.
-    2026-04-07 — FOCUSED TOPICS + TRENDING RAIL VISUAL REDESIGN:
-                 Both columns rebuilt with strong visual identity:
-                 - Focused Topics: 7 accent-bar cards replacing flat link list.
-                   Each card: colored left border, category icon, title,
-                   description, orange "Read" button. Background white.
-                 - Trending Rail: dark navy panel background with orange tag
-                   pills, white headlines, hover-glow on cards. Visually
-                   separates from left column. No longer looks like an afterthought.
-                 - Section background: white (was light-grey) so both panels
-                   create their own visual contrast.
-                 All URLs preserved exactly.
-    2026-04-07 — FULL CRITIQUE-DRIVEN REDESIGN:
-                 Applied critique from Sonnet review. Major changes:
-                 1. HERO: Added authority statement and punchy subhead.
-                    Upgraded hero background to use a bold dot-grid SVG pattern
-                    overlay for visual interest. Added animated entrance for
-                    hero text elements.
-                 2. DIAGNOSTIC FEATURED CALLOUT: "Start Here" section rebuilt
-                    as a full-width featured callout for the 26 Warning Signs
-                    diagnostic — not a 2-tile grid. Assessment kept as secondary.
-                 3. NEW SECTION — "What Problem Are You Solving?":
-                    Three visitor-intent segments inserted BEFORE the guides grid.
-                    Each segment card: problem framing, 2-3 relevant guide links.
-                    Organizes by how visitors actually arrive, not internal taxonomy.
-                 4. GUIDE TILES: Added "Comprehensive Guide" badge + read time
-                    estimate to each tile. Visual tier signal.
-                 5. NEW SECTION — INDUSTRIES: 6 industry tiles with one-line
-                    descriptions added above the Focused Topics section.
-                    Links to /industries/[slug]/
-                 6. META: Title and description updated per critique recommendation.
-                    Twitter Card meta tags added.
-                 7. VISUAL DESIGN: Added staggered CSS entrance animations on
-                    guide tiles. Section headings use a left orange accent bar.
-                    Segment cards use a bold numbered-counter design motif.
-                 8. All existing URLs, nav, CTA band, Engage band, JS preserved.
+    2026-04-03 — Initial build
+    2026-04-03 through 2026-04-07 — Multiple iterations (see prior changelogs)
+    2026-04-12 — DRAMATIC REDESIGN: Interactive folder animation hub.
+                 PAGE CONCEPT: Two-column layout (main ~68% + sidebar ~32%).
+                 Main area has compact hero, then 4 "area of interest" buttons
+                 in a horizontal row (no numbers). Clicking one triggers a 5-second
+                 animated folder-consolidation sequence: small source folders appear
+                 on the left, documents fly out along curved bezier paths into a
+                 large central "Prepared for You" folder. Counter badge ticks up,
+                 folder pulses orange on each catch. After all documents arrive,
+                 "Click to open" prompt appears — user must click the folder.
+                 Folder scales up and fades, revealing full-width horizontal
+                 resource cards. Guides show pillar photos; focused topics and
+                 tools show custom SVG icons. Auto-scrolls to tiles.
+                 Clicking a different button replays the full animation.
+                 SIDEBAR: Three placeholder links (Complete Guides, Focused
+                 Topics, Trending Topics) styled as a dark navy sticky rail.
+                 Will eventually link to dedicated sub-pages.
+                 REMOVED: Old segments section (with inline links), Complete
+                 Guides 3-col grid, Industries section (already in main nav),
+                 Focused Topics + Trending rail two-column layout.
+                 PRESERVED EXACTLY: Nav, Hero, Footer (3-col engage band +
+                 newsletter form + bottom bar), all JS (newsletter subscribe,
+                 mobile toggle), all booking URLs with ?ismsaljsauthenabled=true,
+                 all resource URLs verified against known-correct paths.
+
+  CONTENT MAPPING — which tiles appear for each area of interest:
+    01 Expanding Operations:
+       GUIDES: Schedule Design (pillar_1), Patterns (pillar_2), Equipment (pillar_3)
+       FOCUSED: Scaling Production, Maintenance Worker Scheduling
+    02 Performance Problems:
+       GUIDES: Overtime (pillar_5), Absenteeism (pillar_9), Variable Workloads (pillar_4)
+       FOCUSED: Sleep/Alertness/Safety, Balancing Business & Employee Needs
+    03 Workforce & Retention:
+       GUIDES: Engagement (pillar_7), Change Mgmt (pillar_6), Policies (pillar_10)
+       FOCUSED: Communicating Changes, Survey Analysis, Change Pitfalls
+    04 Not Sure Yet:
+       TOOLS: 26 Warning Signs, Assessment, Thomas AI
+    NOTE: Operational Best Practices (pillar_8) lives on Complete Guides sub-page.
+
+  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
+  DESIGN CONSTANTS:
+    Navy: #1F4E79 | Navy-dark: #0D1F3C | Mid-blue: #85B7EB | Orange: #E8610A
+    Font: Arial/system sans-serif
+    Logo: /images/clear%20bkgr%20logo%202.png
+    Hero image: /images/second.png
+    Booking: outlook.office365.com/book/.../?ismsaljsauthenabled=true
+    Newsletter API: ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe
+    Thomas: shift-work-diagnostic.onrender.com
 
   I did no harm and this file is not truncated
 -->
@@ -170,20 +79,10 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
-      --navy:#1F4E79;
-      --navy-dark:#0D1F3C;
-      --mid-blue:#85B7EB;
-      --light-blue:#EEF3F8;
-      --orange:#E8610A;
-      --green:#1D9E75;
-      --white:#FFFFFF;
-      --light-grey:#F4F6F8;
-      --body-text:#1A1A1A;
-      --muted:#666666;
-      --border-light:#f0f0f0;
-      --border-med:#e0e0e0;
-      --max-width:1060px;
-      --page-pad:24px
+      --navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;
+      --orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;
+      --body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;
+      --max-width:1060px;--page-pad:24px
     }
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
@@ -205,627 +104,127 @@
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
 
     /* ── HERO ── */
-    .hero{
-      background:#0D1F3C url('/images/second.png') center center / cover no-repeat;
-      padding:60px 36px 68px;
-      position:relative;
-      overflow:hidden
-    }
-    /* Dark gradient overlay — enough to keep text readable, light enough
-       to let the image's bright highlights show through */
-    .hero::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:linear-gradient(
-        to right,
-        rgba(13,31,60,0.82) 0%,
-        rgba(13,31,60,0.60) 55%,
-        rgba(13,31,60,0.30) 100%
-      );
-      z-index:0
-    }
-    /* Large decorative circle — top right */
-    .hero-circle-tr{
-      position:absolute;
-      top:-60px;right:-80px;
-      width:320px;height:320px;
-      border-radius:50%;
-      border:2px solid rgba(232,97,10,0.25);
-      z-index:0
-    }
-    /* Smaller accent circle — bottom left */
-    .hero-circle-bl{
-      position:absolute;
-      bottom:-100px;left:-50px;
-      width:220px;height:220px;
-      border-radius:50%;
-      border:2px solid rgba(133,183,235,0.15);
-      z-index:0
-    }
-    /* Orange accent bar — left edge of hero content */
-    .hero-accent-bar{
-      position:absolute;
-      left:0;top:0;bottom:0;
-      width:5px;
-      background:var(--orange)
-    }
-    .hero-inner{
-      max-width:var(--max-width);
-      margin:0 auto;
-      position:relative;
-      z-index:1
-    }
-    .hero-eyebrow{
-      font-size:11px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.16em;color:var(--orange);margin-bottom:16px;
-      animation:fadeUp .5s ease both
-    }
-    .hero h1{
-      font-size:36px;font-weight:700;line-height:1.15;
-      color:var(--white);max-width:660px;margin-bottom:18px;
-      animation:fadeUp .5s .1s ease both
-    }
-    .hero h1 em{
-      color:var(--orange);font-style:normal
-    }
-    .hero-authority{
-      font-size:15px;line-height:1.7;color:rgba(255,255,255,.75);
-      max-width:580px;margin-bottom:28px;
-      border-left:3px solid var(--orange);
-      padding-left:16px;
-      animation:fadeUp .5s .2s ease both
-    }
-    .hero-cta-row{
-      display:flex;align-items:center;gap:20px;flex-wrap:wrap;
-      animation:fadeUp .5s .3s ease both
-    }
-    .hero-cta-primary{
-      display:inline-block;padding:12px 28px;
-      background:var(--orange);color:var(--white);
-      font-size:14px;font-weight:700;text-decoration:none;
-      border-radius:4px;transition:background .15s
-    }
-    .hero-cta-primary:hover{background:#c4510a}
-    .hero-cta-secondary{
-      font-size:14px;color:var(--mid-blue);text-decoration:none;font-weight:500
-    }
-    .hero-cta-secondary:hover{color:var(--white)}
-    .hero-cta-secondary::after{content:' →'}
+    .hero{background:#0D1F3C url('/images/second.png') center center/cover no-repeat;padding:60px 36px 68px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.82) 0%,rgba(13,31,60,.60) 55%,rgba(13,31,60,.30) 100%);z-index:0}
+    .hero-circle-tr{position:absolute;top:-60px;right:-80px;width:320px;height:320px;border-radius:50%;border:2px solid rgba(232,97,10,.25);z-index:0}
+    .hero-circle-bl{position:absolute;bottom:-100px;left:-50px;width:220px;height:220px;border-radius:50%;border:2px solid rgba(133,183,235,.15);z-index:0}
+    .hero-accent-bar{position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--orange)}
+    .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
+    .hero h1{font-size:36px;font-weight:700;line-height:1.15;color:var(--white);max-width:660px;margin-bottom:18px;animation:fadeUp .5s .1s ease both}
+    .hero h1 em{color:var(--orange);font-style:normal}
+    .hero-authority{font-size:15px;line-height:1.7;color:rgba(255,255,255,.75);max-width:580px;margin-bottom:0;border-left:3px solid var(--orange);padding-left:16px;animation:fadeUp .5s .2s ease both}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 
-    @keyframes fadeUp{
-      from{opacity:0;transform:translateY(14px)}
-      to{opacity:1;transform:translateY(0)}
-    }
-
-    /* ── SHARED SECTION UTILITIES ── */
-    .section-wrap{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad)}
-
-    /* Accented heading — left orange bar */
-    .accent-heading{
-      font-size:22px;font-weight:700;color:var(--body-text);
-      line-height:1.3;margin-bottom:10px;
-      padding-left:14px;
-      border-left:4px solid var(--orange)
-    }
-    .section-eyebrow{
-      font-size:11px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.1em;color:var(--muted);margin-bottom:8px
-    }
-    .section-sub{
-      font-size:14px;color:var(--muted);line-height:1.65;
-      max-width:680px;margin-bottom:28px
-    }
-
-    /* ── ORANGE SECTION DIVIDER ── */
+    /* ── UTILITIES ── */
     .section-divider{height:3px;background:var(--orange);width:100%}
+    .accent-heading{font-size:22px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:10px;padding-left:14px;border-left:4px solid var(--orange)}
+    .section-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
+    .section-sub{font-size:14px;color:var(--muted);line-height:1.65;max-width:680px}
 
-    /* ══════════════════════════════════════════════════
-       DIAGNOSTIC CALLOUT — contained card, not full-bleed band.
-       White section background, card with orange left border,
-       decorative large "26" number as graphic element.
-    ═══════════════════════════════════════════════════ */
-    .diag-section{
-      padding:48px var(--page-pad);
-      background:var(--white)
-    }
-    .diag-card{
-      max-width:var(--max-width);
-      margin:0 auto;
-      background:var(--light-blue);
-      border-radius:10px;
-      border-left:6px solid var(--orange);
-      padding:36px 40px;
-      position:relative;
-      overflow:hidden;
-      display:grid;
-      grid-template-columns:1fr auto;
-      gap:32px;
-      align-items:center
-    }
-    /* Large decorative "26" ghost number — top right */
-    .diag-card::before{
-      content:'26';
-      position:absolute;
-      right:32px;top:50%;
-      transform:translateY(-50%);
-      font-size:120px;font-weight:700;
-      color:rgba(31,78,121,0.07);
-      line-height:1;
-      pointer-events:none;
-      user-select:none
-    }
-    .diag-badge{
-      display:inline-block;
-      background:var(--orange);color:var(--white);
-      font-size:10px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.1em;padding:4px 12px;border-radius:3px;
-      margin-bottom:14px
-    }
-    .diag-heading{
-      font-size:22px;font-weight:700;color:var(--navy);
-      line-height:1.25;margin-bottom:10px;max-width:500px
-    }
-    .diag-body{
-      font-size:14px;color:#444;
-      line-height:1.7;max-width:500px;margin-bottom:0
-    }
-    .diag-actions{
-      display:flex;flex-direction:column;gap:12px;
-      align-items:flex-start;flex-shrink:0;
-      position:relative;z-index:1
-    }
-    .diag-btn-primary{
-      display:inline-block;padding:12px 24px;
-      background:var(--orange);color:var(--white);
-      font-size:14px;font-weight:700;text-decoration:none;
-      border-radius:4px;transition:background .15s;white-space:nowrap
-    }
-    .diag-btn-primary:hover{background:#c4510a}
-    .diag-btn-secondary{
-      display:inline-block;padding:12px 24px;
-      background:transparent;color:var(--navy);
-      font-size:13px;font-weight:600;text-decoration:none;
-      border:1.5px solid rgba(31,78,121,.3);
-      border-radius:4px;transition:all .15s;white-space:nowrap
-    }
-    .diag-btn-secondary:hover{border-color:var(--navy);background:rgba(31,78,121,.05)}
+    /* ── HUB ── */
+    .hub-section{padding:48px var(--page-pad) 60px;background:var(--light-grey);min-height:60vh}
+    .hub-inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:1fr 260px;gap:36px;align-items:start}
+    .hub-intro{margin-bottom:28px}
 
-    /* ══════════════════════════════════════════════════
-       VISITOR INTENT SEGMENTS
-       "What Problem Are You Solving?" — 3 cards
-       Organizes by how visitors actually arrive.
-    ═══════════════════════════════════════════════════ */
-    .segments-section{
-      padding:60px var(--page-pad) 64px;
-      background:var(--light-grey)
-    }
-    .segments-intro{
-      max-width:var(--max-width);margin:0 auto 36px
-    }
-    .segments-grid{
-      max-width:var(--max-width);margin:0 auto;
-      display:grid;grid-template-columns:repeat(2,1fr);gap:20px
-    }
-    .segment-card{
-      background:var(--white);border-radius:8px;
-      padding:32px 26px;
-      border-top:4px solid var(--navy);
-      position:relative;
-      transition:border-top-color .2s,box-shadow .2s
-    }
-    .segment-card:hover{
-      border-top-color:var(--orange);
-      box-shadow:0 6px 28px rgba(0,0,0,.1)
-    }
-    .segment-number{
-      position:absolute;top:20px;right:22px;
-      font-size:42px;font-weight:700;
-      color:var(--light-blue);
-      line-height:1;
-      pointer-events:none;
-      user-select:none
-    }
-    .segment-label{
-      font-size:10px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.1em;color:var(--orange);margin-bottom:12px
-    }
-    .segment-problem{
-      font-size:17px;font-weight:700;color:var(--navy);
-      line-height:1.35;margin-bottom:14px
-    }
-    .segment-desc{
-      font-size:13px;color:var(--muted);line-height:1.6;
-      margin-bottom:20px
-    }
-    .segment-links{
-      list-style:none;
-      border-top:1px solid var(--border-med);
-      padding-top:16px;
-      display:flex;flex-direction:column;gap:8px
-    }
-    .segment-links li a{
-      font-size:13px;font-weight:600;color:var(--navy);
-      text-decoration:none;display:flex;align-items:center;gap:6px;
-      transition:color .15s
-    }
-    .segment-links li a::before{
-      content:'→';
-      color:var(--orange);font-size:12px;flex-shrink:0
-    }
-    .segment-links li a:hover{color:var(--orange)}
-    /* Card 4 "Not Sure Yet" uses same link style — orange top border distinguishes it */
-    .segment-card-unsure{border-top-color:var(--orange)}
+    /* 4 INTEREST BUTTONS */
+    .interest-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:32px}
+    .interest-btn{background:var(--white);border:2px solid var(--border-med);border-top:4px solid var(--navy);border-radius:8px;padding:18px 12px 16px;cursor:pointer;text-align:center;transition:all .25s ease;outline:none;font-family:Arial,Helvetica,sans-serif}
+    .interest-btn:hover{border-top-color:var(--orange);transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,0,0,.08)}
+    .interest-btn.active{border-color:var(--orange);border-top-color:var(--orange);box-shadow:0 4px 24px rgba(232,97,10,.15)}
+    .interest-btn-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--orange);margin-bottom:6px}
+    .interest-btn-title{font-size:13px;font-weight:700;color:var(--navy);line-height:1.35}
 
-    /* ══════════════════════════════════════════════════
-       GUIDES — PILLAR TILES
-       Added: "Comprehensive Guide" badge + read time.
-    ═══════════════════════════════════════════════════ */
-    .guides-section{
-      padding:60px var(--page-pad) 64px;
-      background:var(--white)
-    }
-    .guides-grid{
-      display:grid;grid-template-columns:repeat(3,1fr);gap:20px
-    }
-    .guide-tile{
-      background:var(--white);
-      border:1px solid var(--border-med);
-      border-top:3px solid var(--navy);
-      border-radius:6px;overflow:hidden;
-      text-decoration:none;display:flex;flex-direction:column;
-      transition:border-top-color .2s,box-shadow .2s,transform .2s
-    }
-    .guide-tile:hover{
-      border-top-color:var(--orange);
-      box-shadow:0 6px 24px rgba(0,0,0,.1);
-      transform:translateY(-2px)
-    }
-    /* Staggered entrance animation */
-    .guide-tile:nth-child(1){animation:fadeUp .45s .05s ease both}
-    .guide-tile:nth-child(2){animation:fadeUp .45s .1s ease both}
-    .guide-tile:nth-child(3){animation:fadeUp .45s .15s ease both}
-    .guide-tile:nth-child(4){animation:fadeUp .45s .2s ease both}
-    .guide-tile:nth-child(5){animation:fadeUp .45s .25s ease both}
-    .guide-tile:nth-child(6){animation:fadeUp .45s .3s ease both}
-    .guide-tile:nth-child(7){animation:fadeUp .45s .35s ease both}
-    .guide-tile:nth-child(8){animation:fadeUp .45s .4s ease both}
-    .guide-tile:nth-child(9){animation:fadeUp .45s .45s ease both}
-    .guide-tile:nth-child(10){animation:fadeUp .45s .5s ease both}
-    .guide-tile:nth-child(11){animation:fadeUp .45s .55s ease both}
-    .guide-tile:nth-child(12){animation:fadeUp .45s .6s ease both}
+    /* FOLDER STAGE */
+    .folder-stage{position:relative;min-height:380px;overflow:hidden;border-radius:10px;background:var(--white);border:1px solid var(--border-med)}
+    .folder-prompt{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:380px;text-align:center;padding:40px 24px;color:var(--muted)}
+    .folder-prompt-icon{width:56px;height:56px;margin-bottom:14px;opacity:.35}
+    .folder-prompt-text{font-size:15px;font-weight:500;line-height:1.6}
+    .anim-layer{position:absolute;inset:0;display:none;background:var(--white);z-index:2}
+    .anim-layer.playing{display:block}
+    .anim-status{position:absolute;bottom:24px;left:0;right:0;text-align:center;font-size:12px;font-weight:600;color:var(--muted);opacity:0;transition:opacity .4s}
+    .anim-status.visible{opacity:1}
+    .main-folder-wrap{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%) scale(.85);opacity:0;transition:opacity .5s ease,transform .5s ease;z-index:3;cursor:default}
+    .main-folder-wrap.visible{opacity:1;transform:translate(-50%,-50%) scale(1)}
+    .main-folder-wrap.clickable{cursor:pointer}
+    .mf-counter{position:absolute;top:-18px;right:-14px;width:32px;height:32px;border-radius:50%;background:var(--orange);color:white;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(0);transition:opacity .3s,transform .3s cubic-bezier(.34,1.56,.64,1);z-index:10}
+    .mf-counter.visible{opacity:1;transform:scale(1)}
+    .mf-label-text{position:absolute;bottom:6px;left:0;width:100%;text-align:center;font-size:13px;font-weight:700;color:var(--navy);pointer-events:none}
+    .mf-click-prompt{position:absolute;bottom:-42px;left:0;width:100%;text-align:center;font-size:13px;font-weight:700;color:var(--orange);opacity:0;transition:opacity .4s;animation:none}
+    .mf-click-prompt.visible{opacity:1;animation:soft-bounce 1.5s ease-in-out infinite}
+    @keyframes soft-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+    @keyframes pulse-ring{0%{box-shadow:0 0 0 0 rgba(232,97,10,.4)}70%{box-shadow:0 0 0 18px rgba(232,97,10,0)}100%{box-shadow:0 0 0 0 rgba(232,97,10,0)}}
+    .main-folder-wrap.pulse .mf-body{animation:pulse-ring .7s ease}
 
-    .guide-img{width:100%;height:148px;object-fit:cover;display:block}
-    .guide-body{padding:18px 16px 20px;display:flex;flex-direction:column;flex:1}
+    /* RESULT TILES */
+    .result-area{display:none;padding:24px 20px 28px}
+    .result-area.visible{display:block;animation:fadeUp .5s ease both}
+    .result-heading{font-size:18px;font-weight:700;color:var(--navy);margin-bottom:4px}
+    .result-sub{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.5}
+    .result-list{display:flex;flex-direction:column;gap:10px}
+    .result-card{display:flex;align-items:stretch;gap:0;background:var(--white);border:1px solid var(--border-med);border-left:4px solid var(--navy);border-radius:6px;overflow:hidden;text-decoration:none;transition:all .2s ease;opacity:0;animation:cardIn .4s ease forwards}
+    .result-card:hover{border-left-color:var(--orange);box-shadow:0 4px 16px rgba(0,0,0,.08);transform:translateY(-1px)}
+    @keyframes cardIn{from{opacity:0;transform:translateX(-16px)}to{opacity:1;transform:translateX(0)}}
+    .result-card-img{width:110px;flex-shrink:0;object-fit:cover;background-color:var(--light-blue);display:block}
+    .result-card-icon{width:72px;min-height:76px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--light-blue)}
+    .result-card-icon svg{display:block}
+    .result-card-body{flex:1;padding:12px 16px;min-width:0}
+    .result-card-tag{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:3px;margin-bottom:5px}
+    .result-card-tag.guide{background:var(--light-blue);color:var(--navy)}
+    .result-card-tag.focused{background:rgba(232,97,10,.1);color:var(--orange)}
+    .result-card-tag.tool{background:rgba(29,158,117,.1);color:var(--green)}
+    .result-card-title{font-size:14px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:4px;transition:color .15s}
+    .result-card:hover .result-card-title{color:var(--orange)}
+    .result-card-desc{font-size:12px;color:var(--muted);line-height:1.5}
+    .result-card-arrow{flex-shrink:0;display:flex;align-items:center;padding:0 14px;font-size:16px;font-weight:700;color:var(--border-med);transition:color .2s}
+    .result-card:hover .result-card-arrow{color:var(--orange)}
 
-    /* Badge row: "Comprehensive Guide" + read time */
-    .guide-meta-row{
-      display:flex;align-items:center;justify-content:space-between;
-      margin-bottom:10px
-    }
-    .guide-badge{
-      display:inline-block;
-      background:var(--light-blue);color:var(--navy);
-      font-size:9px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.07em;padding:3px 8px;border-radius:3px
-    }
-    .guide-readtime{
-      font-size:10px;color:var(--muted);font-weight:500
-    }
+    /* SIDEBAR */
+    .hub-sidebar{position:sticky;top:72px;background:var(--navy-dark);border-radius:10px;overflow:hidden}
+    .sidebar-header{padding:24px 22px 18px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .sidebar-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--orange);margin-bottom:6px}
+    .sidebar-heading{font-size:16px;font-weight:700;color:var(--white);line-height:1.35}
+    .sidebar-links{padding:8px 0;list-style:none}
+    .sidebar-link{display:flex;align-items:center;gap:14px;padding:16px 22px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.06);transition:background .15s}
+    .sidebar-link:last-child{border-bottom:none}
+    .sidebar-link:hover{background:rgba(255,255,255,.05)}
+    .sidebar-link-icon{flex-shrink:0;width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(232,97,10,.15);border-radius:8px}
+    .sidebar-link-icon svg{display:block}
+    .sidebar-link-title{font-size:14px;font-weight:700;color:var(--white);line-height:1.3;margin-bottom:3px;transition:color .15s}
+    .sidebar-link:hover .sidebar-link-title{color:var(--orange)}
+    .sidebar-link-desc{font-size:11px;color:rgba(255,255,255,.45);line-height:1.4}
+    .sidebar-link-arrow{margin-left:auto;flex-shrink:0;font-size:14px;color:rgba(255,255,255,.3);transition:color .15s}
+    .sidebar-link:hover .sidebar-link-arrow{color:var(--orange)}
 
-    .guide-title{
-      font-size:15px;font-weight:700;color:var(--navy);
-      line-height:1.35;margin-bottom:8px
-    }
-    .guide-desc{
-      font-size:13px;color:var(--muted);line-height:1.6;flex:1
-    }
-    .guide-link{
-      display:inline-block;margin-top:14px;
-      font-size:12px;font-weight:700;color:var(--navy);text-decoration:none
-    }
-    .guide-link::after{content:' →'}
-    .guide-tile:hover .guide-link{color:var(--orange)}
-
-    /* Action tiles (contact + book) */
-    .action-tile{
-      background:var(--navy-dark);
-      border-radius:6px;padding:28px 22px;
-      display:flex;flex-direction:column;justify-content:center;
-      align-items:stretch;text-align:center
-    }
-    .action-tile-label{
-      font-size:10px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px
-    }
-    .action-tile-title{
-      font-size:17px;font-weight:700;color:var(--white);
-      line-height:1.35;margin-bottom:10px
-    }
-    .action-tile-text{
-      font-size:13px;color:rgba(255,255,255,.6);
-      line-height:1.55;margin-bottom:18px
-    }
-    .action-tile-btn{
-      display:inline-block;width:100%;padding:10px 16px;
-      background:var(--orange);color:var(--white);
-      font-size:13px;font-weight:700;text-decoration:none;
-      border-radius:4px;text-align:center;transition:background .15s
-    }
-    .action-tile-btn:hover{background:#c4510a}
-
-    /* ══════════════════════════════════════════════════
-       INDUSTRIES SECTION — 6 tile grid
-    ═══════════════════════════════════════════════════ */
-    .industries-section{
-      padding:60px var(--page-pad) 64px;
-      background:var(--light-blue)
-    }
-    .industries-grid{
-      max-width:var(--max-width);margin:0 auto;
-      display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
-      margin-top:0
-    }
-    .industry-tile{
-      background:var(--white);border-radius:6px;
-      padding:22px 20px;text-decoration:none;
-      display:flex;align-items:flex-start;gap:14px;
-      border:1px solid var(--border-med);
-      border-left:4px solid var(--navy);
-      transition:border-left-color .2s,box-shadow .2s,transform .2s
-    }
-    .industry-tile:hover{
-      border-left-color:var(--orange);
-      box-shadow:0 4px 20px rgba(0,0,0,.09);
-      transform:translateY(-2px)
-    }
-    .industry-icon{
-      flex-shrink:0;
-      width:44px;height:44px;
-      display:flex;align-items:center;justify-content:center;
-      background:var(--light-blue);
-      border-radius:8px;
-      margin-top:2px
-    }
-    .industry-icon svg{display:block}
-    .industry-tile-body{}
-    .industry-tile-name{
-      font-size:15px;font-weight:700;color:var(--navy);
-      line-height:1.3;margin-bottom:5px
-    }
-    .industry-tile-desc{
-      font-size:12.5px;color:var(--muted);line-height:1.55
-    }
-    .industry-tile-link{
-      display:block;margin-top:10px;
-      font-size:12px;font-weight:700;color:var(--orange);
-      text-decoration:none
-    }
-    .industry-tile-link::after{content:' →'}
-
-    /* ══════════════════════════════════════════════════
-       FOCUSED TOPICS + TRENDING RAIL
-       65/35 two-column layout.
-       Both columns rebuilt with strong visual identity.
-    ═══════════════════════════════════════════════════ */
-    .topics-trending-section{
-      padding:60px var(--page-pad) 64px;
-      background:var(--white)
-    }
-    .topics-trending-inner{max-width:var(--max-width);margin:0 auto}
-    .topics-trending-grid{
-      display:grid;
-      grid-template-columns:65fr 35fr;
-      gap:32px;
-      align-items:stretch
-    }
-
-    /* LEFT: FOCUSED TOPICS — accent-bar cards */
-    .topics-col-header{margin-bottom:24px}
-    .topics-list{display:flex;flex-direction:column;gap:12px}
-
-    /* Each topic is now a proper card with a left accent bar */
-    .topic-card{
-      display:flex;align-items:stretch;gap:0;
-      border-radius:6px;
-      border:1px solid var(--border-med);
-      text-decoration:none;
-      overflow:hidden;
-      background:var(--white);
-      transition:box-shadow .2s,transform .2s;
-      position:relative
-    }
-    .topic-card:hover{
-      box-shadow:0 4px 20px rgba(0,0,0,.1);
-      transform:translateY(-1px)
-    }
-    /* Colored left accent bar — varies per topic category */
-    .topic-card-accent{
-      width:5px;
-      flex-shrink:0;
-      background:var(--navy)
-    }
-    .topic-card:nth-child(1) .topic-card-accent{background:#1F4E79}
-    .topic-card:nth-child(2) .topic-card-accent{background:#E8610A}
-    .topic-card:nth-child(3) .topic-card-accent{background:#1D9E75}
-    .topic-card:nth-child(4) .topic-card-accent{background:#85B7EB}
-    .topic-card:nth-child(5) .topic-card-accent{background:#1F4E79}
-    .topic-card:nth-child(6) .topic-card-accent{background:#E8610A}
-    .topic-card:nth-child(7) .topic-card-accent{background:#1D9E75}
-
-    .topic-card-inner{
-      flex:1;padding:18px 20px;
-      display:flex;align-items:center;justify-content:space-between;gap:16px
-    }
-    .topic-card-icon{
-      font-size:22px;flex-shrink:0;
-      width:32px;text-align:center
-    }
-    .topic-card-body{flex:1;min-width:0}
-    .topic-card-title{
-      font-size:14px;font-weight:700;color:var(--navy);
-      line-height:1.35;margin-bottom:4px;
-      transition:color .15s
-    }
-    .topic-card:hover .topic-card-title{color:var(--orange)}
-    .topic-card-desc{font-size:12.5px;color:var(--muted);line-height:1.5}
-    .topic-card-cta{
-      display:inline-block;flex-shrink:0;
-      padding:7px 14px;
-      background:var(--orange);color:var(--white);
-      font-size:11px;font-weight:700;text-decoration:none;
-      border-radius:3px;white-space:nowrap;
-      transition:background .15s
-    }
-    .topic-card-cta:hover{background:#c4510a}
-
-    /* RIGHT: TRENDING RAIL — dark panel, orange tag pills */
-    .trending-rail{
-      background:var(--navy-dark);
-      border-radius:8px;
-      overflow:hidden;
-      display:flex;
-      flex-direction:column
-    }
-    .trending-rail-header{
-      padding:20px 22px 16px;
-      border-bottom:1px solid rgba(255,255,255,.08)
-    }
-    .trending-rail-label{
-      font-size:10px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.12em;color:var(--orange);margin-bottom:6px
-    }
-    .trending-rail-heading{
-      font-size:16px;font-weight:700;color:var(--white);line-height:1.35
-    }
-    .trending-rail-items{
-      display:flex;flex-direction:column;
-      flex:1;
-      justify-content:space-between;
-      padding:0
-    }
-
-    /* Dark panel trending card — flex:1 so all items share height equally */
-    .trending-item{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      flex:1;
-      padding:10px 22px;
-      border-bottom:1px solid rgba(255,255,255,.06);
-      text-decoration:none;
-      transition:background .15s
-    }
-    .trending-item:last-child{border-bottom:none}
-    .trending-item:hover{background:rgba(255,255,255,.05)}
-    .trending-item:hover .trending-item-title{color:var(--orange)}
-
-    /* Tag is now an orange pill */
-    .trending-item-tag{
-      display:inline-block;
-      font-size:9px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.1em;
-      background:rgba(232,97,10,.2);color:var(--orange);
-      padding:2px 7px;border-radius:10px;
-      margin-bottom:6px
-    }
-    .trending-item-title{
-      font-size:12.5px;font-weight:700;color:rgba(255,255,255,.9);
-      line-height:1.4;margin-bottom:5px;transition:color .15s
-    }
-    .trending-item-read{
-      font-size:10px;font-weight:700;
-      color:rgba(255,255,255,.35);
-      transition:color .15s
-    }
-    .trending-item-read::after{content:' →'}
-    .trending-item:hover .trending-item-read{color:var(--orange)}
-
-    /* ── FOOTER — 3 columns, shared CTA row ── */
+    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
-    .footer-prefooter{
-      padding:44px var(--page-pad) 40px;
-      border-bottom:1px solid rgba(255,255,255,.1)
-    }
+    .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
-
-    /* Content row: 3 equal columns, labels + titles + descriptions */
-    .footer-content-row{
-      display:grid;
-      grid-template-columns:1fr 1fr 1fr;
-      gap:0;
-      margin-bottom:28px
-    }
+    .footer-content-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-bottom:28px}
     .footer-col{padding:0 32px}
     .footer-col-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
     .footer-col-2{border-right:1px solid rgba(255,255,255,.08)}
     .footer-col-3{padding-right:0}
-
-    /*
-      CTA ROW: 3 direct flex children, each flex:0 0 33.333%.
-      All at the same top edge. No content above them in this row.
-      This is the only reliable way to guarantee alignment.
-    */
-    .footer-cta-row{
-      display:flex;
-      align-items:center;
-      gap:0
-    }
-    .footer-cta-1,.footer-cta-2,.footer-cta-3{
-      flex:0 0 33.333%;
-      padding:0 32px
-    }
+    .footer-cta-row{display:flex;align-items:center;gap:0}
+    .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:0 0 33.333%;padding:0 32px}
     .footer-cta-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
     .footer-cta-2{border-right:1px solid rgba(255,255,255,.08)}
     .footer-cta-3{padding-right:0}
-
-    /* Shared CTA button style for col 1 + col 2 */
-    .footer-cta-btn{
-      display:inline-block;padding:10px 20px;
-      background:var(--orange,#E8610A);color:#fff;
-      font-size:13px;font-weight:700;text-decoration:none;
-      border-radius:4px;transition:background .15s;
-      white-space:nowrap
-    }
+    .footer-cta-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
     .footer-cta-btn:hover{background:#c4510a}
-
-    .engage-label{
-      font-size:10px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.1em;color:var(--mid-blue,#85B7EB);margin-bottom:8px
-    }
+    .engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
     .engage-col-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
     .engage-col-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
-
-    /* Newsletter form in col 3 */
     .engage-nl-form{display:flex;gap:8px;flex-wrap:wrap}
-    .engage-nl-input{
-      flex:1;min-width:120px;padding:10px 12px;
-      border:1.5px solid rgba(255,255,255,.2);border-radius:4px;
-      background:rgba(255,255,255,.08);color:#fff;
-      font-family:Arial,sans-serif;font-size:13px;outline:none;
-      transition:border-color .15s
-    }
+    .engage-nl-input{flex:1;min-width:120px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
     .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
-    .engage-nl-input:focus{border-color:var(--mid-blue,#85B7EB)}
-    .engage-nl-btn{
-      padding:10px 18px;background:var(--orange,#E8610A);color:#fff;
-      border:none;border-radius:4px;font-family:Arial,sans-serif;
-      font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;
-      white-space:nowrap
-    }
+    .engage-nl-input:focus{border-color:var(--mid-blue)}
+    .engage-nl-btn{padding:10px 18px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
     .engage-nl-btn:hover{background:#c4510a}
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
     .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
-
-    /* Bottom bar */
     .footer-bottom{padding:16px var(--page-pad)}
-    .footer-bottom-inner{
-      max-width:1100px;margin:0 auto;
-      display:flex;align-items:center;justify-content:space-between;
-      flex-wrap:wrap;gap:12px;
-      font-size:13px;color:rgba(255,255,255,.45)
-    }
+    .footer-bottom-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.45)}
     .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
@@ -833,26 +232,19 @@
 
     /* ── RESPONSIVE ── */
     @media(max-width:960px){
-      .diag-card{grid-template-columns:1fr;padding:28px 24px}
-      .diag-card::before{font-size:80px;right:16px}
-      .diag-actions{flex-direction:row;flex-wrap:wrap}
-      .segments-grid{grid-template-columns:1fr}
-      .guides-grid{grid-template-columns:repeat(2,1fr)}
-      .industries-grid{grid-template-columns:repeat(2,1fr)}
-      .topics-trending-grid{grid-template-columns:1fr}
-      .trending-rail{border-radius:8px}
+      .hub-inner{grid-template-columns:1fr;gap:28px}
+      .hub-sidebar{position:static}
+      .interest-row{grid-template-columns:repeat(2,1fr)}
     }
     @media(max-width:640px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
       .hero{padding:40px 20px 48px}.hero h1{font-size:26px}
-      .diag-section{padding:32px 20px}
-      .diag-card{padding:24px 20px}
-      .diag-heading{font-size:18px}
-      .segments-section{padding:40px 20px 44px}.segments-grid{grid-template-columns:1fr}
-      .guides-section{padding:40px 20px 44px}.guides-grid{grid-template-columns:1fr}.guide-img{height:180px}
-      .industries-section{padding:40px 20px 44px}.industries-grid{grid-template-columns:1fr}
-      .topics-trending-section{padding:40px 20px 44px}.topics-trending-grid{gap:32px}
-      .cta-band{padding:44px 20px}.cta-band h2{font-size:22px}
+      .hub-section{padding:32px 16px 40px}
+      .interest-row{grid-template-columns:1fr 1fr;gap:10px}
+      .interest-btn{padding:14px 10px 12px}
+      .interest-btn-title{font-size:12px}
+      .result-card-img{width:70px}
+      .result-card-icon{width:56px;min-height:60px}
       .footer-prefooter{padding:32px 20px}
       .footer-content-row{grid-template-columns:1fr}
       .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
@@ -867,16 +259,10 @@
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════════════════
-     NAV
-════════════════════════════════════════════════════════════════ -->
+<!-- NAV -->
 <nav class="site-nav"><div class="nav-inner">
-  <a href="/" class="nav-logo">
-    <img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;">
-  </a>
-  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;"></a>
+  <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
     <li><a href="/services/">Our Services</a></li>
@@ -885,621 +271,336 @@
     <li><a href="/why-us/">Why Us</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
-  <div class="nav-cta-wrap">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true"
-       class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a>
-  </div>
+  <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
 </div></nav>
 
-<!-- ══════════════════════════════════════════════════════════════
-     HERO — Upgraded with authority statement, dot-grid texture,
-             decorative circles, left orange accent bar, CTAs
-════════════════════════════════════════════════════════════════ -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-accent-bar"></div>
   <div class="hero-circle-tr"></div>
   <div class="hero-circle-bl"></div>
   <div class="hero-inner">
     <h1>Thirty Years of Shift Work Consulting.<br><em>Distilled.</em></h1>
-    <p class="hero-authority">
-      Scheduling guides, industry insights, and diagnostic tools built for operations leaders — not academics. Start with the topic most relevant to your situation.
-    </p>
+    <p class="hero-authority">Scheduling guides, industry insights, and diagnostic tools built for operations leaders — not academics. Start with the topic most relevant to your situation.</p>
   </div>
 </section>
 
-<!-- ORANGE SECTION DIVIDER -->
 <div class="section-divider"></div>
 
-<!-- ══════════════════════════════════════════════════════════════
-     VISITOR INTENT SEGMENTS
-     "What problem are you solving?" — 4 cards.
-     4th card: Not Sure Yet — contains 26 signs, assessment, Thomas.
-════════════════════════════════════════════════════════════════ -->
-<section class="segments-section">
-  <div class="segments-intro">
-    <div class="section-eyebrow">Find Your Starting Point</div>
-    <div class="accent-heading">What problem are you trying to solve?</div>
-    <p class="section-sub">Operations leaders don't arrive thinking "I need a Schedule Management article." They arrive with a specific situation. Start here.</p>
-  </div>
-  <div class="segments-grid">
+<!-- HUB -->
+<section class="hub-section">
+  <div class="hub-inner">
+    <div class="hub-main">
+      <div class="hub-intro">
+        <div class="section-eyebrow">Find Your Starting Point</div>
+        <div class="accent-heading">What problem are you trying to solve?</div>
+        <p class="section-sub">Click the area that best matches your situation. We'll pull together the most relevant guides and articles for you.</p>
+      </div>
 
-    <div class="segment-card">
-      <div class="segment-number">01</div>
-      <div class="segment-label">Expanding Operations</div>
-      <div class="segment-problem">Moving to 24/7 — or adding a shift to an existing operation</div>
-      <p class="segment-desc">Most companies get this transition wrong. The schedule is almost never the first thing they design, but it should be.</p>
-      <ul class="segment-links">
-        <li><a href="/resources/shift-schedule-design-guide/">Complete Guide to Shift Schedule Design</a></li>
-        <li><a href="/resources/shift-schedule-patterns-guide/">Shift Schedule Patterns &amp; Examples</a></li>
-        <li><a href="/resources/equipment-utilization-shift-scheduling/">Maximizing Equipment Utilization</a></li>
-      </ul>
+      <div class="interest-row">
+        <button class="interest-btn" data-interest="expanding" onclick="selectInterest(this)">
+          <div class="interest-btn-label">Expanding Operations</div>
+          <div class="interest-btn-title">Moving to 24/7 or adding shifts</div>
+        </button>
+        <button class="interest-btn" data-interest="performance" onclick="selectInterest(this)">
+          <div class="interest-btn-label">Performance Problems</div>
+          <div class="interest-btn-title">Overtime, coverage, or productivity</div>
+        </button>
+        <button class="interest-btn" data-interest="workforce" onclick="selectInterest(this)">
+          <div class="interest-btn-label">Workforce &amp; Retention</div>
+          <div class="interest-btn-title">Turnover, engagement, or change</div>
+        </button>
+        <button class="interest-btn" data-interest="unsure" onclick="selectInterest(this)">
+          <div class="interest-btn-label">Not Sure Yet</div>
+          <div class="interest-btn-title">Help me diagnose the problem</div>
+        </button>
+      </div>
+
+      <div class="folder-stage" id="folderStage">
+        <div class="folder-prompt" id="folderPrompt">
+          <svg class="folder-prompt-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="16" width="48" height="32" rx="4" stroke="currentColor" stroke-width="2"/><path d="M4 20C4 17.8 5.8 16 8 16h14l4-6h22c2.2 0 4 1.8 4 4v2H4z" fill="currentColor" opacity="0.15"/></svg>
+          <div class="folder-prompt-text">Select an area of interest above.<br>We'll assemble the right resources for you.</div>
+        </div>
+        <div class="anim-layer" id="animLayer"></div>
+        <div class="result-area" id="resultArea">
+          <div class="result-heading" id="resultHeading"></div>
+          <div class="result-sub" id="resultSub"></div>
+          <div class="result-list" id="resultList"></div>
+        </div>
+      </div>
     </div>
 
-    <div class="segment-card">
-      <div class="segment-number">02</div>
-      <div class="segment-label">Performance Problems</div>
-      <div class="segment-problem">Overtime is out of control, coverage is a daily scramble, or productivity has slipped</div>
-      <p class="segment-desc">Performance problems in 24/7 operations are usually schedule problems in disguise. The root cause is almost always structural.</p>
-      <ul class="segment-links">
-        <li><a href="/resources/overtime-management-guide/">Overtime Management</a></li>
-        <li><a href="/resources/absenteeism-relief-coverage-management/">Managing Absenteeism &amp; Coverage Gaps</a></li>
-        <li><a href="/resources/managing-variable-workloads/">Managing Variable Workloads</a></li>
+    <aside class="hub-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-label">Browse All</div>
+        <div class="sidebar-heading">Explore by Category</div>
+      </div>
+      <ul class="sidebar-links">
+        <li><a href="#" class="sidebar-link">
+          <div class="sidebar-link-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><rect x="2" y="3" width="16" height="14" rx="2" stroke="#E8610A" stroke-width="1.5"/><path d="M5 7h10M5 10h7" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="sidebar-link-body"><div class="sidebar-link-title">Complete Guides</div><div class="sidebar-link-desc">10 in-depth resources</div></div>
+          <span class="sidebar-link-arrow">&#x2192;</span>
+        </a></li>
+        <li><a href="#" class="sidebar-link">
+          <div class="sidebar-link-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7.5" stroke="#E8610A" stroke-width="1.5"/><path d="M10 6v4l3 2" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="sidebar-link-body"><div class="sidebar-link-title">Focused Topics</div><div class="sidebar-link-desc">7 targeted articles</div></div>
+          <span class="sidebar-link-arrow">&#x2192;</span>
+        </a></li>
+        <li><a href="#" class="sidebar-link">
+          <div class="sidebar-link-icon"><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 14l4-4 3 3 7-7" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 6h4v4" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="sidebar-link-body"><div class="sidebar-link-title">Trending Topics</div><div class="sidebar-link-desc">9 timely insights</div></div>
+          <span class="sidebar-link-arrow">&#x2192;</span>
+        </a></li>
       </ul>
-    </div>
-
-    <div class="segment-card">
-      <div class="segment-number">03</div>
-      <div class="segment-label">Workforce &amp; Retention</div>
-      <div class="segment-problem">Turnover is high, engagement is low, or a schedule change is coming and you're worried about resistance</div>
-      <p class="segment-desc">What shift workers actually value is consistently misunderstood by managers. Engagement strategies built for offices fail on the plant floor.</p>
-      <ul class="segment-links">
-        <li><a href="/resources/employee-engagement-shift-work/">Building Employee Engagement</a></li>
-        <li><a href="/resources/schedule-change-management/">Schedule Change Management</a></li>
-        <li><a href="/resources/shift-work-policies-guide/">Shift Work Policies: Pay, Time-Off &amp; Compliance</a></li>
-      </ul>
-    </div>
-
-    <div class="segment-card segment-card-unsure">
-      <div class="segment-number">04</div>
-      <div class="segment-label">Not Sure Yet</div>
-      <div class="segment-problem">Something feels off but you haven't pinpointed it — or you're just starting to explore</div>
-      <p class="segment-desc">Start with a diagnostic. These three tools are designed to orient you before you commit to a direction.</p>
-      <ul class="segment-links">
-        <li><a href="/resources/26-warning-signs-schedule-problems/">26 Warning Signs Your Schedule Needs Attention</a></li>
-        <li><a href="/resources/shiftwork-assessment/">Free Online Assessment</a></li>
-        <li><a href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener">Talk to Thomas — AI Shift Advisor</a></li>
-      </ul>
-    </div>
-
+    </aside>
   </div>
 </section>
 
-<!-- ORANGE SECTION DIVIDER -->
-<div class="section-divider"></div>
-
-<!-- ══════════════════════════════════════════════════════════════
-     COMPLETE GUIDES — PILLAR TILES
-     Now with "Comprehensive Guide" badge + read-time per tile.
-════════════════════════════════════════════════════════════════ -->
-<section class="guides-section" id="guides"><div class="section-wrap">
-  <div class="section-eyebrow">Complete Guides</div>
-  <div class="accent-heading">Ten in-depth resources covering every dimension of shift work</div>
-  <p class="section-sub">Each guide is 2,000+ words — written for operations leaders who want to understand a topic fully before making decisions.</p>
-  <div class="guides-grid">
-
-    <a href="/resources/shift-schedule-design-guide/" class="guide-tile">
-      <img src="/images/pillar_1.jpg" alt="Shift schedule design — calendar and planning tools" class="guide-img">
-      <div class="guide-body">
-        <div class="guide-meta-row"><span class="guide-badge">Comprehensive Guide</span><span class="guide-readtime">12 min read</span></div>
-        <div class="guide-title">Complete Guide to Shift Schedule Design</div>
-        <div class="guide-desc">The foundations of schedule design — fixed vs. rotating, shift length, cost structure, and why small decisions have large consequences.</div>
-        <span class="guide-link">Read the guide</span>
-      </div>
-    </a>
-
-    <a href="/resources/shift-schedule-patterns-guide/" class="guide-tile">
-      <img src="/images/pillar_2.jpg" alt="Shift schedule patterns — rotating shift calendar examples" class="guide-img">
-      <div class="guide-body">
-        <div class="guide-meta-row"><span class="guide-badge">Comprehensive Guide</span><span class="guide-readtime">14 min read</span></div>
-        <div class="guide-title">Shift Schedule Patterns &amp; Examples</div>
-        <div class="guide-desc">DuPont, Panama, 4-on/4-off, and more — a decision guide to the most common 24/7 patterns and the tradeoffs of each.</div>
-        <span class="guide-link">Read the guide</span>
-      </div>
-    </a>
-
-    <a href="/resources/equipment-utilization-shift-scheduling/" class="guide-tile">
-      <img src="/images/pillar_3.jpg" alt="Equipment utilization — manufacturing floor machinery" class="guide-img">
-      <div class="guide-body">
-        <div class="guide-meta-row"><span class="guide-badge">Comprehensive Guide</span><span class="guide-readtime">11 min read</span></div>
-        <div class="guide-title">Maximizing Equipment Utilization</div>
-        <div class="guide-desc">How schedule design directly drives equipment uptime — and why most facilities leave 40% of their capacity on the table.</div>
-        <span class="guide-link">Read the guide</span>
-      </div>
-    </a>
-
-    <a href="/resources/managing-variable-workloads/" class="guide-tile">
-      <img src="/images/pillar_4.jpg" alt="Variable workloads — demand planning and workforce flexibility" class="guide-img">
-      <div class="guide-body">
-        <div class="guide-meta-row"><span class="guide-badge">Comprehensive Guide</span><span class="guide-readtime">10 min read</span></div>
-        <div class="guide-title">Managing Variable Workloads</div>
-        <div class="guide-desc">Four proven strategies for matching staffing to fluctuating demand without chronic overtime or expensive idle time.</div>
-        <span class="guide-link">Read the guide</span>
-      </div>
-    </a>
-
-    <a href="/resources/overtime-management-guide/" class="guide-tile">
-      <img src="/images/pillar_5.jpg" alt="Overtime management — clock and labor cost analysis" class="guide-img">
-      <div class="guide-body">
-        <div class="guide-meta-row"><span class="guide-badge">Comprehensive Guide</span><span class="guide-readtime">13 min read</span></div>
-        <div class="guide-title">Overtime Management</div>
-        <div class="guide-desc">Strategy, distribution, and cost control — including why the true cost of overtime is far closer to straight time than most managers assume.</div>
-        <span class="guide-link">Read the guide</span>
-      </div>
-    </a>
-
-    <a href="/resources/schedule-change-management/" class="guide-tile">
-      <img src="/images/pillar_6.jpg" alt="Schedule change management — team communication and planning" class="guide-img">
-      <div class="guide-body">
-        <div class="guide-meta-row"><span class="guide-badge">Comprehensive Guide</span><span class="guide-readtime">11 min read</span></div>
-        <div class="guide-title">Schedule Change Management</div>
-        <div class="guide-desc">From planning to implementation — why well-designed changes fail and what communication and policy alignment actually require.</div>
-        <span class="guide-link">Read the guide</span>
-      </div>
-    </a>
-
-    <a href="/resources/employee-engagement-shift-work/" class="guide-tile">
-      <img src="/images/pillar_7.jpg" alt="Employee engagement — shift workers in discussion" class="guide-img">
-      <div class="guide-body">
-        <div class="guide-meta-row"><span class="guide-badge">Comprehensive Guide</span><span class="guide-readtime">12 min read</span></div>
-        <div class="guide-title">Building Employee Engagement</div>
-        <div class="guide-desc">What shift workers actually value — and why engagement strategies designed for offices consistently fail on the plant floor.</div>
-        <span class="guide-link">Read the guide</span>
-      </div>
-    </a>
-
-    <a href="/resources/shift-work-best-practices/" class="guide-tile">
-      <img src="/images/pillar_8.jpg" alt="Operational best practices — 24/7 manufacturing operations" class="guide-img">
-      <div class="guide-body">
-        <div class="guide-meta-row"><span class="guide-badge">Comprehensive Guide</span><span class="guide-readtime">15 min read</span></div>
-        <div class="guide-title">Operational Best Practices</div>
-        <div class="guide-desc">The fundamentals that separate excellent 24/7 operations from struggling ones — schedule, equipment, labor economics, and communication.</div>
-        <span class="guide-link">Read the guide</span>
-      </div>
-    </a>
-
-    <a href="/resources/absenteeism-relief-coverage-management/" class="guide-tile">
-      <img src="/images/pillar_9.jpg" alt="Absenteeism and coverage — crew scheduling board" class="guide-img">
-      <div class="guide-body">
-        <div class="guide-meta-row"><span class="guide-badge">Comprehensive Guide</span><span class="guide-readtime">11 min read</span></div>
-        <div class="guide-title">Managing Absenteeism &amp; Coverage Gaps</div>
-        <div class="guide-desc">How to build coverage systems that handle absences without daily scrambles — relief crews, skill balance, and cost modeling.</div>
-        <span class="guide-link">Read the guide</span>
-      </div>
-    </a>
-
-    <!-- ACTION TILE — Contact -->
-    <div class="action-tile">
-      <div class="action-tile-label">Get in Touch</div>
-      <div class="action-tile-title">Contact Us</div>
-      <div class="action-tile-text">Questions about your operation? Reach out — we'll tell you honestly what we see.</div>
-      <a href="/contact/" class="action-tile-btn">Contact Us &#x2192;</a>
-    </div>
-
-    <a href="/resources/shift-work-policies-guide/" class="guide-tile">
-      <img src="/images/pillar_10.jpg" alt="Shift work policies — pay, time-off and compliance documents" class="guide-img">
-      <div class="guide-body">
-        <div class="guide-meta-row"><span class="guide-badge">Comprehensive Guide</span><span class="guide-readtime">10 min read</span></div>
-        <div class="guide-title">Shift Work Policies: Pay, Time-Off &amp; Compliance</div>
-        <div class="guide-desc">Why pay and time-off policies designed for 8-hour schedules break immediately on 12-hour or continuous operations.</div>
-        <span class="guide-link">Read the guide</span>
-      </div>
-    </a>
-
-    <!-- ACTION TILE — Book Meeting -->
-    <div class="action-tile">
-      <div class="action-tile-label">Schedule a Call</div>
-      <div class="action-tile-title">Book a Free Meeting</div>
-      <div class="action-tile-text">Talk directly with a senior consultant who has led hundreds of schedule transformations.</div>
-      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true"
-         class="action-tile-btn" target="_blank" rel="noopener">Book a Meeting &#x2192;</a>
-    </div>
-
-  </div>
-</div></section>
-
-<!-- ORANGE SECTION DIVIDER -->
-<div class="section-divider"></div>
-
-<!-- ══════════════════════════════════════════════════════════════
-     INDUSTRIES SECTION
-     Six industry tiles — "built for your industry" framing.
-     Serves both SEO and visitor qualification.
-════════════════════════════════════════════════════════════════ -->
-<section class="industries-section">
-  <div class="section-wrap" style="margin-bottom:32px;">
-    <div class="section-eyebrow">By Industry</div>
-    <div class="accent-heading">Guides built for your operation</div>
-    <p class="section-sub">24/7 scheduling challenges aren't generic. Manufacturing, distribution, and process industries each have distinct constraints — and distinct solutions.</p>
-  </div>
-  <div class="industries-grid">
-
-    <a href="/industries/manufacturing/" class="industry-tile">
-      <!-- Gear / cog — manufacturing -->
-      <div class="industry-icon">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <circle cx="18" cy="18" r="5.5" stroke="#1F4E79" stroke-width="2"/>
-          <path d="M18 2v4M18 30v4M2 18h4M30 18h4M6.34 6.34l2.83 2.83M26.83 26.83l2.83 2.83M6.34 29.66l2.83-2.83M26.83 9.17l2.83-2.83" stroke="#1F4E79" stroke-width="2" stroke-linecap="round"/>
-          <path d="M15.5 2.5h5v3.2a10.1 10.1 0 0 1 3.18 1.84l2.77-1.6 2.5 4.33-2.77 1.6c.16.62.25 1.27.25 1.93s-.09 1.31-.25 1.93l2.77 1.6-2.5 4.33-2.77-1.6A10.1 10.1 0 0 1 20.5 21.3v3.2h-5V21.3a10.1 10.1 0 0 1-3.18-1.84l-2.77 1.6-2.5-4.33 2.77-1.6A10.2 10.2 0 0 1 9.57 13.4c0-.66.09-1.31.25-1.93l-2.77-1.6 2.5-4.33 2.77 1.6A10.1 10.1 0 0 1 15.5 5.7V2.5Z" stroke="#E8610A" stroke-width="1.5" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="industry-tile-body">
-        <div class="industry-tile-name">Manufacturing</div>
-        <div class="industry-tile-desc">Continuous production, equipment cycles, and crew rotation in high-volume plant environments.</div>
-        <span class="industry-tile-link">Explore</span>
-      </div>
-    </a>
-
-    <a href="/industries/distribution-logistics/" class="industry-tile">
-      <!-- Route / waypoints — distribution -->
-      <div class="industry-icon">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="2" y="22" width="10" height="8" rx="1.5" stroke="#1F4E79" stroke-width="2"/>
-          <rect x="24" y="6" width="10" height="8" rx="1.5" stroke="#1F4E79" stroke-width="2"/>
-          <circle cx="7" cy="34" r="0" fill="#1F4E79"/>
-          <path d="M12 26h6a4 4 0 0 0 4-4V14a4 4 0 0 1 4-4h2" stroke="#E8610A" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="7" cy="26" r="2" fill="#E8610A"/>
-          <circle cx="29" cy="10" r="2" fill="#E8610A"/>
-        </svg>
-      </div>
-      <div class="industry-tile-body">
-        <div class="industry-tile-name">Distribution &amp; Logistics</div>
-        <div class="industry-tile-desc">Variable volume, tight delivery windows, and the unique scheduling pressures of warehouse and DC operations.</div>
-        <span class="industry-tile-link">Explore</span>
-      </div>
-    </a>
-
-    <a href="/industries/mining/" class="industry-tile">
-      <!-- Pick-axe geometric — mining -->
-      <div class="industry-icon">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M8 28L20 16" stroke="#1F4E79" stroke-width="2.5" stroke-linecap="round"/>
-          <path d="M20 16L26 6C28 4 32 4 32 8L22 14" stroke="#1F4E79" stroke-width="2" stroke-linejoin="round"/>
-          <path d="M20 16L24 20C26 22 26 26 22 26L16 20" stroke="#E8610A" stroke-width="2" stroke-linejoin="round"/>
-          <circle cx="9" cy="27" r="2.5" stroke="#E8610A" stroke-width="1.5"/>
-          <path d="M4 32l3-3" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="industry-tile-body">
-        <div class="industry-tile-name">Mining</div>
-        <div class="industry-tile-desc">Remote site scheduling, fatigue management, and crew rotation across extended swing shifts.</div>
-        <span class="industry-tile-link">Explore</span>
-      </div>
-    </a>
-
-    <a href="/industries/refining-utilities/" class="industry-tile">
-      <!-- Tower / flame — refining & utilities -->
-      <div class="industry-icon">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="14" y="16" width="8" height="16" rx="1" stroke="#1F4E79" stroke-width="2"/>
-          <path d="M14 20H10V32H14" stroke="#1F4E79" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M22 22h4v10h-4" stroke="#1F4E79" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M18 16V8" stroke="#1F4E79" stroke-width="2" stroke-linecap="round"/>
-          <path d="M18 4c0 0-4 4-1 7 1-2 3-2 4-4 0 3 2 4 2 6 1-1 1-5-1-7-1 2-3 1-4-2Z" fill="#E8610A"/>
-          <path d="M6 32h24" stroke="#1F4E79" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </div>
-      <div class="industry-tile-body">
-        <div class="industry-tile-name">Refining &amp; Utilities</div>
-        <div class="industry-tile-desc">Non-stop process operations where schedule stability is inseparable from safety and compliance.</div>
-        <span class="industry-tile-link">Explore</span>
-      </div>
-    </a>
-
-    <a href="/industries/food-beverage/" class="industry-tile">
-      <!-- Conveyor belt / production line — food & beverage -->
-      <div class="industry-icon">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect x="4" y="10" width="28" height="12" rx="2" stroke="#1F4E79" stroke-width="2"/>
-          <path d="M4 22h28" stroke="#1F4E79" stroke-width="2"/>
-          <circle cx="9" cy="26" r="3" stroke="#E8610A" stroke-width="2"/>
-          <circle cx="27" cy="26" r="3" stroke="#E8610A" stroke-width="2"/>
-          <path d="M12 26h12" stroke="#1F4E79" stroke-width="1.5" stroke-linecap="round"/>
-          <rect x="10" y="13" width="5" height="6" rx="1" fill="#E8610A" opacity=".7"/>
-          <rect x="17" y="13" width="5" height="6" rx="1" fill="#E8610A" opacity=".4"/>
-        </svg>
-      </div>
-      <div class="industry-tile-body">
-        <div class="industry-tile-name">Food &amp; Beverage</div>
-        <div class="industry-tile-desc">Seasonal demand spikes, food safety staffing requirements, and sanitation window scheduling.</div>
-        <span class="industry-tile-link">Explore</span>
-      </div>
-    </a>
-
-    <a href="/industries/chemical-pharmaceutical/" class="industry-tile">
-      <!-- Flask / beaker — chemical & pharma -->
-      <div class="industry-icon">
-        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M14 4h8M15 4v10l-7 14a2 2 0 0 0 1.8 2.9h16.4A2 2 0 0 0 28 28L21 14V4" stroke="#1F4E79" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M11 24h14" stroke="#1F4E79" stroke-width="1.5" stroke-linecap="round"/>
-          <circle cx="14" cy="27" r="1.5" fill="#E8610A"/>
-          <circle cx="19" cy="25.5" r="2" fill="#E8610A" opacity=".6"/>
-          <circle cx="23" cy="27.5" r="1" fill="#E8610A" opacity=".8"/>
-        </svg>
-      </div>
-      <div class="industry-tile-body">
-        <div class="industry-tile-name">Chemical &amp; Pharmaceutical</div>
-        <div class="industry-tile-desc">Regulated environments where crew qualification, handoff protocols, and compliance documentation matter as much as coverage.</div>
-        <span class="industry-tile-link">Explore</span>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<!-- ORANGE SECTION DIVIDER -->
-<div class="section-divider"></div>
-
-<!-- ══════════════════════════════════════════════════════════════
-     FOCUSED TOPICS + TRENDING RAIL
-     Two-column layout: 65% accent-bar cards / 35% dark panel rail.
-     All 7 support article URLs use verified /resources/support/ paths.
-════════════════════════════════════════════════════════════════ -->
-<section class="topics-trending-section">
-  <div class="topics-trending-inner">
-    <div class="topics-trending-grid">
-
-      <!-- LEFT: FOCUSED TOPICS — accent-bar cards with icons -->
-      <div class="topics-col">
-        <div class="topics-col-header">
-          <div class="section-eyebrow">Focused Topics</div>
-          <div class="accent-heading">Targeted articles on specific challenges</div>
-          <p class="section-sub">Shorter and more focused than the complete guides — each addresses one specific operational question in depth.</p>
-        </div>
-        <div class="topics-list">
-
-          <a href="/resources/support/scaling-production-quickly/" class="topic-card">
-            <div class="topic-card-accent"></div>
-            <div class="topic-card-inner">
-              <div class="topic-card-icon">📈</div>
-              <div class="topic-card-body">
-                <div class="topic-card-title">How to Scale Production Up or Down Rapidly</div>
-                <div class="topic-card-desc">Four strategies for matching staffing to demand swings — overtime, temporary labor, discretionary work, and time-off management.</div>
-              </div>
-              <span class="topic-card-cta">Read →</span>
-            </div>
-          </a>
-
-          <a href="/resources/support/sleep-alertness-safety-shift-work/" class="topic-card">
-            <div class="topic-card-accent"></div>
-            <div class="topic-card-inner">
-              <div class="topic-card-icon">😴</div>
-              <div class="topic-card-body">
-                <div class="topic-card-title">Sleep, Alertness &amp; Safety in Shift Operations</div>
-                <div class="topic-card-desc">How schedule design, shift length, and rotation patterns affect fatigue — and what that costs in safety and productivity.</div>
-              </div>
-              <span class="topic-card-cta">Read →</span>
-            </div>
-          </a>
-
-          <a href="/resources/support/maintenance-worker-scheduling/" class="topic-card">
-            <div class="topic-card-accent"></div>
-            <div class="topic-card-inner">
-              <div class="topic-card-icon">🔧</div>
-              <div class="topic-card-body">
-                <div class="topic-card-title">Maintenance Workers: Unique Scheduling Considerations</div>
-                <div class="topic-card-desc">Why standard shift patterns consistently fail maintenance crews — and what approaches actually work.</div>
-              </div>
-              <span class="topic-card-cta">Read →</span>
-            </div>
-          </a>
-
-          <a href="/resources/support/communicating-schedule-changes/" class="topic-card">
-            <div class="topic-card-accent"></div>
-            <div class="topic-card-inner">
-              <div class="topic-card-icon">📢</div>
-              <div class="topic-card-body">
-                <div class="topic-card-title">Communicating Major Schedule Changes</div>
-                <div class="topic-card-desc">Timing, channels, and messaging that reduce resistance — and the single most reliable predictor of whether a change will succeed.</div>
-              </div>
-              <span class="topic-card-cta">Read →</span>
-            </div>
-          </a>
-
-          <a href="/resources/support/workforce-survey-analysis/" class="topic-card">
-            <div class="topic-card-accent"></div>
-            <div class="topic-card-inner">
-              <div class="topic-card-icon">📊</div>
-              <div class="topic-card-body">
-                <div class="topic-card-title">Survey Analysis: Understanding Workforce Needs</div>
-                <div class="topic-card-desc">How survey data corrects the systematic misperceptions managers have about what their workforce actually wants.</div>
-              </div>
-              <span class="topic-card-cta">Read →</span>
-            </div>
-          </a>
-
-          <a href="/resources/support/balancing-business-employee-needs/" class="topic-card">
-            <div class="topic-card-accent"></div>
-            <div class="topic-card-inner">
-              <div class="topic-card-icon">⚖️</div>
-              <div class="topic-card-body">
-                <div class="topic-card-title">Balancing Business &amp; Employee Needs</div>
-                <div class="topic-card-desc">Why the best shift schedules satisfy both operational requirements and employee lifestyle needs — and how to find them.</div>
-              </div>
-              <span class="topic-card-cta">Read →</span>
-            </div>
-          </a>
-
-          <a href="/resources/support/schedule-change-pitfalls/" class="topic-card">
-            <div class="topic-card-accent"></div>
-            <div class="topic-card-inner">
-              <div class="topic-card-icon">⚠️</div>
-              <div class="topic-card-body">
-                <div class="topic-card-title">Schedule Change Pitfalls: What to Avoid</div>
-                <div class="topic-card-desc">The predictable reasons well-designed schedule changes fail — poor communication, policy gaps, and inadequate notice.</div>
-              </div>
-              <span class="topic-card-cta">Read →</span>
-            </div>
-          </a>
-
-        </div>
-      </div><!-- /topics-col -->
-
-      <!-- RIGHT: TRENDING RAIL — dark panel, orange tag pills, white headlines -->
-      <div class="trending-rail">
-        <div class="trending-rail-header">
-          <div class="trending-rail-label">What's Happening Now</div>
-          <div class="trending-rail-heading">Timely insights on legislation, labor markets &amp; emerging issues</div>
-        </div>
-        <div class="trending-rail-items">
-          <a href="/resources/reshoring-manufacturing-workforce/" class="trending-item">
-            <div class="trending-item-tag">Trending</div>
-            <div class="trending-item-title">Reshoring Manufacturing? The Workforce Problem Most Companies Don't See Coming</div>
-            <span class="trending-item-read">Read</span>
-          </a>
-          <a href="/resources/overtime-tax-break-businesses/" class="trending-item">
-            <div class="trending-item-tag">Legislation</div>
-            <div class="trending-item-title">Overtime Tax Break: What It Means for Businesses</div>
-            <span class="trending-item-read">Read</span>
-          </a>
-          <a href="/resources/32-hour-workweek-manufacturing/" class="trending-item">
-            <div class="trending-item-tag">Trending</div>
-            <div class="trending-item-title">The 32-Hour Workweek: What It Means for 24/7 Manufacturing</div>
-            <span class="trending-item-read">Read</span>
-          </a>
-          <a href="/resources/tapping-untapped-workforce/" class="trending-item">
-            <div class="trending-item-tag">Labor Markets</div>
-            <div class="trending-item-title">Tapping Into the Untapped Workforce</div>
-            <span class="trending-item-read">Read</span>
-          </a>
-          <a href="/resources/mixed-signals-economy/" class="trending-item">
-            <div class="trending-item-tag">Economy</div>
-            <div class="trending-item-title">The Mixed Signals Economy</div>
-            <span class="trending-item-read">Read</span>
-          </a>
-          <a href="/resources/schedule-looks-fine-on-paper/" class="trending-item">
-            <div class="trending-item-tag">Operations</div>
-            <div class="trending-item-title">When the Schedule Looks Fine on Paper</div>
-            <span class="trending-item-read">Read</span>
-          </a>
-          <a href="/resources/ai-on-the-plant-floor/" class="trending-item">
-            <div class="trending-item-tag">Technology</div>
-            <div class="trending-item-title">AI on the Plant Floor</div>
-            <span class="trending-item-read">Read</span>
-          </a>
-          <a href="/resources/management-by-walking-around/" class="trending-item">
-            <div class="trending-item-tag">Leadership</div>
-            <div class="trending-item-title">Management By Walking Around: A Tale of Two Plants</div>
-            <span class="trending-item-read">Read</span>
-          </a>
-          <a href="/resources/26-warning-signs-schedule-problems/" class="trending-item">
-            <div class="trending-item-tag">Diagnostic</div>
-            <div class="trending-item-title">26 Warning Signs Your Schedule Needs Attention</div>
-            <span class="trending-item-read">Read</span>
-          </a>
-        </div>
-      </div><!-- /trending-rail -->
-
-    </div><!-- /topics-trending-grid -->
-  </div><!-- /topics-trending-inner -->
-</section>
-
-
-<!-- ══════════════════════════════════════════════════════════════
-     FOOTER — 3 columns: Book Consultation | Thomas | Newsletter
-     Content row (labels + titles + descriptions) followed by a
-     single shared CTA flex row. All three buttons are direct flex
-     siblings → guaranteed same baseline.
-════════════════════════════════════════════════════════════════ -->
+<!-- FOOTER -->
 <footer class="site-footer">
-  <div class="footer-prefooter">
-    <div class="footer-wrap">
-
-      <!-- Content row: 3 columns -->
-      <div class="footer-content-row">
-        <div class="footer-col footer-col-1">
-          <div class="engage-label">FREE CONSULTATION</div>
-          <div class="engage-col-title">Ready to talk about your operation?</div>
-          <p class="engage-col-desc">Manufacturing and distribution operations running 24/7 typically have more room to improve than they realize. The first conversation is always free.</p>
-        </div>
-        <div class="footer-col footer-col-2">
-          <div class="engage-label">AI ADVISOR</div>
-          <div class="engage-col-title">Talk to Thomas</div>
-          <p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
-        </div>
-        <div class="footer-col footer-col-3">
-          <div class="engage-label">NEWSLETTER</div>
-          <div class="engage-col-title">Stay Sharp on Shift Operations</div>
-          <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
-        </div>
+  <div class="footer-prefooter"><div class="footer-wrap">
+    <div class="footer-content-row">
+      <div class="footer-col footer-col-1">
+        <div class="engage-label">FREE CONSULTATION</div>
+        <div class="engage-col-title">Ready to talk about your operation?</div>
+        <p class="engage-col-desc">Manufacturing and distribution operations running 24/7 typically have more room to improve than they realize. The first conversation is always free.</p>
       </div>
-
-      <!-- Single shared CTA row — all three are direct flex siblings -->
-      <div class="footer-cta-row">
-        <div class="footer-cta-1">
-          <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true"
-             class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a>
-        </div>
-        <div class="footer-cta-2">
-          <a href="https://shift-work-diagnostic.onrender.com/"
-             class="footer-cta-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
-        </div>
-        <div class="footer-cta-3">
-          <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
-            <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
-            <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
-          </form>
-          <div class="engage-nl-msg" id="engageNLMsg"></div>
-        </div>
+      <div class="footer-col footer-col-2">
+        <div class="engage-label">AI ADVISOR</div>
+        <div class="engage-col-title">Talk to Thomas</div>
+        <p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
       </div>
-
+      <div class="footer-col footer-col-3">
+        <div class="engage-label">NEWSLETTER</div>
+        <div class="engage-col-title">Stay Sharp on Shift Operations</div>
+        <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
+      </div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-bottom-inner">
-      <div class="footer-bottom-left">
-        <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
-        <a href="tel:+14152651621">(415) 265-1621</a>
-        <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+    <div class="footer-cta-row">
+      <div class="footer-cta-1"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a></div>
+      <div class="footer-cta-2"><a href="https://shift-work-diagnostic.onrender.com/" class="footer-cta-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a></div>
+      <div class="footer-cta-3">
+        <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
+          <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
+          <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
+        </form>
+        <div class="engage-nl-msg" id="engageNLMsg"></div>
       </div>
-      <span>&copy; 2026 Shiftwork Solutions LLC</span>
     </div>
-  </div>
+  </div></div>
+  <div class="footer-bottom"><div class="footer-bottom-inner">
+    <div class="footer-bottom-left">
+      <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+      <a href="tel:+14152651621">(415) 265-1621</a>
+      <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+    </div>
+    <span>&copy; 2026 Shiftwork Solutions LLC</span>
+  </div></div>
 </footer>
 
-<!-- ══════════════════════════════════════════════════════════════
-     JAVASCRIPT
-════════════════════════════════════════════════════════════════ -->
+<!-- MOBILE TOGGLE -->
 <script>
-  document.getElementById('mobileToggle').addEventListener('click', function () {
-    var n = document.getElementById('navLinks');
-    var open = n.style.display === 'flex';
-    if (open) { n.style.display = 'none'; } else {
-      n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';
-      n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';
-      n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';
-      n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';
-    }
-  });
+document.getElementById('mobileToggle').addEventListener('click',function(){
+  var n=document.getElementById('navLinks');var open=n.style.display==='flex';
+  if(open){n.style.display='none';}else{
+    n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';
+    n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';
+    n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';
+    n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';
+  }
+});
 </script>
+
+<!-- NEWSLETTER -->
 <script>
-  (function(){
-    var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
-    window.engageNLSubmit=function(e){
-      e.preventDefault();
-      var btn=document.getElementById('engageNLBtn');
-      var msg=document.getElementById('engageNLMsg');
-      var email=document.getElementById('engageNLEmail').value.trim();
-      if(!email)return;
-      btn.disabled=true;btn.textContent='Subscribing...';
-      fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({email:email,source:'website-inline-engage'})})
-      .then(function(r){return r.json();})
-      .then(function(d){
-        if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}
-      })
-      .catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});
+(function(){
+  var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
+  window.engageNLSubmit=function(e){
+    e.preventDefault();
+    var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');
+    var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;
+    btn.disabled=true;btn.textContent='Subscribing...';
+    fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})})
+    .then(function(r){return r.json();})
+    .then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}})
+    .catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});
+  };
+})();
+</script>
+
+<!-- FOLDER ANIMATION ENGINE -->
+<script>
+(function(){
+var ICONS={
+  scaling:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 20l6-6 4 4 10-10" stroke="#E8610A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 8h6v6" stroke="#E8610A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  maintenance:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M16.5 4.5l7 7-2.5 2.5-7-7" stroke="#1F4E79" stroke-width="2" stroke-linecap="round"/><path d="M10 14l-5.5 5.5a2.1 2.1 0 003 3L13 17" stroke="#1F4E79" stroke-width="2"/><circle cx="17" cy="8" r="2" fill="#E8610A" opacity="0.5"/></svg>',
+  sleep:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="16" r="8" stroke="#1F4E79" stroke-width="2"/><path d="M14 12v4l3 2" stroke="#E8610A" stroke-width="2" stroke-linecap="round"/><path d="M18 4l4 0M20 2l0 4" stroke="#1F4E79" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/></svg>',
+  balance:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v20M6 10l8-4 8 4" stroke="#1F4E79" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 16c0 2 1.5 3.5 3 3.5s3-1.5 3-3.5L6 10 3 16zM19 16c0 2 1.5 3.5 3 3.5s3-1.5 3-3.5L22 10l-3 6z" stroke="#E8610A" stroke-width="1.5" fill="#E8610A" opacity="0.15"/></svg>',
+  communicate:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="6" width="22" height="14" rx="3" stroke="#1F4E79" stroke-width="2"/><path d="M8 24l4-4h-2" stroke="#1F4E79" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 11h12M8 15h8" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round"/></svg>',
+  survey:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="3" width="20" height="22" rx="2" stroke="#1F4E79" stroke-width="2"/><path d="M9 9h10M9 13h10M9 17h6" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round"/><circle cx="21" cy="21" r="5" fill="#E8610A" opacity="0.15" stroke="#E8610A" stroke-width="1.5"/><path d="M19.5 21l1 1 2-2.5" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  pitfalls:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4l12 20H2L14 4z" stroke="#E8610A" stroke-width="2" stroke-linejoin="round"/><path d="M14 12v5" stroke="#E8610A" stroke-width="2" stroke-linecap="round"/><circle cx="14" cy="20" r="1" fill="#E8610A"/></svg>',
+  warning26:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="3" stroke="#1D9E75" stroke-width="2"/><path d="M9 10h10M9 14h10M9 18h6" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/><circle cx="22" cy="6" r="5" fill="#E8610A"/><text x="22" y="9" text-anchor="middle" fill="white" font-size="7" font-weight="bold" font-family="Arial">26</text></svg>',
+  assessment:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="4" width="20" height="20" rx="10" stroke="#1D9E75" stroke-width="2"/><path d="M10 14l3 3 5-6" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+  thomas:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="6" width="20" height="16" rx="4" stroke="#1D9E75" stroke-width="2"/><circle cx="11" cy="14" r="2" fill="#1D9E75"/><circle cx="17" cy="14" r="2" fill="#1D9E75"/><path d="M10 4h8" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"/></svg>'
+};
+
+var DATA={
+  expanding:{heading:'Expanding Operations',sub:'Resources for moving to 24/7 coverage or adding shifts to an existing operation.',tiles:[
+    {type:'guide',label:'Comprehensive Guide',title:'Complete Guide to Shift Schedule Design',desc:'The foundations of schedule design \u2014 fixed vs. rotating, shift length, cost structure, and why small decisions have large consequences.',url:'/resources/shift-schedule-design-guide/',img:'/images/pillar_1.jpg'},
+    {type:'guide',label:'Comprehensive Guide',title:'Shift Schedule Patterns & Examples',desc:'DuPont, Panama, 4-on/4-off, and more \u2014 a decision guide to the most common 24/7 patterns and the tradeoffs of each.',url:'/resources/shift-schedule-patterns-guide/',img:'/images/pillar_2.jpg'},
+    {type:'guide',label:'Comprehensive Guide',title:'Maximizing Equipment Utilization',desc:'How schedule design directly drives equipment uptime \u2014 and why most facilities leave 40% of their capacity on the table.',url:'/resources/equipment-utilization-shift-scheduling/',img:'/images/pillar_3.jpg'},
+    {type:'focused',label:'Focused Topic',title:'How to Scale Production Up or Down Rapidly',desc:'Four strategies for matching staffing to demand swings \u2014 overtime, temporary labor, discretionary work, and time-off management.',url:'/resources/support/scaling-production-quickly/',icon:'scaling'},
+    {type:'focused',label:'Focused Topic',title:'Maintenance Workers: Unique Scheduling Considerations',desc:'Why standard shift patterns consistently fail maintenance crews \u2014 and what approaches actually work.',url:'/resources/support/maintenance-worker-scheduling/',icon:'maintenance'}
+  ]},
+  performance:{heading:'Performance Problems',sub:'Resources for tackling overtime, coverage gaps, and productivity issues.',tiles:[
+    {type:'guide',label:'Comprehensive Guide',title:'Overtime Management',desc:'Strategy, distribution, and cost control \u2014 including why the true cost of overtime is far closer to straight time than most managers assume.',url:'/resources/overtime-management-guide/',img:'/images/pillar_5.jpg'},
+    {type:'guide',label:'Comprehensive Guide',title:'Managing Absenteeism & Coverage Gaps',desc:'How to build coverage systems that handle absences without daily scrambles \u2014 relief crews, skill balance, and cost modeling.',url:'/resources/absenteeism-relief-coverage-management/',img:'/images/pillar_9.jpg'},
+    {type:'guide',label:'Comprehensive Guide',title:'Managing Variable Workloads',desc:'Four proven strategies for matching staffing to fluctuating demand without chronic overtime or expensive idle time.',url:'/resources/managing-variable-workloads/',img:'/images/pillar_4.jpg'},
+    {type:'focused',label:'Focused Topic',title:'Sleep, Alertness & Safety in Shift Operations',desc:'How schedule design, shift length, and rotation patterns affect fatigue \u2014 and what that costs in safety and productivity.',url:'/resources/support/sleep-alertness-safety-shift-work/',icon:'sleep'},
+    {type:'focused',label:'Focused Topic',title:'Balancing Business & Employee Needs',desc:'Why the best shift schedules satisfy both operational requirements and employee lifestyle needs \u2014 and how to find them.',url:'/resources/support/balancing-business-employee-needs/',icon:'balance'}
+  ]},
+  workforce:{heading:'Workforce & Retention',sub:'Resources for improving engagement, managing change, and reducing turnover.',tiles:[
+    {type:'guide',label:'Comprehensive Guide',title:'Building Employee Engagement',desc:'What shift workers actually value \u2014 and why engagement strategies designed for offices consistently fail on the plant floor.',url:'/resources/employee-engagement-shift-work/',img:'/images/pillar_7.jpg'},
+    {type:'guide',label:'Comprehensive Guide',title:'Schedule Change Management',desc:'From planning to implementation \u2014 why well-designed changes fail and what communication and policy alignment actually require.',url:'/resources/schedule-change-management/',img:'/images/pillar_6.jpg'},
+    {type:'guide',label:'Comprehensive Guide',title:'Shift Work Policies: Pay, Time-Off & Compliance',desc:'Why pay and time-off policies designed for 8-hour schedules break immediately on 12-hour or continuous operations.',url:'/resources/shift-work-policies-guide/',img:'/images/pillar_10.jpg'},
+    {type:'focused',label:'Focused Topic',title:'Communicating Major Schedule Changes',desc:'Timing, channels, and messaging that reduce resistance \u2014 and the single most reliable predictor of whether a change will succeed.',url:'/resources/support/communicating-schedule-changes/',icon:'communicate'},
+    {type:'focused',label:'Focused Topic',title:'Survey Analysis: Understanding Workforce Needs',desc:'How survey data corrects the systematic misperceptions managers have about what their workforce actually wants.',url:'/resources/support/workforce-survey-analysis/',icon:'survey'},
+    {type:'focused',label:'Focused Topic',title:'Schedule Change Pitfalls: What to Avoid',desc:'The predictable reasons well-designed schedule changes fail \u2014 poor communication, policy gaps, and inadequate notice.',url:'/resources/support/schedule-change-pitfalls/',icon:'pitfalls'}
+  ]},
+  unsure:{heading:'Not Sure Where to Start?',sub:'Start with a diagnostic. These tools are designed to orient you before you commit to a direction.',tiles:[
+    {type:'tool',label:'Diagnostic Tool',title:'26 Warning Signs Your Schedule Needs Attention',desc:'A checklist built from hundreds of operations assessments. See how many apply to you.',url:'/resources/26-warning-signs-schedule-problems/',icon:'warning26'},
+    {type:'tool',label:'Online Assessment',title:'Free Shiftwork Assessment',desc:'Answer a short set of questions and get an immediate evaluation of your operation.',url:'/resources/shiftwork-assessment/',icon:'assessment'},
+    {type:'tool',label:'AI Advisor',title:'Talk to Thomas \u2014 AI Shift Advisor',desc:'Got a question about your operation? Thomas is available now, no appointment needed.',url:'https://shift-work-diagnostic.onrender.com/',icon:'thomas',external:true}
+  ]}
+};
+
+var currentInterest=null,animating=false;
+
+function createFolderSVG(w,h,color,isMain){
+  var sw=isMain?2.5:2,tabW=isMain?w*.42:w*.45,tabH=isMain?16:11,r=isMain?7:5,bodyY=tabH-2,bodyH=h-bodyY,id='f'+Math.random().toString(36).substr(2,6);
+  var s='<svg width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'" fill="none" xmlns="http://www.w3.org/2000/svg">';
+  s+='<defs><linearGradient id="'+id+'bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="'+color+'" stop-opacity="0.25"/><stop offset="100%" stop-color="'+color+'" stop-opacity="0.06"/></linearGradient>';
+  s+='<linearGradient id="'+id+'tab" x1="0" y1="0" x2="0.3" y2="1"><stop offset="0%" stop-color="'+color+'" stop-opacity="1"/><stop offset="100%" stop-color="'+color+'" stop-opacity="0.75"/></linearGradient>';
+  s+='<filter id="'+id+'sh"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="'+color+'" flood-opacity="0.18"/></filter></defs>';
+  s+='<g filter="url(#'+id+'sh)">';
+  s+='<rect x="1" y="'+bodyY+'" width="'+(w-2)+'" height="'+bodyH+'" rx="'+r+'" fill="url(#'+id+'bg)" stroke="'+color+'" stroke-width="'+sw+'"/>';
+  s+='<path d="M'+(1+r)+' '+bodyY+' L'+tabW+' '+bodyY+' L'+(tabW+10)+' 1 L'+(1+r)+' 1 Q1 1 1 '+(1+r)+' L1 '+bodyY+' Q1 '+bodyY+' '+(1+r)+' '+bodyY+' Z" fill="url(#'+id+'tab)"/>';
+  s+='<path d="M'+(1+r)+' '+bodyY+' L'+tabW+' '+bodyY+' L'+(tabW+10)+' 1 L'+(1+r)+' 1 Q1 1 1 '+(1+r)+' L1 '+bodyY+' Q1 '+bodyY+' '+(1+r)+' '+bodyY+' Z" stroke="'+color+'" stroke-width="'+sw+'" fill="none"/>';
+  if(isMain){s+='<rect x="'+(w*.18)+'" y="'+(bodyY+bodyH*.32)+'" width="'+(w*.64)+'" height="3" rx="1.5" fill="'+color+'" opacity="0.1"/>';s+='<rect x="'+(w*.22)+'" y="'+(bodyY+bodyH*.48)+'" width="'+(w*.46)+'" height="3" rx="1.5" fill="'+color+'" opacity="0.07"/>';s+='<rect x="'+(w*.25)+'" y="'+(bodyY+bodyH*.64)+'" width="'+(w*.38)+'" height="3" rx="1.5" fill="'+color+'" opacity="0.05"/>';}
+  s+='</g></svg>';return s;
+}
+
+function createDocSVG(w,h,color){
+  var c=7,s='<svg width="'+w+'" height="'+h+'" viewBox="0 0 '+w+' '+h+'" fill="none" xmlns="http://www.w3.org/2000/svg">';
+  s+='<defs><filter id="ds"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="'+color+'" flood-opacity="0.3"/></filter></defs>';
+  s+='<g filter="url(#ds)">';
+  s+='<path d="M2 3Q2 1 4 1L'+(w-c-1)+' 1 '+(w-1)+' '+(c+1)+' '+(w-1)+' '+(h-3)+'Q'+(w-1)+' '+(h-1)+' '+(w-3)+' '+(h-1)+'L4 '+(h-1)+'Q2 '+(h-1)+' 2 '+(h-3)+'Z" fill="white" stroke="'+color+'" stroke-width="1.2"/>';
+  s+='<path d="M'+(w-c-1)+' 1v'+c+'h'+c+'" fill="'+color+'" opacity="0.15" stroke="'+color+'" stroke-width="0.8"/>';
+  s+='<rect x="5" y="'+(h*.3)+'" width="'+(w-11)+'" height="2" rx="1" fill="'+color+'" opacity="0.4"/>';
+  s+='<rect x="5" y="'+(h*.48)+'" width="'+(w-14)+'" height="2" rx="1" fill="'+color+'" opacity="0.25"/>';
+  s+='<rect x="5" y="'+(h*.66)+'" width="'+(w-12)+'" height="2" rx="1" fill="'+color+'" opacity="0.18"/>';
+  s+='</g></svg>';return s;
+}
+
+window.selectInterest=function(btn){
+  var interest=btn.getAttribute('data-interest');
+  if(animating)return;if(interest===currentInterest)return;
+  currentInterest=interest;animating=true;
+  var all=document.querySelectorAll('.interest-btn');for(var i=0;i<all.length;i++)all[i].classList.remove('active');
+  btn.classList.add('active');
+  playFolderAnimation(interest);
+};
+
+function playFolderAnimation(interest){
+  var data=DATA[interest],stage=document.getElementById('folderStage'),prompt=document.getElementById('folderPrompt'),anim=document.getElementById('animLayer'),result=document.getElementById('resultArea');
+  prompt.style.display='none';result.classList.remove('visible');result.style.display='none';anim.innerHTML='';anim.classList.add('playing');
+  var numDocs=data.tiles.length,colors=['#1F4E79','#E8610A','#1D9E75','#85B7EB','#9966CC','#BA7517'];
+  var stageW=stage.offsetWidth,stageH=stage.offsetHeight;
+  var srcFW=92,srcFH=64,srcX=32,gap=Math.min(68,(stageH-100)/numDocs),startY=(stageH-numDocs*gap)/2+10;
+  var mainFW=180,mainFH=128,mainCX=stageW*.62,mainCY=stageH*.44;
+
+  var mfWrap=document.createElement('div');mfWrap.className='main-folder-wrap';
+  mfWrap.style.cssText='position:absolute;left:'+mainCX+'px;top:'+mainCY+'px;width:'+mainFW+'px;height:'+(mainFH+24)+'px;';
+  mfWrap.innerHTML='<div class="mf-body">'+createFolderSVG(mainFW,mainFH,'#1F4E79',true)+'</div><div class="mf-counter" id="mfCounter">0</div><div class="mf-label-text">Prepared for You</div><div class="mf-click-prompt" id="mfClick">Click to open</div>';
+  anim.appendChild(mfWrap);
+
+  var statusEl=document.createElement('div');statusEl.className='anim-status';statusEl.textContent='Gathering your resources\u2026';anim.appendChild(statusEl);
+  setTimeout(function(){mfWrap.classList.add('visible');statusEl.classList.add('visible');},150);
+
+  var received=0;
+  /* TIMING: Total 5 seconds from button click to "click to open" prompt.
+     Budget: 150ms main folder appear + staggered launches + flight + 400ms settle.
+     Last doc must land by ~4600ms. Flight = 900ms. Last launch by ~3700ms.
+     First launch at ~400ms. Spread evenly between 400ms and 3700ms. */
+  var flightDur=900;
+  var firstLaunch=400;
+  var lastLaunch=3700;
+  var launchSpread=(numDocs>1)?(lastLaunch-firstLaunch)/(numDocs-1):0;
+
+  for(var i=0;i<numDocs;i++){(function(idx){
+    var c=colors[idx%colors.length],sy=startY+idx*gap;
+    var srcWrap=document.createElement('div');
+    srcWrap.style.cssText='position:absolute;left:'+srcX+'px;top:'+sy+'px;width:'+srcFW+'px;height:'+srcFH+'px;opacity:0;transition:opacity .4s ease,transform .4s ease;transform:translateX(-24px) scale(.9);';
+    srcWrap.innerHTML=createFolderSVG(srcFW,srcFH,c,false);anim.appendChild(srcWrap);
+    var appearAt=150+idx*(launchSpread>0?launchSpread*.6:200);
+    setTimeout(function(){srcWrap.style.opacity='1';srcWrap.style.transform='translateX(0) scale(1)';},appearAt);
+    var flyAt=firstLaunch+idx*launchSpread;
+    setTimeout(function(){
+      var docW=32,docH=42,doc=document.createElement('div');
+      var dsx=srcX+srcFW-8,dsy=sy+10;
+      doc.style.cssText='position:absolute;left:'+dsx+'px;top:'+dsy+'px;z-index:5;pointer-events:none;opacity:0;';
+      doc.innerHTML=createDocSVG(docW,docH,c);anim.appendChild(doc);doc.style.opacity='1';
+      var targetX=mainCX-mainFW/2+mainFW*.35,targetY=mainCY-mainFH/2+25;
+      var midX=(dsx+targetX)/2+(Math.random()-.5)*80,midY=Math.min(dsy,targetY)-55-Math.random()*50;
+      var startTime=null;
+      function fly(ts){
+        if(!startTime)startTime=ts;var p=Math.min((ts-startTime)/flightDur,1),ep=1-Math.pow(1-p,3);
+        var cx=(1-ep)*(1-ep)*dsx+2*(1-ep)*ep*midX+ep*ep*targetX;
+        var cy=(1-ep)*(1-ep)*dsy+2*(1-ep)*ep*midY+ep*ep*targetY;
+        var rot=p*(14+idx*3),sc=1-p*.2;
+        doc.style.transform='translate('+(cx-dsx)+'px,'+(cy-dsy)+'px) rotate('+rot+'deg) scale('+sc+')';
+        if(p>.75)doc.style.opacity=String(1-(p-.75)/.25);
+        if(p<1){requestAnimationFrame(fly);}
+        else{doc.remove();received++;mfWrap.classList.remove('pulse');void mfWrap.offsetWidth;mfWrap.classList.add('pulse');
+          var ctr=document.getElementById('mfCounter');if(ctr){ctr.textContent=received;ctr.classList.add('visible');}
+          srcWrap.style.opacity='.25';srcWrap.style.transform='scale(.85)';
+          if(received===numDocs)setTimeout(function(){allReceived();},300);
+        }
+      }
+      requestAnimationFrame(fly);
+    },flyAt);
+  })(i);}
+
+  function allReceived(){
+    statusEl.textContent='All resources gathered!';
+    var cp=document.getElementById('mfClick');if(cp)cp.classList.add('visible');
+    mfWrap.classList.add('clickable');
+    mfWrap.onclick=function(){
+      mfWrap.onclick=null;mfWrap.classList.remove('clickable');if(cp)cp.classList.remove('visible');
+      mfWrap.style.transition='opacity .5s,transform .5s';mfWrap.style.opacity='0';
+      mfWrap.style.transform='translate(-50%,-50%) scale(1.2)';statusEl.style.opacity='0';
+      setTimeout(function(){anim.classList.remove('playing');showResults(interest);animating=false;},500);
     };
-  })();
+  }
+}
+
+function showResults(interest){
+  var data=DATA[interest],area=document.getElementById('resultArea');
+  document.getElementById('resultHeading').textContent=data.heading;
+  document.getElementById('resultSub').textContent=data.sub;
+  var html='';
+  for(var i=0;i<data.tiles.length;i++){var t=data.tiles[i],target=t.external?' target="_blank" rel="noopener"':'',delay=i*.1;
+    html+='<a href="'+t.url+'" class="result-card" style="animation-delay:'+delay+'s;"'+target+'>';
+    if(t.img){html+='<img src="'+t.img+'" alt="" class="result-card-img">';}
+    else if(t.icon&&ICONS[t.icon]){html+='<div class="result-card-icon">'+ICONS[t.icon]+'</div>';}
+    html+='<div class="result-card-body"><span class="result-card-tag '+t.type+'">'+t.label+'</span><div class="result-card-title">'+t.title+'</div><div class="result-card-desc">'+t.desc+'</div></div>';
+    html+='<div class="result-card-arrow">&#x2192;</div></a>';
+  }
+  document.getElementById('resultList').innerHTML=html;
+  area.style.display='block';void area.offsetWidth;area.classList.add('visible');
+  setTimeout(function(){area.scrollIntoView({behavior:'smooth',block:'start'});},100);
+}
+})();
 </script>
 
 </body>
