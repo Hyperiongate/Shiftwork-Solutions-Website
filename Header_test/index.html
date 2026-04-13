@@ -29,6 +29,14 @@
                  6. FOOTER: Capitalized "Start a Conversation".
                  7. NS CARDS: Left card mid-blue border (was invisible navy).
                  8. CLIENT STRIP: Static intro + scrolling names, logo-ready.
+    2026-04-13 — FOLLOW-UP (3 items):
+                 1. CLIENT STRIP INTRO: Changed to "Chemical and
+                    Pharmaceutical companies that trust Shiftwork Solutions
+                    include:"
+                 2. PULL QUOTES: Large quote mark moved to left side (flex
+                    layout) instead of centered above.
+                 3. PULL QUOTE FONT: Restored original styling — 17px,
+                    bold 700, navy color, italic.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
@@ -102,10 +110,11 @@
     @keyframes clientScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     .client-tag{display:inline-block;padding:8px 28px;font-size:14px;font-weight:700;color:rgba(255,255,255,0.85);white-space:nowrap;letter-spacing:.02em}
     .client-tag-sep{display:inline-block;color:rgba(232,97,10,0.7);font-size:18px;line-height:1;padding:0 2px;vertical-align:middle}
-    .pull-quote{margin:40px auto;padding:0;max-width:600px;text-align:center}
-    .pull-quote-mark{display:block;font-size:64px;line-height:0.6;font-family:Georgia,'Times New Roman',serif;color:var(--mid-blue);margin-bottom:12px;user-select:none}
-    .pull-quote p{font-size:16px;font-weight:400;line-height:1.7;color:var(--body-text);margin:0;font-style:italic}
-    .pull-quote .pq-attr{font-size:12px;font-weight:600;color:var(--muted);margin-top:12px;font-style:normal;text-transform:uppercase;letter-spacing:.04em}
+    .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:flex-start;gap:16px}
+    .pull-quote-mark{flex-shrink:0;font-size:64px;line-height:0.85;font-family:Georgia,'Times New Roman',serif;color:var(--mid-blue);user-select:none}
+    .pull-quote-content{flex:1}
+    .pull-quote p{font-size:17px;font-weight:700;line-height:1.5;color:var(--navy);margin:0;font-style:italic}
+    .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
     .callout-box{background:var(--light-grey);border-left:4px solid var(--navy);border-radius:0 6px 6px 0;padding:22px 28px;margin:32px 0}
     .callout-box p{font-size:16px;line-height:1.6;color:var(--body-text);font-weight:400;margin:0;font-style:italic}
     .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
@@ -252,7 +261,7 @@
   <p>Shift scheduling in this environment is not primarily a workforce optimization problem. It is a risk management problem. The schedule determines who is present when, how knowledge transfers between shifts, how fatigue accumulates across a workforce handling hazardous materials and precision instrumentation, and whether the operation can meet regulatory requirements consistently across every shift, every day, every year.</p>
 
   <div class="client-strip">
-    <div class="client-strip-intro">These chemical and pharmaceutical companies trust Shiftwork Solutions</div>
+    <div class="client-strip-intro">Chemical and Pharmaceutical companies that trust Shiftwork Solutions include:</div>
     <div class="client-strip-scroll">
       <div class="client-strip-fade-l"></div>
       <div class="client-strip-fade-r"></div>
@@ -315,8 +324,10 @@
 
   <div class="pull-quote">
     <span class="pull-quote-mark">&#8220;</span>
-    <p>In chemical and pharmaceutical operations, the schedule affects more than productivity and labor cost. It affects product quality, regulatory standing, and the safety of the people running the process. Those stakes require a level of precision in schedule design that most generic approaches simply don't provide.</p>
-    <div class="pq-attr">Ethan Franklin — Shiftwork Solutions</div>
+    <div class="pull-quote-content">
+      <p>In chemical and pharmaceutical operations, the schedule affects more than productivity and labor cost. It affects product quality, regulatory standing, and the safety of the people running the process. Those stakes require a level of precision in schedule design that most generic approaches simply don't provide.</p>
+      <div class="pq-attr">— Ethan Franklin, Shiftwork Solutions</div>
+    </div>
   </div>
 
   <p>Second, fatigue management is more consequential in this environment than in most. A fatigued production worker in a general manufacturing setting makes errors that are usually detectable and correctable. A fatigued operator in a chemical or pharmaceutical setting may make errors that are not immediately detectable, that compound through subsequent process steps, and that ultimately affect product quality or safety in ways that only surface at final testing or in the market. The link between schedule-driven fatigue and error rates is well established — and its implications in a regulated, safety-critical environment are more serious than anywhere else.</p>
@@ -333,8 +344,10 @@
 
   <div class="pull-quote">
     <span class="pull-quote-mark">&#8220;</span>
-    <p>The operations that handle changeovers and training windows best aren't the ones with the most resources. They're the ones that treat those requirements as scheduling inputs from day one — not as problems to solve after the schedule is already set.</p>
-    <div class="pq-attr">Dan Capshaw — Shiftwork Solutions</div>
+    <div class="pull-quote-content">
+      <p>The operations that handle changeovers and training windows best aren't the ones with the most resources. They're the ones that treat those requirements as scheduling inputs from day one — not as problems to solve after the schedule is already set.</p>
+      <div class="pq-attr">— Dan Capshaw, Shiftwork Solutions</div>
+    </div>
   </div>
 
   <h2>When the Schedule Itself Is the Hidden Constraint</h2>
