@@ -29,6 +29,17 @@
                     area) instead of FAQ.
                  7. ADDED: "What Effective Scheduling Looks Like" section.
                  8. ALL article text verified against source doc.
+    2026-04-12 — FOLLOW-UP EDITS:
+                 1. CALLOUT BOX: Visually differentiated from pull quote —
+                    now uses dark navy fill + white text + orange left border,
+                    reads as a standalone "punchline" not a second pull quote.
+                 2. SECTION 7 ("What Effective Scheduling Looks Like") folded
+                    into FAQ as closing item. Section heading removed.
+                 3. CLIENT STRIP: AkzoNobel added to client tags.
+                 4. NEXT STEPS: Full redesign — dark navy gradient background,
+                    three cards each with distinct accent color (navy/orange/
+                    green), IntersectionObserver scroll-in animation (fade +
+                    slide up), hover lift + accent-color glow effect.
 
   TEMPLATE NOTES (for applying to other industry pages):
     - Hero: layered photo with gradient overlay. Image varies by industry.
@@ -41,9 +52,12 @@
     - Float-CTA: used to break up longest text-dense section.
     - Pull quote: one per page, consistent style (orange left-border,
       light-blue bg, navy text, no italic on attribution).
-    - Callout box: elevated positioning statement, not detailed results.
+    - Callout box: dark navy fill, white text, orange left border —
+      visually distinct from pull quote. Use for standalone punchlines.
     - Insight cards: 3 cards with hover animation, placed after a
       conceptual section. Add new takeaway value, don't repeat paragraphs.
+    - Next Steps: dark navy-dark gradient bg, 3 accent colors per card,
+      scroll-in animation + hover glow.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
@@ -174,18 +188,21 @@
       margin-top:10px;font-style:normal
     }
 
-    /* ── CALLOUT BOX — elevated positioning statement ── */
-    .callout-box{
-      background:var(--light-blue);
-      border-left:4px solid var(--navy);
+    /* ── CALLOUT HIGHLIGHT — dark navy fill, white text, orange border ──
+       Visually distinct from .pull-quote (which is light-blue bg / navy text).
+       Use for standalone punchlines / conclusions, not attributed quotes.    ── */
+    .callout-highlight{
+      background:var(--navy-dark);
+      border-left:4px solid var(--orange);
       border-radius:0 6px 6px 0;
-      padding:20px 24px;
+      padding:22px 28px;
       margin:32px 0
     }
-    .callout-box p{
-      font-size:16px;line-height:1.55;
-      color:var(--navy);font-weight:600;
-      margin:0;font-style:italic
+    .callout-highlight p{
+      font-size:17px;line-height:1.5;
+      color:var(--white);font-weight:700;
+      margin:0;font-style:normal;
+      letter-spacing:.01em
     }
 
     /* ── INSIGHT CARDS — hover animation ── */
@@ -260,21 +277,113 @@
     .inline-cta-btn{display:inline-block;padding:11px 24px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;white-space:nowrap;transition:background .15s;flex-shrink:0}
     .inline-cta-btn:hover{background:#c4510a}
 
-    /* ── NEXT STEPS ── */
-    .next-steps{padding:48px var(--page-pad) 52px;background:var(--light-grey);border-top:1px solid var(--border-light)}
-    .next-steps-inner{max-width:var(--max-width);margin:0 auto}
-    .next-steps h2{font-size:20px;font-weight:700;color:var(--body-text);margin-bottom:20px}
-    .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .ns-card{background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px;text-decoration:none;display:block;transition:border-top-color .15s,box-shadow .15s}
-    .ns-card:hover{border-top-color:var(--orange);box-shadow:0 4px 16px rgba(0,0,0,.08)}
-    .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
-    .ns-card h3{font-size:14px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:8px}
-    .ns-card p{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:12px}
-    .ns-card-link{font-size:12px;font-weight:700;color:var(--navy)}
+    /* ── NEXT STEPS — redesigned with accent colors + animation ── */
+    .next-steps{
+      padding:56px var(--page-pad) 60px;
+      background:linear-gradient(160deg,var(--navy-dark) 0%,#122840 60%,#0a1f35 100%);
+      position:relative;overflow:hidden
+    }
+    /* subtle decorative ring */
+    .next-steps::before{
+      content:'';position:absolute;
+      width:480px;height:480px;
+      border-radius:50%;
+      border:1px solid rgba(133,183,235,0.07);
+      top:-160px;right:-160px;
+      pointer-events:none
+    }
+    .next-steps::after{
+      content:'';position:absolute;
+      width:300px;height:300px;
+      border-radius:50%;
+      border:1px solid rgba(232,97,10,0.06);
+      bottom:-100px;left:-80px;
+      pointer-events:none
+    }
+    .next-steps-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
+    .next-steps-eyebrow{
+      font-size:11px;font-weight:700;text-transform:uppercase;
+      letter-spacing:.12em;color:var(--mid-blue);margin-bottom:10px
+    }
+    .next-steps h2{
+      font-size:22px;font-weight:700;
+      color:var(--white);margin-bottom:8px
+    }
+    .next-steps-sub{
+      font-size:14px;color:rgba(255,255,255,0.55);
+      margin-bottom:32px;line-height:1.6
+    }
+    .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+    /* Base card — animation starts hidden */
+    .ns-card{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      border-top:3px solid transparent;
+      border-radius:8px;padding:24px 20px;
+      text-decoration:none;display:block;
+      position:relative;overflow:hidden;
+      opacity:0;transform:translateY(28px);
+      transition:opacity .5s ease,transform .5s ease,
+                 box-shadow .25s ease,border-color .25s ease,
+                 background .25s ease
+    }
+    /* scroll-triggered visible state */
+    .ns-card.ns-card-visible{opacity:1;transform:translateY(0)}
+
+    /* stagger delays */
+    .ns-card:nth-child(1){transition-delay:.05s}
+    .ns-card:nth-child(2){transition-delay:.18s}
+    .ns-card:nth-child(3){transition-delay:.31s}
+
+    /* accent variants */
+    .ns-accent-navy{border-top-color:var(--mid-blue)}
+    .ns-accent-orange{border-top-color:var(--orange)}
+    .ns-accent-green{border-top-color:var(--green)}
+
+    /* hover — lift + glow matching accent */
+    .ns-accent-navy:hover{
+      background:rgba(133,183,235,0.08);
+      box-shadow:0 8px 32px rgba(133,183,235,0.18);
+      border-color:rgba(133,183,235,0.25);
+      transform:translateY(-5px) !important
+    }
+    .ns-accent-orange:hover{
+      background:rgba(232,97,10,0.08);
+      box-shadow:0 8px 32px rgba(232,97,10,0.2);
+      border-color:rgba(232,97,10,0.3);
+      transform:translateY(-5px) !important
+    }
+    .ns-accent-green:hover{
+      background:rgba(29,158,117,0.08);
+      box-shadow:0 8px 32px rgba(29,158,117,0.2);
+      border-color:rgba(29,158,117,0.3);
+      transform:translateY(-5px) !important
+    }
+
+    .ns-card-label{
+      font-size:10px;font-weight:700;text-transform:uppercase;
+      letter-spacing:.1em;margin-bottom:10px
+    }
+    .ns-accent-navy .ns-card-label{color:var(--mid-blue)}
+    .ns-accent-orange .ns-card-label{color:#f59b60}
+    .ns-accent-green .ns-card-label{color:#5dd4aa}
+
+    .ns-card h3{font-size:15px;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:8px}
+    .ns-card p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:16px}
+
+    .ns-card-link{font-size:12px;font-weight:700}
+    .ns-accent-navy .ns-card-link{color:var(--mid-blue)}
+    .ns-accent-orange .ns-card-link{color:#f59b60}
+    .ns-accent-green .ns-card-link{color:#5dd4aa}
     .ns-card-link::after{content:' →'}
-    .ns-card:hover .ns-card-link{color:var(--orange)}
-    .ns-phone{margin-top:20px;font-size:13px;color:var(--muted);text-align:center}
-    .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
+
+    .ns-phone{
+      margin-top:28px;font-size:13px;
+      color:rgba(255,255,255,0.4);text-align:center
+    }
+    .ns-phone a{color:rgba(255,255,255,0.65);text-decoration:none;font-weight:700}
+    .ns-phone a:hover{color:var(--white)}
 
     /* ── CTA SECTION — Pharma.jpg ── */
     .cta-section{background:var(--navy);padding:52px var(--page-pad);position:relative;overflow:hidden}
@@ -350,7 +459,7 @@
       .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
       .footer-bottom-left{justify-content:center}
       .cta-section{padding:36px 20px}
-      .next-steps{padding:36px 20px 40px}
+      .next-steps{padding:40px 20px 44px}
     }
   </style>
 
@@ -364,7 +473,8 @@
     {"@type":"Question","name":"Why is fatigue management more critical in this industry than in others?","acceptedAnswer":{"@type":"Answer","text":"In chemical and pharmaceutical operations, errors made by a fatigued operator may not be immediately visible — they can compound through subsequent process steps and surface only at final testing, or after product has reached the market. Schedules that minimize chronic fatigue accumulation are operationally and regulatorily necessary."}},
     {"@type":"Question","name":"How long does it take to implement a schedule change in a pharmaceutical facility?","acceptedAnswer":{"@type":"Answer","text":"Substantially longer than in most industries — driven by regulatory requirements rather than schedule complexity. A change that would take weeks in general manufacturing may take months in pharmaceutical facilities due to documentation, change control, and potentially validation activities."}},
     {"@type":"Question","name":"What makes shift transitions particularly critical in continuous chemical or pharmaceutical processes?","acceptedAnswer":{"@type":"Answer","text":"A shift transition in continuous process operations is not just a personnel handoff — it is a knowledge transfer about the current state of a process that may have been running for hours or days. The quality of shift transitions is as important as their frequency in continuous process environments."}},
-    {"@type":"Question","name":"How does workforce turnover cost differ in chemical and pharmaceutical manufacturing?","acceptedAnswer":{"@type":"Answer","text":"Significantly higher than in most industries. The time required to bring a replacement to full qualification can run 12 to 18 months, even with an experienced hire. Schedules that improve retention deliver a correspondingly higher return on investment."}}
+    {"@type":"Question","name":"How does workforce turnover cost differ in chemical and pharmaceutical manufacturing?","acceptedAnswer":{"@type":"Answer","text":"Significantly higher than in most industries. The time required to bring a replacement to full qualification can run 12 to 18 months, even with an experienced hire. Schedules that improve retention deliver a correspondingly higher return on investment."}},
+    {"@type":"Question","name":"What does effective scheduling actually look like in this industry?","acceptedAnswer":{"@type":"Answer","text":"The scheduling solutions that work in chemical and pharmaceutical manufacturing provide continuous coverage with built-in redundancy, support knowledge transfer at shift boundaries rather than just headcount coverage, manage fatigue accumulation explicitly, and accommodate regulatory, validation, and documentation requirements as design inputs rather than afterthoughts. The gap between understanding these principles and implementing a schedule that actually achieves them is where expertise built through hundreds of engagements in this specific environment delivers its value."}}
   ]}</script>
 </head>
 <body>
@@ -405,12 +515,12 @@
     <span class="meta-read">9 min read</span>
   </div>
 
-  <!-- ── INTRO (source doc paragraphs 1–2) ── -->
+  <!-- ── INTRO ── -->
   <p>Chemical and pharmaceutical manufacturing operates under a different set of constraints than almost any other industry. The processes are continuous in ways that make stopping genuinely dangerous or economically catastrophic. The regulatory environment is more demanding than any other manufacturing sector. The workforce requires specialized knowledge that takes years to develop and is difficult to replace. And the consequences of errors — in product quality, in safety protocol, in documentation — reach far beyond the production floor.</p>
 
   <p>Shift scheduling in this environment is not primarily a workforce optimization problem. It is a risk management problem. The schedule determines who is present when, how knowledge transfers between shifts, how fatigue accumulates across a workforce handling hazardous materials and precision instrumentation, and whether the operation can meet regulatory requirements consistently across every shift, every day, every year.</p>
 
-  <!-- ── BREAKUP 1: CLIENT STRIP — photo treatment (after intro) ── -->
+  <!-- ── BREAKUP 1: CLIENT STRIP ── -->
   <div class="client-strip">
     <div class="client-strip-inner">
       <div class="client-strip-intro">These complex, large-scale operations relied on us to improve system performance and enhance employee engagement. Clients include:</div>
@@ -421,6 +531,7 @@
         <span class="client-tag">Monsanto</span>
         <span class="client-tag">Sandoz</span>
         <span class="client-tag">Pharmacia &amp; Upjohn</span>
+        <span class="client-tag">AkzoNobel</span>
       </div>
     </div>
   </div>
@@ -443,7 +554,7 @@
 
   <p>The practical implication is that schedule design in chemical and pharmaceutical operations requires regulatory review as a design step, not a post-design check. Changes that look operationally attractive on paper sometimes fail regulatory scrutiny in ways that only emerge late in the process — at which point reversing course is costly and disruptive.</p>
 
-  <!-- ── BREAKUP 2: INSIGHT CARDS (after Regulatory, before Validation) ── -->
+  <!-- ── BREAKUP 2: INSIGHT CARDS ── -->
   <div class="insight-cards">
     <div class="insight-card">
       <div class="ic-title">Zero structural coverage gaps</div>
@@ -477,7 +588,7 @@
 
   <p>First, turnover in this environment is more expensive than in most industries — not just in recruiting and onboarding costs, but in the time required to develop a replacement to full qualification. An operator who leaves a pharmaceutical manufacturing role may take 12 to 18 months to replace at full competency, even with an experienced hire. Schedules that drive turnover by failing to meet workforce needs are therefore more costly here than the same turnover rate in a less specialized environment.</p>
 
-  <!-- ── BREAKUP 4: PULL QUOTE (mid-article, in Workforce section) ── -->
+  <!-- ── BREAKUP 4: PULL QUOTE ── -->
   <div class="pull-quote">
     <p>"In chemical and pharmaceutical operations, the schedule affects more than productivity and labor cost. It affects product quality, regulatory standing, and the safety of the people running the process. Those stakes require a level of precision in schedule design that most generic approaches simply don't provide."</p>
     <div class="pq-attr">— Ethan Franklin, Shiftwork Solutions</div>
@@ -490,7 +601,7 @@
   <!-- ── SECTION 5: Changeovers, Cleaning, Training ── -->
   <h2>Product Changeovers, Cleaning, and Training Windows</h2>
 
-  <!-- ── BREAKUP 3: FLOAT CTA (breaks up text-dense Changeovers section) ── -->
+  <!-- ── FLOAT CTA ── -->
   <div class="float-cta">
     <div class="float-cta-inner">
       <h3>Schedule design in this industry is too consequential to approach generically.</h3>
@@ -507,7 +618,7 @@
   <p>Operations that treat these requirements as scheduling afterthoughts consistently find themselves managing compliance gaps, training backlogs, and changeover delays that affect production commitments. Operations that build them into the schedule as design constraints — allocating specific windows, staffing them appropriately, and sequencing them to minimize impact on production — convert compliance requirements from operational friction into predictable, manageable workflow.</p>
   <div class="clearfix"></div>
 
-  <!-- ── SECTION 6: Hidden Constraint (case study) ── -->
+  <!-- ── SECTION 6: Hidden Constraint ── -->
   <h2>When the Schedule Itself Is the Hidden Constraint</h2>
 
   <p>One of the more counterintuitive findings from our work in pharmaceutical manufacturing is how often the schedule — rather than the process — is responsible for capacity losses that appear to be process-driven.</p>
@@ -518,19 +629,12 @@
 
   <p>The recommendation was cross-training both shifts so that whichever crew was present when a phase completed could immediately begin the next one. The result was a new batch starting every 20 hours instead of every 24 — a 20% increase in throughput with no new equipment, no additional headcount, and no change to the process itself.</p>
 
-  <!-- ── BREAKUP 5: CALLOUT BOX — elevated positioning statement ── -->
-  <div class="callout-box">
+  <!-- ── CALLOUT HIGHLIGHT — dark navy fill, distinct from pull quote ── -->
+  <div class="callout-highlight">
     <p>The constraint was never the process. It was the schedule that had been built around it.</p>
   </div>
 
   <p>This pattern — a schedule that makes operational sense at the shift level but creates invisible losses at the process level — is more common in continuous pharmaceutical and chemical environments than most operations realize. It is also among the most overlooked opportunities for capacity recovery, precisely because the loss does not show up on any single shift's performance metrics.</p>
-
-  <!-- ── SECTION 7: What Effective Scheduling Looks Like ── -->
-  <h2>What Effective Scheduling Looks Like in This Industry</h2>
-
-  <p>The scheduling solutions that work in chemical and pharmaceutical manufacturing share several characteristics. They provide continuous coverage with built-in redundancy. They support knowledge transfer at shift boundaries rather than just headcount coverage. They manage fatigue accumulation explicitly rather than hoping shift length alone is adequate. And they accommodate the regulatory, validation, and documentation requirements of the environment as design inputs rather than afterthoughts.</p>
-
-  <p>The gap between understanding these principles and implementing a schedule that actually achieves them is where expertise built through dozens of engagements in this specific environment delivers its value.</p>
 
   <!-- ── FAQ SECTION ── -->
   <div class="faq-section">
@@ -565,36 +669,50 @@
       <div class="faq-q">How does workforce turnover cost differ in chemical and pharmaceutical manufacturing?</div>
       <div class="faq-a">Significantly higher than in most industries, for two reasons. First, recruiting and onboarding costs are elevated because the technical knowledge required is specialized and takes time to develop. Second — and more importantly — the time required to bring a replacement to full qualification can run 12 to 18 months, even with an experienced hire. During that period, the operation is carrying a skill gap that affects coverage quality, not just headcount. Schedules that drive turnover by failing to meet workforce preferences are therefore far more expensive here than the same turnover rate would be in a less specialized environment. The return on investment from a schedule that improves retention is correspondingly higher.</div>
     </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What does effective scheduling actually look like in this industry?</div>
+      <div class="faq-a">The scheduling solutions that work in chemical and pharmaceutical manufacturing share several characteristics. They provide continuous coverage with built-in redundancy. They support knowledge transfer at shift boundaries rather than just headcount coverage. They manage fatigue accumulation explicitly rather than hoping shift length alone is adequate. And they accommodate the regulatory, validation, and documentation requirements of the environment as design inputs rather than afterthoughts. The gap between understanding these principles and implementing a schedule that actually achieves them is where expertise built through hundreds of engagements in this specific environment delivers its value.</div>
+    </div>
+
   </div>
 
-</div>
-<!-- end .article-wrap -->
+</div><!-- end .article-wrap -->
 
-<!-- ── NEXT STEPS ── -->
-<section class="next-steps"><div class="next-steps-inner">
-  <h2>Next Steps &amp; Resources</h2>
-  <div class="ns-cards">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card" target="_blank" rel="noopener">
-      <div class="ns-card-label">Free Consultation</div>
-      <h3>Talk to a Shiftwork Expert</h3>
-      <p>Share the specifics of your operation: process type, current shift structure, regulatory environment, and workforce challenges. We'll identify where your current schedule is creating risk — and what a better design would address.</p>
-      <span class="ns-card-link">Book a free meeting</span>
-    </a>
-    <a href="/resources/shift-work-best-practices/" class="ns-card">
-      <div class="ns-card-label">Complete Guide</div>
-      <h3>Operational Best Practices for 24/7 Shift Work</h3>
-      <p>The fatigue management, coverage redundancy, and shift transition practices most relevant to chemical and pharmaceutical environments — and the operations that get them right.</p>
-      <span class="ns-card-link">Read the guide</span>
-    </a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card">
-      <div class="ns-card-label">Diagnostic Tool</div>
-      <h3>26 Warning Signs</h3>
-      <p>The operational symptoms that signal your shiftwork system needs attention — including coverage gaps, training backlogs, and fatigue-related quality issues most common in regulated manufacturing environments.</p>
-      <span class="ns-card-link">Read the diagnostic</span>
-    </a>
+<!-- ── NEXT STEPS — dark gradient bg, accent-color cards, scroll + hover animation ── -->
+<section class="next-steps">
+  <div class="next-steps-inner">
+    <div class="next-steps-eyebrow">Where to go from here</div>
+    <h2>Next Steps &amp; Resources</h2>
+    <p class="next-steps-sub">Talk to an expert, read the research, or run a quick diagnostic on your current operation.</p>
+    <div class="ns-cards">
+
+      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true"
+         class="ns-card ns-accent-navy" target="_blank" rel="noopener">
+        <div class="ns-card-label">Free Consultation</div>
+        <h3>Talk to a Shiftwork Expert</h3>
+        <p>Share the specifics of your operation: process type, current shift structure, regulatory environment, and workforce challenges. We'll identify where your current schedule is creating risk — and what a better design would address.</p>
+        <span class="ns-card-link">Book a free meeting</span>
+      </a>
+
+      <a href="/resources/shift-work-best-practices/" class="ns-card ns-accent-orange">
+        <div class="ns-card-label">Complete Guide</div>
+        <h3>Operational Best Practices for 24/7 Shift Work</h3>
+        <p>The fatigue management, coverage redundancy, and shift transition practices most relevant to chemical and pharmaceutical environments — and the operations that get them right.</p>
+        <span class="ns-card-link">Read the guide</span>
+      </a>
+
+      <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green">
+        <div class="ns-card-label">Diagnostic Tool</div>
+        <h3>26 Warning Signs</h3>
+        <p>The operational symptoms that signal your shiftwork system needs attention — including coverage gaps, training backlogs, and fatigue-related quality issues most common in regulated manufacturing environments.</p>
+        <span class="ns-card-link">Read the diagnostic</span>
+      </a>
+
+    </div>
+    <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
   </div>
-  <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
-</div></section>
+</section>
 
 <!-- ── FOOTER ── -->
 <footer class="site-footer">
@@ -666,6 +784,25 @@
     if(open){n.style.display='none';}
     else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}
   });
+
+  /* Next Steps scroll-in animation via IntersectionObserver */
+  (function(){
+    var cards=document.querySelectorAll('.ns-card');
+    if(!cards.length)return;
+    if(!('IntersectionObserver' in window)){
+      cards.forEach(function(c){c.classList.add('ns-card-visible');});
+      return;
+    }
+    var observer=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('ns-card-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },{threshold:0.15});
+    cards.forEach(function(c){observer.observe(c);});
+  })();
 
   /* Newsletter subscribe */
   (function(){
