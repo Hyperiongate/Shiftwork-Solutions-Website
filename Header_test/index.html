@@ -29,7 +29,7 @@
                     area) instead of FAQ.
                  7. ADDED: "What Effective Scheduling Looks Like" section.
                  8. ALL article text verified against source doc.
-    2026-04-12 — FOLLOW-UP EDITS:
+    2026-04-12 — FOLLOW-UP EDITS (pass 1):
                  1. CALLOUT BOX: Visually differentiated from pull quote —
                     now uses dark navy fill + white text + orange left border,
                     reads as a standalone "punchline" not a second pull quote.
@@ -40,6 +40,12 @@
                     three cards each with distinct accent color (navy/orange/
                     green), IntersectionObserver scroll-in animation (fade +
                     slide up), hover lift + accent-color glow effect.
+    2026-04-12 — FOLLOW-UP EDITS (pass 2):
+                 5. NEXT STEPS contrast fix: section was visually merging with
+                    footer (both near-black). Changed section bg to true navy
+                    (#1F4E79), added 4px orange top border as section entry
+                    marker. Cards changed to solid white with dark text for
+                    maximum contrast against the navy section bg.
 
   TEMPLATE NOTES (for applying to other industry pages):
     - Hero: layered photo with gradient overlay. Image varies by industry.
@@ -277,18 +283,22 @@
     .inline-cta-btn{display:inline-block;padding:11px 24px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;white-space:nowrap;transition:background .15s;flex-shrink:0}
     .inline-cta-btn:hover{background:#c4510a}
 
-    /* ── NEXT STEPS — redesigned with accent colors + animation ── */
+    /* ── NEXT STEPS — true navy bg, orange top border, white cards ──
+       Clearly distinct from footer (#0D1F3C) — section is #1F4E79 (mid-navy).
+       Bold 4px orange top border marks the section entry.
+       Cards are solid white with dark text for maximum contrast.        ── */
     .next-steps{
       padding:56px var(--page-pad) 60px;
-      background:linear-gradient(160deg,var(--navy-dark) 0%,#122840 60%,#0a1f35 100%);
+      background:var(--navy);
+      border-top:4px solid var(--orange);
       position:relative;overflow:hidden
     }
-    /* subtle decorative ring */
+    /* subtle decorative rings — lighter tint on navy bg */
     .next-steps::before{
       content:'';position:absolute;
       width:480px;height:480px;
       border-radius:50%;
-      border:1px solid rgba(133,183,235,0.07);
+      border:1px solid rgba(255,255,255,0.06);
       top:-160px;right:-160px;
       pointer-events:none
     }
@@ -296,37 +306,36 @@
       content:'';position:absolute;
       width:300px;height:300px;
       border-radius:50%;
-      border:1px solid rgba(232,97,10,0.06);
+      border:1px solid rgba(232,97,10,0.10);
       bottom:-100px;left:-80px;
       pointer-events:none
     }
     .next-steps-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
     .next-steps-eyebrow{
       font-size:11px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.12em;color:var(--mid-blue);margin-bottom:10px
+      letter-spacing:.12em;color:rgba(255,255,255,0.6);margin-bottom:10px
     }
     .next-steps h2{
       font-size:22px;font-weight:700;
       color:var(--white);margin-bottom:8px
     }
     .next-steps-sub{
-      font-size:14px;color:rgba(255,255,255,0.55);
+      font-size:14px;color:rgba(255,255,255,0.65);
       margin-bottom:32px;line-height:1.6
     }
     .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 
-    /* Base card — animation starts hidden */
+    /* Base card — solid white, dark text, animation starts hidden */
     .ns-card{
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(255,255,255,0.08);
-      border-top:3px solid transparent;
+      background:var(--white);
+      border:1px solid rgba(255,255,255,0.15);
+      border-top:4px solid transparent;
       border-radius:8px;padding:24px 20px;
       text-decoration:none;display:block;
       position:relative;overflow:hidden;
       opacity:0;transform:translateY(28px);
       transition:opacity .5s ease,transform .5s ease,
-                 box-shadow .25s ease,border-color .25s ease,
-                 background .25s ease
+                 box-shadow .25s ease,border-top-color .25s ease
     }
     /* scroll-triggered visible state */
     .ns-card.ns-card-visible{opacity:1;transform:translateY(0)}
@@ -336,28 +345,22 @@
     .ns-card:nth-child(2){transition-delay:.18s}
     .ns-card:nth-child(3){transition-delay:.31s}
 
-    /* accent variants */
-    .ns-accent-navy{border-top-color:var(--mid-blue)}
+    /* accent variants — colored top border */
+    .ns-accent-navy{border-top-color:var(--navy)}
     .ns-accent-orange{border-top-color:var(--orange)}
     .ns-accent-green{border-top-color:var(--green)}
 
-    /* hover — lift + glow matching accent */
+    /* hover — lift + accent-color shadow */
     .ns-accent-navy:hover{
-      background:rgba(133,183,235,0.08);
-      box-shadow:0 8px 32px rgba(133,183,235,0.18);
-      border-color:rgba(133,183,235,0.25);
+      box-shadow:0 8px 28px rgba(31,78,121,0.22);
       transform:translateY(-5px) !important
     }
     .ns-accent-orange:hover{
-      background:rgba(232,97,10,0.08);
-      box-shadow:0 8px 32px rgba(232,97,10,0.2);
-      border-color:rgba(232,97,10,0.3);
+      box-shadow:0 8px 28px rgba(232,97,10,0.22);
       transform:translateY(-5px) !important
     }
     .ns-accent-green:hover{
-      background:rgba(29,158,117,0.08);
-      box-shadow:0 8px 32px rgba(29,158,117,0.2);
-      border-color:rgba(29,158,117,0.3);
+      box-shadow:0 8px 28px rgba(29,158,117,0.22);
       transform:translateY(-5px) !important
     }
 
@@ -365,25 +368,25 @@
       font-size:10px;font-weight:700;text-transform:uppercase;
       letter-spacing:.1em;margin-bottom:10px
     }
-    .ns-accent-navy .ns-card-label{color:var(--mid-blue)}
-    .ns-accent-orange .ns-card-label{color:#f59b60}
-    .ns-accent-green .ns-card-label{color:#5dd4aa}
+    .ns-accent-navy .ns-card-label{color:var(--navy)}
+    .ns-accent-orange .ns-card-label{color:var(--orange)}
+    .ns-accent-green .ns-card-label{color:var(--green)}
 
-    .ns-card h3{font-size:15px;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:8px}
-    .ns-card p{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:16px}
+    .ns-card h3{font-size:15px;font-weight:700;color:var(--body-text);line-height:1.35;margin-bottom:8px}
+    .ns-card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px}
 
     .ns-card-link{font-size:12px;font-weight:700}
-    .ns-accent-navy .ns-card-link{color:var(--mid-blue)}
-    .ns-accent-orange .ns-card-link{color:#f59b60}
-    .ns-accent-green .ns-card-link{color:#5dd4aa}
+    .ns-accent-navy .ns-card-link{color:var(--navy)}
+    .ns-accent-orange .ns-card-link{color:var(--orange)}
+    .ns-accent-green .ns-card-link{color:var(--green)}
     .ns-card-link::after{content:' →'}
 
     .ns-phone{
       margin-top:28px;font-size:13px;
-      color:rgba(255,255,255,0.4);text-align:center
+      color:rgba(255,255,255,0.55);text-align:center
     }
-    .ns-phone a{color:rgba(255,255,255,0.65);text-decoration:none;font-weight:700}
-    .ns-phone a:hover{color:var(--white)}
+    .ns-phone a{color:var(--white);text-decoration:none;font-weight:700}
+    .ns-phone a:hover{color:var(--mid-blue)}
 
     /* ── CTA SECTION — Pharma.jpg ── */
     .cta-section{background:var(--navy);padding:52px var(--page-pad);position:relative;overflow:hidden}
