@@ -50,10 +50,13 @@
                     tool for shiftwork operations (removed 103-question reference,
                     added customizable framing)
                   - All nav, footer, JS, other content preserved exactly
-      2026-04-13  (v6) NAV RENAME — "Why Us" → "Our Company":
+      2026-04-13  (v6) NAV RENAME + HERO BACKGROUND:
                   - Nav link display text changed from "Why Us" to "Our Company"
                   - Footer Connect column link text changed from "Why Us" to "Our Company"
                   - URL remains /why-us/ (no URL change)
+                  - Hero background: replaced solid navy with second.png image
+                    matching resources page treatment (dark overlay for readability)
+                  - Removed decorative ::before/::after circles from hero
                   - All body content, styles, JS unchanged
 
   DESIGN SYSTEM:
@@ -134,9 +137,8 @@
     }
 
     /* ── PAGE HERO ── */
-    .page-hero { margin-top: 64px; background: var(--navy); color: var(--white); padding: 48px 24px 44px; position: relative; overflow: hidden; }
-    .page-hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 320px; height: 320px; border-radius: 50%; background: rgba(255,255,255,0.05); pointer-events: none; }
-    .page-hero::after { content: ''; position: absolute; bottom: -60px; left: -60px; width: 240px; height: 240px; border-radius: 50%; background: rgba(255,255,255,0.05); pointer-events: none; }
+    .page-hero { margin-top: 64px; background: #0D1F3C url('/images/second.png') center center/cover no-repeat; color: var(--white); padding: 48px 24px 44px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(13,31,60,.82) 0%, rgba(13,31,60,.60) 55%, rgba(13,31,60,.30) 100%); z-index: 0; pointer-events: none; }
     .hero-inner { max-width: var(--max-content); margin: 0 auto; position: relative; z-index: 1; }
     .eyebrow { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid-blue); margin-bottom: 10px; }
     .page-hero h1 { font-size: 28px; font-weight: 700; line-height: 1.2; color: var(--white); margin-bottom: 14px; max-width: 520px; }
