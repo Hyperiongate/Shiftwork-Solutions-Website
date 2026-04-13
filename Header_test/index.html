@@ -40,12 +40,20 @@
                     three cards each with distinct accent color (navy/orange/
                     green), IntersectionObserver scroll-in animation (fade +
                     slide up), hover lift + accent-color glow effect.
-    2026-04-12 — FOLLOW-UP EDITS (pass 2):
-                 5. NEXT STEPS contrast fix: section was visually merging with
-                    footer (both near-black). Changed section bg to true navy
-                    (#1F4E79), added 4px orange top border as section entry
-                    marker. Cards changed to solid white with dark text for
-                    maximum contrast against the navy section bg.
+    2026-04-12 — FOLLOW-UP EDITS (pass 3):
+                 6. CLIENT STRIP: Replaced photo treatment with solid navy bg
+                    (#1F4E79) + CSS marquee scroll animation (left-to-right
+                    loop). Removed "Clients include:" label. Edge fades added.
+                 7. PULL QUOTES: Both Ethan Franklin and Dan Capshaw quotes
+                    now plain italic text only — no box, border, or bg.
+                 8. DAN CAPSHAW QUOTE: Added after Changeovers/Training section.
+                 9. INSIGHT CARDS: Removed background fill. Each card title
+                    gets distinct color (navy/orange/green). Grow on hover.
+                10. CALLOUT HIGHLIGHT: Removed box and border. Now just
+                    colorized bold navy text inline.
+                11. FAQs: All 7 converted to accordion dropdowns with smooth
+                    max-height transition and animated chevron icon.
+                12. FLOAT CTA: Removed entirely. Clearfix also removed.
 
   TEMPLATE NOTES (for applying to other industry pages):
     - Hero: layered photo with gradient overlay. Image varies by industry.
@@ -145,136 +153,131 @@
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
     .article-wrap p:last-child{margin-bottom:0}
 
-    /* ── CLIENT STRIP — photo treatment (template v2) ── */
+    /* ── CLIENT STRIP — solid navy bg, marquee scroll ── */
     .client-strip{
-      position:relative;overflow:hidden;
+      background:var(--navy);
       border-radius:8px;margin:32px 0;
-      padding:28px 32px
+      padding:20px 0;
+      overflow:hidden;
+      position:relative
     }
-    .client-strip::before{
-      content:'';position:absolute;inset:0;
-      background:url('/images/Pharma.jpg') center center / cover no-repeat;
-      z-index:0
+    /* fade edges */
+    .client-strip-fade-l{
+      position:absolute;top:0;left:0;bottom:0;width:60px;
+      background:linear-gradient(to right,var(--navy),transparent);
+      z-index:1;pointer-events:none
     }
-    .client-strip::after{
-      content:'';position:absolute;inset:0;
-      background:linear-gradient(135deg,rgba(13,31,60,0.92) 0%,rgba(31,78,121,0.82) 100%);
-      z-index:0
+    .client-strip-fade-r{
+      position:absolute;top:0;right:0;bottom:0;width:60px;
+      background:linear-gradient(to left,var(--navy),transparent);
+      z-index:1;pointer-events:none
     }
-    .client-strip-inner{position:relative;z-index:1}
-    .client-strip-intro{
-      font-size:15px;font-weight:400;color:rgba(255,255,255,0.8);
-      line-height:1.6;margin-bottom:14px
+    .client-marquee-track{
+      display:flex;
+      width:max-content;
+      animation:clientScroll 22s linear infinite
     }
-    .client-tags{display:flex;flex-wrap:wrap;gap:8px}
+    .client-marquee-track:hover{animation-play-state:paused}
+    @keyframes clientScroll{
+      0%{transform:translateX(0)}
+      100%{transform:translateX(-50%)}
+    }
     .client-tag{
       display:inline-block;
-      padding:6px 14px;
-      background:rgba(255,255,255,0.12);
-      border:1px solid rgba(255,255,255,0.2);
-      border-radius:4px;
-      font-size:13px;font-weight:700;color:var(--white);
-      white-space:nowrap
+      padding:8px 28px;
+      font-size:14px;font-weight:700;color:rgba(255,255,255,0.85);
+      white-space:nowrap;letter-spacing:.02em
+    }
+    .client-tag-sep{
+      display:inline-block;
+      color:rgba(232,97,10,0.7);
+      font-size:18px;line-height:1;
+      padding:0 2px;
+      vertical-align:middle
     }
 
-    /* ── PULL QUOTE — consistent style, one per page ── */
+    /* ── PULL QUOTE — plain italic, no box or bg ── */
     .pull-quote{
-      border-left:4px solid var(--orange);
-      padding:20px 24px;
-      margin:36px 0;
-      background:var(--light-blue);
-      border-radius:0 6px 6px 0
+      margin:32px 0;
+      padding:0
     }
     .pull-quote p{
-      font-size:16px;font-weight:600;line-height:1.55;
-      color:var(--navy);margin:0;font-style:italic
+      font-size:16px;font-weight:400;line-height:1.65;
+      color:var(--body-text);margin:0;font-style:italic
     }
     .pull-quote .pq-attr{
       font-size:12px;font-weight:400;color:var(--muted);
-      margin-top:10px;font-style:normal
+      margin-top:8px;font-style:normal
     }
 
-    /* ── CALLOUT HIGHLIGHT — dark navy fill, white text, orange border ──
-       Visually distinct from .pull-quote (which is light-blue bg / navy text).
-       Use for standalone punchlines / conclusions, not attributed quotes.    ── */
+    /* ── CALLOUT HIGHLIGHT — no box, just colorized bold text ── */
     .callout-highlight{
-      background:var(--navy-dark);
-      border-left:4px solid var(--orange);
-      border-radius:0 6px 6px 0;
-      padding:22px 28px;
-      margin:32px 0
+      margin:28px 0;
+      padding:0
     }
     .callout-highlight p{
-      font-size:17px;line-height:1.5;
-      color:var(--white);font-weight:700;
-      margin:0;font-style:normal;
-      letter-spacing:.01em
+      font-size:18px;line-height:1.5;
+      color:var(--navy);font-weight:700;
+      margin:0;font-style:normal
     }
 
-    /* ── INSIGHT CARDS — hover animation ── */
+    /* ── INSIGHT CARDS — no bg fill, colored titles, grow on hover ── */
     .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
     .insight-card{
-      background:var(--light-blue);
-      border-top:3px solid var(--navy);
-      border-radius:6px;
-      padding:20px 18px;
-      transition:transform .2s ease,box-shadow .2s ease,border-top-color .2s ease
+      background:transparent;
+      border-top:3px solid var(--border-med);
+      border-radius:0;
+      padding:20px 18px 20px 0;
+      transition:transform .2s ease
     }
-    .insight-card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 6px 20px rgba(0,0,0,0.1);
-      border-top-color:var(--orange)
-    }
+    .insight-card:hover{transform:scale(1.04)}
+    .insight-card:nth-child(1) .ic-title{color:var(--navy)}
+    .insight-card:nth-child(2) .ic-title{color:var(--orange)}
+    .insight-card:nth-child(3) .ic-title{color:var(--green)}
     .insight-card .ic-title{
-      font-size:14px;font-weight:700;color:var(--navy);
-      margin-bottom:6px;line-height:1.3
+      font-size:14px;font-weight:700;
+      margin-bottom:8px;line-height:1.3
     }
     .insight-card .ic-text{
-      font-size:13px;color:var(--body-text);
-      line-height:1.55;font-weight:400
+      font-size:13px;color:var(--muted);
+      line-height:1.6;font-weight:400
     }
 
-    /* ── FLOAT CTA BOX — photo bg, used to break long sections ── */
-    .float-cta{
-      float:right;width:280px;
-      margin:4px 0 28px 32px;
-      border-radius:8px;overflow:hidden;
-      position:relative;clear:right
-    }
-    .float-cta::before{
-      content:'';position:absolute;inset:0;
-      background:url('/images/Pharma.jpg') center center / cover no-repeat;
-      opacity:1;z-index:0
-    }
-    .float-cta::after{
-      content:'';position:absolute;inset:0;
-      background:linear-gradient(135deg,rgba(13,31,60,0.92) 0%,rgba(31,78,121,0.80) 100%);
-      z-index:0
-    }
-    .float-cta-inner{position:relative;z-index:1;padding:24px 22px}
-    .float-cta h3{font-size:15px;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:10px}
-    .float-cta p{font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;margin-bottom:18px}
-    .float-cta-btn{
-      display:block;padding:10px 16px;
-      background:var(--orange);color:var(--white);
-      font-size:13px;font-weight:700;text-decoration:none;
-      border-radius:4px;text-align:center;transition:background .15s
-    }
-    .float-cta-btn:hover{background:#c4510a}
-    .float-cta-link{
-      display:block;text-align:center;margin-top:10px;
-      font-size:12px;color:rgba(255,255,255,0.6);text-decoration:none
-    }
-    .float-cta-link:hover{color:var(--white)}
-    .clearfix::after{content:'';display:table;clear:both}
+    /* float-cta removed */
 
-    /* ── FAQ ── */
+    /* ── FAQ — accordion dropdowns ── */
     .faq-section{margin:36px 0}
     .faq-section h2{font-size:21px;font-weight:700;color:var(--body-text);margin-bottom:20px}
-    .faq-item{border-bottom:1px solid var(--border-light);padding:18px 0}
-    .faq-item:last-child{border-bottom:none}
-    .faq-q{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.4}
-    .faq-a{font-size:14px;color:var(--body-text);line-height:1.7;margin:0}
+    .faq-item{border-bottom:1px solid var(--border-light)}
+    .faq-item:first-of-type{border-top:1px solid var(--border-light)}
+    .faq-toggle{
+      display:flex;align-items:center;justify-content:space-between;
+      width:100%;background:none;border:none;cursor:pointer;
+      padding:18px 0;text-align:left;gap:16px
+    }
+    .faq-q{
+      font-size:15px;font-weight:700;color:var(--navy);
+      line-height:1.4;flex:1
+    }
+    .faq-icon{
+      flex-shrink:0;width:20px;height:20px;
+      border-radius:50%;border:2px solid var(--navy);
+      display:flex;align-items:center;justify-content:center;
+      transition:transform .25s ease,background .2s ease,border-color .2s ease
+    }
+    .faq-icon svg{width:10px;height:10px;fill:var(--navy);transition:transform .25s ease}
+    .faq-item.faq-open .faq-icon{background:var(--navy);border-color:var(--navy)}
+    .faq-item.faq-open .faq-icon svg{fill:var(--white);transform:rotate(180deg)}
+    .faq-body{
+      overflow:hidden;
+      max-height:0;
+      transition:max-height .35s ease,padding .25s ease
+    }
+    .faq-item.faq-open .faq-body{max-height:600px}
+    .faq-a{
+      font-size:14px;color:var(--body-text);line-height:1.75;
+      padding-bottom:20px
+    }
 
     /* ── INLINE CTA ── */
     .inline-cta{background:var(--navy-dark);border-radius:8px;padding:28px 32px;margin:40px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
@@ -523,19 +526,26 @@
 
   <p>Shift scheduling in this environment is not primarily a workforce optimization problem. It is a risk management problem. The schedule determines who is present when, how knowledge transfers between shifts, how fatigue accumulates across a workforce handling hazardous materials and precision instrumentation, and whether the operation can meet regulatory requirements consistently across every shift, every day, every year.</p>
 
-  <!-- ── BREAKUP 1: CLIENT STRIP ── -->
+  <!-- ── BREAKUP 1: CLIENT STRIP — navy bg, marquee scroll ── -->
   <div class="client-strip">
-    <div class="client-strip-inner">
-      <div class="client-strip-intro">These complex, large-scale operations relied on us to improve system performance and enhance employee engagement. Clients include:</div>
-      <div class="client-tags">
-        <span class="client-tag">Dow</span>
-        <span class="client-tag">Pfizer</span>
-        <span class="client-tag">GlaxoSmithKline</span>
-        <span class="client-tag">Monsanto</span>
-        <span class="client-tag">Sandoz</span>
-        <span class="client-tag">Pharmacia &amp; Upjohn</span>
-        <span class="client-tag">AkzoNobel</span>
-      </div>
+    <div class="client-strip-fade-l"></div>
+    <div class="client-strip-fade-r"></div>
+    <div class="client-marquee-track" id="clientTrack">
+      <span class="client-tag">Dow</span><span class="client-tag-sep">·</span>
+      <span class="client-tag">Pfizer</span><span class="client-tag-sep">·</span>
+      <span class="client-tag">GlaxoSmithKline</span><span class="client-tag-sep">·</span>
+      <span class="client-tag">Monsanto</span><span class="client-tag-sep">·</span>
+      <span class="client-tag">Sandoz</span><span class="client-tag-sep">·</span>
+      <span class="client-tag">Pharmacia &amp; Upjohn</span><span class="client-tag-sep">·</span>
+      <span class="client-tag">AkzoNobel</span><span class="client-tag-sep">·</span>
+      <!-- duplicate set for seamless loop -->
+      <span class="client-tag">Dow</span><span class="client-tag-sep">·</span>
+      <span class="client-tag">Pfizer</span><span class="client-tag-sep">·</span>
+      <span class="client-tag">GlaxoSmithKline</span><span class="client-tag-sep">·</span>
+      <span class="client-tag">Monsanto</span><span class="client-tag-sep">·</span>
+      <span class="client-tag">Sandoz</span><span class="client-tag-sep">·</span>
+      <span class="client-tag">Pharmacia &amp; Upjohn</span><span class="client-tag-sep">·</span>
+      <span class="client-tag">AkzoNobel</span><span class="client-tag-sep">·</span>
     </div>
   </div>
 
@@ -591,7 +601,7 @@
 
   <p>First, turnover in this environment is more expensive than in most industries — not just in recruiting and onboarding costs, but in the time required to develop a replacement to full qualification. An operator who leaves a pharmaceutical manufacturing role may take 12 to 18 months to replace at full competency, even with an experienced hire. Schedules that drive turnover by failing to meet workforce needs are therefore more costly here than the same turnover rate in a less specialized environment.</p>
 
-  <!-- ── BREAKUP 4: PULL QUOTE ── -->
+  <!-- ── PULL QUOTE: Ethan Franklin — plain italic, no box ── -->
   <div class="pull-quote">
     <p>"In chemical and pharmaceutical operations, the schedule affects more than productivity and labor cost. It affects product quality, regulatory standing, and the safety of the people running the process. Those stakes require a level of precision in schedule design that most generic approaches simply don't provide."</p>
     <div class="pq-attr">— Ethan Franklin, Shiftwork Solutions</div>
@@ -604,22 +614,17 @@
   <!-- ── SECTION 5: Changeovers, Cleaning, Training ── -->
   <h2>Product Changeovers, Cleaning, and Training Windows</h2>
 
-  <!-- ── FLOAT CTA ── -->
-  <div class="float-cta">
-    <div class="float-cta-inner">
-      <h3>Schedule design in this industry is too consequential to approach generically.</h3>
-      <p>The right solution is built around the specific regulatory, process, and workforce realities of your operation. The first conversation is free.</p>
-      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="float-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a>
-      <a href="/resources/shift-work-best-practices/" class="float-cta-link">Read Operational Best Practices →</a>
-    </div>
-  </div>
-
   <p>Like food manufacturing, chemical and pharmaceutical operations require cleaning and changeover between production runs — but the stakes are higher and the requirements more stringent. Cross-contamination between pharmaceutical products can have serious patient safety implications. Cleaning validation requirements mean that cleaning procedures must be demonstrated effective, not just performed. And training requirements for workers performing critical manufacturing steps must be current and documented at all times.</p>
 
   <p>These operational requirements create scheduling constraints that interact in complex ways. Training must happen somewhere in the schedule — during slow periods, during changeovers, or on dedicated training shifts. Cleaning must be staffed adequately to complete within the required window. Product changeover sequences must account for the validation status of the next product run.</p>
 
   <p>Operations that treat these requirements as scheduling afterthoughts consistently find themselves managing compliance gaps, training backlogs, and changeover delays that affect production commitments. Operations that build them into the schedule as design constraints — allocating specific windows, staffing them appropriately, and sequencing them to minimize impact on production — convert compliance requirements from operational friction into predictable, manageable workflow.</p>
-  <div class="clearfix"></div>
+
+  <!-- ── PULL QUOTE: Dan Capshaw — plain italic, no box ── -->
+  <div class="pull-quote">
+    <p>"The operations that handle changeovers and training windows best aren't the ones with the most resources. They're the ones that treat those requirements as scheduling inputs from day one — not as problems to solve after the schedule is already set."</p>
+    <div class="pq-attr">— Dan Capshaw, Shiftwork Solutions</div>
+  </div>
 
   <!-- ── SECTION 6: Hidden Constraint ── -->
   <h2>When the Schedule Itself Is the Hidden Constraint</h2>
@@ -639,43 +644,64 @@
 
   <p>This pattern — a schedule that makes operational sense at the shift level but creates invisible losses at the process level — is more common in continuous pharmaceutical and chemical environments than most operations realize. It is also among the most overlooked opportunities for capacity recovery, precisely because the loss does not show up on any single shift's performance metrics.</p>
 
-  <!-- ── FAQ SECTION ── -->
+  <!-- ── FAQ SECTION — accordion dropdowns ── -->
   <div class="faq-section">
     <h2>Frequently Asked Questions</h2>
 
     <div class="faq-item">
-      <div class="faq-q">How do cGMP requirements affect shift schedule design?</div>
-      <div class="faq-a">cGMP requirements govern documentation, supervision, and auditing of pharmaceutical manufacturing — and those requirements translate directly into scheduling constraints. A schedule that reduces supervisory coverage during certain shifts may create cGMP compliance gaps. One that moves workers frequently between process areas may conflict with training documentation requirements. The practical implication is that regulatory review has to happen during schedule design, not after it. Changes that look operationally attractive on paper sometimes fail cGMP scrutiny in ways that only emerge late in the process, at which point reversing course is costly and disruptive.</div>
+      <button class="faq-toggle" aria-expanded="false">
+        <span class="faq-q">How do cGMP requirements affect shift schedule design?</span>
+        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+      </button>
+      <div class="faq-body"><div class="faq-a">cGMP requirements govern documentation, supervision, and auditing of pharmaceutical manufacturing — and those requirements translate directly into scheduling constraints. A schedule that reduces supervisory coverage during certain shifts may create cGMP compliance gaps. One that moves workers frequently between process areas may conflict with training documentation requirements. The practical implication is that regulatory review has to happen during schedule design, not after it. Changes that look operationally attractive on paper sometimes fail cGMP scrutiny in ways that only emerge late in the process, at which point reversing course is costly and disruptive.</div></div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">What triggers revalidation when a pharmaceutical schedule changes?</div>
-      <div class="faq-a">Revalidation can be triggered by changes that affect how a process is staffed, supervised, or monitored in ways that touch product quality parameters. A shift pattern change that alters when qualified supervisors are present, how product sampling is timed, or how in-process testing is conducted may require validation activities before full implementation. The threshold varies by product, process, and regulatory history — which is why understanding validation implications is a required step in schedule design for pharmaceutical operations, not an assumption that can be made in advance. Operations that discover revalidation requirements after designing a schedule face compressed timelines and implementation costs that careful planning would have avoided.</div>
+      <button class="faq-toggle" aria-expanded="false">
+        <span class="faq-q">What triggers revalidation when a pharmaceutical schedule changes?</span>
+        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+      </button>
+      <div class="faq-body"><div class="faq-a">Revalidation can be triggered by changes that affect how a process is staffed, supervised, or monitored in ways that touch product quality parameters. A shift pattern change that alters when qualified supervisors are present, how product sampling is timed, or how in-process testing is conducted may require validation activities before full implementation. The threshold varies by product, process, and regulatory history — which is why understanding validation implications is a required step in schedule design for pharmaceutical operations, not an assumption that can be made in advance. Operations that discover revalidation requirements after designing a schedule face compressed timelines and implementation costs that careful planning would have avoided.</div></div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">Why is fatigue management more critical in this industry than in others?</div>
-      <div class="faq-a">In most manufacturing environments, fatigue-related errors are typically detectable and correctable before they cause serious harm. In chemical and pharmaceutical operations, errors made by a fatigued operator may not be immediately visible — they can compound through subsequent process steps and surface only at final testing, or in some cases, after product has reached the market. The link between schedule-driven fatigue and error rates is well established. In a regulated, safety-critical environment, its implications are more serious than anywhere else. This is why schedules that minimize chronic fatigue accumulation and provide adequate recovery time between shifts are not just workforce-friendly here — they are operationally and regulatorily necessary.</div>
+      <button class="faq-toggle" aria-expanded="false">
+        <span class="faq-q">Why is fatigue management more critical in this industry than in others?</span>
+        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+      </button>
+      <div class="faq-body"><div class="faq-a">In most manufacturing environments, fatigue-related errors are typically detectable and correctable before they cause serious harm. In chemical and pharmaceutical operations, errors made by a fatigued operator may not be immediately visible — they can compound through subsequent process steps and surface only at final testing, or in some cases, after product has reached the market. The link between schedule-driven fatigue and error rates is well established. In a regulated, safety-critical environment, its implications are more serious than anywhere else. This is why schedules that minimize chronic fatigue accumulation and provide adequate recovery time between shifts are not just workforce-friendly here — they are operationally and regulatorily necessary.</div></div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">How long does it take to implement a schedule change in a pharmaceutical facility?</div>
-      <div class="faq-a">Substantially longer than in most industries — and the difference is driven by regulatory requirements rather than schedule complexity. A change that would take weeks to implement in a general manufacturing environment may take months in a pharmaceutical facility, because the regulatory pathway around it requires documentation, change control, and potentially validation activities. Operations that begin a schedule redesign process without understanding the full regulatory timeline consistently find themselves unable to implement on the schedule they planned. Building regulatory review into the design phase, rather than treating it as a post-design approval step, is the single most effective way to avoid that outcome.</div>
+      <button class="faq-toggle" aria-expanded="false">
+        <span class="faq-q">How long does it take to implement a schedule change in a pharmaceutical facility?</span>
+        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+      </button>
+      <div class="faq-body"><div class="faq-a">Substantially longer than in most industries — and the difference is driven by regulatory requirements rather than schedule complexity. A change that would take weeks to implement in a general manufacturing environment may take months in a pharmaceutical facility, because the regulatory pathway around it requires documentation, change control, and potentially validation activities. Operations that begin a schedule redesign process without understanding the full regulatory timeline consistently find themselves unable to implement on the schedule they planned. Building regulatory review into the design phase, rather than treating it as a post-design approval step, is the single most effective way to avoid that outcome.</div></div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">What makes shift transitions particularly critical in continuous chemical or pharmaceutical processes?</div>
-      <div class="faq-a">In continuous process operations, a shift transition is not just a personnel handoff — it is a knowledge transfer about the current state of a process that may have been running for hours or days. An operator taking over a shift needs to understand not just what the process is doing at the moment of handoff, but what it has been doing, what deviations have occurred, what adjustments have been made, and what to watch for. A schedule that optimizes headcount coverage without explicitly supporting knowledge transfer at shift boundaries creates coverage in a technical sense while leaving the operation exposed in a substantive one. The quality of shift transitions is as important as their frequency in continuous process environments.</div>
+      <button class="faq-toggle" aria-expanded="false">
+        <span class="faq-q">What makes shift transitions particularly critical in continuous chemical or pharmaceutical processes?</span>
+        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+      </button>
+      <div class="faq-body"><div class="faq-a">In continuous process operations, a shift transition is not just a personnel handoff — it is a knowledge transfer about the current state of a process that may have been running for hours or days. An operator taking over a shift needs to understand not just what the process is doing at the moment of handoff, but what it has been doing, what deviations have occurred, what adjustments have been made, and what to watch for. A schedule that optimizes headcount coverage without explicitly supporting knowledge transfer at shift boundaries creates coverage in a technical sense while leaving the operation exposed in a substantive one. The quality of shift transitions is as important as their frequency in continuous process environments.</div></div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">How does workforce turnover cost differ in chemical and pharmaceutical manufacturing?</div>
-      <div class="faq-a">Significantly higher than in most industries, for two reasons. First, recruiting and onboarding costs are elevated because the technical knowledge required is specialized and takes time to develop. Second — and more importantly — the time required to bring a replacement to full qualification can run 12 to 18 months, even with an experienced hire. During that period, the operation is carrying a skill gap that affects coverage quality, not just headcount. Schedules that drive turnover by failing to meet workforce preferences are therefore far more expensive here than the same turnover rate would be in a less specialized environment. The return on investment from a schedule that improves retention is correspondingly higher.</div>
+      <button class="faq-toggle" aria-expanded="false">
+        <span class="faq-q">How does workforce turnover cost differ in chemical and pharmaceutical manufacturing?</span>
+        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+      </button>
+      <div class="faq-body"><div class="faq-a">Significantly higher than in most industries, for two reasons. First, recruiting and onboarding costs are elevated because the technical knowledge required is specialized and takes time to develop. Second — and more importantly — the time required to bring a replacement to full qualification can run 12 to 18 months, even with an experienced hire. During that period, the operation is carrying a skill gap that affects coverage quality, not just headcount. Schedules that drive turnover by failing to meet workforce preferences are therefore far more expensive here than the same turnover rate would be in a less specialized environment. The return on investment from a schedule that improves retention is correspondingly higher.</div></div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-q">What does effective scheduling actually look like in this industry?</div>
-      <div class="faq-a">The scheduling solutions that work in chemical and pharmaceutical manufacturing share several characteristics. They provide continuous coverage with built-in redundancy. They support knowledge transfer at shift boundaries rather than just headcount coverage. They manage fatigue accumulation explicitly rather than hoping shift length alone is adequate. And they accommodate the regulatory, validation, and documentation requirements of the environment as design inputs rather than afterthoughts. The gap between understanding these principles and implementing a schedule that actually achieves them is where expertise built through hundreds of engagements in this specific environment delivers its value.</div>
+      <button class="faq-toggle" aria-expanded="false">
+        <span class="faq-q">What does effective scheduling actually look like in this industry?</span>
+        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+      </button>
+      <div class="faq-body"><div class="faq-a">The scheduling solutions that work in chemical and pharmaceutical manufacturing share several characteristics. They provide continuous coverage with built-in redundancy. They support knowledge transfer at shift boundaries rather than just headcount coverage. They manage fatigue accumulation explicitly rather than hoping shift length alone is adequate. And they accommodate the regulatory, validation, and documentation requirements of the environment as design inputs rather than afterthoughts. The gap between understanding these principles and implementing a schedule that actually achieves them is where expertise built through hundreds of engagements in this specific environment delivers its value.</div></div>
     </div>
 
   </div>
@@ -788,7 +814,28 @@
     else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}
   });
 
-  /* Next Steps scroll-in animation via IntersectionObserver */
+  /* FAQ accordion */
+  (function(){
+    var items=document.querySelectorAll('.faq-item');
+    items.forEach(function(item){
+      var btn=item.querySelector('.faq-toggle');
+      if(!btn)return;
+      btn.addEventListener('click',function(){
+        var isOpen=item.classList.contains('faq-open');
+        // close all
+        items.forEach(function(i){
+          i.classList.remove('faq-open');
+          var b=i.querySelector('.faq-toggle');
+          if(b)b.setAttribute('aria-expanded','false');
+        });
+        // open clicked if it was closed
+        if(!isOpen){
+          item.classList.add('faq-open');
+          btn.setAttribute('aria-expanded','true');
+        }
+      });
+    });
+  })();
   (function(){
     var cards=document.querySelectorAll('.ns-card');
     if(!cards.length)return;
