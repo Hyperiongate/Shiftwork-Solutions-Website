@@ -5,7 +5,7 @@
   URL: /industries/refining-utilities-operations/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-13
+  Last Updated: 2026-04-14
 
   SOURCE DOC: RefiningUtilities_V3_By_ES_Sonnet_3_31_26.docx
   CATEGORY: Industry Pages
@@ -15,30 +15,21 @@
     2026-04-04 — NAV + BUTTON + SEO AUDIT. (Contact link was missing — now added.)
     2026-04-13 — Hero image corrected: shutterstock_1502038526.jpg → Refining.jpg
                  to match the Refining tile image on the Industries hub page.
-    2026-04-13 — TEMPLATE v2 REBUILD:
-                 Full redesign to match chemical-pharmaceutical template v2.
-                 Hero: cover/center gradient overlay, white subtitle text.
-                 Hero subtitle updated to Jim-provided text.
-                 Client strip: navy marquee with scrolling names.
-                 Pull quotes: flex layout, oversized left quote mark (Georgia),
-                   17px bold navy italic. TWO pull quotes: Jim Dillingham + Dan Capshaw.
-                 Callout box: light-grey bg, navy left border.
-                 Insight cards: transparent bg, border-top only, colored titles.
-                 FAQs: accordion with light-grey wrapper, white panels (5 items).
-                 Next Steps: dark navy animated cards (IntersectionObserver).
-                 Footer: 3-col prefooter dark navy, "Start a Conversation" capitalized.
-                 Nav: "Our Company" label (points to /why-us/), Contact confirmed added.
-                 Removed: cta-section, engage-band, inline-cta blocks.
+    2026-04-13 — TEMPLATE v2 REBUILD: full redesign to match chemical-pharmaceutical v2.
+    2026-04-14 — FAQ section: replaced .faq-wrap with full-bleed Hands_in_the_air.jpg
+                 background image, Option B dark-edge vignette, navy toggle buttons,
+                 #EEAE26 heading, white answer panels.
+                 Pull quotes: align-items:center, mark 128px #999999, text 15px/1.75.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/Refining.jpg
+  FAQ IMAGE:  /images/Hands_in_the_air.jpg
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
   DESIGN SYSTEM:
     --navy:#1F4E79  --navy-dark:#0D1F3C  --mid-blue:#85B7EB
     --light-blue:#EEF3F8  --orange:#E8610A  --green:#1D9E75
     --body-text:#1A1A1A  --max-width:860px
     Font: Arial, Helvetica, sans-serif
-  I did no harm and this file is not truncated
 -->
 <html lang="en">
 <head>
@@ -103,10 +94,10 @@
     @keyframes clientScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     .client-tag{display:inline-block;padding:8px 28px;font-size:14px;font-weight:700;color:rgba(255,255,255,0.85);white-space:nowrap;letter-spacing:.02em}
     .client-tag-sep{display:inline-block;color:rgba(232,97,10,0.7);font-size:18px;line-height:1;padding:0 2px;vertical-align:middle}
-    .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:flex-start;gap:16px}
-    .pull-quote-mark{flex-shrink:0;font-size:64px;line-height:0.85;font-family:Georgia,'Times New Roman',serif;color:var(--mid-blue);user-select:none}
+    .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:center;gap:16px}
+    .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
-    .pull-quote p{font-size:16px;font-weight:400;line-height:1.65;color:#4a6a8a;margin:0;font-style:italic}
+    .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
     .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
     .callout-box{background:linear-gradient(to right,#E4E7EB,var(--white) 40%,var(--white) 60%,#E4E7EB);border-radius:6px;padding:22px 28px;margin:32px 0;text-align:center}
     .callout-box p{font-size:16px;line-height:1.6;color:var(--body-text);font-weight:400;margin:0;font-style:normal}
@@ -118,20 +109,23 @@
     .insight-card:nth-child(3) .ic-title{color:var(--green)}
     .insight-card .ic-title{font-size:14px;font-weight:700;margin-bottom:8px;line-height:1.3}
     .insight-card .ic-text{font-size:13px;color:var(--muted);line-height:1.6;font-weight:400}
-    .faq-wrap{background:var(--light-grey);border-radius:0;padding:40px 32px;margin:36px calc(-50vw + 50%);width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;box-shadow:inset 0 2px 8px rgba(0,0,0,0.06),inset 0 -2px 8px rgba(0,0,0,0.06)}
-    .faq-wrap-inner{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad)}
-    .faq-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);margin-bottom:20px}
-    .faq-item{border-bottom:1px solid var(--border-med)}
-    .faq-item:first-of-type{border-top:1px solid var(--border-med)}
-    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:18px 0;text-align:left;gap:16px}
-    .faq-q{font-size:15px;font-weight:700;color:var(--navy);line-height:1.4;flex:1}
-    .faq-icon{flex-shrink:0;width:20px;height:20px;border-radius:50%;border:2px solid var(--navy);display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .2s ease,border-color .2s ease}
-    .faq-icon svg{width:10px;height:10px;fill:var(--navy);transition:transform .25s ease}
-    .faq-item.faq-open .faq-icon{background:var(--navy);border-color:var(--navy)}
-    .faq-item.faq-open .faq-icon svg{fill:var(--white);transform:rotate(180deg)}
-    .faq-body{overflow:hidden;max-height:0;transition:max-height .35s ease,padding .25s ease}
-    .faq-item.faq-open .faq-body{max-height:600px}
-    .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:4px 16px 20px;background:var(--white);border-radius:6px;margin-bottom:4px}
+    .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
+    .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
+    .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
+    .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:52px 24px 56px}
+    .faq-inner h2{font-size:22px;font-weight:700;color:#EEAE26;margin-bottom:28px;text-shadow:0 1px 6px rgba(0,0,0,0.5)}
+    .faq-item{margin-bottom:6px}
+    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--navy);border:1px solid rgba(255,255,255,0.18);border-radius:6px;cursor:pointer;padding:16px 18px;text-align:left;gap:16px;transition:background .2s ease}
+    .faq-toggle:hover{background:#1a4268}
+    .faq-item.faq-open .faq-toggle{border-radius:6px 6px 0 0;background:var(--navy);border-bottom-color:transparent}
+    .faq-q{font-size:15px;font-weight:700;color:#fff;line-height:1.4;flex:1;text-shadow:0 1px 4px rgba(0,0,0,0.4)}
+    .faq-icon{flex-shrink:0;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .2s ease,border-color .2s ease}
+    .faq-icon svg{width:10px;height:10px;fill:rgba(255,255,255,0.8);transition:transform .25s ease}
+    .faq-item.faq-open .faq-icon{background:var(--orange);border-color:var(--orange)}
+    .faq-item.faq-open .faq-icon svg{fill:#fff;transform:rotate(180deg)}
+    .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease,padding .25s ease}
+    .faq-item.faq-open .faq-body{max-height:800px}
+    .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
     .next-steps{padding:56px var(--page-pad) 60px;background:var(--navy);position:relative;overflow:hidden}
     .next-steps::before{content:'';position:absolute;width:480px;height:480px;border-radius:50%;border:1px solid rgba(255,255,255,0.06);top:-160px;right:-160px;pointer-events:none}
     .next-steps::after{content:'';position:absolute;width:300px;height:300px;border-radius:50%;border:1px solid rgba(232,97,10,0.10);bottom:-100px;left:-80px;pointer-events:none}
@@ -201,10 +195,10 @@
     .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
     .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
-    @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-wrap{padding:24px 20px}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.insight-cards{grid-template-columns:1fr}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.next-steps{padding:40px 20px 44px}}
+    @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
+    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.insight-cards{grid-template-columns:1fr}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.next-steps{padding:40px 20px 44px}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}}
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Refining & Utilities: When the Plant Never Stops","description":"Shift scheduling for refineries, power plants, and utilities. Schedule modernization, 5-crew nuclear scheduling, union change management.","url":"https://shift-work.com/industries/refining-utilities-operations/","datePublished":"2026-04-04","dateModified":"2026-04-13","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"refinery shift scheduling, utility shift scheduling, nuclear power plant scheduling, 5-crew schedule, continuous operations workforce, union schedule change management, power plant workforce planning"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Refining & Utilities: When the Plant Never Stops","description":"Shift scheduling for refineries, power plants, and utilities. Schedule modernization, 5-crew nuclear scheduling, union change management.","url":"https://shift-work.com/industries/refining-utilities-operations/","datePublished":"2026-04-04","dateModified":"2026-04-14","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"refinery shift scheduling, utility shift scheduling, nuclear power plant scheduling, 5-crew schedule, continuous operations workforce, union schedule change management, power plant workforce planning"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://shift-work.com/industries/"},{"@type":"ListItem","position":3,"name":"Refining & Utilities","item":"https://shift-work.com/industries/refining-utilities-operations/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why do refineries and utilities need to revisit schedules they've run for decades?","acceptedAnswer":{"@type":"Answer","text":"Workforce demographics shift over decades. A schedule designed for a 35-year-old workforce does not automatically serve a 52-year-old workforce. Overtime drift, shift-specific turnover, and recruiting difficulty are signals the schedule no longer fits."}},{"@type":"Question","name":"Why do nuclear power plants benefit from a five-crew structure?","acceptedAnswer":{"@type":"Answer","text":"Mandatory NRC training requirements consume significant operator hours. Four-crew structures have no margin to absorb training without pulling operators off shift or building structural overtime. Five crews provide the needed staffing depth."}},{"@type":"Question","name":"How do outdated union contract provisions affect schedule design?","acceptedAnswer":{"@type":"Answer","text":"Contracts often codify specific scheduling provisions written to formalize existing schedules. Changing the schedule without addressing the contract creates conflict. Both must be approached as the same problem, not separate ones."}},{"@type":"Question","name":"How do you change a schedule at a facility that cannot shut down?","acceptedAnswer":{"@type":"Answer","text":"The existing schedule must remain fully intact until the new one is ready. Transition design, staffing models, communication, and policy alignment must all be worked out before going live — not discovered as problems during implementation."}},{"@type":"Question","name":"What triggers a schedule review at a long-running facility?","acceptedAnswer":{"@type":"Answer","text":"Rarely a single event — more often gradual signals: overtime above plan, shift-specific turnover, recruiting difficulty, or union negotiations surfacing dissatisfaction locked in by contract language. By the time signals are clear, the mismatch has been building for years."}}]}</script>
@@ -334,7 +328,13 @@
     </div>
   </div>
 
-  <div class="faq-wrap"><div class="faq-wrap-inner">
+</div><!-- /.article-wrap -->
+
+<!-- FAQ SECTION: full-bleed with Hands_in_the_air.jpg background, Option B vignette -->
+<div class="faq-section">
+  <div class="faq-bg"></div>
+  <div class="faq-overlay"></div>
+  <div class="faq-inner">
     <h2>Frequently Asked Questions</h2>
 
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why do refineries and utilities need to revisit schedules they've run for decades?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Two structural features make periodic schedule review particularly important. First, age — most refineries and utilities were born into 24/7 operations from day one, which means a facility running for 50 years may still be running a schedule that is also 50 years old. No other design decision from that era would be left unexamined for half a century. Second, workforce aging — the pay and stability that refining and utility jobs offer attracts workers who stay for an entire career, which means the workforce ages as a cohort. Workers who were fighting for weekend coverage in their thirties become empty nesters who care less about weekends but more about consecutive days off. A schedule designed for a 35-year-old workforce does not automatically serve a 52-year-old workforce.</div></div></div>
@@ -346,9 +346,9 @@
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How do you change a schedule at a facility that cannot shut down?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The implementation has to be designed so coverage is never at risk — which means the existing schedule remains fully intact until the new one is ready to take over completely. That constraint makes the transition design as consequential as the schedule design itself. The sequencing, the transition staffing model, the communication approach, and the policy alignment all have to be worked out before the change goes live, not discovered as problems during it. In continuous process environments, implementation complexity is where well-designed schedule changes fail in practice. It is also where experience across hundreds of engagements makes the most visible difference.</div></div></div>
 
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What triggers a schedule review at a facility that has run the same schedule for years?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Rarely a single event — more often a slow accumulation of signals: overtime that has drifted above plan, turnover on specific shifts that was not a problem a decade ago, difficulty recruiting candidates who find the current schedule incompatible with the life they want, or union negotiations that surface workforce dissatisfaction that the contract has effectively locked in place. By the time those signals are clear enough to prompt action, the underlying mismatch has typically been building for years. Operations that wait for a crisis to prompt the review pay more to get to the same place than those that act on early signals.</div></div></div>
-  </div></div>
 
-</div>
+  </div>
+</div><!-- /.faq-section -->
 
 <section class="next-steps"><div class="next-steps-inner">
   <div class="next-steps-eyebrow">Where to go from here</div>
