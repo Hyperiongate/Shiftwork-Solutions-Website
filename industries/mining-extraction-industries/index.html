@@ -5,7 +5,7 @@
   URL: /industries/mining-extraction-industries/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-13
+  Last Updated: 2026-04-14
 
   SOURCE DOC: Mining_shift_scheduling_V2_Sonnet_03_26_2026.docx
   CATEGORY: Industry Pages
@@ -15,30 +15,21 @@
     2026-04-04 — NAV + BUTTON + SEO AUDIT.
     2026-04-13 — Hero image corrected: shutterstock_1497086771.jpg → mining.jpg
                  to match the Mining tile image on the Industries hub page.
-    2026-04-13 — TEMPLATE v2 REBUILD:
-                 Full redesign to match chemical-pharmaceutical template v2.
-                 Hero: cover/center gradient overlay, white subtitle text.
-                 Hero subtitle updated to Jim-provided text.
-                 Client strip: navy marquee with scrolling names.
-                 Pull quotes: flex layout, oversized left quote mark (Georgia),
-                   17px bold navy italic. TWO pull quotes: Jim Dillingham + Dan Capshaw.
-                 Callout box: light-grey bg, navy left border.
-                 Insight cards: transparent bg, border-top only, colored titles.
-                 FAQs: accordion with light-grey wrapper, white panels (5 items).
-                 Next Steps: dark navy animated cards (IntersectionObserver).
-                 Footer: 3-col prefooter dark navy, "Start a Conversation" capitalized.
-                 Nav: "Our Company" label (points to /why-us/), Contact confirmed.
-                 Removed: cta-section, engage-band, inline-cta blocks.
+    2026-04-13 — TEMPLATE v2 REBUILD: full redesign to match chemical-pharmaceutical v2.
+    2026-04-14 — FAQ section: replaced .faq-wrap with full-bleed Hands_in_the_air.jpg
+                 background image, Option B dark-edge vignette, navy toggle buttons,
+                 #EEAE26 heading, white answer panels.
+                 Pull quotes: align-items:center, mark 128px #999999, text 15px/1.75.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/mining.jpg
+  FAQ IMAGE:  /images/Hands_in_the_air.jpg
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
   DESIGN SYSTEM:
     --navy:#1F4E79  --navy-dark:#0D1F3C  --mid-blue:#85B7EB
     --light-blue:#EEF3F8  --orange:#E8610A  --green:#1D9E75
     --body-text:#1A1A1A  --max-width:860px
     Font: Arial, Helvetica, sans-serif
-  I did no harm and this file is not truncated
 -->
 <html lang="en">
 <head>
@@ -103,10 +94,10 @@
     @keyframes clientScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     .client-tag{display:inline-block;padding:8px 28px;font-size:14px;font-weight:700;color:rgba(255,255,255,0.85);white-space:nowrap;letter-spacing:.02em}
     .client-tag-sep{display:inline-block;color:rgba(232,97,10,0.7);font-size:18px;line-height:1;padding:0 2px;vertical-align:middle}
-    .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:flex-start;gap:16px}
-    .pull-quote-mark{flex-shrink:0;font-size:64px;line-height:0.85;font-family:Georgia,'Times New Roman',serif;color:var(--mid-blue);user-select:none}
+    .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:center;gap:16px}
+    .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
-    .pull-quote p{font-size:16px;font-weight:400;line-height:1.65;color:#4a6a8a;margin:0;font-style:italic}
+    .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
     .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
     .callout-box{background:linear-gradient(to right,#E4E7EB,var(--white) 40%,var(--white) 60%,#E4E7EB);border-radius:6px;padding:22px 28px;margin:32px 0;text-align:center}
     .callout-box p{font-size:16px;line-height:1.6;color:var(--body-text);font-weight:400;margin:0;font-style:normal}
@@ -118,20 +109,23 @@
     .insight-card:nth-child(3) .ic-title{color:var(--green)}
     .insight-card .ic-title{font-size:14px;font-weight:700;margin-bottom:8px;line-height:1.3}
     .insight-card .ic-text{font-size:13px;color:var(--muted);line-height:1.6;font-weight:400}
-    .faq-wrap{background:var(--light-grey);border-radius:0;padding:40px 32px;margin:36px calc(-50vw + 50%);width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;box-shadow:inset 0 2px 8px rgba(0,0,0,0.06),inset 0 -2px 8px rgba(0,0,0,0.06)}
-    .faq-wrap-inner{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad)}
-    .faq-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);margin-bottom:20px}
-    .faq-item{border-bottom:1px solid var(--border-med)}
-    .faq-item:first-of-type{border-top:1px solid var(--border-med)}
-    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:18px 0;text-align:left;gap:16px}
-    .faq-q{font-size:15px;font-weight:700;color:var(--navy);line-height:1.4;flex:1}
-    .faq-icon{flex-shrink:0;width:20px;height:20px;border-radius:50%;border:2px solid var(--navy);display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .2s ease,border-color .2s ease}
-    .faq-icon svg{width:10px;height:10px;fill:var(--navy);transition:transform .25s ease}
-    .faq-item.faq-open .faq-icon{background:var(--navy);border-color:var(--navy)}
-    .faq-item.faq-open .faq-icon svg{fill:var(--white);transform:rotate(180deg)}
-    .faq-body{overflow:hidden;max-height:0;transition:max-height .35s ease,padding .25s ease}
-    .faq-item.faq-open .faq-body{max-height:600px}
-    .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:4px 16px 20px;background:var(--white);border-radius:6px;margin-bottom:4px}
+    .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
+    .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
+    .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
+    .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:52px 24px 56px}
+    .faq-inner h2{font-size:22px;font-weight:700;color:#EEAE26;margin-bottom:28px;text-shadow:0 1px 6px rgba(0,0,0,0.5)}
+    .faq-item{margin-bottom:6px}
+    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--navy);border:1px solid rgba(255,255,255,0.18);border-radius:6px;cursor:pointer;padding:16px 18px;text-align:left;gap:16px;transition:background .2s ease}
+    .faq-toggle:hover{background:#1a4268}
+    .faq-item.faq-open .faq-toggle{border-radius:6px 6px 0 0;background:var(--navy);border-bottom-color:transparent}
+    .faq-q{font-size:15px;font-weight:700;color:#fff;line-height:1.4;flex:1;text-shadow:0 1px 4px rgba(0,0,0,0.4)}
+    .faq-icon{flex-shrink:0;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .2s ease,border-color .2s ease}
+    .faq-icon svg{width:10px;height:10px;fill:rgba(255,255,255,0.8);transition:transform .25s ease}
+    .faq-item.faq-open .faq-icon{background:var(--orange);border-color:var(--orange)}
+    .faq-item.faq-open .faq-icon svg{fill:#fff;transform:rotate(180deg)}
+    .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease,padding .25s ease}
+    .faq-item.faq-open .faq-body{max-height:800px}
+    .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
     .next-steps{padding:56px var(--page-pad) 60px;background:var(--navy);position:relative;overflow:hidden}
     .next-steps::before{content:'';position:absolute;width:480px;height:480px;border-radius:50%;border:1px solid rgba(255,255,255,0.06);top:-160px;right:-160px;pointer-events:none}
     .next-steps::after{content:'';position:absolute;width:300px;height:300px;border-radius:50%;border:1px solid rgba(232,97,10,0.10);bottom:-100px;left:-80px;pointer-events:none}
@@ -201,10 +195,10 @@
     .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
     .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
-    @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-wrap{padding:24px 20px}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.insight-cards{grid-template-columns:1fr}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.next-steps{padding:40px 20px 44px}}
+    @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
+    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.insight-cards{grid-template-columns:1fr}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.next-steps{padding:40px 20px 44px}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}}
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Mining and Extraction Operations","description":"Shift scheduling for mining and extraction operations: FIFO rotation design, fatigue management, hot seat transitions, and remote workforce planning.","url":"https://shift-work.com/industries/mining-extraction-industries/","datePublished":"2026-04-04","dateModified":"2026-04-13","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"mining shift scheduling, FIFO scheduling, fly-in fly-out operations, mining fatigue management, remote workforce scheduling, underground mining shifts, hot seat change"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Mining and Extraction Operations","description":"Shift scheduling for mining and extraction operations: FIFO rotation design, fatigue management, hot seat transitions, and remote workforce planning.","url":"https://shift-work.com/industries/mining-extraction-industries/","datePublished":"2026-04-04","dateModified":"2026-04-14","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"mining shift scheduling, FIFO scheduling, fly-in fly-out operations, mining fatigue management, remote workforce scheduling, underground mining shifts, hot seat change"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://shift-work.com/industries/"},{"@type":"ListItem","position":3,"name":"Mining & Extraction","item":"https://shift-work.com/industries/mining-extraction-industries/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What makes shift scheduling in mining different from other industries?","acceptedAnswer":{"@type":"Answer","text":"Mining combines heavy equipment, hazardous environments, on-site rotations, and fatigue risk where errors can be catastrophic. Schedule design is a safety-critical discipline, not just workforce management. The stakes associated with getting it wrong are qualitatively different from most industrial settings."}},{"@type":"Question","name":"What is a hot seat change and why does it matter for scheduling?","acceptedAnswer":{"@type":"Answer","text":"A hot seat change is an underground shift transition where the incoming operator takes over equipment in place without stopping production. It requires adequate handover time built into the schedule — compressing it creates safety risk that outweighs whatever production minutes are gained."}},{"@type":"Question","name":"What is the right rotation length for a fly-in/fly-out operation?","acceptedAnswer":{"@type":"Answer","text":"There is no universal answer. The right rotation depends on workforce geography, role demands, on-site cost structure, regulations, and what the workforce will sustain long-term. Operations that copy a neighboring site without analysis often pay through unnecessary cost or accelerated turnover."}},{"@type":"Question","name":"What does turnover actually cost a mining operation?","acceptedAnswer":{"@type":"Answer","text":"Far more than recruiting alone. Training a new operator to full competency takes six months to a year with elevated safety risk during that period. The conditions that caused departure will produce the next one unless the underlying scheduling decision is addressed."}},{"@type":"Question","name":"How does fatigue management work in a mining schedule?","acceptedAnswer":{"@type":"Answer","text":"It starts with schedule design, not monitoring policy. A schedule that structurally produces accumulated fatigue creates safety exposure that policy cannot fully address. Site-specific analysis of cumulative fatigue across the rotation is required — generic guidelines are insufficient."}}]}</script>
@@ -324,7 +318,13 @@
     </div>
   </div>
 
-  <div class="faq-wrap"><div class="faq-wrap-inner">
+</div><!-- /.article-wrap -->
+
+<!-- FAQ SECTION: full-bleed with Hands_in_the_air.jpg background, Option B vignette -->
+<div class="faq-section">
+  <div class="faq-bg"></div>
+  <div class="faq-overlay"></div>
+  <div class="faq-inner">
     <h2>Frequently Asked Questions</h2>
 
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What makes shift scheduling in mining different from other industries?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Mining combines heavy equipment, hazardous environments, workforces that may live on-site for their entire rotation, and fatigue risk where the consequences of an error can be catastrophic. Schedule design here is a safety-critical discipline, not just a workforce management exercise. The stakes associated with getting it wrong are qualitatively different from most industrial settings — and the expertise required to get it right reflects that difference.</div></div></div>
@@ -336,9 +336,9 @@
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What does turnover actually cost a mining operation?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Far more than the recruiting cost alone. Training a new equipment operator to full site-specific competency takes six months to a year. The safety risk during that period is real and measurable — newer operators have a different incident profile than experienced ones. And the conditions that produced the departure — a rotation incompatible with family circumstances, a schedule that doesn't distribute fatigue equitably, shift assignments that consistently disadvantage certain workers — will produce the next departure as well, unless the underlying scheduling decision is addressed. Every replacement cycle carries the full cost again.</div></div></div>
 
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How does fatigue management work in a mining schedule?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">It starts with schedule design, not monitoring policy. A schedule that structurally produces accumulated fatigue across a rotation creates safety exposure that policy cannot fully address after the fact. Effective fatigue management in mining requires understanding how cumulative fatigue builds across consecutive shifts, how recovery between shifts and between rotations compares to what circadian biology actually requires, and how the specific demands of the role — night driving on haul roads, extended underground exposure, blast management — affect the risk profile. The interaction between these factors is site-specific. It requires analysis, not the application of generic fatigue guidelines.</div></div></div>
-  </div></div>
 
-</div>
+  </div>
+</div><!-- /.faq-section -->
 
 <section class="next-steps"><div class="next-steps-inner">
   <div class="next-steps-eyebrow">Where to go from here</div>
