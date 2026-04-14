@@ -5,7 +5,7 @@
   URL: /industries/food-beverage-manufacturing/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-13
+  Last Updated: 2026-04-14
 
   SOURCE DOC: Food_and_beverage_manufacturing_V1_-_Copy.docx
   CATEGORY: Industry Pages
@@ -14,32 +14,22 @@
     2026-04-04 — Initial build from source Word doc.
     2026-04-04 — NAV + BUTTON + SEO AUDIT.
     2026-04-05 — FAQ section + FAQPage JSON-LD added (6 questions).
-    2026-04-13 — Hero image corrected: shutterstock_1497086771.jpg → food.jpg
-                 to match the Food tile image on the Industries hub page.
-    2026-04-13 — TEMPLATE v2 REBUILD:
-                 Full redesign to match chemical-pharmaceutical template v2.
-                 Hero: cover/center gradient overlay, white subtitle text.
-                 Hero subtitle updated to Jim-provided text.
-                 Client strip: navy marquee with scrolling names.
-                 Pull quotes: flex layout, oversized left quote mark (Georgia),
-                   17px bold navy italic. TWO pull quotes: Dan Capshaw + Jim Dillingham.
-                 Callout box: light-grey bg, navy left border.
-                 Insight cards: transparent bg, border-top only, colored titles.
-                 FAQs: accordion with light-grey wrapper, white panels (6 items).
-                 Next Steps: dark navy animated cards (IntersectionObserver).
-                 Footer: 3-col prefooter dark navy, "Start a Conversation" capitalized.
-                 Nav: "Our Company" label (points to /why-us/), Contact confirmed.
-                 Removed: cta-section, engage-band, inline-cta blocks.
+    2026-04-13 — Hero image corrected: shutterstock_1497086771.jpg → food.jpg.
+    2026-04-13 — TEMPLATE v2 REBUILD: full redesign to match chemical-pharmaceutical v2.
+    2026-04-14 — FAQ section: replaced .faq-wrap with full-bleed Hands_in_the_air.jpg
+                 background image, Option B dark-edge vignette, navy toggle buttons,
+                 #EEAE26 heading, white answer panels.
+                 Pull quotes: align-items:center, mark 128px #999999, text 15px/1.75.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/food.jpg
+  FAQ IMAGE:  /images/Hands_in_the_air.jpg
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
   DESIGN SYSTEM:
     --navy:#1F4E79  --navy-dark:#0D1F3C  --mid-blue:#85B7EB
     --light-blue:#EEF3F8  --orange:#E8610A  --green:#1D9E75
     --body-text:#1A1A1A  --max-width:860px
     Font: Arial, Helvetica, sans-serif
-  I did no harm and this file is not truncated
 -->
 <html lang="en">
 <head>
@@ -104,10 +94,10 @@
     @keyframes clientScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     .client-tag{display:inline-block;padding:8px 28px;font-size:14px;font-weight:700;color:rgba(255,255,255,0.85);white-space:nowrap;letter-spacing:.02em}
     .client-tag-sep{display:inline-block;color:rgba(232,97,10,0.7);font-size:18px;line-height:1;padding:0 2px;vertical-align:middle}
-    .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:flex-start;gap:16px}
-    .pull-quote-mark{flex-shrink:0;font-size:64px;line-height:0.85;font-family:Georgia,'Times New Roman',serif;color:var(--mid-blue);user-select:none}
+    .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:center;gap:16px}
+    .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
-    .pull-quote p{font-size:16px;font-weight:400;line-height:1.65;color:#4a6a8a;margin:0;font-style:italic}
+    .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
     .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
     .callout-box{background:linear-gradient(to right,#E4E7EB,var(--white) 40%,var(--white) 60%,#E4E7EB);border-radius:6px;padding:22px 28px;margin:32px 0;text-align:center}
     .callout-box p{font-size:16px;line-height:1.6;color:var(--body-text);font-weight:400;margin:0;font-style:normal}
@@ -119,20 +109,23 @@
     .insight-card:nth-child(3) .ic-title{color:var(--green)}
     .insight-card .ic-title{font-size:14px;font-weight:700;margin-bottom:8px;line-height:1.3}
     .insight-card .ic-text{font-size:13px;color:var(--muted);line-height:1.6;font-weight:400}
-    .faq-wrap{background:var(--light-grey);border-radius:0;padding:40px 32px;margin:36px calc(-50vw + 50%);width:100vw;position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;box-shadow:inset 0 2px 8px rgba(0,0,0,0.06),inset 0 -2px 8px rgba(0,0,0,0.06)}
-    .faq-wrap-inner{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad)}
-    .faq-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);margin-bottom:20px}
-    .faq-item{border-bottom:1px solid var(--border-med)}
-    .faq-item:first-of-type{border-top:1px solid var(--border-med)}
-    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border:none;cursor:pointer;padding:18px 0;text-align:left;gap:16px}
-    .faq-q{font-size:15px;font-weight:700;color:var(--navy);line-height:1.4;flex:1}
-    .faq-icon{flex-shrink:0;width:20px;height:20px;border-radius:50%;border:2px solid var(--navy);display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .2s ease,border-color .2s ease}
-    .faq-icon svg{width:10px;height:10px;fill:var(--navy);transition:transform .25s ease}
-    .faq-item.faq-open .faq-icon{background:var(--navy);border-color:var(--navy)}
-    .faq-item.faq-open .faq-icon svg{fill:var(--white);transform:rotate(180deg)}
-    .faq-body{overflow:hidden;max-height:0;transition:max-height .35s ease,padding .25s ease}
-    .faq-item.faq-open .faq-body{max-height:600px}
-    .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:4px 16px 20px;background:var(--white);border-radius:6px;margin-bottom:4px}
+    .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
+    .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
+    .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
+    .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:52px 24px 56px}
+    .faq-inner h2{font-size:22px;font-weight:700;color:#EEAE26;margin-bottom:28px;text-shadow:0 1px 6px rgba(0,0,0,0.5)}
+    .faq-item{margin-bottom:6px}
+    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--navy);border:1px solid rgba(255,255,255,0.18);border-radius:6px;cursor:pointer;padding:16px 18px;text-align:left;gap:16px;transition:background .2s ease}
+    .faq-toggle:hover{background:#1a4268}
+    .faq-item.faq-open .faq-toggle{border-radius:6px 6px 0 0;background:var(--navy);border-bottom-color:transparent}
+    .faq-q{font-size:15px;font-weight:700;color:#fff;line-height:1.4;flex:1;text-shadow:0 1px 4px rgba(0,0,0,0.4)}
+    .faq-icon{flex-shrink:0;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .2s ease,border-color .2s ease}
+    .faq-icon svg{width:10px;height:10px;fill:rgba(255,255,255,0.8);transition:transform .25s ease}
+    .faq-item.faq-open .faq-icon{background:var(--orange);border-color:var(--orange)}
+    .faq-item.faq-open .faq-icon svg{fill:#fff;transform:rotate(180deg)}
+    .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease,padding .25s ease}
+    .faq-item.faq-open .faq-body{max-height:800px}
+    .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
     .next-steps{padding:56px var(--page-pad) 60px;background:var(--navy);position:relative;overflow:hidden}
     .next-steps::before{content:'';position:absolute;width:480px;height:480px;border-radius:50%;border:1px solid rgba(255,255,255,0.06);top:-160px;right:-160px;pointer-events:none}
     .next-steps::after{content:'';position:absolute;width:300px;height:300px;border-radius:50%;border:1px solid rgba(232,97,10,0.10);bottom:-100px;left:-80px;pointer-events:none}
@@ -202,10 +195,10 @@
     .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
     .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
-    @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-wrap{padding:24px 20px}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.insight-cards{grid-template-columns:1fr}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.next-steps{padding:40px 20px 44px}}
+    @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
+    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.insight-cards{grid-template-columns:1fr}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.next-steps{padding:40px 20px 44px}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}}
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Food and Beverage Manufacturing: Unique Challenges and Proven Solutions","description":"How sanitation windows, regulatory compliance, temperature environments, product changeovers, and seasonal demand create a scheduling environment unlike almost any other.","url":"https://shift-work.com/industries/food-beverage-manufacturing/","datePublished":"2026-04-04","dateModified":"2026-04-13","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"shift scheduling food and beverage manufacturing, food processing shift schedule, sanitation window scheduling, product changeover scheduling, seasonal workforce food manufacturing, HACCP shift scheduling"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Food and Beverage Manufacturing: Unique Challenges and Proven Solutions","description":"How sanitation windows, regulatory compliance, temperature environments, product changeovers, and seasonal demand create a scheduling environment unlike almost any other.","url":"https://shift-work.com/industries/food-beverage-manufacturing/","datePublished":"2026-04-04","dateModified":"2026-04-14","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"shift scheduling food and beverage manufacturing, food processing shift schedule, sanitation window scheduling, product changeover scheduling, seasonal workforce food manufacturing, HACCP shift scheduling"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://shift-work.com/industries/"},{"@type":"ListItem","position":3,"name":"Food & Beverage","item":"https://shift-work.com/industries/food-beverage-manufacturing/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How does sanitation scheduling affect production capacity in food manufacturing?","acceptedAnswer":{"@type":"Answer","text":"Sanitation downtime is a design constraint, not an afterthought. Two patterns drive most inefficiency: sanitation windows that match shift lengths rather than actual cleaning requirements, and manpower-constrained sanitation where half the needed workers take twice as long. Staffing sanitation adequately to complete it as quickly as compliance allows is one of the highest-return scheduling decisions in food manufacturing."}},{"@type":"Question","name":"What is the cross-training approach for food manufacturing sanitation?","acceptedAnswer":{"@type":"Answer","text":"Cross-training production operators to perform sanitation duties eliminates the structural flaw of separate sanitation crews. When the production crew transitions directly into sanitation at line stoppage, the work compresses to what the task requires rather than what a dedicated shift allows. Operations that make this transition typically recover 10% or more of total potential production time."}},{"@type":"Question","name":"How do product changeovers and allergen transitions affect shift scheduling?","acceptedAnswer":{"@type":"Answer","text":"Changeover time is not fixed — it depends on what was running before, what runs next, and how the transition is staffed. A flavor change may take two hours while an allergen-to-allergen-free changeover may require a full sanitation protocol. Schedules designed with changeover patterns as a constraint convert compliance cost into competitive advantage."}},{"@type":"Question","name":"How does working in extreme temperatures affect shift schedule design?","acceptedAnswer":{"@type":"Answer","text":"Workers in cold chain, frozen storage, or high-temperature environments show higher fatigue accumulation over long shifts than workers in standard conditions. Operations that solve cold-environment retention typically combine shorter shifts, longer recovery time, and targeted compensation that reflects actual working conditions."}},{"@type":"Question","name":"How should food manufacturers handle seasonal demand variability?","acceptedAnswer":{"@type":"Answer","text":"The most effective approach combines a stable core workforce for base-load production with structural flexibility: cross-trained workers, shift length variability, and seasonal workforce programs for defined peak windows. The key distinction is intentional design versus reactive adjustment."}},{"@type":"Question","name":"Why do generic shift scheduling approaches fail in food manufacturing?","acceptedAnswer":{"@type":"Answer","text":"Food and beverage manufacturing adds layers that generic approaches underestimate: legally mandated sanitation downtime, variable product changeovers, allergen protocols, extreme temperature environments, and seasonal demand swings. Each creates scheduling constraints that interact in complex ways."}}]}</script>
@@ -337,7 +330,13 @@
     </div>
   </div>
 
-  <div class="faq-wrap"><div class="faq-wrap-inner">
+</div><!-- /.article-wrap -->
+
+<!-- FAQ SECTION: full-bleed with Hands_in_the_air.jpg background, Option B vignette -->
+<div class="faq-section">
+  <div class="faq-bg"></div>
+  <div class="faq-overlay"></div>
+  <div class="faq-inner">
     <h2>Frequently Asked Questions</h2>
 
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How does sanitation scheduling affect production capacity in food manufacturing?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Sanitation downtime is a design constraint, not an afterthought. Two patterns drive most of the inefficiency in food manufacturing schedules. The first is sanitation windows that conveniently match standard shift lengths rather than actual cleaning requirements — when the schedule is controlling the sanitation rather than the other way around. The second is manpower-constrained sanitation, where half as many workers take twice as long to complete the work. Every extra hour of sanitation is an hour of lost production capacity. Staffing sanitation adequately to complete it as quickly as compliance allows is one of the highest-return scheduling decisions available in this industry.</div></div></div>
@@ -351,9 +350,9 @@
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How should food manufacturers handle seasonal demand variability?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The most effective approach combines a stable core workforce designed for base-load production with structural flexibility mechanisms: cross-trained workers who can absorb volume changes, shift length variability that expands production hours without permanent staffing increases, and seasonal workforce programs that bring in trained supplemental labor for defined peak windows rather than relying on emergency overtime. The key distinction is intentional design versus reactive adjustment — operations that build flexibility into their schedule structure manage peaks without crisis or burnout.</div></div></div>
 
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why do generic shift scheduling approaches fail in food manufacturing?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Food and beverage manufacturing adds layers that generic scheduling approaches consistently underestimate: legally mandated sanitation downtime that varies by product type and regulatory category, variable product changeover requirements including allergen protocols, extreme temperature working environments that affect fatigue and retention, and seasonal demand swings driven by consumer patterns and agricultural inputs. Each creates scheduling constraints that interact in complex ways. A schedule designed for general manufacturing will consistently underperform one built around how a food facility actually needs to run.</div></div></div>
-  </div></div>
 
-</div>
+  </div>
+</div><!-- /.faq-section -->
 
 <section class="next-steps"><div class="next-steps-inner">
   <div class="next-steps-eyebrow">Where to go from here</div>
