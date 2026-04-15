@@ -5,48 +5,17 @@
   URL: /industries/
 
   Created:      2026-04-05
-  Last Updated: 2026-04-13
+  Last Updated: 2026-04-15
 
   CHANGE LOG:
     2026-04-05 — Initial build. Tile-based landing page for 6 industry pages.
-                 Modeled after resources/index.html layout and design system.
-                 Nav: .site-nav system (sticky, 56px), NO dropdowns anywhere.
-                 All nav items are direct links.
-                 CTA button: ORANGE (#E8610A)
-                 Engage band: Thomas AI + Newsletter (Swarm API)
-                 Footer: standard site footer
-
     2026-04-06 — Added Paper & Packaging tile (7th industry).
-                 Updated heading from "Six industries" to "Seven industries".
-                 Updated meta description to include paper & packaging.
-
-    2026-04-06 — LAYOUT REDESIGN:
-                 Added industry images to 6 tiles (paper has no image yet).
-                 Images: manufacturing.jpg, distribution.jpg, mining.jpg,
-                 Refining.jpg, food.jpg, Pharma.jpg
-                 Layout: Row 1 (3 tiles), Row 2 (3 tiles),
-                 Row 3: CTA action tile + Paper tile + CTA action tile.
-                 Added .industry-img CSS for image area within tiles.
-                 Added action tile styles matching Resources page pattern.
-                 All nav, footer, JS preserved exactly.
-
-    2026-04-13 — NAV RENAME + HERO BACKGROUND:
-                 - Nav link display text changed from "Why Us" to "Our Company"
-                 - URL remains /why-us/ (no URL change)
-                 - Hero background: replaced solid navy + decorative circles
-                   with second.png image matching resources page treatment
-                 - Footer uses simple row format — no "Why Us" link present, no change needed
-                 - All body content, styles, JS, industry tiles unchanged
-
-  DESIGN SYSTEM:
-    Navy: #1F4E79 (primary), #0D1F3C (dark anchor)
-    Mid-blue: #85B7EB (secondary on dark)
-    Orange accent: #E8610A
-    Green: #1D9E75 (positive only)
-    White nav: #FFFFFF + thin border
-    Footer bg: #F4F4F4
-    Body: #1A1A1A, Muted: #666666
-    Font: Arial/system sans-serif
+    2026-04-06 — LAYOUT REDESIGN: industry images, row layout, action tiles.
+    2026-04-13 — Nav: "Why Us" → "Our Company". Hero: second.png background.
+    2026-04-15 — Footer: replaced old engage-band + #F4F4F4 footer with standard
+                 3-col dark-navy prefooter (FREE CONSULTATION / AI ADVISOR /
+                 NEWSLETTER) matching all other site pages. cta-band retained.
+                 engage-band CSS removed. Old footer CSS removed.
 
   I did no harm and this file is not truncated
 -->
@@ -87,18 +56,46 @@
     .action-tile-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
     .action-tile-title{font-size:16px;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:8px}
     .action-tile-text{font-size:12px;color:rgba(255,255,255,.6);line-height:1.55;margin-bottom:14px}
-    .action-tile-divider{height:1px;background:rgba(255,255,255,.12);margin:16px 0}
     .action-tile-btn{display:inline-block;width:100%;padding:10px 16px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;text-align:center;transition:background .15s;margin-bottom:8px}
     .action-tile-btn:hover{background:#c4510a}
     .action-tile-btn:last-child{margin-bottom:0}
-    .action-contact-line{font-size:12px;color:rgba(255,255,255,.6);line-height:1.5;margin-bottom:4px}
-    .action-contact-line a{color:var(--mid-blue);text-decoration:none;font-weight:600}
-    .action-contact-line a:hover{color:var(--white)}
     .cta-band{background:var(--navy-dark);padding:56px var(--page-pad)}.cta-band-inner{max-width:var(--max-width);margin:0 auto;text-align:center}.cta-band h2{font-size:24px;font-weight:700;color:var(--white);margin-bottom:12px}.cta-band p{font-size:15px;color:var(--mid-blue);line-height:1.65;max-width:560px;margin:0 auto 28px}.cta-actions{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}.cta-btn{display:inline-block;padding:13px 30px;background:var(--orange);color:var(--white);font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}.cta-btn:hover{background:#c4510a}.cta-text-link{font-size:14px;color:var(--mid-blue);text-decoration:none;font-weight:500}.cta-text-link:hover{color:var(--white);text-decoration:underline}
-    .engage-band{background:var(--navy-dark);padding:40px var(--page-pad)}.engage-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}.engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}.engage-thomas-title,.engage-nl-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}.engage-thomas-desc,.engage-nl-desc{font-size:13px;color:rgba(255,255,255,.65);line-height:1.65;margin-bottom:14px}.engage-thomas-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}.engage-thomas-btn:hover{background:#c4510a}.engage-nl-form{display:flex;gap:8px;flex-wrap:wrap}.engage-nl-input{flex:1;min-width:180px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}.engage-nl-input::placeholder{color:rgba(255,255,255,.4)}.engage-nl-input:focus{border-color:var(--mid-blue)}.engage-nl-btn{padding:10px 18px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}.engage-nl-btn:hover{background:#c4510a}.engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}.engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}.engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
-    .site-footer{background:#F4F4F4;padding:32px var(--page-pad) 20px;border-top:1px solid var(--border-med)}.footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#555}.footer-inner a{color:#555;text-decoration:none}.footer-inner a:hover{color:var(--navy)}.footer-logo{font-weight:700;color:var(--navy)}.footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
+    /* ── FOOTER ── */
+    .site-footer{background:var(--navy-dark)}
+    .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer-wrap{max-width:1100px;margin:0 auto}
+    .footer-content-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-bottom:28px}
+    .footer-col{padding:0 32px}
+    .footer-col-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
+    .footer-col-2{border-right:1px solid rgba(255,255,255,.08)}
+    .footer-col-3{padding-right:0}
+    .footer-cta-row{display:flex;align-items:center;gap:0}
+    .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:0 0 33.333%;padding:0 32px}
+    .footer-cta-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
+    .footer-cta-2{border-right:1px solid rgba(255,255,255,.08)}
+    .footer-cta-3{padding-right:0}
+    .footer-cta-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
+    .footer-cta-btn:hover{background:#c4510a}
+    .engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
+    .engage-col-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
+    .engage-col-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
+    .engage-nl-form{display:flex;gap:8px;flex-wrap:wrap}
+    .engage-nl-input{flex:1;min-width:120px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
+    .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
+    .engage-nl-input:focus{border-color:var(--mid-blue)}
+    .engage-nl-btn{padding:10px 18px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
+    .engage-nl-btn:hover{background:#c4510a}
+    .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
+    .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
+    .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
+    .footer-bottom{padding:16px var(--page-pad)}
+    .footer-bottom-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.45)}
+    .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
+    .footer-bottom-inner a:hover{color:var(--orange)}
+    .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
     @media(max-width:900px){.industries-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:36px 20px 40px}.hero h1{font-size:24px}.industries-section{padding:36px 20px 40px}.industries-grid{grid-template-columns:1fr}.industry-img{height:180px}.cta-band{padding:40px 20px}.cta-band h2{font-size:20px}.footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}.engage-inner{grid-template-columns:1fr}.engage-band{padding:32px 20px}}
+    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:36px 20px 40px}.hero h1{font-size:24px}.industries-section{padding:36px 20px 40px}.industries-grid{grid-template-columns:1fr}.industry-img{height:180px}.cta-band{padding:40px 20px}.cta-band h2{font-size:20px}.footer-prefooter{padding:32px 20px}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}}
   </style>
 </head>
 <body>
@@ -134,50 +131,32 @@
     <!-- ── ROW 1 ── -->
     <a href="/industries/manufacturing-assembly-operations/" class="industry-tile">
       <img src="/images/manufacturing.jpg" alt="Manufacturing and assembly shift operations" class="industry-img">
-      <div class="industry-body">
-        <div class="industry-title">Manufacturing &amp; Assembly</div>
-        <span class="industry-link">Learn more</span>
-      </div>
+      <div class="industry-body"><div class="industry-title">Manufacturing &amp; Assembly</div><span class="industry-link">Learn more</span></div>
     </a>
     <a href="/industries/distribution-logistics-operations/" class="industry-tile">
       <img src="/images/distribution.jpg" alt="Distribution and logistics shift operations" class="industry-img">
-      <div class="industry-body">
-        <div class="industry-title">Distribution &amp; Logistics</div>
-        <span class="industry-link">Learn more</span>
-      </div>
+      <div class="industry-body"><div class="industry-title">Distribution &amp; Logistics</div><span class="industry-link">Learn more</span></div>
     </a>
     <a href="/industries/mining-extraction-industries/" class="industry-tile">
       <img src="/images/mining.jpg" alt="Mining and extraction shift operations" class="industry-img">
-      <div class="industry-body">
-        <div class="industry-title">Mining &amp; Extraction</div>
-        <span class="industry-link">Learn more</span>
-      </div>
+      <div class="industry-body"><div class="industry-title">Mining &amp; Extraction</div><span class="industry-link">Learn more</span></div>
     </a>
 
     <!-- ── ROW 2 ── -->
     <a href="/industries/refining-utilities-operations/" class="industry-tile">
       <img src="/images/Refining.jpg" alt="Refining and utilities shift operations" class="industry-img">
-      <div class="industry-body">
-        <div class="industry-title">Refining &amp; Utilities</div>
-        <span class="industry-link">Learn more</span>
-      </div>
+      <div class="industry-body"><div class="industry-title">Refining &amp; Utilities</div><span class="industry-link">Learn more</span></div>
     </a>
     <a href="/industries/food-beverage-manufacturing/" class="industry-tile">
       <img src="/images/food.jpg" alt="Food and beverage manufacturing shift operations" class="industry-img">
-      <div class="industry-body">
-        <div class="industry-title">Food &amp; Beverage</div>
-        <span class="industry-link">Learn more</span>
-      </div>
+      <div class="industry-body"><div class="industry-title">Food &amp; Beverage</div><span class="industry-link">Learn more</span></div>
     </a>
     <a href="/industries/chemical-pharmaceutical-operations/" class="industry-tile">
       <img src="/images/Pharma.jpg" alt="Chemical and pharmaceutical shift operations" class="industry-img">
-      <div class="industry-body">
-        <div class="industry-title">Chemical &amp; Pharmaceutical</div>
-        <span class="industry-link">Learn more</span>
-      </div>
+      <div class="industry-body"><div class="industry-title">Chemical &amp; Pharmaceutical</div><span class="industry-link">Learn more</span></div>
     </a>
 
-    <!-- ── ROW 3: CTA + Paper + CTA (symmetrical) ── -->
+    <!-- ── ROW 3: CTA + Paper + CTA ── -->
     <div class="action-tile" style="display:flex;flex-direction:column;justify-content:center;align-items:stretch;text-align:center;">
       <div class="action-tile-label">Get in Touch</div>
       <div class="action-tile-title">Contact Us</div>
@@ -186,10 +165,7 @@
     </div>
     <a href="/industries/paper-packaging-operations/" class="industry-tile">
       <img src="/images/paper.jpg" alt="Paper and packaging shift operations" class="industry-img">
-      <div class="industry-body">
-        <div class="industry-title">Paper &amp; Packaging</div>
-        <span class="industry-link">Learn more</span>
-      </div>
+      <div class="industry-body"><div class="industry-title">Paper &amp; Packaging</div><span class="industry-link">Learn more</span></div>
     </a>
     <div class="action-tile" style="display:flex;flex-direction:column;justify-content:center;align-items:stretch;text-align:center;">
       <div class="action-tile-label">Schedule a Call</div>
@@ -206,75 +182,60 @@
   <p>Whether you run a single plant or dozens of facilities, the first conversation is always free. Tell us what you're dealing with.</p>
   <div class="cta-actions">
     <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="cta-btn" target="_blank" rel="noopener">Book a Free Consultation</a>
-    <a href="/resources/shiftwork-assessment/" class="cta-text-link">Take the Assessment first →</a>
+    <a href="/resources/shiftwork-assessment/" class="cta-text-link">Take the Assessment first &#x2192;</a>
   </div>
 </div></div>
 
-<div class="engage-band">
-  <div class="engage-inner">
-    <div class="engage-thomas">
-      <div class="engage-label">AI ADVISOR</div>
-      <div class="engage-thomas-title">Talk to Thomas</div>
-      <p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
-      <a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
+<footer class="site-footer">
+  <div class="footer-prefooter"><div class="footer-wrap">
+    <div class="footer-content-row">
+      <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">Whether you run a single plant or dozens of facilities, the first conversation is always free. Tell us what you're dealing with.</p></div>
+      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p></div>
+      <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
     </div>
-    <div class="engage-nl">
-      <div class="engage-label">NEWSLETTER</div>
-      <div class="engage-nl-title">Stay Sharp on Shift Operations</div>
-      <p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
-      <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
-        <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
-        <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
-      </form>
-      <div class="engage-nl-msg" id="engageNLMsg"></div>
+    <div class="footer-cta-row">
+      <div class="footer-cta-1"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a></div>
+      <div class="footer-cta-2"><a href="https://shift-work-diagnostic.onrender.com/" class="footer-cta-btn" target="_blank" rel="noopener">Start a Conversation &#x2192;</a></div>
+      <div class="footer-cta-3"><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
     </div>
-  </div>
-</div>
-
-<footer class="site-footer"><div class="footer-inner">
-  <span class="footer-logo">Shiftwork Solutions LLC</span>
-  <span>(415) 265-1621</span>
-  <span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></span>
-  <div class="footer-links-row">
-    <a href="/resources/">Resources</a>
-    <a href="/industries/">Industries</a>
-    <a href="/services/">Services</a>
-    <a href="/contact/">Contact</a>
-  </div>
-  <span>&copy; 2026 Shiftwork Solutions LLC</span>
-</div></footer>
+  </div></div>
+  <div class="footer-bottom"><div class="footer-bottom-inner">
+    <div class="footer-bottom-left"><span class="footer-bottom-brand">Shiftwork Solutions LLC</span><a href="tel:+14152651621">(415) 265-1621</a><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
+    <span>&copy; 2026 Shiftwork Solutions LLC</span>
+  </div></div>
+</footer>
 
 <script>
-  document.getElementById('mobileToggle').addEventListener('click', function () {
-    var n = document.getElementById('navLinks');
-    var open = n.style.display === 'flex';
-    if (open) { n.style.display = 'none'; } else {
-      n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';
-      n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';
-      n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';
-      n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';
-    }
-  });
+document.getElementById('mobileToggle').addEventListener('click', function () {
+  var n = document.getElementById('navLinks');
+  var open = n.style.display === 'flex';
+  if (open) { n.style.display = 'none'; } else {
+    n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';
+    n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';
+    n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';
+    n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';
+  }
+});
 </script>
 <script>
-  (function(){
-    var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
-    window.engageNLSubmit=function(e){
-      e.preventDefault();
-      var btn=document.getElementById('engageNLBtn');
-      var msg=document.getElementById('engageNLMsg');
-      var email=document.getElementById('engageNLEmail').value.trim();
-      if(!email)return;
-      btn.disabled=true;btn.textContent='Subscribing...';
-      fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({email:email,source:'website-industries-engage'})})
-      .then(function(r){return r.json();})
-      .then(function(d){
-        if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}
-      })
-      .catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});
-    };
-  })();
+(function(){
+  var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
+  window.engageNLSubmit=function(e){
+    e.preventDefault();
+    var btn=document.getElementById('engageNLBtn');
+    var msg=document.getElementById('engageNLMsg');
+    var email=document.getElementById('engageNLEmail').value.trim();
+    if(!email)return;
+    btn.disabled=true;btn.textContent='Subscribing...';
+    fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({email:email,source:'website-industries-engage'})})
+    .then(function(r){return r.json();})
+    .then(function(d){
+      if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}
+    })
+    .catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});
+  };
+})();
 </script>
 
 </body>
