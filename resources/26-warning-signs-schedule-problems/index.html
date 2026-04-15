@@ -119,12 +119,23 @@
     .next-step-text{font-size:13px;color:var(--body-text);line-height:1.65}
     .next-step-link{display:inline-block;font-size:13px;font-weight:700;color:var(--navy);text-decoration:none;margin-top:4px}
     .next-step-link:hover{text-decoration:underline}
-    .faq-section{max-width:var(--max-width);margin:0 auto;padding:20px var(--page-pad) 0}
-    .faq-section h2{font-size:21px;font-weight:700;color:var(--body-text);margin-bottom:24px}
-    .faq-item{padding:18px 0;border-bottom:1px solid var(--border-light)}
-    .faq-item:first-of-type{border-top:1px solid var(--border-light)}
-    .faq-q{font-size:16px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:8px}
-    .faq-a{font-size:14px;color:#333;line-height:1.75;max-width:680px}
+    .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
+    .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
+    .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
+    .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:52px 24px 56px}
+    .faq-inner h2{font-size:22px;font-weight:700;color:#EEAE26;margin-bottom:28px;text-shadow:0 1px 6px rgba(0,0,0,0.5)}
+    .faq-item{margin-bottom:6px}
+    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--navy);border:1px solid rgba(255,255,255,0.18);border-radius:6px;cursor:pointer;padding:16px 18px;text-align:left;gap:16px;transition:background .2s ease}
+    .faq-toggle:hover{background:#1a4268}
+    .faq-item.faq-open .faq-toggle{border-radius:6px 6px 0 0;border-bottom-color:transparent}
+    .faq-q{font-size:15px;font-weight:700;color:#fff;line-height:1.4;flex:1;text-shadow:0 1px 4px rgba(0,0,0,0.4)}
+    .faq-icon{flex-shrink:0;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .2s ease,border-color .2s ease}
+    .faq-icon svg{width:10px;height:10px;fill:rgba(255,255,255,0.8);transition:transform .25s ease}
+    .faq-item.faq-open .faq-icon{background:var(--orange);border-color:var(--orange)}
+    .faq-item.faq-open .faq-icon svg{fill:#fff;transform:rotate(180deg)}
+    .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease,padding .25s ease}
+    .faq-item.faq-open .faq-body{max-height:800px}
+    .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
     /* ── CTA ── */
     .cta-section{max-width:var(--max-width);margin:40px auto;padding:0 var(--page-pad)}
     .cta-box{background:var(--navy);border-radius:10px;padding:36px 32px;text-align:center}
@@ -231,6 +242,7 @@
       .hero{padding:32px 20px 36px}.hero h1{font-size:24px}.hero-stats{flex-direction:column;gap:10px}
       .three-col{grid-template-columns:1fr;padding:0 20px}
       .footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}
+      .faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}
       .engage-inner{grid-template-columns:1fr}.engage-band{padding:32px 20px}
       .next-steps-grid{grid-template-columns:1fr;padding:0 20px}
     }
@@ -386,19 +398,26 @@
 
 <hr class="divider">
 
-<section class="faq-section" id="faq">
-  <div class="eyebrow">FAQ</div>
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq-item"><div class="faq-q">What are the warning signs that a shift schedule needs to change?</div><div class="faq-a">Common signs include rising overtime without increased output, chronic difficulty staffing nights and weekends, growing absenteeism, turnover concentrated on specific shifts, and policies that no longer fit the current schedule pattern.</div></div>
-  <div class="faq-item"><div class="faq-q">Why does overtime keep rising even when production volume hasn't changed?</div><div class="faq-a">This pattern almost always signals a coverage model that no longer fits true workload demand — a schedule misalignment presenting itself as a labor cost problem.</div></div>
-  <div class="faq-item"><div class="faq-q">How do you know if your shift schedule is causing turnover?</div><div class="faq-a">If the same shifts or departments cycle through replacements while others retain employees, that asymmetry is diagnostic. People are voting with their feet against instability, fatigue, or a shift pattern that doesn't allow a sustainable personal life.</div></div>
-  <div class="faq-item"><div class="faq-q">What should you do when you recognize multiple schedule warning signs?</div><div class="faq-a">Rather than addressing symptoms individually, examine whether the schedule underlying everything is still the right fit for your operation's actual demand, workforce composition, and competitive environment.</div></div>
-  <div class="faq-item"><div class="faq-q">How many warning signs indicate a serious schedule problem?</div><div class="faq-a">Most operations experiencing real schedule strain will recognize a cluster — five, eight, ten signals that individually seem manageable and collectively point to something structural.</div></div>
-  <div class="faq-item"><div class="faq-q">Why do temporary schedule fixes become permanent?</div><div class="faq-a">Stop-gap overtime lists, borrowed staff arrangements, and informal coverage deals were implemented as short-term responses and become foundational to how the operation runs. The schedule loses its elasticity, compensated by sustained human effort that can't hold indefinitely.</div></div>
-</section>
+<!-- FAQ SECTION -->
+<div class="faq-section">
+  <div class="faq-bg"></div>
+  <div class="faq-overlay"></div>
+  <div class="faq-inner">
+    <h2>Frequently Asked Questions</h2>
 
-<hr class="divider">
-</div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What are the warning signs that a shift schedule needs to change?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Common signs include rising overtime without increased output, chronic difficulty staffing nights and weekends, growing absenteeism, turnover concentrated on specific shifts, and policies that no longer fit the current schedule pattern. These symptoms are connected — when several appear together, they typically point to structural drift in the schedule rather than isolated operational problems.</div></div></div>
+
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why does overtime keep rising even when production volume hasn't changed?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">This pattern almost always signals a coverage model that no longer fits true workload demand — a schedule misalignment presenting itself as a labor cost problem. When overtime becomes structural rather than situational, meaning it recurs every week regardless of demand levels, the schedule itself is generating the cost rather than any specific operational challenge.</div></div></div>
+
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How do you know if your shift schedule is causing turnover?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">If the same shifts or departments cycle through replacements while others retain employees, that asymmetry is diagnostic. People are voting with their feet against instability, fatigue, or a shift pattern that doesn't allow a sustainable personal life. Turnover that concentrates on specific crews rather than spreading evenly across the operation is one of the clearest signals that schedule design is the underlying cause.</div></div></div>
+
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What should you do when you recognize multiple schedule warning signs?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Rather than addressing symptoms individually, examine whether the schedule underlying everything is still the right fit for your operation's actual demand, workforce composition, and competitive environment. Schedules that were well-designed for a different era of the business often drift out of alignment gradually, producing exactly this kind of diffuse, multi-symptom picture. A structured diagnostic — not just addressing the loudest problem — is the right starting point.</div></div></div>
+
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How many warning signs indicate a serious schedule problem?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Most operations experiencing real schedule strain will recognize a cluster — five, eight, ten signals that individually seem manageable and collectively point to something structural. The number matters less than the pattern: when warning signs appear across multiple categories — operational costs, workforce culture, and governance — simultaneously, the root cause is almost certainly the schedule itself rather than several independent problems happening to coincide.</div></div></div>
+
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why do temporary schedule fixes become permanent?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Stop-gap overtime lists, borrowed staff arrangements, and informal coverage deals were implemented as short-term responses and become foundational to how the operation runs. The schedule loses its elasticity, compensated by sustained human effort that can't hold indefinitely. Each workaround that becomes permanent adds friction to future change — the operation accumulates a debt of informal arrangements that makes deliberate redesign harder and more disruptive than it would have been at the outset.</div></div></div>
+  </div>
+</div><!-- /.faq-section -->
 
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
@@ -435,6 +454,7 @@
       n.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)'; n.style.zIndex = '99';
     }
   });
+  (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
 </script>
 <script>
 (function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
@@ -479,4 +499,5 @@
 </body>
 </html>
 <!-- changelog 2026-04-15: Nav Our Company; dark navy next steps with observer JS; removed cta-box and engage-band; new 3-col dark-navy footer -->
+<!-- changelog 2026-04-15b: FAQ upgraded to full-bleed Hands_in_the_air.jpg accordion matching support article style (navy toggles, #EEAE26 heading, white answer panels). FAQ answers expanded with additional context. -->
 <!-- I did no harm and this file is not truncated -->
