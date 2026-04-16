@@ -26,6 +26,11 @@
                     Hands_in_the_air.jpg background, dark vignette overlay, navy
                     accordion toggle buttons, #EEAE26 heading, white answer panels,
                     accordion open/close JS behavior. Old static FAQ markup removed.
+                 6. Next Steps section: background changed from navy to light grey
+                    (#F4F6F8) to visually separate it from the dark navy footer.
+                    Card borders changed from white/transparent to solid --border-med.
+                    Text colors updated: eyebrow/sub/phone to --muted, h2 to --navy.
+                    Card label/link colors: blue card uses --navy (not --mid-blue).
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/32.jpg
@@ -146,40 +151,38 @@
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
 
-    /* ── NEXT STEPS ── */
-    .next-steps{padding:56px var(--page-pad) 60px;background:var(--navy);position:relative;overflow:hidden}
-    .next-steps::before{content:'';position:absolute;width:480px;height:480px;border-radius:50%;border:1px solid rgba(255,255,255,0.06);top:-160px;right:-160px;pointer-events:none}
-    .next-steps::after{content:'';position:absolute;width:300px;height:300px;border-radius:50%;border:1px solid rgba(232,97,10,0.10);bottom:-100px;left:-80px;pointer-events:none}
+    /* ── NEXT STEPS — light grey background, clearly separated from dark footer ── */
+    .next-steps{padding:56px var(--page-pad) 60px;background:#F4F6F8;position:relative;overflow:hidden}
     .next-steps-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
-    .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,0.6);margin-bottom:10px}
-    .next-steps h2{font-size:22px;font-weight:700;color:var(--white);margin-bottom:8px}
-    .next-steps-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:32px;line-height:1.6}
+    .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+    .next-steps h2{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:8px}
+    .next-steps-sub{font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.6}
     .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .ns-card{background:var(--white);border:1px solid rgba(255,255,255,0.15);border-top:4px solid transparent;border-radius:8px;padding:24px 20px;text-decoration:none;display:block;opacity:0;transform:translateY(28px);transition:opacity .5s ease,transform .5s ease,box-shadow .25s ease}
+    .ns-card{background:var(--white);border:1px solid var(--border-med);border-top:4px solid transparent;border-radius:8px;padding:24px 20px;text-decoration:none;display:block;opacity:0;transform:translateY(28px);transition:opacity .5s ease,transform .5s ease,box-shadow .25s ease}
     .ns-card.ns-card-visible{opacity:1;transform:translateY(0)}
     .ns-card:nth-child(1){transition-delay:.05s}
     .ns-card:nth-child(2){transition-delay:.18s}
     .ns-card:nth-child(3){transition-delay:.31s}
-    .ns-accent-blue{border-top-color:var(--mid-blue)}
+    .ns-accent-blue{border-top-color:var(--navy)}
     .ns-accent-orange{border-top-color:var(--orange)}
     .ns-accent-green{border-top-color:var(--green)}
-    .ns-accent-blue:hover{box-shadow:0 8px 28px rgba(133,183,235,0.25);transform:translateY(-5px) !important}
-    .ns-accent-orange:hover{box-shadow:0 8px 28px rgba(232,97,10,0.22);transform:translateY(-5px) !important}
-    .ns-accent-green:hover{box-shadow:0 8px 28px rgba(29,158,117,0.22);transform:translateY(-5px) !important}
+    .ns-accent-blue:hover{box-shadow:0 8px 28px rgba(31,78,121,0.15);transform:translateY(-5px) !important}
+    .ns-accent-orange:hover{box-shadow:0 8px 28px rgba(232,97,10,0.18);transform:translateY(-5px) !important}
+    .ns-accent-green:hover{box-shadow:0 8px 28px rgba(29,158,117,0.18);transform:translateY(-5px) !important}
     .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
-    .ns-accent-blue .ns-card-label{color:var(--mid-blue)}
+    .ns-accent-blue .ns-card-label{color:var(--navy)}
     .ns-accent-orange .ns-card-label{color:var(--orange)}
     .ns-accent-green .ns-card-label{color:var(--green)}
     .ns-card h3{font-size:15px;font-weight:700;color:var(--body-text);line-height:1.35;margin-bottom:8px}
     .ns-card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px}
     .ns-card-link{font-size:12px;font-weight:700}
-    .ns-accent-blue .ns-card-link{color:var(--mid-blue)}
+    .ns-accent-blue .ns-card-link{color:var(--navy)}
     .ns-accent-orange .ns-card-link{color:var(--orange)}
     .ns-accent-green .ns-card-link{color:var(--green)}
     .ns-card-link::after{content:' →'}
-    .ns-phone{margin-top:28px;font-size:13px;color:rgba(255,255,255,0.55);text-align:center}
-    .ns-phone a{color:var(--white);text-decoration:none;font-weight:700}
-    .ns-phone a:hover{color:var(--mid-blue)}
+    .ns-phone{margin-top:28px;font-size:13px;color:var(--muted);text-align:center}
+    .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
+    .ns-phone a:hover{color:var(--orange)}
 
     /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
