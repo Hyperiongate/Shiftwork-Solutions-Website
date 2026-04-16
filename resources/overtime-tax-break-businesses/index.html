@@ -3,14 +3,21 @@
   resources/overtime-tax-break-businesses/index.html
   Shiftwork Solutions LLC — Trending Topic Article
   URL: /resources/overtime-tax-break-businesses/
-  Created: 2026-04-04 | Last Updated: 2026-04-15
+  Created: 2026-04-04 | Last Updated: 2026-04-16
 
   CHANGE LOG:
     2026-04-04 — Initial build. 2026-04-05 — NAV audit, FAQ added.
     2026-04-15 — Nav/FAQ/Next Steps standardization. Logo corrected,
                  SHIFTWORK SOLUTIONS text added, nav font 20px,
-                 hero /images/reshoring.jpg, FAQ industry accordion style,
+                 hero /images/tax.jpg, FAQ industry accordion style,
                  Next Steps light grey #F4F6F8 background.
+    2026-04-16 — NAV LABEL: "Our Company" → "Why Us". Fixed missing
+                 article-wrap closing tag — FAQ/Next
+                 Steps/Footer now render full-width correctly.
+
+  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
+  HERO IMAGE: /images/tax.jpg
+  FAQ IMAGE:  /images/Hands_in_the_air.jpg
 
   I did no harm and this file is not truncated
 -->
@@ -23,8 +30,8 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
   <meta name="twitter:card" content="summary">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Reshoring Manufacturing? The Workforce Problem Most Companies Don't See Coming","url":"https://shift-work.com/resources/reshoring-manufacturing-workforce/","datePublished":"2026-04-04","dateModified":"2026-04-15","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Reshoring Manufacturing","item":"https://shift-work.com/resources/reshoring-manufacturing-workforce/"}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Overtime Tax Break: What It Means for Businesses", "description": "Overtime just got a tax break — but what does that really mean for employees and employers in 24/7 operations?", "url": "https://shift-work.com/resources/overtime-tax-break-businesses/", "datePublished": "2026-04-04", "dateModified": "2026-04-16", "author": {"@type": "Organization", "name": "Shiftwork Solutions LLC"}, "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Overtime Tax Break","item":"https://shift-work.com/resources/overtime-tax-break-businesses/"}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=swap" rel="stylesheet">
@@ -73,13 +80,24 @@
     .pull-quote-content{flex:1}
     .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
     .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
+    .data-table-wrap{margin:32px 0;overflow-x:auto}
+    .data-table{width:100%;border-collapse:collapse;font-size:14px}
+    .data-table th{background:var(--navy);color:var(--white);padding:10px 14px;text-align:left;font-size:13px;font-weight:700}
+    .data-table td{padding:10px 14px;border-bottom:1px solid var(--border-light)}
+    .data-table tr:nth-child(even) td{background:var(--light-blue)}
+    .data-table tr:last-child td{border-bottom:none}
+    .data-table .highlight{color:var(--orange);font-weight:700}
+    .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
+    .insight-card{background:var(--light-blue);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
+    .insight-card .ic-num{font-size:24px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:6px}
+    .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.5}
     .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
     .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:52px 24px 56px}
     .faq-inner h2{font-size:22px;font-weight:700;color:#EEAE26;margin-bottom:28px;text-shadow:0 1px 6px rgba(0,0,0,0.5)}
     .faq-item{margin-bottom:6px}
-    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--navy);border:1px solid rgba(255,255,255,0.18);border-radius:6px;cursor:pointer;padding:16px 18px;text-align:left;gap:16px;transition:background .2s ease}
+    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--navy);border:1px solid rgba(255,255,255,0.18);border-radius:6px;cursor:pointer;padding:16px 18px;text-align:left;gap:16px;transition:background .2s ease;font-family:Arial,Helvetica,sans-serif}
     .faq-toggle:hover{background:#1a4268}
     .faq-item.faq-open .faq-toggle{border-radius:6px 6px 0 0;background:var(--navy);border-bottom-color:transparent}
     .faq-q{font-size:15px;font-weight:700;color:#fff;line-height:1.4;flex:1;text-shadow:0 1px 4px rgba(0,0,0,0.4)}
@@ -157,22 +175,8 @@
     .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
     .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
-    .timeline{margin:32px 0;position:relative;padding-left:32px}
-    .timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:var(--border-med)}
-    .timeline-item{position:relative;margin-bottom:28px}
-    .timeline-item:last-child{margin-bottom:0}
-    .timeline-dot{position:absolute;left:-26px;top:4px;width:14px;height:14px;border-radius:50%;background:var(--navy);border:2px solid var(--white);box-shadow:0 0 0 2px var(--navy)}
-    .timeline-item.warning .timeline-dot{background:var(--orange);box-shadow:0 0 0 2px var(--orange)}
-    .timeline-item h3{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px}
-    .timeline-item.warning h3{color:var(--orange)}
-    .timeline-item p{font-size:13px;color:var(--muted);line-height:1.6;margin:0}
-    .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
-    .insight-card{background:var(--light-blue);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
-    .insight-card .ic-num{font-size:26px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:6px}
-    .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.5}
     .callout-box{background:linear-gradient(to right,#E4E7EB,var(--white) 40%,var(--white) 60%,#E4E7EB);border-radius:6px;padding:22px 28px;margin:32px 0;text-align:center}
     .callout-box p{font-size:16px;line-height:1.6;color:var(--body-text);font-weight:400;margin:0;font-style:normal}
-    @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}}
     .data-table-wrap{margin:28px 0;overflow-x:auto}
     .data-table{width:100%;border-collapse:collapse;font-size:14px}
     .data-table th{background:var(--navy);color:var(--white);padding:10px 14px;text-align:left;font-size:13px;font-weight:700}
@@ -195,15 +199,12 @@
     .caution-box .caution-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:6px}
     .caution-box p{font-size:14px;line-height:1.6;color:var(--body-text);margin-bottom:10px}
     .caution-box p:last-child{margin-bottom:0}
-    .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
-    .insight-card{background:var(--light-blue);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
-    .insight-card .ic-num{font-size:24px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:6px}
-    .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.5}
-@media(max-width:760px){.ns-cards{grid-template-columns:1fr}.qualify-grid{grid-template-columns:1fr}.insight-cards{grid-template-columns:1fr 1fr}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.next-steps{padding:40px 20px 44px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}}
+    @media(max-width:760px){.ns-cards{grid-template-columns:1fr}.insight-cards{grid-template-columns:1fr 1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
+    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.next-steps{padding:40px 20px 44px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.insight-cards{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
+
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo">
     <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36">
@@ -215,7 +216,7 @@
     <li><a href="/services/">Our Services</a></li>
     <li><a href="/resources/" class="nav-active">Resources</a></li>
     <li><a href="/industries/">Industries</a></li>
-    <li><a href="/why-us/">Our Company</a></li>
+    <li><a href="/why-us/">Why Us</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
@@ -228,110 +229,62 @@
   <span class="hero-tag">Legislation</span>
 </div></section>
 
-<div class="breadcrumb-bar"><div class="breadcrumb-inner"><a href="/">Home</a><span>&#x203A;</span><a href="/resources/">Resources</a><span>&#x203A;</span>Overtime Tax Break</div></div>
+<div class="breadcrumb-bar"><div class="breadcrumb-inner"><a href="/">Home</a><span>›</span><a href="/resources/">Resources</a><span>›</span>Overtime Tax Break</div></div>
 
 <div class="article-wrap">
   <div class="article-meta"><span class="meta-tag">Legislation</span><span class="meta-date">April 2026</span><span class="meta-read">7 min read</span></div>
 
+  <p>When we first explored the idea of a 32-hour, 4-day workweek, we looked at the broader implications for employers and employees alike — highlighting both the appeal of a better work-life balance and the real risks of rising labor costs and staffing complexity.</p>
+  <p>Now we take a closer look at how this plays out in 24/7 operations — and what leaders need to weigh as interest in this concept continues to grow.</p>
 
-  <p>With the passage of the One Big Beautiful Bill Act (OBBBA) on July 4, 2025, overtime premiums are now partially shielded from federal income tax. Below we outline the details of the change and its impact on both employees and employers.</p>
+  <h2>The Future of Work Is Shrinking — At Least in Some Sectors</h2>
+  <p>Momentum is building behind the idea of a shorter workweek, specifically a 32-hour threshold before overtime kicks in. Global pilot programs have shown promising results: higher employee satisfaction, improved work-life balance, and productivity gains in office and knowledge-work environments.</p>
+  <p>For continuous operations — manufacturing, logistics, food processing — the challenge is fundamentally different. A knowledge worker who completes their work in 32 hours has delivered full value. A production line that runs 32 hours has left 136 hours of weekly capacity on the table.</p>
 
-  <h2>What Are the New Provisions?</h2>
-  <p>As with many tax laws, the legislation includes provisions, caps, and definitions that matter. The key specifics:</p>
+  <h2>How Schedules Work Today</h2>
+  <p>Most 24/7 operations use one of two basic models.</p>
+  <p><strong>Monday–Friday systems</strong> (1, 2, or 3 crews) use 8-hour shifts, cover 40 hours per week per employee, and carry no built-in overtime.</p>
+  <p><strong>24/7 systems</strong> (4 or 5 crews) are designed to cover every hour of the week. Four-crew systems average 42 hours per week per employee, with alternating 36- and 48-hour weeks and some built-in overtime. Five-crew systems average 41.6 hours per week, using the fifth crew for training and relief.</p>
+  <p>Both models are optimized for the current 40-hour overtime threshold. If that threshold drops to 32 hours, the math — and the economics — change significantly.</p>
 
-  <div class="data-table-wrap"><table class="data-table"><thead><tr><th>Provision</th><th>Detail</th></tr></thead><tbody>
-    <tr><td>Effective date</td><td>Retroactive to January 1, 2025</td></tr>
-    <tr><td>Expiration</td><td>December 31, 2028</td></tr>
-    <tr><td>Individual deduction cap</td><td>Up to $12,500 in qualified overtime compensation annually</td></tr>
-    <tr><td>Joint filer cap</td><td>$25,000</td></tr>
-    <tr><td>Deduction type</td><td>"Above-the-line" &#x2014; available even with standard deduction</td></tr>
-    <tr><td>Phase-out threshold (single)</td><td>Modified AGI above $150,000</td></tr>
-    <tr><td>Phase-out threshold (joint)</td><td>Modified AGI above $300,000</td></tr>
-    <tr><td>FICA taxes</td><td>Still apply to all overtime earnings &#x2014; not exempt</td></tr>
-  </tbody></table></div>
+  <h2>The Cost of Compliance</h2>
+  <p>If a 32-hour workweek becomes law, hours worked beyond 32 would require overtime pay. For 24/7 operations, this creates two options: absorb higher labor costs, or redesign schedules to reduce weekly hours without sacrificing coverage.</p>
 
-  <h2>Understanding "Qualified Overtime Compensation"</h2>
-  <p>This definition is where most of the confusion lies. The deduction applies only to overtime required under Section 7 of the Fair Labor Standards Act that exceeds the regular rate of pay &#x2014; specifically the 50% premium portion, the "half" in "time and a half."</p>
+  <div class="data-table-wrap"><table class="data-table"><thead><tr><th>Crew Model</th><th>Avg Hours/Week</th><th>Current Pay Basis</th><th>Impact Under 32-hr Rule</th></tr></thead><tbody><tr><td>1–3 Crew (M–F)</td><td>40 hrs</td><td>40 hrs straight time</td><td class="highlight">8 hrs become OT — ~10% cost increase</td></tr><tr><td>4-Crew (24/7)</td><td>42 hrs avg</td><td>44 hrs pay equiv.</td><td class="highlight">~47 hrs pay equiv. — 6.8% increase</td></tr><tr><td>5-Crew (24/7)</td><td>33.6 hrs avg</td><td>41.6 hrs pay equiv.</td><td class="highlight">Only 1.6 hrs above threshold — minimal impact</td></tr></tbody></table></div>
 
-  <div class="qualify-grid">
-    <div class="qualify-card yes"><div class="qc-label">&#x2713; Qualifies for the deduction</div><h3>What's Covered</h3><ul><li>The 50% premium on FLSA-required overtime</li><li>Non-exempt employees working more than 40 hours per week</li><li>Overtime required under federal FLSA &#x2014; Section 7</li></ul></div>
-    <div class="qualify-card no"><div class="qc-label">&#x2717; Does NOT qualify</div><h3>What's Excluded</h3><ul><li>Daily overtime (after 8, 10, or any daily hour limit)</li><li>Automatic weekend or holiday premiums</li><li>Premiums above 50% such as double time</li><li>Time paid for vacation, sick leave, FMLA, or holidays</li><li>Employer-defined "overtime" broader than FLSA definition</li></ul></div>
-  </div>
-
-  <h2>What This Means for Employees</h2>
-  <p>The most immediate benefit is a reduction in federal income tax on qualifying overtime earnings. For 2025, employees will not see the reduction in their paychecks directly &#x2014; employers are maintaining current withholding this year. Workers will realize their savings when they file their 2025 federal income tax return.</p>
-  <p>The $12,500 cap affects fewer workers than headlines suggest. A worker earning $30 per hour has a $15 overtime premium. To reach the cap, they would need to work approximately 833 hours of overtime &#x2014; more than 16 hours per week on average.</p>
+  <p><strong>1, 2, or 3-crew systems</strong> face a direct choice. Keep schedules unchanged and 8 hours per employee per week become overtime — a roughly 10% increase in labor cost. Redesign schedules to cap at 32 hours and additional staff are required, which also increases costs.</p>
+  <p><strong>4-crew systems</strong> currently average 42 hours per week with 44 hours of pay. Under a 32-hour threshold, pay would rise to approximately 47 hours for the same work — a 6.8% increase.</p>
+  <p><strong>5-crew systems</strong> are the most adaptable. If all five crews are used for coverage rather than reserving one for relief and training, each crew averages 33.6 hours per week — only 1.6 hours above the 32-hour threshold. The tradeoff is losing dedicated relief and training capacity.</p>
 
   <div class="insight-cards">
-    <div class="insight-card"><div class="ic-num">$12,500</div><div class="ic-label">Annual deduction cap per worker ($25,000 joint) &#x2014; most hourly workers won't hit it</div></div>
-    <div class="insight-card"><div class="ic-num">50%</div><div class="ic-label">Only the premium portion of OT qualifies &#x2014; not the full time-and-a-half rate</div></div>
-    <div class="insight-card"><div class="ic-num">2028</div><div class="ic-label">Current expiration &#x2014; the deduction sunsets December 31, 2028</div></div>
+    <div class="insight-card"><div class="ic-num">~10%</div><div class="ic-label">Labor cost increase for 1–3 crew M–F operations under a 32-hr OT threshold</div></div>
+    <div class="insight-card"><div class="ic-num">6.8%</div><div class="ic-label">Pay equivalent increase for 4-crew 24/7 systems — from 44 hrs to ~47 hrs</div></div>
+    <div class="insight-card"><div class="ic-num">1.6 hrs</div><div class="ic-label">Average overage above 32-hr threshold for 5-crew systems — the most adaptable model</div></div>
   </div>
-
-  <h2>What This Means for Businesses</h2>
-  <p>For businesses, the OBBBA creates both opportunity and administrative obligation. On the opportunity side, tax-advantaged overtime is a genuine recruiting and retention talking point for manufacturing and distribution operations competing for hourly workers. On the obligation side, employers are now required to report qualified overtime compensation as a separate line item on employees' W-2 forms.</p>
-  <p>For 2025, the IRS has provided transition relief &#x2014; employers can use a reasonable estimation method. Starting in 2026, separate reporting will be required.</p>
-
-  <div class="caution-box"><div class="caution-label">Two cautions for employers</div><p><strong>The temptation to rely more heavily on overtime</strong> because it is now tax-advantaged for employees does not change your cost as an employer &#x2014; you still pay time and a half. The long-term risks of high overtime &#x2014; fatigue, quality issues, turnover &#x2014; are entirely unaffected by what employees save on their taxes.</p><p><strong>FLSA classification accuracy matters more now.</strong> The deduction applies only to non-exempt employees working FLSA-required overtime. Misclassification creates compliance exposure.</p></div>
-
-  <h2>What Changed &#x2014; and What Didn't</h2>
-  <p>The overtime tax break is real and worth communicating to your workforce. It is not, however, a reason to restructure your staffing model around overtime. The economics of your operation have not changed. What has changed is that employees who work overtime have a modest but meaningful financial incentive to do so &#x2014; which is useful context for recruiting, retention conversations, and overtime distribution policy.</p>
 
   <div class="pull-quote">
     <span class="pull-quote-mark">&#8220;</span>
     <div class="pull-quote-content">
-      <p>The long-term risks of high overtime &#x2014; fatigue, quality issues, turnover &#x2014; are entirely unaffected by what employees save on their taxes.</p>
+      <p>Proactive modeling now is significantly less expensive than reactive restructuring later.</p>
     </div>
   </div>
 
+  <h2>What Leaders Should Be Doing Now</h2>
+  <p>Legislation has not passed, and the timeline remains uncertain. But the concept has enough momentum — in policy discussions, in union negotiations, and in employee expectations — that 24/7 operations benefit from understanding their exposure before it becomes urgent.</p>
+  <p>A few questions worth working through now: How many of your employees regularly exceed 32 hours? What would a 5-crew rotation look like in your operation? Is it more cost-effective to absorb overtime premiums or redesign for lower weekly hours? And beyond cost — how would different approaches affect fatigue, turnover, and your ability to attract the workforce you need?</p>
 
-<!-- FAQ SECTION: full-bleed Hands_in_the_air.jpg, industry-style accordion -->
+</div><!-- /.article-wrap -->
+
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
   <div class="faq-inner">
     <h2>Frequently Asked Questions</h2>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">What is the overtime tax break under the OBBBA?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">The One Big Beautiful Bill Act created an above-the-line federal tax deduction on qualified overtime compensation, retroactive to January 1, 2025 and expiring December 31, 2028. The deduction covers up to $12,500 annually per individual ($25,000 for joint filers) and applies only to the 50% premium portion of FLSA-required overtime. It is available even to workers who take the standard deduction.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">What counts as qualified overtime compensation under the OBBBA?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">Only the 50% premium on overtime required under Section 7 of the Fair Labor Standards Act qualifies. Daily overtime triggered by state rules or company policy, automatic weekend or holiday premiums, double time, and time paid for vacation, sick leave, or holidays do not qualify. Many workplaces define overtime more broadly than the FLSA does &#x2014; that more generous definition generally does not qualify for the deduction.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">Does the overtime tax break reduce employer costs?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">No. The deduction applies to the employee's federal income tax &#x2014; not the employer's cost. Employers still pay time and a half for all overtime hours. FICA taxes still apply to all overtime earnings on both sides. The tax break changes what employees net from overtime, not what the employer pays.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">Should employers increase overtime now that it is tax-advantaged for workers?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">No. The long-term risks of high overtime &#x2014; fatigue, quality issues, safety incidents, and turnover &#x2014; are entirely unaffected by what employees save on their taxes. The employer's cost per overtime hour has not changed. The tax break is useful context for recruiting and retention conversations but does not change the operational economics of overtime versus hiring.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">What new reporting requirements do employers have under the OBBBA?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">Employers are now required to report qualified overtime compensation as a separate line item on employees' W-2 forms. For 2025, the IRS provided transition relief &#x2014; employers can use a reasonable estimation method. Starting in 2026, separate reporting of qualifying overtime compensation is required. FLSA classification accuracy has become more important because misclassification creates compliance exposure.</div></div>
-    </div>
-
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What is the overtime tax break under the OBBBA?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The One Big Beautiful Bill Act created an above-the-line federal tax deduction on qualified overtime compensation, retroactive to January 1, 2025 and expiring December 31, 2028. The deduction covers up to $12,500 annually per individual ($25,000 for joint filers) and applies only to the 50% premium portion of FLSA-required overtime. It is available even to workers who take the standard deduction.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What counts as qualified overtime compensation under the OBBBA?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Only the 50% premium on overtime required under Section 7 of the Fair Labor Standards Act qualifies. Daily overtime triggered by state rules or company policy, automatic weekend or holiday premiums, double time, and time paid for vacation, sick leave, or holidays do not qualify. Many workplaces define overtime more broadly than the FLSA does &#x2014; that more generous definition generally does not qualify for the deduction.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Does the overtime tax break reduce employer costs?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">No. The deduction applies to the employee&#x2019;s federal income tax &#x2014; not the employer&#x2019;s cost. Employers still pay time and a half for all overtime hours. FICA taxes still apply to all overtime earnings on both sides. The tax break changes what employees net from overtime, not what the employer pays.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Should employers increase overtime now that it is tax-advantaged for workers?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">No. The long-term risks of high overtime &#x2014; fatigue, quality issues, safety incidents, and turnover &#x2014; are entirely unaffected by what employees save on their taxes. The employer&#x2019;s cost per overtime hour has not changed. The tax break is useful context for recruiting and retention conversations but does not change the operational economics of overtime versus hiring.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What new reporting requirements do employers have under the OBBBA?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Employers are now required to report qualified overtime compensation as a separate line item on employees&#x2019; W-2 forms. For 2025, the IRS provided transition relief &#x2014; employers can use a reasonable estimation method. Starting in 2026, separate reporting of qualifying overtime compensation is required. FLSA classification accuracy has become more important because misclassification creates compliance exposure.</div></div></div>
   </div>
 </div><!-- /.faq-section -->
 
@@ -342,7 +295,7 @@
   <div class="ns-cards">
     <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card ns-accent-blue" target="_blank" rel="noopener"><div class="ns-card-label">Free Consultation</div><h3>Talk to a Shiftwork Expert</h3><p>Understand how the OBBBA affects your overtime strategy and what it means for your staffing model.</p><span class="ns-card-link">Book a free meeting</span></a>
     <a href="/resources/overtime-management-guide/" class="ns-card ns-accent-orange"><div class="ns-card-label">Complete Guide</div><h3>Overtime Management Guide</h3><p>Strategy, distribution, and cost control &#x2014; the complete picture on managing overtime in 24/7 operations.</p><span class="ns-card-link">Read the guide</span></a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green"><div class="ns-card-label">Diagnostic Tool</div><h3>26 Warning Signs</h3><p>Chronic overtime is one of the clearest signals your schedule isn't working. See all 26 symptoms.</p><span class="ns-card-link">Read the diagnostic</span></a>
+    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green"><div class="ns-card-label">Diagnostic Tool</div><h3>26 Warning Signs</h3><p>Chronic overtime is one of the clearest signals your schedule isn&#x2019;t working. See all 26 symptoms.</p><span class="ns-card-link">Read the diagnostic</span></a>
   </div>
   <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
 </div></section>
@@ -351,7 +304,7 @@
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
       <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">The tax break is real. Your overtime costs aren't going down. The right overtime strategy still depends on your schedule design. The first conversation is free.</p></div>
-      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor &#x2014; available now, no appointment needed.</p></div>
+      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p></div>
       <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
     </div>
     <div class="footer-cta-row">
@@ -368,8 +321,8 @@
 
 <button class="listen-btn" id="listenBtn" aria-label="Listen to this article"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg><span id="listenLabel">Listen</span></button>
 <script>
-(function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
+(function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
 (function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
 (function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p,h2,h3');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim());});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
