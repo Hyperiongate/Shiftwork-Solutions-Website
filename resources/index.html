@@ -8,51 +8,23 @@
   Last Updated: 2026-04-16
 
   CHANGE LOG:
-    2026-04-03 — Initial build
-    2026-04-03 through 2026-04-07 — Multiple iterations
-    2026-04-12 — Folder animation hub with sidebar (superseded)
-    2026-04-13 — SIMPLIFIED REDESIGN: single-column, instant tile reveal
-    2026-04-13 — Hero cleanup + nav rename "Why Us" → "Our Company"
-    2026-04-14 — ADDED: Focused Topics + Trending Posts sections (always visible)
-    2026-04-15 — NAV FIXES:
-                 1. Logo src corrected to clear_bkgr_logo_2.png (underscores)
-                 2. "SHIFTWORK SOLUTIONS" bold navy text added right of logo
-                 3. Nav link font-size increased to 20px (mobile: 18px)
-    2026-04-16 — ADDED: Complete Guides section inserted between hub section
-                 and Focused Topics. Layout: 3 rows of 4 cards (4-4-2).
-                 Row 3 has guides 9 & 10 centered in the middle two columns;
-                 outer two columns are CTA cards (Book a Consultation, Talk
-                 to Thomas). All 10 guides use pillar_N.jpg photo + short desc.
-                 New CSS classes: .guides-section, .guides-grid, .guide-card,
-                 .guide-card-img, .guide-card-body, .guide-card-tag,
-                 .guide-card-title, .guide-card-desc, .guide-card-footer,
-                 .guide-card-read; .guides-row3, .guide-cta-card.
-    2026-04-16 — UPDATED: Focused Topics and Trending Topics sections converted
-                 from SVG-icon / no-image cards to photo-card layout.
-                 Focused Topics: 4-col grid (was 2-col horizontal), each card
-                 has photo on top + tag + title + desc + footer arrow.
-                 Images: updown.jpg, Sleep.jpg, maintenance.jpg, communicating.jpg,
-                 workforce.jpg, balancing.jpg, up.jpg
-                 Trending Topics: 4-col grid preserved, photo added above body.
-                 Images: 32.jpg, tapping.jpg, walking.jpg, tax.jpg, reshoring.jpg,
-                 mixed.jpg, onpaper.jpg, AI.jpg
-                 Old SVG icon CSS classes (.focused-card-icon) removed; new
-                 .focused-card-img and .trending-card-img classes added.
-                 Section background: Focused = light-grey, Trending = white
-                 (maintains alternating rhythm with Guides = white above).
-    2026-04-16 — UPDATED: Trending Topics row 2, slot 4 (was AI.jpg card) replaced
-                 with "More Coming Soon" placeholder card. AI article moved to
-                 row 2 slot 3; onpaper remains slot 2. Coming-soon card is a
-                 non-linked div styled with navy background, newsletter CTA,
-                 and .trending-card-soon CSS class. Sleep.jpg confirmed correct
-                 on focused sleep card (no change needed).
+    2026-04-16 — FIVE UPDATES applied today:
+                 1. Orange section-divider line removed; hero h1 color → #EEAE26
+                 2. Interest buttons redesigned: taller split-band layout.
+                    Top band = white bg, orange label, navy bold title.
+                    Bottom 2/3 = #0D1F3C bg, white descriptive body text.
+                 3. Complete Guides font +1 size (title 14→15px, desc 12→13px,
+                    read 12→13px). Both row-3 CTA cards now use matching navy
+                    background. Top band = white bg with dark icon + label text.
+                    Bottom = navy body with white title/desc/orange btn.
+                 4. Focused Topics section: eyebrow renamed "Targeted Perspectives",
+                    heading renamed "Spotlight Articles". Shows 4 cards by default;
+                    remaining 3 hidden behind centered "Show More Articles" button.
+                 5. Trending Topics replaced with looping carousel. 4 cards visible
+                    at once (2 on tablet, 1 on mobile). Left/right arrow buttons
+                    advance 1 tile per click. Cards are cloned for infinite loop.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
-  DESIGN CONSTANTS:
-    Navy: #1F4E79 | Navy-dark: #0D1F3C | Mid-blue: #85B7EB | Orange: #E8610A | Green: #1D9E75
-    Font: Arial/system sans-serif
-    Logo: /images/clear_bkgr_logo_2.png
-    Hero image: /images/second.png
 -->
 <html lang="en">
 <head>
@@ -66,29 +38,18 @@
   <meta property="og:url" content="https://shift-work.com/resources/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Shift Work Resources: Guides, Industry Insights &amp; Diagnostic Tools">
-  <meta name="twitter:description" content="Scheduling guides, industry insights, and diagnostic tools built for 24/7 manufacturing and distribution operations.">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;
-      --orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;
-      --body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;
-      --max-width:1060px;--page-pad:24px
-    }
+    :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--max-width:1060px;--page-pad:24px}
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
-
-    /* ── NAV ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0;display:flex;align-items:center;gap:12px}
     .nav-logo img{height:36px;width:auto;display:block}
-    .nav-logo-text{font-family:Arial,sans-serif;font-size:20px;font-weight:700;color:#1F4E79;letter-spacing:0.03em;line-height:1}
+    .nav-logo-text{font-family:Arial,sans-serif;font-size:20px;font-weight:700;color:#1F4E79;letter-spacing:.03em;line-height:1}
     .nav-links{list-style:none;display:flex;align-items:center}
-    .nav-links>li{position:relative}
-    .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:20px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
+    .nav-links>li>a{display:flex;align-items:center;padding:16px 14px;font-size:20px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
     .nav-links>li>a:hover{color:var(--navy)}
     .nav-links>li>a.nav-active{color:var(--navy);font-weight:700;text-decoration:underline;text-underline-offset:3px}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
@@ -96,46 +57,44 @@
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-
-    /* ── HERO ── */
+    /* HERO — change 1: h1 = #EEAE26, no divider line */
     .hero{background:#0D1F3C url('/images/second.png') center center/cover no-repeat;padding:60px 36px 68px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.82) 0%,rgba(13,31,60,.60) 55%,rgba(13,31,60,.30) 100%);z-index:0}
     .hero-circle-tr{position:absolute;top:-60px;right:-80px;width:320px;height:320px;border-radius:50%;border:2px solid rgba(232,97,10,.25);z-index:0}
     .hero-circle-bl{position:absolute;bottom:-100px;left:-50px;width:220px;height:220px;border-radius:50%;border:2px solid rgba(133,183,235,.15);z-index:0}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
-    .hero h1{font-size:36px;font-weight:700;line-height:1.15;color:var(--white);max-width:660px;margin-bottom:18px;animation:fadeUp .5s .1s ease both}
-    .hero h1 em{color:var(--orange);font-style:normal}
-    .hero-authority{font-size:15px;line-height:1.7;color:rgba(255,255,255,.75);max-width:580px;margin-bottom:0;animation:fadeUp .5s .2s ease both}
+    .hero h1{font-size:36px;font-weight:700;line-height:1.15;color:#EEAE26;max-width:660px;margin-bottom:18px;animation:fadeUp .5s .1s ease both}
+    .hero-authority{font-size:15px;line-height:1.7;color:rgba(255,255,255,.75);max-width:580px;animation:fadeUp .5s .2s ease both}
     @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-
-    /* ── UTILITIES ── */
-    .section-divider{height:3px;background:var(--orange);width:100%}
-    .section-wrap{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad)}
     .accent-heading{font-size:22px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:10px;padding-left:14px;border-left:4px solid var(--orange)}
     .section-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
     .section-sub{font-size:14px;color:var(--muted);line-height:1.65;max-width:680px}
-
-    /* ── HUB ── */
+    /* HUB */
     .hub-section{padding:48px var(--page-pad) 56px;background:var(--light-grey)}
     .hub-inner{max-width:var(--max-width);margin:0 auto}
     .hub-intro{margin-bottom:28px}
-    .interest-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:0}
-    .interest-btn{background:var(--white);border:2px solid var(--border-med);border-top:4px solid var(--navy);border-radius:8px;padding:22px 16px 20px;cursor:pointer;text-align:center;transition:all .25s ease;outline:none;font-family:Arial,Helvetica,sans-serif}
-    .interest-btn:hover{border-top-color:var(--orange);transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,0,0,.08)}
-    .interest-btn.active{border-color:var(--orange);border-top-color:var(--orange);box-shadow:0 4px 24px rgba(232,97,10,.15)}
-    .interest-btn-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--orange);margin-bottom:8px}
-    .interest-btn-title{font-size:14px;font-weight:700;color:var(--navy);line-height:1.35}
+    .interest-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    /* CHANGE 2: split-band interest buttons */
+    .interest-btn{background:var(--white);border:2px solid var(--border-med);border-radius:10px;cursor:pointer;text-align:left;transition:all .25s ease;outline:none;font-family:Arial,Helvetica,sans-serif;overflow:hidden;padding:0;display:flex;flex-direction:column;min-height:168px}
+    .interest-btn:hover{border-color:var(--orange);transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.10)}
+    .interest-btn.active{border-color:var(--orange);box-shadow:0 4px 24px rgba(232,97,10,.18)}
+    .interest-btn-top{background:var(--white);padding:18px 18px 14px;border-bottom:1px solid var(--border-light)}
+    .interest-btn.active .interest-btn-top{background:#FFF8F5}
+    .interest-btn-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--orange);margin-bottom:6px}
+    .interest-btn-title{font-size:16px;font-weight:700;color:var(--navy);line-height:1.3}
+    .interest-btn-bottom{background:var(--navy-dark);padding:14px 18px 18px;flex:1;display:flex;align-items:flex-start}
+    .interest-btn-desc{font-size:13px;color:rgba(255,255,255,.82);line-height:1.55}
+    /* Result panel */
     .result-area{display:none;max-width:var(--max-width);margin:32px auto 0;padding:28px 24px 32px;background:var(--white);border:1px solid var(--border-med);border-top:4px solid var(--orange);border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.06)}
     .result-area.visible{display:block;animation:fadeUp .35s ease both}
     .result-heading{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px}
     .result-sub{font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.5}
     .result-list{display:flex;flex-direction:column;gap:12px}
-    .result-card{display:flex;align-items:stretch;gap:0;background:var(--white);border:1px solid var(--border-med);border-left:4px solid var(--navy);border-radius:6px;overflow:hidden;text-decoration:none;transition:all .2s ease;opacity:0;animation:cardIn .35s ease forwards}
+    .result-card{display:flex;align-items:stretch;background:var(--white);border:1px solid var(--border-med);border-left:4px solid var(--navy);border-radius:6px;overflow:hidden;text-decoration:none;transition:all .2s ease;opacity:0;animation:cardIn .35s ease forwards}
     .result-card:hover{border-left-color:var(--orange);box-shadow:0 4px 16px rgba(0,0,0,.08);transform:translateY(-1px)}
     @keyframes cardIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
     .result-card-img{width:120px;flex-shrink:0;object-fit:cover;display:block;background-color:var(--light-blue)}
     .result-card-icon{width:80px;min-height:80px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--light-blue)}
-    .result-card-icon svg{display:block}
     .result-card-body{flex:1;padding:14px 18px;min-width:0}
     .result-card-tag{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:3px;margin-bottom:6px}
     .result-card-tag.guide{background:var(--light-blue);color:var(--navy)}
@@ -146,48 +105,42 @@
     .result-card-desc{font-size:13px;color:var(--muted);line-height:1.55}
     .result-card-arrow{flex-shrink:0;display:flex;align-items:center;padding:0 16px;font-size:18px;font-weight:700;color:var(--border-med);transition:color .2s}
     .result-card:hover .result-card-arrow{color:var(--orange)}
-
-    /* ── COMPLETE GUIDES ── */
+    /* COMPLETE GUIDES — change 3: font +1 */
     .guides-section{padding:60px var(--page-pad) 64px;background:var(--white)}
     .guides-inner{max-width:var(--max-width);margin:0 auto}
     .guides-header{margin-bottom:32px}
-    /* Rows 1 & 2: standard 4-col grid */
     .guides-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:20px}
-    /* Row 3: 4-col grid, outer cols = CTAs, inner cols = guide cards */
     .guides-row3{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-    /* Standard guide card */
     .guide-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border-med);border-top:4px solid var(--navy);border-radius:8px;overflow:hidden;text-decoration:none;transition:all .2s ease}
     .guide-card:hover{border-top-color:var(--orange);box-shadow:0 6px 24px rgba(0,0,0,.10);transform:translateY(-3px)}
     .guide-card-img{width:100%;height:140px;object-fit:cover;display:block;background:var(--light-blue)}
     .guide-card-body{flex:1;padding:16px 16px 10px}
-    .guide-card-tag{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border-radius:3px;margin-bottom:7px;background:var(--light-blue);color:var(--navy)}
-    .guide-card-title{font-size:14px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:6px;transition:color .15s}
+    .guide-card-tag{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border-radius:3px;margin-bottom:7px;background:var(--light-blue);color:var(--navy)}
+    .guide-card-title{font-size:15px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:6px;transition:color .15s}
     .guide-card:hover .guide-card-title{color:var(--orange)}
-    .guide-card-desc{font-size:12px;color:var(--muted);line-height:1.55}
+    .guide-card-desc{font-size:13px;color:var(--muted);line-height:1.55}
     .guide-card-footer{padding:10px 16px 14px;border-top:1px solid var(--border-light);display:flex;align-items:center;justify-content:flex-end;margin-top:auto}
-    .guide-card-read{font-size:12px;font-weight:700;color:var(--orange);text-decoration:none;display:flex;align-items:center;gap:4px;transition:color .15s}
+    .guide-card-read{font-size:13px;font-weight:700;color:var(--orange);text-decoration:none;display:flex;align-items:center;gap:4px;transition:color .15s}
     .guide-card:hover .guide-card-read{color:var(--navy)}
-    /* CTA cards in row 3 */
-    .guide-cta-card{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-radius:8px;padding:28px 20px;min-height:260px;text-decoration:none;transition:all .2s ease;border:2px solid transparent}
-    .guide-cta-card.cta-book{background:var(--navy-dark);border-color:var(--navy-dark)}
-    .guide-cta-card.cta-thomas{background:var(--navy);border-color:var(--navy)}
-    .guide-cta-card:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.18)}
-    .guide-cta-card.cta-book:hover{border-color:var(--orange)}
-    .guide-cta-card.cta-thomas:hover{border-color:var(--orange)}
-    .guide-cta-icon{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;background:rgba(255,255,255,.1)}
-    .guide-cta-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.55);margin-bottom:8px}
+    /* CTA cards — change 3: both navy, white top band */
+    .guide-cta-card{display:flex;flex-direction:column;border-radius:8px;overflow:hidden;text-decoration:none;transition:all .2s ease;border:2px solid transparent;background:var(--navy)}
+    .guide-cta-card:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.18);border-color:var(--orange)}
+    .guide-cta-top{background:var(--white);padding:18px 20px 14px;border-bottom:3px solid var(--orange);display:flex;align-items:center;gap:12px}
+    .guide-cta-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--light-blue)}
+    .guide-cta-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--navy)}
+    .guide-cta-body{flex:1;padding:18px 20px 22px;display:flex;flex-direction:column}
     .guide-cta-title{font-size:16px;font-weight:700;color:var(--white);line-height:1.3;margin-bottom:10px}
-    .guide-cta-desc{font-size:12px;color:rgba(255,255,255,.65);line-height:1.55;margin-bottom:18px}
-    .guide-cta-btn{display:inline-block;padding:9px 18px;background:var(--orange);color:var(--white);font-size:12px;font-weight:700;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap}
+    .guide-cta-desc{font-size:13px;color:rgba(255,255,255,.65);line-height:1.55;margin-bottom:18px;flex:1}
+    .guide-cta-btn{display:inline-block;padding:9px 18px;background:var(--orange);color:var(--white);font-size:12px;font-weight:700;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap;align-self:flex-start}
     .guide-cta-btn:hover{background:#c4510a}
-
-    /* ── FOCUSED TOPICS ── */
+    /* FOCUSED TOPICS — change 4 */
     .focused-section{padding:56px var(--page-pad) 60px;background:var(--light-grey)}
     .focused-inner{max-width:var(--max-width);margin:0 auto}
     .focused-header{margin-bottom:32px}
     .focused-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
     .focused-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border-med);border-top:4px solid var(--orange);border-radius:8px;overflow:hidden;text-decoration:none;transition:all .2s ease}
     .focused-card:hover{border-top-color:var(--navy);box-shadow:0 6px 24px rgba(0,0,0,.10);transform:translateY(-3px)}
+    .focused-card.focused-hidden{display:none}
     .focused-card-img{width:100%;height:140px;object-fit:cover;display:block;background:var(--light-blue)}
     .focused-card-body{flex:1;padding:14px 14px 8px}
     .focused-card-tag{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border-radius:3px;margin-bottom:6px;background:rgba(232,97,10,.1);color:var(--orange)}
@@ -197,13 +150,18 @@
     .focused-card-footer{padding:8px 14px 12px;border-top:1px solid var(--border-light);display:flex;align-items:center;justify-content:flex-end;margin-top:auto}
     .focused-card-read{font-size:12px;font-weight:700;color:var(--orange);display:flex;align-items:center;gap:4px;transition:color .15s}
     .focused-card:hover .focused-card-read{color:var(--navy)}
-
-    /* ── TRENDING POSTS ── */
+    .focused-show-more-wrap{margin-top:28px;display:flex;justify-content:center}
+    .focused-show-more-btn{padding:11px 32px;background:var(--white);border:2px solid var(--navy);border-radius:4px;font-family:Arial,sans-serif;font-size:14px;font-weight:700;color:var(--navy);cursor:pointer;transition:all .2s ease}
+    .focused-show-more-btn:hover{background:var(--navy);color:var(--white)}
+    .focused-show-more-btn.hidden{display:none}
+    /* TRENDING CAROUSEL — change 5 */
     .trending-section{padding:52px var(--page-pad) 60px;background:var(--white)}
     .trending-inner{max-width:var(--max-width);margin:0 auto}
     .trending-header{margin-bottom:32px}
-    .trending-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-    .trending-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border-med);border-top:4px solid var(--navy);border-radius:8px;overflow:hidden;text-decoration:none;transition:all .2s ease}
+    .trending-carousel-wrap{position:relative;padding:0 4px}
+    .trending-carousel-viewport{overflow:hidden}
+    .trending-carousel-track{display:flex;gap:18px;transition:transform .4s ease;will-change:transform}
+    .trending-card{flex:0 0 calc(25% - 14px);display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border-med);border-top:4px solid var(--navy);border-radius:8px;overflow:hidden;text-decoration:none;transition:border-color .2s,box-shadow .2s,transform .2s}
     .trending-card:hover{border-top-color:var(--orange);box-shadow:0 6px 20px rgba(0,0,0,.10);transform:translateY(-3px)}
     .trending-card-img{width:100%;height:130px;object-fit:cover;display:block;background:var(--light-blue)}
     .trending-card-body{flex:1;padding:14px 14px 10px}
@@ -211,11 +169,10 @@
     .trending-card-title{font-size:13px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:7px;transition:color .15s}
     .trending-card:hover .trending-card-title{color:var(--orange)}
     .trending-card-desc{font-size:12px;color:var(--muted);line-height:1.55}
-    .trending-card-footer{padding:10px 14px 12px;border-top:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between}
+    .trending-card-footer{padding:10px 14px 12px;border-top:1px solid var(--border-light);display:flex;align-items:center}
     .trending-card-read{font-size:12px;font-weight:700;color:var(--orange);text-decoration:none;transition:color .15s;display:flex;align-items:center;gap:4px}
     .trending-card:hover .trending-card-read{color:var(--navy)}
-    /* Coming-soon placeholder card */
-    .trending-card-soon{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--navy-dark);border:1px solid var(--navy-dark);border-top:4px solid var(--orange);border-radius:8px;overflow:hidden;padding:28px 20px;min-height:260px}
+    .trending-card-soon{flex:0 0 calc(25% - 14px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--navy-dark);border:1px solid var(--navy-dark);border-top:4px solid var(--orange);border-radius:8px;overflow:hidden;padding:28px 20px;min-height:260px}
     .trending-card-soon-icon{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
     .trending-card-soon-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);margin-bottom:10px}
     .trending-card-soon-title{font-size:15px;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:10px}
@@ -229,8 +186,12 @@
     .trending-card-soon-btn:disabled{opacity:.5;cursor:not-allowed}
     .trending-card-soon-msg{font-size:11px;margin-top:6px;min-height:14px;width:100%;text-align:center}
     .trending-card-soon-msg.ok{color:#6ee7b7}.trending-card-soon-msg.err{color:#fca5a5}
-
-    /* ── FOOTER ── */
+    .carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:var(--white);border:2px solid var(--border-med);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;transition:all .2s ease;box-shadow:0 2px 10px rgba(0,0,0,.10)}
+    .carousel-arrow:hover{background:var(--navy);border-color:var(--navy)}
+    .carousel-arrow:hover path{stroke:#fff !important}
+    .carousel-arrow-prev{left:-26px}
+    .carousel-arrow-next{right:-26px}
+    /* FOOTER */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -239,7 +200,7 @@
     .footer-col-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
     .footer-col-2{border-right:1px solid rgba(255,255,255,.08)}
     .footer-col-3{padding-right:0}
-    .footer-cta-row{display:flex;align-items:center;gap:0}
+    .footer-cta-row{display:flex;align-items:center}
     .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:0 0 33.333%;padding:0 32px}
     .footer-cta-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
     .footer-cta-2{border-right:1px solid rgba(255,255,255,.08)}
@@ -264,14 +225,12 @@
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-
-    /* ── RESPONSIVE ── */
     @media(max-width:960px){
       .interest-row{grid-template-columns:repeat(2,1fr)}
       .guides-grid{grid-template-columns:repeat(2,1fr)}
       .guides-row3{grid-template-columns:repeat(2,1fr)}
       .focused-grid{grid-template-columns:repeat(2,1fr)}
-      .trending-grid{grid-template-columns:repeat(2,1fr)}
+      .trending-card,.trending-card-soon{flex-basis:calc(50% - 9px)}
     }
     @media(max-width:640px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
@@ -279,21 +238,18 @@
       .hero{padding:40px 20px 48px}.hero h1{font-size:26px}
       .hub-section{padding:32px 16px 40px}
       .interest-row{grid-template-columns:1fr 1fr;gap:10px}
-      .interest-btn{padding:16px 12px 14px}
-      .interest-btn-title{font-size:12px}
+      .interest-btn{min-height:140px}
+      .interest-btn-title{font-size:14px}
       .result-card-img{width:80px}
-      .result-card-icon{width:60px;min-height:60px}
-      .guides-section{padding:36px 16px 44px}
+      .guides-section,.focused-section,.trending-section{padding-left:16px;padding-right:16px}
       .guides-grid{grid-template-columns:1fr 1fr;gap:14px}
       .guides-row3{grid-template-columns:1fr 1fr;gap:14px}
       .guide-card-img{height:110px}
-      .guide-cta-card{min-height:200px;padding:22px 16px}
-      .focused-section{padding:36px 16px 40px}
       .focused-grid{grid-template-columns:1fr 1fr;gap:14px}
       .focused-card-img{height:110px}
-      .trending-section{padding:36px 16px 40px}
-      .trending-grid{grid-template-columns:1fr 1fr;gap:14px}
-      .trending-card-img{height:100px}
+      .trending-card,.trending-card-soon{flex-basis:100%}
+      .carousel-arrow-prev{left:-14px}
+      .carousel-arrow-next{right:-14px}
       .footer-prefooter{padding:32px 20px}
       .footer-content-row{grid-template-columns:1fr}
       .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
@@ -305,10 +261,7 @@
       .footer-bottom-left{justify-content:center}
     }
     @media(max-width:420px){
-      .trending-grid{grid-template-columns:1fr}
-      .focused-grid{grid-template-columns:1fr}
-      .guides-grid{grid-template-columns:1fr}
-      .guides-row3{grid-template-columns:1fr}
+      .focused-grid,.guides-grid,.guides-row3{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -316,7 +269,7 @@
 
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo">
-    <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;">
+    <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36">
     <span class="nav-logo-text">SHIFTWORK SOLUTIONS</span>
   </a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -335,283 +288,127 @@
   <div class="hero-circle-tr"></div>
   <div class="hero-circle-bl"></div>
   <div class="hero-inner">
-    <h1>Thirty Years of Shift Work Consulting.<br><em>Distilled.</em></h1>
+    <h1>Thirty Years of Shift Work Consulting.<br>Distilled.</h1>
     <p class="hero-authority">Scheduling guides, industry insights, and diagnostic tools built for operations leaders — not academics. Start with the topic most relevant to your situation.</p>
   </div>
 </section>
 
-<div class="section-divider"></div>
-
-<!-- ── AREA OF INTEREST HUB ── -->
-<section class="hub-section">
-  <div class="hub-inner">
-    <div class="hub-intro">
-      <div class="section-eyebrow">Find Your Starting Point</div>
-      <div class="accent-heading">What problem are you trying to solve?</div>
-      <p class="section-sub">Click the area that best matches your situation. We'll show you the most relevant guides and articles.</p>
-    </div>
-    <div class="interest-row">
-      <button class="interest-btn" data-interest="expanding" onclick="selectInterest(this)"><div class="interest-btn-label">Expanding Operations</div><div class="interest-btn-title">Moving to 24/7 or adding shifts</div></button>
-      <button class="interest-btn" data-interest="performance" onclick="selectInterest(this)"><div class="interest-btn-label">Performance Problems</div><div class="interest-btn-title">Overtime, coverage, or productivity</div></button>
-      <button class="interest-btn" data-interest="workforce" onclick="selectInterest(this)"><div class="interest-btn-label">Workforce &amp; Retention</div><div class="interest-btn-title">Turnover, engagement, or change</div></button>
-      <button class="interest-btn" data-interest="unsure" onclick="selectInterest(this)"><div class="interest-btn-label">Not Sure Yet</div><div class="interest-btn-title">Help me diagnose the problem</div></button>
-    </div>
-    <div class="result-area" id="resultArea">
-      <div class="result-heading" id="resultHeading"></div>
-      <div class="result-sub" id="resultSub"></div>
-      <div class="result-list" id="resultList"></div>
-    </div>
+<section class="hub-section"><div class="hub-inner">
+  <div class="hub-intro">
+    <div class="section-eyebrow">Find Your Starting Point</div>
+    <div class="accent-heading">What problem are you trying to solve?</div>
+    <p class="section-sub">Click the area that best matches your situation. We'll show you the most relevant guides and articles.</p>
   </div>
-</section>
-
-<!-- ── COMPLETE GUIDES ── -->
-<section class="guides-section">
-  <div class="guides-inner">
-    <div class="guides-header">
-      <div class="section-eyebrow">In-Depth Reference</div>
-      <div class="accent-heading">Complete Guides</div>
-      <p class="section-sub">Ten comprehensive guides covering every dimension of shift schedule design and management — each built from decades of hands-on consulting work.</p>
-    </div>
-
-    <!-- Row 1: Guides 1–4 -->
-    <div class="guides-grid">
-      <a href="/resources/shift-schedule-design-guide/" class="guide-card">
-        <img src="/images/pillar_1.jpg" alt="Shift Schedule Design Guide" class="guide-card-img">
-        <div class="guide-card-body">
-          <span class="guide-card-tag">Complete Guide</span>
-          <div class="guide-card-title">The Complete Guide to Shift Schedule Design</div>
-          <div class="guide-card-desc">Fixed vs. rotating, shift length, crew size, and cost structure — the foundational decisions that shape every 24/7 operation.</div>
-        </div>
-        <div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div>
-      </a>
-      <a href="/resources/shift-schedule-patterns-guide/" class="guide-card">
-        <img src="/images/pillar_2.jpg" alt="Shift Schedule Patterns Guide" class="guide-card-img">
-        <div class="guide-card-body">
-          <span class="guide-card-tag">Complete Guide</span>
-          <div class="guide-card-title">Shift Schedule Patterns &amp; Examples</div>
-          <div class="guide-card-desc">DuPont, Panama, 4-on/4-off, and more — a decision guide to the most common 24/7 patterns and the tradeoffs of each.</div>
-        </div>
-        <div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div>
-      </a>
-      <a href="/resources/equipment-utilization-shift-scheduling/" class="guide-card">
-        <img src="/images/pillar_3.jpg" alt="Equipment Utilization Guide" class="guide-card-img">
-        <div class="guide-card-body">
-          <span class="guide-card-tag">Complete Guide</span>
-          <div class="guide-card-title">Maximizing Equipment Utilization</div>
-          <div class="guide-card-desc">How schedule design directly drives equipment uptime — and why most facilities leave significant capacity on the table.</div>
-        </div>
-        <div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div>
-      </a>
-      <a href="/resources/managing-variable-workloads/" class="guide-card">
-        <img src="/images/pillar_4.jpg" alt="Managing Variable Workloads Guide" class="guide-card-img">
-        <div class="guide-card-body">
-          <span class="guide-card-tag">Complete Guide</span>
-          <div class="guide-card-title">Managing Variable Workloads</div>
-          <div class="guide-card-desc">Four proven strategies for matching staffing to fluctuating demand without overstaffing steady-state operations.</div>
-        </div>
-        <div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div>
-      </a>
-    </div>
-
-    <!-- Row 2: Guides 5–8 -->
-    <div class="guides-grid">
-      <a href="/resources/overtime-management-guide/" class="guide-card">
-        <img src="/images/pillar_5.jpg" alt="Overtime Management Guide" class="guide-card-img">
-        <div class="guide-card-body">
-          <span class="guide-card-tag">Complete Guide</span>
-          <div class="guide-card-title">Overtime Management</div>
-          <div class="guide-card-desc">Strategy, distribution, and cost control — including why the true cost of overtime is far closer to straight time than most managers assume.</div>
-        </div>
-        <div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div>
-      </a>
-      <a href="/resources/schedule-change-management/" class="guide-card">
-        <img src="/images/pillar_6.jpg" alt="Schedule Change Management Guide" class="guide-card-img">
-        <div class="guide-card-body">
-          <span class="guide-card-tag">Complete Guide</span>
-          <div class="guide-card-title">Schedule Change Management</div>
-          <div class="guide-card-desc">From planning to implementation — why well-designed changes fail and what communication and policy alignment actually require.</div>
-        </div>
-        <div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div>
-      </a>
-      <a href="/resources/employee-engagement-shift-work/" class="guide-card">
-        <img src="/images/pillar_7.jpg" alt="Employee Engagement Guide" class="guide-card-img">
-        <div class="guide-card-body">
-          <span class="guide-card-tag">Complete Guide</span>
-          <div class="guide-card-title">Building Employee Engagement</div>
-          <div class="guide-card-desc">What shift workers actually value — and why engagement strategies designed for offices consistently fail on the plant floor.</div>
-        </div>
-        <div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div>
-      </a>
-      <a href="/resources/operational-best-practices-shift-work/" class="guide-card">
-        <img src="/images/pillar_8.jpg" alt="Operational Best Practices Guide" class="guide-card-img">
-        <div class="guide-card-body">
-          <span class="guide-card-tag">Complete Guide</span>
-          <div class="guide-card-title">Operational Best Practices</div>
-          <div class="guide-card-desc">The management practices that separate high-performing 24/7 operations from average ones — built from hundreds of site assessments.</div>
-        </div>
-        <div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div>
-      </a>
-    </div>
-
-    <!-- Row 3: CTA | Guide 9 | Guide 10 | CTA -->
-    <div class="guides-row3">
-
-      <!-- CTA: Book a Consultation -->
-      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="guide-cta-card cta-book" target="_blank" rel="noopener">
-        <div class="guide-cta-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="rgba(255,255,255,0.8)" stroke-width="1.8"/><path d="M3 9h18" stroke="rgba(255,255,255,0.8)" stroke-width="1.8"/><path d="M8 2v4M16 2v4" stroke="rgba(255,255,255,0.8)" stroke-width="1.8" stroke-linecap="round"/><path d="M7 13h4M7 16h6" stroke="#E8610A" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </div>
-        <div class="guide-cta-label">Free Consultation</div>
-        <div class="guide-cta-title">Talk to a Shift Work Expert</div>
-        <div class="guide-cta-desc">Not sure where to start? Book a free conversation with our consulting team. No pitch — just a focused discussion of your operation.</div>
-        <span class="guide-cta-btn">Book a Free Meeting &#x2192;</span>
-      </a>
-
-      <!-- Guide 9: Absenteeism & Coverage -->
-      <a href="/resources/absenteeism-relief-coverage-management/" class="guide-card">
-        <img src="/images/pillar_9.jpg" alt="Absenteeism and Coverage Management Guide" class="guide-card-img">
-        <div class="guide-card-body">
-          <span class="guide-card-tag">Complete Guide</span>
-          <div class="guide-card-title">Managing Absenteeism &amp; Coverage Gaps</div>
-          <div class="guide-card-desc">How to build coverage systems that absorb routine absences without daily scrambles, mandatory holdovers, or chronic overtime.</div>
-        </div>
-        <div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div>
-      </a>
-
-      <!-- Guide 10: Shift Work Policies -->
-      <a href="/resources/shift-work-policies-guide/" class="guide-card">
-        <img src="/images/pillar_10.jpg" alt="Shift Work Policies Guide" class="guide-card-img">
-        <div class="guide-card-body">
-          <span class="guide-card-tag">Complete Guide</span>
-          <div class="guide-card-title">Shift Work Policies: Pay, Time-Off &amp; Compliance</div>
-          <div class="guide-card-desc">Why pay and time-off policies designed for 8-hour schedules break immediately on 12-hour or continuous operations.</div>
-        </div>
-        <div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div>
-      </a>
-
-      <!-- CTA: Talk to Thomas -->
-      <a href="https://shift-work-diagnostic.onrender.com/" class="guide-cta-card cta-thomas" target="_blank" rel="noopener">
-        <div class="guide-cta-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="13" rx="3" stroke="rgba(255,255,255,0.8)" stroke-width="1.8"/><circle cx="9" cy="11.5" r="1.5" fill="rgba(255,255,255,0.8)"/><circle cx="15" cy="11.5" r="1.5" fill="rgba(255,255,255,0.8)"/><path d="M8 3h8" stroke="rgba(255,255,255,0.8)" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </div>
-        <div class="guide-cta-label">AI Advisor</div>
-        <div class="guide-cta-title">Talk to Thomas</div>
-        <div class="guide-cta-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</div>
-        <span class="guide-cta-btn">Start a Conversation &#x2192;</span>
-      </a>
-
-    </div><!-- /.guides-row3 -->
-  </div><!-- /.guides-inner -->
-</section>
-
-<!-- ── FOCUSED TOPICS ── -->
-<section class="focused-section">
-  <div class="focused-inner">
-    <div class="focused-header">
-      <div class="section-eyebrow">Deep Dives</div>
-      <div class="accent-heading">Focused Topics</div>
-      <p class="section-sub">Targeted articles that go deep on a single issue — written for operations leaders who already know the problem and need the answer.</p>
-    </div>
-    <div class="focused-grid">
-      <a href="/resources/support/scaling-production-quickly/" class="focused-card">
-        <img src="/images/updown.jpg" alt="Scale Production Up or Down" class="focused-card-img">
-        <div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">How to Scale Production Up or Down Rapidly</div><div class="focused-card-desc">Four strategies for matching staffing to demand swings — overtime, temporary labor, discretionary work, and time-off management.</div></div>
-        <div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div>
-      </a>
-      <a href="/resources/support/sleep-alertness-safety-shift-work/" class="focused-card">
-        <img src="/images/Sleep.jpg" alt="Sleep Alertness and Safety" class="focused-card-img">
-        <div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Sleep, Alertness &amp; Safety in Shift Operations</div><div class="focused-card-desc">How schedule design, shift length, and rotation patterns affect fatigue — and what that costs in safety and productivity.</div></div>
-        <div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div>
-      </a>
-      <a href="/resources/support/maintenance-worker-scheduling/" class="focused-card">
-        <img src="/images/maintenance.jpg" alt="Maintenance Worker Scheduling" class="focused-card-img">
-        <div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Maintenance Workers: Unique Scheduling Considerations</div><div class="focused-card-desc">Why standard shift patterns consistently fail maintenance crews — and what approaches actually work.</div></div>
-        <div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div>
-      </a>
-      <a href="/resources/support/communicating-schedule-changes/" class="focused-card">
-        <img src="/images/communicating.jpg" alt="Communicating Schedule Changes" class="focused-card-img">
-        <div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Communicating Major Schedule Changes</div><div class="focused-card-desc">Timing, channels, and messaging that reduce resistance — and the single most reliable predictor of whether a change will succeed.</div></div>
-        <div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div>
-      </a>
-      <a href="/resources/support/workforce-survey-analysis/" class="focused-card">
-        <img src="/images/workforce.jpg" alt="Workforce Survey Analysis" class="focused-card-img">
-        <div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Survey Analysis: Understanding Workforce Needs</div><div class="focused-card-desc">How survey data corrects the systematic misperceptions managers have about what their workforce actually wants.</div></div>
-        <div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div>
-      </a>
-      <a href="/resources/support/balancing-business-employee-needs/" class="focused-card">
-        <img src="/images/balancing.jpg" alt="Balancing Business and Employee Needs" class="focused-card-img">
-        <div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Balancing Business &amp; Employee Needs</div><div class="focused-card-desc">Why the best shift schedules satisfy both operational requirements and employee lifestyle needs — and how to find them.</div></div>
-        <div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div>
-      </a>
-      <a href="/resources/support/schedule-change-pitfalls/" class="focused-card">
-        <img src="/images/up.jpg" alt="Schedule Change Pitfalls" class="focused-card-img">
-        <div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Schedule Change Pitfalls: What to Avoid</div><div class="focused-card-desc">The predictable reasons well-designed schedule changes fail — poor communication, policy gaps, and inadequate notice.</div></div>
-        <div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div>
-      </a>
-    </div>
+  <div class="interest-row">
+    <button class="interest-btn" data-interest="expanding" onclick="selectInterest(this)">
+      <div class="interest-btn-top"><div class="interest-btn-label">Expanding Operations</div><div class="interest-btn-title">Moving to 24/7 or adding shifts</div></div>
+      <div class="interest-btn-bottom"><span class="interest-btn-desc">Going continuous, adding coverage hours, or transitioning from 5-day to 7-day operations.</span></div>
+    </button>
+    <button class="interest-btn" data-interest="performance" onclick="selectInterest(this)">
+      <div class="interest-btn-top"><div class="interest-btn-label">Performance Problems</div><div class="interest-btn-title">Overtime, coverage, or productivity</div></div>
+      <div class="interest-btn-bottom"><span class="interest-btn-desc">Chronic overtime, coverage gaps, variable workloads, or equipment utilization below potential.</span></div>
+    </button>
+    <button class="interest-btn" data-interest="workforce" onclick="selectInterest(this)">
+      <div class="interest-btn-top"><div class="interest-btn-label">Workforce &amp; Retention</div><div class="interest-btn-title">Turnover, engagement, or change</div></div>
+      <div class="interest-btn-bottom"><span class="interest-btn-desc">High turnover, low engagement, schedule change resistance, or policy misalignment with workforce needs.</span></div>
+    </button>
+    <button class="interest-btn" data-interest="unsure" onclick="selectInterest(this)">
+      <div class="interest-btn-top"><div class="interest-btn-label">Not Sure Yet</div><div class="interest-btn-title">Help me diagnose the problem</div></div>
+      <div class="interest-btn-bottom"><span class="interest-btn-desc">Start with one of our diagnostic tools — they'll help identify where your operation is losing the most ground.</span></div>
+    </button>
   </div>
-</section>
+  <div class="result-area" id="resultArea">
+    <div class="result-heading" id="resultHeading"></div>
+    <div class="result-sub" id="resultSub"></div>
+    <div class="result-list" id="resultList"></div>
+  </div>
+</div></section>
 
-<!-- ── TRENDING POSTS ── -->
-<section class="trending-section">
-  <div class="trending-inner">
-    <div class="trending-header">
-      <div class="section-eyebrow">What Operations Leaders Are Reading</div>
-      <div class="accent-heading">Trending Topics</div>
-      <p class="section-sub">Timely perspectives on workforce trends, economic shifts, and operational challenges facing 24/7 operations right now.</p>
-    </div>
-    <div class="trending-grid">
-      <a href="/resources/32-hour-workweek-manufacturing/" class="trending-card">
-        <img src="/images/32.jpg" alt="32-Hour Workweek Manufacturing" class="trending-card-img">
-        <div class="trending-card-body"><span class="trending-card-tag">Trending</span><div class="trending-card-title">The 32-Hour Workweek Movement Reaches Manufacturing</div><div class="trending-card-desc">What the push for shorter workweeks actually means for operations running continuous schedules.</div></div>
-        <div class="trending-card-footer"><span class="trending-card-read">Read article &#x2192;</span></div>
-      </a>
-      <a href="/resources/tapping-untapped-workforce/" class="trending-card">
-        <img src="/images/tapping.jpg" alt="Tapping the Untapped Workforce" class="trending-card-img">
-        <div class="trending-card-body"><span class="trending-card-tag">Trending</span><div class="trending-card-title">Tapping the Untapped Workforce</div><div class="trending-card-desc">How operations facing chronic staffing shortages are finding labor in overlooked populations.</div></div>
-        <div class="trending-card-footer"><span class="trending-card-read">Read article &#x2192;</span></div>
-      </a>
-      <a href="/resources/management-by-walking-around/" class="trending-card">
-        <img src="/images/walking.jpg" alt="Management by Walking Around" class="trending-card-img">
-        <div class="trending-card-body"><span class="trending-card-tag">Trending</span><div class="trending-card-title">Management by Walking Around</div><div class="trending-card-desc">Why MBWA remains one of the most underused tools in shift operations — and how night shift visibility changes everything.</div></div>
-        <div class="trending-card-footer"><span class="trending-card-read">Read article &#x2192;</span></div>
-      </a>
-      <a href="/resources/overtime-tax-break-businesses/" class="trending-card">
-        <img src="/images/tax.jpg" alt="Overtime Tax Break for Businesses" class="trending-card-img">
-        <div class="trending-card-body"><span class="trending-card-tag">Trending</span><div class="trending-card-title">The Overtime Tax Break for Businesses</div><div class="trending-card-desc">What recent overtime exemption proposals mean for companies running 24/7 — and whether the savings are as straightforward as advertised.</div></div>
-        <div class="trending-card-footer"><span class="trending-card-read">Read article &#x2192;</span></div>
-      </a>
-      <a href="/resources/reshoring-manufacturing-workforce/" class="trending-card">
-        <img src="/images/reshoring.jpg" alt="Reshoring and the Manufacturing Workforce" class="trending-card-img">
-        <div class="trending-card-body"><span class="trending-card-tag">Trending</span><div class="trending-card-title">Reshoring and the Manufacturing Workforce</div><div class="trending-card-desc">As production returns to domestic soil, staffing and scheduling demands are catching many operators unprepared.</div></div>
-        <div class="trending-card-footer"><span class="trending-card-read">Read article &#x2192;</span></div>
-      </a>
-      <a href="/resources/mixed-signals-economy/" class="trending-card">
-        <img src="/images/mixed.jpg" alt="Mixed Signals Economy Workforce Planning" class="trending-card-img">
-        <div class="trending-card-body"><span class="trending-card-tag">Trending</span><div class="trending-card-title">Mixed Signals: Reading the Economy for Workforce Planning</div><div class="trending-card-desc">How to make sound staffing decisions when demand forecasts are contradicting each other.</div></div>
-        <div class="trending-card-footer"><span class="trending-card-read">Read article &#x2192;</span></div>
-      </a>
-      <a href="/resources/schedule-looks-fine-on-paper/" class="trending-card">
-        <img src="/images/onpaper.jpg" alt="Schedule Looks Fine on Paper" class="trending-card-img">
-        <div class="trending-card-body"><span class="trending-card-tag">Trending</span><div class="trending-card-title">When Your Schedule Looks Fine on Paper</div><div class="trending-card-desc">The gap between a schedule that covers the shifts and one that actually works.</div></div>
-        <div class="trending-card-footer"><span class="trending-card-read">Read article &#x2192;</span></div>
-      </a>
-      <div class="trending-card-soon">
-        <div class="trending-card-soon-icon">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3v2M11 17v2M3 11H1M21 11h-2M5.22 5.22 3.81 3.81M18.19 18.19l-1.41-1.41M5.22 16.78l-1.41 1.41M18.19 3.81l-1.41 1.41" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round"/><circle cx="11" cy="11" r="4" stroke="#E8610A" stroke-width="1.8"/></svg>
-        </div>
-        <div class="trending-card-soon-label">Coming Soon</div>
-        <div class="trending-card-soon-title">More Articles on the Way</div>
-        <div class="trending-card-soon-desc">We publish new perspectives on 24/7 operations regularly. Subscribe to get them as soon as they drop.</div>
-        <div class="trending-card-soon-nl">
-          <input type="email" class="trending-card-soon-input" placeholder="your@company.com" id="soonNLEmail">
-          <button class="trending-card-soon-btn" id="soonNLBtn" onclick="soonNLSubmit()">Notify Me</button>
-        </div>
-        <div class="trending-card-soon-msg" id="soonNLMsg"></div>
+<section class="guides-section"><div class="guides-inner">
+  <div class="guides-header">
+    <div class="section-eyebrow">In-Depth Reference</div>
+    <div class="accent-heading">Complete Guides</div>
+    <p class="section-sub">Ten comprehensive guides covering every dimension of shift schedule design and management — each built from decades of hands-on consulting work.</p>
+  </div>
+  <div class="guides-grid">
+    <a href="/resources/shift-schedule-design-guide/" class="guide-card"><img src="/images/pillar_1.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">The Complete Guide to Shift Schedule Design</div><div class="guide-card-desc">Fixed vs. rotating, shift length, crew size, and cost structure — the foundational decisions that shape every 24/7 operation.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
+    <a href="/resources/shift-schedule-patterns-guide/" class="guide-card"><img src="/images/pillar_2.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">Shift Schedule Patterns &amp; Examples</div><div class="guide-card-desc">DuPont, Panama, 4-on/4-off, and more — a decision guide to the most common 24/7 patterns and the tradeoffs of each.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
+    <a href="/resources/equipment-utilization-shift-scheduling/" class="guide-card"><img src="/images/pillar_3.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">Maximizing Equipment Utilization</div><div class="guide-card-desc">How schedule design directly drives equipment uptime — and why most facilities leave significant capacity on the table.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
+    <a href="/resources/managing-variable-workloads/" class="guide-card"><img src="/images/pillar_4.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">Managing Variable Workloads</div><div class="guide-card-desc">Four proven strategies for matching staffing to fluctuating demand without overstaffing steady-state operations.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
+  </div>
+  <div class="guides-grid">
+    <a href="/resources/overtime-management-guide/" class="guide-card"><img src="/images/pillar_5.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">Overtime Management</div><div class="guide-card-desc">Strategy, distribution, and cost control — including why the true cost of overtime is far closer to straight time than most managers assume.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
+    <a href="/resources/schedule-change-management/" class="guide-card"><img src="/images/pillar_6.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">Schedule Change Management</div><div class="guide-card-desc">From planning to implementation — why well-designed changes fail and what communication and policy alignment actually require.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
+    <a href="/resources/employee-engagement-shift-work/" class="guide-card"><img src="/images/pillar_7.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">Building Employee Engagement</div><div class="guide-card-desc">What shift workers actually value — and why engagement strategies designed for offices consistently fail on the plant floor.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
+    <a href="/resources/shift-work-best-practices/" class="guide-card"><img src="/images/pillar_8.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">Operational Best Practices</div><div class="guide-card-desc">The management practices that separate high-performing 24/7 operations from average ones — built from hundreds of site assessments.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
+  </div>
+  <div class="guides-row3">
+    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="guide-cta-card" target="_blank" rel="noopener">
+      <div class="guide-cta-top">
+        <div class="guide-cta-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="#1F4E79" stroke-width="1.8"/><path d="M3 9h18" stroke="#1F4E79" stroke-width="1.8"/><path d="M8 2v4M16 2v4" stroke="#1F4E79" stroke-width="1.8" stroke-linecap="round"/><path d="M7 13h4M7 16h6" stroke="#E8610A" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <span class="guide-cta-label">Free Consultation</span>
+      </div>
+      <div class="guide-cta-body"><div class="guide-cta-title">Talk to a Shift Work Expert</div><div class="guide-cta-desc">Not sure where to start? Book a free conversation with our consulting team. No pitch — just a focused discussion of your operation.</div><span class="guide-cta-btn">Book a Free Meeting &#x2192;</span></div>
+    </a>
+    <a href="/resources/absenteeism-relief-coverage-management/" class="guide-card"><img src="/images/pillar_9.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">Managing Absenteeism &amp; Coverage Gaps</div><div class="guide-card-desc">How to build coverage systems that absorb routine absences without daily scrambles, mandatory holdovers, or chronic overtime.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
+    <a href="/resources/shift-work-policies-guide/" class="guide-card"><img src="/images/pillar_10.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">Shift Work Policies: Pay, Time-Off &amp; Compliance</div><div class="guide-card-desc">Why pay and time-off policies designed for 8-hour schedules break immediately on 12-hour or continuous operations.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
+    <a href="https://shift-work-diagnostic.onrender.com/" class="guide-cta-card" target="_blank" rel="noopener">
+      <div class="guide-cta-top">
+        <div class="guide-cta-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="13" rx="3" stroke="#1F4E79" stroke-width="1.8"/><circle cx="9" cy="11.5" r="1.5" fill="#1F4E79"/><circle cx="15" cy="11.5" r="1.5" fill="#1F4E79"/><path d="M8 3h8" stroke="#1F4E79" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <span class="guide-cta-label">AI Advisor</span>
+      </div>
+      <div class="guide-cta-body"><div class="guide-cta-title">Talk to Thomas</div><div class="guide-cta-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</div><span class="guide-cta-btn">Start a Conversation &#x2192;</span></div>
+    </a>
+  </div>
+</div></section>
+
+<section class="focused-section"><div class="focused-inner">
+  <div class="focused-header">
+    <div class="section-eyebrow">Targeted Perspectives</div>
+    <div class="accent-heading">Spotlight Articles</div>
+    <p class="section-sub">Targeted articles that go deep on a single issue — written for operations leaders who already know the problem and need the answer.</p>
+  </div>
+  <div class="focused-grid" id="focusedGrid">
+    <a href="/resources/support/scaling-production-quickly/" class="focused-card"><img src="/images/updown.jpg" alt="" class="focused-card-img"><div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">How to Scale Production Up or Down Rapidly</div><div class="focused-card-desc">Four strategies for matching staffing to demand swings — overtime, temporary labor, discretionary work, and time-off management.</div></div><div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div></a>
+    <a href="/resources/support/sleep-alertness-safety-shift-work/" class="focused-card"><img src="/images/Sleep.jpg" alt="" class="focused-card-img"><div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Sleep, Alertness &amp; Safety in Shift Operations</div><div class="focused-card-desc">How schedule design, shift length, and rotation patterns affect fatigue — and what that costs in safety and productivity.</div></div><div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div></a>
+    <a href="/resources/support/maintenance-worker-scheduling/" class="focused-card"><img src="/images/maintenance.jpg" alt="" class="focused-card-img"><div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Maintenance Workers: Unique Scheduling Considerations</div><div class="focused-card-desc">Why standard shift patterns consistently fail maintenance crews — and what approaches actually work.</div></div><div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div></a>
+    <a href="/resources/support/communicating-schedule-changes/" class="focused-card"><img src="/images/communicating.jpg" alt="" class="focused-card-img"><div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Communicating Major Schedule Changes</div><div class="focused-card-desc">Timing, channels, and messaging that reduce resistance — and the single most reliable predictor of whether a change will succeed.</div></div><div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div></a>
+    <a href="/resources/support/workforce-survey-analysis/" class="focused-card focused-hidden"><img src="/images/workforce.jpg" alt="" class="focused-card-img"><div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Survey Analysis: Understanding Workforce Needs</div><div class="focused-card-desc">How survey data corrects the systematic misperceptions managers have about what their workforce actually wants.</div></div><div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div></a>
+    <a href="/resources/support/balancing-business-employee-needs/" class="focused-card focused-hidden"><img src="/images/balancing.jpg" alt="" class="focused-card-img"><div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Balancing Business &amp; Employee Needs</div><div class="focused-card-desc">Why the best shift schedules satisfy both operational requirements and employee lifestyle needs — and how to find them.</div></div><div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div></a>
+    <a href="/resources/support/schedule-change-pitfalls/" class="focused-card focused-hidden"><img src="/images/up.jpg" alt="" class="focused-card-img"><div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Schedule Change Pitfalls: What to Avoid</div><div class="focused-card-desc">The predictable reasons well-designed schedule changes fail — poor communication, policy gaps, and inadequate notice.</div></div><div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div></a>
+  </div>
+  <div class="focused-show-more-wrap">
+    <button class="focused-show-more-btn" id="focusedShowMore" onclick="showMoreFocused()">Show More Articles &#x2193;</button>
+  </div>
+</div></section>
+
+<section class="trending-section"><div class="trending-inner">
+  <div class="trending-header">
+    <div class="section-eyebrow">What Operations Leaders Are Reading</div>
+    <div class="accent-heading">Trending Topics</div>
+    <p class="section-sub">Timely perspectives on workforce trends, economic shifts, and operational challenges facing 24/7 operations right now.</p>
+  </div>
+  <div class="trending-carousel-wrap">
+    <button class="carousel-arrow carousel-arrow-prev" id="carouselPrev" onclick="carouselMove(-1)" aria-label="Previous">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 4L6 9l5 5" stroke="#1F4E79" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <div class="trending-carousel-viewport" id="carouselViewport">
+      <div class="trending-carousel-track" id="carouselTrack">
+        <a href="/resources/32-hour-workweek-manufacturing/" class="trending-card"><img src="/images/32.jpg" alt="" class="trending-card-img"><div class="trending-card-body"><span class="trending-card-tag">Trending</span><div class="trending-card-title">The 32-Hour Workweek Movement Reaches Manufacturing</div><div class="trending-card-desc">What the push for shorter workweeks actually means for operations running continuous schedules.</div></div><div class="trending-card-footer"><span class="trending-card-read">Read &#x2192;</span></div></a>
+        <a href="/resources/tapping-untapped-workforce/" class="trending-card"><img src="/images/tapping.jpg" alt="" class="trending-card-img"><div class="trending-card-body"><span class="trending-card-tag">Trending</span><div class="trending-card-title">Tapping the Untapped Workforce</div><div class="trending-card-desc">How operations facing chronic staffing shortages are finding labor in overlooked populations.</div></div><div class="trending-card-footer"><span class="trending-card-read">Read &#x2192;</span></div></a>
+        <a href="/resources/management-by-walking-around/" class="trending-card"><img src="/images/walking.jpg" alt="" class="trending-card-img"><div class="trending-card-body"><span class="trending-card-tag">Trending</span><div class="trending-card-title">Management by Walking Around</div><div class="trending-card-desc">Why MBWA remains one of the most underused tools in shift operations — and how night shift visibility changes everything.</div></div><div class="trending-card-footer"><span class="trending-card-read">Read &#x2192;</span></div></a>
+        <a href="/resources/overtime-tax-break-businesses/" class="trending-card"><img src="/images/tax.jpg" alt="" class="trending-card-img"><div class="trending-card-body"><span class="trending-card-tag">Trending</span><div class="trending-card-title">The Overtime Tax Break for Businesses</div><div class="trending-card-desc">What recent overtime exemption proposals mean for companies running 24/7 — and whether the savings are straightforward.</div></div><div class="trending-card-footer"><span class="trending-card-read">Read &#x2192;</span></div></a>
+        <a href="/resources/reshoring-manufacturing-workforce/" class="trending-card"><img src="/images/reshoring.jpg" alt="" class="trending-card-img"><div class="trending-card-body"><span class="trending-card-tag">Trending</span><div class="trending-card-title">Reshoring and the Manufacturing Workforce</div><div class="trending-card-desc">As production returns to domestic soil, staffing and scheduling demands are catching many operators unprepared.</div></div><div class="trending-card-footer"><span class="trending-card-read">Read &#x2192;</span></div></a>
+        <a href="/resources/mixed-signals-economy/" class="trending-card"><img src="/images/mixed.jpg" alt="" class="trending-card-img"><div class="trending-card-body"><span class="trending-card-tag">Trending</span><div class="trending-card-title">Mixed Signals: Reading the Economy for Workforce Planning</div><div class="trending-card-desc">How to make sound staffing decisions when demand forecasts are contradicting each other.</div></div><div class="trending-card-footer"><span class="trending-card-read">Read &#x2192;</span></div></a>
+        <a href="/resources/schedule-looks-fine-on-paper/" class="trending-card"><img src="/images/onpaper.jpg" alt="" class="trending-card-img"><div class="trending-card-body"><span class="trending-card-tag">Trending</span><div class="trending-card-title">When Your Schedule Looks Fine on Paper</div><div class="trending-card-desc">The gap between a schedule that covers the shifts and one that actually works.</div></div><div class="trending-card-footer"><span class="trending-card-read">Read &#x2192;</span></div></a>
+        <div class="trending-card-soon"><div class="trending-card-soon-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3v2M11 17v2M3 11H1M21 11h-2M5.22 5.22 3.81 3.81M18.19 18.19l-1.41-1.41M5.22 16.78l-1.41 1.41M18.19 3.81l-1.41 1.41" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round"/><circle cx="11" cy="11" r="4" stroke="#E8610A" stroke-width="1.8"/></svg></div><div class="trending-card-soon-label">Coming Soon</div><div class="trending-card-soon-title">More Articles on the Way</div><div class="trending-card-soon-desc">We publish new perspectives on 24/7 operations regularly. Subscribe to get them as soon as they drop.</div><div class="trending-card-soon-nl"><input type="email" class="trending-card-soon-input" placeholder="your@company.com" id="soonNLEmail"><button class="trending-card-soon-btn" id="soonNLBtn" onclick="soonNLSubmit()">Notify Me</button></div><div class="trending-card-soon-msg" id="soonNLMsg"></div></div>
       </div>
     </div>
+    <button class="carousel-arrow carousel-arrow-next" id="carouselNext" onclick="carouselMove(1)" aria-label="Next">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 4l5 5-5 5" stroke="#1F4E79" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
   </div>
-</section>
+</div></section>
 
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
@@ -633,17 +430,93 @@
 </footer>
 
 <script>
-document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
-(function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};
-window.soonNLSubmit=function(){var btn=document.getElementById('soonNLBtn');var msg=document.getElementById('soonNLMsg');var email=document.getElementById('soonNLEmail').value.trim();if(!email){msg.className='trending-card-soon-msg err';msg.textContent='Please enter your email.';return;}btn.disabled=true;btn.textContent='...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-trending-soon'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='trending-card-soon-msg ok';msg.textContent='\u2713 You\u2019re on the list.';document.getElementById('soonNLEmail').value='';btn.textContent='\u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='trending-card-soon-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed!':'Try again.';btn.disabled=false;btn.textContent='Notify Me';});};
-})();
-</script>
-<script>
+/* Mobile nav */
+document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var o=n.style.display==='flex';if(o){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,.08)';n.style.zIndex='99';}});
+
+/* Newsletter */
 (function(){
-var ICONS={scaling:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 20l6-6 4 4 10-10" stroke="#E8610A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 8h6v6" stroke="#E8610A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',maintenance:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M16.5 4.5l7 7-2.5 2.5-7-7" stroke="#1F4E79" stroke-width="2" stroke-linecap="round"/><path d="M10 14l-5.5 5.5a2.1 2.1 0 003 3L13 17" stroke="#1F4E79" stroke-width="2"/><circle cx="17" cy="8" r="2" fill="#E8610A" opacity="0.5"/></svg>',sleep:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="16" r="8" stroke="#1F4E79" stroke-width="2"/><path d="M14 12v4l3 2" stroke="#E8610A" stroke-width="2" stroke-linecap="round"/><path d="M18 4l4 0M20 2l0 4" stroke="#1F4E79" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/></svg>',balance:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v20M6 10l8-4 8 4" stroke="#1F4E79" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 16c0 2 1.5 3.5 3 3.5s3-1.5 3-3.5L6 10 3 16zM19 16c0 2 1.5 3.5 3 3.5s3-1.5 3-3.5L22 10l-3 6z" stroke="#E8610A" stroke-width="1.5" fill="#E8610A" opacity="0.15"/></svg>',communicate:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="6" width="22" height="14" rx="3" stroke="#1F4E79" stroke-width="2"/><path d="M8 24l4-4h-2" stroke="#1F4E79" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 11h12M8 15h8" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round"/></svg>',survey:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="3" width="20" height="22" rx="2" stroke="#1F4E79" stroke-width="2"/><path d="M9 9h10M9 13h10M9 17h6" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round"/><circle cx="21" cy="21" r="5" fill="#E8610A" opacity="0.15" stroke="#E8610A" stroke-width="1.5"/><path d="M19.5 21l1 1 2-2.5" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',pitfalls:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4l12 20H2L14 4z" stroke="#E8610A" stroke-width="2" stroke-linejoin="round"/><path d="M14 12v5" stroke="#E8610A" stroke-width="2" stroke-linecap="round"/><circle cx="14" cy="20" r="1" fill="#E8610A"/></svg>',warning26:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="3" stroke="#1D9E75" stroke-width="2"/><path d="M9 10h10M9 14h10M9 18h6" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/><circle cx="22" cy="6" r="5" fill="#E8610A"/><text x="22" y="9" text-anchor="middle" fill="white" font-size="7" font-weight="bold" font-family="Arial">26</text></svg>',assessment:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="4" width="20" height="20" rx="10" stroke="#1D9E75" stroke-width="2"/><path d="M10 14l3 3 5-6" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',thomas:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="6" width="20" height="16" rx="4" stroke="#1D9E75" stroke-width="2"/><circle cx="11" cy="14" r="2" fill="#1D9E75"/><circle cx="17" cy="14" r="2" fill="#1D9E75"/><path d="M10 4h8" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"/></svg>'};
-var DATA={expanding:{heading:'Expanding Operations',sub:'Resources for moving to 24/7 coverage or adding shifts to an existing operation.',tiles:[{type:'guide',label:'Comprehensive Guide',title:'Complete Guide to Shift Schedule Design',desc:'The foundations of schedule design \u2014 fixed vs. rotating, shift length, cost structure, and why small decisions have large consequences.',url:'/resources/shift-schedule-design-guide/',img:'/images/pillar_1.jpg'},{type:'guide',label:'Comprehensive Guide',title:'Shift Schedule Patterns & Examples',desc:'DuPont, Panama, 4-on/4-off, and more \u2014 a decision guide to the most common 24/7 patterns and the tradeoffs of each.',url:'/resources/shift-schedule-patterns-guide/',img:'/images/pillar_2.jpg'},{type:'guide',label:'Comprehensive Guide',title:'Maximizing Equipment Utilization',desc:'How schedule design directly drives equipment uptime \u2014 and why most facilities leave 40% of their capacity on the table.',url:'/resources/equipment-utilization-shift-scheduling/',img:'/images/pillar_3.jpg'},{type:'focused',label:'Focused Topic',title:'How to Scale Production Up or Down Rapidly',desc:'Four strategies for matching staffing to demand swings.',url:'/resources/support/scaling-production-quickly/',icon:'scaling'},{type:'focused',label:'Focused Topic',title:'Maintenance Workers: Unique Scheduling Considerations',desc:'Why standard shift patterns consistently fail maintenance crews.',url:'/resources/support/maintenance-worker-scheduling/',icon:'maintenance'}]},performance:{heading:'Performance Problems',sub:'Resources for tackling overtime, coverage gaps, and productivity issues.',tiles:[{type:'guide',label:'Comprehensive Guide',title:'Overtime Management',desc:'Strategy, distribution, and cost control \u2014 including why the true cost of overtime is far closer to straight time than most managers assume.',url:'/resources/overtime-management-guide/',img:'/images/pillar_5.jpg'},{type:'guide',label:'Comprehensive Guide',title:'Managing Absenteeism & Coverage Gaps',desc:'How to build coverage systems that handle absences without daily scrambles.',url:'/resources/absenteeism-relief-coverage-management/',img:'/images/pillar_9.jpg'},{type:'guide',label:'Comprehensive Guide',title:'Managing Variable Workloads',desc:'Four proven strategies for matching staffing to fluctuating demand.',url:'/resources/managing-variable-workloads/',img:'/images/pillar_4.jpg'},{type:'focused',label:'Focused Topic',title:'Sleep, Alertness & Safety in Shift Operations',desc:'How schedule design, shift length, and rotation patterns affect fatigue.',url:'/resources/support/sleep-alertness-safety-shift-work/',icon:'sleep'},{type:'focused',label:'Focused Topic',title:'Balancing Business & Employee Needs',desc:'Why the best shift schedules satisfy both operational requirements and employee lifestyle needs.',url:'/resources/support/balancing-business-employee-needs/',icon:'balance'}]},workforce:{heading:'Workforce & Retention',sub:'Resources for improving engagement, managing change, and reducing turnover.',tiles:[{type:'guide',label:'Comprehensive Guide',title:'Building Employee Engagement',desc:'What shift workers actually value \u2014 and why engagement strategies designed for offices consistently fail on the plant floor.',url:'/resources/employee-engagement-shift-work/',img:'/images/pillar_7.jpg'},{type:'guide',label:'Comprehensive Guide',title:'Schedule Change Management',desc:'From planning to implementation \u2014 why well-designed changes fail and what communication and policy alignment actually require.',url:'/resources/schedule-change-management/',img:'/images/pillar_6.jpg'},{type:'guide',label:'Comprehensive Guide',title:'Shift Work Policies: Pay, Time-Off & Compliance',desc:'Why pay and time-off policies designed for 8-hour schedules break immediately on 12-hour or continuous operations.',url:'/resources/shift-work-policies-guide/',img:'/images/pillar_10.jpg'},{type:'focused',label:'Focused Topic',title:'Communicating Major Schedule Changes',desc:'Timing, channels, and messaging that reduce resistance.',url:'/resources/support/communicating-schedule-changes/',icon:'communicate'},{type:'focused',label:'Focused Topic',title:'Survey Analysis: Understanding Workforce Needs',desc:'How survey data corrects the systematic misperceptions managers have about what their workforce actually wants.',url:'/resources/support/workforce-survey-analysis/',icon:'survey'},{type:'focused',label:'Focused Topic',title:'Schedule Change Pitfalls: What to Avoid',desc:'The predictable reasons well-designed schedule changes fail.',url:'/resources/support/schedule-change-pitfalls/',icon:'pitfalls'}]},unsure:{heading:'Not Sure Where to Start?',sub:'Start with a diagnostic. These tools are designed to orient you before you commit to a direction.',tiles:[{type:'tool',label:'Diagnostic Tool',title:'26 Warning Signs Your Schedule Needs Attention',desc:'A checklist built from hundreds of operations assessments. See how many apply to you.',url:'/resources/26-warning-signs-schedule-problems/',icon:'warning26'},{type:'tool',label:'Online Assessment',title:'Free Shiftwork Assessment',desc:'Answer a short set of questions and get an immediate evaluation of your operation.',url:'/resources/shiftwork-assessment/',icon:'assessment'},{type:'tool',label:'AI Advisor',title:'Talk to Thomas \u2014 AI Shift Advisor',desc:'Got a question about your operation? Thomas is available now, no appointment needed.',url:'https://shift-work-diagnostic.onrender.com/',icon:'thomas',external:true}]}};
-var currentInterest=null;
-window.selectInterest=function(btn){var interest=btn.getAttribute('data-interest');if(interest===currentInterest)return;currentInterest=interest;var all=document.querySelectorAll('.interest-btn');for(var i=0;i<all.length;i++)all[i].classList.remove('active');btn.classList.add('active');var data=DATA[interest];var area=document.getElementById('resultArea');document.getElementById('resultHeading').textContent=data.heading;document.getElementById('resultSub').textContent=data.sub;var html='';for(var i=0;i<data.tiles.length;i++){var t=data.tiles[i];var target=t.external?' target="_blank" rel="noopener"':'';var delay=i*0.06;html+='<a href="'+t.url+'" class="result-card" style="animation-delay:'+delay+'s;"'+target+'>';if(t.img){html+='<img src="'+t.img+'" alt="" class="result-card-img">';}else if(t.icon&&ICONS[t.icon]){html+='<div class="result-card-icon">'+ICONS[t.icon]+'</div>';}html+='<div class="result-card-body"><span class="result-card-tag '+t.type+'">'+t.label+'</span><div class="result-card-title">'+t.title+'</div><div class="result-card-desc">'+t.desc+'</div></div><div class="result-card-arrow">&#x2192;</div></a>';}document.getElementById('resultList').innerHTML=html;area.classList.remove('visible');area.style.display='none';void area.offsetWidth;area.style.display='';area.classList.add('visible');setTimeout(function(){area.scrollIntoView({behavior:'smooth',block:'start'});},80);};
+var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
+window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn'),msg=document.getElementById('engageNLMsg'),email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};
+window.soonNLSubmit=function(){var btn=document.getElementById('soonNLBtn'),msg=document.getElementById('soonNLMsg'),email=document.getElementById('soonNLEmail').value.trim();if(!email){msg.className='trending-card-soon-msg err';msg.textContent='Please enter your email.';return;}btn.disabled=true;btn.textContent='...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-trending-soon'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='trending-card-soon-msg ok';msg.textContent='\u2713 You\u2019re on the list.';document.getElementById('soonNLEmail').value='';btn.textContent='\u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='trending-card-soon-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed!':'Try again.';btn.disabled=false;btn.textContent='Notify Me';});};
+})();
+
+/* Show More Focused */
+window.showMoreFocused=function(){
+  document.querySelectorAll('.focused-card.focused-hidden').forEach(function(c){c.classList.remove('focused-hidden');c.style.animation='fadeUp .35s ease both';});
+  document.getElementById('focusedShowMore').classList.add('hidden');
+};
+
+/* Infinite Carousel */
+(function(){
+  var track=document.getElementById('carouselTrack');
+  var viewport=document.getElementById('carouselViewport');
+  if(!track||!viewport)return;
+  var origCards=Array.from(track.children);
+  var total=origCards.length;
+  var idx=0;
+
+  /* Clone all for infinite illusion */
+  origCards.forEach(function(c){var cl=c.cloneNode(true);cl.setAttribute('aria-hidden','true');track.appendChild(cl);});
+
+  function visibleCount(){
+    var w=window.innerWidth;
+    if(w<=640)return 1;
+    if(w<=960)return 2;
+    return 4;
+  }
+
+  function cardW(){
+    var vis=visibleCount(),gap=18,vw=viewport.offsetWidth;
+    return (vw-gap*(vis-1))/vis+gap;
+  }
+
+  function go(animate){
+    var offset=idx*cardW();
+    if(!animate){track.style.transition='none';track.style.transform='translateX(-'+offset+'px)';void track.offsetWidth;track.style.transition='';}
+    else{track.style.transition='transform .4s ease';track.style.transform='translateX(-'+offset+'px)';}
+  }
+
+  window.carouselMove=function(dir){
+    idx+=dir;
+    if(idx>=total){
+      track.style.transition='transform .4s ease';
+      go(true);
+      setTimeout(function(){idx-=total;go(false);},420);
+      return;
+    }
+    if(idx<0){idx+=total;go(false);idx+=dir;}
+    go(true);
+  };
+
+  window.addEventListener('resize',function(){go(false);});
+  go(false);
+})();
+
+/* Interest buttons */
+(function(){
+var ICONS={scaling:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 20l6-6 4 4 10-10" stroke="#E8610A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 8h6v6" stroke="#E8610A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',maintenance:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M16.5 4.5l7 7-2.5 2.5-7-7" stroke="#1F4E79" stroke-width="2" stroke-linecap="round"/><path d="M10 14l-5.5 5.5a2.1 2.1 0 003 3L13 17" stroke="#1F4E79" stroke-width="2"/><circle cx="17" cy="8" r="2" fill="#E8610A" opacity="0.5"/></svg>',sleep:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="16" r="8" stroke="#1F4E79" stroke-width="2"/><path d="M14 12v4l3 2" stroke="#E8610A" stroke-width="2" stroke-linecap="round"/></svg>',balance:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v20M6 10l8-4 8 4" stroke="#1F4E79" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',communicate:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="6" width="22" height="14" rx="3" stroke="#1F4E79" stroke-width="2"/><path d="M8 11h12M8 15h8" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round"/></svg>',survey:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="3" width="20" height="22" rx="2" stroke="#1F4E79" stroke-width="2"/><path d="M9 9h10M9 13h10M9 17h6" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round"/></svg>',pitfalls:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4l12 20H2L14 4z" stroke="#E8610A" stroke-width="2" stroke-linejoin="round"/><path d="M14 12v5" stroke="#E8610A" stroke-width="2" stroke-linecap="round"/><circle cx="14" cy="20" r="1" fill="#E8610A"/></svg>',warning26:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="3" stroke="#1D9E75" stroke-width="2"/><path d="M9 10h10M9 14h10M9 18h6" stroke="#1D9E75" stroke-width="1.5" stroke-linecap="round"/><circle cx="22" cy="6" r="5" fill="#E8610A"/><text x="22" y="9" text-anchor="middle" fill="white" font-size="7" font-weight="bold" font-family="Arial">26</text></svg>',assessment:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="4" width="20" height="20" rx="10" stroke="#1D9E75" stroke-width="2"/><path d="M10 14l3 3 5-6" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',thomas:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="6" width="20" height="16" rx="4" stroke="#1D9E75" stroke-width="2"/><circle cx="11" cy="14" r="2" fill="#1D9E75"/><circle cx="17" cy="14" r="2" fill="#1D9E75"/><path d="M10 4h8" stroke="#1D9E75" stroke-width="2" stroke-linecap="round"/></svg>'};
+var DATA={expanding:{heading:'Expanding Operations',sub:'Resources for moving to 24/7 coverage or adding shifts to an existing operation.',tiles:[{type:'guide',label:'Comprehensive Guide',title:'Complete Guide to Shift Schedule Design',desc:'The foundations — fixed vs. rotating, shift length, cost structure, and why small decisions have large consequences.',url:'/resources/shift-schedule-design-guide/',img:'/images/pillar_1.jpg'},{type:'guide',label:'Comprehensive Guide',title:'Shift Schedule Patterns & Examples',desc:'DuPont, Panama, 4-on/4-off, and more — a decision guide to the most common 24/7 patterns and their tradeoffs.',url:'/resources/shift-schedule-patterns-guide/',img:'/images/pillar_2.jpg'},{type:'guide',label:'Comprehensive Guide',title:'Maximizing Equipment Utilization',desc:'How schedule design directly drives equipment uptime — and why most facilities leave significant capacity on the table.',url:'/resources/equipment-utilization-shift-scheduling/',img:'/images/pillar_3.jpg'},{type:'focused',label:'Focused Topic',title:'How to Scale Production Up or Down Rapidly',desc:'Four strategies for matching staffing to demand swings.',url:'/resources/support/scaling-production-quickly/',icon:'scaling'},{type:'focused',label:'Focused Topic',title:'Maintenance Workers: Unique Scheduling Considerations',desc:'Why standard shift patterns consistently fail maintenance crews.',url:'/resources/support/maintenance-worker-scheduling/',icon:'maintenance'}]},performance:{heading:'Performance Problems',sub:'Resources for tackling overtime, coverage gaps, and productivity issues.',tiles:[{type:'guide',label:'Comprehensive Guide',title:'Overtime Management',desc:'Strategy, distribution, and cost control — including why the true cost of overtime is far closer to straight time than most managers assume.',url:'/resources/overtime-management-guide/',img:'/images/pillar_5.jpg'},{type:'guide',label:'Comprehensive Guide',title:'Managing Absenteeism & Coverage Gaps',desc:'How to build coverage systems that handle absences without daily scrambles.',url:'/resources/absenteeism-relief-coverage-management/',img:'/images/pillar_9.jpg'},{type:'guide',label:'Comprehensive Guide',title:'Managing Variable Workloads',desc:'Four proven strategies for matching staffing to fluctuating demand.',url:'/resources/managing-variable-workloads/',img:'/images/pillar_4.jpg'},{type:'focused',label:'Focused Topic',title:'Sleep, Alertness & Safety in Shift Operations',desc:'How schedule design, shift length, and rotation patterns affect fatigue.',url:'/resources/support/sleep-alertness-safety-shift-work/',icon:'sleep'},{type:'focused',label:'Focused Topic',title:'Balancing Business & Employee Needs',desc:'Why the best shift schedules satisfy both operational requirements and employee lifestyle needs.',url:'/resources/support/balancing-business-employee-needs/',icon:'balance'}]},workforce:{heading:'Workforce & Retention',sub:'Resources for improving engagement, managing change, and reducing turnover.',tiles:[{type:'guide',label:'Comprehensive Guide',title:'Building Employee Engagement',desc:'What shift workers actually value — and why engagement strategies designed for offices fail on the plant floor.',url:'/resources/employee-engagement-shift-work/',img:'/images/pillar_7.jpg'},{type:'guide',label:'Comprehensive Guide',title:'Schedule Change Management',desc:'From planning to implementation — why well-designed changes fail and what communication and policy alignment actually require.',url:'/resources/schedule-change-management/',img:'/images/pillar_6.jpg'},{type:'guide',label:'Comprehensive Guide',title:'Shift Work Policies: Pay, Time-Off & Compliance',desc:'Why pay and time-off policies designed for 8-hour schedules break on 12-hour or continuous operations.',url:'/resources/shift-work-policies-guide/',img:'/images/pillar_10.jpg'},{type:'focused',label:'Focused Topic',title:'Communicating Major Schedule Changes',desc:'Timing, channels, and messaging that reduce resistance.',url:'/resources/support/communicating-schedule-changes/',icon:'communicate'},{type:'focused',label:'Focused Topic',title:'Survey Analysis: Understanding Workforce Needs',desc:'How survey data corrects the systematic misperceptions managers have about what their workforce actually wants.',url:'/resources/support/workforce-survey-analysis/',icon:'survey'},{type:'focused',label:'Focused Topic',title:'Schedule Change Pitfalls: What to Avoid',desc:'The predictable reasons well-designed schedule changes fail.',url:'/resources/support/schedule-change-pitfalls/',icon:'pitfalls'}]},unsure:{heading:'Not Sure Where to Start?',sub:'Start with a diagnostic. These tools are designed to orient you before you commit to a direction.',tiles:[{type:'tool',label:'Diagnostic Tool',title:'26 Warning Signs Your Schedule Needs Attention',desc:'A checklist built from hundreds of operations assessments. See how many apply to you.',url:'/resources/26-warning-signs-schedule-problems/',icon:'warning26'},{type:'tool',label:'Online Assessment',title:'Free Shiftwork Assessment',desc:'Answer a short set of questions and get an immediate evaluation of your operation.',url:'/resources/shiftwork-assessment/',icon:'assessment'},{type:'tool',label:'AI Advisor',title:'Talk to Thomas \u2014 AI Shift Advisor',desc:'Got a question about your operation? Thomas is available now, no appointment needed.',url:'https://shift-work-diagnostic.onrender.com/',icon:'thomas',external:true}]}};
+var cur=null;
+window.selectInterest=function(btn){
+  var interest=btn.getAttribute('data-interest');
+  if(interest===cur)return;cur=interest;
+  document.querySelectorAll('.interest-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  var d=DATA[interest],area=document.getElementById('resultArea');
+  document.getElementById('resultHeading').textContent=d.heading;
+  document.getElementById('resultSub').textContent=d.sub;
+  var html='';
+  d.tiles.forEach(function(t,i){
+    var tgt=t.external?' target="_blank" rel="noopener"':'';
+    html+='<a href="'+t.url+'" class="result-card" style="animation-delay:'+(i*.06)+'s;"'+tgt+'>';
+    if(t.img)html+='<img src="'+t.img+'" alt="" class="result-card-img">';
+    else if(t.icon&&ICONS[t.icon])html+='<div class="result-card-icon">'+ICONS[t.icon]+'</div>';
+    html+='<div class="result-card-body"><span class="result-card-tag '+t.type+'">'+t.label+'</span><div class="result-card-title">'+t.title+'</div><div class="result-card-desc">'+t.desc+'</div></div><div class="result-card-arrow">&#x2192;</div></a>';
+  });
+  document.getElementById('resultList').innerHTML=html;
+  area.classList.remove('visible');area.style.display='none';void area.offsetWidth;area.style.display='';area.classList.add('visible');
+  setTimeout(function(){area.scrollIntoView({behavior:'smooth',block:'start'});},80);
+};
 })();
 </script>
 </body>
