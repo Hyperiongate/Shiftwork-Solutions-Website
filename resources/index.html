@@ -40,6 +40,12 @@
                  .focused-card-img and .trending-card-img classes added.
                  Section background: Focused = light-grey, Trending = white
                  (maintains alternating rhythm with Guides = white above).
+    2026-04-16 — UPDATED: Trending Topics row 2, slot 4 (was AI.jpg card) replaced
+                 with "More Coming Soon" placeholder card. AI article moved to
+                 row 2 slot 3; onpaper remains slot 2. Coming-soon card is a
+                 non-linked div styled with navy background, newsletter CTA,
+                 and .trending-card-soon CSS class. Sleep.jpg confirmed correct
+                 on focused sleep card (no change needed).
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
@@ -208,6 +214,21 @@
     .trending-card-footer{padding:10px 14px 12px;border-top:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between}
     .trending-card-read{font-size:12px;font-weight:700;color:var(--orange);text-decoration:none;transition:color .15s;display:flex;align-items:center;gap:4px}
     .trending-card:hover .trending-card-read{color:var(--navy)}
+    /* Coming-soon placeholder card */
+    .trending-card-soon{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--navy-dark);border:1px solid var(--navy-dark);border-top:4px solid var(--orange);border-radius:8px;overflow:hidden;padding:28px 20px;min-height:260px}
+    .trending-card-soon-icon{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
+    .trending-card-soon-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);margin-bottom:10px}
+    .trending-card-soon-title{font-size:15px;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:10px}
+    .trending-card-soon-desc{font-size:12px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:18px}
+    .trending-card-soon-nl{display:flex;gap:6px;width:100%;flex-wrap:wrap;justify-content:center}
+    .trending-card-soon-input{flex:1;min-width:0;padding:8px 10px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:12px;outline:none;transition:border-color .15s}
+    .trending-card-soon-input::placeholder{color:rgba(255,255,255,.4)}
+    .trending-card-soon-input:focus{border-color:var(--orange)}
+    .trending-card-soon-btn{padding:8px 14px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:12px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
+    .trending-card-soon-btn:hover{background:#c4510a}
+    .trending-card-soon-btn:disabled{opacity:.5;cursor:not-allowed}
+    .trending-card-soon-msg{font-size:11px;margin-top:6px;min-height:14px;width:100%;text-align:center}
+    .trending-card-soon-msg.ok{color:#6ee7b7}.trending-card-soon-msg.err{color:#fca5a5}
 
     /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
@@ -575,11 +596,19 @@
         <div class="trending-card-body"><span class="trending-card-tag">Trending</span><div class="trending-card-title">When Your Schedule Looks Fine on Paper</div><div class="trending-card-desc">The gap between a schedule that covers the shifts and one that actually works.</div></div>
         <div class="trending-card-footer"><span class="trending-card-read">Read article &#x2192;</span></div>
       </a>
-      <a href="/resources/ai-on-the-plant-floor/" class="trending-card">
-        <img src="/images/AI.jpg" alt="AI on the Plant Floor" class="trending-card-img">
-        <div class="trending-card-body"><span class="trending-card-tag">Trending</span><div class="trending-card-title">AI on the Plant Floor</div><div class="trending-card-desc">Where artificial intelligence is genuinely changing shift operations — and where the hype is running ahead of reality.</div></div>
-        <div class="trending-card-footer"><span class="trending-card-read">Read article &#x2192;</span></div>
-      </a>
+      <div class="trending-card-soon">
+        <div class="trending-card-soon-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3v2M11 17v2M3 11H1M21 11h-2M5.22 5.22 3.81 3.81M18.19 18.19l-1.41-1.41M5.22 16.78l-1.41 1.41M18.19 3.81l-1.41 1.41" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round"/><circle cx="11" cy="11" r="4" stroke="#E8610A" stroke-width="1.8"/></svg>
+        </div>
+        <div class="trending-card-soon-label">Coming Soon</div>
+        <div class="trending-card-soon-title">More Articles on the Way</div>
+        <div class="trending-card-soon-desc">We publish new perspectives on 24/7 operations regularly. Subscribe to get them as soon as they drop.</div>
+        <div class="trending-card-soon-nl">
+          <input type="email" class="trending-card-soon-input" placeholder="your@company.com" id="soonNLEmail">
+          <button class="trending-card-soon-btn" id="soonNLBtn" onclick="soonNLSubmit()">Notify Me</button>
+        </div>
+        <div class="trending-card-soon-msg" id="soonNLMsg"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -605,7 +634,9 @@
 
 <script>
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
-(function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
+(function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};
+window.soonNLSubmit=function(){var btn=document.getElementById('soonNLBtn');var msg=document.getElementById('soonNLMsg');var email=document.getElementById('soonNLEmail').value.trim();if(!email){msg.className='trending-card-soon-msg err';msg.textContent='Please enter your email.';return;}btn.disabled=true;btn.textContent='...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-trending-soon'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='trending-card-soon-msg ok';msg.textContent='\u2713 You\u2019re on the list.';document.getElementById('soonNLEmail').value='';btn.textContent='\u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='trending-card-soon-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed!':'Try again.';btn.disabled=false;btn.textContent='Notify Me';});};
+})();
 </script>
 <script>
 (function(){
