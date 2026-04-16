@@ -5,47 +5,20 @@
   URL: /industries/manufacturing-assembly-operations/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-14
-
-  SOURCE DOC: manufacturing_shift_scheduling_v3_by_Sonnet_JD_03_26.docx
-  CATEGORY: Industry Pages
+  Last Updated: 2026-04-16
 
   CHANGE LOG:
     2026-04-04 — Initial build from source Word doc.
     2026-04-04 — NAV + BUTTON + SEO AUDIT.
-    2026-04-13 — Hero image corrected: shutterstock_1497086771.jpg → manufacturing.jpg
-                 to match the Manufacturing tile image on the Industries hub page.
-    2026-04-13 — TEMPLATE v2 REBUILD:
-                 Full redesign to match chemical-pharmaceutical template v2.
-                 Hero: cover/center gradient overlay, white subtitle text.
-                 Client strip: navy marquee with scrolling names.
-                 Pull quotes: flex layout, oversized left quote mark (Georgia),
-                   17px bold navy italic. TWO pull quotes: Dan Capshaw + Jim Dillingham.
-                 Callout box: light-grey bg, navy left border.
-                 Insight cards: transparent bg, border-top only, colored titles.
-                 FAQs: accordion with light-grey wrapper, white panels.
-                 Next Steps: dark navy animated cards (IntersectionObserver).
-                 Footer: 3-col prefooter dark navy, "Start a Conversation" capitalized.
-                 Nav: "Our Company" label (points to /why-us/), Contact added.
-                 Removed: cta-section, engage-band, inline-cta blocks.
-    2026-04-14 — FAQ SECTION REDESIGN:
-                 Removed side-by-side image+FAQ layout.
-                 New: full-width container with "Hands_in_the_air.jpg" as locked
-                 background image. Option B dark-edge radial vignette overlay
-                 (navy #0D1F3C, dark on edges/corners, visible in center).
-                 FAQ question rows sit directly on the image.
-                 Expanded answer panels render on white background for readability.
-                 Mobile: stacks gracefully, image scales to container.
+    2026-04-13 — Hero image corrected to manufacturing.jpg. TEMPLATE v2 REBUILD.
+    2026-04-14 — FAQ section: full-bleed Hands_in_the_air.jpg background.
+    2026-04-16 — NAV FIXES: logo src -> clear_bkgr_logo_2.png (underscores);
+                 SHIFTWORK SOLUTIONS text added; nav links font-size -> 20px;
+                 "Our Company" label -> "Why Us" (href /why-us/ unchanged).
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/manufacturing.jpg
   FAQ IMAGE:  /images/Hands_in_the_air.jpg
-  BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
-  DESIGN SYSTEM:
-    --navy:#1F4E79  --navy-dark:#0D1F3C  --mid-blue:#85B7EB
-    --light-blue:#EEF3F8  --orange:#E8610A  --green:#1D9E75
-    --body-text:#1A1A1A  --max-width:860px
-    Font: Arial, Helvetica, sans-serif
 -->
 <html lang="en">
 <head>
@@ -70,10 +43,11 @@
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo img{height:36px;width:auto;display:block}
-    .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0}
+    .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0;display:flex;align-items:center;gap:12px}
+    .nav-logo-text{font-family:Arial,sans-serif;font-size:20px;font-weight:700;color:#1F4E79;letter-spacing:.03em;line-height:1}
     .nav-links{list-style:none;display:flex;align-items:center}
     .nav-links>li{position:relative}
-    .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
+    .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:20px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
     .nav-links>li>a:hover,.nav-links>li>a.nav-active{color:var(--navy)}
     .nav-links>li>a.nav-active{font-weight:700;text-decoration:underline;text-underline-offset:3px}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
@@ -81,8 +55,6 @@
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-
-    /* HERO */
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:url('/images/manufacturing.jpg') center center / cover no-repeat;opacity:1;z-index:0}
     .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,0.88) 0%,rgba(31,78,121,0.75) 55%,rgba(31,78,121,0.35) 100%);z-index:0}
@@ -90,15 +62,11 @@
     .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:#EEAE26;max-width:600px;margin-bottom:14px}
     .hero-subtitle{font-size:16px;line-height:1.65;color:rgba(255,255,255,0.88);max-width:560px}
     .hero-tag{display:inline-block;margin-top:16px;background:rgba(232,97,10,0.9);color:var(--white);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 12px;border-radius:3px}
-
-    /* BREADCRUMB */
     .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
     .breadcrumb-inner a{color:var(--navy);text-decoration:none}
     .breadcrumb-inner a:hover{text-decoration:underline}
     .breadcrumb-inner span{margin:0 6px;opacity:.5}
-
-    /* ARTICLE */
     .article-wrap{max-width:var(--max-width);margin:0 auto;padding:48px var(--page-pad) 56px}
     .article-meta{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border-light);flex-wrap:wrap}
     .meta-tag{display:inline-block;background:var(--light-blue);color:var(--navy);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:3px}
@@ -106,8 +74,6 @@
     .article-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin:36px 0 14px}
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
     .article-wrap p:last-child{margin-bottom:0}
-
-    /* CLIENT STRIP */
     .client-strip{background:var(--navy);border-radius:8px;margin:32px 0;padding:0;overflow:hidden;position:relative}
     .client-strip-intro{font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:.08em;padding:16px 24px 0;text-align:center}
     .client-strip-scroll{padding:14px 0 16px;overflow:hidden;position:relative}
@@ -118,19 +84,13 @@
     @keyframes clientScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     .client-tag{display:inline-block;padding:8px 28px;font-size:14px;font-weight:700;color:rgba(255,255,255,0.85);white-space:nowrap;letter-spacing:.02em}
     .client-tag-sep{display:inline-block;color:rgba(232,97,10,0.7);font-size:18px;line-height:1;padding:0 2px;vertical-align:middle}
-
-    /* PULL QUOTES */
     .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:center;gap:16px}
     .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
     .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
     .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
-
-    /* CALLOUT BOX */
     .callout-box{background:linear-gradient(to right,#E4E7EB,var(--white) 40%,var(--white) 60%,#E4E7EB);border-radius:6px;padding:22px 28px;margin:32px 0;text-align:center}
     .callout-box p{font-size:16px;line-height:1.6;color:var(--body-text);font-weight:400;margin:0;font-style:normal}
-
-    /* INSIGHT CARDS */
     .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
     .insight-card{background:transparent;border-top:3px solid var(--border-med);border-radius:0;padding:20px 18px 20px 0;transition:transform .2s ease}
     .insight-card:hover{transform:scale(1.04)}
@@ -139,136 +99,23 @@
     .insight-card:nth-child(3) .ic-title{color:var(--green)}
     .insight-card .ic-title{font-size:14px;font-weight:700;margin-bottom:8px;line-height:1.3}
     .insight-card .ic-text{font-size:13px;color:var(--muted);line-height:1.6;font-weight:400}
-
-    /* =====================================================
-       FAQ SECTION — redesigned 2026-04-14
-       Full-width container. Background: "Hands_in_the_air.jpg"
-       locked (no-repeat, cover, center). Option B overlay:
-       radial-gradient dark on edges, visible in the center.
-       Question rows are transparent on the image.
-       Expanded answer panels use white background.
-    ===================================================== */
-    .faq-section{
-      position:relative;
-      overflow:hidden;
-      margin:40px 0;
-      /* Break out of article-wrap max-width to go full bleed */
-      left:50%;
-      right:50%;
-      margin-left:calc(-50vw + 0px);
-      margin-right:calc(-50vw + 0px);
-      width:100vw;
-    }
-    .faq-bg{
-      position:absolute;
-      inset:0;
-      background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;
-      z-index:0;
-    }
-    /* Option B: dark on edges, lighter in center — image most visible center */
-    .faq-overlay{
-      position:absolute;
-      inset:0;
-      background:radial-gradient(ellipse at center,
-        rgba(13,31,60,0.10) 0%,
-        rgba(13,31,60,0.45) 50%,
-        rgba(13,31,60,0.88) 100%
-      );
-      z-index:1;
-    }
-    .faq-inner{
-      position:relative;
-      z-index:2;
-      max-width:860px;
-      margin:0 auto;
-      padding:52px 24px 56px;
-    }
-    .faq-inner h2{
-      font-size:22px;
-      font-weight:700;
-      color:#EEAE26;
-      margin-bottom:28px;
-      text-shadow:0 1px 6px rgba(0,0,0,0.5);
-    }
-    .faq-item{
-      margin-bottom:6px;
-    }
-    .faq-toggle{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      width:100%;
-      background:var(--navy);
-      border:1px solid rgba(255,255,255,0.18);
-      border-radius:6px;
-      cursor:pointer;
-      padding:16px 18px;
-      text-align:left;
-      gap:16px;
-      transition:background .2s ease;
-    }
-    .faq-toggle:hover{
-      background:#1a4268;
-    }
-    .faq-item.faq-open .faq-toggle{
-      border-radius:6px 6px 0 0;
-      background:var(--navy);
-      border-bottom-color:transparent;
-    }
-    .faq-q{
-      font-size:15px;
-      font-weight:700;
-      color:#fff;
-      line-height:1.4;
-      flex:1;
-      text-shadow:0 1px 4px rgba(0,0,0,0.4);
-    }
-    .faq-icon{
-      flex-shrink:0;
-      width:22px;
-      height:22px;
-      border-radius:50%;
-      border:2px solid rgba(255,255,255,0.6);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      transition:transform .25s ease, background .2s ease, border-color .2s ease;
-    }
-    .faq-icon svg{
-      width:10px;
-      height:10px;
-      fill:rgba(255,255,255,0.8);
-      transition:transform .25s ease;
-    }
-    .faq-item.faq-open .faq-icon{
-      background:var(--orange);
-      border-color:var(--orange);
-    }
-    .faq-item.faq-open .faq-icon svg{
-      fill:#fff;
-      transform:rotate(180deg);
-    }
-    /* Answer panel: white background, full opacity */
-    .faq-body{
-      overflow:hidden;
-      max-height:0;
-      transition:max-height .38s ease, padding .25s ease;
-    }
-    .faq-item.faq-open .faq-body{
-      max-height:800px;
-    }
-    .faq-a{
-      font-size:14px;
-      color:var(--body-text);
-      line-height:1.75;
-      padding:20px 22px 22px;
-      background:#fff;
-      border:1px solid rgba(255,255,255,0.18);
-      border-top:none;
-      border-radius:0 0 6px 6px;
-    }
-
-    /* NEXT STEPS */
+    .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
+    .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
+    .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
+    .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:52px 24px 56px}
+    .faq-inner h2{font-size:22px;font-weight:700;color:#EEAE26;margin-bottom:28px;text-shadow:0 1px 6px rgba(0,0,0,0.5)}
+    .faq-item{margin-bottom:6px}
+    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--navy);border:1px solid rgba(255,255,255,0.18);border-radius:6px;cursor:pointer;padding:16px 18px;text-align:left;gap:16px;transition:background .2s ease}
+    .faq-toggle:hover{background:#1a4268}
+    .faq-item.faq-open .faq-toggle{border-radius:6px 6px 0 0;background:var(--navy);border-bottom-color:transparent}
+    .faq-q{font-size:15px;font-weight:700;color:#fff;line-height:1.4;flex:1;text-shadow:0 1px 4px rgba(0,0,0,0.4)}
+    .faq-icon{flex-shrink:0;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .2s ease,border-color .2s ease}
+    .faq-icon svg{width:10px;height:10px;fill:rgba(255,255,255,0.8);transition:transform .25s ease}
+    .faq-item.faq-open .faq-icon{background:var(--orange);border-color:var(--orange)}
+    .faq-item.faq-open .faq-icon svg{fill:#fff;transform:rotate(180deg)}
+    .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease,padding .25s ease}
+    .faq-item.faq-open .faq-body{max-height:800px}
+    .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
     .next-steps{padding:56px var(--page-pad) 60px;background:var(--navy);position:relative;overflow:hidden}
     .next-steps::before{content:'';position:absolute;width:480px;height:480px;border-radius:50%;border:1px solid rgba(255,255,255,0.06);top:-160px;right:-160px;pointer-events:none}
     .next-steps::after{content:'';position:absolute;width:300px;height:300px;border-radius:50%;border:1px solid rgba(232,97,10,0.10);bottom:-100px;left:-80px;pointer-events:none}
@@ -302,8 +149,6 @@
     .ns-phone{margin-top:28px;font-size:13px;color:rgba(255,255,255,0.55);text-align:center}
     .ns-phone a{color:var(--white);text-decoration:none;font-weight:700}
     .ns-phone a:hover{color:var(--mid-blue)}
-
-    /* FOOTER */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -337,41 +182,13 @@
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-
-    /* LISTEN BUTTON */
     .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
     .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
-
-    /* RESPONSIVE */
-    @media(max-width:760px){
-      .insight-cards{grid-template-columns:1fr 1fr}
-      .ns-cards{grid-template-columns:1fr}
-      .footer-content-row{grid-template-columns:1fr}
-      .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
-      .footer-col-3{border-bottom:none;padding-bottom:0}
-      .footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}
-      .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}
-      .faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}
-    }
-    @media(max-width:640px){
-      .nav-links{display:none}
-      .nav-cta-wrap{display:none}
-      .mobile-toggle{display:block}
-      .hero{padding:32px 20px 36px}
-      .hero h1{font-size:22px}
-      .article-wrap{padding:32px 20px 40px}
-      .insight-cards{grid-template-columns:1fr}
-      .footer-prefooter{padding:32px 20px}
-      .footer-bottom{padding:14px 20px}
-      .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
-      .footer-bottom-left{justify-content:center}
-      .next-steps{padding:40px 20px 44px}
-      .faq-inner{padding:36px 18px 40px}
-      .faq-inner h2{font-size:19px}
-    }
+    @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
+    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.insight-cards{grid-template-columns:1fr}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.next-steps{padding:40px 20px 44px}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}}
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Manufacturing and Assembly Operations","description":"Shift scheduling for manufacturing and assembly operations: capacity expansion, equipment utilization, workforce planning, and union change management.","url":"https://shift-work.com/industries/manufacturing-assembly-operations/","datePublished":"2026-04-04","dateModified":"2026-04-14","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"manufacturing shift scheduling, shift schedule design manufacturing, equipment utilization shift scheduling, continuous operations manufacturing, union shift schedule change, 24/7 manufacturing workforce"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Manufacturing and Assembly Operations","description":"Shift scheduling for manufacturing and assembly operations: capacity expansion, equipment utilization, workforce planning, and union change management.","url":"https://shift-work.com/industries/manufacturing-assembly-operations/","datePublished":"2026-04-04","dateModified":"2026-04-16","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"manufacturing shift scheduling, shift schedule design manufacturing, equipment utilization shift scheduling, continuous operations manufacturing, union shift schedule change, 24/7 manufacturing workforce"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://shift-work.com/industries/"},{"@type":"ListItem","position":3,"name":"Manufacturing & Assembly","item":"https://shift-work.com/industries/manufacturing-assembly-operations/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What shift schedule do manufacturing workers prefer?","acceptedAnswer":{"@type":"Answer","text":"When surveyed, manufacturing shift workers consistently prefer 10-hour shifts over 8 or 12-hour alternatives. Ten-hour schedules produce more days off per month while avoiding fatigue from consecutive 12-hour days. Most often the obstacles are too great to overcome and the 12-hour shift rules the day."}},{"@type":"Question","name":"How can a manufacturing plant add capacity without buying new equipment?","acceptedAnswer":{"@type":"Answer","text":"Schedule expansion is the most underutilized capacity lever. Most five-day operations run equipment for a fraction of available hours. Expanding to six or seven days captures existing capacity without capital investment and should precede any capital appropriation request."}},{"@type":"Question","name":"Why does quality and safety differ between day and night shifts?","acceptedAnswer":{"@type":"Answer","text":"The most common cause is skill and experience imbalance across shifts. Experienced operators accumulate on day shift through seniority, leaving nights with newer workers and a structural competency gap that shows up in quality metrics and safety incident frequency."}},{"@type":"Question","name":"How do you change a shift schedule in a union manufacturing environment?","acceptedAnswer":{"@type":"Answer","text":"Successfully requires navigating both the contract and workforce relationship simultaneously. Workforce support matters more than contractual compliance alone. Invest in understanding workforce values before proposing options. A timed addendum provides a lower-risk path to testing before committing."}},{"@type":"Question","name":"What does it cost to run the wrong shift schedule?","acceptedAnswer":{"@type":"Answer","text":"Costs accumulate across overtime from schedule gaps, turnover from schedules that don't fit workers' lives, quality issues from fatigued coverage, and opportunity costs from equipment running below available hours — rarely connected to the schedule in standard reporting."}}]}</script>
@@ -379,14 +196,17 @@
 <body>
 
 <nav class="site-nav"><div class="nav-inner">
-  <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36"></a>
+  <a href="/" class="nav-logo">
+    <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;">
+    <span class="nav-logo-text">SHIFTWORK SOLUTIONS</span>
+  </a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
     <li><a href="/services/">Our Services</a></li>
     <li><a href="/resources/">Resources</a></li>
     <li><a href="/industries/" class="nav-active">Industries</a></li>
-    <li><a href="/why-us/">Our Company</a></li>
+    <li><a href="/why-us/">Why Us</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
@@ -516,55 +336,18 @@
 
 </div><!-- /.article-wrap -->
 
-<!-- FAQ SECTION: full-bleed with hands-in-the-air.jpg background, Option B vignette -->
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
   <div class="faq-inner">
     <h2>Frequently Asked Questions</h2>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">What shift schedule do manufacturing workers prefer?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">When surveyed without constraint, manufacturing shift workers consistently prefer 10-hour shifts over 8-hour or 12-hour alternatives. Ten-hour schedules produce more days off per month — typically three-day weekends on a regular basis — while avoiding the fatigue accumulation workers associate with consecutive 12-hour days. The practical limitation is that 10-hour shifts do not divide evenly into a 24-hour day, which requires careful schedule design to achieve level coverage. Most often, however, the obstacles are too great to overcome and, in the end, the 12-hour shift rules the day.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">How can a manufacturing plant add capacity without buying new equipment?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">The most underutilized capacity lever in manufacturing is schedule expansion. Most five-day operations run equipment for a fraction of the hours available in the week — capacity that already exists, already has fixed costs attached, and already sits idle every weekend. Expanding to six or seven days captures that capacity without capital investment, spreads fixed costs across more units produced, and reduces per-unit cost. A schedule expansion analysis should precede any capital appropriation request — in many cases, it changes the decision entirely.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">Why does quality and safety performance differ between day shift and night shift?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">The most common cause is skill and experience imbalance across shifts, not the workers themselves. In most manufacturing operations that have grown organically over time, experienced operators have accumulated on day shift through seniority-based bidding and management proximity. Night and weekend shifts end up staffed disproportionately with newer workers. The result is a structural competency gap that shows up in quality metrics and safety incident frequency — and that gets misattributed to shift culture or individual performance. Addressing it requires deliberate crew composition design: cross-training programs, rotation policies that distribute experienced workers across shifts, and schedule structures that don't systematically concentrate experience in one place.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">How do you change a shift schedule in a union manufacturing environment?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">Successfully changing a shift schedule in a union environment requires navigating both the contract and the workforce relationship simultaneously — and the two are not the same thing. Union contracts govern shift structures, overtime distribution, seniority rights, and premium pay, but contractual compliance alone doesn't produce a change that works. Workforce support does. The operations that achieve lasting results in union environments are the ones that invest heavily in understanding what the workforce values before any schedule option is proposed, and that structure the change process so workers have a genuine voice in the outcome. Where a trial outside the existing contract is appropriate, a timed addendum provides a lower-risk path to testing before committing.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">What does it cost to run the wrong shift schedule in a manufacturing plant?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">The costs accumulate across several lines that are rarely connected to the schedule in standard reporting. Overtime costs reflect understaffing or schedule gaps rather than genuine demand. Turnover costs — recruiting, onboarding, and the productivity ramp of replacement workers — are driven partly by schedules that don't fit the workforce's lives. Quality costs rise when fatigued or inexperienced workers cover shifts that experienced operators have vacated. And opportunity costs accumulate every week that equipment runs well below the hours the facility has already paid for. A schedule analysis that models adverse staffing cost, equipment utilization loss, turnover attribution, and quality variance by shift typically surfaces a total cost figure that surprises operations leaders — not because the line items are hidden, but because they have never been aggregated and connected to the schedule decision that drives them.</div></div>
-    </div>
-
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What shift schedule do manufacturing workers prefer?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">When surveyed without constraint, manufacturing shift workers consistently prefer 10-hour shifts over 8-hour or 12-hour alternatives. Ten-hour schedules produce more days off per month — typically three-day weekends on a regular basis — while avoiding the fatigue accumulation workers associate with consecutive 12-hour days. The practical limitation is that 10-hour shifts do not divide evenly into a 24-hour day, which requires careful schedule design to achieve level coverage. Most often, however, the obstacles are too great to overcome and, in the end, the 12-hour shift rules the day.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How can a manufacturing plant add capacity without buying new equipment?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The most underutilized capacity lever in manufacturing is schedule expansion. Most five-day operations run equipment for a fraction of the hours available in the week — capacity that already exists, already has fixed costs attached, and already sits idle every weekend. Expanding to six or seven days captures that capacity without capital investment, spreads fixed costs across more units produced, and reduces per-unit cost. A schedule expansion analysis should precede any capital appropriation request — in many cases, it changes the decision entirely.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why does quality and safety performance differ between day shift and night shift?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The most common cause is skill and experience imbalance across shifts, not the workers themselves. In most manufacturing operations that have grown organically over time, experienced operators have accumulated on day shift through seniority-based bidding and management proximity. Night and weekend shifts end up staffed disproportionately with newer workers. The result is a structural competency gap that shows up in quality metrics and safety incident frequency — and that gets misattributed to shift culture or individual performance. Addressing it requires deliberate crew composition design: cross-training programs, rotation policies that distribute experienced workers across shifts, and schedule structures that don't systematically concentrate experience in one place.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How do you change a shift schedule in a union manufacturing environment?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Successfully changing a shift schedule in a union environment requires navigating both the contract and the workforce relationship simultaneously — and the two are not the same thing. Union contracts govern shift structures, overtime distribution, seniority rights, and premium pay, but contractual compliance alone doesn't produce a change that works. Workforce support does. The operations that achieve lasting results in union environments are the ones that invest heavily in understanding what the workforce values before any schedule option is proposed, and that structure the change process so workers have a genuine voice in the outcome. Where a trial outside the existing contract is appropriate, a timed addendum provides a lower-risk path to testing before committing.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What does it cost to run the wrong shift schedule in a manufacturing plant?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The costs accumulate across several lines that are rarely connected to the schedule in standard reporting. Overtime costs reflect understaffing or schedule gaps rather than genuine demand. Turnover costs — recruiting, onboarding, and the productivity ramp of replacement workers — are driven partly by schedules that don't fit the workforce's lives. Quality costs rise when fatigued or inexperienced workers cover shifts that experienced operators have vacated. And opportunity costs accumulate every week that equipment runs well below the hours the facility has already paid for. A schedule analysis that models adverse staffing cost, equipment utilization loss, turnover attribution, and quality variance by shift typically surfaces a total cost figure that surprises operations leaders — not because the line items are hidden, but because they have never been aggregated and connected to the schedule decision that drives them.</div></div></div>
   </div>
-</div><!-- /.faq-section -->
+</div>
 
 <section class="next-steps"><div class="next-steps-inner">
   <div class="next-steps-eyebrow">Where to go from here</div>
@@ -600,19 +383,10 @@
 <button class="listen-btn" id="listenBtn" aria-label="Listen to this article"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg><span id="listenLabel">Listen</span></button>
 
 <script>
-// Mobile nav toggle
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
-
-// FAQ accordion
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
-
-// Next Steps card animation
 (function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
-
-// Newsletter signup
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
-
-// Listen / TTS
 (function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p, h2');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim());});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
 </script>
 </body>
