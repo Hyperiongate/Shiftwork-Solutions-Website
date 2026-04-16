@@ -12,29 +12,28 @@
     2026-04-03 — Standard improvements: spacing, Web Speech API, SEO schemas
     2026-04-03 — Engagement layer: logo image, booking CTA, engage band, vectors
     2026-04-03 — Full content rebuild from source Word document
-    2026-04-03 — Hero updated to standard split layout
+    2026-04-03 — Hero updated to split layout with shutterstock image
     2026-04-04 — Nav restructure: flat links, orange CTA
     2026-04-16 — FULL STANDARD UPGRADE to match communicating-schedule-changes template:
                  1. NAV: logo path → clear_bkgr_logo_2.png, SHIFTWORK SOLUTIONS
                     text added, font-size 20px, flat links (no dropdowns),
                     "Why Us" → "Our Company" linking to /why-us/
                  2. HERO: replaced shutterstock vector with pillar_4.jpg photo
-                    background using ::before/::after overlay pattern; gold h1
+                    background using ::before/::after overlay pattern; gold h1,
+                    orange tag; hero-stats preserved below subtitle
                  3. PULL QUOTES (x2): replaced border-left style with large
                     Georgia quotation mark + italic text + muted attribution
-                 4. IMPORTANT CALLOUT: updated to light-grey background card
-                 5. INSIGHT CARDS: updated to white cards with 4px colored top borders
-                 6. TOOLS SECTION: tool-block left-border accents preserved (these
-                    are content structure, not chrome)
-                 7. FAQ: replaced flat list with Hands_in_the_air.jpg full-width
+                 4. CALLOUT: important-callout updated to grey bg card style
+                 5. INSIGHT CARDS: updated to white bg with colored top borders
+                 6. FAQ: replaced flat list with Hands_in_the_air.jpg full-width
                     background + navy accordion; all 5 Q&A preserved exactly
-                 8. NEXT STEPS: replaced light-blue cards with white cards +
+                 7. NEXT STEPS: replaced light-blue cards with white cards +
                     colored top borders + IntersectionObserver slide-up animation
-                 9. CTA BOX: preserved (navy box is content, not chrome)
-                10. FOOTER: replaced engage-band + light footer with standard
-                    3-col dark navy prefooter + standard bottom bar
-                11. LISTEN BUTTON: updated to simple orange pill
-                All article content, visualization, tools section, mistakes section,
+                 8. FOOTER: replaced engage-band + light footer with standard
+                    3-col dark navy prefooter (Free Consultation / Thomas /
+                    Newsletter) + standard bottom bar
+                 9. LISTEN BUTTON: updated to simple orange pill matching standard
+                All article content, visualization, tool-blocks, mistakes section,
                 SEO schemas, and JSON-LD preserved exactly.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
@@ -75,23 +74,15 @@
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;
-      --orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;
-      --body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;
-      --cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px
-    }
+    :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
-
-    /* ── NAV ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0;display:flex;align-items:center;gap:12px}
     .nav-logo img{height:36px;width:auto;display:block}
     .nav-logo-text{font-family:Arial,sans-serif;font-size:20px;font-weight:700;color:#1F4E79;letter-spacing:0.03em;line-height:1}
     .nav-links{list-style:none;display:flex;align-items:center}
-    .nav-links>li{position:relative}
     .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:20px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
     .nav-links>li>a:hover{color:var(--navy)}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
@@ -99,41 +90,33 @@
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-
-    /* ── HERO ── */
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:url('/images/pillar_4.jpg') center center / cover no-repeat;opacity:1;z-index:0}
     .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,0.88) 0%,rgba(31,78,121,0.75) 55%,rgba(31,78,121,0.35) 100%);z-index:0}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
     .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
     .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:#EEAE26;max-width:620px;margin-bottom:14px}
-    .hero-subtitle{font-size:16px;line-height:1.65;color:rgba(255,255,255,0.88);max-width:560px;margin-bottom:0}
+    .hero-subtitle{font-size:16px;line-height:1.65;color:rgba(255,255,255,0.88);max-width:560px}
     .hero-tag{display:inline-block;margin-top:16px;background:rgba(232,97,10,0.9);color:var(--white);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 12px;border-radius:3px}
     .hero-stats{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
     .hero-stat{background:rgba(255,255,255,.08);border-radius:8px;padding:16px 20px;min-width:160px}
     .hero-stat-num{font-size:26px;font-weight:700;color:var(--white);line-height:1.1}
     .hero-stat-label{font-size:12px;color:var(--mid-blue);margin-top:4px;line-height:1.35}
-
-    /* ── BREADCRUMB ── */
     .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
     .breadcrumb-inner a{color:var(--navy);text-decoration:none}
     .breadcrumb-inner a:hover{text-decoration:underline}
     .breadcrumb-inner span{margin:0 6px;opacity:.5}
-
-    /* ── ARTICLE ── */
-    .article-wrap{max-width:var(--max-width);margin:0 auto;padding:48px var(--page-pad) 56px}
+    .article-wrap{max-width:var(--max-width);margin:0 auto;padding:48px var(--page-pad) 32px}
     .article-meta{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border-light);flex-wrap:wrap}
     .meta-tag{display:inline-block;background:var(--light-blue);color:var(--navy);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:3px}
     .meta-read{font-size:13px;color:var(--muted)}
     .article-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin:36px 0 14px}
+    .article-wrap h2:first-of-type{margin-top:0}
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
-    .article-wrap p:last-child{margin-bottom:0}
-    hr.divider{max-width:var(--max-width);margin:8px auto 0;border:none;border-top:1px solid var(--border-light)}
     .eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:6px}
-
-    /* ── VISUALIZATION ── */
-    .viz-section{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad)}
+    hr.divider{border:none;border-top:1px solid var(--border-light);margin:32px 0}
+    .viz-section{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad) 32px}
     .viz-box{background:#F8FAFB;border-radius:10px;padding:28px 28px 20px;border:1px solid var(--border-med)}
     .viz-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:20px}
     .viz-caption{margin-top:16px;font-size:11px;color:var(--muted);line-height:1.5}
@@ -143,10 +126,8 @@
     .demand-bar-val{font-size:10px;font-weight:700;color:var(--white);text-align:center;padding:2px 0}
     .demand-legend{display:flex;gap:16px;margin-top:12px;flex-wrap:wrap}
     .demand-legend-dot{width:10px;height:10px;border-radius:2px;display:inline-block;margin-right:4px;vertical-align:middle}
-
-    /* ── TOOL BLOCKS ── */
-    .tools-section{max-width:var(--max-width);margin:0 auto;padding:20px var(--page-pad) 0}
-    .tools-section>h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:20px}
+    .tools-section{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad) 32px}
+    .tools-section h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:20px}
     .tool-block{border-left:3px solid var(--navy);padding:16px 0 16px 20px;margin-bottom:24px}
     .tool-block.accent-orange{border-left-color:var(--orange)}
     .tool-block.accent-green{border-left-color:var(--green)}
@@ -157,9 +138,7 @@
     .tool-block.accent-mid h3{color:var(--mid-blue)}
     .tool-block p{font-size:15px;line-height:1.75;color:var(--body-text);margin-bottom:12px;max-width:660px}
     .tool-block p:last-child{margin-bottom:0}
-
-    /* ── INSIGHT CARDS ── */
-    .three-col{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad);display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .three-col{max-width:var(--max-width);margin:0 auto 32px;padding:0 var(--page-pad);display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .insight-card{background:var(--white);border:1px solid var(--border-med);border-radius:8px;padding:20px;border-top:4px solid var(--navy)}
     .insight-card.accent-orange{border-top-color:var(--orange)}
     .insight-card.accent-green{border-top-color:var(--green)}
@@ -168,42 +147,23 @@
     .insight-card.accent-green .insight-num{color:var(--green)}
     .insight-label{font-size:14px;font-weight:700;color:var(--body-text);margin-bottom:6px}
     .insight-text{font-size:13px;color:var(--muted);line-height:1.55}
-
-    /* ── PULL QUOTE ── */
-    .pull-quote{margin:40px 0;padding:0 var(--page-pad);max-width:var(--max-width);margin-left:auto;margin-right:auto;display:flex;align-items:center;gap:16px}
-    .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
-    .pull-quote-content{flex:1}
-    .pull-quote-content p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
-    .pull-quote-content .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
-
-    /* ── IMPORTANT CALLOUT ── */
-    .important-callout{max-width:var(--max-width);margin:24px auto;padding:0 var(--page-pad)}
-    .important-callout-inner{background:var(--light-grey);border-radius:6px;padding:20px 24px;border:1px solid var(--border-med)}
-    .important-callout-label{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--orange);letter-spacing:.08em;margin-bottom:8px}
-    .important-callout-inner p{font-size:14px;color:var(--body-text);line-height:1.7;margin-bottom:0}
-
-    /* ── MISTAKES ── */
-    .mistakes-section{max-width:var(--max-width);margin:0 auto;padding:20px var(--page-pad) 0}
-    .mistakes-section>h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:20px}
+    .mistakes-section{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad) 32px}
+    .mistakes-section h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:20px}
     .mistake-item{display:flex;gap:14px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border-light)}
     .mistake-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
     .mistake-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--orange);color:var(--white);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
     .mistake-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.35}
     .mistake-text{font-size:14px;color:var(--body-text);line-height:1.7;max-width:640px}
-
-    /* ── CTA BOX ── */
-    .cta-section{max-width:var(--max-width);margin:40px auto;padding:0 var(--page-pad)}
-    .cta-box{background:var(--navy);border-radius:10px;padding:36px 32px;text-align:center;position:relative;overflow:hidden}
-    .cta-box h2{font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px}
-    .cta-box p{font-size:14px;color:var(--cta-sub);line-height:1.65;margin-bottom:24px;max-width:520px;margin-left:auto;margin-right:auto}
-    .cta-actions{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
-    .cta-btn-primary{display:inline-block;padding:12px 28px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
-    .cta-btn-primary:hover{background:#c4510a}
-    .cta-link{font-size:13px;color:var(--mid-blue);text-decoration:none;font-weight:500}
-    .cta-link:hover{text-decoration:underline;color:var(--white)}
-
-    /* ── FAQ ── */
-    .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
+    .pull-quote{margin:0 auto 40px;padding:0 var(--page-pad);max-width:var(--max-width);display:flex;align-items:center;gap:16px}
+    .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
+    .pull-quote-content{flex:1}
+    .pull-quote-content p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
+    .pull-quote-content .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
+    .callout{max-width:var(--max-width);margin:0 auto 32px;padding:0 var(--page-pad)}
+    .callout-inner{background:var(--light-grey);border-radius:6px;padding:20px 24px;border:1px solid var(--border-med)}
+    .callout-label{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--orange);margin-bottom:6px;letter-spacing:.06em}
+    .callout-text{font-size:14px;color:var(--body-text);line-height:1.7}
+    .faq-section{position:relative;overflow:hidden;margin:0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
     .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:52px 24px 56px}
@@ -220,10 +180,8 @@
     .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease}
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
-
-    /* ── NEXT STEPS ── */
-    .next-steps{padding:56px var(--page-pad) 60px;background:var(--light-grey);position:relative;overflow:hidden}
-    .next-steps-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
+    .next-steps{padding:56px var(--page-pad) 60px;background:var(--light-grey)}
+    .next-steps-inner{max-width:var(--max-width);margin:0 auto}
     .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
     .next-steps h2{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:8px}
     .next-steps-sub{font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.6}
@@ -253,8 +211,6 @@
     .ns-phone{margin-top:28px;font-size:13px;color:var(--muted);text-align:center}
     .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
     .ns-phone a:hover{color:var(--orange)}
-
-    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -288,42 +244,30 @@
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-
-    /* ── LISTEN BUTTON ── */
     .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
     .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
-
-    /* ── RESPONSIVE ── */
     @media(max-width:760px){
-      .ns-cards{grid-template-columns:1fr}
-      .three-col{grid-template-columns:1fr}
+      .ns-cards{grid-template-columns:1fr}.three-col{grid-template-columns:1fr}
       .footer-content-row{grid-template-columns:1fr}
       .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
       .footer-col-3{border-bottom:none;padding-bottom:0}
       .footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}
       .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}
       .faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}
-      .pull-quote{flex-direction:column;gap:4px}
-      .pull-quote-mark{font-size:72px}
+      .pull-quote{flex-direction:column;gap:4px}.pull-quote-mark{font-size:72px}
+      .tool-block{padding-left:14px}
     }
     @media(max-width:640px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
       .nav-logo-text{font-size:16px}
-      .hero{padding:32px 20px 36px}.hero h1{font-size:22px}
-      .hero-stats{flex-direction:column;gap:10px}
-      .article-wrap{padding:32px 20px 40px}
-      .tools-section,.mistakes-section{padding-left:20px;padding-right:20px}
-      .three-col,.pull-quote,.important-callout,.cta-section{padding:0 20px}
-      .cta-box{padding:28px 20px}
-      .footer-prefooter{padding:32px 20px}
-      .footer-bottom{padding:14px 20px}
+      .hero{padding:32px 20px 36px}.hero h1{font-size:22px}.hero-stats{flex-direction:column;gap:10px}
+      .article-wrap{padding:32px 20px 24px}
+      .viz-section,.three-col,.pull-quote,.callout,.tools-section,.mistakes-section{padding-left:20px;padding-right:20px}
+      .footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}
       .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
       .footer-bottom-left{justify-content:center}
-      .next-steps{padding:40px 20px 44px}
-      .faq-inner{padding:36px 18px 40px}
-      .faq-inner h2{font-size:19px}
-      .tool-block{padding-left:14px}
+      .next-steps{padding:40px 20px 44px}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}
     }
   </style>
 </head>
@@ -354,14 +298,14 @@
   <div class="hero-stats">
     <div class="hero-stat"><div class="hero-stat-num">15%</div><div class="hero-stat-label">Premium of level-coverage<br>vs. variable-coverage schedules</div></div>
     <div class="hero-stat"><div class="hero-stat-num">20%</div><div class="hero-stat-label">Overtime threshold before<br>morale and safety suffer</div></div>
-    <div class="hero-stat"><div class="hero-stat-num">10&times;</div><div class="hero-stat-label">Cost of overstaffing<br>vs. moderate understaffing</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">10×</div><div class="hero-stat-label">Cost of overstaffing<br>vs. moderate understaffing</div></div>
   </div>
 </div></section>
 
 <div class="breadcrumb-bar"><div class="breadcrumb-inner"><a href="/">Home</a><span>›</span><a href="/resources/">Resources</a><span>›</span>Managing Variable Workloads</div></div>
 
 <div class="article-wrap">
-  <div class="article-meta"><span class="meta-tag">Complete Guide</span><span class="meta-read">17 min read</span></div>
+  <div class="article-meta"><span class="meta-tag">Complete Guide</span><span class="meta-read">18 min read</span></div>
 
   <div class="eyebrow">Introduction</div>
   <h2>The Core Tension in Variable Operations</h2>
@@ -369,34 +313,35 @@
   <p>The answer lies in building flexibility into your scheduling strategy. Variable workloads require variable responses. Facilities that treat staffing as a fixed constraint struggle with either chronic overtime during busy periods or expensive idle time when demand drops. Operations that build adaptability into their scheduling approach can match labor supply to actual demand while maintaining workforce stability.</p>
   <p>This distinction matters more than most leaders realize. A level-coverage schedule that looks efficient on paper can cost 15% more than a variable-coverage approach designed around actual demand patterns. The complexity lies in creating flexibility without sacrificing predictability for employees or operational control for management.</p>
 
-</div><!-- /.article-wrap -->
+  <hr class="divider">
+</div>
 
-<!-- VISUALIZATION -->
-<div class="viz-section"><div class="viz-box">
-  <div class="viz-title">Workforce Flexibility Tools — Deployment Speed vs. Cost</div>
-  <div class="demand-chart">
-    <div class="demand-bar-wrap"><div class="demand-bar-label">Voluntary OT</div><div style="width:100%;height:100px;background:#1F4E79;border-radius:4px 4px 0 0;display:flex;align-items:center;justify-content:center;"><span class="demand-bar-val">Hours</span></div></div>
-    <div class="demand-bar-wrap"><div class="demand-bar-label">Mandatory OT</div><div style="width:100%;height:85px;background:#2E75B6;border-radius:4px 4px 0 0;display:flex;align-items:center;justify-content:center;"><span class="demand-bar-val">Hours</span></div></div>
-    <div class="demand-bar-wrap"><div class="demand-bar-label">Schedule Extension</div><div style="width:100%;height:70px;background:#5A9BD5;border-radius:4px 4px 0 0;display:flex;align-items:center;justify-content:center;"><span class="demand-bar-val">Days</span></div></div>
-    <div class="demand-bar-wrap"><div class="demand-bar-label">Temp Workers</div><div style="width:100%;height:55px;background:#9DC3E6;border-radius:4px 4px 0 0;display:flex;align-items:center;justify-content:center;color:#1F4E79;"><span class="demand-bar-val">Days–Wks</span></div></div>
-    <div class="demand-bar-wrap"><div class="demand-bar-label">New Hires</div><div style="width:100%;height:30px;background:#C5D9F1;border-radius:4px 4px 0 0;display:flex;align-items:center;justify-content:center;color:#1F4E79;"><span class="demand-bar-val">Months</span></div></div>
+<div class="viz-section">
+  <div class="viz-box">
+    <div class="viz-title">Workforce Flexibility Tools — Deployment Speed vs. Cost</div>
+    <div class="demand-chart">
+      <div class="demand-bar-wrap"><div class="demand-bar-label">Voluntary OT</div><div style="width:100%;height:100px;background:#1F4E79;border-radius:4px 4px 0 0;display:flex;align-items:center;justify-content:center;"><span class="demand-bar-val">Hours</span></div></div>
+      <div class="demand-bar-wrap"><div class="demand-bar-label">Mandatory OT</div><div style="width:100%;height:85px;background:#2E75B6;border-radius:4px 4px 0 0;display:flex;align-items:center;justify-content:center;"><span class="demand-bar-val">Hours</span></div></div>
+      <div class="demand-bar-wrap"><div class="demand-bar-label">Schedule Extension</div><div style="width:100%;height:70px;background:#5A9BD5;border-radius:4px 4px 0 0;display:flex;align-items:center;justify-content:center;"><span class="demand-bar-val">Days</span></div></div>
+      <div class="demand-bar-wrap"><div class="demand-bar-label">Temp Workers</div><div style="width:100%;height:55px;background:#9DC3E6;border-radius:4px 4px 0 0;display:flex;align-items:center;justify-content:center;color:#1F4E79;"><span class="demand-bar-val">Days–Wks</span></div></div>
+      <div class="demand-bar-wrap"><div class="demand-bar-label">New Hires</div><div style="width:100%;height:30px;background:#C5D9F1;border-radius:4px 4px 0 0;display:flex;align-items:center;justify-content:center;color:#1F4E79;"><span class="demand-bar-val">Months</span></div></div>
+    </div>
+    <div class="demand-legend"><span><span class="demand-legend-dot" style="background:#1F4E79;"></span>Faster deployment</span><span><span class="demand-legend-dot" style="background:#C5D9F1;"></span>Slower deployment</span></div>
+    <div class="viz-caption">Bar height represents relative deployment speed. Voluntary overtime can be activated within hours; permanent hiring takes months. Building a toolkit that spans this range allows operations to match response speed to demand urgency. Source: Shiftwork Solutions operational analysis across hundreds of client facilities.</div>
   </div>
-  <div class="demand-legend"><span><span class="demand-legend-dot" style="background:#1F4E79;"></span>Faster deployment</span><span><span class="demand-legend-dot" style="background:#C5D9F1;"></span>Slower deployment</span></div>
-  <div class="viz-caption">Bar height represents relative deployment speed. Voluntary overtime can be activated within hours; permanent hiring takes months. Building a toolkit that spans this range allows operations to match response speed to demand urgency. Source: Shiftwork Solutions operational analysis across hundreds of client facilities.</div>
-</div></div>
+</div>
 
-<div class="article-wrap" style="padding-top:32px;">
-  <hr class="divider" style="margin:0 0 32px;">
-
+<div class="article-wrap" style="padding-top:0;">
   <div class="eyebrow">The Economics</div>
   <h2>The Economics of Workload Variability</h2>
   <p>Consider a common scenario: demand varies by 30% between your busiest and slowest periods, but your schedule provides level coverage throughout the year. During peak periods, you cover the gap with overtime. During slow periods, you either send people home early or find make-work activities to keep them busy. Neither approach is economically sound.</p>
   <p>Hiring enough employees to cover peak workload requirements creates an expensive problem. When demand drops, you either lay workers off or retain them during periods when they provide no operational value. Paying for idle time represents one of the most expensive staffing mistakes a facility can make. The cost penalty for overstaffing typically runs ten times higher than the penalty for understaffing covered by overtime.</p>
   <p>The mathematics become clearer when you examine a concrete example. Imagine your busiest day requires 100 workers while your slowest day needs only 52. A level-coverage schedule staffed to 83% capacity would provide adequate coverage most days while relying on overtime for peak periods. But that approach still leaves significant white space on the calendar. A variable-coverage schedule designed around actual demand patterns can eliminate most of that waste, delivering the same output at substantially lower cost.</p>
 
+  <hr class="divider">
 </div>
 
-<section class="tools-section">
+<div class="tools-section">
   <div class="eyebrow">The Toolkit</div>
   <h2>Four Tools for Managing Variability</h2>
   <p style="font-size:15px;line-height:1.75;color:var(--body-text);margin-bottom:24px;max-width:680px;">Effective variable workload management combines multiple approaches rather than relying on any single solution. Each tool addresses different aspects of the flexibility challenge, and the right combination depends on your specific demand patterns and workforce characteristics.</p>
@@ -424,31 +369,43 @@
     <p>Employees take vacations and floating holidays representing more than 5% of scheduled work hours annually. During peak production periods, time-off typically requires overtime coverage. During slow periods, encouraging time-off reduces idle capacity without layoffs.</p>
     <p>Three approaches help align time-off with workload patterns. First, restrict vacation availability during peak seasons while loosening restrictions during slow periods. Second, schedule plant shutdowns during slow months and require unnecessary personnel to take vacation. Third, proactively schedule vacation for employees who have not selected dates that align with business needs. Each approach carries risk if employees perceive restrictions as arbitrary. Clear communication about business requirements and consistent application of policies builds acceptance.</p>
   </div>
-</section>
-
-<div class="three-col">
-  <div class="insight-card"><div class="insight-num">~14%</div><div class="insight-label">True OT cost premium</div><div class="insight-text">When fully loaded costs are compared, overtime costs only about 14% more than straight time — making it the most cost-effective fast-response tool for short-duration peaks.</div></div>
-  <div class="insight-card accent-orange"><div class="insight-num">20%</div><div class="insight-label">OT sustainability threshold</div><div class="insight-text">When overtime surpasses 20% of total hours for extended periods, expect adverse effects on morale, safety, and productivity. Use overtime strategically, not chronically.</div></div>
-  <div class="insight-card accent-green"><div class="insight-num">10%</div><div class="insight-label">Temp buffer target</div><div class="insight-text">A buffer of temporary workers covering 10% or more of labor requirements provides meaningful capacity to flex up and down without affecting your permanent workforce.</div></div>
 </div>
 
-<div class="article-wrap" style="padding-top:32px;padding-bottom:0;">
-  <hr class="divider" style="margin:0 0 32px;">
+<div class="three-col">
+  <div class="insight-card">
+    <div class="insight-num">~14%</div>
+    <div class="insight-label">True OT cost premium</div>
+    <div class="insight-text">When fully loaded costs are compared, overtime costs only about 14% more than straight time — making it the most cost-effective fast-response tool for short-duration peaks.</div>
+  </div>
+  <div class="insight-card accent-orange">
+    <div class="insight-num">20%</div>
+    <div class="insight-label">OT sustainability threshold</div>
+    <div class="insight-text">When overtime surpasses 20% of total hours for extended periods, expect adverse effects on morale, safety, and productivity. Use overtime strategically, not chronically.</div>
+  </div>
+  <div class="insight-card accent-green">
+    <div class="insight-num">10%</div>
+    <div class="insight-label">Temp buffer target</div>
+    <div class="insight-text">A buffer of temporary workers covering 10% or more of labor requirements provides meaningful capacity to flex up and down without affecting your permanent workforce.</div>
+  </div>
+</div>
+
+<div class="article-wrap" style="padding-top:0;">
+  <hr class="divider">
 
   <div class="eyebrow">Multiple Schedules</div>
   <h2>When Multiple Schedules Make Sense</h2>
   <p>One of the most common questions in scheduling involves whether a single site can operate multiple schedules simultaneously. The answer is yes, and it may represent the optimal solution when different areas of your operation face different coverage requirements.</p>
   <p>Consider a facility with two production lines. One line needs continuous 24/7 coverage while the other requires only five days a week with occasional weekend overtime. Three options exist. You could put both lines on a 24/7 schedule, ensuring adequate coverage but overstaffing the five-day line. You could keep both on five-day patterns, creating chronic weekend overtime problems on the line requiring continuous operation. Or you could implement different schedules tailored to each area's actual requirements.</p>
-  <p>The third option introduces complexity. How do you supervise employees on different schedules? How do you distribute overtime between schedule groups? Will pay policies designed for one schedule work on another? These questions have answers, but the complexity must be evaluated on a risk-versus-reward basis. Multiple schedules can be tailored to fit both operational requirements and diverse employee work-life balance preferences.</p>
+  <p>The third option introduces complexity. How do you supervise employees on different schedules? How do you distribute overtime between schedule groups? Will pay policies designed for one schedule work on another? These questions have answers, but the complexity must be evaluated on a risk-versus-reward basis. Multiple schedules can be tailored to fit both operational requirements and diverse employee work-life balance preferences. Employees on 24/7 schedules often prefer 12-hour shifts for the additional days off they provide. Those on five-day schedules may value 8-hour shifts that preserve their daily routines. When weekend overtime is needed, employees from both schedule groups can share the burden — the 24/7 crews have half their members off any given weekend, providing a pool of experienced workers available for voluntary overtime.</p>
 
-  <hr class="divider" style="margin:32px 0;">
+  <hr class="divider">
 
   <div class="eyebrow">Growth and Contraction</div>
   <h2>Scaling Up and Scaling Down</h2>
   <p>Growth creates different challenges than seasonal variation. Ramping up production requires adding coverage hours, which typically follows a progression: weekday single shift, weekday overtime, adding evening shift, weekend overtime, adding night shift, moving to continuous operations. Each step increases weekly operating hours but also introduces new complexity.</p>
   <p>The key to managing growth lies in having schedules ready before you need them. If you currently operate five days a week and may need six or seven days of coverage, work with employees to identify the best schedule options for those scenarios in advance. When the time comes to expand, everyone understands their role in meeting increased demand.</p>
-  <p>Scaling down presents different challenges, particularly when the reduction may be temporary. The instinct to simply reduce headcount creates problems when demand returns. Skilled employees lost during downsizing must be replaced and retrained during recovery. Slow periods also create opportunities — what maintenance projects have been deferred because equipment could not be taken offline? Pulling discretionary work forward during slow periods accomplishes necessary tasks while maintaining employment relationships.</p>
-
+  <p>Scaling down presents different challenges, particularly when the reduction may be temporary. The instinct to simply reduce headcount creates problems when demand returns. Skilled employees lost during downsizing must be replaced and retrained during recovery. Organizations that prepare for the worst while hoping for the best position themselves to ramp back up quickly when conditions improve.</p>
+  <p>Slow periods also create opportunities. What maintenance projects have you deferred because equipment could not be taken offline? What upgrades have waited because production demands prevented downtime? Pulling discretionary work forward during slow periods accomplishes necessary tasks while maintaining employment relationships. When demand returns, facilities with well-maintained equipment and recently trained workers capture market share from competitors still recovering.</p>
 </div>
 
 <div class="pull-quote">
@@ -459,15 +416,14 @@
   </div>
 </div>
 
-<div class="article-wrap" style="padding-top:32px;padding-bottom:0;">
-  <hr class="divider" style="margin:0 0 32px;">
+<div class="article-wrap" style="padding-top:0;">
+  <hr class="divider">
 
   <div class="eyebrow">The Flexibility Equation</div>
   <h2>What Flexibility Means for Shift Workers</h2>
   <p>For shift workers, schedule flexibility means something specific: the ability to get extra work when they want it while counting on scheduled time off when they expect it. These two desires — optional overtime availability and predictable time off — drive workforce satisfaction with flexible scheduling arrangements.</p>
   <p>Meeting both desires requires the right combination of staffing levels, overtime policies, and schedule design. Staffing determines total overtime availability. Policies ensure overtime reaches those who want it without burdening those who do not. The schedule establishes when straight time and overtime occur, allowing you to apply staffing and policies efficiently.</p>
   <p>The most valuable schedule flexibility feature may be eliminating mandatory overtime entirely. When employees work overtime only on a voluntary basis, those seeking additional income can find it while those preferring time off can protect it. Achieving this requires either accepting occasional productivity losses when volunteers are insufficient or maintaining enough staffing that coverage remains adequate even without volunteers.</p>
-
 </div>
 
 <div class="pull-quote">
@@ -478,42 +434,31 @@
   </div>
 </div>
 
-<section class="mistakes-section">
+<div class="mistakes-section">
   <div class="eyebrow">Avoid These Mistakes</div>
   <h2>Common Mistakes in Managing Variable Workloads</h2>
-  <div class="mistake-item"><div class="mistake-num">1</div><div><div class="mistake-title">Treating All Variation as Temporary</div><div class="mistake-text">Some demand changes represent permanent shifts rather than seasonal fluctuation. Responding to permanent changes with temporary measures creates chronic problems. The overtime intended for seasonal peaks becomes a year-round burden. Distinguishing between temporary variation and permanent change determines whether flexibility tools or schedule redesign provides the appropriate response.</div></div></div>
+  <div class="mistake-item"><div class="mistake-num">1</div><div><div class="mistake-title">Treating All Variation as Temporary</div><div class="mistake-text">Some demand changes represent permanent shifts rather than seasonal fluctuation. Responding to permanent changes with temporary measures creates chronic problems. The overtime intended for seasonal peaks becomes a year-round burden. The temporary workers hired for a surge never leave. Distinguishing between temporary variation and permanent change determines whether flexibility tools or schedule redesign provides the appropriate response.</div></div></div>
   <div class="mistake-item"><div class="mistake-num">2</div><div><div class="mistake-title">Ignoring the Workforce Dimension</div><div class="mistake-text">Variable workload strategies that look elegant mathematically often fail in practice because they ignore how employees experience them. A schedule that varies workers' hours unpredictably may match workload perfectly while destroying morale. Flexibility tools only deliver their promise when implemented thoughtfully with genuine workforce engagement.</div></div></div>
   <div class="mistake-item"><div class="mistake-num">3</div><div><div class="mistake-title">Assuming Level Coverage Is Simpler</div><div class="mistake-text">Level-coverage schedules appear simpler to administer but often hide substantial costs. The 15% premium for level coverage compared to variable coverage represents real money lost to inefficiency. Complexity in scheduling can pay for itself many times over through labor cost reduction.</div></div></div>
-</section>
+</div>
 
-<div class="important-callout"><div class="important-callout-inner">
-  <div class="important-callout-label">Important</div>
-  <p>Variable workload strategies require ongoing adjustment. Demand patterns shift, workforce preferences evolve, and approaches that worked last year may underperform today. Build regular review cycles into your scheduling practice to ensure your flexibility tools continue matching actual conditions.</p>
-</div></div>
+<div class="callout">
+  <div class="callout-inner">
+    <div class="callout-label">Important</div>
+    <div class="callout-text">Variable workload strategies require ongoing adjustment. Demand patterns shift, workforce preferences evolve, and approaches that worked last year may underperform today. Build regular review cycles into your scheduling practice to ensure your flexibility tools continue matching actual conditions.</div>
+  </div>
+</div>
 
-<div class="article-wrap" style="padding-top:32px;padding-bottom:0;">
-  <hr class="divider" style="margin:0 0 32px;">
-
+<div class="article-wrap" style="padding-top:0;">
   <div class="eyebrow">Building Your Strategy</div>
   <h2>Building Your Flexibility Strategy</h2>
   <p>Effective variable workload management begins with understanding your actual demand patterns. What does your weekly, monthly, and annual demand profile look like? Where do peaks and valleys occur, and how predictable are they? Historical data provides the foundation for any flexibility strategy.</p>
   <p>Next comes evaluating which flexibility tools fit your operation. Not every facility can use temporary labor effectively. Not every workforce will accept aggressive time-off management. Not every operation has sufficient discretionary work to absorb slow periods. The right combination depends on your specific circumstances.</p>
-  <p>Then design schedules that enable rather than constrain flexibility. A schedule providing level coverage locks you into staffing levels regardless of demand. A variable-coverage schedule creates the structure for matching labor to workload. Finally, communicate the approach clearly to your workforce. Employees who understand why flexibility matters and how the system works become partners in making it succeed.</p>
-  <p style="font-size:14px;color:var(--muted);">Call us at <a href="tel:+14152651621" style="color:var(--navy);font-weight:700;">(415) 265-1621</a> to discuss your situation.</p>
-
+  <p>Then design schedules that enable rather than constrain flexibility. A schedule providing level coverage locks you into staffing levels regardless of demand. A variable-coverage schedule creates the structure for matching labor to workload. Multiple schedules at a single site may provide even greater alignment when different areas face different requirements.</p>
+  <p>Finally, communicate the approach clearly to your workforce. Employees who understand why flexibility matters and how the system works become partners in making it succeed. Those who feel subjected to arbitrary variation become obstacles to implementation.</p>
+  <p>Variable workloads represent a permanent reality for most 24/7 operations. The question is not whether you will face demand variation but how effectively your scheduling approach responds to it. Level-coverage schedules that ignore variability cost significantly more than approaches designed around actual demand patterns. The complexity of variable-coverage scheduling pays substantial dividends when implemented properly. The gap between understanding these principles and successfully implementing them is where expertise delivers disproportionate value — every facility faces unique demand patterns, workforce characteristics, and operational constraints, and identifying the right combination of flexibility tools requires experience built through hundreds of similar transformations.</p>
 </div>
 
-<!-- CTA BOX -->
-<section class="cta-section"><div class="cta-box">
-  <h2>Ready to Build Workforce Flexibility Into Your Operation?</h2>
-  <p>Operations leaders across manufacturing, distribution, chemicals, food processing, and mining have used our process to design operations that handle demand variability without crisis.</p>
-  <div class="cta-actions">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="cta-btn-primary" target="_blank" rel="noopener">Schedule a Free Consultation</a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="cta-link">Read: 26 Warning Signs &#x2192;</a>
-  </div>
-</div></section>
-
-<!-- FAQ -->
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
@@ -525,41 +470,39 @@
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What schedule design feature best handles seasonal peaks?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Building surge capacity into the base schedule design — a facility structured to extend from two to three shifts temporarily handles peaks at much lower cost and disruption than one that must scramble reactively. Design the surge scenario before you need it.</div></div></div>
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">When should you use temporary workers for demand variability?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">For short-duration peaks in roles with short learning curves and clear productivity measurement. Always calculate cost per unit of output, not just hourly rate — in complex roles where experienced workers are significantly more productive, the apparent savings in hourly rate disappear entirely.</div></div></div>
   </div>
-</div><!-- /.faq-section -->
+</div>
 
-<!-- NEXT STEPS -->
 <section class="next-steps"><div class="next-steps-inner">
   <div class="next-steps-eyebrow">Where to go from here</div>
   <h2>Next Steps &amp; Resources</h2>
-  <p class="next-steps-sub">Talk to an expert, take a free assessment, or run a quick diagnostic on your current operation.</p>
+  <p class="next-steps-sub">Talk to an expert, read the guide, or run a quick diagnostic on your current operation.</p>
   <div class="ns-cards">
     <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card ns-accent-blue" target="_blank" rel="noopener">
       <div class="ns-card-label">Free Consultation</div>
-      <h3>Discuss Your Demand Patterns</h3>
-      <p>Consultants who have helped hundreds of facilities build effective flexibility strategies. The first conversation is free.</p>
+      <h3>Talk to a Shiftwork Expert</h3>
+      <p>Discuss your specific demand patterns with consultants who have helped hundreds of facilities build effective flexibility strategies. The first conversation is free.</p>
       <span class="ns-card-link">Book a free meeting</span>
     </a>
     <a href="/resources/shiftwork-assessment/" class="ns-card ns-accent-orange">
       <div class="ns-card-label">Diagnostic Tool</div>
       <h3>Free Schedule Assessment</h3>
-      <p>Evaluate how well your current schedule handles workload variability and identify opportunities to better match labor supply to actual demand.</p>
+      <p>Evaluate how well your current schedule handles workload variability and identify opportunities for improvement in how your operation matches labor supply to actual demand.</p>
       <span class="ns-card-link">Take the assessment</span>
     </a>
     <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green">
       <div class="ns-card-label">Checklist</div>
       <h3>26 Warning Signs Diagnostic</h3>
-      <p>A checklist of operational symptoms that signal when your shiftwork system needs attention — identify issues early before they become costly problems.</p>
+      <p>Our checklist of operational symptoms that signal when your shiftwork system needs attention — identify issues early before they become costly problems.</p>
       <span class="ns-card-link">Read the checklist</span>
     </a>
   </div>
   <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
 </div></section>
 
-<!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
-      <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">Variable demand is a permanent reality. The first conversation about building flexibility into your operation is always free.</p></div>
+      <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">Variable workload management is one of the most common scheduling challenges. The first conversation is always free.</p></div>
       <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p></div>
       <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
     </div>
@@ -582,7 +525,7 @@ document.getElementById('mobileToggle').addEventListener('click',function(){var 
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
 (function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
-(function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var parts=[];document.querySelectorAll('.article-wrap p,.tool-block p,.mistakes-section .mistake-text,.important-callout-inner p').forEach(function(el){var t=el.textContent.trim();if(t)parts.push(t);});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
+(function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var sels=['.article-wrap p','.tools-section .tool-block p','.mistakes-section .mistake-text','.callout-text'];var parts=[];sels.forEach(function(sel){document.querySelectorAll(sel).forEach(function(el){var t=el.textContent.trim();if(t)parts.push(t);});});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
 </script>
 </body>
 </html>
