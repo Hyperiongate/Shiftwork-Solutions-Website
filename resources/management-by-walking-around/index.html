@@ -1,19 +1,47 @@
 <!DOCTYPE html>
 <!--
-  resources/management-by-walking-around/index.html
+  resources/32-hour-workweek-manufacturing/index.html
   Shiftwork Solutions LLC — Trending Topic Article
-  URL: /resources/management-by-walking-around/
-  Created: 2026-04-04 | Last Updated: 2026-04-15
+  URL: /resources/32-hour-workweek-manufacturing/
+  Created: 2026-04-04 | Last Updated: 2026-04-16
 
   CHANGE LOG:
-    2026-04-04 — Initial build. 2026-04-05 — NAV audit, FAQ added.
-    2026-04-15 — Nav: "Why Us" -> "Our Company". Dark navy next steps.
-                 Removed floating CTA and engage-band. New 3-col footer.
-    2026-04-15 — Logo corrected (clear_bkgr_logo_2.png), SHIFTWORK SOLUTIONS
-                 text added (both link /), nav font 20px, hero image
-                 /images/walking.jpg, FAQ rebuilt to industry accordion style
-                 (Hands_in_the_air.jpg background), Next Steps bg changed
-                 from navy to light grey #F4F6F8.
+    2026-04-04 — Initial build from source Word doc.
+    2026-04-05 — NAV + BUTTON + SEO AUDIT. FAQ section added.
+    2026-04-15 — Nav: "Why Us" -> "Our Company". Next Steps: dark navy animated
+                 cards. Removed floating CTA section and engage-band. Footer:
+                 standard dark-navy 3-col prefooter.
+    2026-04-15 — (v2) THREE NAV + HERO + FAQ FIXES:
+                 1. Logo src corrected: clear%20bkgr%20logo%202.png →
+                    clear_bkgr_logo_2.png (underscores match actual repo filename)
+                 2. "SHIFTWORK SOLUTIONS" bold navy text added to right of logo;
+                    both logo image and text link to homepage. .nav-logo-text class
+                    added; font-size 20px, font-weight 700, color #1F4E79, Arial.
+                    .nav-logo gap set to 12px to space image from text.
+                 3. Nav link font-size increased from 13.5px to 20px (matching
+                    homepage standard). Mobile nav font-size set to 18px.
+                 4. Hero image changed from second.png to /images/32.jpg with same
+                    gradient overlay treatment as industry pages.
+                 5. FAQ section rebuilt to match industry page style: full-bleed
+                    Hands_in_the_air.jpg background, dark vignette overlay, navy
+                    accordion toggle buttons, #EEAE26 heading, white answer panels,
+                    accordion open/close JS behavior. Old static FAQ markup removed.
+                 6. Next Steps section: background changed from navy to light grey
+                    (#F4F6F8) to visually separate it from the dark navy footer.
+                    Card borders changed from white/transparent to solid --border-med.
+                    Text colors updated: eyebrow/sub/phone to --muted, h2 to --navy.
+                    Card label/link colors: blue card uses --navy (not --mid-blue).
+    2026-04-16 — NAV LABEL: "Our Company" → "Why Us".
+
+  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
+  HERO IMAGE: /images/32.jpg
+  FAQ IMAGE:  /images/Hands_in_the_air.jpg
+  BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
+  DESIGN SYSTEM:
+    --navy: #1F4E79  --navy-dark: #0D1F3C  --mid-blue: #85B7EB
+    --light-blue: #EEF3F8  --orange: #E8610A  --green: #1D9E75
+    --body-text: #1A1A1A  --max-width: 860px
+    Font: Arial, Helvetica, sans-serif
 
   I did no harm and this file is not truncated
 -->
@@ -26,15 +54,15 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
   <meta name="twitter:card" content="summary">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Management By Walking Around: A Tale of Two Plants","description":"Two plants. Two leadership styles. One thriving, one struggling. A firsthand look at why management presence on the floor changes everything in shift operations.","url":"https://shift-work.com/resources/management-by-walking-around/","datePublished":"2026-04-04","dateModified":"2026-04-15","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Management By Walking Around: A Tale of Two Plants", "description": "Two plants. Two leadership styles. One thriving, one struggling. A firsthand look at why management presence on the floor changes everything in shift operations.", "url": "https://shift-work.com/resources/management-by-walking-around/", "datePublished": "2026-04-04", "dateModified": "2026-04-16", "author": {"@type": "Organization", "name": "Shiftwork Solutions LLC"}, "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Management By Walking Around","item":"https://shift-work.com/resources/management-by-walking-around/"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Management by Walking Around (MBWA) in manufacturing?","acceptedAnswer":{"@type":"Answer","text":"MBWA is a leadership practice where managers spend regular, unstructured time on the production floor — greeting employees, observing operations, listening to concerns, and being visibly present. In shift operations, it is one of the most reliable indicators of workforce engagement and facility performance."}},{"@type":"Question","name":"How does management presence connect to employee retention in manufacturing?","acceptedAnswer":{"@type":"Answer","text":"People don't just quit jobs — they quit managers. Operations where leaders are visible, accessible, and genuinely interested in their people retain workers at significantly higher rates than those where leadership is absent or disconnected from the floor."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What happens to labor costs in 24/7 operations if the overtime threshold drops to 32 hours?","acceptedAnswer":{"@type":"Answer","text":"Monday-through-Friday operations would see 8 hours per employee shift from straight time to overtime — roughly a 10% labor cost increase. Four-crew 24/7 systems would see pay equivalents rise from 44 to approximately 47 hours — a 6.8% increase. Five-crew systems are least affected, averaging only 1.6 hours above the 32-hour threshold."}},{"@type":"Question","name":"Which crew model is best positioned for a 32-hour workweek?","acceptedAnswer":{"@type":"Answer","text":"Five-crew systems are the most adaptable, averaging 33.6 hours per week per employee — only 1.6 hours above a 32-hour threshold. The tradeoff is losing dedicated relief and training capacity."}}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--max-width:860px;--page-pad:24px}
+    :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
@@ -77,30 +105,23 @@
     .pull-quote-content{flex:1}
     .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
     .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
-    .contrast-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:32px 0}
-    .contrast-card{border-radius:8px;padding:24px 20px}
-    .contrast-card.bad{background:#FEF2F2;border-top:4px solid #DC2626}
-    .contrast-card.good{background:#F0FDF4;border-top:4px solid var(--green)}
-    .contrast-card .cc-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
-    .contrast-card.bad .cc-label{color:#DC2626}
-    .contrast-card.good .cc-label{color:var(--green)}
-    .contrast-card h3{font-size:15px;font-weight:700;margin-bottom:12px;line-height:1.3}
-    .contrast-card.bad h3{color:#991B1B}
-    .contrast-card.good h3{color:#166534}
-    .contrast-card p{font-size:13px;line-height:1.6;margin-bottom:10px;color:var(--body-text)}
-    .outcome-list{margin:12px 0;padding:0}
-    .outcome-list li{list-style:none;padding:8px 0 8px 24px;border-bottom:1px solid rgba(0,0,0,.06);font-size:13px;line-height:1.5;position:relative}
-    .outcome-list li:last-child{border-bottom:none}
-    .outcome-list li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
-    .outcome-list.bad li::before{content:'✗';color:#DC2626}
-    /* ── FAQ — industry accordion style ── */
+    .data-table-wrap{margin:32px 0;overflow-x:auto}
+    .data-table{width:100%;border-collapse:collapse;font-size:14px}
+    .data-table th{background:var(--navy);color:var(--white);padding:10px 14px;text-align:left;font-size:13px;font-weight:700}
+    .data-table td{padding:10px 14px;border-bottom:1px solid var(--border-light)}
+    .data-table tr:nth-child(even) td{background:var(--light-blue)}
+    .data-table tr:last-child td{border-bottom:none}
+    .data-table .highlight{color:var(--orange);font-weight:700}
+    .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
+    .insight-card{background:var(--light-blue);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
+    .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.5}
     .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
     .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:52px 24px 56px}
     .faq-inner h2{font-size:22px;font-weight:700;color:#EEAE26;margin-bottom:28px;text-shadow:0 1px 6px rgba(0,0,0,0.5)}
     .faq-item{margin-bottom:6px}
-    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--navy);border:1px solid rgba(255,255,255,0.18);border-radius:6px;cursor:pointer;padding:16px 18px;text-align:left;gap:16px;transition:background .2s ease}
+    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--navy);border:1px solid rgba(255,255,255,0.18);border-radius:6px;cursor:pointer;padding:16px 18px;text-align:left;gap:16px;transition:background .2s ease;font-family:Arial,Helvetica,sans-serif}
     .faq-toggle:hover{background:#1a4268}
     .faq-item.faq-open .faq-toggle{border-radius:6px 6px 0 0;background:var(--navy);border-bottom-color:transparent}
     .faq-q{font-size:15px;font-weight:700;color:#fff;line-height:1.4;flex:1;text-shadow:0 1px 4px rgba(0,0,0,0.4)}
@@ -111,7 +132,6 @@
     .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease,padding .25s ease}
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
-    /* ── NEXT STEPS — light grey ── */
     .next-steps{padding:56px var(--page-pad) 60px;background:#F4F6F8;position:relative;overflow:hidden}
     .next-steps-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
     .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
@@ -143,7 +163,6 @@
     .ns-phone{margin-top:28px;font-size:13px;color:var(--muted);text-align:center}
     .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
     .ns-phone a:hover{color:var(--orange)}
-    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -180,11 +199,28 @@
     .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
     .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
-    @media(max-width:760px){.ns-cards{grid-template-columns:1fr}.contrast-grid{grid-template-columns:1fr}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.next-steps{padding:40px 20px 44px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}}
+    .contrast-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:32px 0}
+    .contrast-card{border-radius:8px;padding:24px 20px}
+    .contrast-card.bad{background:#FEF2F2;border-top:4px solid #DC2626}
+    .contrast-card.good{background:#F0FDF4;border-top:4px solid var(--green)}
+    .contrast-card .cc-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+    .contrast-card.bad .cc-label{color:#DC2626}
+    .contrast-card.good .cc-label{color:var(--green)}
+    .contrast-card h3{font-size:15px;font-weight:700;margin-bottom:12px;line-height:1.3}
+    .contrast-card.bad h3{color:#991B1B}
+    .contrast-card.good h3{color:#166534}
+    .contrast-card p{font-size:13px;line-height:1.6;margin-bottom:10px;color:var(--body-text)}
+    .outcome-list{margin:12px 0;padding:0}
+    .outcome-list li{list-style:none;padding:8px 0 8px 24px;border-bottom:1px solid rgba(0,0,0,.06);font-size:13px;line-height:1.5;position:relative}
+    .outcome-list li:last-child{border-bottom:none}
+    .outcome-list li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+    .outcome-list.bad li::before{content:'✗';color:#DC2626}
+    @media(max-width:760px){.ns-cards{grid-template-columns:1fr}.insight-cards{grid-template-columns:1fr 1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
+    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.next-steps{padding:40px 20px 44px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.insight-cards{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
+
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo">
     <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36">
@@ -196,7 +232,7 @@
     <li><a href="/services/">Our Services</a></li>
     <li><a href="/resources/" class="nav-active">Resources</a></li>
     <li><a href="/industries/">Industries</a></li>
-    <li><a href="/why-us/">Our Company</a></li>
+    <li><a href="/why-us/">Why Us</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
@@ -214,79 +250,41 @@
 <div class="article-wrap">
   <div class="article-meta"><span class="meta-tag">Leadership</span><span class="meta-date">April 2026</span><span class="meta-read">4 min read</span></div>
 
-  <p>A few years ago, I visited a food manufacturing plant where the HR manager's office was tucked away behind a reception area. The door had a glass window — but it had been painted over with an opaque green. Curious, I asked the HR manager about it. He replied: "This way, employees can't see if I'm in. If they know I'm here, they'll come in all day, and I'll never get anything done."</p>
+  <p>A few years ago, I visited a food manufacturing plant where the HR manager&#x2019;s office was tucked away behind a reception area. The door had a glass window &#x2014; but it had been painted over with an opaque green. Curious, I asked the HR manager about it. He replied: &#x201C;This way, employees can&#x2019;t see if I&#x2019;m in. If they know I&#x2019;m here, they&#x2019;ll come in all day, and I&#x2019;ll never get anything done.&#x201D;</p>
   <p>That moment stuck with me.</p>
   <p>The consequences were predictable. The plant was dirty. The workforce felt ignored and disconnected. Their concerns went unheard. Attendance was poor, turnover was high, and both performance and quality suffered.</p>
 
   <div class="contrast-grid">
-    <div class="contrast-card bad"><div class="cc-label">Plant A — Disconnected Leadership</div><h3>The Painted-Over Window</h3><p>HR manager deliberately hid from employees. The reasoning: "If they know I'm here, they'll come in all day."</p><ul class="outcome-list bad"><li>Plant was dirty and poorly maintained</li><li>Workforce felt ignored and disconnected</li><li>Attendance poor, turnover high</li><li>Performance and quality suffered</li></ul></div>
-    <div class="contrast-card good"><div class="cc-label">Plant B — Visible Leadership</div><h3>The Plant Manager Who Showed Up</h3><p>Plant manager led tours personally, knew every employee by name — birthdays, congratulations, genuine interest.</p><ul class="outcome-list"><li>Plant was immaculate</li><li>Problems resolved without being asked</li><li>Employees engaged and communicative</li><li>Visible pride in the facility and the work</li></ul></div>
+    <div class="contrast-card bad"><div class="cc-label">Plant A &#x2014; Disconnected Leadership</div><h3>The Painted-Over Window</h3><p>HR manager deliberately hid from employees. The reasoning: &#x201C;If they know I&#x2019;m here, they&#x2019;ll come in all day.&#x201D;</p><ul class="outcome-list bad"><li>Plant was dirty and poorly maintained</li><li>Workforce felt ignored and disconnected</li><li>Attendance poor, turnover high</li><li>Performance and quality suffered</li></ul></div>
+    <div class="contrast-card good"><div class="cc-label">Plant B &#x2014; Visible Leadership</div><h3>The Plant Manager Who Showed Up</h3><p>Plant manager led tours personally, knew every employee by name &#x2014; birthdays, congratulations, genuine interest.</p><ul class="outcome-list"><li>Plant was immaculate</li><li>Problems resolved without being asked</li><li>Employees engaged and communicative</li><li>Visible pride in the facility and the work</li></ul></div>
   </div>
 
-  <p>In contrast, I recently toured another food manufacturing facility. The plant manager led the tour himself. He greeted every employee by name — birthday wishes, congratulations, and genuine interest. Occasionally, someone would approach him with a question or just to chat, and he gave them his full attention.</p>
-  <p>The plant was immaculate. At one point, he noticed a small oil leak from a machine. Without saying a word, a maintenance worker appeared shortly after and addressed it. The manager didn't mention the leak — instead, he asked the technician how his day was going. They chatted briefly, and we moved on. When we passed the same spot later, the leak was gone, and the area was spotless.</p>
+  <p>In contrast, I recently toured another food manufacturing facility. The plant manager led the tour himself. He greeted every employee by name &#x2014; birthday wishes, congratulations, and genuine interest. Occasionally, someone would approach him with a question or just to chat, and he gave them his full attention.</p>
+  <p>The plant was immaculate. At one point, he noticed a small oil leak from a machine. Without saying a word, a maintenance worker appeared shortly after and addressed it. The manager didn&#x2019;t mention the leak &#x2014; instead, he asked the technician how his day was going. They chatted briefly, and we moved on. When we passed the same spot later, the leak was gone, and the area was spotless.</p>
 
   <div class="pull-quote">
     <span class="pull-quote-mark">&#8220;</span>
     <div class="pull-quote-content">
-      <p>People don't just quit jobs — they quit managers. Employees don't want management on the floor because they need to be watched. They want them there because it shows that leadership sees their contributions.</p>
+      <p>People don&#x2019;t just quit jobs &#x2014; they quit managers. Employees don&#x2019;t want management on the floor because they need to be watched. They want them there because it shows that leadership sees their contributions.</p>
     </div>
   </div>
 
-  <p>After visiting plant floors across the country, I've learned that nothing shapes a workplace more than leadership. You can spot it quickly — whether a facility runs on trust and visibility, or silence and detachment. Of all the sites I've walked, these two stand out as lasting lessons in what leadership presence really means.</p>
-  <p>In today's labor market, where skilled workers are hard to find and harder to keep, it's worth remembering: people don't just quit jobs — they quit managers. Employees don't want management on the floor because they need to be watched. They want them there because it shows that leadership sees their contributions. It shows that they matter.</p>
-  <p>Management by Walking Around doesn't require a budget or a strategy session. Just the willingness to show up, listen, and engage.</p>
-  <p>And the best part? It works.</p>
+  <p>After visiting plant floors across the country, I&#x2019;ve learned that nothing shapes a workplace more than leadership. You can spot it quickly &#x2014; whether a facility runs on trust and visibility, or silence and detachment. Of all the sites I&#x2019;ve walked, these two stand out as lasting lessons in what leadership presence really means.</p>
+  <p>In today&#x2019;s labor market, where skilled workers are hard to find and harder to keep, it&#x2019;s worth remembering: people don&#x2019;t just quit jobs &#x2014; they quit managers. Employees don&#x2019;t want management on the floor because they need to be watched. They want them there because it shows that leadership sees their contributions. It shows that they matter.</p>
+  <p>Management by Walking Around doesn&#x2019;t require a budget or a strategy session. Just the willingness to show up, listen, and engage. And the best part? It works.</p>
 
 </div><!-- /.article-wrap -->
 
-<!-- FAQ SECTION: full-bleed Hands_in_the_air.jpg, industry-style accordion -->
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
   <div class="faq-inner">
     <h2>Frequently Asked Questions</h2>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">What is Management by Walking Around (MBWA) in manufacturing?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">MBWA is a leadership practice where managers and plant leaders spend regular, unstructured time on the production floor — greeting employees, observing operations, listening to concerns, and being visibly present. It requires no budget or strategy session, just the willingness to show up, listen, and engage. In shift operations, it is one of the most reliable indicators of workforce engagement and overall facility performance.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">Why does management visibility matter more in shift operations than in office environments?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">Shift workers — particularly those on nights and weekends — often feel invisible to leadership. When management is never present during their shifts, workers conclude that their contributions are not valued. This perception drives disengagement, attendance problems, and turnover. Visible leadership on all shifts signals that the operation values every crew equally.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">How does leadership absence affect plant performance?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">The consequences are predictable and measurable. Facilities where leadership is disconnected from the floor consistently show higher turnover, worse attendance, lower quality metrics, and poorer housekeeping. Employee concerns go unheard, small problems compound into larger ones, and the workforce disengages from the operation's success.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">Does MBWA mean managers should be monitoring or supervising workers on the floor?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">No — the purpose is presence and connection, not surveillance. Employees want management on the floor because it shows that leadership sees their contributions, not because they need to be watched. The most effective practitioners greet workers by name, ask about their lives, listen to concerns, and follow up on issues raised in previous conversations.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">How does management presence connect to employee retention in manufacturing?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">People don't just quit jobs — they quit managers. In a labor market where skilled workers are hard to find and harder to keep, the quality of the relationship between leadership and the workforce is a direct driver of retention. Operations where leaders are visible, accessible, and genuinely interested in their people retain workers at significantly higher rates.</div></div>
-    </div>
-
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What is Management by Walking Around (MBWA) in manufacturing?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">MBWA is a leadership practice where managers and plant leaders spend regular, unstructured time on the production floor &#x2014; greeting employees, observing operations, listening to concerns, and being visibly present. It requires no budget or strategy session, just the willingness to show up, listen, and engage. In shift operations, it is one of the most reliable indicators of workforce engagement and overall facility performance.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why does management visibility matter more in shift operations than in office environments?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Shift workers &#x2014; particularly those on nights and weekends &#x2014; often feel invisible to leadership. When management is never present during their shifts, workers conclude that their contributions are not valued. This perception drives disengagement, attendance problems, and turnover. Visible leadership on all shifts signals that the operation values every crew equally.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How does leadership absence affect plant performance?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Facilities where leadership is disconnected from the floor consistently show higher turnover, worse attendance, lower quality metrics, and poorer housekeeping. Employee concerns go unheard, small problems compound into larger ones, and the workforce disengages from the operation&#x2019;s success.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Does MBWA mean managers should be monitoring or supervising workers on the floor?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">No &#x2014; the purpose is presence and connection, not surveillance. Employees want management on the floor because it shows that leadership sees their contributions, not because they need to be watched. The most effective practitioners greet workers by name, ask about their lives, listen to concerns, and follow up on issues raised in previous conversations.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How does management presence connect to employee retention in manufacturing?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">People don&#x2019;t just quit jobs &#x2014; they quit managers. In a labor market where skilled workers are hard to find and harder to keep, the quality of the relationship between leadership and the workforce is a direct driver of retention. Operations where leaders are visible, accessible, and genuinely interested in their people retain workers at significantly higher rates.</div></div></div>
   </div>
 </div><!-- /.faq-section -->
 
@@ -295,9 +293,9 @@
   <h2>Next Steps &amp; Resources</h2>
   <p class="next-steps-sub">Talk to an expert, read the guide, or run a quick diagnostic on your current operation.</p>
   <div class="ns-cards">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card ns-accent-blue" target="_blank" rel="noopener"><div class="ns-card-label">Free Consultation</div><h3>Talk to a Shiftwork Expert</h3><p>Explore how an employee engagement process can surface what's really driving turnover, absenteeism, and morale issues in your operation.</p><span class="ns-card-link">Book a free meeting</span></a>
+    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card ns-accent-blue" target="_blank" rel="noopener"><div class="ns-card-label">Free Consultation</div><h3>Talk to a Shiftwork Expert</h3><p>Explore how an employee engagement process can surface what&#x2019;s really driving turnover, absenteeism, and morale issues in your operation.</p><span class="ns-card-link">Book a free meeting</span></a>
     <a href="/resources/shiftwork-assessment/" class="ns-card ns-accent-orange"><div class="ns-card-label">Free Assessment</div><h3>Evaluate Your Current Schedule</h3><p>Your schedule affects engagement more than most managers realize. See where your current setup stands.</p><span class="ns-card-link">Take the assessment</span></a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green"><div class="ns-card-label">Diagnostic Tool</div><h3>26 Warning Signs</h3><p>Twenty-six operational symptoms that signal your shiftwork system may need attention — many tied directly to engagement and retention.</p><span class="ns-card-link">Read the diagnostic</span></a>
+    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green"><div class="ns-card-label">Diagnostic Tool</div><h3>26 Warning Signs</h3><p>Twenty-six operational symptoms that signal your shiftwork system may need attention &#x2014; many tied directly to engagement and retention.</p><span class="ns-card-link">Read the diagnostic</span></a>
   </div>
   <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
 </div></section>
@@ -323,8 +321,8 @@
 
 <button class="listen-btn" id="listenBtn" aria-label="Listen to this article"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg><span id="listenLabel">Listen</span></button>
 <script>
-(function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
+(function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
 (function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
 (function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p,h2,h3');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim());});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
