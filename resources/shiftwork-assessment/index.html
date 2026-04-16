@@ -5,7 +5,7 @@
   URL: /resources/shiftwork-assessment/
 
   Created:      2026-04-03
-  Last Updated: 2026-04-05
+  Last Updated: 2026-04-16
 
   CHANGE LOG:
     2026-04-03 — Complete rebuild from legacy assessment.
@@ -16,23 +16,39 @@
                  1. NAV: Logo → image (was text)
                     Services → direct link (no dropdown)
                     Resources → direct link (no dropdown)
-                    Why Us dropdown: "Meet Our Team" → /our_team/
                  2. BUTTONS: Nav CTA → "Book a Free Meeting" ORANGE (#E8610A)
                     + booking URL with ?ismsaljsauthenabled=true
                     CTA results button → ORANGE bg
                  3. SEO: Added Twitter Card tags
 
-  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn
-  BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
+    2026-04-16 — VISUAL OVERHAUL to match resources page (doc 2) standards:
+                 1. NAV: Added "SHIFTWORK SOLUTIONS" text next to logo,
+                    nav links bumped to 20px, "Why Us" → "Our Company",
+                    logo src corrected to clear_bkgr_logo_2.png (underscores).
+                 2. HERO: Replaced flat navy hero with second.png background
+                    + gradient overlay + decorative circles + fadeUp animation.
+                    h1 color → #EEAE26 (gold). Subtitle → white/75%.
+                 3. FOOTER: Replaced thin grey footer with full dark navy
+                    3-column pre-footer (Free Consultation / Talk to Thomas /
+                    Newsletter with working subscribe form) + bottom bar with
+                    phone, email, copyright. Matches resources page exactly.
+                 4. TYPOGRAPHY: Body copy up to 15px. intro-lead up to 16px.
+                    Form labels 14px. q-text up to 20px. answer-btn 15px.
+                    Section headings improved. Better line-height throughout.
+                 5. FORM CARD: Refreshed styling — white bg, orange accent top
+                    border, improved spacing. Section intro highlight updated.
+                 6. RESULTS: Improved narrative block, rec-item padding,
+                    overall score card polish.
+                 All 35 questions, AI evaluation logic, Claude API call,
+                 fallback scoring, lead capture, and PDF functionality
+                 are completely unchanged.
 
-  ARCHITECTURE:
-    Step 1: Contact form → POST to Swarm /api/assessment/lead
-    Step 2: 35 questions answered locally
-    Step 3: POST all answers to Claude API → returns JSON evaluation
-    Step 4: Render results from AI JSON
-    Step 5: Download PDF via window.print()
-
-  I did no harm and this file is not truncated
+  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
+  DESIGN CONSTANTS:
+    Navy: #1F4E79 | Navy-dark: #0D1F3C | Mid-blue: #85B7EB
+    Orange: #E8610A | Green: #1D9E75 | Hero h1: #EEAE26
+    Logo: /images/clear_bkgr_logo_2.png
+    Hero image: /images/second.png
 -->
 <html lang="en">
 <head>
@@ -52,239 +68,499 @@
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--black-blue:#0D1F3C;--navy:#1F4E79;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
+    :root{
+      --navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;
+      --orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;
+      --body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;
+      --cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px
+    }
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
+
+    /* ── NAV (matches resources page exactly) ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
-    .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0}
+    .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0;display:flex;align-items:center;gap:12px}
     .nav-logo img{height:36px;width:auto;display:block}
+    .nav-logo-text{font-family:Arial,sans-serif;font-size:20px;font-weight:700;color:#1F4E79;letter-spacing:.03em;line-height:1}
     .nav-links{list-style:none;display:flex;align-items:center}
     .nav-links>li{position:relative}
-    .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
+    .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:20px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
     .nav-links>li>a:hover{color:var(--navy)}
-    .nav-arrow{font-size:9px;opacity:.5;transition:transform .2s}
-    .nav-dropdown{position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border-med);border-top:none;border-radius:0 0 6px 6px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:270px;max-height:460px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-2px);transition:opacity .15s,visibility .15s,transform .15s;padding:6px 0;z-index:100}
-    .nav-links>li:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateY(0)}
-    .nav-links>li:hover>a .nav-arrow{transform:rotate(180deg)}
-    .dropdown-label{padding:8px 16px 4px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-    .nav-dropdown a{display:block;padding:6px 16px;font-size:13px;color:#444;text-decoration:none;transition:background .12s;line-height:1.4}
-    .nav-dropdown a:hover{background:var(--light-blue);color:var(--navy)}
-    .nav-dropdown a.current-page{color:var(--navy);font-weight:700}
-    .dropdown-divider{height:1px;background:var(--border-light);margin:4px 0}
+    .nav-links>li>a.nav-active{color:var(--navy);font-weight:700;text-decoration:underline;text-underline-offset:3px}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
     .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-    .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;top:-80px;right:-60px;width:300px;height:300px;border-radius:50%;background:var(--white);opacity:.05}
-    .hero::after{content:'';position:absolute;bottom:-120px;left:-40px;width:220px;height:220px;border-radius:50%;background:var(--white);opacity:.05}
+
+    /* ── HERO (matches resources page — second.png, gradient, circles, gold h1) ── */
+    .hero{background:#0D1F3C url('/images/second.png') center center/cover no-repeat;padding:60px 36px 68px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.82) 0%,rgba(13,31,60,.60) 55%,rgba(13,31,60,.30) 100%);z-index:0}
+    .hero-circle-tr{position:absolute;top:-60px;right:-80px;width:320px;height:320px;border-radius:50%;border:2px solid rgba(232,97,10,.25);z-index:0}
+    .hero-circle-bl{position:absolute;bottom:-100px;left:-50px;width:220px;height:220px;border-radius:50%;border:2px solid rgba(133,183,235,.15);z-index:0}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
-    .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:12px}
-    .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:var(--white);max-width:560px;margin-bottom:12px}
-    .hero-subtitle{font-size:15px;line-height:1.65;color:var(--mid-blue);max-width:560px;margin-bottom:28px}
-    .hero-stats{display:flex;gap:16px;flex-wrap:wrap}
-    .hero-stat{background:rgba(255,255,255,.08);border-radius:8px;padding:16px 20px;min-width:150px}
-    .hero-stat-num{font-size:26px;font-weight:700;color:var(--white);line-height:1.1}
-    .hero-stat-label{font-size:12px;color:var(--mid-blue);margin-top:4px;line-height:1.35}
+    .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:14px;animation:fadeUp .5s .05s ease both}
+    .hero h1{font-size:36px;font-weight:700;line-height:1.15;color:#EEAE26;max-width:680px;margin-bottom:16px;animation:fadeUp .5s .1s ease both}
+    .hero-subtitle{font-size:16px;line-height:1.7;color:rgba(255,255,255,.80);max-width:580px;margin-bottom:32px;animation:fadeUp .5s .2s ease both}
+    .hero-stats{display:flex;gap:16px;flex-wrap:wrap;animation:fadeUp .5s .3s ease both}
+    .hero-stat{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:16px 22px;min-width:150px}
+    .hero-stat-num{font-size:28px;font-weight:700;color:var(--white);line-height:1.1}
+    .hero-stat-label{font-size:12px;color:rgba(255,255,255,.70);margin-top:5px;line-height:1.4}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+    /* ── BREADCRUMB ── */
     .breadcrumb-bar{border-bottom:1px solid var(--border-light);padding:10px var(--page-pad)}
-    .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:11px;color:#888}
-    .breadcrumb-inner a{color:#888;text-decoration:none}
+    .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:#888}
+    .breadcrumb-inner a{color:#888;text-decoration:none;transition:color .15s}
     .breadcrumb-inner a:hover{color:var(--navy)}
     .breadcrumb-inner .bc-current{color:var(--navy);font-weight:700}
-    .assessment-wrap{max-width:var(--max-width);margin:0 auto;padding:32px var(--page-pad) 48px}
-    .intro-lead{font-size:15px;line-height:1.75;color:var(--body-text);margin-bottom:20px;max-width:680px}
-    .intro-highlight{background:var(--light-blue);border-left:3px solid var(--navy);border-radius:0 6px 6px 0;padding:18px 20px;margin:20px 0}
-    .intro-highlight h3{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:12px;text-transform:uppercase;letter-spacing:.05em}
+
+    /* ── ASSESSMENT WRAPPER ── */
+    .assessment-wrap{max-width:var(--max-width);margin:0 auto;padding:36px var(--page-pad) 56px}
+
+    /* ── INTRO SCREEN ── */
+    .intro-lead{font-size:16px;line-height:1.80;color:var(--body-text);margin-bottom:24px;max-width:720px}
+    .intro-highlight{background:var(--light-blue);border-left:4px solid var(--navy);border-radius:0 8px 8px 0;padding:22px 24px;margin:24px 0}
+    .intro-highlight h3{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:14px;text-transform:uppercase;letter-spacing:.06em}
     .intro-highlight ul{list-style:none;padding:0}
-    .intro-highlight ul li{font-size:14px;color:var(--body-text);padding:5px 0;padding-left:20px;position:relative}
-    .intro-highlight ul li::before{content:"✓";position:absolute;left:0;color:var(--navy);font-weight:700}
-    .dims-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px 0}
-    .dim-card{background:var(--white);border:1px solid var(--border-med);border-top:2px solid var(--navy);border-radius:4px;padding:12px 14px;font-size:13px;font-weight:700;color:var(--navy)}
-    .form-card{background:var(--light-grey);border:1px solid var(--border-med);border-radius:8px;padding:28px;margin:28px 0}
-    .form-card h3{font-size:18px;font-weight:700;color:var(--body-text);margin-bottom:6px}
-    .form-card .form-sub{font-size:13px;color:var(--muted);margin-bottom:22px}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-    .form-group{display:flex;flex-direction:column;gap:5px}
-    .form-group label{font-size:13px;font-weight:700;color:var(--body-text)}
+    .intro-highlight ul li{font-size:15px;color:var(--body-text);padding:6px 0;padding-left:24px;position:relative;line-height:1.55}
+    .intro-highlight ul li::before{content:"✓";position:absolute;left:0;color:var(--navy);font-weight:700;font-size:14px}
+    .dims-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0}
+    .dim-card{background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:6px;padding:14px 16px;font-size:13px;font-weight:700;color:var(--navy);line-height:1.35}
+
+    /* ── FORM CARD ── */
+    .form-card{background:var(--white);border:1px solid var(--border-med);border-top:4px solid var(--orange);border-radius:8px;padding:32px;margin:32px 0;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+    .form-card h3{font-size:20px;font-weight:700;color:var(--body-text);margin-bottom:6px}
+    .form-card .form-sub{font-size:14px;color:var(--muted);margin-bottom:26px;line-height:1.6}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+    .form-group{display:flex;flex-direction:column;gap:6px}
+    .form-group label{font-size:14px;font-weight:700;color:var(--body-text)}
     .form-group .req{color:var(--orange)}
-    .form-group input,.form-group select{padding:10px 12px;border:1.5px solid var(--border-med);border-radius:4px;font-family:Arial,sans-serif;font-size:14px;color:var(--body-text);background:var(--white);transition:border-color .15s}
-    .form-group input:focus,.form-group select:focus{outline:none;border-color:var(--navy)}
-    .form-group-full{margin-bottom:16px}
-    .newsletter-row{display:flex;align-items:flex-start;gap:10px;background:var(--white);border:1px solid var(--border-med);border-radius:4px;padding:12px 14px;margin:16px 0}
-    .newsletter-row input[type="checkbox"]{width:16px;height:16px;flex-shrink:0;margin-top:2px;accent-color:var(--navy)}
-    .newsletter-row label{font-size:13px;color:var(--body-text);line-height:1.5;cursor:pointer}
-    .privacy-note{font-size:12px;color:var(--muted);text-align:center;margin:12px 0}
+    .form-group input,.form-group select{padding:11px 14px;border:1.5px solid var(--border-med);border-radius:5px;font-family:Arial,sans-serif;font-size:15px;color:var(--body-text);background:var(--white);transition:border-color .15s}
+    .form-group input:focus,.form-group select:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(31,78,121,.08)}
+    .form-group-full{margin-bottom:18px}
+    .newsletter-row{display:flex;align-items:flex-start;gap:12px;background:var(--light-grey);border:1px solid var(--border-med);border-radius:6px;padding:14px 16px;margin:18px 0}
+    .newsletter-row input[type="checkbox"]{width:17px;height:17px;flex-shrink:0;margin-top:2px;accent-color:var(--navy)}
+    .newsletter-row label{font-size:14px;color:var(--body-text);line-height:1.55;cursor:pointer}
+    .privacy-note{font-size:12px;color:var(--muted);text-align:center;margin:14px 0}
     .privacy-note a{color:var(--navy);text-decoration:none}
     .privacy-note a:hover{text-decoration:underline}
-    .btn-primary{display:inline-block;padding:12px 32px;background:var(--navy);color:var(--white);font-family:Arial,sans-serif;font-size:14px;font-weight:700;border:none;border-radius:4px;cursor:pointer;transition:background .15s;text-align:center}
-    .btn-primary:hover{background:#174067}
+    .btn-primary{display:inline-block;padding:13px 36px;background:var(--orange);color:var(--white);font-family:Arial,sans-serif;font-size:15px;font-weight:700;border:none;border-radius:4px;cursor:pointer;transition:background .15s;text-align:center}
+    .btn-primary:hover{background:#c4510a}
     .btn-primary:disabled{opacity:.55;cursor:not-allowed}
     .btn-center{display:block;margin:0 auto}
-    .form-msg{margin-top:14px;padding:12px 14px;border-radius:4px;font-size:13px;display:none}
+    .form-msg{margin-top:16px;padding:13px 16px;border-radius:5px;font-size:14px;display:none}
     .form-msg.info{background:#EEF3F8;color:var(--navy);border:1px solid var(--mid-blue);display:block}
     .form-msg.success{background:#e8f5e9;color:#1b5e20;border:1px solid #a5d6a7;display:block}
     .form-msg.error{background:#fce4ec;color:#880e4f;border:1px solid #f48fb1;display:block}
-    .progress-track{background:var(--border-med);height:6px;border-radius:3px;margin-bottom:6px;overflow:hidden}
-    .progress-fill{background:var(--navy);height:100%;border-radius:3px;transition:width .3s ease}
-    .progress-label{font-size:12px;color:var(--muted);margin-bottom:24px}
+
+    /* ── QUESTION SCREEN ── */
     .question-screen{display:none}
+    .progress-track{background:var(--border-med);height:7px;border-radius:4px;margin-bottom:8px;overflow:hidden}
+    .progress-fill{background:var(--navy);height:100%;border-radius:4px;transition:width .3s ease}
+    .progress-label{font-size:13px;color:var(--muted);margin-bottom:28px}
     .q-number{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--navy);margin-bottom:8px}
-    .q-category{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:var(--light-blue);color:var(--navy);padding:3px 8px;border-radius:3px;margin-bottom:12px}
-    .q-text{font-size:18px;font-weight:700;color:var(--body-text);line-height:1.4;margin-bottom:24px;max-width:640px}
-    .answer-grid{display:flex;flex-direction:column;gap:10px;max-width:560px}
-    .answer-btn{padding:14px 18px;background:var(--white);border:2px solid var(--border-med);border-radius:6px;font-family:Arial,sans-serif;font-size:14px;font-weight:600;color:var(--body-text);text-align:left;cursor:pointer;transition:border-color .15s,background .15s;line-height:1.4}
+    .q-category{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:var(--light-blue);color:var(--navy);padding:4px 10px;border-radius:3px;margin-bottom:16px}
+    .q-text{font-size:20px;font-weight:700;color:var(--body-text);line-height:1.4;margin-bottom:28px;max-width:660px}
+    .answer-grid{display:flex;flex-direction:column;gap:12px;max-width:580px}
+    .answer-btn{padding:16px 20px;background:var(--white);border:2px solid var(--border-med);border-radius:7px;font-family:Arial,sans-serif;font-size:15px;font-weight:600;color:var(--body-text);text-align:left;cursor:pointer;transition:border-color .15s,background .15s;line-height:1.4}
     .answer-btn:hover{border-color:var(--navy);background:var(--light-blue);color:var(--navy)}
     .answer-btn.selected{border-color:var(--navy);background:var(--navy);color:var(--white)}
     .answer-btn:disabled{opacity:.6;cursor:not-allowed}
-    .q-nav{display:flex;justify-content:space-between;margin-top:32px}
-    .btn-prev{padding:10px 24px;background:var(--white);border:1.5px solid var(--border-med);border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:var(--muted);cursor:pointer;transition:border-color .15s}
+    .q-nav{display:flex;justify-content:space-between;margin-top:36px}
+    .btn-prev{padding:11px 26px;background:var(--white);border:1.5px solid var(--border-med);border-radius:4px;font-family:Arial,sans-serif;font-size:14px;font-weight:700;color:var(--muted);cursor:pointer;transition:border-color .15s,color .15s}
     .btn-prev:hover{border-color:var(--navy);color:var(--navy)}
     .btn-prev:disabled{opacity:.4;cursor:not-allowed}
-    .ai-loading{display:none;text-align:center;padding:48px 0}
-    .ai-loading-icon{font-size:36px;margin-bottom:16px;animation:spin 1.2s linear infinite;display:inline-block}
+
+    /* ── LOADING ── */
+    .ai-loading{display:none;text-align:center;padding:56px 0}
+    .ai-loading-icon{font-size:40px;margin-bottom:18px;animation:spin 1.2s linear infinite;display:inline-block}
     @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-    .ai-loading h3{font-size:18px;font-weight:700;color:var(--body-text);margin-bottom:8px}
-    .ai-loading p{font-size:14px;color:var(--muted)}
-    .ai-loading-steps{margin-top:16px;font-size:13px;color:var(--navy)}
+    .ai-loading h3{font-size:20px;font-weight:700;color:var(--body-text);margin-bottom:10px}
+    .ai-loading p{font-size:15px;color:var(--muted)}
+    .ai-loading-steps{margin-top:18px;font-size:14px;color:var(--navy)}
+
+    /* ── RESULTS ── */
     .results-screen{display:none}
-    .results-overall{background:var(--navy);border-radius:8px;padding:32px;text-align:center;margin-bottom:28px;color:var(--white)}
-    .results-overall h2{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--mid-blue);margin-bottom:12px}
-    .overall-score-num{font-size:56px;font-weight:700;line-height:1;margin-bottom:8px}
-    .overall-score-label{font-size:15px;color:var(--mid-blue)}
-    .results-narrative{background:var(--light-grey);border-left:3px solid var(--orange);border-radius:0 6px 6px 0;padding:18px 20px;margin-bottom:28px;font-size:14px;line-height:1.75;color:var(--body-text)}
-    .dims-section h2{font-size:18px;font-weight:700;color:var(--body-text);margin-bottom:20px}
-    .dim-row{margin-bottom:20px}
-    .dim-row-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
-    .dim-row-header h3{font-size:14px;font-weight:700;color:var(--body-text)}
-    .dim-row-header .dim-score{font-size:16px;font-weight:700;color:var(--navy)}
+    .results-overall{background:var(--navy);border-radius:10px;padding:36px;text-align:center;margin-bottom:32px;color:var(--white)}
+    .results-overall h2{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:14px}
+    .overall-score-num{font-size:64px;font-weight:700;line-height:1;margin-bottom:10px;color:#EEAE26}
+    .overall-score-label{font-size:16px;color:rgba(255,255,255,.85)}
+    .results-narrative{background:var(--light-grey);border-left:4px solid var(--orange);border-radius:0 8px 8px 0;padding:20px 24px;margin-bottom:32px;font-size:15px;line-height:1.80;color:var(--body-text)}
+    .dims-section h2{font-size:20px;font-weight:700;color:var(--body-text);margin-bottom:22px;padding-left:14px;border-left:4px solid var(--navy)}
+    .dim-row{margin-bottom:22px}
+    .dim-row-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
+    .dim-row-header h3{font-size:15px;font-weight:700;color:var(--body-text)}
+    .dim-row-header .dim-score{font-size:17px;font-weight:700;color:var(--navy)}
     .dim-track{height:32px;background:linear-gradient(to right,#c62828 0%,#f9a825 45%,#2e7d32 100%);border-radius:4px;position:relative;overflow:visible}
     .dim-pointer{position:absolute;top:-8px;width:0;height:0;border-left:10px solid transparent;border-right:10px solid transparent;border-top:13px solid var(--body-text);transform:translateX(-50%);transition:left .8s ease}
-    .dim-scale{display:flex;justify-content:space-between;margin-top:4px;font-size:11px;color:var(--muted)}
+    .dim-scale{display:flex;justify-content:space-between;margin-top:5px;font-size:11px;color:var(--muted)}
     .dim-extremes{display:flex;justify-content:space-between;margin-top:3px;font-size:11px}
     .dim-low{color:#c62828;font-weight:700}
     .dim-high{color:#2e7d32;font-weight:700}
-    .rec-section{margin:28px 0}
-    .rec-section h3{font-size:16px;font-weight:700;color:var(--body-text);padding-bottom:8px;border-bottom:2px solid var(--navy);margin-bottom:14px}
-    .rec-item{background:var(--light-grey);border-left:3px solid var(--navy);border-radius:0 4px 4px 0;padding:14px 16px;margin-bottom:12px;font-size:14px;line-height:1.65;color:var(--body-text)}
+    .rec-section{margin:32px 0}
+    .rec-section h3{font-size:18px;font-weight:700;color:var(--body-text);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:16px}
+    .rec-item{background:var(--light-grey);border-left:4px solid var(--navy);border-radius:0 6px 6px 0;padding:16px 20px;margin-bottom:14px;font-size:15px;line-height:1.70;color:var(--body-text)}
     .rec-item strong{color:var(--navy)}
     .rec-item.strength{border-left-color:var(--green);background:#f0faf5}
     .rec-item.strength strong{color:var(--green)}
     .rec-item.action{border-left-color:var(--orange);background:#fef6f0}
     .rec-item.action strong{color:var(--orange)}
-    .ss-note{margin-top:10px;padding:10px 12px;background:var(--light-blue);border-radius:4px;font-size:13px;color:var(--navy);font-style:italic}
-    .cta-section{margin:36px 0 0}
-    .cta-box{background:var(--navy);border-radius:8px;padding:32px;text-align:center}
-    .cta-box h2{font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px}
-    .cta-box p{font-size:14px;color:var(--cta-sub);line-height:1.65;margin-bottom:22px;max-width:500px;margin-left:auto;margin-right:auto}
-    .cta-actions{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
-    .cta-btn-primary{display:inline-block;padding:12px 28px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
+    .ss-note{margin-top:12px;padding:12px 14px;background:var(--light-blue);border-radius:5px;font-size:13px;color:var(--navy);font-style:italic;line-height:1.6}
+    .cta-section{margin:40px 0 0}
+    .cta-box{background:var(--navy);border-radius:10px;padding:36px;text-align:center}
+    .cta-box h2{font-size:22px;font-weight:700;color:var(--white);margin-bottom:12px}
+    .cta-box p{font-size:15px;color:var(--cta-sub);line-height:1.70;margin-bottom:24px;max-width:520px;margin-left:auto;margin-right:auto}
+    .cta-actions{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap}
+    .cta-btn-primary{display:inline-block;padding:13px 30px;background:var(--orange);color:var(--white);font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
     .cta-btn-primary:hover{background:#c4510a}
-    .cta-link{font-size:13px;color:var(--mid-blue);text-decoration:none;font-weight:500}
+    .cta-link{font-size:14px;color:var(--mid-blue);text-decoration:none;font-weight:500}
     .cta-link:hover{text-decoration:underline;color:var(--white)}
-    .pdf-section{background:var(--light-grey);border:2px solid var(--navy);border-radius:8px;padding:28px;margin:28px 0;text-align:center}
-    .pdf-section h3{font-size:17px;font-weight:700;color:var(--body-text);margin-bottom:8px}
-    .pdf-section p{font-size:13px;color:var(--muted);margin-bottom:18px}
-    .btn-pdf{display:inline-block;padding:12px 32px;background:var(--navy);color:var(--white);font-family:Arial,sans-serif;font-size:14px;font-weight:700;border:none;border-radius:4px;cursor:pointer;transition:background .15s}
+    .pdf-section{background:var(--light-grey);border:2px solid var(--navy);border-radius:8px;padding:30px;margin:32px 0;text-align:center}
+    .pdf-section h3{font-size:18px;font-weight:700;color:var(--body-text);margin-bottom:10px}
+    .pdf-section p{font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.6}
+    .btn-pdf{display:inline-block;padding:13px 34px;background:var(--navy);color:var(--white);font-family:Arial,sans-serif;font-size:15px;font-weight:700;border:none;border-radius:4px;cursor:pointer;transition:background .15s}
     .btn-pdf:hover{background:#174067}
-    .btn-restart{display:block;margin:16px auto 0;padding:10px 24px;background:var(--white);border:1.5px solid var(--border-med);border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:var(--muted);cursor:pointer}
+    .btn-restart{display:block;margin:18px auto 0;padding:11px 26px;background:var(--white);border:1.5px solid var(--border-med);border-radius:4px;font-family:Arial,sans-serif;font-size:14px;font-weight:700;color:var(--muted);cursor:pointer;transition:border-color .15s,color .15s}
     .btn-restart:hover{border-color:var(--navy);color:var(--navy)}
-    .site-footer{background:#F4F4F4;padding:32px var(--page-pad) 20px;border-top:1px solid var(--border-med)}
-    .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#555}
-    .footer-inner a{color:#555;text-decoration:none}
-    .footer-inner a:hover{color:var(--navy)}
-    .footer-logo{font-weight:700;color:var(--navy)}
-    .footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
-    @media print{.site-nav,.breadcrumb-bar,.pdf-section,.btn-restart,.cta-section{display:none!important}.hero{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:28px 24px}body{font-size:13px}.assessment-wrap{padding:16px 0}.results-overall{-webkit-print-color-adjust:exact;print-color-adjust:exact}.dim-track{-webkit-print-color-adjust:exact;print-color-adjust:exact}.rec-item.strength{-webkit-print-color-adjust:exact;print-color-adjust:exact}.rec-item.action{-webkit-print-color-adjust:exact;print-color-adjust:exact}.ss-note{-webkit-print-color-adjust:exact;print-color-adjust:exact}.results-screen{display:block!important}}
-    @media(max-width:768px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.hero-stats{flex-direction:column;gap:10px}.assessment-wrap{padding:24px 16px 40px}.dims-grid{grid-template-columns:repeat(2,1fr)}.form-row{grid-template-columns:1fr}.answer-grid{max-width:100%}.footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}}
+
+    /* ── FOOTER (matches resources page exactly) ── */
+    .site-footer{background:var(--navy-dark)}
+    .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer-wrap{max-width:1100px;margin:0 auto}
+    .footer-content-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-bottom:28px}
+    .footer-col{padding:0 32px}
+    .footer-col-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
+    .footer-col-2{border-right:1px solid rgba(255,255,255,.08)}
+    .footer-col-3{padding-right:0}
+    .footer-cta-row{display:flex;align-items:center;gap:0}
+    .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:0 0 33.333%;padding:0 32px}
+    .footer-cta-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
+    .footer-cta-2{border-right:1px solid rgba(255,255,255,.08)}
+    .footer-cta-3{padding-right:0}
+    .footer-cta-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
+    .footer-cta-btn:hover{background:#c4510a}
+    .engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
+    .engage-col-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
+    .engage-col-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
+    .engage-nl-form{display:flex;gap:8px;flex-wrap:wrap}
+    .engage-nl-input{flex:1;min-width:120px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
+    .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
+    .engage-nl-input:focus{border-color:var(--mid-blue)}
+    .engage-nl-btn{padding:10px 18px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
+    .engage-nl-btn:hover{background:#c4510a}
+    .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
+    .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
+    .engage-nl-msg.ok{color:#6ee7b7}
+    .engage-nl-msg.err{color:#fca5a5}
+    .footer-bottom{padding:16px var(--page-pad)}
+    .footer-bottom-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.45)}
+    .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
+    .footer-bottom-inner a:hover{color:var(--orange)}
+    .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
+
+    /* ── PRINT ── */
+    @media print{
+      .site-nav,.breadcrumb-bar,.pdf-section,.btn-restart,.cta-section,.site-footer{display:none!important}
+      .hero{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:28px 24px}
+      body{font-size:13px}
+      .assessment-wrap{padding:16px 0}
+      .results-overall{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      .dim-track{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      .rec-item.strength,.rec-item.action,.ss-note{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      .results-screen{display:block!important}
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px){
+      .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
+      .nav-logo-text{font-size:16px}
+      .hero{padding:40px 20px 48px}
+      .hero h1{font-size:26px}
+      .hero-stats{flex-direction:column;gap:10px}
+      .assessment-wrap{padding:28px 16px 44px}
+      .dims-grid{grid-template-columns:repeat(2,1fr)}
+      .form-row{grid-template-columns:1fr}
+      .answer-grid{max-width:100%}
+      .footer-prefooter{padding:32px 20px}
+      .footer-content-row{grid-template-columns:1fr}
+      .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
+      .footer-col-3{border-bottom:none;padding-bottom:0}
+      .footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}
+      .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}
+      .footer-bottom{padding:14px 20px}
+      .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
+      .footer-bottom-left{justify-content:center}
+    }
+    @media(max-width:480px){
+      .dims-grid{grid-template-columns:1fr 1fr}
+      .hero-stats{flex-direction:row;flex-wrap:wrap}
+      .hero-stat{flex:1;min-width:100px}
+    }
   </style>
 </head>
 <body>
 
+<!-- ── NAV ── -->
 <nav class="site-nav"><div class="nav-inner">
-  <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36"></a>
+  <a href="/" class="nav-logo">
+    <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;">
+    <span class="nav-logo-text">SHIFTWORK SOLUTIONS</span>
+  </a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
     <li><a href="/services/">Our Services</a></li>
-    <li><a href="/resources/">Resources</a></li>
+    <li><a href="/resources/" class="nav-active">Resources</a></li>
     <li><a href="/industries/">Industries</a></li>
-    <li><a href="/why-us/">Why Us</a></li>
+    <li><a href="/why-us/">Our Company</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
 </div></nav>
 
-<section class="hero"><div class="hero-inner">
-  <div class="hero-eyebrow">Resources · Free Assessment Tool</div>
-  <h1>Shift Operations Health Assessment</h1>
-  <p class="hero-subtitle">10 minutes. 35 questions. AI-powered evaluation across the 8 dimensions that determine whether your shift operation is working — or quietly costing you.</p>
-  <div class="hero-stats">
-    <div class="hero-stat"><div class="hero-stat-num">35</div><div class="hero-stat-label">Questions across<br>8 dimensions</div></div>
-    <div class="hero-stat"><div class="hero-stat-num">AI</div><div class="hero-stat-label">Evaluated — not<br>just scored</div></div>
-    <div class="hero-stat"><div class="hero-stat-num">Free</div><div class="hero-stat-label">PDF report<br>included</div></div>
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-circle-tr"></div>
+  <div class="hero-circle-bl"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">Resources &rsaquo; Free Assessment Tool</div>
+    <h1>Shift Operations Health Assessment</h1>
+    <p class="hero-subtitle">10 minutes. 35 questions. AI-powered evaluation across the 8 dimensions that determine whether your shift operation is working — or quietly costing you.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num">35</div><div class="hero-stat-label">Questions across<br>8 dimensions</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">AI</div><div class="hero-stat-label">Evaluated — not<br>just scored</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">Free</div><div class="hero-stat-label">PDF report<br>included</div></div>
+    </div>
   </div>
-</div></section>
+</section>
 
+<!-- ── BREADCRUMB ── -->
 <div class="breadcrumb-bar"><div class="breadcrumb-inner">
-  <a href="/">Home</a> › <a href="/resources/">Resources</a> › <span class="bc-current">Shift Operations Health Assessment</span>
+  <a href="/">Home</a> &rsaquo; <a href="/resources/">Resources</a> &rsaquo; <span class="bc-current">Shift Operations Health Assessment</span>
 </div></div>
 
+<!-- ── ASSESSMENT CONTENT ── -->
 <div class="assessment-wrap">
+
+  <!-- INTRO SCREEN -->
   <div id="screen-intro">
     <p class="intro-lead">Is your shift operation supporting performance — or quietly eroding it? This assessment analyzes the eight critical dimensions that determine operational stability, workforce health, and cost efficiency. You'll get a personalized AI evaluation, not just a number.</p>
-    <div class="intro-highlight"><h3>In under 10 minutes, you'll get:</h3><ul><li>A health score across all 8 dimensions</li><li>AI-written insights on your specific pattern of answers</li><li>Your highest-impact improvement areas</li><li>Practical recommended actions</li><li>A downloadable PDF report</li></ul></div>
-    <div class="dims-grid"><div class="dim-card">Work-Life Balance</div><div class="dim-card">Employee Health</div><div class="dim-card">Alertness Management</div><div class="dim-card">Overtime Management</div><div class="dim-card">Operational Efficiency</div><div class="dim-card">Quality &amp; Safety</div><div class="dim-card">Communication</div><div class="dim-card">Workforce Stability</div></div>
+    <div class="intro-highlight">
+      <h3>In under 10 minutes, you'll get:</h3>
+      <ul>
+        <li>A health score across all 8 dimensions</li>
+        <li>AI-written insights on your specific pattern of answers</li>
+        <li>Your highest-impact improvement areas</li>
+        <li>Practical recommended actions</li>
+        <li>A downloadable PDF report</li>
+      </ul>
+    </div>
+    <div class="dims-grid">
+      <div class="dim-card">Work-Life Balance</div>
+      <div class="dim-card">Employee Health</div>
+      <div class="dim-card">Alertness Management</div>
+      <div class="dim-card">Overtime Management</div>
+      <div class="dim-card">Operational Efficiency</div>
+      <div class="dim-card">Quality &amp; Safety</div>
+      <div class="dim-card">Communication</div>
+      <div class="dim-card">Workforce Stability</div>
+    </div>
     <div class="form-card">
       <h3>Get Started — Receive Your Personalized Report</h3>
       <p class="form-sub">Complete the form below, then take the 35-question assessment and download your AI-generated PDF analysis.</p>
       <form id="contactForm" onsubmit="submitContactForm(event)">
-        <div class="form-row"><div class="form-group"><label for="full_name">Full Name <span class="req">*</span></label><input type="text" id="full_name" name="full_name" required autocomplete="name"></div><div class="form-group"><label for="email">Work Email <span class="req">*</span></label><input type="email" id="email" name="email" required autocomplete="email"></div></div>
+        <div class="form-row">
+          <div class="form-group"><label for="full_name">Full Name <span class="req">*</span></label><input type="text" id="full_name" name="full_name" required autocomplete="name"></div>
+          <div class="form-group"><label for="email">Work Email <span class="req">*</span></label><input type="email" id="email" name="email" required autocomplete="email"></div>
+        </div>
         <div class="form-group form-group-full"><label for="company">Company <span class="req">*</span></label><input type="text" id="company" name="company" required autocomplete="organization"></div>
-        <div class="form-row"><div class="form-group"><label for="industry">Industry <span class="req">*</span></label><select id="industry" name="industry" required><option value="">Select Industry</option><option value="Food & Beverage">Food &amp; Beverage Manufacturing</option><option value="Pharmaceutical">Pharmaceutical</option><option value="Chemical">Chemical Manufacturing</option><option value="Automotive">Automotive</option><option value="Electronics">Electronics / Semiconductors</option><option value="Distribution">Distribution / Warehousing</option><option value="Healthcare">Healthcare</option><option value="Transportation">Transportation / Logistics</option><option value="Mining">Mining / Extraction</option><option value="Energy">Energy / Utilities</option><option value="Other Manufacturing">Other Manufacturing</option><option value="Other">Other</option></select></div><div class="form-group"><label for="shift_workers">Number of Shift Workers <span class="req">*</span></label><select id="shift_workers" name="shift_workers" required><option value="">Select Range</option><option value="1-25">1–25</option><option value="26-50">26–50</option><option value="51-100">51–100</option><option value="101-250">101–250</option><option value="251-500">251–500</option><option value="500+">500+</option></select></div></div>
-        <div class="form-row"><div class="form-group"><label for="shift_length">Primary Shift Length <span class="req">*</span></label><select id="shift_length" name="shift_length" required><option value="">Select Length</option><option value="8-hour">8-hour shifts</option><option value="10-hour">10-hour shifts</option><option value="12-hour">12-hour shifts</option><option value="Mixed">Mixed / Variable</option></select></div><div class="form-group"><label for="biggest_challenge">Biggest Challenge <span class="req">*</span></label><select id="biggest_challenge" name="biggest_challenge" required><option value="">Select Challenge</option><option value="Recruiting">Recruiting / Staffing</option><option value="Retention">Employee Retention</option><option value="Overtime">Managing Overtime</option><option value="Work-Life Balance">Work-Life Balance</option><option value="Schedule Design">Schedule Design</option><option value="Coverage">Coverage / Absenteeism</option><option value="Communication">Communication</option><option value="Other">Other</option></select></div></div>
-        <div class="newsletter-row"><input type="checkbox" id="newsletter_signup" name="newsletter_signup" checked><label for="newsletter_signup">Yes, I'd like to receive Shiftwork Solutions' newsletter with insights on shift operations, scheduling best practices, and industry trends.</label></div>
+        <div class="form-row">
+          <div class="form-group"><label for="industry">Industry <span class="req">*</span></label><select id="industry" name="industry" required><option value="">Select Industry</option><option value="Food & Beverage">Food &amp; Beverage Manufacturing</option><option value="Pharmaceutical">Pharmaceutical</option><option value="Chemical">Chemical Manufacturing</option><option value="Automotive">Automotive</option><option value="Electronics">Electronics / Semiconductors</option><option value="Distribution">Distribution / Warehousing</option><option value="Healthcare">Healthcare</option><option value="Transportation">Transportation / Logistics</option><option value="Mining">Mining / Extraction</option><option value="Energy">Energy / Utilities</option><option value="Other Manufacturing">Other Manufacturing</option><option value="Other">Other</option></select></div>
+          <div class="form-group"><label for="shift_workers">Number of Shift Workers <span class="req">*</span></label><select id="shift_workers" name="shift_workers" required><option value="">Select Range</option><option value="1-25">1–25</option><option value="26-50">26–50</option><option value="51-100">51–100</option><option value="101-250">101–250</option><option value="251-500">251–500</option><option value="500+">500+</option></select></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="shift_length">Primary Shift Length <span class="req">*</span></label><select id="shift_length" name="shift_length" required><option value="">Select Length</option><option value="8-hour">8-hour shifts</option><option value="10-hour">10-hour shifts</option><option value="12-hour">12-hour shifts</option><option value="Mixed">Mixed / Variable</option></select></div>
+          <div class="form-group"><label for="biggest_challenge">Biggest Challenge <span class="req">*</span></label><select id="biggest_challenge" name="biggest_challenge" required><option value="">Select Challenge</option><option value="Recruiting">Recruiting / Staffing</option><option value="Retention">Employee Retention</option><option value="Overtime">Managing Overtime</option><option value="Work-Life Balance">Work-Life Balance</option><option value="Schedule Design">Schedule Design</option><option value="Coverage">Coverage / Absenteeism</option><option value="Communication">Communication</option><option value="Other">Other</option></select></div>
+        </div>
+        <div class="newsletter-row">
+          <input type="checkbox" id="newsletter_signup" name="newsletter_signup" checked>
+          <label for="newsletter_signup">Yes, I'd like to receive Shiftwork Solutions' newsletter with insights on shift operations, scheduling best practices, and industry trends.</label>
+        </div>
         <div class="privacy-note">By submitting this form, you agree to our <a href="https://shift-work.com/shiftwork-solutions-llc-privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>. We never share your information with third parties.</div>
-        <button type="submit" class="btn-primary btn-center" id="contactSubmitBtn">Begin Assessment →</button>
+        <button type="submit" class="btn-primary btn-center" id="contactSubmitBtn">Begin Assessment &#x2192;</button>
         <div class="form-msg" id="contactFormMsg"></div>
       </form>
     </div>
   </div>
 
+  <!-- QUESTION SCREEN -->
   <div id="screen-questions" class="question-screen">
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="progress-label" id="progressLabel">Question 1 of 35</div>
-    <div id="questionArea"><div class="q-number" id="qNumber">Question 1 of 35</div><div class="q-category" id="qCategory">Work-Life Balance</div><div class="q-text" id="qText"></div><div class="answer-grid" id="answerGrid"></div></div>
-    <div class="q-nav"><button class="btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>← Previous</button><span></span></div>
+    <div id="questionArea">
+      <div class="q-number" id="qNumber">Question 1 of 35</div>
+      <div class="q-category" id="qCategory">Work-Life Balance</div>
+      <div class="q-text" id="qText"></div>
+      <div class="answer-grid" id="answerGrid"></div>
+    </div>
+    <div class="q-nav">
+      <button class="btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>&#x2190; Previous</button>
+      <span></span>
+    </div>
   </div>
 
+  <!-- LOADING SCREEN -->
   <div id="screen-loading" class="ai-loading">
-    <div class="ai-loading-icon">⚙</div><h3>Analyzing Your Responses</h3><p>Our AI is reading your answers across all 8 dimensions</p><div class="ai-loading-steps" id="loadingSteps">Preparing evaluation…</div>
+    <div class="ai-loading-icon">&#x2699;</div>
+    <h3>Analyzing Your Responses</h3>
+    <p>Our AI is reading your answers across all 8 dimensions</p>
+    <div class="ai-loading-steps" id="loadingSteps">Preparing evaluation&#x2026;</div>
   </div>
 
+  <!-- RESULTS SCREEN -->
   <div id="screen-results" class="results-screen">
-    <div class="results-overall"><h2>Overall Shift Operations Health Score</h2><div class="overall-score-num" id="overallScore">--</div><div class="overall-score-label" id="overallLabel">Assessment Complete</div></div>
+    <div class="results-overall">
+      <h2>Overall Shift Operations Health Score</h2>
+      <div class="overall-score-num" id="overallScore">--</div>
+      <div class="overall-score-label" id="overallLabel">Assessment Complete</div>
+    </div>
     <div class="results-narrative" id="resultsNarrative"></div>
-    <div class="dims-section"><h2>Category Scores</h2><div id="dimBars"></div></div>
-    <div class="rec-section"><h3>✓ Your Strengths</h3><div id="strengthsList"></div></div>
-    <div class="rec-section"><h3>⚠ Priority Areas for Improvement</h3><div id="opportunitiesList"></div></div>
-    <div class="rec-section"><h3>🎯 Recommended Actions</h3><div id="actionsList"></div></div>
-    <div class="cta-section"><div class="cta-box"><h2>Ready to Take Action?</h2><p>Shiftwork Solutions specializes in addressing exactly the challenges identified in your assessment. With hundreds of facility engagements across North America, we can develop a customized action plan for your operation.</p><div class="cta-actions"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="cta-btn-primary" target="_blank" rel="noopener">Schedule a Consultation</a><a href="https://shift-work.com" class="cta-link" target="_blank">Learn More →</a></div></div></div>
-    <div class="pdf-section"><h3>📄 Download Your Personalized PDF Report</h3><p>Your complete assessment results and AI recommendations — formatted for printing or sharing.</p><button class="btn-pdf" onclick="downloadPDF()">Download PDF Report</button><div class="form-msg" id="pdfMsg"></div></div>
+    <div class="dims-section">
+      <h2>Category Scores</h2>
+      <div id="dimBars"></div>
+    </div>
+    <div class="rec-section">
+      <h3>&#x2713; Your Strengths</h3>
+      <div id="strengthsList"></div>
+    </div>
+    <div class="rec-section">
+      <h3>&#x26A0; Priority Areas for Improvement</h3>
+      <div id="opportunitiesList"></div>
+    </div>
+    <div class="rec-section">
+      <h3>&#x1F3AF; Recommended Actions</h3>
+      <div id="actionsList"></div>
+    </div>
+    <div class="cta-section">
+      <div class="cta-box">
+        <h2>Ready to Take Action?</h2>
+        <p>Shiftwork Solutions specializes in addressing exactly the challenges identified in your assessment. With hundreds of facility engagements across North America, we can develop a customized action plan for your operation.</p>
+        <div class="cta-actions">
+          <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="cta-btn-primary" target="_blank" rel="noopener">Schedule a Consultation</a>
+          <a href="https://shift-work-diagnostic.onrender.com/" class="cta-link" target="_blank" rel="noopener">Talk to Thomas &#x2192;</a>
+        </div>
+      </div>
+    </div>
+    <div class="pdf-section">
+      <h3>&#x1F4C4; Download Your Personalized PDF Report</h3>
+      <p>Your complete assessment results and AI recommendations — formatted for printing or sharing.</p>
+      <button class="btn-pdf" onclick="downloadPDF()">Download PDF Report</button>
+      <div class="form-msg" id="pdfMsg"></div>
+    </div>
     <button class="btn-restart" onclick="restartAssessment()">Take Assessment Again</button>
   </div>
-</div>
 
-<footer class="site-footer"><div class="footer-inner">
-  <span class="footer-logo">Shiftwork Solutions LLC</span>
-  <span>(415) 265-1621</span>
-  <span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></span>
-  <div class="footer-links-row"><a href="/resources/">Resources</a><a href="/industries/">Industries</a><a href="/services/">Services</a><a href="/contact/">Contact</a></div>
-  <span>&copy; 2026 Shiftwork Solutions LLC</span>
-</div></footer>
+</div><!-- /.assessment-wrap -->
+
+<!-- ── FOOTER (matches resources page) ── -->
+<footer class="site-footer">
+  <div class="footer-prefooter"><div class="footer-wrap">
+    <div class="footer-content-row">
+      <div class="footer-col footer-col-1">
+        <div class="engage-label">FREE CONSULTATION</div>
+        <div class="engage-col-title">Ready to talk about your operation?</div>
+        <p class="engage-col-desc">Manufacturing and distribution operations running 24/7 typically have more room to improve than they realize. The first conversation is always free.</p>
+      </div>
+      <div class="footer-col footer-col-2">
+        <div class="engage-label">AI ADVISOR</div>
+        <div class="engage-col-title">Talk to Thomas</div>
+        <p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
+      </div>
+      <div class="footer-col footer-col-3">
+        <div class="engage-label">NEWSLETTER</div>
+        <div class="engage-col-title">Stay Sharp on Shift Operations</div>
+        <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
+      </div>
+    </div>
+    <div class="footer-cta-row">
+      <div class="footer-cta-1"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a></div>
+      <div class="footer-cta-2"><a href="https://shift-work-diagnostic.onrender.com/" class="footer-cta-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a></div>
+      <div class="footer-cta-3">
+        <form class="engage-nl-form" onsubmit="footerNLSubmit(event)">
+          <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="footerNLEmail">
+          <button type="submit" class="engage-nl-btn" id="footerNLBtn">Subscribe &#x2192;</button>
+        </form>
+        <div class="engage-nl-msg" id="footerNLMsg"></div>
+      </div>
+    </div>
+  </div></div>
+  <div class="footer-bottom"><div class="footer-bottom-inner">
+    <div class="footer-bottom-left">
+      <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+      <a href="tel:+14152651621">(415) 265-1621</a>
+      <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+    </div>
+    <span>&copy; 2026 Shiftwork Solutions LLC</span>
+  </div></div>
+</footer>
 
 <script>
+/* ── Mobile nav ── */
+document.getElementById('mobileToggle').addEventListener('click', function () {
+  var n = document.getElementById('navLinks');
+  var open = n.style.display === 'flex';
+  if (open) {
+    n.style.display = 'none';
+  } else {
+    n.style.display = 'flex';
+    n.style.flexDirection = 'column';
+    n.style.position = 'absolute';
+    n.style.top = '56px';
+    n.style.left = '0';
+    n.style.right = '0';
+    n.style.background = '#fff';
+    n.style.borderBottom = '1px solid #e0e0e0';
+    n.style.padding = '8px 0';
+    n.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
+    n.style.zIndex = '99';
+  }
+});
+
+/* ── Footer newsletter ── */
+(function () {
+  var SWARM = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
+  window.footerNLSubmit = function (e) {
+    e.preventDefault();
+    var btn = document.getElementById('footerNLBtn');
+    var msg = document.getElementById('footerNLMsg');
+    var email = document.getElementById('footerNLEmail').value.trim();
+    if (!email) return;
+    btn.disabled = true;
+    btn.textContent = 'Subscribing...';
+    fetch(SWARM, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, source: 'assessment-footer-nl' })
+    }).then(function (r) { return r.json(); }).then(function (d) {
+      if (d.success) {
+        msg.className = 'engage-nl-msg ok';
+        msg.textContent = '\u2713 Subscribed. Thank you.';
+        document.getElementById('footerNLEmail').value = '';
+        btn.textContent = 'Subscribed \u2713';
+      } else { throw new Error(d.error || 'Failed'); }
+    }).catch(function (err) {
+      msg.className = 'engage-nl-msg err';
+      msg.textContent = err.message === 'This email is already subscribed.' ? 'Already subscribed \u2014 thank you!' : 'Something went wrong. Try again.';
+      btn.disabled = false;
+      btn.textContent = 'Subscribe \u2192';
+    });
+  };
+})();
+
+/* ── Assessment logic (unchanged) ── */
 (function () {
   'use strict';
   var SWARM_API = 'https://ai-swarm-orchestrator.onrender.com';
@@ -294,7 +570,12 @@
   var currentQ = 0;
   var isTransitioning = false;
   var advanceTimer = null;
-  var CATEGORY_NAMES = {worklife:'Work-Life Balance',health:'Employee Health',alertness:'Alertness Management',overtime:'Overtime Management',operations:'Operational Efficiency',quality:'Quality & Safety',communication:'Communication',workforce:'Workforce Stability'};
+  var CATEGORY_NAMES = {
+    worklife: 'Work-Life Balance', health: 'Employee Health',
+    alertness: 'Alertness Management', overtime: 'Overtime Management',
+    operations: 'Operational Efficiency', quality: 'Quality & Safety',
+    communication: 'Communication', workforce: 'Workforce Stability'
+  };
   var questions = [
     {id:1,cat:'worklife',text:'Do employees complain about work-life balance issues related to their schedules?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
     {id:2,cat:'worklife',text:'Do employees struggle to attend family events, appointments, or personal commitments due to their work schedules?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
@@ -332,24 +613,294 @@
     {id:34,cat:'workforce',text:'Do you have difficulty balancing skills across different shifts?',opts:['Yes','Somewhat','No'],scoring:[2,1,0]},
     {id:35,cat:'workforce',text:'Are employees leaving for competitors who offer more desirable schedules?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]}
   ];
-  function show(id){['screen-intro','screen-questions','screen-loading','screen-results'].forEach(function(s){document.getElementById(s).style.display=(s===id)?'block':'none'})}
-  window.submitContactForm=function(e){e.preventDefault();var btn=document.getElementById('contactSubmitBtn');var msg=document.getElementById('contactFormMsg');contactData={name:document.getElementById('full_name').value.trim(),email:document.getElementById('email').value.trim(),company:document.getElementById('company').value.trim(),industry:document.getElementById('industry').value,shift_workers:document.getElementById('shift_workers').value,shift_length:document.getElementById('shift_length').value,primary_challenge:document.getElementById('biggest_challenge').value,newsletter_signup:document.getElementById('newsletter_signup').checked};btn.disabled=true;btn.textContent='Saving…';msg.className='form-msg info';msg.textContent='Saving your information…';fetch(SWARM_API+'/api/assessment/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(contactData)}).then(function(r){return r.ok?r.json():Promise.reject('HTTP '+r.status)}).then(function(d){if(d&&d.id)assessmentId=d.id}).catch(function(err){console.warn('Lead capture skipped:',err)});setTimeout(function(){msg.textContent='Starting your assessment…';setTimeout(startAssessment,600)},500)};
-  function startAssessment(){currentQ=0;answers={};show('screen-questions');window.scrollTo(0,0);renderQuestion()}
-  function renderQuestion(){if(isTransitioning)return;var q=questions[currentQ];var pct=Math.round(((currentQ+1)/questions.length)*100);document.getElementById('progressFill').style.width=pct+'%';document.getElementById('progressLabel').textContent='Question '+(currentQ+1)+' of '+questions.length;document.getElementById('qNumber').textContent='Question '+(currentQ+1)+' of '+questions.length;document.getElementById('qCategory').textContent=CATEGORY_NAMES[q.cat]||q.cat;document.getElementById('qText').textContent=q.text;var grid=document.getElementById('answerGrid');grid.innerHTML='';q.opts.forEach(function(opt,idx){var btn=document.createElement('button');btn.type='button';btn.className='answer-btn'+(answers[q.id]===idx?' selected':'');btn.textContent=opt;btn.onclick=function(){selectAnswer(idx)};grid.appendChild(btn)});document.getElementById('btnPrev').disabled=(currentQ===0)}
-  function selectAnswer(idx){if(isTransitioning)return;var q=questions[currentQ];if(answers[q.id]===idx)return;if(advanceTimer){clearTimeout(advanceTimer);advanceTimer=null}isTransitioning=true;answers[q.id]=idx;var btns=document.querySelectorAll('.answer-btn');btns.forEach(function(b,i){b.classList.toggle('selected',i===idx);b.disabled=true});advanceTimer=setTimeout(function(){advanceTimer=null;isTransitioning=false;if(currentQ<questions.length-1){currentQ++;renderQuestion()}else{startEvaluation()}},380)}
-  window.prevQuestion=function(){if(advanceTimer){clearTimeout(advanceTimer);advanceTimer=null}isTransitioning=false;if(currentQ>0){currentQ--;renderQuestion()}};
-  function startEvaluation(){show('screen-loading');window.scrollTo(0,0);animateLoadingSteps();callClaudeAPI()}
-  var loadingMessages=['Reading your 35 answers…','Scoring all 8 dimensions…','Identifying patterns across categories…','Writing your personalized recommendations…','Finalizing your report…'];var loadingStep=0;var loadingInterval=null;
-  function animateLoadingSteps(){loadingStep=0;document.getElementById('loadingSteps').textContent=loadingMessages[0];loadingInterval=setInterval(function(){loadingStep=(loadingStep+1)%loadingMessages.length;document.getElementById('loadingSteps').textContent=loadingMessages[loadingStep]},2200)}
-  function stopLoadingAnimation(){if(loadingInterval){clearInterval(loadingInterval);loadingInterval=null}}
-  function buildAnswerSummary(){var lines=[];questions.forEach(function(q){var idx=answers[q.id];var answerText=(idx!==undefined)?q.opts[idx]:'(unanswered)';lines.push('Q'+q.id+' ['+CATEGORY_NAMES[q.cat]+'] '+q.text+'\n    Answer: '+answerText)});return lines.join('\n\n')}
-  function buildPrompt(){var profile=contactData?'Company: '+contactData.company+'\nIndustry: '+contactData.industry+'\nShift workers: '+contactData.shift_workers+'\nPrimary shift length: '+contactData.shift_length+'\nSelf-identified biggest challenge: '+contactData.primary_challenge:'(No contact profile available)';return 'You are an expert shift operations consultant at Shiftwork Solutions LLC, a firm with hundreds of client engagements across manufacturing, distribution, pharmaceutical, food processing, mining, energy, and related industries.\n\nA facility manager has completed a 35-question Shift Operations Health Assessment. Below is their facility profile and every question with their answer.\n\n=== FACILITY PROFILE ===\n'+profile+'\n\n=== ALL 35 ANSWERS ===\n'+buildAnswerSummary()+'\n\n=== YOUR TASK ===\nAnalyze these responses and return ONLY a valid JSON object — no markdown, no explanation outside the JSON. The object must match this exact schema:\n\n{\n  "overall_score": <integer 0-100>,\n  "overall_label": <string — one of: "Critical — Immediate Action Required", "Fair — Several Areas Need Attention", "Good — Some Opportunities for Improvement", "Excellent — Operation Is Performing Well">,\n  "narrative": <2-3 sentence plain-language summary of their specific situation, referencing their industry/size/shift type where relevant>,\n  "dimensions": {\n    "worklife": { "score": <0-100>, "label": "Work-Life Balance", "low_label": "Critical Issues", "high_label": "Excellent Balance" },\n    "health": { "score": <0-100>, "label": "Employee Health", "low_label": "High Risk", "high_label": "Very Healthy" },\n    "alertness": { "score": <0-100>, "label": "Alertness Management", "low_label": "Significant Fatigue", "high_label": "Highly Alert" },\n    "overtime": { "score": <0-100>, "label": "Overtime Management", "low_label": "Out of Control", "high_label": "Well Managed" },\n    "operations": { "score": <0-100>, "label": "Operational Efficiency", "low_label": "Major Issues", "high_label": "Highly Efficient" },\n    "quality": { "score": <0-100>, "label": "Quality & Safety", "low_label": "Critical", "high_label": "Excellent" },\n    "communication": { "score": <0-100>, "label": "Communication", "low_label": "Breakdown", "high_label": "Effective" },\n    "workforce": { "score": <0-100>, "label": "Workforce Stability", "low_label": "High Turnover", "high_label": "Stable & Strong" }\n  },\n  "strengths": [\n    { "title": <string>, "detail": <1-2 sentence explanation> }\n  ],\n  "opportunities": [\n    { "title": <string>, "detail": <2-3 sentence explanation>, "shiftwork_note": <1-2 sentence on how Shiftwork Solutions addresses this> }\n  ],\n  "actions": [\n    <string — one concrete recommended action, 1 sentence each>\n  ]\n}\n\nRules:\n- overall_score should be a genuine reflection of all 35 answers\n- Dimension scores: 100 = no concerns, 0 = maximum concern\n- strengths: only dimensions scoring 70+\n- opportunities: only dimensions scoring below 50\n- actions: 3-6 items, ordered by priority\n- shiftwork_note: always mention Shiftwork Solutions by name\n- narrative: be direct and honest\n- Return ONLY the JSON object.'}
-  function callClaudeAPI(){fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1800,messages:[{role:'user',content:buildPrompt()}]})}).then(function(r){if(!r.ok)throw new Error('API error '+r.status);return r.json()}).then(function(data){var text='';if(data.content&&data.content.length>0){data.content.forEach(function(block){if(block.type==='text')text+=block.text})}text=text.replace(/```json|```/g,'').trim();var evaluation=JSON.parse(text);stopLoadingAnimation();renderResults(evaluation)}).catch(function(err){console.error('Claude API error:',err);stopLoadingAnimation();renderFallbackResults()})}
-  function renderResults(ev){document.getElementById('overallScore').textContent=ev.overall_score+'%';document.getElementById('overallLabel').textContent=ev.overall_label||'';document.getElementById('resultsNarrative').textContent=ev.narrative||'';var barOrder=['worklife','health','alertness','overtime','operations','quality','communication','workforce'];var barsDiv=document.getElementById('dimBars');barsDiv.innerHTML='';barOrder.forEach(function(key){var d=ev.dimensions[key];if(!d)return;barsDiv.innerHTML+='<div class="dim-row"><div class="dim-row-header"><h3>'+d.label+'</h3><span class="dim-score">'+d.score+'%</span></div><div class="dim-track"><div class="dim-pointer" style="left:'+d.score+'%"></div></div><div class="dim-scale"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div><div class="dim-extremes"><span class="dim-low">'+(d.low_label||'')+'</span><span class="dim-high">'+(d.high_label||'')+'</span></div></div>'});var sDiv=document.getElementById('strengthsList');if(ev.strengths&&ev.strengths.length>0){sDiv.innerHTML=ev.strengths.map(function(s){return'<div class="rec-item strength"><strong>'+s.title+':</strong> '+s.detail+'</div>'}).join('')}else{sDiv.innerHTML='<div class="rec-item">Your assessment indicates several areas need attention across multiple categories.</div>'}var oDiv=document.getElementById('opportunitiesList');if(ev.opportunities&&ev.opportunities.length>0){oDiv.innerHTML=ev.opportunities.map(function(o){return'<div class="rec-item"><strong>'+o.title+':</strong> '+o.detail+(o.shiftwork_note?'<div class="ss-note"><strong>How Shiftwork Solutions Can Help:</strong> '+o.shiftwork_note+'</div>':'')+'</div>'}).join('')}else{oDiv.innerHTML='<div class="rec-item strength">Your operation is performing well across all major categories.</div>'}var aDiv=document.getElementById('actionsList');if(ev.actions&&ev.actions.length>0){aDiv.innerHTML=ev.actions.map(function(a){return'<div class="rec-item action">• '+a+'</div>'}).join('')}else{aDiv.innerHTML='<div class="rec-item">Continue with your current approach and focus on continuous improvement.</div>'}if(assessmentId){var scorePayload={assessment_id:assessmentId,overall_score:ev.overall_score,answers:answers};var dKeys=['worklife','health','alertness','overtime','operations','quality','communication','workforce'];dKeys.forEach(function(k){if(ev.dimensions[k])scorePayload[k+'_score']=ev.dimensions[k].score});fetch(SWARM_API+'/api/assessment/update-scores',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(scorePayload)}).catch(function(e){console.warn('Score update skipped:',e)})}show('screen-results');window.scrollTo(0,0)}
-  function renderFallbackResults(){var cats={};var dimOrder=['worklife','health','alertness','overtime','operations','quality','communication','workforce'];dimOrder.forEach(function(k){cats[k]={concern:0,max:0}});questions.forEach(function(q){var idx=answers[q.id];if(idx===undefined)return;var pts=q.scoring[idx];var maxPts=Math.max.apply(null,q.scoring);cats[q.cat].concern+=pts;cats[q.cat].max+=maxPts});var totalConcern=0,totalMax=0;dimOrder.forEach(function(k){totalConcern+=cats[k].concern;totalMax+=cats[k].max});var overall=Math.round(100-(totalConcern/totalMax*100));var dimLabels={worklife:{label:'Work-Life Balance',low:'Critical Issues',high:'Excellent Balance'},health:{label:'Employee Health',low:'High Risk',high:'Very Healthy'},alertness:{label:'Alertness Management',low:'Significant Fatigue',high:'Highly Alert'},overtime:{label:'Overtime Management',low:'Out of Control',high:'Well Managed'},operations:{label:'Operational Efficiency',low:'Major Issues',high:'Highly Efficient'},quality:{label:'Quality & Safety',low:'Critical',high:'Excellent'},communication:{label:'Communication',low:'Breakdown',high:'Effective'},workforce:{label:'Workforce Stability',low:'High Turnover',high:'Stable & Strong'}};var dims={};dimOrder.forEach(function(k){var score=cats[k].max>0?Math.round(100-(cats[k].concern/cats[k].max*100)):100;dims[k]={score:score,label:dimLabels[k].label,low_label:dimLabels[k].low,high_label:dimLabels[k].high}});var label=overall>=80?'Excellent — Operation Is Performing Well':overall>=60?'Good — Some Opportunities for Improvement':overall>=40?'Fair — Several Areas Need Attention':'Critical — Immediate Action Required';var strengths=dimOrder.filter(function(k){return dims[k].score>=70}).map(function(k){return{title:dims[k].label,detail:'Performing well in this dimension.'}});var opportunities=dimOrder.filter(function(k){return dims[k].score<50}).map(function(k){return{title:dims[k].label,detail:'This dimension shows significant concern based on your responses.',shiftwork_note:'Shiftwork Solutions has addressed this dimension across hundreds of facilities. Contact us for a consultation.'}});renderResults({overall_score:overall,overall_label:label,narrative:'Your results are displayed below. Note: AI narrative analysis was temporarily unavailable — scores reflect your answers directly. Contact Shiftwork Solutions at (415) 265-1621 for a personal consultation.',dimensions:dims,strengths:strengths,opportunities:opportunities,actions:['Contact Shiftwork Solutions to discuss your assessment results and develop a customized improvement plan.']})}
-  window.downloadPDF=function(){var msg=document.getElementById('pdfMsg');msg.className='form-msg info';msg.textContent='Opening print dialog — choose "Save as PDF" in your printer options.';setTimeout(function(){window.print()},400)};
-  window.restartAssessment=function(){if(advanceTimer){clearTimeout(advanceTimer);advanceTimer=null}currentQ=0;answers={};contactData=null;assessmentId=null;isTransitioning=false;document.getElementById('contactForm').reset();document.getElementById('newsletter_signup').checked=true;document.getElementById('contactFormMsg').style.display='none';document.getElementById('contactSubmitBtn').disabled=false;document.getElementById('contactSubmitBtn').textContent='Begin Assessment →';document.getElementById('pdfMsg').style.display='none';show('screen-intro');window.scrollTo(0,0)};
-  document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';n.style.display=open?'none':'flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';if(open)n.style.display='none'});
+
+  function show(id) {
+    ['screen-intro','screen-questions','screen-loading','screen-results'].forEach(function (s) {
+      document.getElementById(s).style.display = (s === id) ? 'block' : 'none';
+    });
+  }
+
+  window.submitContactForm = function (e) {
+    e.preventDefault();
+    var btn = document.getElementById('contactSubmitBtn');
+    var msg = document.getElementById('contactFormMsg');
+    contactData = {
+      name: document.getElementById('full_name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      company: document.getElementById('company').value.trim(),
+      industry: document.getElementById('industry').value,
+      shift_workers: document.getElementById('shift_workers').value,
+      shift_length: document.getElementById('shift_length').value,
+      primary_challenge: document.getElementById('biggest_challenge').value,
+      newsletter_signup: document.getElementById('newsletter_signup').checked
+    };
+    btn.disabled = true;
+    btn.textContent = 'Saving\u2026';
+    msg.className = 'form-msg info';
+    msg.textContent = 'Saving your information\u2026';
+    fetch(SWARM_API + '/api/assessment/lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(contactData)
+    }).then(function (r) {
+      return r.ok ? r.json() : Promise.reject('HTTP ' + r.status);
+    }).then(function (d) {
+      if (d && d.id) assessmentId = d.id;
+    }).catch(function (err) {
+      console.warn('Lead capture skipped:', err);
+    });
+    setTimeout(function () {
+      msg.textContent = 'Starting your assessment\u2026';
+      setTimeout(startAssessment, 600);
+    }, 500);
+  };
+
+  function startAssessment() {
+    currentQ = 0; answers = {};
+    show('screen-questions');
+    window.scrollTo(0, 0);
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    if (isTransitioning) return;
+    var q = questions[currentQ];
+    var pct = Math.round(((currentQ + 1) / questions.length) * 100);
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = 'Question ' + (currentQ + 1) + ' of ' + questions.length;
+    document.getElementById('qNumber').textContent = 'Question ' + (currentQ + 1) + ' of ' + questions.length;
+    document.getElementById('qCategory').textContent = CATEGORY_NAMES[q.cat] || q.cat;
+    document.getElementById('qText').textContent = q.text;
+    var grid = document.getElementById('answerGrid');
+    grid.innerHTML = '';
+    q.opts.forEach(function (opt, idx) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'answer-btn' + (answers[q.id] === idx ? ' selected' : '');
+      btn.textContent = opt;
+      btn.onclick = function () { selectAnswer(idx); };
+      grid.appendChild(btn);
+    });
+    document.getElementById('btnPrev').disabled = (currentQ === 0);
+  }
+
+  function selectAnswer(idx) {
+    if (isTransitioning) return;
+    var q = questions[currentQ];
+    if (answers[q.id] === idx) return;
+    if (advanceTimer) { clearTimeout(advanceTimer); advanceTimer = null; }
+    isTransitioning = true;
+    answers[q.id] = idx;
+    var btns = document.querySelectorAll('.answer-btn');
+    btns.forEach(function (b, i) {
+      b.classList.toggle('selected', i === idx);
+      b.disabled = true;
+    });
+    advanceTimer = setTimeout(function () {
+      advanceTimer = null;
+      isTransitioning = false;
+      if (currentQ < questions.length - 1) {
+        currentQ++;
+        renderQuestion();
+      } else {
+        startEvaluation();
+      }
+    }, 380);
+  }
+
+  window.prevQuestion = function () {
+    if (advanceTimer) { clearTimeout(advanceTimer); advanceTimer = null; }
+    isTransitioning = false;
+    if (currentQ > 0) { currentQ--; renderQuestion(); }
+  };
+
+  function startEvaluation() {
+    show('screen-loading');
+    window.scrollTo(0, 0);
+    animateLoadingSteps();
+    callClaudeAPI();
+  }
+
+  var loadingMessages = [
+    'Reading your 35 answers\u2026',
+    'Scoring all 8 dimensions\u2026',
+    'Identifying patterns across categories\u2026',
+    'Writing your personalized recommendations\u2026',
+    'Finalizing your report\u2026'
+  ];
+  var loadingStep = 0;
+  var loadingInterval = null;
+
+  function animateLoadingSteps() {
+    loadingStep = 0;
+    document.getElementById('loadingSteps').textContent = loadingMessages[0];
+    loadingInterval = setInterval(function () {
+      loadingStep = (loadingStep + 1) % loadingMessages.length;
+      document.getElementById('loadingSteps').textContent = loadingMessages[loadingStep];
+    }, 2200);
+  }
+
+  function stopLoadingAnimation() {
+    if (loadingInterval) { clearInterval(loadingInterval); loadingInterval = null; }
+  }
+
+  function buildAnswerSummary() {
+    var lines = [];
+    questions.forEach(function (q) {
+      var idx = answers[q.id];
+      var answerText = (idx !== undefined) ? q.opts[idx] : '(unanswered)';
+      lines.push('Q' + q.id + ' [' + CATEGORY_NAMES[q.cat] + '] ' + q.text + '\n    Answer: ' + answerText);
+    });
+    return lines.join('\n\n');
+  }
+
+  function buildPrompt() {
+    var profile = contactData
+      ? 'Company: ' + contactData.company + '\nIndustry: ' + contactData.industry + '\nShift workers: ' + contactData.shift_workers + '\nPrimary shift length: ' + contactData.shift_length + '\nSelf-identified biggest challenge: ' + contactData.primary_challenge
+      : '(No contact profile available)';
+    return 'You are an expert shift operations consultant at Shiftwork Solutions LLC, a firm with hundreds of client engagements across manufacturing, distribution, pharmaceutical, food processing, mining, energy, and related industries.\n\nA facility manager has completed a 35-question Shift Operations Health Assessment. Below is their facility profile and every question with their answer.\n\n=== FACILITY PROFILE ===\n' + profile + '\n\n=== ALL 35 ANSWERS ===\n' + buildAnswerSummary() + '\n\n=== YOUR TASK ===\nAnalyze these responses and return ONLY a valid JSON object — no markdown, no explanation outside the JSON. The object must match this exact schema:\n\n{\n  "overall_score": <integer 0-100>,\n  "overall_label": <string — one of: "Critical — Immediate Action Required", "Fair — Several Areas Need Attention", "Good — Some Opportunities for Improvement", "Excellent — Operation Is Performing Well">,\n  "narrative": <2-3 sentence plain-language summary of their specific situation, referencing their industry/size/shift type where relevant>,\n  "dimensions": {\n    "worklife": { "score": <0-100>, "label": "Work-Life Balance", "low_label": "Critical Issues", "high_label": "Excellent Balance" },\n    "health": { "score": <0-100>, "label": "Employee Health", "low_label": "High Risk", "high_label": "Very Healthy" },\n    "alertness": { "score": <0-100>, "label": "Alertness Management", "low_label": "Significant Fatigue", "high_label": "Highly Alert" },\n    "overtime": { "score": <0-100>, "label": "Overtime Management", "low_label": "Out of Control", "high_label": "Well Managed" },\n    "operations": { "score": <0-100>, "label": "Operational Efficiency", "low_label": "Major Issues", "high_label": "Highly Efficient" },\n    "quality": { "score": <0-100>, "label": "Quality & Safety", "low_label": "Critical", "high_label": "Excellent" },\n    "communication": { "score": <0-100>, "label": "Communication", "low_label": "Breakdown", "high_label": "Effective" },\n    "workforce": { "score": <0-100>, "label": "Workforce Stability", "low_label": "High Turnover", "high_label": "Stable & Strong" }\n  },\n  "strengths": [\n    { "title": <string>, "detail": <1-2 sentence explanation> }\n  ],\n  "opportunities": [\n    { "title": <string>, "detail": <2-3 sentence explanation>, "shiftwork_note": <1-2 sentence on how Shiftwork Solutions addresses this> }\n  ],\n  "actions": [\n    <string — one concrete recommended action, 1 sentence each>\n  ]\n}\n\nRules:\n- overall_score should be a genuine reflection of all 35 answers\n- Dimension scores: 100 = no concerns, 0 = maximum concern\n- strengths: only dimensions scoring 70+\n- opportunities: only dimensions scoring below 50\n- actions: 3-6 items, ordered by priority\n- shiftwork_note: always mention Shiftwork Solutions by name\n- narrative: be direct and honest\n- Return ONLY the JSON object.';
+  }
+
+  function callClaudeAPI() {
+    fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1800,
+        messages: [{ role: 'user', content: buildPrompt() }]
+      })
+    }).then(function (r) {
+      if (!r.ok) throw new Error('API error ' + r.status);
+      return r.json();
+    }).then(function (data) {
+      var text = '';
+      if (data.content && data.content.length > 0) {
+        data.content.forEach(function (block) { if (block.type === 'text') text += block.text; });
+      }
+      text = text.replace(/```json|```/g, '').trim();
+      var evaluation = JSON.parse(text);
+      stopLoadingAnimation();
+      renderResults(evaluation);
+    }).catch(function (err) {
+      console.error('Claude API error:', err);
+      stopLoadingAnimation();
+      renderFallbackResults();
+    });
+  }
+
+  function renderResults(ev) {
+    document.getElementById('overallScore').textContent = ev.overall_score + '%';
+    document.getElementById('overallLabel').textContent = ev.overall_label || '';
+    document.getElementById('resultsNarrative').textContent = ev.narrative || '';
+    var barOrder = ['worklife','health','alertness','overtime','operations','quality','communication','workforce'];
+    var barsDiv = document.getElementById('dimBars');
+    barsDiv.innerHTML = '';
+    barOrder.forEach(function (key) {
+      var d = ev.dimensions[key];
+      if (!d) return;
+      barsDiv.innerHTML += '<div class="dim-row"><div class="dim-row-header"><h3>' + d.label + '</h3><span class="dim-score">' + d.score + '%</span></div><div class="dim-track"><div class="dim-pointer" style="left:' + d.score + '%"></div></div><div class="dim-scale"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div><div class="dim-extremes"><span class="dim-low">' + (d.low_label || '') + '</span><span class="dim-high">' + (d.high_label || '') + '</span></div></div>';
+    });
+    var sDiv = document.getElementById('strengthsList');
+    if (ev.strengths && ev.strengths.length > 0) {
+      sDiv.innerHTML = ev.strengths.map(function (s) { return '<div class="rec-item strength"><strong>' + s.title + ':</strong> ' + s.detail + '</div>'; }).join('');
+    } else {
+      sDiv.innerHTML = '<div class="rec-item">Your assessment indicates several areas need attention across multiple categories.</div>';
+    }
+    var oDiv = document.getElementById('opportunitiesList');
+    if (ev.opportunities && ev.opportunities.length > 0) {
+      oDiv.innerHTML = ev.opportunities.map(function (o) {
+        return '<div class="rec-item"><strong>' + o.title + ':</strong> ' + o.detail + (o.shiftwork_note ? '<div class="ss-note"><strong>How Shiftwork Solutions Can Help:</strong> ' + o.shiftwork_note + '</div>' : '') + '</div>';
+      }).join('');
+    } else {
+      oDiv.innerHTML = '<div class="rec-item strength">Your operation is performing well across all major categories.</div>';
+    }
+    var aDiv = document.getElementById('actionsList');
+    if (ev.actions && ev.actions.length > 0) {
+      aDiv.innerHTML = ev.actions.map(function (a) { return '<div class="rec-item action">\u2022 ' + a + '</div>'; }).join('');
+    } else {
+      aDiv.innerHTML = '<div class="rec-item">Continue with your current approach and focus on continuous improvement.</div>';
+    }
+    if (assessmentId) {
+      var scorePayload = { assessment_id: assessmentId, overall_score: ev.overall_score, answers: answers };
+      ['worklife','health','alertness','overtime','operations','quality','communication','workforce'].forEach(function (k) {
+        if (ev.dimensions[k]) scorePayload[k + '_score'] = ev.dimensions[k].score;
+      });
+      fetch(SWARM_API + '/api/assessment/update-scores', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(scorePayload)
+      }).catch(function (e) { console.warn('Score update skipped:', e); });
+    }
+    show('screen-results');
+    window.scrollTo(0, 0);
+  }
+
+  function renderFallbackResults() {
+    var cats = {};
+    var dimOrder = ['worklife','health','alertness','overtime','operations','quality','communication','workforce'];
+    dimOrder.forEach(function (k) { cats[k] = { concern: 0, max: 0 }; });
+    questions.forEach(function (q) {
+      var idx = answers[q.id];
+      if (idx === undefined) return;
+      cats[q.cat].concern += q.scoring[idx];
+      cats[q.cat].max += Math.max.apply(null, q.scoring);
+    });
+    var totalConcern = 0, totalMax = 0;
+    dimOrder.forEach(function (k) { totalConcern += cats[k].concern; totalMax += cats[k].max; });
+    var overall = Math.round(100 - (totalConcern / totalMax * 100));
+    var dimLabels = {
+      worklife:  { label: 'Work-Life Balance',      low: 'Critical Issues',    high: 'Excellent Balance' },
+      health:    { label: 'Employee Health',         low: 'High Risk',          high: 'Very Healthy' },
+      alertness: { label: 'Alertness Management',    low: 'Significant Fatigue', high: 'Highly Alert' },
+      overtime:  { label: 'Overtime Management',     low: 'Out of Control',     high: 'Well Managed' },
+      operations:{ label: 'Operational Efficiency',  low: 'Major Issues',       high: 'Highly Efficient' },
+      quality:   { label: 'Quality & Safety',        low: 'Critical',           high: 'Excellent' },
+      communication:{ label: 'Communication',        low: 'Breakdown',          high: 'Effective' },
+      workforce: { label: 'Workforce Stability',     low: 'High Turnover',      high: 'Stable & Strong' }
+    };
+    var dims = {};
+    dimOrder.forEach(function (k) {
+      var score = cats[k].max > 0 ? Math.round(100 - (cats[k].concern / cats[k].max * 100)) : 100;
+      dims[k] = { score: score, label: dimLabels[k].label, low_label: dimLabels[k].low, high_label: dimLabels[k].high };
+    });
+    var label = overall >= 80 ? 'Excellent \u2014 Operation Is Performing Well'
+              : overall >= 60 ? 'Good \u2014 Some Opportunities for Improvement'
+              : overall >= 40 ? 'Fair \u2014 Several Areas Need Attention'
+              : 'Critical \u2014 Immediate Action Required';
+    var strengths = dimOrder.filter(function (k) { return dims[k].score >= 70; }).map(function (k) { return { title: dims[k].label, detail: 'Performing well in this dimension.' }; });
+    var opportunities = dimOrder.filter(function (k) { return dims[k].score < 50; }).map(function (k) { return { title: dims[k].label, detail: 'This dimension shows significant concern based on your responses.', shiftwork_note: 'Shiftwork Solutions has addressed this dimension across hundreds of facilities. Contact us for a consultation.' }; });
+    renderResults({
+      overall_score: overall,
+      overall_label: label,
+      narrative: 'Your results are displayed below. Note: AI narrative analysis was temporarily unavailable \u2014 scores reflect your answers directly. Contact Shiftwork Solutions at (415) 265-1621 for a personal consultation.',
+      dimensions: dims,
+      strengths: strengths,
+      opportunities: opportunities,
+      actions: ['Contact Shiftwork Solutions to discuss your assessment results and develop a customized improvement plan.']
+    });
+  }
+
+  window.downloadPDF = function () {
+    var msg = document.getElementById('pdfMsg');
+    msg.className = 'form-msg info';
+    msg.textContent = 'Opening print dialog \u2014 choose \u201cSave as PDF\u201d in your printer options.';
+    setTimeout(function () { window.print(); }, 400);
+  };
+
+  window.restartAssessment = function () {
+    if (advanceTimer) { clearTimeout(advanceTimer); advanceTimer = null; }
+    currentQ = 0; answers = {}; contactData = null; assessmentId = null; isTransitioning = false;
+    document.getElementById('contactForm').reset();
+    document.getElementById('newsletter_signup').checked = true;
+    document.getElementById('contactFormMsg').style.display = 'none';
+    document.getElementById('contactSubmitBtn').disabled = false;
+    document.getElementById('contactSubmitBtn').textContent = 'Begin Assessment \u2192';
+    document.getElementById('pdfMsg').style.display = 'none';
+    show('screen-intro');
+    window.scrollTo(0, 0);
+  };
+
   show('screen-intro');
 })();
 </script>
