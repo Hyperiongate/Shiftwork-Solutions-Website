@@ -14,28 +14,34 @@
     2026-04-13 — CTA band background changed to --navy.
     2026-04-13 — Nav text + hero eyebrow renamed "Our Company".
     2026-04-13 — Hero background replaced with second.png + gradient overlay.
-
-    2026-04-16 — CTA BAND REPLACED: Removed navy CTA band with centered
-                 button. Replaced with standard three-card Next Steps section
-                 (light-grey bg, white cards, navy top border → orange on hover).
-                 Cards: Book a Consultation / Health Assessment / Resources Hub.
-    2026-04-16 — VISUAL OVERHAUL to match resources page standards:
-                 1. NAV: Added "SHIFTWORK SOLUTIONS" text next to logo,
-                    nav links bumped to 20px, logo src corrected to
-                    clear_bkgr_logo_2.png (underscores, not %20 encoding).
-                 2. FOOTER: Replaced thin grey footer + separate engage band
-                    with full dark navy 3-column pre-footer matching resources
-                    page exactly (Free Consultation / Talk to Thomas /
-                    Newsletter subscribe form + bottom bar).
-                 3. TYPOGRAPHY: Bridge text 17px. Section eyebrows/headings
-                    improved. Gains cards body text 15px. Outcome card
-                    titles/descs enlarged. Better line-height throughout.
-                 4. FAQ SECTION: New accordion section inserted between
-                    CTA band and footer. 8 questions covering why hire us,
-                    process, outcomes, timeline. Orange/navy design language.
-                    Pure JS accordion, no dependencies.
-                 All existing content (gains section, infographic, outcome
-                 strip, bridge, tiles) completely unchanged.
+    2026-04-16 — CTA BAND REPLACED: three-card Next Steps section.
+    2026-04-16 — VISUAL OVERHAUL to match resources page standards
+                 (nav, footer, typography, FAQ accordion section).
+    2026-04-16 — NAV LABEL ONLY: "Our Company" -> "Why Us" in the top menu
+                 (link target /why-us/ unchanged). Hero eyebrow and
+                 BreadcrumbList JSON-LD intentionally left as "Our Company"
+                 per Jim's instruction: menu text only.
+    2026-04-16 — FAQ REBUILD to match Chemical & Pharmaceutical industry
+                 template exactly:
+                 * Full-bleed section (100vw, left:50%/right:50% with
+                   -50vw margins) containing Hands_in_the_air.jpg background
+                   image, radial-gradient vignette overlay (Option B: light
+                   center → dark edges, navy-dark).
+                 * Gold #EEAE26 heading with text-shadow.
+                 * Navy (#1F4E79) toggle buttons with white text, chevron
+                   SVG icon that rotates 180° when open; orange when active.
+                 * White answer panels below buttons (14px/1.75).
+                 * Markup converted from div-onclick pattern to button /
+                   max-height transition pattern for smoother animation and
+                   proper aria-expanded semantics.
+                 * All 8 questions and their multi-paragraph answers
+                   preserved verbatim. toggleFaq() global JS replaced with
+                   listener-based single-open behavior matching the
+                   chem/pharma page.
+                 * Mobile (≤640px) respects the -50vw breakout and adjusts
+                   .faq-inner padding.
+                 No other sections touched; functionality otherwise
+                 identical to previous deploy.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
@@ -43,6 +49,7 @@
     Orange: #E8610A | Green: #1D9E75 | Warm yellow: #F5C842
     Logo: /images/clear_bkgr_logo_2.png
     Hero image: /images/second.png
+    FAQ image: /images/Hands_in_the_air.jpg
 -->
 <html lang="en">
 <head>
@@ -74,7 +81,7 @@
       --right-card-bg:#f7f9fb;--max-width:1060px;--gains-max:1140px;--page-pad:24px
     }
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-    body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
+    body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white);overflow-x:hidden}
 
     /* ── NAV (matches resources page) ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
@@ -197,31 +204,30 @@
     .ns-card:hover .ns-card-link{color:var(--orange)}
     @media(max-width:640px){.ns-cards{grid-template-columns:1fr}}
 
-    /* ── FAQ SECTION ── */
-    .faq-section{padding:72px var(--page-pad) 76px;background:var(--light-grey)}
-    .faq-inner{max-width:var(--max-width);margin:0 auto}
-    .faq-header{margin-bottom:40px}
-    .faq-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
-    .faq-heading{font-size:26px;font-weight:700;color:var(--body-text);line-height:1.25;margin-bottom:10px;padding-left:16px;border-left:4px solid var(--orange)}
-    .faq-sub{font-size:15px;color:var(--muted);line-height:1.65;max-width:640px}
+    /* ── FAQ SECTION: full-bleed with Hands_in_the_air.jpg background ── */
+    .faq-section{position:relative;overflow:hidden;left:50%;right:50%;margin-left:calc(-50vw);margin-right:calc(-50vw);width:100vw}
+    .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
+    .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
+    .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:72px 24px 76px}
+    .faq-header{margin-bottom:28px}
+    .faq-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,0.65);margin-bottom:8px;text-shadow:0 1px 4px rgba(0,0,0,0.4)}
+    .faq-heading{font-size:26px;font-weight:700;color:#EEAE26;line-height:1.25;margin-bottom:10px;text-shadow:0 1px 6px rgba(0,0,0,0.5)}
+    .faq-sub{font-size:15px;color:rgba(255,255,255,0.78);line-height:1.65;max-width:640px;text-shadow:0 1px 4px rgba(0,0,0,0.4)}
     .faq-list{display:flex;flex-direction:column;gap:0}
-    .faq-item{border-bottom:1px solid var(--border-med);background:var(--white)}
-    .faq-item:first-child{border-top:1px solid var(--border-med);border-radius:8px 8px 0 0}
-    .faq-item:last-child{border-radius:0 0 8px 8px}
-    .faq-item.open .faq-answer{display:block}
-    .faq-item.open .faq-icon{transform:rotate(45deg)}
-    .faq-item.open .faq-question{color:var(--navy)}
-    .faq-question-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;cursor:pointer;user-select:none;transition:background .15s}
-    .faq-question-row:hover{background:var(--light-blue)}
-    .faq-question{font-size:16px;font-weight:700;color:var(--body-text);line-height:1.4;flex:1;transition:color .15s}
-    .faq-icon{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--light-blue);border:2px solid var(--border-med);display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .15s,border-color .15s}
-    .faq-item.open .faq-icon{background:var(--orange);border-color:var(--orange)}
-    .faq-icon svg{width:14px;height:14px;stroke:var(--navy);stroke-width:2.5;fill:none;transition:stroke .15s}
-    .faq-item.open .faq-icon svg{stroke:var(--white)}
-    .faq-answer{display:none;padding:0 24px 24px 24px}
-    .faq-answer p{font-size:15px;line-height:1.80;color:var(--body-text);max-width:760px}
-    .faq-answer p + p{margin-top:12px}
-    .faq-answer strong{color:var(--navy)}
+    .faq-item{margin-bottom:6px}
+    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--navy);border:1px solid rgba(255,255,255,0.18);border-radius:6px;cursor:pointer;padding:16px 18px;text-align:left;gap:16px;transition:background .2s ease;font-family:Arial,Helvetica,sans-serif}
+    .faq-toggle:hover{background:#1a4268}
+    .faq-item.faq-open .faq-toggle{border-radius:6px 6px 0 0;background:var(--navy);border-bottom-color:transparent}
+    .faq-q{font-size:15px;font-weight:700;color:#fff;line-height:1.4;flex:1;text-shadow:0 1px 4px rgba(0,0,0,0.4)}
+    .faq-icon{flex-shrink:0;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .2s ease,border-color .2s ease}
+    .faq-icon svg{width:10px;height:10px;fill:rgba(255,255,255,0.8);transition:transform .25s ease}
+    .faq-item.faq-open .faq-icon{background:var(--orange);border-color:var(--orange)}
+    .faq-item.faq-open .faq-icon svg{fill:#fff;transform:rotate(180deg)}
+    .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease}
+    .faq-item.faq-open .faq-body{max-height:1200px}
+    .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
+    .faq-a p{margin:0}
+    .faq-a p + p{margin-top:12px}
 
     /* ── FOOTER (matches resources page) ── */
     .site-footer{background:var(--navy-dark)}
@@ -290,9 +296,8 @@
       .balance-center::before,.balance-center::after{display:none}
       .balance-arrow-left,.balance-arrow-right{display:none}
       .next-steps{padding:40px 16px 48px}
-      .faq-section{padding:48px 16px 52px}
-      .faq-question-row{padding:18px 18px}
-      .faq-answer{padding:0 18px 20px}
+      .faq-inner{padding:48px 18px 52px}
+      .faq-heading{font-size:22px}
       .footer-prefooter{padding:32px 20px}
       .footer-content-row{grid-template-columns:1fr}
       .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
@@ -319,7 +324,7 @@
     <li><a href="/services/">Our Services</a></li>
     <li><a href="/resources/">Resources</a></li>
     <li><a href="/industries/">Industries</a></li>
-    <li><a href="/why-us/" class="nav-active">Our Company</a></li>
+    <li><a href="/why-us/" class="nav-active">Why Us</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap">
@@ -511,83 +516,85 @@
   </div>
 </section>
 
-<!-- ── FAQ SECTION ── -->
-<section class="faq-section">
+<!-- ── FAQ SECTION: full-bleed with Hands_in_the_air.jpg background, navy toggle buttons, white answer panels ── -->
+<div class="faq-section">
+  <div class="faq-bg"></div>
+  <div class="faq-overlay"></div>
   <div class="faq-inner">
     <div class="faq-header">
       <div class="faq-eyebrow">Common Questions</div>
       <div class="faq-heading">Frequently Asked Questions</div>
       <p class="faq-sub">Straightforward answers to the questions operations leaders ask most before engaging us.</p>
     </div>
-    <div class="faq-list" id="faqList">
+    <div class="faq-list">
 
       <div class="faq-item">
-        <div class="faq-question-row" onclick="toggleFaq(this)">
-          <span class="faq-question">Why hire a consultant instead of handling schedule design internally?</span>
-          <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
-        </div>
-        <div class="faq-answer"><p>Internal teams are too close to the problem. They know the history, the politics, and the personalities &mdash; and that knowledge, while valuable, also limits what they can see and say. An experienced outside firm brings neutral credibility, pattern recognition across hundreds of similar situations, and the ability to have conversations that internal teams cannot.</p><p>There's also a practical factor: redesigning a shift schedule while simultaneously running a 24/7 operation is a significant management burden. We take on the structural work so your leadership stays focused on production.</p></div>
+        <button class="faq-toggle" aria-expanded="false">
+          <span class="faq-q">Why hire a consultant instead of handling schedule design internally?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+        </button>
+        <div class="faq-body"><div class="faq-a"><p>Internal teams are too close to the problem. They know the history, the politics, and the personalities &mdash; and that knowledge, while valuable, also limits what they can see and say. An experienced outside firm brings neutral credibility, pattern recognition across hundreds of similar situations, and the ability to have conversations that internal teams cannot.</p><p>There's also a practical factor: redesigning a shift schedule while simultaneously running a 24/7 operation is a significant management burden. We take on the structural work so your leadership stays focused on production.</p></div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question-row" onclick="toggleFaq(this)">
-          <span class="faq-question">What does a typical engagement look like?</span>
-          <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
-        </div>
-        <div class="faq-answer"><p>Every engagement begins with a diagnostic phase &mdash; an honest assessment of where the operation stands, what the workforce actually needs, and what the financial levers are. From there we develop schedule options, model costs, engage the workforce, and manage implementation.</p><p>Most engagements run 3&ndash;6 months depending on complexity and scope. We work alongside your team, not around them. You make the decisions; we give you the analysis, the facilitation, and the change management infrastructure to make them confidently.</p></div>
+        <button class="faq-toggle" aria-expanded="false">
+          <span class="faq-q">What does a typical engagement look like?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+        </button>
+        <div class="faq-body"><div class="faq-a"><p>Every engagement begins with a diagnostic phase &mdash; an honest assessment of where the operation stands, what the workforce actually needs, and what the financial levers are. From there we develop schedule options, model costs, engage the workforce, and manage implementation.</p><p>Most engagements run 3&ndash;6 months depending on complexity and scope. We work alongside your team, not around them. You make the decisions; we give you the analysis, the facilitation, and the change management infrastructure to make them confidently.</p></div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question-row" onclick="toggleFaq(this)">
-          <span class="faq-question">How do you handle workforce resistance to schedule changes?</span>
-          <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
-        </div>
-        <div class="faq-answer"><p>By anticipating it and designing around it. Resistance is almost always a function of poor communication, inadequate notice, or a schedule that doesn't reflect what the workforce actually said it needed. We conduct workforce surveys, hold facilitated sessions, and build the communication plan before implementation begins &mdash; not after resistance appears.</p><p>As a neutral third party, we can engage with employees in ways that internal management often can't. People say things to an outside firm they won't say to their supervisor. That candor is what makes the solution durable.</p></div>
+        <button class="faq-toggle" aria-expanded="false">
+          <span class="faq-q">How do you handle workforce resistance to schedule changes?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+        </button>
+        <div class="faq-body"><div class="faq-a"><p>By anticipating it and designing around it. Resistance is almost always a function of poor communication, inadequate notice, or a schedule that doesn't reflect what the workforce actually said it needed. We conduct workforce surveys, hold facilitated sessions, and build the communication plan before implementation begins &mdash; not after resistance appears.</p><p>As a neutral third party, we can engage with employees in ways that internal management often can't. People say things to an outside firm they won't say to their supervisor. That candor is what makes the solution durable.</p></div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question-row" onclick="toggleFaq(this)">
-          <span class="faq-question">Do you work with unionized facilities?</span>
-          <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
-        </div>
-        <div class="faq-answer"><p>Yes. A significant portion of our engagements involve unionized workforces. Schedule changes in union environments require careful attention to contract language, negotiation timing, and the relationship between management and union leadership. We've navigated that landscape across dozens of facilities and understand what makes the difference between a change that clears the table and one that ends up in arbitration.</p><p>Our neutral position often helps here. When both sides see us as an objective resource rather than a management tool, the conversations are more productive.</p></div>
+        <button class="faq-toggle" aria-expanded="false">
+          <span class="faq-q">Do you work with unionized facilities?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+        </button>
+        <div class="faq-body"><div class="faq-a"><p>Yes. A significant portion of our engagements involve unionized workforces. Schedule changes in union environments require careful attention to contract language, negotiation timing, and the relationship between management and union leadership. We've navigated that landscape across dozens of facilities and understand what makes the difference between a change that clears the table and one that ends up in arbitration.</p><p>Our neutral position often helps here. When both sides see us as an objective resource rather than a management tool, the conversations are more productive.</p></div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question-row" onclick="toggleFaq(this)">
-          <span class="faq-question">How is your approach different from software-based scheduling tools?</span>
-          <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
-        </div>
-        <div class="faq-answer"><p>Scheduling software optimizes coverage based on the parameters you give it. It can't tell you which parameters matter, which schedule patterns tend to fail with a workforce like yours, or how to build the organizational conditions for a change to take hold. Tools answer the question you ask. Thirty years of experience tells you which question to ask in the first place.</p><p>We use analytical tools &mdash; including AI-assisted scenario modeling &mdash; as part of our process. But the diagnostic judgment, the workforce engagement, and the change management are human work that no software replaces.</p></div>
+        <button class="faq-toggle" aria-expanded="false">
+          <span class="faq-q">How is your approach different from software-based scheduling tools?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+        </button>
+        <div class="faq-body"><div class="faq-a"><p>Scheduling software optimizes coverage based on the parameters you give it. It can't tell you which parameters matter, which schedule patterns tend to fail with a workforce like yours, or how to build the organizational conditions for a change to take hold. Tools answer the question you ask. Thirty years of experience tells you which question to ask in the first place.</p><p>We use analytical tools &mdash; including AI-assisted scenario modeling &mdash; as part of our process. But the diagnostic judgment, the workforce engagement, and the change management are human work that no software replaces.</p></div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question-row" onclick="toggleFaq(this)">
-          <span class="faq-question">What industries do you work with?</span>
-          <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
-        </div>
-        <div class="faq-answer"><p>Our practice is focused exclusively on shiftwork-intensive operations: manufacturing, distribution, mining, refining, food &amp; beverage, chemical and pharmaceutical, and paper &amp; packaging. We do not consult outside these industries. That focus is intentional &mdash; the depth of pattern recognition we bring is a direct result of working exclusively in these environments for thirty years.</p></div>
+        <button class="faq-toggle" aria-expanded="false">
+          <span class="faq-q">What industries do you work with?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+        </button>
+        <div class="faq-body"><div class="faq-a"><p>Our practice is focused exclusively on shiftwork-intensive operations: manufacturing, distribution, mining, refining, food &amp; beverage, chemical and pharmaceutical, and paper &amp; packaging. We do not consult outside these industries. That focus is intentional &mdash; the depth of pattern recognition we bring is a direct result of working exclusively in these environments for thirty years.</p></div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question-row" onclick="toggleFaq(this)">
-          <span class="faq-question">Who will actually be working on our engagement?</span>
-          <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
-        </div>
-        <div class="faq-answer"><p>A senior partner. That is not a marketing claim &mdash; it is a structural fact about how we operate. We are a small, senior firm by design. Jim Dillingham, Dan Capshaw, and Ethan Franklin each have 28&ndash;32+ years of hands-on experience, and one of them leads every engagement directly.</p><p>We do not use junior associates, subcontractors, or project managers as the primary client contact. You work with the people whose names are on the door.</p></div>
+        <button class="faq-toggle" aria-expanded="false">
+          <span class="faq-q">Who will actually be working on our engagement?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+        </button>
+        <div class="faq-body"><div class="faq-a"><p>A senior partner. That is not a marketing claim &mdash; it is a structural fact about how we operate. We are a small, senior firm by design. Jim Dillingham, Dan Capshaw, and Ethan Franklin each have 28&ndash;32+ years of hands-on experience, and one of them leads every engagement directly.</p><p>We do not use junior associates, subcontractors, or project managers as the primary client contact. You work with the people whose names are on the door.</p></div></div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-question-row" onclick="toggleFaq(this)">
-          <span class="faq-question">What happens after the new schedule is implemented?</span>
-          <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
-        </div>
-        <div class="faq-answer"><p>Implementation is where most schedule changes fail &mdash; not the design phase. We stay engaged through the transition period, monitoring early indicators, addressing emerging issues, and making adjustments before they become problems. Policy alignment, supervisor training, and workforce communication are all part of what we manage through to stability.</p><p>Our measure of success is not a new schedule on paper. It is an operation that is running better six months after we leave than it was before we arrived.</p></div>
+        <button class="faq-toggle" aria-expanded="false">
+          <span class="faq-q">What happens after the new schedule is implemented?</span>
+          <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+        </button>
+        <div class="faq-body"><div class="faq-a"><p>Implementation is where most schedule changes fail &mdash; not the design phase. We stay engaged through the transition period, monitoring early indicators, addressing emerging issues, and making adjustments before they become problems. Policy alignment, supervisor training, and workforce communication are all part of what we manage through to stability.</p><p>Our measure of success is not a new schedule on paper. It is an operation that is running better six months after we leave than it was before we arrived.</p></div></div>
       </div>
 
     </div><!-- /.faq-list -->
   </div><!-- /.faq-inner -->
-</section>
+</div><!-- /.faq-section -->
 
 <!-- ── FOOTER (matches resources page) ── -->
 <footer class="site-footer">
@@ -646,15 +653,26 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
   }
 });
 
-/* ── FAQ accordion ── */
-window.toggleFaq = function (row) {
-  var item = row.parentElement;
-  var isOpen = item.classList.contains('open');
-  /* Close all */
-  document.querySelectorAll('.faq-item').forEach(function (el) { el.classList.remove('open'); });
-  /* Open clicked if it was closed */
-  if (!isOpen) { item.classList.add('open'); }
-};
+/* ── FAQ accordion (matches chem/pharma template: button/max-height, single-open) ── */
+(function () {
+  var items = document.querySelectorAll('.faq-item');
+  items.forEach(function (item) {
+    var btn = item.querySelector('.faq-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var isOpen = item.classList.contains('faq-open');
+      items.forEach(function (i) {
+        i.classList.remove('faq-open');
+        var b = i.querySelector('.faq-toggle');
+        if (b) b.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('faq-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+})();
 
 /* ── Footer newsletter ── */
 (function () {
