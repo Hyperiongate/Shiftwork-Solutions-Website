@@ -1,16 +1,47 @@
 <!DOCTYPE html>
 <!--
-  resources/reshoring-manufacturing-workforce/index.html
+  resources/32-hour-workweek-manufacturing/index.html
   Shiftwork Solutions LLC — Trending Topic Article
-  URL: /resources/reshoring-manufacturing-workforce/
-  Created: 2026-04-04 | Last Updated: 2026-04-15
+  URL: /resources/32-hour-workweek-manufacturing/
+  Created: 2026-04-04 | Last Updated: 2026-04-16
 
   CHANGE LOG:
-    2026-04-04 — Initial build. 2026-04-05 — NAV audit, FAQ added.
-    2026-04-15 — Nav/FAQ/Next Steps standardization. Logo corrected,
-                 SHIFTWORK SOLUTIONS text added, nav font 20px,
-                 hero /images/reshoring.jpg, FAQ industry accordion style,
-                 Next Steps light grey #F4F6F8 background.
+    2026-04-04 — Initial build from source Word doc.
+    2026-04-05 — NAV + BUTTON + SEO AUDIT. FAQ section added.
+    2026-04-15 — Nav: "Why Us" -> "Our Company". Next Steps: dark navy animated
+                 cards. Removed floating CTA section and engage-band. Footer:
+                 standard dark-navy 3-col prefooter.
+    2026-04-15 — (v2) THREE NAV + HERO + FAQ FIXES:
+                 1. Logo src corrected: clear%20bkgr%20logo%202.png →
+                    clear_bkgr_logo_2.png (underscores match actual repo filename)
+                 2. "SHIFTWORK SOLUTIONS" bold navy text added to right of logo;
+                    both logo image and text link to homepage. .nav-logo-text class
+                    added; font-size 20px, font-weight 700, color #1F4E79, Arial.
+                    .nav-logo gap set to 12px to space image from text.
+                 3. Nav link font-size increased from 13.5px to 20px (matching
+                    homepage standard). Mobile nav font-size set to 18px.
+                 4. Hero image changed from second.png to /images/32.jpg with same
+                    gradient overlay treatment as industry pages.
+                 5. FAQ section rebuilt to match industry page style: full-bleed
+                    Hands_in_the_air.jpg background, dark vignette overlay, navy
+                    accordion toggle buttons, #EEAE26 heading, white answer panels,
+                    accordion open/close JS behavior. Old static FAQ markup removed.
+                 6. Next Steps section: background changed from navy to light grey
+                    (#F4F6F8) to visually separate it from the dark navy footer.
+                    Card borders changed from white/transparent to solid --border-med.
+                    Text colors updated: eyebrow/sub/phone to --muted, h2 to --navy.
+                    Card label/link colors: blue card uses --navy (not --mid-blue).
+    2026-04-16 — NAV LABEL: "Our Company" → "Why Us".
+
+  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
+  HERO IMAGE: /images/32.jpg
+  FAQ IMAGE:  /images/Hands_in_the_air.jpg
+  BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
+  DESIGN SYSTEM:
+    --navy: #1F4E79  --navy-dark: #0D1F3C  --mid-blue: #85B7EB
+    --light-blue: #EEF3F8  --orange: #E8610A  --green: #1D9E75
+    --body-text: #1A1A1A  --max-width: 860px
+    Font: Arial, Helvetica, sans-serif
 
   I did no harm and this file is not truncated
 -->
@@ -23,7 +54,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
   <meta name="twitter:card" content="summary">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Reshoring Manufacturing? The Workforce Problem Most Companies Don't See Coming","url":"https://shift-work.com/resources/reshoring-manufacturing-workforce/","datePublished":"2026-04-04","dateModified":"2026-04-15","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Reshoring Manufacturing? The Workforce Problem Most Companies Don't See Coming", "description": "Bringing manufacturing back to the U.S. is the strategic move. Staffing it sustainably is where the real work begins.", "url": "https://shift-work.com/resources/reshoring-manufacturing-workforce/", "datePublished": "2026-04-04", "dateModified": "2026-04-16", "author": {"@type": "Organization", "name": "Shiftwork Solutions LLC"}, "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Reshoring Manufacturing","item":"https://shift-work.com/resources/reshoring-manufacturing-workforce/"}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -73,13 +104,24 @@
     .pull-quote-content{flex:1}
     .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
     .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
+    .data-table-wrap{margin:32px 0;overflow-x:auto}
+    .data-table{width:100%;border-collapse:collapse;font-size:14px}
+    .data-table th{background:var(--navy);color:var(--white);padding:10px 14px;text-align:left;font-size:13px;font-weight:700}
+    .data-table td{padding:10px 14px;border-bottom:1px solid var(--border-light)}
+    .data-table tr:nth-child(even) td{background:var(--light-blue)}
+    .data-table tr:last-child td{border-bottom:none}
+    .data-table .highlight{color:var(--orange);font-weight:700}
+    .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
+    .insight-card{background:var(--light-blue);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
+    .insight-card .ic-num{font-size:28px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:6px}
+    .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.5}
     .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
     .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:52px 24px 56px}
     .faq-inner h2{font-size:22px;font-weight:700;color:#EEAE26;margin-bottom:28px;text-shadow:0 1px 6px rgba(0,0,0,0.5)}
     .faq-item{margin-bottom:6px}
-    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--navy);border:1px solid rgba(255,255,255,0.18);border-radius:6px;cursor:pointer;padding:16px 18px;text-align:left;gap:16px;transition:background .2s ease}
+    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--navy);border:1px solid rgba(255,255,255,0.18);border-radius:6px;cursor:pointer;padding:16px 18px;text-align:left;gap:16px;transition:background .2s ease;font-family:Arial,Helvetica,sans-serif}
     .faq-toggle:hover{background:#1a4268}
     .faq-item.faq-open .faq-toggle{border-radius:6px 6px 0 0;background:var(--navy);border-bottom-color:transparent}
     .faq-q{font-size:15px;font-weight:700;color:#fff;line-height:1.4;flex:1;text-shadow:0 1px 4px rgba(0,0,0,0.4)}
@@ -157,6 +199,8 @@
     .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
     .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
+    .callout-box{background:linear-gradient(to right,#E4E7EB,var(--white) 40%,var(--white) 60%,#E4E7EB);border-radius:6px;padding:22px 28px;margin:32px 0;text-align:center}
+    .callout-box p{font-size:16px;line-height:1.6;color:var(--body-text);font-weight:400;margin:0;font-style:normal}
     .timeline{margin:32px 0;position:relative;padding-left:32px}
     .timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:var(--border-med)}
     .timeline-item{position:relative;margin-bottom:28px}
@@ -166,18 +210,12 @@
     .timeline-item h3{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px}
     .timeline-item.warning h3{color:var(--orange)}
     .timeline-item p{font-size:13px;color:var(--muted);line-height:1.6;margin:0}
-    .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:32px 0}
-    .insight-card{background:var(--light-blue);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
-    .insight-card .ic-num{font-size:26px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:6px}
-    .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.5}
-    .callout-box{background:linear-gradient(to right,#E4E7EB,var(--white) 40%,var(--white) 60%,#E4E7EB);border-radius:6px;padding:22px 28px;margin:32px 0;text-align:center}
-    .callout-box p{font-size:16px;line-height:1.6;color:var(--body-text);font-weight:400;margin:0;font-style:normal}
-    @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}}
-    @media(max-width:760px){.ns-cards{grid-template-columns:1fr}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.next-steps{padding:40px 20px 44px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}}
+    @media(max-width:760px){.ns-cards{grid-template-columns:1fr}.insight-cards{grid-template-columns:1fr 1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
+    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.next-steps{padding:40px 20px 44px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.insight-cards{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
+
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo">
     <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36">
@@ -189,7 +227,7 @@
     <li><a href="/services/">Our Services</a></li>
     <li><a href="/resources/" class="nav-active">Resources</a></li>
     <li><a href="/industries/">Industries</a></li>
-    <li><a href="/why-us/">Our Company</a></li>
+    <li><a href="/why-us/">Why Us</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
@@ -202,51 +240,48 @@
   <span class="hero-tag">Trending</span>
 </div></section>
 
-<div class="breadcrumb-bar"><div class="breadcrumb-inner"><a href="/">Home</a><span>&#x203A;</span><a href="/resources/">Resources</a><span>&#x203A;</span>Reshoring Manufacturing</div></div>
+<div class="breadcrumb-bar"><div class="breadcrumb-inner"><a href="/">Home</a><span>›</span><a href="/resources/">Resources</a><span>›</span>Reshoring Manufacturing</div></div>
 
 <div class="article-wrap">
   <div class="article-meta"><span class="meta-tag">Trending</span><span class="meta-date">April 2026</span><span class="meta-read">7 min read</span></div>
 
   <p>The case for reshoring U.S. manufacturing has never been stronger. Tariffs, supply chain vulnerabilities exposed during the pandemic, federal incentives for domestic production, and growing customer demand for American-made goods have combined to make onshoring and nearshoring genuinely attractive for a wide range of industries.</p>
-  <p>For companies in the planning or early execution stage, the capital decisions tend to get the most attention: site selection, facility design, equipment specification, production capacity. The workforce decisions get less attention — and they are where reshoring efforts most commonly run into trouble.</p>
+  <p>For companies in the planning or early execution stage, the capital decisions tend to get the most attention: site selection, facility design, equipment specification, production capacity. The workforce decisions get less attention &#x2014; and they are where reshoring efforts most commonly run into trouble.</p>
 
   <h2>The Geographic Mismatch Problem</h2>
   <p>Reshoring is not simply a matter of moving production from one country to another. It is a decision about where in the United States to locate that production. And that location decision has workforce implications that are easy to underestimate when the analysis focuses primarily on real estate, incentives, and logistics.</p>
   <p>The U.S. labor market is not uniform. A region with available industrial land and favorable tax incentives may not have a readily available pool of workers with the skills and availability your operation requires. A community that looks attractive on a site selection scorecard may have a manufacturing labor market already saturated by existing employers competing for the same workers.</p>
-  <p>This geographic mismatch — between where it makes sense to locate a facility on paper and where the workforce you need actually lives — is one of the most common and costly surprises in reshoring execution.</p>
 
-  <div class="callout-box"><p><strong>The Mismatch in Practice:</strong> Geographic mismatch doesn't show up in national unemployment data. It shows up six months after groundbreaking, when recruiting targets are being missed and the launch timeline is at risk.</p></div>
+  <div class="callout-box"><p><strong>The Mismatch in Practice:</strong> Geographic mismatch doesn&#x2019;t show up in national unemployment data. It shows up six months after groundbreaking, when recruiting targets are being missed and the launch timeline is at risk.</p></div>
 
   <h2>What a Tight Regional Labor Market Actually Means for Your Schedule</h2>
-  <p>When qualified workers are scarce in your region, your shift schedule becomes a recruiting asset or a liability — and the difference matters more than most operations leaders expect.</p>
+  <p>When qualified workers are scarce in your region, your shift schedule becomes a recruiting asset or a liability &#x2014; and the difference matters more than most operations leaders expect.</p>
   <p>A schedule that requires workers to rotate through night shifts, sacrifice most weekends, or commit to unpredictable overtime is a harder sell in a competitive labor market than one that offers fixed shifts, predictable days off, and a clear path to preferred hours through seniority. More than 80% of shift workers prefer fixed shifts over rotating schedules. In a region where your facility is competing with established employers for the same candidates, offering a schedule that the workforce actually wants is a meaningful differentiator.</p>
 
   <div class="insight-cards">
-    <div class="insight-card"><div class="ic-num">80%+</div><div class="ic-label">Share of shift workers who prefer fixed shifts over rotating schedules — a major recruiting differentiator</div></div>
+    <div class="insight-card"><div class="ic-num">80%+</div><div class="ic-label">Share of shift workers who prefer fixed shifts over rotating schedules &#x2014; a major recruiting differentiator</div></div>
     <div class="insight-card"><div class="ic-num">Year 1</div><div class="ic-label">The window to get the schedule right. After the first year, workforce lives organize around the shift structure you established.</div></div>
-    <div class="insight-card"><div class="ic-num">Years</div><div class="ic-label">How long a poorly designed launch schedule costs an operation in turnover and overtime — long after the mistake is recognized</div></div>
+    <div class="insight-card"><div class="ic-num">Years</div><div class="ic-label">How long a poorly designed launch schedule costs an operation in turnover and overtime &#x2014; long after the mistake is recognized</div></div>
   </div>
 
-  <h2>The Greenfield Advantage — and Why It Disappears Fast</h2>
+  <h2>The Greenfield Advantage &#x2014; and Why It Disappears Fast</h2>
   <p>New and reshored facilities have an advantage that existing operations rarely get: a clean slate. There is no incumbent schedule to defend, no entrenched expectations to manage, no workforce that has organized its personal life around a pattern that no longer fits the operation.</p>
-  <p>That advantage is real, but it is time-limited. The schedule you launch with becomes the baseline your workforce builds their lives around within the first year. Changing that structure later requires disrupting arrangements that have become load-bearing in people's lives, which means encountering resistance that has nothing to do with the quality of the new schedule.</p>
+  <p>That advantage is real, but it is time-limited. The schedule you launch with becomes the baseline your workforce builds their lives around within the first year. Changing that structure later requires disrupting arrangements that have become load-bearing in people&#x2019;s lives, which means encountering resistance that has nothing to do with the quality of the new schedule.</p>
 
   <div class="pull-quote">
     <span class="pull-quote-mark">&#8220;</span>
     <div class="pull-quote-content">
-      <p>Getting the schedule right before launch is significantly easier and less expensive than fixing it afterward. The window to do that well is the planning phase — before hiring begins, before the first shift runs, before expectations are set.</p>
+      <p>Getting the schedule right before launch is significantly easier and less expensive than fixing it afterward. The window to do that well is the planning phase &#x2014; before hiring begins, before the first shift runs, before expectations are set.</p>
     </div>
   </div>
 
   <h2>Starting From Scratch the Right Way</h2>
-  <p>The most common mistake in greenfield and reshored facility planning is treating workforce strategy as a downstream decision. Here's how the sequence typically goes wrong — and what it looks like when done right:</p>
-
   <div class="timeline">
-    <div class="timeline-item warning"><div class="timeline-dot"></div><h3>Common mistake: Workforce strategy added late</h3><p>Building gets designed. Equipment specified. Production targets set. Then, late in the process, someone asks how the shifts are going to work — after facility layout has constrained shift change logistics and launch timelines have compressed planning time.</p></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><h3>Phase 1 — Site selection (start the workforce conversation here)</h3><p>Labor market analysis alongside real estate and incentive analysis. Understand the workforce reality of candidate locations before committing.</p></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><h3>Phase 2 — Facility design (let schedule inform layout)</h3><p>Shift structure informs layout decisions — locker room size, break room placement, parking — rather than being constrained by them after the fact.</p></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><h3>Phase 3 — Pre-hiring (model the staffing economics)</h3><p>Crew size, overtime profile, relief coverage, cost implications of different schedule patterns — modeled before the first hire.</p></div>
-    <div class="timeline-item"><div class="timeline-dot"></div><h3>Phase 4 — Employee involvement (before launch)</h3><p>Involve employees in schedule selection. Consistently one of the strongest predictors of whether a new schedule holds.</p></div>
+    <div class="timeline-item warning"><div class="timeline-dot"></div><h3>Common mistake: Workforce strategy added late</h3><p>Building gets designed. Equipment specified. Production targets set. Then, late in the process, someone asks how the shifts are going to work &#x2014; after facility layout has constrained shift change logistics and launch timelines have compressed planning time.</p></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><h3>Phase 1 &#x2014; Site selection (start the workforce conversation here)</h3><p>Labor market analysis alongside real estate and incentive analysis. Understand the workforce reality of candidate locations before committing.</p></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><h3>Phase 2 &#x2014; Facility design (let schedule inform layout)</h3><p>Shift structure informs layout decisions &#x2014; locker room size, break room placement, parking &#x2014; rather than being constrained by them after the fact.</p></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><h3>Phase 3 &#x2014; Pre-hiring (model the staffing economics)</h3><p>Crew size, overtime profile, relief coverage, cost implications of different schedule patterns &#x2014; modeled before the first hire.</p></div>
+    <div class="timeline-item"><div class="timeline-dot"></div><h3>Phase 4 &#x2014; Employee involvement (before launch)</h3><p>Involve employees in schedule selection. Consistently one of the strongest predictors of whether a new schedule holds.</p></div>
   </div>
 
   <h2>The Staffing Economics of a New U.S. Facility</h2>
@@ -254,49 +289,16 @@
 
 </div><!-- /.article-wrap -->
 
-<!-- FAQ SECTION: full-bleed Hands_in_the_air.jpg, industry-style accordion -->
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
   <div class="faq-inner">
     <h2>Frequently Asked Questions</h2>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">What is the biggest workforce challenge when reshoring manufacturing to the U.S.?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">The geographic mismatch between where it makes sense to locate a facility on paper and where the workforce you need actually lives. A region with favorable tax incentives and available industrial land may have a manufacturing labor market already saturated by existing employers. This mismatch doesn't appear in national unemployment figures — it surfaces six months after groundbreaking when recruiting targets are being missed.</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">Why does the shift schedule matter for recruiting at a new manufacturing facility?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">In a competitive regional labor market, your shift schedule is either a recruiting asset or a liability. More than 80% of shift workers prefer fixed shifts over rotating schedules. A facility offering predictable days off and a clear path to preferred hours through seniority has a meaningful advantage over competitors requiring unpredictable rotations. This directly affects how quickly you reach full staffing and how long the workers you hire actually stay.</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">What is the greenfield advantage for shift scheduling and why does it disappear?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">New facilities have a clean slate — no incumbent schedule to defend and no entrenched workforce expectations. But this advantage is time-limited. Within the first year, workers organize their lives around whatever schedule you launch with. Changing the schedule later means disrupting arrangements that have become load-bearing in people's lives, producing resistance regardless of how well-designed the new schedule is.</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">When should workforce planning start for a reshored or greenfield facility?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">During site selection — not after the building is designed. The most common mistake is treating workforce strategy as a downstream decision. Labor market analysis should run alongside real estate and incentive analysis. Shift structure should inform facility layout decisions. Staffing economics should be modeled before the first hire.</div></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">How does schedule design affect total labor cost at a new facility?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">The schedule determines your overtime profile, crew size requirements, absenteeism exposure, and recruiting and retention costs. A schedule that looks lean on headcount often carries hidden overtime costs. The relationship between schedule design and total labor cost is not intuitive, and the difference between a well-designed and poorly-designed schedule for the same operation can be substantial.</div></div>
-    </div>
-
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What is the biggest workforce challenge when reshoring manufacturing to the U.S.?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The geographic mismatch between where it makes sense to locate a facility on paper and where the workforce you need actually lives. A region with favorable tax incentives and available industrial land may have a manufacturing labor market already saturated by existing employers. This mismatch doesn&#x2019;t appear in national unemployment figures &#x2014; it surfaces six months after groundbreaking when recruiting targets are being missed.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why does the shift schedule matter for recruiting at a new manufacturing facility?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">In a competitive regional labor market, your shift schedule is either a recruiting asset or a liability. More than 80% of shift workers prefer fixed shifts over rotating schedules. A facility offering predictable days off and a clear path to preferred hours through seniority has a meaningful advantage over competitors requiring unpredictable rotations.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What is the greenfield advantage for shift scheduling and why does it disappear?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">New facilities have a clean slate &#x2014; no incumbent schedule to defend and no entrenched workforce expectations. But this advantage is time-limited. Within the first year, workers organize their lives around whatever schedule you launch with. Changing the schedule later means disrupting arrangements that have become load-bearing in people&#x2019;s lives, producing resistance regardless of how well-designed the new schedule is.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">When should workforce planning start for a reshored or greenfield facility?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">During site selection &#x2014; not after the building is designed. The most common mistake is treating workforce strategy as a downstream decision. Labor market analysis should run alongside real estate and incentive analysis. Shift structure should inform facility layout decisions. Staffing economics should be modeled before the first hire.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How does schedule design affect total labor cost at a new facility?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The schedule determines your overtime profile, crew size requirements, absenteeism exposure, and recruiting and retention costs. A schedule that looks lean on headcount often carries hidden overtime costs. The relationship between schedule design and total labor cost is not intuitive, and the difference between a well-designed and poorly-designed schedule for the same operation can be substantial.</div></div></div>
   </div>
 </div><!-- /.faq-section -->
 
@@ -305,9 +307,9 @@
   <h2>Next Steps &amp; Resources</h2>
   <p class="next-steps-sub">Talk to an expert, read the guide, or run a quick diagnostic on your current operation.</p>
   <div class="ns-cards">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card ns-accent-blue" target="_blank" rel="noopener"><div class="ns-card-label">Free Consultation</div><h3>Talk to a Shiftwork Expert</h3><p>Model the workforce and schedule implications of your reshoring or greenfield facility — before the decisions that are hard to reverse get made.</p><span class="ns-card-link">Book a free meeting</span></a>
-    <a href="/resources/shiftwork-assessment/" class="ns-card ns-accent-orange"><div class="ns-card-label">Free Assessment</div><h3>Evaluate Your Current or Planned Schedule</h3><p>Answer a short set of questions and get a personalized picture of where your shift structure stands — and what the risks are.</p><span class="ns-card-link">Take the assessment</span></a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green"><div class="ns-card-label">Diagnostic Tool</div><h3>26 Warning Signs</h3><p>Know what a schedule under strain looks like — before you launch with one that produces the same symptoms at your new facility.</p><span class="ns-card-link">Read the diagnostic</span></a>
+    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card ns-accent-blue" target="_blank" rel="noopener"><div class="ns-card-label">Free Consultation</div><h3>Talk to a Shiftwork Expert</h3><p>Model the workforce and schedule implications of your reshoring or greenfield facility &#x2014; before the decisions that are hard to reverse get made.</p><span class="ns-card-link">Book a free meeting</span></a>
+    <a href="/resources/shiftwork-assessment/" class="ns-card ns-accent-orange"><div class="ns-card-label">Free Assessment</div><h3>Evaluate Your Current or Planned Schedule</h3><p>Answer a short set of questions and get a personalized picture of where your shift structure stands &#x2014; and what the risks are.</p><span class="ns-card-link">Take the assessment</span></a>
+    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green"><div class="ns-card-label">Diagnostic Tool</div><h3>26 Warning Signs</h3><p>Know what a schedule under strain looks like &#x2014; before you launch with one that produces the same symptoms at your new facility.</p><span class="ns-card-link">Read the diagnostic</span></a>
   </div>
   <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
 </div></section>
@@ -316,7 +318,7 @@
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
       <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">The greenfield window doesn't stay open long. Getting the workforce decisions right before launch requires starting early. The first conversation is free.</p></div>
-      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor &#x2014; available now, no appointment needed.</p></div>
+      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p></div>
       <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
     </div>
     <div class="footer-cta-row">
@@ -333,8 +335,8 @@
 
 <button class="listen-btn" id="listenBtn" aria-label="Listen to this article"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg><span id="listenLabel">Listen</span></button>
 <script>
-(function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
+(function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
 (function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
 (function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p,h2,h3');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim());});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
