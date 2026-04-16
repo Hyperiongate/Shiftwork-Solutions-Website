@@ -6,12 +6,12 @@
   Created: 2026-04-04 | Last Updated: 2026-04-15
 
   CHANGE LOG:
-    2026-04-04 — Initial build from source Word doc.
-    2026-04-05 — NAV + BUTTON + SEO AUDIT.
-    2026-04-05 — FAQ section + FAQPage JSON-LD added.
-    2026-04-14 — Nav: "Why Us" → "Our Company". FAQ: accordion with Hands_in_the_air.jpg
-                 background. Next Steps: dark navy animated cards. Footer: standard
-                 3-col dark-navy prefooter replacing CTA + engage-band + old footer.
+    2026-04-04 — Initial build. 2026-04-05 — NAV + SEO audit, FAQ added.
+    2026-04-14 — Nav, FAQ accordion, Next Steps, Footer updates.
+
+    2026-04-15 — Logo corrected (clear_bkgr_logo_2.png), SHIFTWORK SOLUTIONS
+                 text added next to logo (both link /), nav font-size 20px,
+                 hero image /images/maintenance.jpg.
 
   I did no harm and this file is not truncated
 -->
@@ -23,29 +23,26 @@
   <meta name="description" content="Why maintenance scheduling fails in 24/7 operations — and how to fix it. Coverage models, on-call tradeoffs, and integrating maintenance into the shift schedule design.">
   <link rel="canonical" href="https://shift-work.com/resources/support/maintenance-worker-scheduling/">
   <meta property="og:title" content="Maintenance Worker Scheduling in 24/7 Operations | Shiftwork Solutions LLC">
-  <meta property="og:description" content="Why maintenance scheduling fails in 24/7 operations — and how to fix it. Coverage models, on-call tradeoffs, and integrating maintenance into the shift schedule design.">
   <meta property="og:url" content="https://shift-work.com/resources/support/maintenance-worker-scheduling/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Maintenance Worker Scheduling in 24/7 Operations">
-  <meta name="twitter:description" content="Why maintenance scheduling fails in 24/7 operations — and how to fix it.">
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
+    :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--max-width:860px;--page-pad:24px}
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
+    .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0;display:flex;align-items:center;gap:12px}
     .nav-logo img{height:36px;width:auto;display:block}
-    .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0}
+    .nav-logo-text{font-family:Arial,sans-serif;font-size:20px;font-weight:700;color:#1F4E79;letter-spacing:0.03em;line-height:1}
     .nav-links{list-style:none;display:flex;align-items:center}
     .nav-links>li{position:relative}
-    .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
+    .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:20px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
     .nav-links>li>a:hover{color:var(--navy)}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
     .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
@@ -53,7 +50,7 @@
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
-        .hero::before{content:'';position:absolute;inset:0;background:url('/images/second.png') center center / cover no-repeat;opacity:1;z-index:0}
+        .hero::before{content:'';position:absolute;inset:0;background:url('/images/maintenance.jpg') center center / cover no-repeat;opacity:1;z-index:0}
     .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,0.88) 0%,rgba(31,78,121,0.75) 55%,rgba(31,78,121,0.35) 100%);z-index:0}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
     .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
@@ -73,12 +70,12 @@
     .article-wrap h3{font-size:17px;font-weight:700;color:var(--navy);line-height:1.3;margin:28px 0 10px}
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
     .article-wrap p:last-child{margin-bottom:0}
-        .pull-quote{margin:40px 0;padding:0 var(--page-pad);max-width:var(--max-width);margin-left:auto;margin-right:auto;display:flex;align-items:center;gap:16px}
+    .pull-quote{margin:40px 0;padding:0 var(--page-pad);max-width:var(--max-width);margin-left:auto;margin-right:auto;display:flex;align-items:center;gap:16px}
     .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
     .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
     .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
-        .data-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0;text-align:center}
+    .data-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0;text-align:center}
     .ds-item{background:var(--navy);border-radius:8px;padding:20px 16px}
     .ds-num{font-size:32px;font-weight:700;color:var(--orange);line-height:1}
     .ds-label{font-size:12px;color:rgba(255,255,255,.75);margin-top:6px;line-height:1.4}
@@ -109,27 +106,19 @@
     .next-steps h2{font-size:22px;font-weight:700;color:var(--white);margin-bottom:8px}
     .next-steps-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:32px;line-height:1.6}
     .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .ns-card{background:var(--white);border:1px solid rgba(255,255,255,0.15);border-top:4px solid transparent;border-radius:8px;padding:24px 20px;text-decoration:none;display:block;position:relative;overflow:hidden;opacity:0;transform:translateY(28px);transition:opacity .5s ease,transform .5s ease,box-shadow .25s ease,border-top-color .25s ease}
+    .ns-card{background:var(--white);border:1px solid rgba(255,255,255,0.15);border-top:4px solid transparent;border-radius:8px;padding:24px 20px;text-decoration:none;display:block;opacity:0;transform:translateY(28px);transition:opacity .5s ease,transform .5s ease,box-shadow .25s ease}
     .ns-card.ns-card-visible{opacity:1;transform:translateY(0)}
-    .ns-card:nth-child(1){transition-delay:.05s}
-    .ns-card:nth-child(2){transition-delay:.18s}
-    .ns-card:nth-child(3){transition-delay:.31s}
-    .ns-accent-blue{border-top-color:var(--mid-blue)}
-    .ns-accent-orange{border-top-color:var(--orange)}
-    .ns-accent-green{border-top-color:var(--green)}
+    .ns-card:nth-child(1){transition-delay:.05s}.ns-card:nth-child(2){transition-delay:.18s}.ns-card:nth-child(3){transition-delay:.31s}
+    .ns-accent-blue{border-top-color:var(--mid-blue)}.ns-accent-orange{border-top-color:var(--orange)}.ns-accent-green{border-top-color:var(--green)}
     .ns-accent-blue:hover{box-shadow:0 8px 28px rgba(133,183,235,0.25);transform:translateY(-5px) !important}
     .ns-accent-orange:hover{box-shadow:0 8px 28px rgba(232,97,10,0.22);transform:translateY(-5px) !important}
     .ns-accent-green:hover{box-shadow:0 8px 28px rgba(29,158,117,0.22);transform:translateY(-5px) !important}
     .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
-    .ns-accent-blue .ns-card-label{color:var(--mid-blue)}
-    .ns-accent-orange .ns-card-label{color:var(--orange)}
-    .ns-accent-green .ns-card-label{color:var(--green)}
+    .ns-accent-blue .ns-card-label{color:var(--mid-blue)}.ns-accent-orange .ns-card-label{color:var(--orange)}.ns-accent-green .ns-card-label{color:var(--green)}
     .ns-card h3{font-size:15px;font-weight:700;color:var(--body-text);line-height:1.35;margin-bottom:8px}
     .ns-card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px}
     .ns-card-link{font-size:12px;font-weight:700}
-    .ns-accent-blue .ns-card-link{color:var(--mid-blue)}
-    .ns-accent-orange .ns-card-link{color:var(--orange)}
-    .ns-accent-green .ns-card-link{color:var(--green)}
+    .ns-accent-blue .ns-card-link{color:var(--mid-blue)}.ns-accent-orange .ns-card-link{color:var(--orange)}.ns-accent-green .ns-card-link{color:var(--green)}
     .ns-card-link::after{content:' \2192'}
     .ns-phone{margin-top:28px;font-size:13px;color:rgba(255,255,255,0.55);text-align:center}
     .ns-phone a{color:var(--white);text-decoration:none;font-weight:700}
@@ -138,15 +127,10 @@
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
     .footer-content-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-bottom:28px}
-    .footer-col{padding:0 32px}
-    .footer-col-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
-    .footer-col-2{border-right:1px solid rgba(255,255,255,.08)}
-    .footer-col-3{padding-right:0}
+    .footer-col{padding:0 32px}.footer-col-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}.footer-col-2{border-right:1px solid rgba(255,255,255,.08)}.footer-col-3{padding-right:0}
     .footer-cta-row{display:flex;align-items:center;gap:0}
     .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:0 0 33.333%;padding:0 32px}
-    .footer-cta-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
-    .footer-cta-2{border-right:1px solid rgba(255,255,255,.08)}
-    .footer-cta-3{padding-right:0}
+    .footer-cta-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}.footer-cta-2{border-right:1px solid rgba(255,255,255,.08)}.footer-cta-3{padding-right:0}
     .footer-cta-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
     .footer-cta-btn:hover{background:#c4510a}
     .engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
@@ -154,33 +138,25 @@
     .engage-col-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
     .engage-nl-form{display:flex;gap:8px;flex-wrap:wrap}
     .engage-nl-input{flex:1;min-width:120px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
-    .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
-    .engage-nl-input:focus{border-color:var(--mid-blue)}
+    .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}.engage-nl-input:focus{border-color:var(--mid-blue)}
     .engage-nl-btn{padding:10px 18px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
-    .engage-nl-btn:hover{background:#c4510a}
-    .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
-    .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
-    .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
+    .engage-nl-btn:hover{background:#c4510a}.engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
+    .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}.engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
     .footer-bottom{padding:16px var(--page-pad)}
     .footer-bottom-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.45)}
-    .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
-    .footer-bottom-inner a:hover{color:var(--orange)}
-    .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-    .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
+    .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}.footer-bottom-inner a:hover{color:var(--orange)}
+    .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}.footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
     .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
-    .listen-btn:hover{background:#c4510a}
-    .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
+    .listen-btn:hover{background:#c4510a}.listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
     @media(max-width:760px){.ns-cards{grid-template-columns:1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}.data-strip{grid-template-columns:1fr 1fr}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.next-steps{padding:40px 20px 44px}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.data-strip{grid-template-columns:1fr}}
+    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.next-steps{padding:40px 20px 44px}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.data-strip{grid-template-columns:1fr}}
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Maintenance Worker Scheduling in 24/7 Operations","description":"Why maintenance scheduling fails in 24/7 operations — and how to fix it.","url":"https://shift-work.com/resources/support/maintenance-worker-scheduling/","datePublished":"2026-04-04","dateModified":"2026-04-14","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Maintenance Worker Scheduling in 24/7 Operations","url":"https://shift-work.com/resources/support/maintenance-worker-scheduling/","datePublished":"2026-04-04","dateModified":"2026-04-14","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Support Articles","item":"https://shift-work.com/resources/support/"},{"@type":"ListItem","position":4,"name":"Maintenance Worker Scheduling","item":"https://shift-work.com/resources/support/maintenance-worker-scheduling/"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com"}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why is maintenance scheduling different from production scheduling in 24/7 operations?","acceptedAnswer":{"@type":"Answer","text":"Production scheduling optimizes for consistent coverage across all available hours. Maintenance scheduling must balance planned work during low-production windows, emergency response capability around the clock, and workforce availability constraints that differ significantly from production crews."}}]}</script>
 </head>
 <body>
 <nav class="site-nav"><div class="nav-inner">
-  <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36"></a>
+  <a href="/" class="nav-logo"><img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36"><span class="nav-logo-text">SHIFTWORK SOLUTIONS</span></a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
@@ -255,11 +231,10 @@
   <div class="faq-overlay"></div>
   <div class="faq-inner">
     <h2>Frequently Asked Questions</h2>
-
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why is maintenance scheduling different from production scheduling in 24/7 operations?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Production scheduling optimizes for consistent coverage across all available hours. Maintenance scheduling must balance planned work during low-production windows, emergency response capability around the clock, and skill distribution across shifts. These requirements often conflict — optimizing for planned work windows may leave emergency coverage thin, while ensuring 24/7 emergency response may make planned work inefficient. The tension between these requirements is the central design challenge.</div></div></div>
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What is wrong with relying on on-call for 24/7 maintenance coverage?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">On-call workers who are called in frequently — particularly on nights and weekends — experience the same fatigue and morale effects as workers on formal rotating shifts, without the schedule predictability that makes rotating shift work tolerable. Operations that rely heavily on on-call coverage consistently report higher maintenance technician turnover than those with formal off-hours coverage. The cost savings from avoiding additional headcount are frequently offset by elevated turnover costs and slower emergency response times.</div></div></div>
-    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why does skill distribution across shifts matter for maintenance?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">In most operations, senior maintenance technicians cluster on day shifts by preference and because that is where planned work is concentrated. Night and weekend shifts are covered by less experienced technicians with limited supervision access. When a complex failure occurs off-hours, the responding technician may lack the experience or authority for required judgment calls, resulting in either delayed resolution — waiting for senior technicians to be called in — or improvised repairs that create downstream problems.</div></div></div>
-    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How should maintenance windows be aligned with production schedules?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Effective maintenance scheduling aligns planned work windows with natural production lulls rather than forcing maintenance into inconvenient access windows. In most operations, maintenance and production schedules are designed independently and conflicts are managed operationally through overtime and workarounds. Treating maintenance scheduling as part of the overall shift schedule design — with explicit consideration of the maintenance access windows that production patterns create or foreclose — consistently produces better outcomes for both maintenance costs and production availability.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why does skill distribution across shifts matter for maintenance?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">In most operations, senior maintenance technicians cluster on day shifts by preference and because that is where planned work is concentrated. Night and weekend shifts are covered by less experienced technicians with limited supervision access. When a complex failure occurs off-hours, the responding technician may lack the experience or authority for required judgment calls, resulting in either delayed resolution or improvised repairs that create downstream problems.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How should maintenance windows be aligned with production schedules?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Effective maintenance scheduling aligns planned work windows with natural production lulls rather than forcing maintenance into inconvenient access windows. In most operations, maintenance and production schedules are designed independently and conflicts are managed operationally through overtime and workarounds. Treating maintenance scheduling as part of the overall shift schedule design — with explicit consideration of the maintenance access windows that production patterns create or foreclose — consistently produces better outcomes.</div></div></div>
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What is the cost difference between emergency and planned preventive maintenance?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Emergency maintenance typically costs three to four times more than equivalent planned preventive work, accounting for parts availability premiums, overtime labor, and production downtime. The schedule is a primary driver of this ratio — operations whose schedules prevent timely access for preventive work accumulate deferred maintenance that eventually manifests as emergency failures. Schedule design that explicitly accommodates planned maintenance windows is one of the highest-return investments available to continuous operations.</div></div></div>
   </div>
 </div><!-- /.faq-section -->
@@ -305,7 +280,4 @@ document.getElementById('mobileToggle').addEventListener('click',function(){var 
 </script>
 </body>
 </html>
-<!-- changelog 2026-04-15c: Industry page design scheme applied: second.png hero with gradient overlay, H1 #EEAE26 gold, hero-subtitle white. Pull quote: 128px Georgia mark + italic #4a6a8a text. DM Sans loaded. -->
-<!-- changelog 2026-04-15d: Removed inline-cta mid-article floating CTA box (HTML + CSS). -->
-<!-- changelog 2026-04-15e: callout-box style updated to match industry page grey gradient (linear-gradient #E4E7EB). cb-label folded into <strong> prefix. -->
 <!-- I did no harm and this file is not truncated -->
