@@ -12,30 +12,31 @@
     2026-04-03 — Standard improvements: spacing, Web Speech API, SEO schemas
     2026-04-03 — Engagement layer: logo image, booking CTA, engage band, vectors
     2026-04-03 — Full content rebuild from source Word document
-    2026-04-03 — Hero updated to standard split layout
+    2026-04-03 — Hero updated to split layout with shutterstock image
     2026-04-04 — Nav restructure: flat links, orange CTA
     2026-04-16 — FULL STANDARD UPGRADE to match communicating-schedule-changes template:
                  1. NAV: logo path → clear_bkgr_logo_2.png, SHIFTWORK SOLUTIONS
                     text added, font-size 20px, flat links (no dropdowns),
                     "Why Us" → "Our Company" linking to /why-us/
                  2. HERO: replaced shutterstock vector with pillar_3.jpg photo
-                    background using ::before/::after overlay pattern; gold h1
+                    background using ::before/::after overlay pattern; gold h1,
+                    orange tag; hero-stats preserved below subtitle
                  3. PULL QUOTES (x2): replaced border-left style with large
                     Georgia quotation mark + italic text + muted attribution
-                 4. CALLOUTS: stripe-b block → light-grey background card;
-                    important-callout → light-grey background card with orange label
-                 5. INSIGHT CARDS: updated to white cards with 4px colored top borders
-                 6. FAQ: replaced flat list with Hands_in_the_air.jpg full-width
+                 4. CALLOUT: important-callout updated to grey bg card style
+                 5. STRIPE-B: kept as light-blue contextual content block
+                 6. INSIGHT CARDS: updated to white bg with colored top borders
+                 7. FAQ: replaced flat list with Hands_in_the_air.jpg full-width
                     background + navy accordion; all 5 Q&A preserved exactly
-                 7. NEXT STEPS: replaced light-blue cards with white cards +
+                 8. NEXT STEPS: replaced light-blue cards with white cards +
                     colored top borders + IntersectionObserver slide-up animation
-                 8. CTA BOX: preserved (navy box is content, not chrome)
-                 9. FOOTER: replaced engage-band + light footer with standard
-                    3-col dark navy prefooter + standard bottom bar
-                10. LISTEN BUTTON: updated to simple orange pill
+                 9. CTA BOX: preserved (navy box is content, not chrome)
+                10. FOOTER: replaced engage-band + light footer with standard
+                    3-col dark navy prefooter (Free Consultation / Thomas /
+                    Newsletter) + standard bottom bar
+                11. LISTEN BUTTON: updated to simple orange pill matching standard
                 All article content, visualization, mistakes section, SEO schemas,
-                and JSON-LD preserved exactly. stripe-b and important-callout
-                unique block types preserved with updated styling.
+                and JSON-LD preserved exactly.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
@@ -75,23 +76,15 @@
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{
-      --navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;
-      --orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;
-      --body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;
-      --cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px
-    }
+    :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
-
-    /* ── NAV ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0;display:flex;align-items:center;gap:12px}
     .nav-logo img{height:36px;width:auto;display:block}
     .nav-logo-text{font-family:Arial,sans-serif;font-size:20px;font-weight:700;color:#1F4E79;letter-spacing:0.03em;line-height:1}
     .nav-links{list-style:none;display:flex;align-items:center}
-    .nav-links>li{position:relative}
     .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:20px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
     .nav-links>li>a:hover{color:var(--navy)}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
@@ -99,42 +92,33 @@
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-
-    /* ── HERO ── */
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:url('/images/pillar_3.jpg') center center / cover no-repeat;opacity:1;z-index:0}
     .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,0.88) 0%,rgba(31,78,121,0.75) 55%,rgba(31,78,121,0.35) 100%);z-index:0}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
     .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
     .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:#EEAE26;max-width:620px;margin-bottom:14px}
-    .hero-subtitle{font-size:16px;line-height:1.65;color:rgba(255,255,255,0.88);max-width:560px;margin-bottom:0}
+    .hero-subtitle{font-size:16px;line-height:1.65;color:rgba(255,255,255,0.88);max-width:560px}
     .hero-tag{display:inline-block;margin-top:16px;background:rgba(232,97,10,0.9);color:var(--white);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 12px;border-radius:3px}
     .hero-stats{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
     .hero-stat{background:rgba(255,255,255,.08);border-radius:8px;padding:16px 20px;min-width:160px}
     .hero-stat-num{font-size:26px;font-weight:700;color:var(--white);line-height:1.1}
     .hero-stat-label{font-size:12px;color:var(--mid-blue);margin-top:4px;line-height:1.35}
-
-    /* ── BREADCRUMB ── */
     .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
     .breadcrumb-inner a{color:var(--navy);text-decoration:none}
     .breadcrumb-inner a:hover{text-decoration:underline}
     .breadcrumb-inner span{margin:0 6px;opacity:.5}
-
-    /* ── ARTICLE ── */
-    .article-wrap{max-width:var(--max-width);margin:0 auto;padding:48px var(--page-pad) 56px}
+    .article-wrap{max-width:var(--max-width);margin:0 auto;padding:48px var(--page-pad) 32px}
     .article-meta{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border-light);flex-wrap:wrap}
     .meta-tag{display:inline-block;background:var(--light-blue);color:var(--navy);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:3px}
     .meta-read{font-size:13px;color:var(--muted)}
     .article-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin:36px 0 14px}
-    .article-wrap h3{font-size:17px;font-weight:700;color:var(--navy);line-height:1.3;margin:28px 0 10px}
+    .article-wrap h2:first-of-type{margin-top:0}
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
-    .article-wrap p:last-child{margin-bottom:0}
-    hr.divider{max-width:var(--max-width);margin:8px auto 0;border:none;border-top:1px solid var(--border-light)}
     .eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:6px}
-
-    /* ── VISUALIZATION ── */
-    .viz-section{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad)}
+    hr.divider{border:none;border-top:1px solid var(--border-light);margin:32px 0}
+    .viz-section{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad) 32px}
     .viz-box{background:#F8FAFB;border-radius:10px;padding:28px 28px 20px;border:1px solid var(--border-med)}
     .viz-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:20px}
     .viz-bar-row{display:flex;align-items:center;margin-bottom:12px}
@@ -142,9 +126,12 @@
     .viz-bar-track{flex:1;height:28px;background:#E6EFF6;border-radius:4px;overflow:hidden}
     .viz-bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;font-size:12px;font-weight:700;color:var(--white)}
     .viz-caption{margin-top:16px;font-size:11px;color:var(--muted);line-height:1.5}
-
-    /* ── INSIGHT CARDS ── */
-    .three-col{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad);display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .stripe-b{max-width:var(--max-width);margin:0 auto 32px;padding:0 var(--page-pad)}
+    .stripe-b-inner{background:var(--light-blue);border-radius:8px;padding:20px 24px}
+    .stripe-b-inner .eyebrow{margin-bottom:4px}
+    .stripe-b-inner h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px}
+    .stripe-b-inner p{font-size:14px;color:var(--body-text);margin-bottom:0;line-height:1.7}
+    .three-col{max-width:var(--max-width);margin:0 auto 32px;padding:0 var(--page-pad);display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .insight-card{background:var(--white);border:1px solid var(--border-med);border-radius:8px;padding:20px;border-top:4px solid var(--navy)}
     .insight-card.accent-orange{border-top-color:var(--orange)}
     .insight-card.accent-green{border-top-color:var(--green)}
@@ -153,49 +140,23 @@
     .insight-card.accent-green .insight-num{color:var(--green)}
     .insight-label{font-size:14px;font-weight:700;color:var(--body-text);margin-bottom:6px}
     .insight-text{font-size:13px;color:var(--muted);line-height:1.55}
-
-    /* ── STRIPE-B (maintenance callout) ── */
-    .stripe-b{max-width:var(--max-width);margin:28px auto;padding:0 var(--page-pad)}
-    .stripe-b-inner{background:var(--light-grey);border-radius:8px;padding:20px 24px;border:1px solid var(--border-med)}
-    .stripe-b-inner .eyebrow{margin-bottom:4px}
-    .stripe-b-inner h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:10px}
-    .stripe-b-inner p{font-size:14px;color:var(--body-text);margin-bottom:0;line-height:1.7}
-
-    /* ── IMPORTANT CALLOUT ── */
-    .important-callout{max-width:var(--max-width);margin:24px auto;padding:0 var(--page-pad)}
-    .important-callout-inner{background:var(--light-grey);border-radius:6px;padding:20px 24px;border:1px solid var(--border-med)}
-    .important-callout-label{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--orange);letter-spacing:.08em;margin-bottom:8px}
-    .important-callout-inner p{font-size:14px;color:var(--body-text);line-height:1.7;margin-bottom:0}
-
-    /* ── PULL QUOTE ── */
-    .pull-quote{margin:40px 0;padding:0 var(--page-pad);max-width:var(--max-width);margin-left:auto;margin-right:auto;display:flex;align-items:center;gap:16px}
-    .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
-    .pull-quote-content{flex:1}
-    .pull-quote-content p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
-    .pull-quote-content .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
-
-    /* ── MISTAKES ── */
-    .mistakes-section{max-width:var(--max-width);margin:0 auto;padding:20px var(--page-pad) 0}
-    .mistakes-section>h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:20px}
+    .mistakes-section{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad) 32px}
+    .mistakes-section h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:20px}
     .mistake-item{display:flex;gap:14px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border-light)}
     .mistake-item:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
     .mistake-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--orange);color:var(--white);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
     .mistake-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px;line-height:1.35}
     .mistake-text{font-size:14px;color:var(--body-text);line-height:1.7;max-width:640px}
-
-    /* ── CTA BOX ── */
-    .cta-section{max-width:var(--max-width);margin:40px auto;padding:0 var(--page-pad)}
-    .cta-box{background:var(--navy);border-radius:10px;padding:36px 32px;text-align:center;position:relative;overflow:hidden}
-    .cta-box h2{font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px}
-    .cta-box p{font-size:14px;color:var(--cta-sub);line-height:1.65;margin-bottom:24px;max-width:520px;margin-left:auto;margin-right:auto}
-    .cta-actions{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
-    .cta-btn-primary{display:inline-block;padding:12px 28px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
-    .cta-btn-primary:hover{background:#c4510a}
-    .cta-link{font-size:13px;color:var(--mid-blue);text-decoration:none;font-weight:500}
-    .cta-link:hover{text-decoration:underline;color:var(--white)}
-
-    /* ── FAQ ── */
-    .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
+    .pull-quote{margin:0 auto 40px;padding:0 var(--page-pad);max-width:var(--max-width);display:flex;align-items:center;gap:16px}
+    .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
+    .pull-quote-content{flex:1}
+    .pull-quote-content p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
+    .pull-quote-content .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
+    .callout{max-width:var(--max-width);margin:0 auto 32px;padding:0 var(--page-pad)}
+    .callout-inner{background:var(--light-grey);border-radius:6px;padding:20px 24px;border:1px solid var(--border-med)}
+    .callout-label{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--orange);margin-bottom:6px;letter-spacing:.06em}
+    .callout-text{font-size:14px;color:var(--body-text);line-height:1.7}
+    .faq-section{position:relative;overflow:hidden;margin:0 0 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
     .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:52px 24px 56px}
@@ -212,10 +173,8 @@
     .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease}
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
-
-    /* ── NEXT STEPS ── */
-    .next-steps{padding:56px var(--page-pad) 60px;background:var(--light-grey);position:relative;overflow:hidden}
-    .next-steps-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
+    .next-steps{padding:56px var(--page-pad) 60px;background:var(--light-grey)}
+    .next-steps-inner{max-width:var(--max-width);margin:0 auto}
     .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
     .next-steps h2{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:8px}
     .next-steps-sub{font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.6}
@@ -245,8 +204,6 @@
     .ns-phone{margin-top:28px;font-size:13px;color:var(--muted);text-align:center}
     .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
     .ns-phone a:hover{color:var(--orange)}
-
-    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -280,42 +237,30 @@
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-
-    /* ── LISTEN BUTTON ── */
     .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
     .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
-
-    /* ── RESPONSIVE ── */
     @media(max-width:760px){
-      .ns-cards{grid-template-columns:1fr}
-      .three-col{grid-template-columns:1fr}
+      .ns-cards{grid-template-columns:1fr}.three-col{grid-template-columns:1fr}
       .footer-content-row{grid-template-columns:1fr}
       .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
       .footer-col-3{border-bottom:none;padding-bottom:0}
       .footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}
       .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}
       .faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}
-      .pull-quote{flex-direction:column;gap:4px}
-      .pull-quote-mark{font-size:72px}
+      .pull-quote{flex-direction:column;gap:4px}.pull-quote-mark{font-size:72px}
       .viz-bar-label{width:130px;font-size:12px}
     }
     @media(max-width:640px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
       .nav-logo-text{font-size:16px}
-      .hero{padding:32px 20px 36px}.hero h1{font-size:22px}
-      .hero-stats{flex-direction:column;gap:10px}
-      .article-wrap{padding:32px 20px 40px}
-      .mistakes-section{padding-left:20px;padding-right:20px}
-      .viz-section,.three-col,.pull-quote,.important-callout,.stripe-b,.cta-section{padding:0 20px}
-      .cta-box{padding:28px 20px}
-      .footer-prefooter{padding:32px 20px}
-      .footer-bottom{padding:14px 20px}
+      .hero{padding:32px 20px 36px}.hero h1{font-size:22px}.hero-stats{flex-direction:column;gap:10px}
+      .article-wrap{padding:32px 20px 24px}
+      .viz-section,.three-col,.pull-quote,.callout,.stripe-b,.mistakes-section,
+      .footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}
       .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
       .footer-bottom-left{justify-content:center}
-      .next-steps{padding:40px 20px 44px}
-      .faq-inner{padding:36px 18px 40px}
-      .faq-inner h2{font-size:19px}
+      .next-steps{padding:40px 20px 44px}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}
     }
   </style>
 </head>
@@ -342,9 +287,9 @@
   <div class="hero-eyebrow">Resources &middot; Equipment Utilization</div>
   <h1>Maximizing Equipment Utilization Through Shift Scheduling</h1>
   <p class="hero-subtitle">For most capital-intensive operations, equipment sits idle far more than it runs. The shift schedule is the primary lever for changing that — and it typically costs far less than the alternatives.</p>
-  <span class="hero-tag">Capital Strategy</span>
+  <span class="hero-tag">Capital Efficiency</span>
   <div class="hero-stats">
-    <div class="hero-stat"><div class="hero-stat-num">10&ndash;40%</div><div class="hero-stat-label">Capacity increase possible<br>without new equipment</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">10–40%</div><div class="hero-stat-label">Capacity increase possible<br>without new equipment</div></div>
     <div class="hero-stat"><div class="hero-stat-num">$0</div><div class="hero-stat-label">Additional capital required<br>to extend into 3rd shift</div></div>
     <div class="hero-stat"><div class="hero-stat-num">168 hr</div><div class="hero-stat-label">Hours per week available<br>for production</div></div>
   </div>
@@ -353,7 +298,7 @@
 <div class="breadcrumb-bar"><div class="breadcrumb-inner"><a href="/">Home</a><span>›</span><a href="/resources/">Resources</a><span>›</span>Equipment Utilization</div></div>
 
 <div class="article-wrap">
-  <div class="article-meta"><span class="meta-tag">Complete Guide</span><span class="meta-read">16 min read</span></div>
+  <div class="article-meta"><span class="meta-tag">Complete Guide</span><span class="meta-read">20 min read</span></div>
 
   <div class="eyebrow">Introduction</div>
   <h2>The Asset You're Already Paying For</h2>
@@ -362,21 +307,21 @@
   <p>The connection between utilization and scheduling is direct but often overlooked. Your shift schedule determines when equipment runs. It determines whether expensive machinery sits idle for 56 consecutive hours every weekend or operates continuously. It determines whether bottleneck equipment gets the coverage it needs or becomes the constraint that limits your entire operation.</p>
   <p>This isn't about working people harder. It's about working smarter — aligning coverage patterns with equipment economics in ways that serve both operational goals and workforce needs. When done correctly, schedule-driven utilization improvements can deliver capacity increases of 10% to 40% without purchasing a single new machine.</p>
 
-</div><!-- /.article-wrap -->
+  <hr class="divider">
+</div>
 
-<!-- VISUALIZATION -->
-<div class="viz-section"><div class="viz-box">
-  <div class="viz-title">Equipment Utilization by Schedule Pattern (Hours per Week, 168 hr max)</div>
-  <div class="viz-bar-row"><div class="viz-bar-label">1-shift, 5 days</div><div class="viz-bar-track"><div class="viz-bar-fill" style="width:24%;background:#c0392b;">~40 hrs (24%)</div></div></div>
-  <div class="viz-bar-row"><div class="viz-bar-label">2-shift, 5 days</div><div class="viz-bar-track"><div class="viz-bar-fill" style="width:47%;background:#E8610A;">~80 hrs (47%)</div></div></div>
-  <div class="viz-bar-row"><div class="viz-bar-label">3-shift, 5 days</div><div class="viz-bar-track"><div class="viz-bar-fill" style="width:71%;background:#2E75B6;">~120 hrs (71%)</div></div></div>
-  <div class="viz-bar-row"><div class="viz-bar-label">Continuous (7 days)</div><div class="viz-bar-track"><div class="viz-bar-fill" style="width:95%;background:#1D9E75;">~160 hrs (95%)</div></div></div>
-  <div class="viz-caption">Approximate utilization by schedule type before maintenance downtime. Most facilities operating one or two shifts leave the majority of paid-for capacity idle every week. Source: Shiftwork Solutions analysis across hundreds of client engagements.</div>
-</div></div>
+<div class="viz-section">
+  <div class="viz-box">
+    <div class="viz-title">Equipment Utilization by Schedule Pattern (Hours per Week, 168 hr max)</div>
+    <div class="viz-bar-row"><div class="viz-bar-label">1-shift, 5 days</div><div class="viz-bar-track"><div class="viz-bar-fill" style="width:24%;background:#c0392b;">~40 hrs (24%)</div></div></div>
+    <div class="viz-bar-row"><div class="viz-bar-label">2-shift, 5 days</div><div class="viz-bar-track"><div class="viz-bar-fill" style="width:47%;background:#E8610A;">~80 hrs (47%)</div></div></div>
+    <div class="viz-bar-row"><div class="viz-bar-label">3-shift, 5 days</div><div class="viz-bar-track"><div class="viz-bar-fill" style="width:71%;background:#2E75B6;">~120 hrs (71%)</div></div></div>
+    <div class="viz-bar-row"><div class="viz-bar-label">Continuous (7 days)</div><div class="viz-bar-track"><div class="viz-bar-fill" style="width:95%;background:#1D9E75;">~160 hrs (95%)</div></div></div>
+    <div class="viz-caption">Approximate utilization by schedule type before maintenance downtime. Most facilities operating one or two shifts leave the majority of paid-for capacity idle every week. Source: Shiftwork Solutions analysis across hundreds of client engagements.</div>
+  </div>
+</div>
 
-<div class="article-wrap" style="padding-top:32px;">
-  <hr class="divider" style="margin:0 0 32px;">
-
+<div class="article-wrap" style="padding-top:0;">
   <div class="eyebrow">The Core Calculation</div>
   <h2>The Economics of Equipment Utilization</h2>
   <p>Understanding equipment utilization requires looking beyond simple uptime calculations. The real question is: what percentage of available weekly hours does your equipment actually produce value?</p>
@@ -384,7 +329,7 @@
   <p>Now consider what happens when demand exceeds this capacity. The conventional response involves capital requests, equipment purchases, installation timelines, and integration challenges. A $10 million equipment investment might take 18–24 months from approval to full production. The carrying cost alone — interest, depreciation, opportunity cost — can exceed $1 million annually before the equipment produces a single unit.</p>
   <p>The alternative is extracting more value from existing assets. Moving from five-day to seven-day operations can increase equipment availability by 40% or more. Even within existing schedules, better alignment of coverage with equipment needs can yield significant gains. One plastics manufacturer increased capacity by over 10% without adding labor costs or purchasing new equipment — simply by restructuring how shifts covered their most productive machinery. The financial leverage is compelling: delaying a $25 million capital investment by even 2.5 years at a 10% cost of capital saves over $6 million. Schedule optimization that costs a fraction of this amount can often achieve the same capacity outcome.</p>
 
-  <hr class="divider" style="margin:32px 0;">
+  <hr class="divider">
 
   <div class="eyebrow">The Scheduling Connection</div>
   <h2>Why Scheduling Drives Utilization More Than You Think</h2>
@@ -392,7 +337,6 @@
   <p>Consider a common scenario: a facility runs three shifts Monday through Friday but shuts down weekends. Their most expensive equipment — often their most efficient — sits idle for 48 hours every week. That's 2,500 hours annually of zero production from assets that cost millions to acquire. No amount of efficiency improvement during operating hours can recover time that was never scheduled.</p>
   <p>The relationship between scheduling and utilization extends beyond simple coverage hours. Shift transitions create their own inefficiencies. Each shift change typically involves handoffs, startups, and ramp-up periods where production runs below optimal rates. An eight-hour shift operation experiences three transitions daily. A twelve-hour operation cuts this to two. Continuous operations that minimize shutdowns eliminate the startup losses entirely for long stretches.</p>
   <p>Food processing illustrates this clearly. Sanitation requirements mean equipment must be cleaned regularly — but cleaning doesn't require production to stop for an entire shift. Operations that cross-train production workers to perform sanitation can clean, restart, and resume production within hours rather than dedicating full shifts to downtime. The equipment utilization difference can exceed 20%.</p>
-
 </div>
 
 <div class="pull-quote">
@@ -403,61 +347,69 @@
   </div>
 </div>
 
-<div class="article-wrap" style="padding-top:32px;padding-bottom:0;">
-  <hr class="divider" style="margin:0 0 32px;">
+<div class="article-wrap" style="padding-top:0;">
+  <hr class="divider">
 
   <div class="eyebrow">Where to Focus</div>
   <h2>Identifying Your Utilization Opportunities</h2>
   <p>Not all equipment deserves equal scheduling attention. The key is identifying where utilization improvements create the most value — and that requires understanding your operation's constraints.</p>
-  <p>Start with your bottleneck equipment. In any production process, one stage limits overall throughput. Increasing utilization everywhere except the bottleneck produces inventory, not output. Increasing utilization at the bottleneck directly increases what you can ship and sell. A furniture manufacturer discovered their finishing line constrained overall capacity — production could build more pieces than finishing could process. Their response wasn't purchasing additional finishing equipment — it was extending finishing coverage to six days while the rest of the operation remained at five. The incremental labor cost was modest. The capacity increase was substantial.</p>
+  <p>Start with your bottleneck equipment. In any production process, one stage limits overall throughput. Increasing utilization everywhere except the bottleneck produces inventory, not output. Increasing utilization at the bottleneck directly increases what you can ship and sell. This focus changes everything about how you approach scheduling. A furniture manufacturer discovered their finishing line constrained overall capacity — production could build more pieces than finishing could process. Their response wasn't purchasing additional finishing equipment — it was extending finishing coverage to six days while the rest of the operation remained at five. The incremental labor cost was modest. The capacity increase was substantial.</p>
   <p>Next, examine your highest-value equipment. Capital cost matters, but so does output value. A machine that cost $500,000 but produces your highest-margin products may deserve more scheduling attention than a $2 million machine producing commodities. The question is: where does an additional hour of production create the most value?</p>
-  <p>Consider also your equipment with the highest startup and shutdown costs. Some machinery requires hours to reach operating temperature or stability. Shutting down Friday afternoon and restarting Monday morning might consume 10% of potential weekly production in transition losses alone. The analysis isn't complicated, but it requires looking at scheduling as a strategic lever rather than an administrative function.</p>
+  <p>Consider also your equipment with the highest startup and shutdown costs. Some machinery requires hours to reach operating temperature or stability. Shutting down Friday afternoon and restarting Monday morning might consume 10% of potential weekly production in transition losses alone. Continuous operation — or at minimum, extended coverage that reduces shutdown frequency — can dramatically improve effective utilization. The analysis isn't complicated, but it requires looking at scheduling as a strategic lever rather than an administrative function. Operations that treat schedules as fixed constraints miss opportunities that competitors capture.</p>
 
-  <hr class="divider" style="margin:32px 0;">
+  <hr class="divider">
 
   <div class="eyebrow">The Startup Myth</div>
   <h2>Why Continuous Running Reduces Breakdowns</h2>
   <p>One of the most persistent objections to extended running schedules is the belief that running equipment longer will cause more breakdowns. The maintenance engineering community largely disagrees with this intuition.</p>
   <p>Most maintenance engineers will confirm that equipment startup represents the highest-risk period for mechanical failure. Thermal cycling creates expansion and contraction stresses. Cold lubricants flow poorly. Pressure differentials stress seals and fittings. The moment of startup — not the sustained running that follows — is when failures most commonly occur.</p>
   <p>Continuous running eliminates repeated startup cycles. Equipment that never shuts down avoids the mechanical stress that shutting down and restarting imposes. From a pure reliability standpoint, running continuously is often preferable to repeated starts and stops, provided maintenance can be scheduled within the running pattern rather than during downtime periods.</p>
-
 </div>
 
-<div class="stripe-b"><div class="stripe-b-inner">
-  <div class="eyebrow">Maintenance Integration</div>
-  <h3>Scheduling Maintenance Within Continuous Operations</h3>
-  <p>The practical challenge for continuous operations is performing maintenance without shutting down production. The solution is planned maintenance windows built into the schedule, typically rotating equipment through maintenance cycles rather than shutting the entire facility. One approach: run five machines continuously while rotating two through maintenance — the five-machine output matches the seven-machine output of a traditional schedule, with two machines always available for maintenance.</p>
-</div></div>
+<div class="stripe-b">
+  <div class="stripe-b-inner">
+    <div class="eyebrow">Maintenance Integration</div>
+    <h3>Scheduling Maintenance Within Continuous Operations</h3>
+    <p>The practical challenge for continuous operations is performing maintenance without shutting down production. The solution is planned maintenance windows built into the schedule, typically rotating equipment through maintenance cycles rather than shutting the entire facility. One approach: run five machines continuously while rotating two through maintenance — the five-machine output matches the seven-machine output of a traditional schedule, with two machines always available for maintenance.</p>
+  </div>
+</div>
 
-<div class="article-wrap" style="padding-top:32px;padding-bottom:0;">
-  <hr class="divider" style="margin:0 0 32px;">
-
+<div class="article-wrap" style="padding-top:0;">
   <div class="eyebrow">Matching Supply to Demand</div>
   <h2>Aligning Coverage with Workload</h2>
   <p>Equipment utilization and workforce scheduling intersect at a critical question: how do you match coverage hours to actual production needs?</p>
   <p>The traditional approach assumes uniform coverage — three identical shifts, Monday through Friday, everyone working the same pattern. This simplicity comes at a cost. Customer demand rarely arrives uniformly. Equipment maintenance needs vary by shift. Seasonal patterns create weeks when you need maximum capacity and weeks when you don't.</p>
   <p>Variable coverage scheduling addresses this mismatch. Instead of designing one schedule that runs year-round, sophisticated operations design coverage that flexes with demand. This might mean different shift patterns for peak and off-peak seasons. It might mean running bottleneck equipment on extended schedules while non-constraints operate fewer hours. It might mean weekend coverage for some departments but not others.</p>
-  <p>The workforce implications require careful handling. Employees build their lives around predictable schedules. Variable coverage only works when the variations are predictable, communicated well in advance, and designed with genuine input from the people who will work them. Lean manufacturing principles reinforce this alignment — producing inventory you don't need consumes resources without creating value. The goal is matching capacity to demand, not maximizing every metric independently.</p>
+  <p>The workforce implications require careful handling. Employees build their lives around predictable schedules. Variable coverage only works when the variations are predictable, communicated well in advance, and designed with genuine input from the people who will work them. Operations that impose variable schedules without workforce engagement typically face resistance that undermines any utilization gains. Lean manufacturing principles reinforce this alignment — the lean concept of takt time, matching production pace to customer demand, applies to scheduling as well as to line speed. Producing inventory you don't need consumes resources without creating value. The goal is matching capacity to demand, not maximizing every metric independently.</p>
 
-  <hr class="divider" style="margin:32px 0;">
+  <hr class="divider">
 
   <div class="eyebrow">The Breakeven Analysis</div>
   <h2>When Does Adding a Shift Make Financial Sense?</h2>
   <p>The financial case for extending operations depends on comparing the cost of adding labor versus the cost of adding capital. This breakeven analysis is simpler than it appears and consistently favors extended operations in capital-intensive industries.</p>
   <p>When a facility running two shifts reaches capacity constraints, the typical response is to purchase additional equipment. A third shift produces the same additional capacity for a fraction of the cost — the incremental labor cost of adding a third shift crew versus the full capital cost of duplicating the equipment base.</p>
   <p>The breakeven threshold varies by industry and equipment type, but a general principle applies: when utilization on the existing schedule consistently exceeds 65 to 70 percent, extended operations almost always represent a lower cost per unit than capital expansion. The labor cost of a third shift or weekend coverage is virtually always less than the annualized cost of additional equipment providing equivalent capacity.</p>
-
 </div>
 
 <div class="three-col">
-  <div class="insight-card"><div class="insight-num">&lt;24%</div><div class="insight-label">1-shift utilization</div><div class="insight-text">One 8-hour shift, 5 days uses roughly 40 of 168 weekly hours. The majority of capital investment sits idle every week.</div></div>
-  <div class="insight-card accent-orange"><div class="insight-num">65–70%</div><div class="insight-label">Third-shift breakeven</div><div class="insight-text">When two-shift utilization consistently exceeds this threshold, adding a third shift almost always costs less per unit than buying additional equipment.</div></div>
-  <div class="insight-card accent-green"><div class="insight-num">5 vs 7</div><div class="insight-label">The machine math</div><div class="insight-text">5 machines running 7 days = 35 machine-days/week. 7 machines running 5 days = 35 machine-days/week. Same output — continuous running enables maintenance rotation.</div></div>
+  <div class="insight-card">
+    <div class="insight-num">&lt;24%</div>
+    <div class="insight-label">1-shift utilization</div>
+    <div class="insight-text">One 8-hour shift, 5 days uses roughly 40 of 168 weekly hours. The majority of capital investment sits idle every week.</div>
+  </div>
+  <div class="insight-card accent-orange">
+    <div class="insight-num">65–70%</div>
+    <div class="insight-label">Third-shift breakeven</div>
+    <div class="insight-text">When two-shift utilization consistently exceeds this threshold, adding a third shift almost always costs less per unit than buying additional equipment.</div>
+  </div>
+  <div class="insight-card accent-green">
+    <div class="insight-num">5 vs 7</div>
+    <div class="insight-label">The machine math</div>
+    <div class="insight-text">5 machines running 7 days = 35 machine-days/week. 7 machines running 5 days = 35 machine-days/week. Same output — continuous running enables maintenance rotation.</div>
+  </div>
 </div>
 
-<div class="article-wrap" style="padding-top:32px;padding-bottom:0;">
-  <hr class="divider" style="margin:0 0 32px;">
-
+<div class="article-wrap" style="padding-top:0;">
   <div class="eyebrow">Scheduling for Utilization</div>
   <h2>The 5-Machine vs. 7-Machine Problem</h2>
   <p>A manufacturing facility runs seven machines on a five-day schedule. Production requirements are growing, and management is evaluating whether to purchase additional equipment. Before committing capital, consider a different framing of the problem.</p>
@@ -465,42 +417,40 @@
   <p>But the five-machine continuous operation provides something the seven-machine five-day operation cannot: always having equipment available for maintenance without reducing output. In the seven-machine model, taking one machine down for maintenance reduces weekly capacity. In the five-machine continuous model, two machines are always available for maintenance while five machines carry full production load.</p>
   <p>This restructuring eliminates the need to purchase additional equipment while maintaining identical output, improving maintenance accessibility, and potentially reducing maintenance costs through better scheduling. The only change is the operating schedule — from five-day to continuous.</p>
 
-  <hr class="divider" style="margin:32px 0;">
+  <hr class="divider">
 
   <div class="eyebrow">The Transition Question</div>
   <h2>Five Days to Seven Days</h2>
   <p>For operations considering extended coverage, the five-day to seven-day transition represents the largest single utilization opportunity — and the most significant change management challenge.</p>
   <p>The math is straightforward. Seven-day operations can achieve utilization rates 30–40% higher than five-day schedules. For capital-intensive industries, this often means deferring or eliminating equipment purchases entirely. The business case typically demonstrates compelling returns.</p>
-  <p>The human dimension is more complex. Weekend coverage requires employees to work schedules that differ from most of society. Asking workers to give up weekends — or half their weekends — requires offering something valuable in return. Successful transitions typically feature extended time off. Twelve-hour shift patterns often provide three or four consecutive days off every week. While employees work some weekends, they gain weekday time that traditional schedules don't offer.</p>
+  <p>The human dimension is more complex. Weekend coverage requires employees to work schedules that differ from most of society. Family time, social activities, and community involvement all assume Monday-through-Friday norms. Asking workers to give up weekends — or half their weekends — requires offering something valuable in return. Successful transitions typically feature extended time off. Twelve-hour shift patterns often provide three or four consecutive days off every week. While employees work some weekends, they gain weekday time that traditional schedules don't offer. Many workers discover they prefer the extended breaks, particularly when they experience them firsthand.</p>
   <p>The transition process matters as much as the schedule design. Operations that announce seven-day schedules and expect compliance typically face resistance, grievances, and turnover. Operations that engage their workforce in evaluating options, understanding tradeoffs, and selecting preferred patterns typically achieve implementation with far less friction. The schedule employees choose is the schedule they'll support.</p>
-
 </div>
 
-<div class="important-callout"><div class="important-callout-inner">
-  <div class="important-callout-label">Important</div>
-  <p>Once you establish weekend premium pay, eliminating it later creates significant workforce disruption. Many operations avoid weekend premiums entirely by designing schedules where weekend work is simply part of the regular rotation rather than a special assignment. The compensation structure you choose at transition often becomes permanent. Design it carefully from the start.</p>
-</div></div>
+<div class="callout">
+  <div class="callout-inner">
+    <div class="callout-label">Important</div>
+    <div class="callout-text">Once you establish weekend premium pay, eliminating it later creates significant workforce disruption. Many operations avoid weekend premiums entirely by designing schedules where weekend work is simply part of the regular rotation rather than a special assignment. The compensation structure you choose at transition often becomes permanent. Design it carefully from the start.</div>
+  </div>
+</div>
 
-<div class="article-wrap" style="padding-top:32px;padding-bottom:0;">
-  <hr class="divider" style="margin:0 0 32px;">
-
+<div class="article-wrap" style="padding-top:0;">
   <div class="eyebrow">Variable Demand</div>
   <h2>Matching Equipment Runtime to Demand Patterns</h2>
   <p>Not all operations face uniform demand. Seasonal businesses, those with cyclical production requirements, or facilities responding to variable customer orders face the challenge of matching equipment runtime to shifting demand without over- or under-investing in labor and capital.</p>
   <p>The solution involves schedule flexibility built into the operating model rather than treated as an exception. Schedules designed with predictable on/off ramps allow operations to scale capacity up or down as demand changes, without the disruption and cost of emergency schedule changes.</p>
   <p>Seasonal peaks become manageable when the base schedule is designed with surge capacity in mind. A facility might run two shifts as its baseline, with a three-shift pattern used for four months annually during peak season. The workforce and schedule design both anticipate this pattern, making the transition routine rather than reactive.</p>
-
 </div>
 
-<section class="mistakes-section">
+<div class="mistakes-section">
   <div class="eyebrow">Avoid These Mistakes</div>
   <h2>Common Mistakes That Limit Utilization</h2>
-  <p style="font-size:15px;line-height:1.75;color:var(--body-text);margin-bottom:24px;max-width:680px;">Even operations that understand utilization opportunities often stumble in execution.</p>
+  <p style="font-size:15px;line-height:1.75;color:var(--body-text);margin-bottom:24px;max-width:680px;">Even operations that understand utilization opportunities often stumble in execution. Several patterns appear repeatedly across industries.</p>
   <div class="mistake-item"><div class="mistake-num">1</div><div><div class="mistake-title">Treating All Equipment Identically</div><div class="mistake-text">Not every machine needs seven-day coverage. Extending hours on non-bottleneck equipment may create labor cost without corresponding output gains. The analysis must be asset-specific, not blanket.</div></div></div>
   <div class="mistake-item"><div class="mistake-num">2</div><div><div class="mistake-title">Ignoring the Workforce Equation</div><div class="mistake-text">Schedule changes that maximize equipment utilization while ignoring employee needs generate turnover, absenteeism, and quality problems. The utilization gains disappear into labor instability. Sustainable utilization requires sustainable schedules.</div></div></div>
   <div class="mistake-item"><div class="mistake-num">3</div><div><div class="mistake-title">Underestimating Transition Complexity</div><div class="mistake-text">A new schedule touches vacation policies, overtime calculations, holiday pay, shift differentials, and union agreements. Operations that change schedules without addressing these interconnected policies create confusion and conflict that takes months to resolve.</div></div></div>
   <div class="mistake-item"><div class="mistake-num">4</div><div><div class="mistake-title">Focusing on Coverage Hours Rather Than Productive Hours</div><div class="mistake-text">Scheduling more shifts doesn't automatically increase output. If those additional hours involve inexperienced workers, quality problems, or equipment that isn't properly maintained, utilization may actually decline. Coverage must translate to production.</div></div></div>
-</section>
+</div>
 
 <div class="pull-quote">
   <div class="pull-quote-mark">&ldquo;</div>
@@ -510,39 +460,25 @@
   </div>
 </div>
 
-<div class="article-wrap" style="padding-top:32px;padding-bottom:0;">
-  <hr class="divider" style="margin:0 0 32px;">
-
+<div class="article-wrap" style="padding-top:0;">
   <div class="eyebrow">Implementation</div>
   <h2>Making It Work: Implementation Considerations</h2>
   <p>Utilization improvement through scheduling requires systematic execution across multiple dimensions.</p>
   <p>Start with clear analysis. Quantify your current utilization by equipment type. Identify your true constraints. Model the financial impact of various coverage scenarios. The numbers should drive the strategy, not assumptions about what schedules are possible.</p>
   <p>Engage the workforce early. Employees possess operational knowledge that management lacks. They know which machines require extra attention, where transitions create problems, and what schedule features they value most. This input improves both the schedule design and its acceptance.</p>
   <p>Address policies comprehensively. Before implementing schedule changes, resolve how vacation time will work, how overtime will be calculated, how holidays will be handled, and how shift assignments will be made. Discovering policy gaps after implementation creates disruption and erodes trust.</p>
-  <p>Plan the transition carefully. Moving from one schedule to another involves overlap periods, training requirements, and adjustment time. Adequate preparation — typically six to eight weeks minimum notice — allows employees to adjust their personal arrangements. Track utilization metrics, labor costs, quality indicators, and workforce stability continuously. Early identification of problems allows course correction before small issues become major setbacks.</p>
+  <p>Plan the transition carefully. Moving from one schedule to another involves overlap periods, training requirements, and adjustment time. Rush implementations generate problems that take months to resolve. Adequate preparation — typically six to eight weeks minimum notice — allows employees to adjust their personal arrangements. And measure results continuously: track utilization metrics, labor costs, quality indicators, and workforce stability. Early identification of problems allows course correction before small issues become major setbacks.</p>
 
-  <hr class="divider" style="margin:32px 0;">
+  <hr class="divider">
 
   <div class="eyebrow">Conclusion</div>
   <h2>The Schedule as Capital Strategy</h2>
   <p>Equipment utilization represents one of manufacturing's most accessible improvement opportunities. The capacity sitting idle during nights, weekends, and between shifts often exceeds what capital investments would provide — at a fraction of the cost and timeline.</p>
   <p>The schedule is the key. It determines when equipment runs, how transitions affect productivity, and whether your most valuable assets produce value or sit idle. Operations that treat scheduling as strategic unlock capacity their competitors must purchase.</p>
-  <p>Yet the path from understanding to implementation involves genuine complexity. Workforce considerations, policy alignment, transition management, and operational integration all require careful navigation. The organizations that capture utilization gains most successfully combine clear financial analysis with deep workforce engagement and systematic execution.</p>
-  <p style="font-size:14px;color:var(--muted);">Call us at <a href="tel:+14152651621" style="color:var(--navy);font-weight:700;">(415) 265-1621</a> to discuss your situation.</p>
-
+  <p>Yet the path from understanding to implementation involves genuine complexity. Workforce considerations, policy alignment, transition management, and operational integration all require careful navigation. The organizations that capture utilization gains most successfully typically combine clear financial analysis with deep workforce engagement and systematic execution. The opportunity is real. The question is whether your operation will capture it.</p>
 </div>
 
-<!-- CTA BOX -->
-<section class="cta-section"><div class="cta-box">
-  <h2>Ready to Evaluate Your Equipment Utilization?</h2>
-  <p>Operations leaders across manufacturing, distribution, chemicals, food processing, and mining have used our process to identify untapped capacity in existing assets.</p>
-  <div class="cta-actions">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="cta-btn-primary" target="_blank" rel="noopener">Schedule a Free Consultation</a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="cta-link">Read: 26 Warning Signs &#x2192;</a>
-  </div>
-</div></section>
 
-<!-- FAQ -->
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
@@ -554,41 +490,39 @@
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What is the breakeven point for adding a third shift?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Typically when two-shift utilization consistently exceeds 65–70%. Beyond that point, the incremental labor cost of a third shift is almost always lower than the annualized capital cost of additional equipment providing equivalent capacity.</div></div></div>
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How does the 5-machine vs. 7-machine calculation work?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Seven machines running five days equals 35 machine-days per week. Five machines running seven days also equals 35 machine-days. Same output — but the continuous model keeps two machines always available for maintenance without reducing production capacity.</div></div></div>
   </div>
-</div><!-- /.faq-section -->
+</div>
 
-<!-- NEXT STEPS -->
 <section class="next-steps"><div class="next-steps-inner">
   <div class="next-steps-eyebrow">Where to go from here</div>
   <h2>Next Steps &amp; Resources</h2>
-  <p class="next-steps-sub">Talk to an expert, take a free assessment, or run a quick diagnostic on your current operation.</p>
+  <p class="next-steps-sub">Talk to an expert, read the guide, or run a quick diagnostic on your current operation.</p>
   <div class="ns-cards">
     <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card ns-accent-blue" target="_blank" rel="noopener">
       <div class="ns-card-label">Free Consultation</div>
-      <h3>Discuss Your Utilization Challenges</h3>
-      <p>Experienced consultants who've helped hundreds of operations increase capacity through schedule optimization. The first conversation is free.</p>
+      <h3>Talk to a Shiftwork Expert</h3>
+      <p>Discuss your specific utilization challenges with consultants who've helped hundreds of operations increase capacity through schedule optimization. The first conversation is free.</p>
       <span class="ns-card-link">Book a free meeting</span>
     </a>
     <a href="/resources/shiftwork-assessment/" class="ns-card ns-accent-orange">
       <div class="ns-card-label">Diagnostic Tool</div>
       <h3>Free Schedule Assessment</h3>
-      <p>Evaluates your current schedule against operational requirements and identifies where utilization improvements are most achievable.</p>
+      <p>Our diagnostic tool evaluates your current schedule against operational requirements and identifies where utilization improvements are most achievable for your specific circumstances.</p>
       <span class="ns-card-link">Take the assessment</span>
     </a>
     <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green">
       <div class="ns-card-label">Checklist</div>
       <h3>26 Warning Signs Your Schedule Needs Attention</h3>
-      <p>A checklist of symptoms that signal when your shiftwork system may be ready for a reset — appearing before major problems emerge.</p>
+      <p>A checklist of symptoms that signal when your shiftwork system may be ready for a reset — from overtime spikes to declining engagement — appearing before major problems emerge.</p>
       <span class="ns-card-link">Read the checklist</span>
     </a>
   </div>
   <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
 </div></section>
 
-<!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
-      <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">Equipment utilization is often the difference between needing capital investment and not. The first conversation is always free.</p></div>
+      <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">Equipment utilization is one of the fastest ways to add capacity without capital investment. The first conversation is always free.</p></div>
       <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p></div>
       <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
     </div>
@@ -611,7 +545,7 @@ document.getElementById('mobileToggle').addEventListener('click',function(){var 
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
 (function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
-(function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var parts=[];document.querySelectorAll('.article-wrap p,.mistakes-section .mistake-text,.stripe-b-inner p,.important-callout-inner p').forEach(function(el){var t=el.textContent.trim();if(t)parts.push(t);});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
+(function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var sels=['.article-wrap p','.mistakes-section .mistake-text','.stripe-b-inner p','.callout-text'];var parts=[];sels.forEach(function(sel){document.querySelectorAll(sel).forEach(function(el){var t=el.textContent.trim();if(t)parts.push(t);});});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
 </script>
 </body>
 </html>
