@@ -5,38 +5,25 @@
   URL: /industries/chemical-pharmaceutical-operations/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-14
-
-  SOURCE DOC: ChemicalPharmaceutical_V3_ES_Sonnet_3_31_26.docx
-  CATEGORY: Industry Pages
+  Last Updated: 2026-04-16
 
   CHANGE LOG:
     2026-04-04 — Initial build from source Word doc.
     2026-04-04 — NAV + BUTTON + SEO AUDIT.
-    2026-04-08 — Hero eyebrow removed, subtitle color fix, CTA float box,
-                 hero + CTA background image switched to Pharma.jpg.
+    2026-04-08 — Hero eyebrow removed, subtitle color fix, hero bg -> Pharma.jpg.
     2026-04-12 — TEMPLATE REBUILD (Erika feedback).
-    2026-04-13 — TEMPLATE v2 (Jim feedback, 8 items).
-    2026-04-13 — FOLLOW-UP (3 items): client strip intro, pull quote layout,
-                 pull quote font restored.
-    2026-04-13 — TWO STYLE TESTS (Jim feedback):
-                 1. CALLOUT BOX: font-style changed italic → normal.
-                 2. HERO H1: color changed var(--white) → #F5C842 (gold), then
-                    refined to #EEAE26 (midpoint between orange #E8940A and gold #F5C842).
-    2026-04-14 — FAQ section: replaced .faq-wrap with full-bleed Hands_in_the_air.jpg
-                 background image, Option B dark-edge vignette, navy toggle buttons,
-                 #EEAE26 heading, white answer panels.
-                 Pull quotes: align-items:center, mark 128px #999999, text 15px/1.75.
+    2026-04-13 — TEMPLATE v2 (Jim feedback, 8 items). Pull quote layout fixes.
+    2026-04-13 — H1 color -> #EEAE26. Callout font-style normal.
+    2026-04-14 — FAQ: full-bleed Hands_in_the_air.jpg background, accordion.
+    2026-04-16 — NAV FIXES: logo src -> clear_bkgr_logo_2.png (underscores);
+                 SHIFTWORK SOLUTIONS text added; nav links font-size -> 20px;
+                 "Our Company" label -> "Why Us" (href /why-us/ unchanged).
+                 NEXT STEPS: background -> var(--light-grey); text colors updated
+                 to navy/muted to match pillar page style. Decorative circles removed.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/Pharma.jpg
   FAQ IMAGE:  /images/Hands_in_the_air.jpg
-  BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
-  DESIGN SYSTEM:
-    --navy: #1F4E79  --navy-dark: #0D1F3C  --mid-blue: #85B7EB
-    --light-blue: #EEF3F8  --orange: #E8610A  --green: #1D9E75
-    --body-text: #1A1A1A  --max-width: 860px
-    Font: Arial, Helvetica, sans-serif
 -->
 <html lang="en">
 <head>
@@ -64,10 +51,11 @@
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo img{height:36px;width:auto;display:block}
-    .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0}
+    .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0;display:flex;align-items:center;gap:12px}
+    .nav-logo-text{font-family:Arial,sans-serif;font-size:20px;font-weight:700;color:#1F4E79;letter-spacing:.03em;line-height:1}
     .nav-links{list-style:none;display:flex;align-items:center}
     .nav-links>li{position:relative}
-    .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
+    .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:20px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
     .nav-links>li>a:hover,.nav-links>li>a.nav-active{color:var(--navy)}
     .nav-links>li>a.nav-active{font-weight:700;text-decoration:underline;text-underline-offset:3px}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
@@ -136,39 +124,37 @@
     .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease,padding .25s ease}
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
-    .next-steps{padding:56px var(--page-pad) 60px;background:var(--navy);position:relative;overflow:hidden}
-    .next-steps::before{content:'';position:absolute;width:480px;height:480px;border-radius:50%;border:1px solid rgba(255,255,255,0.06);top:-160px;right:-160px;pointer-events:none}
-    .next-steps::after{content:'';position:absolute;width:300px;height:300px;border-radius:50%;border:1px solid rgba(232,97,10,0.10);bottom:-100px;left:-80px;pointer-events:none}
-    .next-steps-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
-    .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:rgba(255,255,255,0.6);margin-bottom:10px}
-    .next-steps h2{font-size:22px;font-weight:700;color:var(--white);margin-bottom:8px}
-    .next-steps-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:32px;line-height:1.6}
+    .next-steps{padding:56px var(--page-pad) 60px;background:var(--light-grey)}
+    .next-steps-inner{max-width:var(--max-width);margin:0 auto}
+    .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
+    .next-steps h2{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:8px}
+    .next-steps-sub{font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.6}
     .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .ns-card{background:var(--white);border:1px solid rgba(255,255,255,0.15);border-top:4px solid transparent;border-radius:8px;padding:24px 20px;text-decoration:none;display:block;position:relative;overflow:hidden;opacity:0;transform:translateY(28px);transition:opacity .5s ease,transform .5s ease,box-shadow .25s ease,border-top-color .25s ease}
+    .ns-card{background:var(--white);border:1px solid var(--border-med);border-top:4px solid transparent;border-radius:8px;padding:24px 20px;text-decoration:none;display:block;opacity:0;transform:translateY(28px);transition:opacity .5s ease,transform .5s ease,box-shadow .25s ease}
     .ns-card.ns-card-visible{opacity:1;transform:translateY(0)}
     .ns-card:nth-child(1){transition-delay:.05s}
     .ns-card:nth-child(2){transition-delay:.18s}
     .ns-card:nth-child(3){transition-delay:.31s}
-    .ns-accent-blue{border-top-color:var(--mid-blue)}
+    .ns-accent-blue{border-top-color:var(--navy)}
     .ns-accent-orange{border-top-color:var(--orange)}
     .ns-accent-green{border-top-color:var(--green)}
-    .ns-accent-blue:hover{box-shadow:0 8px 28px rgba(133,183,235,0.25);transform:translateY(-5px) !important}
+    .ns-accent-blue:hover{box-shadow:0 8px 28px rgba(31,78,121,0.15);transform:translateY(-5px) !important}
     .ns-accent-orange:hover{box-shadow:0 8px 28px rgba(232,97,10,0.22);transform:translateY(-5px) !important}
     .ns-accent-green:hover{box-shadow:0 8px 28px rgba(29,158,117,0.22);transform:translateY(-5px) !important}
     .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
-    .ns-accent-blue .ns-card-label{color:var(--mid-blue)}
+    .ns-accent-blue .ns-card-label{color:var(--navy)}
     .ns-accent-orange .ns-card-label{color:var(--orange)}
     .ns-accent-green .ns-card-label{color:var(--green)}
     .ns-card h3{font-size:15px;font-weight:700;color:var(--body-text);line-height:1.35;margin-bottom:8px}
     .ns-card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px}
     .ns-card-link{font-size:12px;font-weight:700}
-    .ns-accent-blue .ns-card-link{color:var(--mid-blue)}
+    .ns-accent-blue .ns-card-link{color:var(--navy)}
     .ns-accent-orange .ns-card-link{color:var(--orange)}
     .ns-accent-green .ns-card-link{color:var(--green)}
     .ns-card-link::after{content:' \2192'}
-    .ns-phone{margin-top:28px;font-size:13px;color:rgba(255,255,255,0.55);text-align:center}
-    .ns-phone a{color:var(--white);text-decoration:none;font-weight:700}
-    .ns-phone a:hover{color:var(--mid-blue)}
+    .ns-phone{margin-top:28px;font-size:13px;color:var(--muted);text-align:center}
+    .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
+    .ns-phone a:hover{color:var(--orange)}
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -208,21 +194,24 @@
     @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
     @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.insight-cards{grid-template-columns:1fr}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.next-steps{padding:40px 20px 44px}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}}
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Chemical and Pharmaceutical Operations: Precision, Compliance, and Continuity","description":"Shift scheduling for chemical and pharmaceutical operations demands more than coverage — process continuity, regulatory compliance, and fatigue management must be built in by design.","url":"https://shift-work.com/industries/chemical-pharmaceutical-operations/","datePublished":"2026-04-04","dateModified":"2026-04-14","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"shift scheduling chemical pharmaceutical operations, pharmaceutical manufacturing shift schedule, cGMP shift work, FDA compliance scheduling, process continuity staffing, chemical plant 24/7 scheduling, validation shift scheduling, fatigue management pharmaceutical"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Chemical and Pharmaceutical Operations: Precision, Compliance, and Continuity","description":"Shift scheduling for chemical and pharmaceutical operations demands more than coverage — process continuity, regulatory compliance, and fatigue management must be built in by design.","url":"https://shift-work.com/industries/chemical-pharmaceutical-operations/","datePublished":"2026-04-04","dateModified":"2026-04-16","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"shift scheduling chemical pharmaceutical operations, pharmaceutical manufacturing shift schedule, cGMP shift work, FDA compliance scheduling, process continuity staffing, chemical plant 24/7 scheduling, validation shift scheduling, fatigue management pharmaceutical"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://shift-work.com/industries/"},{"@type":"ListItem","position":3,"name":"Chemical & Pharmaceutical","item":"https://shift-work.com/industries/chemical-pharmaceutical-operations/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do cGMP requirements affect shift schedule design?","acceptedAnswer":{"@type":"Answer","text":"cGMP requirements govern documentation, supervision, and auditing of pharmaceutical manufacturing — and those requirements translate directly into scheduling constraints. A schedule that reduces supervisory coverage during certain shifts may create cGMP compliance gaps. The practical implication is that regulatory review has to happen during schedule design, not after it."}},{"@type":"Question","name":"What triggers revalidation when a pharmaceutical schedule changes?","acceptedAnswer":{"@type":"Answer","text":"Revalidation can be triggered by changes that affect how a process is staffed, supervised, or monitored in ways that touch product quality parameters. A shift pattern change that alters when qualified supervisors are present, how product sampling is timed, or how in-process testing is conducted may require validation activities before full implementation."}},{"@type":"Question","name":"Why is fatigue management more critical in this industry than in others?","acceptedAnswer":{"@type":"Answer","text":"In chemical and pharmaceutical operations, errors made by a fatigued operator may not be immediately visible — they can compound through subsequent process steps and surface only at final testing, or after product has reached the market. Schedules that minimize chronic fatigue accumulation are operationally and regulatorily necessary."}},{"@type":"Question","name":"How long does it take to implement a schedule change in a pharmaceutical facility?","acceptedAnswer":{"@type":"Answer","text":"Substantially longer than in most industries — driven by regulatory requirements rather than schedule complexity. A change that would take weeks in general manufacturing may take months in pharmaceutical facilities due to documentation, change control, and potentially validation activities."}},{"@type":"Question","name":"What makes shift transitions particularly critical in continuous chemical or pharmaceutical processes?","acceptedAnswer":{"@type":"Answer","text":"A shift transition in continuous process operations is not just a personnel handoff — it is a knowledge transfer about the current state of a process that may have been running for hours or days. The quality of shift transitions is as important as their frequency in continuous process environments."}},{"@type":"Question","name":"How does workforce turnover cost differ in chemical and pharmaceutical manufacturing?","acceptedAnswer":{"@type":"Answer","text":"Significantly higher than in most industries. The time required to bring a replacement to full qualification can run 12 to 18 months, even with an experienced hire. Schedules that improve retention deliver a correspondingly higher return on investment."}},{"@type":"Question","name":"What does effective scheduling actually look like in this industry?","acceptedAnswer":{"@type":"Answer","text":"The scheduling solutions that work in chemical and pharmaceutical manufacturing provide continuous coverage with built-in redundancy, support knowledge transfer at shift boundaries rather than just headcount coverage, manage fatigue accumulation explicitly, and accommodate regulatory, validation, and documentation requirements as design inputs rather than afterthoughts."}}]}</script>
 </head>
 <body>
 <nav class="site-nav"><div class="nav-inner">
-  <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36"></a>
+  <a href="/" class="nav-logo">
+    <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;">
+    <span class="nav-logo-text">SHIFTWORK SOLUTIONS</span>
+  </a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
     <li><a href="/services/">Our Services</a></li>
     <li><a href="/resources/">Resources</a></li>
     <li><a href="/industries/" class="nav-active">Industries</a></li>
-    <li><a href="/why-us/">Our Company</a></li>
+    <li><a href="/why-us/">Why Us</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
@@ -356,7 +345,6 @@
 
 </div><!-- /.article-wrap -->
 
-<!-- FAQ SECTION: full-bleed with Hands_in_the_air.jpg background, Option B vignette -->
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
@@ -378,7 +366,7 @@
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What does effective scheduling actually look like in this industry?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The scheduling solutions that work in chemical and pharmaceutical manufacturing share several characteristics. They provide continuous coverage with built-in redundancy. They support knowledge transfer at shift boundaries rather than just headcount coverage. They manage fatigue accumulation explicitly rather than hoping shift length alone is adequate. And they accommodate the regulatory, validation, and documentation requirements of the environment as design inputs rather than afterthoughts. The gap between understanding these principles and implementing a schedule that actually achieves them is where expertise built through hundreds of engagements in this specific environment delivers its value.</div></div></div>
 
   </div>
-</div><!-- /.faq-section -->
+</div>
 
 <section class="next-steps"><div class="next-steps-inner">
   <div class="next-steps-eyebrow">Where to go from here</div>
