@@ -6,67 +6,43 @@
   URL: /why-us/
 
   Created:      2026-04-05
-  Last Updated: 2026-04-13
+  Last Updated: 2026-04-16
 
   CHANGE LOG:
-    2026-04-05 — Initial build. Tile-based landing page linking to:
-                 About Shiftwork Solutions → /about/
-                 Meet Our Team → /our_team/
-                 Client Testimonials → /testimonials/
-                 Nav: .site-nav system (sticky, 56px), NO dropdowns anywhere.
+    2026-04-05 — Initial build. Tile-based landing page.
+    2026-04-13 — MAJOR REBUILD from content spec V5.
+    2026-04-13 — CTA band background changed to --navy.
+    2026-04-13 — Nav text + hero eyebrow renamed "Our Company".
+    2026-04-13 — Hero background replaced with second.png + gradient overlay.
 
-    2026-04-13 — MAJOR REBUILD from content spec V5 + implementation spec.
-                 (See full details in previous changelog entry.)
+    2026-04-16 — CTA BAND REPLACED: Removed navy CTA band with centered
+                 button. Replaced with standard three-card Next Steps section
+                 (light-grey bg, white cards, navy top border → orange on hover).
+                 Cards: Book a Consultation / Health Assessment / Resources Hub.
+    2026-04-16 — VISUAL OVERHAUL to match resources page standards:
+                 1. NAV: Added "SHIFTWORK SOLUTIONS" text next to logo,
+                    nav links bumped to 20px, logo src corrected to
+                    clear_bkgr_logo_2.png (underscores, not %20 encoding).
+                 2. FOOTER: Replaced thin grey footer + separate engage band
+                    with full dark navy 3-column pre-footer matching resources
+                    page exactly (Free Consultation / Talk to Thomas /
+                    Newsletter subscribe form + bottom bar).
+                 3. TYPOGRAPHY: Bridge text 17px. Section eyebrows/headings
+                    improved. Gains cards body text 15px. Outcome card
+                    titles/descs enlarged. Better line-height throughout.
+                 4. FAQ SECTION: New accordion section inserted between
+                    CTA band and footer. 8 questions covering why hire us,
+                    process, outcomes, timeline. Orange/navy design language.
+                    Pure JS accordion, no dependencies.
+                 All existing content (gains section, infographic, outcome
+                 strip, bridge, tiles) completely unchanged.
 
-    2026-04-13 — CTA band background changed from --navy-dark (#0D1F3C)
-                 to --navy (#1F4E79) to visually distinguish CTA section
-                 from the engage band / footer below it.
-
-    2026-04-13 — NAV TEXT + HERO EYEBROW RENAME:
-                 - Nav link text: "Why Us" → "Our Company" (href unchanged: /why-us/)
-                 - Hero eyebrow: "Why Us" → "Our Company"
-                 - BreadcrumbList JSON-LD: "Why Us" → "Our Company"
-                 - New hero copy from V5 spec
-                 - Bridge section, gains section, outcome strip, infographic, CTA
-                 - All infrastructure preserved
-
-    2026-04-13 — HERO BACKGROUND:
-                 - Replaced solid navy + decorative circles with second.png
-                   image matching resources page treatment (dark overlay)
-                 - All body content, gains section, JS unchanged
-
-  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn
-  BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
-  NAV LINKS (flat, no dropdowns):
-    Home → /
-    Our Services → /services/
-    Resources → /resources/
-    Industries → /industries/
-    Why Us → /why-us/ (current page, nav-active, label: "Our Company")
-    Contact → /contact/
-
-  DESIGN SYSTEM:
-    Navy: #1F4E79 (primary), #0D1F3C (dark anchor / icon bg)
-    Mid-blue: #85B7EB (secondary on dark, card labels)
-    Light-blue: #EEF3F8
-    Orange accent: #E8610A (CTA buttons only)
-    Green: #1D9E75 (positive only)
-    Warm yellow: #F5C842 (icon borders in gains section)
-    White nav: #FFFFFF + thin border
-    Footer bg: #F4F4F4
-    Body: #1A1A1A, Muted: #666666
-    Font: Arial/system sans-serif
-
-  GAINS SECTION COLOR SPEC (per implementation doc):
-    ■ #0D1F3C — icon container background
-    ■ #1F4E79 — headings
-    ■ #F5C842 — icon border, icon symbol option
-    ■ #85B7EB — card labels
-    ■ #FFFFFF — left card bg, icon symbols
-    ■ #f7f9fb — right card bg
-    ✗ No pink, coral, salmon, or red in gains section
-
-  I did no harm and this file is not truncated
+  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
+  DESIGN CONSTANTS:
+    Navy: #1F4E79 | Navy-dark: #0D1F3C | Mid-blue: #85B7EB
+    Orange: #E8610A | Green: #1D9E75 | Warm yellow: #F5C842
+    Logo: /images/clear_bkgr_logo_2.png
+    Hero image: /images/second.png
 -->
 <html lang="en">
 <head>
@@ -86,6 +62,7 @@
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Why Shiftwork Solutions","url":"https://shift-work.com/why-us/","description":"Senior-led engagements, neutral third-party facilitation, and 30 years of knowing which schedule changes fail in practice — for manufacturing and distribution.","mainEntity":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Our Company","item":"https://shift-work.com/why-us/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why hire a consultant instead of handling schedule design internally?","acceptedAnswer":{"@type":"Answer","text":"Internal teams are too close to the problem. They know the history, the politics, and the personalities — and that knowledge, while valuable, also limits what they can see and say. An experienced outside firm brings neutral credibility, pattern recognition across hundreds of similar situations, and the ability to have conversations that internal teams cannot."}},{"@type":"Question","name":"What does a typical engagement look like?","acceptedAnswer":{"@type":"Answer","text":"Every engagement begins with a diagnostic phase — an honest assessment of where the operation stands, what the workforce actually needs, and what the financial levers are. From there we develop schedule options, model costs, engage the workforce, and manage implementation. Most engagements run 3–6 months depending on complexity and scope."}},{"@type":"Question","name":"How do you handle workforce resistance to schedule changes?","acceptedAnswer":{"@type":"Answer","text":"By anticipating it and designing around it. Resistance is almost always a function of poor communication, inadequate notice, or a schedule that doesn't reflect what the workforce actually said it needed. We conduct workforce surveys, hold facilitated sessions, and build the communication plan before implementation begins — not after resistance appears."}}]}</script>
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -99,14 +76,15 @@
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
 
-    /* ── NAV (.site-nav — sticky, 56px, NO dropdowns) ── */
+    /* ── NAV (matches resources page) ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
-    .nav-logo{font-size:16px;font-weight:700;color:var(--navy);text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0}
+    .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0;display:flex;align-items:center;gap:12px}
     .nav-logo img{height:36px;width:auto;display:block}
+    .nav-logo-text{font-family:Arial,sans-serif;font-size:20px;font-weight:700;color:#1F4E79;letter-spacing:.03em;line-height:1}
     .nav-links{list-style:none;display:flex;align-items:center}
     .nav-links>li{position:relative}
-    .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
+    .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:20px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
     .nav-links>li>a:hover{color:var(--navy)}
     .nav-links>li>a.nav-active{color:var(--navy);font-weight:700;text-decoration:underline;text-underline-offset:3px}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
@@ -115,37 +93,36 @@
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
 
-    /* ── HERO — second.png background with dark overlay ── */
+    /* ── HERO ── */
     .hero{background:#0D1F3C url('/images/second.png') center center/cover no-repeat;padding:52px 36px 56px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.82) 0%,rgba(13,31,60,.60) 55%,rgba(13,31,60,.30) 100%);z-index:0;pointer-events:none}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
-    .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
-    .hero h1{font-size:32px;font-weight:700;line-height:1.2;color:var(--white);max-width:620px;margin-bottom:14px}
-    .hero-subtitle{font-size:16px;line-height:1.65;color:var(--mid-blue);max-width:620px}
+    .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px;animation:fadeUp .5s .05s ease both}
+    .hero h1{font-size:34px;font-weight:700;line-height:1.2;color:#EEAE26;max-width:640px;margin-bottom:14px;animation:fadeUp .5s .1s ease both}
+    .hero-subtitle{font-size:16px;line-height:1.70;color:rgba(255,255,255,.80);max-width:620px;animation:fadeUp .5s .2s ease both}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 
-    /* ── WHY US TILES SECTION ── */
+    /* ── WHY US TILES ── */
     .whyus-section{padding:56px var(--page-pad) 60px;background:var(--white)}
     .section-wrap{max-width:var(--max-width);margin:0 auto}
     .section-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
-    .section-heading{font-size:22px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:8px}
-    .section-sub{font-size:14px;color:var(--muted);line-height:1.65;max-width:680px;margin-bottom:28px}
+    .section-heading{font-size:24px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:8px}
+    .section-sub{font-size:15px;color:var(--muted);line-height:1.70;max-width:680px;margin-bottom:30px}
     .whyus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
     .whyus-tile{background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:6px;padding:28px 24px;text-decoration:none;display:flex;flex-direction:column;min-height:180px;transition:border-top-color .15s,box-shadow .15s}
     .whyus-tile:hover{border-top-color:var(--orange);box-shadow:0 4px 20px rgba(0,0,0,.09)}
-    .whyus-tile-title{font-size:17px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:10px}
-    .whyus-tile-desc{font-size:13px;color:var(--muted);line-height:1.6;flex:1;margin-bottom:16px}
-    .whyus-tile-link{font-size:12px;font-weight:700;color:var(--navy);text-decoration:none}
+    .whyus-tile-title{font-size:18px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:10px}
+    .whyus-tile-desc{font-size:14px;color:var(--muted);line-height:1.65;flex:1;margin-bottom:16px}
+    .whyus-tile-link{font-size:13px;font-weight:700;color:var(--navy);text-decoration:none}
     .whyus-tile-link::after{content:' \2192'}
     .whyus-tile:hover .whyus-tile-link{color:var(--orange)}
 
     /* ── BRIDGE ── */
     .bridge{padding:48px var(--page-pad);background:var(--light-blue)}
     .bridge-inner{max-width:var(--max-width);margin:0 auto}
-    .bridge p{font-size:16px;line-height:1.75;color:var(--body-text);max-width:780px}
+    .bridge p{font-size:17px;line-height:1.80;color:var(--body-text);max-width:800px}
 
-    /* ══════════════════════════════════════════════════════════
-       GAINS SECTION — What Clients Gain
-       ══════════════════════════════════════════════════════════ */
+    /* ── GAINS SECTION ── */
     .gains-section{background:var(--navy-dark);padding:80px var(--page-pad)}
     .gains-inner{max-width:var(--gains-max);margin:0 auto}
     .gains-heading{font-size:36px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:12px;max-width:700px}
@@ -156,7 +133,7 @@
     .gains-strip-list li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}
     .gains-strip-list li:first-child{border-top:1px solid rgba(255,255,255,.06)}
     .strip-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.08);color:var(--mid-blue);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px}
-    .strip-text{font-size:15px;color:rgba(255,255,255,.85);line-height:1.6}
+    .strip-text{font-size:15px;color:rgba(255,255,255,.85);line-height:1.65}
     .gains-cards{display:flex;flex-direction:column;gap:24px}
     .gains-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
     .gain-card{border-radius:12px;padding:24px;min-height:140px;transition:box-shadow .2s}
@@ -166,20 +143,20 @@
     .gain-icon svg{width:22px;height:22px;fill:none;stroke:var(--white);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
     .gain-card-left-content{flex:1}
     .gain-card-left-title{font-size:19px;font-weight:600;color:var(--navy-dark);line-height:1.35;margin-bottom:6px}
-    .gain-card-left-text{font-size:15px;color:var(--body-text);line-height:1.65}
+    .gain-card-left-text{font-size:15px;color:var(--body-text);line-height:1.70}
     .gain-card-right{background:var(--right-card-bg);border:1px solid var(--border-card)}
     .gain-card-right-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--mid-blue);margin-bottom:10px}
-    .gain-card-right-text{font-size:15px;color:var(--body-text);line-height:1.7}
+    .gain-card-right-text{font-size:15px;color:var(--body-text);line-height:1.75}
 
     /* ── OUTCOME STRIP ── */
     .outcome-strip{background:var(--navy);padding:48px var(--page-pad)}
     .outcome-inner{max-width:var(--max-width);margin:0 auto}
     .outcome-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-    .outcome-card{text-align:center;padding:24px 16px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
-    .outcome-title{font-size:18px;font-weight:700;color:var(--white);margin-bottom:6px}
-    .outcome-desc{font-size:13px;color:var(--mid-blue);line-height:1.5}
+    .outcome-card{text-align:center;padding:26px 16px;border-radius:8px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
+    .outcome-title{font-size:19px;font-weight:700;color:var(--white);margin-bottom:7px}
+    .outcome-desc{font-size:14px;color:var(--mid-blue);line-height:1.55}
 
-    /* ── INFOGRAPHIC — Balance Diagram ── */
+    /* ── INFOGRAPHIC ── */
     .infographic{padding:60px var(--page-pad);background:var(--white)}
     .infographic-inner{max-width:var(--max-width);margin:0 auto}
     .infographic-heading{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:32px;text-align:center}
@@ -189,7 +166,7 @@
     .balance-right{background:var(--light-blue);border:1px solid var(--border-med)}
     .balance-side-title{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:16px;text-align:center;text-transform:uppercase;letter-spacing:.06em}
     .balance-items{list-style:none;padding:0;margin:0}
-    .balance-items li{font-size:13px;color:var(--body-text);line-height:1.55;padding:6px 0;padding-left:18px;position:relative}
+    .balance-items li{font-size:14px;color:var(--body-text);line-height:1.60;padding:6px 0;padding-left:18px;position:relative}
     .balance-items li::before{content:'\2022';position:absolute;left:0;color:var(--navy);font-size:14px;top:6px}
     .balance-center{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px;position:relative;min-width:220px}
     .balance-center::before{content:'';position:absolute;top:20%;bottom:20%;left:0;width:1px;background:linear-gradient(to bottom,transparent,var(--border-med),transparent)}
@@ -201,44 +178,86 @@
     .balance-hub-name{font-size:15px;font-weight:700;color:var(--white);margin-bottom:8px}
     .balance-hub-tags{list-style:none;padding:0;margin:0}
     .balance-hub-tags li{font-size:11px;color:var(--mid-blue);line-height:1.55;padding:2px 0}
-    .balance-tagline{margin-top:28px;text-align:center;font-size:14px;font-weight:700;color:var(--navy);letter-spacing:.02em}
+    .balance-tagline{margin-top:28px;text-align:center;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:.02em}
 
-    /* ── CTA BAND ── */
-    .cta-band{background:var(--navy);padding:56px var(--page-pad)}
-    .cta-band-inner{max-width:var(--max-width);margin:0 auto;text-align:center}
-    .cta-band h2{font-size:24px;font-weight:700;color:var(--white);margin-bottom:12px}
-    .cta-band p{font-size:15px;color:var(--mid-blue);line-height:1.65;max-width:620px;margin:0 auto 28px}
-    .cta-actions{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap}
-    .cta-btn{display:inline-block;padding:13px 30px;background:var(--orange);color:var(--white);font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
-    .cta-btn:hover{background:#c4510a}
-    .cta-text-link{font-size:14px;color:var(--mid-blue);text-decoration:none;font-weight:500}
-    .cta-text-link:hover{color:var(--white);text-decoration:underline}
+    /* ── NEXT STEPS ── */
+    .next-steps{padding:56px var(--page-pad) 64px;background:var(--light-grey);border-top:1px solid var(--border-light)}
+    .next-steps-inner{max-width:var(--max-width);margin:0 auto}
+    .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
+    .next-steps h2{font-size:24px;font-weight:700;color:var(--body-text);margin-bottom:6px}
+    .next-steps-sub{font-size:15px;color:var(--muted);line-height:1.65;max-width:620px;margin-bottom:28px}
+    .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .ns-card{background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:6px;padding:24px 20px;text-decoration:none;display:block;transition:border-top-color .15s,box-shadow .15s}
+    .ns-card:hover{border-top-color:var(--orange);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+    .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
+    .ns-card h3{font-size:15px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:8px}
+    .ns-card p{font-size:13px;color:var(--muted);line-height:1.60;margin-bottom:14px}
+    .ns-card-link{font-size:13px;font-weight:700;color:var(--navy)}
+    .ns-card-link::after{content:' \2192'}
+    .ns-card:hover .ns-card-link{color:var(--orange)}
+    @media(max-width:640px){.ns-cards{grid-template-columns:1fr}}
 
-    /* ── ENGAGE BAND ── */
-    .engage-band{background:var(--navy-dark);padding:40px var(--page-pad);border-top:1px solid rgba(255,255,255,.06)}
-    .engage-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+    /* ── FAQ SECTION ── */
+    .faq-section{padding:72px var(--page-pad) 76px;background:var(--light-grey)}
+    .faq-inner{max-width:var(--max-width);margin:0 auto}
+    .faq-header{margin-bottom:40px}
+    .faq-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
+    .faq-heading{font-size:26px;font-weight:700;color:var(--body-text);line-height:1.25;margin-bottom:10px;padding-left:16px;border-left:4px solid var(--orange)}
+    .faq-sub{font-size:15px;color:var(--muted);line-height:1.65;max-width:640px}
+    .faq-list{display:flex;flex-direction:column;gap:0}
+    .faq-item{border-bottom:1px solid var(--border-med);background:var(--white)}
+    .faq-item:first-child{border-top:1px solid var(--border-med);border-radius:8px 8px 0 0}
+    .faq-item:last-child{border-radius:0 0 8px 8px}
+    .faq-item.open .faq-answer{display:block}
+    .faq-item.open .faq-icon{transform:rotate(45deg)}
+    .faq-item.open .faq-question{color:var(--navy)}
+    .faq-question-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px;cursor:pointer;user-select:none;transition:background .15s}
+    .faq-question-row:hover{background:var(--light-blue)}
+    .faq-question{font-size:16px;font-weight:700;color:var(--body-text);line-height:1.4;flex:1;transition:color .15s}
+    .faq-icon{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--light-blue);border:2px solid var(--border-med);display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .15s,border-color .15s}
+    .faq-item.open .faq-icon{background:var(--orange);border-color:var(--orange)}
+    .faq-icon svg{width:14px;height:14px;stroke:var(--navy);stroke-width:2.5;fill:none;transition:stroke .15s}
+    .faq-item.open .faq-icon svg{stroke:var(--white)}
+    .faq-answer{display:none;padding:0 24px 24px 24px}
+    .faq-answer p{font-size:15px;line-height:1.80;color:var(--body-text);max-width:760px}
+    .faq-answer p + p{margin-top:12px}
+    .faq-answer strong{color:var(--navy)}
+
+    /* ── FOOTER (matches resources page) ── */
+    .site-footer{background:var(--navy-dark)}
+    .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer-wrap{max-width:1100px;margin:0 auto}
+    .footer-content-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-bottom:28px}
+    .footer-col{padding:0 32px}
+    .footer-col-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
+    .footer-col-2{border-right:1px solid rgba(255,255,255,.08)}
+    .footer-col-3{padding-right:0}
+    .footer-cta-row{display:flex;align-items:center;gap:0}
+    .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:0 0 33.333%;padding:0 32px}
+    .footer-cta-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
+    .footer-cta-2{border-right:1px solid rgba(255,255,255,.08)}
+    .footer-cta-3{padding-right:0}
+    .footer-cta-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
+    .footer-cta-btn:hover{background:#c4510a}
     .engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
-    .engage-thomas-title,.engage-nl-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}
-    .engage-thomas-desc,.engage-nl-desc{font-size:13px;color:rgba(255,255,255,.65);line-height:1.65;margin-bottom:14px}
-    .engage-thomas-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
-    .engage-thomas-btn:hover{background:#c4510a}
+    .engage-col-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
+    .engage-col-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
     .engage-nl-form{display:flex;gap:8px;flex-wrap:wrap}
-    .engage-nl-input{flex:1;min-width:180px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
+    .engage-nl-input{flex:1;min-width:120px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
     .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
     .engage-nl-input:focus{border-color:var(--mid-blue)}
     .engage-nl-btn{padding:10px 18px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
     .engage-nl-btn:hover{background:#c4510a}
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
-    .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
-
-    /* ── FOOTER ── */
-    .site-footer{background:#F4F4F4;padding:32px var(--page-pad) 20px;border-top:1px solid var(--border-med)}
-    .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#555}
-    .footer-inner a{color:#555;text-decoration:none}
-    .footer-inner a:hover{color:var(--navy)}
-    .footer-logo{font-weight:700;color:var(--navy)}
-    .footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
+    .engage-nl-msg.ok{color:#6ee7b7}
+    .engage-nl-msg.err{color:#fca5a5}
+    .footer-bottom{padding:16px var(--page-pad)}
+    .footer-bottom-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.45)}
+    .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
+    .footer-bottom-inner a:hover{color:var(--orange)}
+    .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
 
     /* ── RESPONSIVE ── */
     @media(max-width:900px){
@@ -255,6 +274,7 @@
     }
     @media(max-width:640px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
+      .nav-logo-text{font-size:16px}
       .hero{padding:36px 20px 40px}.hero h1{font-size:24px}
       .whyus-section{padding:36px 20px 40px}
       .whyus-grid{grid-template-columns:1fr}
@@ -262,7 +282,6 @@
       .gains-section{padding:48px 20px}
       .gains-heading{font-size:26px}
       .gains-row{grid-template-columns:1fr}
-      .gains-strip-list li{gap:10px}
       .outcome-strip{padding:36px 20px}
       .outcome-grid{grid-template-columns:1fr 1fr}
       .infographic{padding:40px 20px}
@@ -270,18 +289,30 @@
       .balance-center{flex-direction:row;min-width:auto;padding:16px 20px}
       .balance-center::before,.balance-center::after{display:none}
       .balance-arrow-left,.balance-arrow-right{display:none}
-      .cta-band{padding:40px 20px}.cta-band h2{font-size:20px}
-      .footer-inner{flex-direction:column;text-align:center}
-      .footer-links-row{justify-content:center}
-      .engage-inner{grid-template-columns:1fr}.engage-band{padding:32px 20px}
+      .next-steps{padding:40px 16px 48px}
+      .faq-section{padding:48px 16px 52px}
+      .faq-question-row{padding:18px 18px}
+      .faq-answer{padding:0 18px 20px}
+      .footer-prefooter{padding:32px 20px}
+      .footer-content-row{grid-template-columns:1fr}
+      .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
+      .footer-col-3{border-bottom:none;padding-bottom:0}
+      .footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}
+      .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}
+      .footer-bottom{padding:14px 20px}
+      .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
+      .footer-bottom-left{justify-content:center}
     }
   </style>
 </head>
 <body>
 
-<!-- ── NAV — No dropdowns, all direct links ── -->
+<!-- ── NAV ── -->
 <nav class="site-nav"><div class="nav-inner">
-  <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;"></a>
+  <a href="/" class="nav-logo">
+    <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;">
+    <span class="nav-logo-text">SHIFTWORK SOLUTIONS</span>
+  </a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
@@ -332,9 +363,7 @@
   <p>A schedule can look right on paper &mdash; and still fail on the floor. The difference is rarely the design. Any schedule can launch. Far fewer hold &mdash; through the policy changes, the operational realities, and the workforce dynamics no spreadsheet captures. That's what thirty years of data-led, people-centered work has taught us to get right.</p>
 </div></section>
 
-<!-- ══════════════════════════════════════════════════════════════
-     WHAT CLIENTS GAIN — Version B Strip + Version A Paired Cards
-     ══════════════════════════════════════════════════════════════ -->
+<!-- ── WHAT CLIENTS GAIN ── -->
 <section class="gains-section"><div class="gains-inner">
   <h2 class="gains-heading">What Clients Gain from Working with Shiftwork Solutions</h2>
   <p class="gains-intro">When schedule decisions are built on data and workforce insight, results hold &mdash; in practice.</p>
@@ -429,7 +458,7 @@
   </div>
 </div></section>
 
-<!-- ── INFOGRAPHIC — Balance Diagram ── -->
+<!-- ── INFOGRAPHIC ── -->
 <section class="infographic"><div class="infographic-inner">
   <div class="infographic-heading">How We Balance Both Sides</div>
   <div class="balance-diagram">
@@ -453,83 +482,211 @@
   <div class="balance-tagline">Dual-track success: operational outcomes + human outcomes.</div>
 </div></section>
 
-<!-- ── CTA BAND ── -->
-<div class="cta-band"><div class="cta-band-inner">
-  <h2>Ready to talk through your situation?</h2>
-  <p>Every engagement begins with a conversation &mdash; no pitch, no obligation. We'll listen to what isn't working, ask the questions that clarify the scope, and tell you honestly whether and how we can help.</p>
-  <div class="cta-actions">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="cta-btn" target="_blank" rel="noopener">Schedule a Free Consultation</a>
-    <a href="mailto:jim@shift-work.com" class="cta-text-link">Contact Jim directly: jim@shift-work.com</a>
+<!-- ── NEXT STEPS ── -->
+<section class="next-steps">
+  <div class="next-steps-inner">
+    <div class="next-steps-eyebrow">Where to Go from Here</div>
+    <h2>Ready to Take the Next Step?</h2>
+    <p class="next-steps-sub">Every engagement starts with a conversation. Pick the path that fits where you are right now.</p>
+    <div class="ns-cards">
+      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card" target="_blank" rel="noopener">
+        <div class="ns-card-label">Free Consultation</div>
+        <h3>Talk to a Senior Consultant</h3>
+        <p>No pitch, no obligation. We'll listen to what isn't working, ask the questions that clarify the scope, and tell you honestly whether and how we can help.</p>
+        <span class="ns-card-link">Book a free meeting</span>
+      </a>
+      <a href="/resources/shiftwork-assessment/" class="ns-card">
+        <div class="ns-card-label">Free Assessment Tool</div>
+        <h3>Shift Operations Health Assessment</h3>
+        <p>Ten minutes, 35 questions, AI-powered evaluation across the 8 dimensions that determine whether your shift operation is working — or quietly costing you.</p>
+        <span class="ns-card-link">Take the assessment</span>
+      </a>
+      <a href="/resources/" class="ns-card">
+        <div class="ns-card-label">Guides &amp; Resources</div>
+        <h3>Browse the Resources Hub</h3>
+        <p>Ten comprehensive guides, focused topic articles, and diagnostic tools — built from decades of hands-on consulting work across hundreds of 24/7 operations.</p>
+        <span class="ns-card-link">Explore resources</span>
+      </a>
+    </div>
   </div>
-</div></div>
+</section>
 
-<!-- ── ENGAGE BAND ── -->
-<div class="engage-band"><div class="engage-inner">
-  <div class="engage-thomas">
-    <div class="engage-label">AI ADVISOR</div>
-    <div class="engage-thomas-title">Talk to Thomas</div>
-    <p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor &mdash; available now, no appointment needed.</p>
-    <a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a>
-  </div>
-  <div class="engage-nl">
-    <div class="engage-label">NEWSLETTER</div>
-    <div class="engage-nl-title">Stay Sharp on Shift Operations</div>
-    <p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
-    <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
-      <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
-      <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
-    </form>
-    <div class="engage-nl-msg" id="engageNLMsg"></div>
-  </div>
-</div></div>
+<!-- ── FAQ SECTION ── -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <div class="faq-eyebrow">Common Questions</div>
+      <div class="faq-heading">Frequently Asked Questions</div>
+      <p class="faq-sub">Straightforward answers to the questions operations leaders ask most before engaging us.</p>
+    </div>
+    <div class="faq-list" id="faqList">
 
-<!-- ── FOOTER ── -->
-<footer class="site-footer"><div class="footer-inner">
-  <span class="footer-logo">Shiftwork Solutions LLC</span>
-  <span>(415) 265-1621</span>
-  <span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></span>
-  <div class="footer-links-row">
-    <a href="/resources/">Resources</a>
-    <a href="/industries/">Industries</a>
-    <a href="/services/">Services</a>
-    <a href="/contact/">Contact</a>
-  </div>
-  <span>&copy; 2026 Shiftwork Solutions LLC</span>
-</div></footer>
+      <div class="faq-item">
+        <div class="faq-question-row" onclick="toggleFaq(this)">
+          <span class="faq-question">Why hire a consultant instead of handling schedule design internally?</span>
+          <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+        </div>
+        <div class="faq-answer"><p>Internal teams are too close to the problem. They know the history, the politics, and the personalities &mdash; and that knowledge, while valuable, also limits what they can see and say. An experienced outside firm brings neutral credibility, pattern recognition across hundreds of similar situations, and the ability to have conversations that internal teams cannot.</p><p>There's also a practical factor: redesigning a shift schedule while simultaneously running a 24/7 operation is a significant management burden. We take on the structural work so your leadership stays focused on production.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question-row" onclick="toggleFaq(this)">
+          <span class="faq-question">What does a typical engagement look like?</span>
+          <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+        </div>
+        <div class="faq-answer"><p>Every engagement begins with a diagnostic phase &mdash; an honest assessment of where the operation stands, what the workforce actually needs, and what the financial levers are. From there we develop schedule options, model costs, engage the workforce, and manage implementation.</p><p>Most engagements run 3&ndash;6 months depending on complexity and scope. We work alongside your team, not around them. You make the decisions; we give you the analysis, the facilitation, and the change management infrastructure to make them confidently.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question-row" onclick="toggleFaq(this)">
+          <span class="faq-question">How do you handle workforce resistance to schedule changes?</span>
+          <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+        </div>
+        <div class="faq-answer"><p>By anticipating it and designing around it. Resistance is almost always a function of poor communication, inadequate notice, or a schedule that doesn't reflect what the workforce actually said it needed. We conduct workforce surveys, hold facilitated sessions, and build the communication plan before implementation begins &mdash; not after resistance appears.</p><p>As a neutral third party, we can engage with employees in ways that internal management often can't. People say things to an outside firm they won't say to their supervisor. That candor is what makes the solution durable.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question-row" onclick="toggleFaq(this)">
+          <span class="faq-question">Do you work with unionized facilities?</span>
+          <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+        </div>
+        <div class="faq-answer"><p>Yes. A significant portion of our engagements involve unionized workforces. Schedule changes in union environments require careful attention to contract language, negotiation timing, and the relationship between management and union leadership. We've navigated that landscape across dozens of facilities and understand what makes the difference between a change that clears the table and one that ends up in arbitration.</p><p>Our neutral position often helps here. When both sides see us as an objective resource rather than a management tool, the conversations are more productive.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question-row" onclick="toggleFaq(this)">
+          <span class="faq-question">How is your approach different from software-based scheduling tools?</span>
+          <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+        </div>
+        <div class="faq-answer"><p>Scheduling software optimizes coverage based on the parameters you give it. It can't tell you which parameters matter, which schedule patterns tend to fail with a workforce like yours, or how to build the organizational conditions for a change to take hold. Tools answer the question you ask. Thirty years of experience tells you which question to ask in the first place.</p><p>We use analytical tools &mdash; including AI-assisted scenario modeling &mdash; as part of our process. But the diagnostic judgment, the workforce engagement, and the change management are human work that no software replaces.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question-row" onclick="toggleFaq(this)">
+          <span class="faq-question">What industries do you work with?</span>
+          <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+        </div>
+        <div class="faq-answer"><p>Our practice is focused exclusively on shiftwork-intensive operations: manufacturing, distribution, mining, refining, food &amp; beverage, chemical and pharmaceutical, and paper &amp; packaging. We do not consult outside these industries. That focus is intentional &mdash; the depth of pattern recognition we bring is a direct result of working exclusively in these environments for thirty years.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question-row" onclick="toggleFaq(this)">
+          <span class="faq-question">Who will actually be working on our engagement?</span>
+          <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+        </div>
+        <div class="faq-answer"><p>A senior partner. That is not a marketing claim &mdash; it is a structural fact about how we operate. We are a small, senior firm by design. Jim Dillingham, Dan Capshaw, and Ethan Franklin each have 28&ndash;32+ years of hands-on experience, and one of them leads every engagement directly.</p><p>We do not use junior associates, subcontractors, or project managers as the primary client contact. You work with the people whose names are on the door.</p></div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question-row" onclick="toggleFaq(this)">
+          <span class="faq-question">What happens after the new schedule is implemented?</span>
+          <span class="faq-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span>
+        </div>
+        <div class="faq-answer"><p>Implementation is where most schedule changes fail &mdash; not the design phase. We stay engaged through the transition period, monitoring early indicators, addressing emerging issues, and making adjustments before they become problems. Policy alignment, supervisor training, and workforce communication are all part of what we manage through to stability.</p><p>Our measure of success is not a new schedule on paper. It is an operation that is running better six months after we leave than it was before we arrived.</p></div>
+      </div>
+
+    </div><!-- /.faq-list -->
+  </div><!-- /.faq-inner -->
+</section>
+
+<!-- ── FOOTER (matches resources page) ── -->
+<footer class="site-footer">
+  <div class="footer-prefooter"><div class="footer-wrap">
+    <div class="footer-content-row">
+      <div class="footer-col footer-col-1">
+        <div class="engage-label">FREE CONSULTATION</div>
+        <div class="engage-col-title">Ready to talk about your operation?</div>
+        <p class="engage-col-desc">Manufacturing and distribution operations running 24/7 typically have more room to improve than they realize. The first conversation is always free.</p>
+      </div>
+      <div class="footer-col footer-col-2">
+        <div class="engage-label">AI ADVISOR</div>
+        <div class="engage-col-title">Talk to Thomas</div>
+        <p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
+      </div>
+      <div class="footer-col footer-col-3">
+        <div class="engage-label">NEWSLETTER</div>
+        <div class="engage-col-title">Stay Sharp on Shift Operations</div>
+        <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
+      </div>
+    </div>
+    <div class="footer-cta-row">
+      <div class="footer-cta-1"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a></div>
+      <div class="footer-cta-2"><a href="https://shift-work-diagnostic.onrender.com/" class="footer-cta-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a></div>
+      <div class="footer-cta-3">
+        <form class="engage-nl-form" onsubmit="footerNLSubmit(event)">
+          <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="footerNLEmail">
+          <button type="submit" class="engage-nl-btn" id="footerNLBtn">Subscribe &#x2192;</button>
+        </form>
+        <div class="engage-nl-msg" id="footerNLMsg"></div>
+      </div>
+    </div>
+  </div></div>
+  <div class="footer-bottom"><div class="footer-bottom-inner">
+    <div class="footer-bottom-left">
+      <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+      <a href="tel:+14152651621">(415) 265-1621</a>
+      <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+    </div>
+    <span>&copy; 2026 Shiftwork Solutions LLC</span>
+  </div></div>
+</footer>
 
 <script>
-  document.getElementById('mobileToggle').addEventListener('click', function () {
-    var n = document.getElementById('navLinks');
-    var open = n.style.display === 'flex';
-    if (open) { n.style.display = 'none'; } else {
-      n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';
-      n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';
-      n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';
-      n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';
-    }
-  });
-</script>
-<script>
-  (function(){
-    var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
-    window.engageNLSubmit=function(e){
-      e.preventDefault();
-      var btn=document.getElementById('engageNLBtn');
-      var msg=document.getElementById('engageNLMsg');
-      var email=document.getElementById('engageNLEmail').value.trim();
-      if(!email)return;
-      btn.disabled=true;btn.textContent='Subscribing...';
-      fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({email:email,source:'website-whyus-engage'})})
-      .then(function(r){return r.json();})
-      .then(function(d){
-        if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}
+/* ── Mobile nav ── */
+document.getElementById('mobileToggle').addEventListener('click', function () {
+  var n = document.getElementById('navLinks');
+  var open = n.style.display === 'flex';
+  if (open) { n.style.display = 'none'; } else {
+    n.style.display = 'flex'; n.style.flexDirection = 'column';
+    n.style.position = 'absolute'; n.style.top = '56px';
+    n.style.left = '0'; n.style.right = '0';
+    n.style.background = '#fff'; n.style.borderBottom = '1px solid #e0e0e0';
+    n.style.padding = '8px 0'; n.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
+    n.style.zIndex = '99';
+  }
+});
+
+/* ── FAQ accordion ── */
+window.toggleFaq = function (row) {
+  var item = row.parentElement;
+  var isOpen = item.classList.contains('open');
+  /* Close all */
+  document.querySelectorAll('.faq-item').forEach(function (el) { el.classList.remove('open'); });
+  /* Open clicked if it was closed */
+  if (!isOpen) { item.classList.add('open'); }
+};
+
+/* ── Footer newsletter ── */
+(function () {
+  var SWARM = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
+  window.footerNLSubmit = function (e) {
+    e.preventDefault();
+    var btn = document.getElementById('footerNLBtn');
+    var msg = document.getElementById('footerNLMsg');
+    var email = document.getElementById('footerNLEmail').value.trim();
+    if (!email) return;
+    btn.disabled = true; btn.textContent = 'Subscribing...';
+    fetch(SWARM, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, source: 'website-whyus-footer-nl' })
+    }).then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d.success) {
+          msg.className = 'engage-nl-msg ok';
+          msg.textContent = '\u2713 Subscribed. Thank you.';
+          document.getElementById('footerNLEmail').value = '';
+          btn.textContent = 'Subscribed \u2713';
+        } else { throw new Error(d.error || 'Failed'); }
       })
-      .catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});
-    };
-  })();
+      .catch(function (err) {
+        msg.className = 'engage-nl-msg err';
+        msg.textContent = err.message === 'This email is already subscribed.' ? 'Already subscribed \u2014 thank you!' : 'Something went wrong. Try again.';
+        btn.disabled = false; btn.textContent = 'Subscribe \u2192';
+      });
+  };
+})();
 </script>
-
 </body>
 </html>
 <!-- I did no harm and this file is not truncated -->
