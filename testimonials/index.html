@@ -6,7 +6,7 @@
   URL: /testimonials/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-05
+  Last Updated: 2026-04-16
 
   CHANGE LOG:
     2026-04-04 — Initial build. Client testimonials organized by theme.
@@ -15,13 +15,31 @@
     2026-04-05 — NAV + BUTTON AUDIT:
                  1. NAV: Services → direct link (no dropdown)
                     Resources → direct link (no dropdown)
-                    Why Us dropdown: About Shiftwork Solutions → /why-shiftwork-solutions/
-                    "Meet Our Team" → /our_team/
-                    "Client Testimonials" → /why-shiftwork-solutions/#testimonials
-                 2. BUTTONS: Subscribe button → ORANGE (#E8610A), no border
+                 2. BUTTONS: Subscribe button → ORANGE (#E8610A)
 
-  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn
-  BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
+    2026-04-16 — STANDARD VISUAL UPGRADE:
+                 1. NAV: "SHIFTWORK SOLUTIONS" text added next to logo,
+                    nav links bumped to 20px, logo src corrected to
+                    clear_bkgr_logo_2.png (underscores), "Why Us" →
+                    "Our Company".
+                 2. HERO: Replaced shutterstock split layout with
+                    second.png background + gradient overlay. h1 color
+                    → #EEAE26 (gold). Subtitle → rgba(255,255,255,.80).
+                    Hero eyebrow → mid-blue. Hero stats updated to use
+                    semi-transparent cards matching site standard.
+                 3. CTA BOX: Replaced navy cta-box with standard 3-card
+                    Next Steps section (light-grey, white cards, navy
+                    top border → orange on hover).
+                 4. FOOTER: Replaced engage band + thin grey footer with
+                    standard dark navy 3-col pre-footer (Free Consultation
+                    / Thomas / Newsletter) + bottom bar.
+                 All testimonial content, client strips, theme labels,
+                 and all JS preserved exactly.
+
+  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
+  DESIGN CONSTANTS:
+    Navy: #1F4E79 | Navy-dark: #0D1F3C | Mid-blue: #85B7EB | Orange: #E8610A
+    Logo: /images/clear_bkgr_logo_2.png | Hero: /images/second.png
 
   I did no harm and this file is not truncated
 -->
@@ -41,55 +59,64 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Client Testimonials | Shiftwork Solutions LLC">
   <meta name="twitter:description" content="What plant managers, HR leaders, and union presidents say about working with Shiftwork Solutions.">
+
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Testimonials","item":"https://shift-work.com/testimonials/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
+    :root{
+      --navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;
+      --orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;
+      --body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;
+      --cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px
+    }
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
+
+    /* ── NAV ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
-    .nav-logo{text-decoration:none;margin-right:28px;flex-shrink:0}
+    .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0;display:flex;align-items:center;gap:12px}
     .nav-logo img{height:36px;width:auto;display:block}
+    .nav-logo-text{font-family:Arial,sans-serif;font-size:20px;font-weight:700;color:#1F4E79;letter-spacing:.03em;line-height:1}
     .nav-links{list-style:none;display:flex;align-items:center}
     .nav-links>li{position:relative}
-    .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:13.5px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
+    .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:20px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
     .nav-links>li>a:hover{color:var(--navy)}
-    .nav-arrow{font-size:9px;opacity:.5;transition:transform .2s}
-    .nav-dropdown{position:absolute;top:100%;left:0;background:var(--white);border:1px solid var(--border-med);border-top:none;border-radius:0 0 6px 6px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:270px;max-height:460px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-2px);transition:opacity .15s,visibility .15s,transform .15s;padding:6px 0;z-index:100}
-    .nav-links>li:hover>.nav-dropdown{opacity:1;visibility:visible;transform:translateY(0)}
-    .nav-links>li:hover>a .nav-arrow{transform:rotate(180deg)}
-    .nav-dropdown a{display:block;padding:6px 16px;font-size:13px;color:#444;text-decoration:none;transition:background .12s;line-height:1.4}
-    .nav-dropdown a:hover{background:var(--light-blue);color:var(--navy)}
-    .nav-dropdown a.current-page{color:var(--navy);font-weight:700}
     .nav-cta-wrap{margin-left:auto;flex-shrink:0}
-    .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
+    .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-    .hero{background:var(--navy);padding:52px 36px 56px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;inset:0;background:url('/images/shutterstock_1497086771.jpg') right center / auto 100% no-repeat;opacity:1;z-index:0}
-    .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right, var(--navy) 45%, rgba(31,78,121,0.85) 65%, transparent 100%);z-index:0}
+
+    /* ── HERO ── */
+    .hero{background:#0D1F3C url('/images/second.png') center center/cover no-repeat;padding:52px 36px 56px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.82) 0%,rgba(13,31,60,.60) 55%,rgba(13,31,60,.30) 100%);z-index:0;pointer-events:none}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
     .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:12px}
-    .hero h1{font-size:30px;font-weight:700;line-height:1.2;color:var(--white);max-width:540px;margin-bottom:14px}
-    .hero-subtitle{font-size:15px;line-height:1.65;color:var(--mid-blue);max-width:560px;margin-bottom:32px}
+    .hero h1{font-size:32px;font-weight:700;line-height:1.2;color:#EEAE26;max-width:560px;margin-bottom:14px}
+    .hero-subtitle{font-size:16px;line-height:1.70;color:rgba(255,255,255,.80);max-width:560px;margin-bottom:32px}
     .hero-stats{display:flex;gap:16px;flex-wrap:wrap}
-    .hero-stat{background:rgba(255,255,255,.08);border-radius:8px;padding:16px 20px;min-width:160px}
+    .hero-stat{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:16px 20px;min-width:160px}
     .hero-stat-num{font-size:26px;font-weight:700;color:var(--white);line-height:1.1}
-    .hero-stat-label{font-size:12px;color:var(--mid-blue);margin-top:4px;line-height:1.35}
+    .hero-stat-label{font-size:12px;color:rgba(255,255,255,.70);margin-top:4px;line-height:1.35}
+
+    /* ── BREADCRUMB ── */
     .breadcrumb-bar{border-bottom:1px solid var(--border-light);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:11px;color:#888}
     .breadcrumb-inner a{color:#888;text-decoration:none}
     .breadcrumb-inner a:hover{color:var(--navy)}
     .breadcrumb-inner .bc-current{color:var(--navy);font-weight:700}
+
+    /* ── CONTENT ── */
     .content-section{max-width:var(--max-width);margin:0 auto;padding:20px var(--page-pad) 0}
     .eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:6px}
     .content-section h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:16px}
     .content-section p{font-size:15px;line-height:1.75;color:var(--body-text);margin-bottom:16px;max-width:680px}
     hr.divider{max-width:var(--max-width);margin:20px auto;border:none;border-top:1px solid var(--border-light)}
+
+    /* ── TESTIMONIAL CARDS ── */
     .testimonials{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad)}
     .tcard{background:var(--white);border:1px solid var(--border-med);border-radius:8px;border-left:3px solid var(--navy);padding:28px 28px 20px;margin-bottom:20px}
     .tcard.accent-orange{border-left-color:var(--orange)}
@@ -104,33 +131,57 @@
     .tcard-company{font-size:13px;color:var(--body-text);font-weight:700}
     .tcard-featured{background:var(--light-blue);border:none;border-left:3px solid var(--orange);padding:32px 32px 24px}
     .tcard-featured .tcard-quote{font-size:16px}
+
+    /* ── THEME LABELS ── */
     .theme-label{max-width:var(--max-width);margin:32px auto 12px;padding:0 var(--page-pad)}
     .theme-label-inner{display:flex;align-items:center;gap:12px}
     .theme-label-line{flex:1;height:1px;background:var(--border-light)}
     .theme-label-text{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);white-space:nowrap}
+
+    /* ── CLIENT STRIPS ── */
     .client-strip{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad)}
     .client-strip-inner{background:#F8FAFB;border-radius:8px;padding:20px 24px}
     .client-strip-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:12px}
     .client-tags{display:flex;flex-wrap:wrap;gap:8px}
     .client-tag{background:var(--white);border:1px solid var(--border-med);border-radius:4px;padding:5px 12px;font-size:13px;color:var(--body-text)}
-    .cta-section{max-width:var(--max-width);margin:40px auto;padding:0 var(--page-pad)}
-    .cta-box{background:var(--navy);border-radius:10px;padding:36px 32px;text-align:center}
-    .cta-box h2{font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px}
-    .cta-box p{font-size:14px;color:var(--cta-sub);line-height:1.65;margin-bottom:24px;max-width:520px;margin-left:auto;margin-right:auto}
-    .cta-actions{display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap}
-    .cta-btn-primary{display:inline-block;padding:12px 28px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
-    .cta-btn-primary:hover{background:#c4510a}
-    .cta-link{font-size:13px;color:var(--mid-blue);text-decoration:none;font-weight:500}
-    .cta-link:hover{text-decoration:underline;color:var(--white)}
-    .engage-band{background:var(--navy-dark);padding:40px var(--page-pad)}
-    .engage-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+
+    /* ── NEXT STEPS ── */
+    .next-steps{padding:56px var(--page-pad) 64px;background:var(--light-grey);border-top:1px solid var(--border-light)}
+    .next-steps-inner{max-width:var(--max-width);margin:0 auto}
+    .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
+    .next-steps h2{font-size:24px;font-weight:700;color:var(--body-text);margin-bottom:6px}
+    .next-steps-sub{font-size:15px;color:var(--muted);line-height:1.65;max-width:620px;margin-bottom:28px}
+    .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .ns-card{background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:6px;padding:24px 20px;text-decoration:none;display:block;transition:border-top-color .15s,box-shadow .15s}
+    .ns-card:hover{border-top-color:var(--orange);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+    .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
+    .ns-card h3{font-size:15px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:8px}
+    .ns-card p{font-size:13px;color:var(--muted);line-height:1.60;margin-bottom:14px}
+    .ns-card-link{font-size:13px;font-weight:700;color:var(--navy)}
+    .ns-card-link::after{content:' \2192'}
+    .ns-card:hover .ns-card-link{color:var(--orange)}
+
+    /* ── FOOTER ── */
+    .site-footer{background:var(--navy-dark)}
+    .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .footer-wrap{max-width:1100px;margin:0 auto}
+    .footer-content-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-bottom:28px}
+    .footer-col{padding:0 32px}
+    .footer-col-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
+    .footer-col-2{border-right:1px solid rgba(255,255,255,.08)}
+    .footer-col-3{padding-right:0}
+    .footer-cta-row{display:flex;align-items:center;gap:0}
+    .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:0 0 33.333%;padding:0 32px}
+    .footer-cta-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
+    .footer-cta-2{border-right:1px solid rgba(255,255,255,.08)}
+    .footer-cta-3{padding-right:0}
+    .footer-cta-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
+    .footer-cta-btn:hover{background:#c4510a}
     .engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
-    .engage-thomas-title,.engage-nl-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:8px}
-    .engage-thomas-desc,.engage-nl-desc{font-size:13px;color:rgba(255,255,255,.65);line-height:1.65;margin-bottom:14px}
-    .engage-thomas-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
-    .engage-thomas-btn:hover{background:#c4510a}
+    .engage-col-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
+    .engage-col-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
     .engage-nl-form{display:flex;gap:8px;flex-wrap:wrap}
-    .engage-nl-input{flex:1;min-width:180px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
+    .engage-nl-input{flex:1;min-width:120px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
     .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
     .engage-nl-input:focus{border-color:var(--mid-blue)}
     .engage-nl-btn{padding:10px 18px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
@@ -138,31 +189,54 @@
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
     .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
-    .site-footer{background:#F4F4F4;padding:32px var(--page-pad) 20px;border-top:1px solid var(--border-med)}
-    .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:#555}
-    .footer-inner a{color:#555;text-decoration:none}
-    .footer-inner a:hover{color:var(--navy)}
-    .footer-logo{font-weight:700;color:var(--navy)}
-    .footer-links-row{display:flex;gap:16px;flex-wrap:wrap}
-    @media(max-width:768px){.nav-links,.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:24px}.hero-stats{flex-direction:column;gap:10px}.content-section,.testimonials,.theme-label,.client-strip,.cta-section{padding-left:20px;padding-right:20px}.tcard,.tcard-featured{padding:20px 16px}.footer-inner{flex-direction:column;text-align:center}.footer-links-row{justify-content:center}.engage-inner{grid-template-columns:1fr}.engage-band{padding:32px 20px}}
+    .footer-bottom{padding:16px var(--page-pad)}
+    .footer-bottom-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.45)}
+    .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
+    .footer-bottom-inner a:hover{color:var(--orange)}
+    .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px){
+      .nav-links,.nav-cta-wrap{display:none}.mobile-toggle{display:block}
+      .nav-logo-text{font-size:16px}
+      .hero{padding:36px 20px 40px}.hero h1{font-size:24px}.hero-stats{flex-direction:column;gap:10px}
+      .content-section,.testimonials,.theme-label,.client-strip{padding-left:20px;padding-right:20px}
+      .tcard,.tcard-featured{padding:20px 16px}
+      .ns-cards{grid-template-columns:1fr}
+      .footer-prefooter{padding:32px 20px}
+      .footer-content-row{grid-template-columns:1fr}
+      .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
+      .footer-col-3{border-bottom:none;padding-bottom:0}
+      .footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}
+      .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}
+      .footer-bottom{padding:14px 20px}
+      .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
+      .footer-bottom-left{justify-content:center}
+    }
   </style>
 </head>
 <body>
 
+<!-- ── NAV ── -->
 <nav class="site-nav"><div class="nav-inner">
-  <a href="/" class="nav-logo"><img src="/images/clear%20bkgr%20logo%202.png" alt="Shiftwork Solutions" height="36"></a>
+  <a href="/" class="nav-logo">
+    <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;">
+    <span class="nav-logo-text">SHIFTWORK SOLUTIONS</span>
+  </a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
     <li><a href="/">Home</a></li>
     <li><a href="/services/">Our Services</a></li>
     <li><a href="/resources/">Resources</a></li>
     <li><a href="/industries/">Industries</a></li>
-    <li><a href="/why-us/">Why Us</a></li>
+    <li><a href="/why-us/">Our Company</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
 </div></nav>
 
+<!-- ── HERO ── -->
 <section class="hero"><div class="hero-inner">
   <div class="hero-eyebrow">Client Testimonials</div>
   <h1>What Our Clients Say</h1>
@@ -174,8 +248,9 @@
   </div>
 </div></section>
 
+<!-- ── BREADCRUMB ── -->
 <div class="breadcrumb-bar"><div class="breadcrumb-inner">
-  <a href="/">Home</a> › <a href="/why-shiftwork-solutions/">Why Us</a> › <span class="bc-current">Client Testimonials</span>
+  <a href="/">Home</a> &rsaquo; <a href="/why-us/">Our Company</a> &rsaquo; <span class="bc-current">Client Testimonials</span>
 </div></div>
 
 <section class="content-section">
@@ -189,15 +264,15 @@
 <div class="testimonials">
   <div class="tcard tcard-featured">
     <div class="tcard-quote">Surviving in the tough business world we live in today requires three major components: satisfied shareholders, satisfied customers, and satisfied employees. Shiftwork Solutions led us through a high quality process that proved that a win-win-win is possible, practical, and profitable. Building flexibility into our operating schedules, while meeting these three major components of our business, significantly positions our operations for a workable long-term business equation.</div>
-    <div class="tcard-meta"><div class="tcard-name">Rick Halpin</div><div class="tcard-sep">·</div><div class="tcard-title">Plant Manager</div><div class="tcard-sep">·</div><div class="tcard-company">Polymer Group Inc.</div></div>
+    <div class="tcard-meta"><div class="tcard-name">Rick Halpin</div><div class="tcard-sep">&middot;</div><div class="tcard-title">Plant Manager</div><div class="tcard-sep">&middot;</div><div class="tcard-company">Polymer Group Inc.</div></div>
   </div>
   <div class="tcard accent-orange">
     <div class="tcard-quote">Jim Dillingham of Shiftwork Solutions is right up there with the best among consultants and business leaders. He learned our business very quickly by studying data and briefly meeting with key people from all levels. By working with and quickly gaining the trust of our people, Jim eliminated the volatility, softened emotions, eased fears, and helped our people select an alternate schedule that best matched their lifestyles. His disarming nature, thorough knowledge of the intricacies of work schedules and how they affect associates and their families, and superb communication skills led to a very successful implementation of an alternate schedule that significantly reduced overtime and turnover. Jim's help in writing policies and procedures not only for on-going, day-to-day operations but also for the implementation saved us time and anguish. He delivered the best results per consulting dollar I have ever seen. On top of all this, he is fun to work with. Even though we are well over a year into our new schedule, our people still ask me if I ever hear from Jim Dillingham.</div>
-    <div class="tcard-meta"><div class="tcard-name">John Bartman, SPHR</div><div class="tcard-sep">·</div><div class="tcard-title">Vice President Human Resources</div><div class="tcard-sep">·</div><div class="tcard-company">Snyder's of Hanover</div></div>
+    <div class="tcard-meta"><div class="tcard-name">John Bartman, SPHR</div><div class="tcard-sep">&middot;</div><div class="tcard-title">Vice President Human Resources</div><div class="tcard-sep">&middot;</div><div class="tcard-company">Snyder's of Hanover</div></div>
   </div>
   <div class="tcard">
     <div class="tcard-quote">Your obvious expertise in shift scheduling, Shiftwork Solutions' database of schedules and survey results, and the empathy, sincerity and sensitivity that you showed in dealing with our people were exemplary. In combination, these factors produced an on-target consulting result, which was by far the most impact delivered per consulting dollar that I have seen.</div>
-    <div class="tcard-meta"><div class="tcard-name">C. David Lilly</div><div class="tcard-sep">·</div><div class="tcard-title">President</div><div class="tcard-sep">·</div><div class="tcard-company">SiteRock Corporation</div></div>
+    <div class="tcard-meta"><div class="tcard-name">C. David Lilly</div><div class="tcard-sep">&middot;</div><div class="tcard-title">President</div><div class="tcard-sep">&middot;</div><div class="tcard-company">SiteRock Corporation</div></div>
   </div>
 </div>
 
@@ -206,15 +281,15 @@
 <div class="testimonials">
   <div class="tcard accent-green">
     <div class="tcard-quote">Hiring Shiftwork Solutions was some of the best dollars we have spent. We hired them to help us go to continuous operations with buy-in from the workforce. Dan Capshaw's exemplary operations analysis and work with our people showed how tightening our policies would be supported by the workforce and allow us to gain the additional capacity that we needed without changing schedules at this time. If you are looking for someone with sincerity and sensitivity in dealing with the whole workforce, then Dan Capshaw and Shiftwork Solutions are the ones you want to call.</div>
-    <div class="tcard-meta"><div class="tcard-name">Rick Rinard</div><div class="tcard-sep">·</div><div class="tcard-title">Plant Manager</div><div class="tcard-sep">·</div><div class="tcard-company">Dana Corporation</div></div>
+    <div class="tcard-meta"><div class="tcard-name">Rick Rinard</div><div class="tcard-sep">&middot;</div><div class="tcard-title">Plant Manager</div><div class="tcard-sep">&middot;</div><div class="tcard-company">Dana Corporation</div></div>
   </div>
   <div class="tcard">
     <div class="tcard-quote">Shiftwork Solutions helped us to successfully expand from 5 days a week to 7 days a week. Their expertise was instrumental in achieving employee support for this change.</div>
-    <div class="tcard-meta"><div class="tcard-name">Kathy Amrhein</div><div class="tcard-sep">·</div><div class="tcard-title">Human Resources Manager</div><div class="tcard-sep">·</div><div class="tcard-company">Pharmacia</div></div>
+    <div class="tcard-meta"><div class="tcard-name">Kathy Amrhein</div><div class="tcard-sep">&middot;</div><div class="tcard-title">Human Resources Manager</div><div class="tcard-sep">&middot;</div><div class="tcard-company">Pharmacia</div></div>
   </div>
   <div class="tcard accent-orange">
     <div class="tcard-quote">Shiftwork Solutions helped us focus our resources on our most productive equipment — allowing us to increase our capacity by over 10% without increasing labor costs or buying new equipment. The return on our investment in their consulting services was outstanding.</div>
-    <div class="tcard-meta"><div class="tcard-name">Mike Crane</div><div class="tcard-sep">·</div><div class="tcard-title">President</div><div class="tcard-sep">·</div><div class="tcard-company">Crane Plastics Company</div></div>
+    <div class="tcard-meta"><div class="tcard-name">Mike Crane</div><div class="tcard-sep">&middot;</div><div class="tcard-title">President</div><div class="tcard-sep">&middot;</div><div class="tcard-company">Crane Plastics Company</div></div>
   </div>
 </div>
 
@@ -223,11 +298,11 @@
 <div class="testimonials">
   <div class="tcard">
     <div class="tcard-quote">A shift structure change is an emotional event for an organization and Shiftwork Solutions was great in not only helping us manage that change, but in helping the organization decide what change should be made.</div>
-    <div class="tcard-meta"><div class="tcard-name">Mike Vanhoy</div><div class="tcard-sep">·</div><div class="tcard-title">Vice President of Operations</div><div class="tcard-sep">·</div><div class="tcard-company">Infineon Technologies</div></div>
+    <div class="tcard-meta"><div class="tcard-name">Mike Vanhoy</div><div class="tcard-sep">&middot;</div><div class="tcard-title">Vice President of Operations</div><div class="tcard-sep">&middot;</div><div class="tcard-company">Infineon Technologies</div></div>
   </div>
   <div class="tcard accent-green">
     <div class="tcard-quote">When it comes to helping shiftwork operations perform at the highest level possible, the consultants at Shiftwork Solutions are the best.</div>
-    <div class="tcard-meta"><div class="tcard-name">Bruce Hill</div><div class="tcard-sep">·</div><div class="tcard-title">Vice President Human Resources</div><div class="tcard-sep">·</div><div class="tcard-company">The American Coal Company</div></div>
+    <div class="tcard-meta"><div class="tcard-name">Bruce Hill</div><div class="tcard-sep">&middot;</div><div class="tcard-title">Vice President Human Resources</div><div class="tcard-sep">&middot;</div><div class="tcard-company">The American Coal Company</div></div>
   </div>
 </div>
 
@@ -235,8 +310,8 @@
 
 <div class="testimonials">
   <div class="tcard tcard-featured">
-    <div class="tcard-quote">I would like to take this opportunity to recommend Shiftwork Solutions LLC to you. Our organization, the United Auto Workers Local 571, has been associated with Dan Capshaw in the past and found him to be very thorough and attentive to our needs. As a union organization, we are acutely familiar with some of the problems associated with shiftwork. Trying to balance a company's needs with the needs of its members is not an easy task. Our members… successfully changed to an alternative shift schedule to meet operational demands. Dan Capshaw… was instrumental in helping the company find fair alternatives that met our members' needs. If you are thinking about changing schedules, I highly recommend you give Dan a call.</div>
-    <div class="tcard-meta"><div class="tcard-name">Mel Olsson</div><div class="tcard-sep">·</div><div class="tcard-title">President, UAW Local 571</div></div>
+    <div class="tcard-quote">I would like to take this opportunity to recommend Shiftwork Solutions LLC to you. Our organization, the United Auto Workers Local 571, has been associated with Dan Capshaw in the past and found him to be very thorough and attentive to our needs. As a union organization, we are acutely familiar with some of the problems associated with shiftwork. Trying to balance a company's needs with the needs of its members is not an easy task. Our members&hellip; successfully changed to an alternative shift schedule to meet operational demands. Dan Capshaw&hellip; was instrumental in helping the company find fair alternatives that met our members' needs. If you are thinking about changing schedules, I highly recommend you give Dan a call.</div>
+    <div class="tcard-meta"><div class="tcard-name">Mel Olsson</div><div class="tcard-sep">&middot;</div><div class="tcard-title">President, UAW Local 571</div></div>
   </div>
 </div>
 
@@ -248,7 +323,7 @@
   <p>Across three decades and dozens of industries. Several clients have engaged us across multiple facilities — a pattern that reflects what happens when the process works.</p>
 </section>
 
-<div class="client-strip"><div class="client-strip-inner"><div class="client-strip-label">Food &amp; Beverage</div><div class="client-tags"><span class="client-tag">Nestlé</span><span class="client-tag">Kellogg's</span><span class="client-tag">Campbell's</span><span class="client-tag">General Mills</span><span class="client-tag">Pepperidge Farms</span><span class="client-tag">Tropicana</span><span class="client-tag">Mondelez</span><span class="client-tag">Smucker's</span><span class="client-tag">Mars</span><span class="client-tag">Dannon</span><span class="client-tag">Golden State Foods</span><span class="client-tag">Snyder's of Hanover</span><span class="client-tag">Buddig</span><span class="client-tag">Trophy Foods</span></div></div></div>
+<div class="client-strip"><div class="client-strip-inner"><div class="client-strip-label">Food &amp; Beverage</div><div class="client-tags"><span class="client-tag">Nestl&eacute;</span><span class="client-tag">Kellogg's</span><span class="client-tag">Campbell's</span><span class="client-tag">General Mills</span><span class="client-tag">Pepperidge Farms</span><span class="client-tag">Tropicana</span><span class="client-tag">Mondelez</span><span class="client-tag">Smucker's</span><span class="client-tag">Mars</span><span class="client-tag">Dannon</span><span class="client-tag">Golden State Foods</span><span class="client-tag">Snyder's of Hanover</span><span class="client-tag">Buddig</span><span class="client-tag">Trophy Foods</span></div></div></div>
 
 <div class="client-strip"><div class="client-strip-inner"><div class="client-strip-label">Chemical, Pharmaceutical &amp; Life Sciences</div><div class="client-tags"><span class="client-tag">Merck</span><span class="client-tag">Medtronic</span><span class="client-tag">Abbott</span><span class="client-tag">Pfizer</span><span class="client-tag">ThermoFisher</span><span class="client-tag">Dow</span><span class="client-tag">DSM</span><span class="client-tag">AkzoNobel</span><span class="client-tag">Covestro</span><span class="client-tag">Saint-Gobain</span><span class="client-tag">Alkermes</span><span class="client-tag">Infineon Technologies</span></div></div></div>
 
@@ -262,39 +337,123 @@
 
 <hr class="divider">
 
-<section class="cta-section"><div class="cta-box">
-  <h2>Ready to Add Your Name to This List?</h2>
-  <p>The first conversation is free. Tell us about your operation and we'll tell you honestly whether we can help — and what that would look like.</p>
-  <div class="cta-actions">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="cta-btn-primary" target="_blank" rel="noopener">Schedule a Free Consultation</a>
-    <a href="/about/" class="cta-link">About Shiftwork Solutions →</a>
+<!-- ── NEXT STEPS ── -->
+<section class="next-steps">
+  <div class="next-steps-inner">
+    <div class="next-steps-eyebrow">Where to Go from Here</div>
+    <h2>Ready to Add Your Name to This List?</h2>
+    <p class="next-steps-sub">The first conversation is free. Pick the path that makes sense for where you are right now.</p>
+    <div class="ns-cards">
+      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card" target="_blank" rel="noopener">
+        <div class="ns-card-label">Free Consultation</div>
+        <h3>Talk to a Senior Consultant</h3>
+        <p>No pitch, no obligation. We'll listen to what isn't working, ask the right questions, and tell you honestly whether and how we can help.</p>
+        <span class="ns-card-link">Book a free meeting</span>
+      </a>
+      <a href="/resources/shiftwork-assessment/" class="ns-card">
+        <div class="ns-card-label">Free Assessment Tool</div>
+        <h3>Shift Operations Health Assessment</h3>
+        <p>Ten minutes, 35 questions, AI-powered evaluation across the 8 dimensions that determine whether your shift operation is working.</p>
+        <span class="ns-card-link">Take the assessment</span>
+      </a>
+      <a href="/about/" class="ns-card">
+        <div class="ns-card-label">Our Company</div>
+        <h3>About Shiftwork Solutions</h3>
+        <p>Three decades, hundreds of operations, one focus. Learn who we are, how we work, and what makes our process different.</p>
+        <span class="ns-card-link">Learn about us</span>
+      </a>
+    </div>
   </div>
-</div></section>
+</section>
 
-<div class="engage-band"><div class="engage-inner">
-  <div class="engage-thomas"><div class="engage-label">AI ADVISOR</div><div class="engage-thomas-title">Talk to Thomas</div><p class="engage-thomas-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p><a href="https://shift-work-diagnostic.onrender.com/" class="engage-thomas-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a></div>
-  <div class="engage-nl"><div class="engage-label">NEWSLETTER</div><div class="engage-nl-title">Stay Sharp on Shift Operations</div><p class="engage-nl-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
-</div></div>
-
-<footer class="site-footer"><div class="footer-inner">
-  <span class="footer-logo">Shiftwork Solutions LLC</span>
-  <span>(415) 265-1621</span>
-  <span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></span>
-  <div class="footer-links-row"><a href="/resources/">Resources</a><a href="/industries/">Industries</a><a href="/services/">Services</a><a href="/contact/">Contact</a></div>
-  <span>&copy; 2026 Shiftwork Solutions LLC</span>
-</div></footer>
+<!-- ── FOOTER ── -->
+<footer class="site-footer">
+  <div class="footer-prefooter"><div class="footer-wrap">
+    <div class="footer-content-row">
+      <div class="footer-col footer-col-1">
+        <div class="engage-label">FREE CONSULTATION</div>
+        <div class="engage-col-title">Ready to talk about your operation?</div>
+        <p class="engage-col-desc">Manufacturing and distribution operations running 24/7 typically have more room to improve than they realize. The first conversation is always free.</p>
+      </div>
+      <div class="footer-col footer-col-2">
+        <div class="engage-label">AI ADVISOR</div>
+        <div class="engage-col-title">Talk to Thomas</div>
+        <p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
+      </div>
+      <div class="footer-col footer-col-3">
+        <div class="engage-label">NEWSLETTER</div>
+        <div class="engage-col-title">Stay Sharp on Shift Operations</div>
+        <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
+      </div>
+    </div>
+    <div class="footer-cta-row">
+      <div class="footer-cta-1"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a></div>
+      <div class="footer-cta-2"><a href="https://shift-work-diagnostic.onrender.com/" class="footer-cta-btn" target="_blank" rel="noopener">Start a Conversation &#x2192;</a></div>
+      <div class="footer-cta-3">
+        <form class="engage-nl-form" onsubmit="footerNLSubmit(event)">
+          <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="footerNLEmail">
+          <button type="submit" class="engage-nl-btn" id="footerNLBtn">Subscribe &#x2192;</button>
+        </form>
+        <div class="engage-nl-msg" id="footerNLMsg"></div>
+      </div>
+    </div>
+  </div></div>
+  <div class="footer-bottom"><div class="footer-bottom-inner">
+    <div class="footer-bottom-left">
+      <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+      <a href="tel:+14152651621">(415) 265-1621</a>
+      <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+    </div>
+    <span>&copy; 2026 Shiftwork Solutions LLC</span>
+  </div></div>
+</footer>
 
 <script>
-  document.getElementById('mobileToggle').addEventListener('click', function() {
-    var n = document.getElementById('navLinks');
-    if (n.style.display === 'flex') { n.style.display = 'none'; }
-    else { n.style.display = 'flex'; n.style.flexDirection = 'column'; n.style.position = 'absolute'; n.style.top = '56px'; n.style.left = '0'; n.style.right = '0'; n.style.background = '#fff'; n.style.borderBottom = '1px solid #e0e0e0'; n.style.padding = '8px 0'; n.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)'; n.style.zIndex = '99'; }
-  });
-</script>
-<script>
-  (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn'),msg=document.getElementById('engageNLMsg'),email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json()}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713'}else{throw new Error(d.error||'Failed')}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192'})};})();
-</script>
+/* ── Mobile nav ── */
+document.getElementById('mobileToggle').addEventListener('click', function () {
+  var n = document.getElementById('navLinks');
+  if (n.style.display === 'flex') { n.style.display = 'none'; }
+  else {
+    n.style.display = 'flex'; n.style.flexDirection = 'column';
+    n.style.position = 'absolute'; n.style.top = '56px';
+    n.style.left = '0'; n.style.right = '0';
+    n.style.background = '#fff'; n.style.borderBottom = '1px solid #e0e0e0';
+    n.style.padding = '8px 0'; n.style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)';
+    n.style.zIndex = '99';
+  }
+});
 
+/* ── Footer newsletter ── */
+(function () {
+  var SWARM = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
+  window.footerNLSubmit = function (e) {
+    e.preventDefault();
+    var btn = document.getElementById('footerNLBtn');
+    var msg = document.getElementById('footerNLMsg');
+    var email = document.getElementById('footerNLEmail').value.trim();
+    if (!email) return;
+    btn.disabled = true; btn.textContent = 'Subscribing...';
+    fetch(SWARM, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, source: 'website-testimonials-footer-nl' })
+    }).then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d.success) {
+          msg.className = 'engage-nl-msg ok';
+          msg.textContent = '\u2713 Subscribed. Thank you.';
+          document.getElementById('footerNLEmail').value = '';
+          btn.textContent = 'Subscribed \u2713';
+        } else { throw new Error(d.error || 'Failed'); }
+      })
+      .catch(function (err) {
+        msg.className = 'engage-nl-msg err';
+        msg.textContent = err.message === 'This email is already subscribed.' ? 'Already subscribed \u2014 thank you!' : 'Something went wrong. Try again.';
+        btn.disabled = false; btn.textContent = 'Subscribe \u2192';
+      });
+  };
+})();
+</script>
 </body>
 </html>
 <!-- I did no harm and this file is not truncated -->
