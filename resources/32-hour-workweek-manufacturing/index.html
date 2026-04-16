@@ -3,7 +3,7 @@
   resources/32-hour-workweek-manufacturing/index.html
   Shiftwork Solutions LLC — Trending Topic Article
   URL: /resources/32-hour-workweek-manufacturing/
-  Created: 2026-04-04 | Last Updated: 2026-04-15
+  Created: 2026-04-04 | Last Updated: 2026-04-16
 
   CHANGE LOG:
     2026-04-04 — Initial build from source Word doc.
@@ -31,6 +31,7 @@
                     Card borders changed from white/transparent to solid --border-med.
                     Text colors updated: eyebrow/sub/phone to --muted, h2 to --navy.
                     Card label/link colors: blue card uses --navy (not --mid-blue).
+    2026-04-16 — NAV LABEL: "Our Company" → "Why Us" on /why-us/ link.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/32.jpg
@@ -53,7 +54,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
   <meta name="twitter:card" content="summary">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The 32-Hour Workweek: What It Means for 24/7 Manufacturing","description":"A 32-hour overtime threshold sounds simple. For 24/7 manufacturing and continuous operations, the staffing and cost implications are anything but.","url":"https://shift-work.com/resources/32-hour-workweek-manufacturing/","datePublished":"2026-04-04","dateModified":"2026-04-15","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"32-hour workweek manufacturing, 32-hour workweek 24/7 operations, shorter workweek manufacturing impact, overtime threshold manufacturing"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The 32-Hour Workweek: What It Means for 24/7 Manufacturing","description":"A 32-hour overtime threshold sounds simple. For 24/7 manufacturing and continuous operations, the staffing and cost implications are anything but.","url":"https://shift-work.com/resources/32-hour-workweek-manufacturing/","datePublished":"2026-04-04","dateModified":"2026-04-16","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"32-hour workweek manufacturing, 32-hour workweek 24/7 operations, shorter workweek manufacturing impact, overtime threshold manufacturing"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"The 32-Hour Workweek","item":"https://shift-work.com/resources/32-hour-workweek-manufacturing/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What happens to labor costs in 24/7 operations if the overtime threshold drops to 32 hours?","acceptedAnswer":{"@type":"Answer","text":"Monday-through-Friday operations would see 8 hours per employee shift from straight time to overtime — roughly a 10% labor cost increase. Four-crew 24/7 systems would see pay equivalents rise from 44 to approximately 47 hours — a 6.8% increase. Five-crew systems are least affected, averaging only 1.6 hours above the 32-hour threshold."}},{"@type":"Question","name":"Which crew model is best positioned for a 32-hour workweek?","acceptedAnswer":{"@type":"Answer","text":"Five-crew systems are the most adaptable, averaging 33.6 hours per week per employee — only 1.6 hours above a 32-hour threshold. The tradeoff is losing dedicated relief and training capacity."}}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,17 +65,13 @@
     :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
-
-    /* ── NAV ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0;display:flex;align-items:center;gap:12px}
     .nav-logo img{height:36px;width:auto;display:block}
-    /* v2: SHIFTWORK SOLUTIONS text added next to logo */
     .nav-logo-text{font-family:Arial,sans-serif;font-size:20px;font-weight:700;color:#1F4E79;letter-spacing:0.03em;line-height:1}
     .nav-links{list-style:none;display:flex;align-items:center}
     .nav-links>li{position:relative}
-    /* v2: font-size increased from 13.5px to 20px */
     .nav-links>li>a{display:flex;align-items:center;gap:3px;padding:16px 14px;font-size:20px;font-weight:500;color:#444;text-decoration:none;transition:color .15s;white-space:nowrap}
     .nav-links>li>a:hover,.nav-links>li>a.nav-active{color:var(--navy)}
     .nav-links>li>a.nav-active{font-weight:700;text-decoration:underline;text-underline-offset:3px}
@@ -83,8 +80,6 @@
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-
-    /* ── HERO ── */
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:url('/images/32.jpg') center center / cover no-repeat;opacity:1;z-index:0}
     .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,0.88) 0%,rgba(31,78,121,0.75) 55%,rgba(31,78,121,0.35) 100%);z-index:0}
@@ -93,15 +88,11 @@
     .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:#EEAE26;max-width:620px;margin-bottom:14px}
     .hero-subtitle{font-size:16px;line-height:1.65;color:rgba(255,255,255,0.88);max-width:560px}
     .hero-tag{display:inline-block;margin-top:16px;background:rgba(232,97,10,0.9);color:var(--white);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 12px;border-radius:3px}
-
-    /* ── BREADCRUMB ── */
     .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
     .breadcrumb-inner a{color:var(--navy);text-decoration:none}
     .breadcrumb-inner a:hover{text-decoration:underline}
     .breadcrumb-inner span{margin:0 6px;opacity:.5}
-
-    /* ── ARTICLE ── */
     .article-wrap{max-width:var(--max-width);margin:0 auto;padding:48px var(--page-pad) 56px}
     .article-meta{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border-light);flex-wrap:wrap}
     .meta-tag{display:inline-block;background:var(--light-blue);color:var(--navy);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:3px}
@@ -109,15 +100,11 @@
     .article-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin:36px 0 14px}
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
     .article-wrap p:last-child{margin-bottom:0}
-
-    /* ── PULL QUOTE ── */
     .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:center;gap:16px}
     .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
     .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
     .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
-
-    /* ── DATA TABLE ── */
     .data-table-wrap{margin:32px 0;overflow-x:auto}
     .data-table{width:100%;border-collapse:collapse;font-size:14px}
     .data-table th{background:var(--navy);color:var(--white);padding:10px 14px;text-align:left;font-size:13px;font-weight:700}
@@ -125,21 +112,17 @@
     .data-table tr:nth-child(even) td{background:var(--light-blue)}
     .data-table tr:last-child td{border-bottom:none}
     .data-table .highlight{color:var(--orange);font-weight:700}
-
-    /* ── INSIGHT CARDS ── */
     .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
     .insight-card{background:var(--light-blue);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
     .insight-card .ic-num{font-size:28px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:6px}
     .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.5}
-
-    /* ── FAQ — INDUSTRY STYLE (full-bleed Hands_in_the_air.jpg) ── */
     .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
     .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:52px 24px 56px}
     .faq-inner h2{font-size:22px;font-weight:700;color:#EEAE26;margin-bottom:28px;text-shadow:0 1px 6px rgba(0,0,0,0.5)}
     .faq-item{margin-bottom:6px}
-    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--navy);border:1px solid rgba(255,255,255,0.18);border-radius:6px;cursor:pointer;padding:16px 18px;text-align:left;gap:16px;transition:background .2s ease}
+    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--navy);border:1px solid rgba(255,255,255,0.18);border-radius:6px;cursor:pointer;padding:16px 18px;text-align:left;gap:16px;transition:background .2s ease;font-family:Arial,Helvetica,sans-serif}
     .faq-toggle:hover{background:#1a4268}
     .faq-item.faq-open .faq-toggle{border-radius:6px 6px 0 0;background:var(--navy);border-bottom-color:transparent}
     .faq-q{font-size:15px;font-weight:700;color:#fff;line-height:1.4;flex:1;text-shadow:0 1px 4px rgba(0,0,0,0.4)}
@@ -150,8 +133,6 @@
     .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease,padding .25s ease}
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
-
-    /* ── NEXT STEPS — light grey background, clearly separated from dark footer ── */
     .next-steps{padding:56px var(--page-pad) 60px;background:#F4F6F8;position:relative;overflow:hidden}
     .next-steps-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
     .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
@@ -183,8 +164,6 @@
     .ns-phone{margin-top:28px;font-size:13px;color:var(--muted);text-align:center}
     .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
     .ns-phone a:hover{color:var(--orange)}
-
-    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -218,13 +197,9 @@
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-
-    /* ── LISTEN BUTTON ── */
     .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
     .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
-
-    /* ── RESPONSIVE ── */
     @media(max-width:760px){.ns-cards{grid-template-columns:1fr}.insight-cards{grid-template-columns:1fr 1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
     @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.next-steps{padding:40px 20px 44px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.insight-cards{grid-template-columns:1fr}}
   </style>
@@ -242,7 +217,7 @@
     <li><a href="/services/">Our Services</a></li>
     <li><a href="/resources/" class="nav-active">Resources</a></li>
     <li><a href="/industries/">Industries</a></li>
-    <li><a href="/why-us/">Our Company</a></li>
+    <li><a href="/why-us/">Why Us</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
@@ -301,53 +276,16 @@
 
 </div><!-- /.article-wrap -->
 
-<!-- FAQ SECTION: full-bleed with Hands_in_the_air.jpg background, industry-style accordion -->
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
   <div class="faq-inner">
     <h2>Frequently Asked Questions</h2>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">What happens to labor costs in 24/7 operations if the overtime threshold drops to 32 hours?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">The impact depends on the crew model. Monday-through-Friday operations running 1 to 3 crews would see 8 hours per employee shift from straight time to overtime — roughly a 10% labor cost increase. Four-crew 24/7 systems averaging 42 hours per week would see pay equivalents rise from 44 to approximately 47 hours — a 6.8% increase. Five-crew systems are the least affected, averaging only 1.6 hours above the 32-hour threshold when all five crews are used for coverage.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">Which crew model is best positioned for a 32-hour workweek?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">Five-crew systems are the most adaptable. When all five crews are used for coverage rather than reserving one for relief and training, each crew averages 33.6 hours per week — only 1.6 hours above a 32-hour threshold. The tradeoff is losing the dedicated relief and training capacity that the fifth crew currently provides, which may push some operations toward a six-crew model.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">Can a 4-crew 24/7 operation avoid overtime under a 32-hour rule?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">Avoiding overtime entirely in a 4-crew system would require complex overstaffing that is unlikely to yield financial benefit. The crews currently average 42 hours per week. Redesigning to bring individual hours below 32 while maintaining full coverage would require adding crews and redistributing hours in ways that typically cost more than absorbing the overtime premium on the hours above the threshold.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">Should operations wait for 32-hour legislation to pass before modeling the impact?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">No. The concept has enough momentum — in policy discussions, union negotiations, and employee expectations — that operations benefit from understanding their exposure before it becomes urgent. Proactive modeling is significantly less expensive than reactive restructuring. Understanding your crew model's vulnerability now gives you time to evaluate options without the pressure of an impending deadline.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">How does the 32-hour workweek differ for manufacturing versus office environments?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">The difference is fundamental. A knowledge worker who completes their deliverables in 32 hours has produced full value. A production line that runs 32 hours has left 136 hours of weekly capacity unused. Continuous operations must cover every hour of the week regardless of the overtime threshold — the question is how to distribute coverage across more crews without proportionally increasing cost.</div></div>
-    </div>
-
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What happens to labor costs in 24/7 operations if the overtime threshold drops to 32 hours?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The impact depends on the crew model. Monday-through-Friday operations running 1 to 3 crews would see 8 hours per employee shift from straight time to overtime — roughly a 10% labor cost increase. Four-crew 24/7 systems averaging 42 hours per week would see pay equivalents rise from 44 to approximately 47 hours — a 6.8% increase. Five-crew systems are the least affected, averaging only 1.6 hours above the 32-hour threshold when all five crews are used for coverage.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Which crew model is best positioned for a 32-hour workweek?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Five-crew systems are the most adaptable. When all five crews are used for coverage rather than reserving one for relief and training, each crew averages 33.6 hours per week — only 1.6 hours above a 32-hour threshold. The tradeoff is losing the dedicated relief and training capacity that the fifth crew currently provides, which may push some operations toward a six-crew model.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Can a 4-crew 24/7 operation avoid overtime under a 32-hour rule?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Avoiding overtime entirely in a 4-crew system would require complex overstaffing that is unlikely to yield financial benefit. The crews currently average 42 hours per week. Redesigning to bring individual hours below 32 while maintaining full coverage would require adding crews and redistributing hours in ways that typically cost more than absorbing the overtime premium on the hours above the threshold.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Should operations wait for 32-hour legislation to pass before modeling the impact?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">No. The concept has enough momentum — in policy discussions, union negotiations, and employee expectations — that operations benefit from understanding their exposure before it becomes urgent. Proactive modeling is significantly less expensive than reactive restructuring. Understanding your crew model's vulnerability now gives you time to evaluate options without the pressure of an impending deadline.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How does the 32-hour workweek differ for manufacturing versus office environments?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The difference is fundamental. A knowledge worker who completes their deliverables in 32 hours has produced full value. A production line that runs 32 hours has left 136 hours of weekly capacity unused. Continuous operations must cover every hour of the week regardless of the overtime threshold — the question is how to distribute coverage across more crews without proportionally increasing cost.</div></div></div>
   </div>
 </div><!-- /.faq-section -->
 
@@ -383,7 +321,6 @@
 </footer>
 
 <button class="listen-btn" id="listenBtn" aria-label="Listen to this article"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg><span id="listenLabel">Listen</span></button>
-
 <script>
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
