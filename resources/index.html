@@ -75,15 +75,18 @@
     .hub-intro{margin-bottom:28px}
     .interest-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
     /* CHANGE 2: split-band interest buttons */
-    .interest-btn{background:var(--white);border:2px solid var(--border-med);border-radius:10px;cursor:pointer;text-align:left;transition:all .25s ease;outline:none;font-family:Arial,Helvetica,sans-serif;overflow:hidden;padding:0;display:flex;flex-direction:column;min-height:168px}
-    .interest-btn:hover{border-color:var(--orange);transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.10)}
-    .interest-btn.active{border-color:var(--orange);box-shadow:0 4px 24px rgba(232,97,10,.18)}
-    .interest-btn-top{background:var(--white);padding:18px 18px 14px;border-bottom:1px solid var(--border-light)}
+    .interest-btn{background:var(--white);border:2px solid var(--navy);border-radius:10px;cursor:pointer;text-align:left;transition:all .25s ease;outline:none;font-family:Arial,Helvetica,sans-serif;overflow:hidden;padding:0;display:flex;flex-direction:column;min-height:200px}
+    .interest-btn:hover{border-color:var(--orange);transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.14)}
+    .interest-btn.active{border-color:var(--orange);box-shadow:0 4px 24px rgba(232,97,10,.22)}
+    .interest-btn-top{background:var(--white);padding:16px 18px 14px;border-bottom:2px solid var(--border-med)}
     .interest-btn.active .interest-btn-top{background:#FFF8F5}
-    .interest-btn-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--orange);margin-bottom:6px}
-    .interest-btn-title{font-size:16px;font-weight:700;color:var(--navy);line-height:1.3}
+    .interest-btn-icon-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+    .interest-btn-icon{width:36px;height:36px;border-radius:50%;background:var(--light-blue);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .interest-btn-icon svg{display:block}
+    .interest-btn-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--orange);margin-bottom:0}
+    .interest-btn-title{font-size:17px;font-weight:700;color:var(--navy);line-height:1.3;margin-top:6px}
     .interest-btn-bottom{background:var(--navy-dark);padding:14px 18px 18px;flex:1;display:flex;align-items:flex-start}
-    .interest-btn-desc{font-size:13px;color:rgba(255,255,255,.82);line-height:1.55}
+    .interest-btn-desc{font-size:14px;color:rgba(255,255,255,.85);line-height:1.55}
     /* Result panel */
     .result-area{display:none;max-width:var(--max-width);margin:32px auto 0;padding:28px 24px 32px;background:var(--white);border:1px solid var(--border-med);border-top:4px solid var(--orange);border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.06)}
     .result-area.visible{display:block;animation:fadeUp .35s ease both}
@@ -125,7 +128,7 @@
     /* CTA cards — change 3: both navy, white top band */
     .guide-cta-card{display:flex;flex-direction:column;border-radius:8px;overflow:hidden;text-decoration:none;transition:all .2s ease;border:2px solid transparent;background:var(--navy)}
     .guide-cta-card:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.18);border-color:var(--orange)}
-    .guide-cta-top{background:var(--white);padding:18px 20px 14px;border-bottom:3px solid var(--orange);display:flex;align-items:center;gap:12px}
+    .guide-cta-top{background:var(--white);height:140px;padding:0 20px;border-bottom:3px solid var(--orange);display:flex;align-items:center;gap:14px}
     .guide-cta-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--light-blue)}
     .guide-cta-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--navy)}
     .guide-cta-body{flex:1;padding:18px 20px 22px;display:flex;flex-direction:column}
@@ -238,7 +241,7 @@
       .hero{padding:40px 20px 48px}.hero h1{font-size:26px}
       .hub-section{padding:32px 16px 40px}
       .interest-row{grid-template-columns:1fr 1fr;gap:10px}
-      .interest-btn{min-height:140px}
+      .interest-btn{min-height:170px}
       .interest-btn-title{font-size:14px}
       .result-card-img{width:80px}
       .guides-section,.focused-section,.trending-section{padding-left:16px;padding-right:16px}
@@ -301,19 +304,51 @@
   </div>
   <div class="interest-row">
     <button class="interest-btn" data-interest="expanding" onclick="selectInterest(this)">
-      <div class="interest-btn-top"><div class="interest-btn-label">Expanding Operations</div><div class="interest-btn-title">Moving to 24/7 or adding shifts</div></div>
+      <div class="interest-btn-top">
+        <div class="interest-btn-icon-row">
+          <div class="interest-btn-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M2 13l4-4 3 3 7-7" stroke="#1F4E79" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 5h4v4" stroke="#1F4E79" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="interest-btn-label">Expanding Operations</div>
+        </div>
+        <div class="interest-btn-title">Moving to 24/7 or adding shifts</div>
+      </div>
       <div class="interest-btn-bottom"><span class="interest-btn-desc">Going continuous, adding coverage hours, or transitioning from 5-day to 7-day operations.</span></div>
     </button>
     <button class="interest-btn" data-interest="performance" onclick="selectInterest(this)">
-      <div class="interest-btn-top"><div class="interest-btn-label">Performance Problems</div><div class="interest-btn-title">Overtime, coverage, or productivity</div></div>
+      <div class="interest-btn-top">
+        <div class="interest-btn-icon-row">
+          <div class="interest-btn-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#1F4E79" stroke-width="2"/><path d="M9 5v4l3 2" stroke="#1F4E79" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <div class="interest-btn-label">Performance Problems</div>
+        </div>
+        <div class="interest-btn-title">Overtime, coverage, or productivity</div>
+      </div>
       <div class="interest-btn-bottom"><span class="interest-btn-desc">Chronic overtime, coverage gaps, variable workloads, or equipment utilization below potential.</span></div>
     </button>
     <button class="interest-btn" data-interest="workforce" onclick="selectInterest(this)">
-      <div class="interest-btn-top"><div class="interest-btn-label">Workforce &amp; Retention</div><div class="interest-btn-title">Turnover, engagement, or change</div></div>
+      <div class="interest-btn-top">
+        <div class="interest-btn-icon-row">
+          <div class="interest-btn-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="7" cy="6" r="3" stroke="#1F4E79" stroke-width="2"/><path d="M1 15c0-3 2.7-5 6-5s6 2 6 5" stroke="#1F4E79" stroke-width="2" stroke-linecap="round"/><circle cx="14" cy="5" r="2" stroke="#1F4E79" stroke-width="1.5"/><path d="M14 9c1.5.3 3 1.4 3 3.5" stroke="#1F4E79" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <div class="interest-btn-label">Workforce &amp; Retention</div>
+        </div>
+        <div class="interest-btn-title">Turnover, engagement, or change</div>
+      </div>
       <div class="interest-btn-bottom"><span class="interest-btn-desc">High turnover, low engagement, schedule change resistance, or policy misalignment with workforce needs.</span></div>
     </button>
     <button class="interest-btn" data-interest="unsure" onclick="selectInterest(this)">
-      <div class="interest-btn-top"><div class="interest-btn-label">Not Sure Yet</div><div class="interest-btn-title">Help me diagnose the problem</div></div>
+      <div class="interest-btn-top">
+        <div class="interest-btn-icon-row">
+          <div class="interest-btn-icon">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#1F4E79" stroke-width="2"/><path d="M7 7c0-1.1.9-2 2-2s2 .9 2 2c0 1.5-2 2-2 3" stroke="#1F4E79" stroke-width="2" stroke-linecap="round"/><circle cx="9" cy="13" r="1" fill="#1F4E79"/></svg>
+          </div>
+          <div class="interest-btn-label">Not Sure Yet</div>
+        </div>
+        <div class="interest-btn-title">Help me diagnose the problem</div>
+      </div>
       <div class="interest-btn-bottom"><span class="interest-btn-desc">Start with one of our diagnostic tools — they'll help identify where your operation is losing the most ground.</span></div>
     </button>
   </div>
