@@ -121,15 +121,12 @@
     .theme-label-line{flex:1;height:1px;background:var(--border-light)}
     .theme-label-text{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);white-space:nowrap}
 
-    /* ── CLIENT DEPTH SECTION — diagonal cut ── */
+    /* ── CLIENT DEPTH SECTION ── */
     .client-depth{
-      padding:72px 0 80px;
+      padding:52px 0 56px;
       background:var(--navy);
       overflow:hidden;
       position:relative;
-      /* Diagonal entry and exit via clip-path */
-      clip-path:polygon(0 40px, 100% 0, 100% calc(100% - 40px), 0 100%);
-      margin:0 0;
     }
     /* Extra vertical padding to compensate for clip-path cutting corners */
     .client-depth-inner{
@@ -153,29 +150,31 @@
       max-width:500px;margin:0 auto
     }
 
-    /* ── MARQUEE ── */
-    .client-marquee-wrap{position:relative;overflow:hidden}
-    .client-marquee-fade-l{
-      position:absolute;top:0;left:0;bottom:0;width:100px;
+    /* ── MARQUEE ROWS ── */
+    .client-marquee-rows{position:relative;overflow:hidden;padding:4px 0}
+    .client-marquee-rows::before{
+      content:'';position:absolute;top:0;left:0;bottom:0;width:120px;
       background:linear-gradient(to right,var(--navy),transparent);
       z-index:1;pointer-events:none
     }
-    .client-marquee-fade-r{
-      position:absolute;top:0;right:0;bottom:0;width:100px;
+    .client-marquee-rows::after{
+      content:'';position:absolute;top:0;right:0;bottom:0;width:120px;
       background:linear-gradient(to left,var(--navy),transparent);
       z-index:1;pointer-events:none
     }
-    @keyframes marquee-clients{
-      0%{transform:translateX(0)}
-      100%{transform:translateX(-50%)}
-    }
-    .client-marquee-track{
-      display:flex;width:max-content;padding:10px 0;
-      animation:marquee-clients 42s linear infinite
-    }
-    .client-marquee-track:hover{animation-play-state:paused}
+    .client-marquee-row{display:flex;width:max-content;padding:6px 0}
+    .client-marquee-row:hover{animation-play-state:paused}
+    @keyframes scroll-left{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    @keyframes scroll-right{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+    .row-1{animation:scroll-left 50s linear infinite}
+    .row-2{animation:scroll-right 38s linear infinite}
+    .row-3{animation:scroll-left 28s linear infinite}
+    /* Remove stale class names from earlier attempts */
+    .row-left-fast{animation:scroll-left 35s linear infinite}
+    .row-right-mid{animation:scroll-right 50s linear infinite}
+    .row-left-slow{animation:scroll-left 65s linear infinite}
     .client-name{
-      display:inline-block;padding:10px 26px;
+      display:inline-block;padding:8px 24px;
       font-size:26px;font-weight:700;color:#ffffff;
       white-space:nowrap;letter-spacing:.04em;
       text-transform:uppercase;opacity:.88;
@@ -186,7 +185,7 @@
     .client-dot{
       display:inline-block;color:#EEAE26;
       font-size:20px;line-height:1;padding:0 2px;
-      vertical-align:middle;opacity:.60
+      vertical-align:middle;opacity:.50
     }
 
     /* ── NEXT STEPS ── */
@@ -284,10 +283,7 @@
 </div></nav>
 
 <!-- ── HERO ── -->
-<section class="hero"><div class="hero-inner" style="display:flex;align-items:center;gap:48px;">
-  <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions"
-       class="hero-logo" style="height:216px;width:auto;flex-shrink:0;opacity:1;filter:drop-shadow(0 2px 16px rgba(255,255,255,0.30));">
-  <div>
+<section class="hero"><div class="hero-inner">
     <div class="hero-eyebrow">Client Testimonials</div>
     <h1>What Our Clients Say</h1>
     <p class="hero-subtitle">Plant managers, HR leaders, operations executives, and union presidents — across manufacturing, pharmaceutical, mining, plastics, and food processing.</p>
@@ -296,7 +292,6 @@
       <div class="hero-stat"><div class="hero-stat-num">16+</div><div class="hero-stat-label">Industries where<br>we've delivered results</div></div>
       <div class="hero-stat"><div class="hero-stat-num">Union</div><div class="hero-stat-label">Experience in both union<br>and non-union environments</div></div>
     </div>
-  </div>
 </div></section>
 
 <!-- ── BREADCRUMB ── -->
@@ -375,101 +370,108 @@
     <div class="client-depth-headline">Hundreds of engagements across 16 industries over three decades.</div>
     <p class="client-depth-sub">Manufacturing, food &amp; beverage, pharmaceutical, mining, distribution, energy, automotive, paper — and more. Several clients have engaged us across multiple facilities.</p>
   </div>
-  <div class="client-marquee-wrap">
-    <div class="client-marquee-fade-l"></div>
-    <div class="client-marquee-fade-r"></div>
-    <div class="client-marquee-track">
+  <div class="client-marquee-rows">
+    <!-- Row 1: scrolls left, slow -->
+    <div class="client-marquee-row row-1">
       <span class="client-name">Nestl&eacute;</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Kellogg's</span><span class="client-dot">&middot;</span>
       <span class="client-name">BMW</span><span class="client-dot">&middot;</span>
       <span class="client-name">Merck</span><span class="client-dot">&middot;</span>
       <span class="client-name">FedEx</span><span class="client-dot">&middot;</span>
-      <span class="client-name">BHP</span><span class="client-dot">&middot;</span>
       <span class="client-name">General Mills</span><span class="client-dot">&middot;</span>
       <span class="client-name">Pfizer</span><span class="client-dot">&middot;</span>
       <span class="client-name">Toyota</span><span class="client-dot">&middot;</span>
       <span class="client-name">International Paper</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Campbell's</span><span class="client-dot">&middot;</span>
       <span class="client-name">Dow</span><span class="client-dot">&middot;</span>
       <span class="client-name">Whirlpool</span><span class="client-dot">&middot;</span>
       <span class="client-name">Goodyear</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Vale</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Tropicana</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Abbott</span><span class="client-dot">&middot;</span>
       <span class="client-name">Siemens</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Kimberly-Clark</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Unilever</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Raytheon</span><span class="client-dot">&middot;</span>
+      <!-- duplicate -->
+      <span class="client-name">Nestl&eacute;</span><span class="client-dot">&middot;</span>
+      <span class="client-name">BMW</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Merck</span><span class="client-dot">&middot;</span>
+      <span class="client-name">FedEx</span><span class="client-dot">&middot;</span>
+      <span class="client-name">General Mills</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Pfizer</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Toyota</span><span class="client-dot">&middot;</span>
+      <span class="client-name">International Paper</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Dow</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Whirlpool</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Goodyear</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Siemens</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Kimberly-Clark</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Unilever</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Raytheon</span><span class="client-dot">&middot;</span>
+    </div>
+    <!-- Row 2: scrolls right, medium -->
+    <div class="client-marquee-row row-2">
+      <span class="client-name">Kellogg's</span><span class="client-dot">&middot;</span>
+      <span class="client-name">BHP</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Campbell's</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Vale</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Abbott</span><span class="client-dot">&middot;</span>
       <span class="client-name">WestRock</span><span class="client-dot">&middot;</span>
       <span class="client-name">DHL</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Mondelez</span><span class="client-dot">&middot;</span>
       <span class="client-name">Medtronic</span><span class="client-dot">&middot;</span>
       <span class="client-name">GM</span><span class="client-dot">&middot;</span>
       <span class="client-name">BP</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Kimberly-Clark</span><span class="client-dot">&middot;</span>
       <span class="client-name">Mars</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Weyerhaeuser</span><span class="client-dot">&middot;</span>
       <span class="client-name">Hyundai</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Compass Minerals</span><span class="client-dot">&middot;</span>
       <span class="client-name">Kroger</span><span class="client-dot">&middot;</span>
+      <span class="client-name">AkzoNobel</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Dana Corporation</span><span class="client-dot">&middot;</span>
+      <!-- duplicate -->
+      <span class="client-name">Kellogg's</span><span class="client-dot">&middot;</span>
+      <span class="client-name">BHP</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Campbell's</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Vale</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Abbott</span><span class="client-dot">&middot;</span>
+      <span class="client-name">WestRock</span><span class="client-dot">&middot;</span>
+      <span class="client-name">DHL</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Medtronic</span><span class="client-dot">&middot;</span>
+      <span class="client-name">GM</span><span class="client-dot">&middot;</span>
+      <span class="client-name">BP</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Mars</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Hyundai</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Kroger</span><span class="client-dot">&middot;</span>
+      <span class="client-name">AkzoNobel</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Dana Corporation</span><span class="client-dot">&middot;</span>
+    </div>
+    <!-- Row 3: scrolls left, fast -->
+    <div class="client-marquee-row row-3">
+      <span class="client-name">Tropicana</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Mondelez</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Weyerhaeuser</span><span class="client-dot">&middot;</span>
+      <span class="client-name">Compass Minerals</span><span class="client-dot">&middot;</span>
       <span class="client-name">Smucker's</span><span class="client-dot">&middot;</span>
       <span class="client-name">ThermoFisher</span><span class="client-dot">&middot;</span>
       <span class="client-name">Corning</span><span class="client-dot">&middot;</span>
       <span class="client-name">Southern Company</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Unilever</span><span class="client-dot">&middot;</span>
       <span class="client-name">Pepperidge Farms</span><span class="client-dot">&middot;</span>
-      <span class="client-name">AkzoNobel</span><span class="client-dot">&middot;</span>
       <span class="client-name">Andersen Windows</span><span class="client-dot">&middot;</span>
       <span class="client-name">Phelps Dodge</span><span class="client-dot">&middot;</span>
       <span class="client-name">Tesla</span><span class="client-dot">&middot;</span>
       <span class="client-name">Snyder's of Hanover</span><span class="client-dot">&middot;</span>
       <span class="client-name">Saint-Gobain</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Dana Corporation</span><span class="client-dot">&middot;</span>
       <span class="client-name">ComEd</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Raytheon</span><span class="client-dot">&middot;</span>
-      <!-- duplicate for seamless loop -->
-      <span class="client-name">Nestl&eacute;</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Kellogg's</span><span class="client-dot">&middot;</span>
-      <span class="client-name">BMW</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Merck</span><span class="client-dot">&middot;</span>
-      <span class="client-name">FedEx</span><span class="client-dot">&middot;</span>
-      <span class="client-name">BHP</span><span class="client-dot">&middot;</span>
-      <span class="client-name">General Mills</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Pfizer</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Toyota</span><span class="client-dot">&middot;</span>
-      <span class="client-name">International Paper</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Campbell's</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Dow</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Whirlpool</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Goodyear</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Vale</span><span class="client-dot">&middot;</span>
+      <!-- duplicate -->
       <span class="client-name">Tropicana</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Abbott</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Siemens</span><span class="client-dot">&middot;</span>
-      <span class="client-name">WestRock</span><span class="client-dot">&middot;</span>
-      <span class="client-name">DHL</span><span class="client-dot">&middot;</span>
       <span class="client-name">Mondelez</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Medtronic</span><span class="client-dot">&middot;</span>
-      <span class="client-name">GM</span><span class="client-dot">&middot;</span>
-      <span class="client-name">BP</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Kimberly-Clark</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Mars</span><span class="client-dot">&middot;</span>
       <span class="client-name">Weyerhaeuser</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Hyundai</span><span class="client-dot">&middot;</span>
       <span class="client-name">Compass Minerals</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Kroger</span><span class="client-dot">&middot;</span>
       <span class="client-name">Smucker's</span><span class="client-dot">&middot;</span>
       <span class="client-name">ThermoFisher</span><span class="client-dot">&middot;</span>
       <span class="client-name">Corning</span><span class="client-dot">&middot;</span>
       <span class="client-name">Southern Company</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Unilever</span><span class="client-dot">&middot;</span>
       <span class="client-name">Pepperidge Farms</span><span class="client-dot">&middot;</span>
-      <span class="client-name">AkzoNobel</span><span class="client-dot">&middot;</span>
       <span class="client-name">Andersen Windows</span><span class="client-dot">&middot;</span>
       <span class="client-name">Phelps Dodge</span><span class="client-dot">&middot;</span>
       <span class="client-name">Tesla</span><span class="client-dot">&middot;</span>
       <span class="client-name">Snyder's of Hanover</span><span class="client-dot">&middot;</span>
       <span class="client-name">Saint-Gobain</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Dana Corporation</span><span class="client-dot">&middot;</span>
       <span class="client-name">ComEd</span><span class="client-dot">&middot;</span>
-      <span class="client-name">Raytheon</span><span class="client-dot">&middot;</span>
     </div>
   </div>
 </section>
