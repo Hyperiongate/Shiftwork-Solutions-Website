@@ -49,6 +49,17 @@
                     to match the "hundreds not 300+ or 100s" content rule
                   - onerror fallbacks retained on both images for safety
                   - All other content, schemas, CSS, JS preserved exactly
+      2026-04-17  (v11) TEAM AVATARS — PHOTOS IN PLACE OF INITIALS:
+                  - Team card avatars now display actual partner photos:
+                    /images/jim.jpg, /images/dan.jpg, /images/ethan.jpg
+                  - CSS: .team-avatar gains overflow:hidden; added .team-avatar img
+                    rule (width 100%, height 100%, object-fit cover) so the photo
+                    fills the 88px navy circle cleanly
+                  - Each <img> has onerror="..." that strips the broken image and
+                    restores the initials (JD/DC/EF) if the photo ever 404s —
+                    safe-fail behavior preserves the original card design
+                  - Photos confirmed live on /our_team/ at matching paths
+                  - All other content, schemas, CSS, JS unchanged
 
   NAV SYSTEM: .site-header / .main-nav / .nav-cta (fixed 64px)
   HERO IMAGE: /images/second.png (background)
@@ -337,7 +348,8 @@
     .team { background: var(--smoke); }
     .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
     .team-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden; text-align: center; padding: 36px 24px 28px; }
-    .team-avatar { width: 88px; height: 88px; border-radius: 50%; background: var(--navy); color: var(--amber); font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+    .team-avatar { width: 88px; height: 88px; border-radius: 50%; background: var(--navy); color: var(--amber); font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; overflow: hidden; }
+    .team-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .team-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
     .team-role { font-size: 0.82rem; color: var(--blue); font-weight: 600; margin-bottom: 12px; }
     .team-bio { font-size: 0.88rem; color: var(--text-mid); line-height: 1.6; }
@@ -630,9 +642,9 @@
     <div class="section-heading">Three Partners. A Century of Combined Experience.</div>
     <div class="section-sub center">Every engagement is led by a partner — not a junior analyst. You get senior expertise from day one through implementation.</div>
     <div class="team-grid">
-      <div class="team-card"><div class="team-avatar">JD</div><h3>Jim Dillingham</h3><div class="team-role">Partner &amp; Senior Consultant</div><p class="team-bio">Former Naval officer turned workforce strategist. Specializes in change management with a philosophy that the more the workforce understands and participates, the better the outcome.</p><p class="team-cred">Naval Academy (Mathematics) &middot; Purdue (Management) &middot; ESC Rouen (MBA)</p></div>
-      <div class="team-card"><div class="team-avatar">DC</div><h3>Dan Capshaw</h3><div class="team-role">Partner &amp; Senior Consultant</div><p class="team-bio">Chemical engineer and Lean Six Sigma Black Belt. Brings operations rigor to every schedule design — from submarine engineering to pharmaceutical manufacturing.</p><p class="team-cred">Johns Hopkins (Chemical Engineering) &middot; UC Berkeley Haas &middot; Lean Six Sigma Black Belt</p></div>
-      <div class="team-card"><div class="team-avatar">EF</div><h3>Ethan Franklin</h3><div class="team-role">Partner &amp; Senior Consultant</div><p class="team-bio">Combines data-driven workforce analysis with a deep understanding of what employees actually need. Has helped hundreds of facilities increase satisfaction and improve their bottom line.</p><p class="team-cred">Hundreds of facilities optimized &middot; Workforce strategy specialist</p></div>
+      <div class="team-card"><div class="team-avatar"><img src="/images/jim.jpg" alt="Jim Dillingham, Partner at Shiftwork Solutions" onerror="var p=this.parentElement; this.remove(); p.textContent='JD';"></div><h3>Jim Dillingham</h3><div class="team-role">Partner &amp; Senior Consultant</div><p class="team-bio">Former Naval officer turned workforce strategist. Specializes in change management with a philosophy that the more the workforce understands and participates, the better the outcome.</p><p class="team-cred">Naval Academy (Mathematics) &middot; Purdue (Management) &middot; ESC Rouen (MBA)</p></div>
+      <div class="team-card"><div class="team-avatar"><img src="/images/dan.jpg" alt="Dan Capshaw, Partner at Shiftwork Solutions" onerror="var p=this.parentElement; this.remove(); p.textContent='DC';"></div><h3>Dan Capshaw</h3><div class="team-role">Partner &amp; Senior Consultant</div><p class="team-bio">Chemical engineer and Lean Six Sigma Black Belt. Brings operations rigor to every schedule design — from submarine engineering to pharmaceutical manufacturing.</p><p class="team-cred">Johns Hopkins (Chemical Engineering) &middot; UC Berkeley Haas &middot; Lean Six Sigma Black Belt</p></div>
+      <div class="team-card"><div class="team-avatar"><img src="/images/ethan.jpg" alt="Ethan Franklin, Partner at Shiftwork Solutions" onerror="var p=this.parentElement; this.remove(); p.textContent='EF';"></div><h3>Ethan Franklin</h3><div class="team-role">Partner &amp; Senior Consultant</div><p class="team-bio">Combines data-driven workforce analysis with a deep understanding of what employees actually need. Has helped hundreds of facilities increase satisfaction and improve their bottom line.</p><p class="team-cred">Hundreds of facilities optimized &middot; Workforce strategy specialist</p></div>
     </div>
   </div>
 </section>
