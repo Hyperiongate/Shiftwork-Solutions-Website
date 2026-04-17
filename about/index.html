@@ -6,7 +6,7 @@
   URL: /about/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-16
+  Last Updated: 2026-04-17
 
   CHANGE LOG:
     2026-04-04 — Initial build.
@@ -18,6 +18,12 @@
                  FOOTER: replaced 2-col engage-band + light-grey footer with
                  standard 3-col dark-navy prefooter (Free Consultation / Thomas /
                  Newsletter) + standard bottom bar. CSS updated to match.
+    2026-04-17 — CRITICAL FIX: Closed unterminated window.engageNLSubmit function
+                 in newsletter IIFE (was missing "};" before "})();"). Prior to
+                 this fix the page contained a JavaScript syntax error that broke
+                 all inline script execution from that block onward — newsletter
+                 form was non-functional. No HTML, CSS, content, or schema
+                 changed. Only the closing of the function expression was added.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
@@ -537,6 +543,7 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
         msg.textContent = err.message === 'This email is already subscribed.' ? 'Already subscribed \u2014 thank you!' : 'Something went wrong. Try again.';
         btn.disabled = false; btn.textContent = 'Subscribe \u2192';
       });
+  };
 })();
 </script>
 </body>
