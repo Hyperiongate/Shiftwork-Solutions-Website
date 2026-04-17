@@ -18,6 +18,18 @@
                  over three decades." One unified scrolling marquee of
                  all client names. Light blue gradient background —
                  picks up the site's mid-blue palette without going dark.
+    2026-04-17 — TWO VISUAL CHANGES:
+                 1. QUOTE SECTION BACKGROUND: .tl-section now uses
+                    /images/second.png as background (same hero image),
+                    with dark overlay via ::before. Gold spine and cards
+                    remain; cards on white so text stays legible.
+                    White spacer div below section removed.
+                 2. REPRESENTATIVE CLIENTS SECTION: Removed eyebrow,
+                    headline ("Hundreds of engagements..."), and subtitle
+                    paragraph. Section now shows only the scrolling strips.
+                    Background changed from navy to a horizontal
+                    gray→white→gray gradient. Strip fade edges updated
+                    to match white center.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
@@ -47,6 +59,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Oswald:wght@600&family=Libre+Baskerville:wght@700&family=Raleway:wght@800&family=Merriweather:wght@700&family=Montserrat:wght@800&family=Lora:wght@700&family=Bebas+Neue&display=swap');
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
       --navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;
@@ -100,16 +113,28 @@
     hr.divider{max-width:var(--max-width);margin:20px auto;border:none;border-top:1px solid var(--border-light)}
 
     /* ── TESTIMONIAL CASCADE ── */
+    /* Uses the hero background image for visual drama.
+       Dark overlay keeps the gold spine and white cards fully legible. */
     .tl-section{
-      background:transparent;
-      padding:48px 0 0;
+      background:#0D1F3C url('/images/second.png') center center/cover no-repeat;
+      padding:48px 0 56px;
       position:relative;
+    }
+    /* Dark overlay so cards and spine are readable against the photo */
+    .tl-section::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:rgba(13,31,60,.72);
+      z-index:0;
+      pointer-events:none;
     }
     .tl-inner{
       max-width:1100px;
       margin:0 auto;
       padding:0 32px;
       position:relative;
+      z-index:1;
     }
     /* Gold spine running down the center */
     .tl-spine{
@@ -168,24 +193,25 @@
       border-radius:8px;
       padding:28px 28px 22px;
       position:relative;
-      box-shadow:0 4px 24px rgba(0,0,0,.28);
+      box-shadow:0 4px 24px rgba(0,0,0,.40);
     }
     .tl-card::before{
-      content:'“';
+      content:'\201C';
       position:absolute;
-      top:-6px;left:22px;
-      font-size:64px;
+      top:10px;left:18px;
+      font-size:72px;
       line-height:1;
-      color:#EEAE26;
+      color:#aaaaaa;
       font-family:Georgia,serif;
     }
     .tl-quote{
       font-size:13.5px;
       font-style:italic;
-      color:#1a1a1a;
+      color:#666666;
       line-height:1.72;
       margin-bottom:18px;
-      padding-top:28px;
+      padding-top:4px;
+      padding-left:60px;
     }
     .tl-name{
       font-size:13px;
@@ -233,10 +259,10 @@
       .tl-row .tl-card:first-child,.tl-row .tl-card:last-child{margin-top:0}
     }
 
-        /* ── CLIENT DEPTH SECTION ── */
+    /* ── CLIENT DEPTH SECTION ── */
     .client-depth{
       padding:52px 0 56px;
-      background:var(--navy);
+      background:linear-gradient(to right, #d0d4d8 0%, #f4f4f4 30%, #ffffff 50%, #f4f4f4 70%, #d0d4d8 100%);
       overflow:hidden;
       position:relative;
     }
@@ -244,32 +270,22 @@
       max-width:var(--max-width);
       margin:0 auto 40px;
       padding:0 var(--page-pad);
-      text-align:center
+      text-align:center;
     }
     .client-depth-eyebrow{
       font-size:11px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.14em;color:var(--mid-blue);margin-bottom:14px
-    }
-    .client-depth-headline{
-      font-size:50px;font-weight:700;color:#EEAE26;
-      line-height:1.2;margin-bottom:12px;
-      font-family:Georgia,'Times New Roman',serif;
-      letter-spacing:.01em
-    }
-    .client-depth-sub{
-      font-size:14px;color:rgba(255,255,255,.65);line-height:1.70;
-      max-width:500px;margin:0 auto
+      letter-spacing:.14em;color:var(--navy);margin-bottom:14px;
     }
 
+
     /* ── TWO-STRIP CONTINUOUS SCROLL ── */
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Oswald:wght@600&family=Libre+Baskerville:wght@700&family=Raleway:wght@800&family=Merriweather:wght@700&family=Montserrat:wght@800&family=Lora:wght@700&family=Bebas+Neue&display=swap');
 
     .client-strips{
       display:flex;
       flex-direction:column;
       gap:10px;
       overflow:hidden;
-      padding:0
+      padding:0;
     }
     .client-strip-row{
       background:#ffffff;
@@ -279,10 +295,10 @@
       display:flex;
       align-items:center;
     }
-    /* fade edges */
+    /* fade edges — now fade to white to match the gradient background */
     .client-strip-row::before,
     .client-strip-row::after{
-      content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none
+      content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;
     }
     .client-strip-row::before{left:0;background:linear-gradient(to right,#fff,transparent)}
     .client-strip-row::after{right:0;background:linear-gradient(to left,#fff,transparent)}
@@ -390,9 +406,8 @@
       .content-section,.testimonials,.theme-label{padding-left:20px;padding-right:20px}
       .tcard,.tcard-featured{padding:20px 16px}
       .ns-cards{grid-template-columns:1fr}
-      .client-depth{padding:36px 0 40px}
+      .client-depth{padding:28px 0}
       .hero-logo{display:none!important}
-      .client-depth-headline{font-size:19px}
       .footer-prefooter{padding:32px 20px}
       .footer-content-row{grid-template-columns:1fr}
       .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
@@ -448,6 +463,7 @@
   <p>These are the actual words of people who hired us, worked through our process, and came out the other side with a schedule that works — for the operation and for the workforce. We have not edited for marketing polish. The specifics matter more than the superlatives.</p>
 </section>
 
+<!-- ── TESTIMONIAL CASCADE — background is second.png with dark overlay ── -->
 <section class="tl-section">
   <div class="tl-inner">
     <div class="tl-spine"></div>
@@ -542,20 +558,20 @@
   </div>
 </section>
 
+<!-- ── WHITE SPACE BETWEEN QUOTES AND CLIENT SECTION ── -->
 <div style="height:96px;background:#fff;"></div>
 
-<!-- ── CLIENT DEPTH ── -->
+<!-- ── CLIENT DEPTH — Representative Clients label + scrolling strips, gray/white/gray gradient ── -->
 <section class="client-depth">
   <div class="client-depth-inner">
     <div class="client-depth-eyebrow">Representative Clients</div>
-    <div class="client-depth-headline">Hundreds of engagements across 16 industries over three decades.</div>
-    <p class="client-depth-sub">Manufacturing, food &amp; beverage, pharmaceutical, mining, distribution, energy, automotive, paper — and more. Several clients have engaged us across multiple facilities.</p>
   </div>
   <div class="client-strips">
     <div class="client-strip-row" id="strip-top"><div class="client-strip-track" id="track-top"></div></div>
     <div class="client-strip-row" id="strip-bottom"><div class="client-strip-track" id="track-bottom"></div></div>
   </div>
 </section>
+
 <!-- ── NEXT STEPS ── -->
 <section class="next-steps">
   <div class="next-steps-inner">
@@ -684,7 +700,6 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
   function buildTrack(trackId, names) {
     var track = document.getElementById(trackId);
     if (!track) return;
-    // Build doubled list for seamless loop
     var all = names.concat(names);
     all.forEach(function(name, i) {
       var span = document.createElement('span');
