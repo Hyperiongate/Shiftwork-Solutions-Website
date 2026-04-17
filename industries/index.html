@@ -5,7 +5,7 @@
   URL: /industries/
 
   Created:      2026-04-05
-  Last Updated: 2026-04-16
+  Last Updated: 2026-04-17
 
   CHANGE LOG:
     2026-04-05 — Initial build. Tile-based landing page for 6 industry pages.
@@ -20,6 +20,28 @@
                  3. nav-logo CSS: added flex, align-items, gap, whitespace
                  4. nav-logo-text CSS added (20px, navy, bold)
                  5. Nav link font-size: 13.5px → 20px
+    2026-04-17 — SEO STRUCTURED DATA + VISIBLE BREADCRUMB:
+                 1. Added three JSON-LD schema blocks in <head>:
+                    • Organization — mirrors the Organization schema used
+                      on all other pages (name, URL, telephone, email,
+                      contactPoint)
+                    • BreadcrumbList — Home > Industries (matching the new
+                      visible breadcrumb)
+                    • CollectionPage — with mainEntity ItemList containing
+                      all 7 industry subpage URLs. This is the correct schema
+                      type for a hub/landing page that catalogs sub-resources
+                      and tells search engines "these 7 pages are children
+                      of this hub."
+                    Prior state had ZERO JSON-LD on this page — a real
+                    SEO gap compared to every other page on the site.
+                 2. Added visible breadcrumb bar between hero and industries
+                    grid, using the same light-blue pattern and styling
+                    used on about/our_team/industry detail pages.
+                    CSS added: .breadcrumb-bar and .breadcrumb-inner rules
+                    scoped to match the site standard.
+                 3. Changelog updated with today's date.
+                 All 7 industry tiles, both action tiles, hero, footer,
+                 and JS preserved exactly.
 
   I did no harm and this file is not truncated
 -->
@@ -38,6 +60,15 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Industries We Serve | Shiftwork Solutions">
   <meta name="twitter:description" content="Custom shift schedule consulting for seven core industries running 24/7 operations.">
+
+  <!-- JSON-LD: Organization -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
+
+  <!-- JSON-LD: BreadcrumbList -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://shift-work.com/industries/"}]}</script>
+
+  <!-- JSON-LD: CollectionPage (hub listing all 7 industry sub-pages) -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Industries We Serve","url":"https://shift-work.com/industries/","description":"Shiftwork Solutions serves seven core industries running 24/7 operations. Each industry page details how shift schedule optimization applies to that environment.","isPartOf":{"@type":"WebSite","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"mainEntity":{"@type":"ItemList","numberOfItems":7,"itemListElement":[{"@type":"ListItem","position":1,"name":"Manufacturing & Assembly","url":"https://shift-work.com/industries/manufacturing-assembly-operations/"},{"@type":"ListItem","position":2,"name":"Distribution & Logistics","url":"https://shift-work.com/industries/distribution-logistics-operations/"},{"@type":"ListItem","position":3,"name":"Mining & Extraction","url":"https://shift-work.com/industries/mining-extraction-industries/"},{"@type":"ListItem","position":4,"name":"Refining & Utilities","url":"https://shift-work.com/industries/refining-utilities-operations/"},{"@type":"ListItem","position":5,"name":"Food & Beverage","url":"https://shift-work.com/industries/food-beverage-manufacturing/"},{"@type":"ListItem","position":6,"name":"Chemical & Pharmaceutical","url":"https://shift-work.com/industries/chemical-pharmaceutical-operations/"},{"@type":"ListItem","position":7,"name":"Paper & Packaging","url":"https://shift-work.com/industries/paper-packaging-operations/"}]}}</script>
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -65,6 +96,15 @@
     .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
     .hero h1{font-size:32px;font-weight:700;line-height:1.2;color:#EEAE26;max-width:620px;margin-bottom:14px}
     .hero-subtitle{font-size:16px;line-height:1.65;color:var(--mid-blue);max-width:620px}
+
+    /* ── BREADCRUMB (added 2026-04-17 to match site standard) ── */
+    .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
+    .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
+    .breadcrumb-inner a{color:var(--navy);text-decoration:none}
+    .breadcrumb-inner a:hover{text-decoration:underline}
+    .breadcrumb-inner span.bc-sep{margin:0 6px;opacity:.5}
+    .breadcrumb-inner .bc-current{color:var(--navy);font-weight:700}
+
     .industries-section{padding:56px var(--page-pad) 60px;background:var(--white)}
     .section-wrap{max-width:var(--max-width);margin:0 auto}
     .section-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
@@ -165,6 +205,11 @@
   <h1>Industries We Serve</h1>
   <p class="hero-subtitle">Decades of hands-on experience across hundreds of 24/7 operations. Every industry has unique scheduling challenges — we've solved them all.</p>
 </div></section>
+
+<!-- BREADCRUMB — added 2026-04-17 -->
+<div class="breadcrumb-bar"><div class="breadcrumb-inner">
+  <a href="/">Home</a><span class="bc-sep">&#x203A;</span><span class="bc-current">Industries</span>
+</div></div>
 
 <section class="industries-section"><div class="section-wrap">
   <div class="section-eyebrow">Our Focus</div>
