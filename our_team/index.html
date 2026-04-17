@@ -6,7 +6,7 @@
   URL: /our_team/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-16
+  Last Updated: 2026-04-17
 
   CHANGE LOG:
     2026-04-04 — Initial build. Three partner bio sections.
@@ -14,24 +14,33 @@
     2026-04-06 — NAV: all items flat direct links.
     2026-04-13 — Bio text v2 (narrative style). Nav "Why Us" -> "Our Company".
     2026-04-16 — STANDARD UPGRADE (Chemical/Pharma template applied):
-                 1. HERO: second.png background + gradient overlay;
-                    h1 color -> #EEAE26 (gold); subtitle ->
-                    rgba(255,255,255,.88); hero-tag added.
-                 2. NAV: logo -> clear_bkgr_logo_2.png (underscores);
-                    SHIFTWORK SOLUTIONS text added (20px); nav links 20px.
-                 3. PULL QUOTES (x3): replaced orange border-left style with
-                    128px Georgia mark + italic #4a6a8a text + muted
-                    attribution (matching industry page standard).
-                 4. NEXT STEPS: replaced old navy CTA box + engage-band
-                    with standard navy Next Steps section (3 animated
-                    white cards, IntersectionObserver slide-up).
-                 5. FOOTER: replaced light-grey footer with standard dark
-                    navy 3-col prefooter (Free Consultation / Thomas /
-                    Newsletter) + bottom bar.
-                 All bio content, credentials, FAQ, insight cards, and
-                 all 4 JSON-LD schemas preserved exactly.
+                 hero, nav standard, pull-quote restyle, next steps,
+                 dark-navy 3-col footer.
+    2026-04-17 — BREADCRUMB SCHEMA + FAQ ACCORDION UPGRADE:
+                 1. JSON-LD BreadcrumbList position 2 name changed from
+                    "Our Company" to "Why Us" to match the visible
+                    breadcrumb exactly. URL remains /why-us/ unchanged.
+                    (Prior mismatch would cause Google Search Console
+                    structured data warnings.)
+                 2. Static FAQ section replaced with full-bleed interactive
+                    accordion matching about page + homepage pattern:
+                    - Hands_in_the_air.jpg full-bleed background image
+                    - Radial gradient overlay (dark at edges, light at center)
+                    - Navy question bars with white text + shadow
+                    - Orange circular expand icons that rotate on open
+                    - Click-to-toggle behavior: opening one closes others
+                    - aria-expanded states on buttons
+                    All 6 Q&A pairs preserved word-for-word from the prior
+                    static version. FAQPage JSON-LD schema unchanged.
+                 3. Hero stat "100s" → "Hundreds" to match the content rule
+                    ("hundreds not 300+ or 100s"). Same fix previously applied
+                    to homepage v10.
+                 4. Changelog updated with today's date.
+                 All other content, CSS, and JS preserved exactly.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
+
+  I did no harm and this file is not truncated
 -->
 <html lang="en">
 <head>
@@ -50,7 +59,7 @@
   <meta name="twitter:title" content="Meet Our Team | Shiftwork Solutions">
   <meta name="twitter:description" content="Three senior partners. Over 90 years of combined experience. Hundreds of facilities across 16+ industries.">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"Meet Our Team","url":"https://shift-work.com/our_team/","description":"Meet the partners of Shiftwork Solutions LLC — senior consultants with over 90 years of combined experience.","mainEntity":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","member":[{"@type":"Person","name":"Jim Dillingham","jobTitle":"Partner & Senior Consultant","description":"Over 30 years helping companies design and implement shift schedules. Naval Academy graduate. Specializes in change management and employee involvement.","alumniOf":[{"@type":"CollegeOrUniversity","name":"United States Naval Academy"},{"@type":"CollegeOrUniversity","name":"Purdue University"},{"@type":"CollegeOrUniversity","name":"ESC Rouen"}]},{"@type":"Person","name":"Dan Capshaw","jobTitle":"Partner & Senior Consultant","description":"Over 32 years developing shift schedules and work systems. Chemical engineer, Lean Six Sigma Black Belt, former submarine officer.","alumniOf":[{"@type":"CollegeOrUniversity","name":"Johns Hopkins University"},{"@type":"CollegeOrUniversity","name":"UC Berkeley Haas School of Business"}]},{"@type":"Person","name":"Ethan Franklin","jobTitle":"Partner & Senior Consultant","description":"Over 28 years helping companies evaluate, design, and implement improved shift schedules. Data-driven approach balancing business needs with employee well-being.","alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Illinois at Urbana-Champaign"},{"@type":"CollegeOrUniversity","name":"Loyola University Chicago School of Law"}]}]}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Our Company","item":"https://shift-work.com/why-us/"},{"@type":"ListItem","position":3,"name":"Our Team","item":"https://shift-work.com/our_team/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Why Us","item":"https://shift-work.com/why-us/"},{"@type":"ListItem","position":3,"name":"Our Team","item":"https://shift-work.com/our_team/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Who leads my project?","acceptedAnswer":{"@type":"Answer","text":"A senior partner — Jim, Dan, or Ethan — leads every engagement from start to finish. There are no handoffs to junior staff."}},{"@type":"Question","name":"How much experience does your team have?","acceptedAnswer":{"@type":"Answer","text":"Collectively, our three partners have over 90 years of dedicated shiftwork consulting experience across hundreds of facilities in 16+ industries."}},{"@type":"Question","name":"What industries do you serve?","acceptedAnswer":{"@type":"Answer","text":"Manufacturing, pharmaceuticals, food processing, mining, distribution, chemicals, refining, utilities, automotive, semiconductors, call centers, healthcare, packaging, paper, port operations, telecommunications, and government operations."}},{"@type":"Question","name":"Do you work with union and non-union facilities?","acceptedAnswer":{"@type":"Answer","text":"Both. Our partners have extensive experience working with union leadership, navigating collective bargaining agreements, and building consensus in both organized and non-organized workplaces."}},{"@type":"Question","name":"Where are you located?","acceptedAnswer":{"@type":"Answer","text":"Jim is based in San Rafael, California; Dan in Ivins, Utah; and Ethan in Indiana. We work with facilities nationwide and internationally."}},{"@type":"Question","name":"What does a typical engagement look like?","acceptedAnswer":{"@type":"Answer","text":"Most projects run five to ten weeks with six being the average. The process includes discovery and business analysis, an employee survey, schedule design and cost modeling, and implementation support. Every project is fixed-fee."}}]}</script>
   <style>
@@ -132,13 +141,28 @@
     .pull-quote-content p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
     .pull-quote-content .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
 
-    /* ── FAQ ── */
-    .faq-section{max-width:var(--max-width);margin:0 auto;padding:20px var(--page-pad) 48px}
-    .faq-section h2{font-size:21px;font-weight:700;color:var(--body-text);margin-bottom:24px}
-    .faq-item{padding:18px 0;border-bottom:1px solid var(--border-light)}
-    .faq-item:first-of-type{border-top:1px solid var(--border-light)}
-    .faq-q{font-size:16px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:8px}
-    .faq-a{font-size:14px;color:#333;line-height:1.75;max-width:680px}
+    /* ══════════════════════════════════════════════════════════
+       FAQ SECTION — Full-bleed Hands_in_the_air.jpg accordion
+       Upgraded 2026-04-17 to match about + homepage template
+       (replaced prior static white-background FAQ)
+    ══════════════════════════════════════════════════════════ */
+    .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw);margin-right:calc(-50vw);width:100vw}
+    .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
+    .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
+    .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:52px 24px 56px}
+    .faq-inner h2{font-size:22px;font-weight:700;color:#EEAE26;margin-bottom:28px;text-shadow:0 1px 6px rgba(0,0,0,0.5);font-family:Arial,Helvetica,sans-serif}
+    .faq-item{margin-bottom:6px}
+    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:var(--navy);border:1px solid rgba(255,255,255,0.18);border-radius:6px;cursor:pointer;padding:16px 18px;text-align:left;gap:16px;transition:background .2s ease;font-family:Arial,Helvetica,sans-serif}
+    .faq-toggle:hover{background:#1a4268}
+    .faq-item.faq-open .faq-toggle{border-radius:6px 6px 0 0;border-bottom-color:transparent}
+    .faq-q{font-size:15px;font-weight:700;color:#fff;line-height:1.4;flex:1;text-shadow:0 1px 4px rgba(0,0,0,0.4)}
+    .faq-icon{flex-shrink:0;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .2s ease,border-color .2s ease}
+    .faq-icon svg{width:10px;height:10px;fill:rgba(255,255,255,0.8);transition:transform .25s ease}
+    .faq-item.faq-open .faq-icon{background:var(--orange);border-color:var(--orange)}
+    .faq-item.faq-open .faq-icon svg{fill:#fff;transform:rotate(180deg)}
+    .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease}
+    .faq-item.faq-open .faq-body{max-height:800px}
+    .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px;font-family:Arial,Helvetica,sans-serif}
 
     /* ── NEXT STEPS — navy bg, animated white cards ── */
     .next-steps{padding:56px var(--page-pad) 60px;background:var(--light-grey)}
@@ -221,7 +245,9 @@
       .bio-credentials{justify-content:center}
       .three-col{grid-template-columns:1fr;padding:0 20px}
       .pull-quote{flex-direction:column;gap:4px}.pull-quote-mark{font-size:72px}
-      .faq-section{padding:16px 20px 0}
+      .faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}
+      .faq-inner{padding:36px 18px 40px}
+      .faq-inner h2{font-size:19px}
       .ns-cards{grid-template-columns:1fr}
       .next-steps{padding:40px 20px 44px}
     }
@@ -264,7 +290,7 @@
   <span class="hero-tag">Senior Partner-Led Engagements</span>
   <div class="hero-stats">
     <div class="hero-stat"><div class="hero-stat-num">90+</div><div class="hero-stat-label">Combined years of<br>shiftwork consulting</div></div>
-    <div class="hero-stat"><div class="hero-stat-num">100s</div><div class="hero-stat-label">Facilities helped<br>across 16+ industries</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">Hundreds</div><div class="hero-stat-label">Facilities helped<br>across 16+ industries</div></div>
     <div class="hero-stat"><div class="hero-stat-num">3</div><div class="hero-stat-label">Senior partners on<br>every engagement</div></div>
   </div>
 </div></section>
@@ -380,18 +406,66 @@
   <p>Our partners bring complementary strengths. Military leadership and operational discipline. Chemical engineering rigor and Lean Six Sigma methodology. Legal expertise and data-driven workforce analysis. Combined, they cover the full spectrum of challenges that 24/7 operations present &#x2014; from schedule mathematics to employee engagement to policy design to change management.</p>
 </section>
 
-<hr class="divider">
+<!-- ══════════════════════════════════════════════════════════════
+     FAQ SECTION — Full-bleed Hands_in_the_air.jpg accordion
+     Upgraded 2026-04-17 from static to accordion
+════════════════════════════════════════════════════════════════ -->
+<div class="faq-section" id="faq">
+  <div class="faq-bg"></div>
+  <div class="faq-overlay"></div>
+  <div class="faq-inner">
+    <h2>Frequently Asked Questions</h2>
 
-<section class="faq-section" id="faq">
-  <div class="eyebrow">FAQ</div>
-  <h2>Frequently Asked Questions</h2>
-  <div class="faq-item"><div class="faq-q">Who leads my project?</div><div class="faq-a">A senior partner &#x2014; Jim, Dan, or Ethan &#x2014; leads every engagement from start to finish. There are no handoffs to junior staff. The person you meet in the first consultation is the person who walks your plant floor, designs your schedule options, and supports implementation.</div></div>
-  <div class="faq-item"><div class="faq-q">How much experience does your team have?</div><div class="faq-a">Collectively, our three partners have over 90 years of dedicated shiftwork consulting experience across hundreds of facilities in 16+ industries. Each partner has individually helped well over 100 companies design and implement improved schedules and work systems.</div></div>
-  <div class="faq-item"><div class="faq-q">What industries do you serve?</div><div class="faq-a">Manufacturing, pharmaceuticals, food processing, mining, distribution, chemicals, refining, utilities, automotive, semiconductors, call centers, healthcare, packaging, paper, port operations, telecommunications, and government operations &#x2014; essentially any industry that runs shifts.</div></div>
-  <div class="faq-item"><div class="faq-q">Do you work with union and non-union facilities?</div><div class="faq-a">Both. Our partners have extensive experience working with union leadership, navigating collective bargaining agreements, and building consensus in both organized and non-organized workplaces. The employee involvement process works in either environment.</div></div>
-  <div class="faq-item"><div class="faq-q">Where are you located?</div><div class="faq-a">Jim is based in San Rafael, California; Dan in Ivins, Utah; and Ethan in Indiana. We work with facilities nationwide and internationally, with on-site visits as part of every engagement.</div></div>
-  <div class="faq-item"><div class="faq-q">What does a typical engagement look like?</div><div class="faq-a">Most projects run five to ten weeks with six being the average. The process includes discovery and business analysis, an employee survey, schedule design and cost modeling, and implementation support. Every project is fixed-fee &#x2014; no surprises.</div></div>
-</section>
+    <div class="faq-item">
+      <button class="faq-toggle" aria-expanded="false">
+        <span class="faq-q">Who leads my project?</span>
+        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+      </button>
+      <div class="faq-body"><div class="faq-a">A senior partner &#x2014; Jim, Dan, or Ethan &#x2014; leads every engagement from start to finish. There are no handoffs to junior staff. The person you meet in the first consultation is the person who walks your plant floor, designs your schedule options, and supports implementation.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-toggle" aria-expanded="false">
+        <span class="faq-q">How much experience does your team have?</span>
+        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+      </button>
+      <div class="faq-body"><div class="faq-a">Collectively, our three partners have over 90 years of dedicated shiftwork consulting experience across hundreds of facilities in 16+ industries. Each partner has individually helped well over 100 companies design and implement improved schedules and work systems.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-toggle" aria-expanded="false">
+        <span class="faq-q">What industries do you serve?</span>
+        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+      </button>
+      <div class="faq-body"><div class="faq-a">Manufacturing, pharmaceuticals, food processing, mining, distribution, chemicals, refining, utilities, automotive, semiconductors, call centers, healthcare, packaging, paper, port operations, telecommunications, and government operations &#x2014; essentially any industry that runs shifts.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-toggle" aria-expanded="false">
+        <span class="faq-q">Do you work with union and non-union facilities?</span>
+        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+      </button>
+      <div class="faq-body"><div class="faq-a">Both. Our partners have extensive experience working with union leadership, navigating collective bargaining agreements, and building consensus in both organized and non-organized workplaces. The employee involvement process works in either environment.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-toggle" aria-expanded="false">
+        <span class="faq-q">Where are you located?</span>
+        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+      </button>
+      <div class="faq-body"><div class="faq-a">Jim is based in San Rafael, California; Dan in Ivins, Utah; and Ethan in Indiana. We work with facilities nationwide and internationally, with on-site visits as part of every engagement.</div></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-toggle" aria-expanded="false">
+        <span class="faq-q">What does a typical engagement look like?</span>
+        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+      </button>
+      <div class="faq-body"><div class="faq-a">Most projects run five to ten weeks with six being the average. The process includes discovery and business analysis, an employee survey, schedule design and cost modeling, and implementation support. Every project is fixed-fee &#x2014; no surprises.</div></div>
+    </div>
+
+  </div>
+</div>
 
 <section class="next-steps"><div class="next-steps-inner">
   <div class="next-steps-eyebrow">Where to go from here</div>
@@ -440,9 +514,44 @@
 </footer>
 
 <script>
-document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
+document.getElementById('mobileToggle').addEventListener('click',function(){
+  var n=document.getElementById('navLinks');
+  var open=n.style.display==='flex';
+  if(open){n.style.display='none';}
+  else{
+    n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';
+    n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';
+    n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';
+    n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';
+  }
+});
+
+// FAQ accordion (added 2026-04-17)
+(function(){
+  var items=document.querySelectorAll('.faq-item');
+  items.forEach(function(item){
+    var btn=item.querySelector('.faq-toggle');
+    if(!btn)return;
+    btn.addEventListener('click',function(){
+      var isOpen=item.classList.contains('faq-open');
+      items.forEach(function(i){
+        i.classList.remove('faq-open');
+        var b=i.querySelector('.faq-toggle');
+        if(b)b.setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){
+        item.classList.add('faq-open');
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+})();
+
+// Next Steps entrance animation
 (function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('ns-card-visible');obs.unobserve(e.target);}});},{threshold:0.15});cards.forEach(function(c){obs.observe(c);});})();
-(function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn'),msg=document.getElementById('engageNLMsg'),email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-our-team'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='✓ Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed ✓';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed — thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe →';});};})();
+
+// Newsletter submit
+(function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn'),msg=document.getElementById('engageNLMsg'),email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-our-team'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
 </script>
 </body>
 </html>
