@@ -149,45 +149,75 @@
       max-width:500px;margin:0 auto
     }
 
-    /* ── TWO-STRIP ALTERNATING DESIGN ── */
+    /* ── TWO-STRIP CONTINUOUS SCROLL ── */
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Oswald:wght@600&family=Libre+Baskerville:wght@700&family=Raleway:wght@800&family=Merriweather:wght@700&family=Montserrat:wght@800&family=Lora:wght@700&family=Bebas+Neue&display=swap');
+
     .client-strips{
-      padding:0 var(--page-pad);
-      max-width:100%;
       display:flex;
       flex-direction:column;
-      gap:12px
+      gap:10px;
+      overflow:hidden;
+      padding:0
     }
     .client-strip-row{
       background:#ffffff;
-      border-radius:4px;
+      height:70px;
       overflow:hidden;
-      height:64px;
       position:relative;
       display:flex;
-      align-items:center
+      align-items:center;
     }
+    /* fade edges */
+    .client-strip-row::before,
+    .client-strip-row::after{
+      content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none
+    }
+    .client-strip-row::before{left:0;background:linear-gradient(to right,#fff,transparent)}
+    .client-strip-row::after{right:0;background:linear-gradient(to left,#fff,transparent)}
+
     .client-strip-track{
       display:flex;
       align-items:center;
+      white-space:nowrap;
       position:absolute;
-      white-space:nowrap;
-      gap:0
+      left:0;top:0;bottom:0;
     }
+    /* Top row scrolls left (negative direction) */
+    @keyframes scroll-l{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    /* Bottom row scrolls right (positive direction) */
+    @keyframes scroll-r{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
+
+    #track-top{animation:scroll-l 45s linear infinite}
+    #track-bottom{animation:scroll-r 38s linear infinite}
+
+    /* Each name gets its own font+color class */
     .cn{
-      display:inline-block;
-      padding:0 28px;
-      font-size:22px;
-      font-weight:700;
-      color:#1A1A1A;
+      display:inline-flex;align-items:center;
+      padding:0 32px;height:70px;
       white-space:nowrap;
-      letter-spacing:.03em;
-      font-family:Arial,Helvetica,sans-serif;
-      border-right:1px solid #e0e0e0
+      font-size:24px;
+      border-right:2px solid #f0f0f0;
+      flex-shrink:0;
     }
     .cn:last-child{border-right:none}
-    .client-icon svg{width:20px;height:20px;fill:currentColor}
-    .client-icon.gold{color:#EEAE26}
-    .client-icon.white{color:rgba(255,255,255,0.85)}
+
+    /* 16 creative name styles — font + dark color combos */
+    .cn-1 {font-family:'Playfair Display',serif;    font-weight:700;color:#1a3a5c}
+    .cn-2 {font-family:'Oswald',sans-serif;         font-weight:600;color:#7b2d00;letter-spacing:.06em}
+    .cn-3 {font-family:'Libre Baskerville',serif;   font-weight:700;color:#1d4e2a}
+    .cn-4 {font-family:'Raleway',sans-serif;        font-weight:800;color:#3d1a6e;letter-spacing:.04em}
+    .cn-5 {font-family:'Merriweather',serif;        font-weight:700;color:#4a1942}
+    .cn-6 {font-family:'Montserrat',sans-serif;     font-weight:800;color:#003d5b;letter-spacing:.02em}
+    .cn-7 {font-family:'Lora',serif;                font-weight:700;color:#5c2d00}
+    .cn-8 {font-family:'Bebas Neue',sans-serif;     font-weight:400;color:#1a1a2e;letter-spacing:.08em;font-size:28px}
+    .cn-9 {font-family:'Oswald',sans-serif;         font-weight:600;color:#1f3d1f;letter-spacing:.05em}
+    .cn-10{font-family:'Playfair Display',serif;    font-weight:700;color:#5c1a2d}
+    .cn-11{font-family:'Raleway',sans-serif;        font-weight:800;color:#2d3a00}
+    .cn-12{font-family:'Bebas Neue',sans-serif;     font-weight:400;color:#00354d;letter-spacing:.07em;font-size:28px}
+    .cn-13{font-family:'Merriweather',serif;        font-weight:700;color:#3d2200}
+    .cn-14{font-family:'Montserrat',sans-serif;     font-weight:800;color:#1a0a3d;letter-spacing:.03em}
+    .cn-15{font-family:'Lora',serif;                font-weight:700;color:#003333}
+    .cn-16{font-family:'Libre Baskerville',serif;   font-weight:700;color:#4a0d00}
 
     /* ── NEXT STEPS ── */
     .next-steps{padding:56px var(--page-pad) 64px;background:var(--light-grey);border-top:1px solid var(--border-light)}
@@ -489,7 +519,7 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
       });
   };
 })();
-/* ── TWO-STRIP ALTERNATING CLIENT ANIMATION ── */
+/* ── TWO-STRIP CONTINUOUS SCROLL ── */
 (function(){
   var topNames=['Nestlé','BMW','Merck','FedEx','General Mills','Pfizer','Toyota',
     'International Paper','Dow','Whirlpool','Goodyear','Siemens',
@@ -501,50 +531,22 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
     'Andersen Windows','Phelps Dodge','Tesla','Snyder\'s of Hanover','Saint-Gobain',
     'ComEd','PPG','Covestro','Becton Dickinson'];
 
-  var PER_PASS=8, SPEED=100, HOLD=2000;
-  var trackTop=document.getElementById('track-top');
-  var trackBot=document.getElementById('track-bottom');
-  var stripTop=document.getElementById('strip-top');
-  var stripBot=document.getElementById('strip-bottom');
-  var ti=0,bi=0;
-
-  function slice(arr,idx,n){var r=[];for(var i=0;i<n;i++)r.push(arr[(idx+i)%arr.length]);return r;}
-
-  function buildTrack(track,names){
-    track.innerHTML='';
-    names.forEach(function(n){
-      var s=document.createElement('span');
-      s.className='cn';s.textContent=n;track.appendChild(s);
+  function buildTrack(trackId, names) {
+    var track = document.getElementById(trackId);
+    if (!track) return;
+    // Build doubled list for seamless loop
+    var all = names.concat(names);
+    all.forEach(function(name, i) {
+      var span = document.createElement('span');
+      var styleNum = ((i % 16) + 1);
+      span.className = 'cn cn-' + styleNum;
+      span.textContent = name;
+      track.appendChild(span);
     });
   }
 
-  function animateStrip(track,strip,fromRight,done){
-    var tw=track.offsetWidth, sw=strip.offsetWidth;
-    var startX=fromRight?sw:-tw;
-    var endX=fromRight?Math.max(0,sw-tw):0;
-    var dist=Math.abs(endX-startX);
-    var dur=(dist/SPEED)*1000;
-    track.style.transition='none';
-    track.style.transform='translateX('+startX+'px)';
-    if(fromRight){track.style.left='auto';track.style.right='0';}
-    else{track.style.right='auto';track.style.left='0';}
-    track.offsetWidth; // reflow
-    track.style.transition='transform '+dur+'ms linear';
-    track.style.transform='translateX('+endX+'px)';
-    setTimeout(function(){setTimeout(done,HOLD);},dur);
-  }
-
-  function runTop(){
-    buildTrack(trackTop,slice(topNames,ti,PER_PASS));
-    ti=(ti+PER_PASS)%topNames.length;
-    setTimeout(function(){animateStrip(trackTop,stripTop,false,runBot);},50);
-  }
-  function runBot(){
-    buildTrack(trackBot,slice(botNames,bi,PER_PASS));
-    bi=(bi+PER_PASS)%botNames.length;
-    setTimeout(function(){animateStrip(trackBot,stripBot,true,runTop);},50);
-  }
-  setTimeout(runTop,500);
+  buildTrack('track-top', topNames);
+  buildTrack('track-bottom', botNames);
 })();
 </script>
 </body>
