@@ -121,13 +121,17 @@
     .theme-label-line{flex:1;height:1px;background:var(--border-light)}
     .theme-label-text{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);white-space:nowrap}
 
-    /* ── CLIENT DEPTH SECTION ── */
+    /* ── CLIENT DEPTH SECTION — diagonal cut ── */
     .client-depth{
-      padding:52px 0 56px;
+      padding:72px 0 80px;
       background:var(--navy);
-      border-bottom:3px solid #EEAE26;
-      overflow:hidden
+      overflow:hidden;
+      position:relative;
+      /* Diagonal entry and exit via clip-path */
+      clip-path:polygon(0 40px, 100% 0, 100% calc(100% - 40px), 0 100%);
+      margin:0 0;
     }
+    /* Extra vertical padding to compensate for clip-path cutting corners */
     .client-depth-inner{
       max-width:var(--max-width);
       margin:0 auto 36px;
@@ -282,7 +286,7 @@
 <!-- ── HERO ── -->
 <section class="hero"><div class="hero-inner" style="display:flex;align-items:center;gap:48px;">
   <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions"
-       class="hero-logo" style="height:216px;width:auto;flex-shrink:0;opacity:.92;">
+       class="hero-logo" style="height:216px;width:auto;flex-shrink:0;opacity:1;filter:drop-shadow(0 2px 16px rgba(255,255,255,0.30));">
   <div>
     <div class="hero-eyebrow">Client Testimonials</div>
     <h1>What Our Clients Say</h1>
