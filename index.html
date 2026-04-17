@@ -60,6 +60,23 @@
                     safe-fail behavior preserves the original card design
                   - Photos confirmed live on /our_team/ at matching paths
                   - All other content, schemas, CSS, JS unchanged
+      2026-04-17  (v12) THOMAS IFRAME SANDBOX — DEFENSE-IN-DEPTH:
+                  - Added sandbox attribute to the Thomas iframe:
+                    sandbox="allow-scripts allow-same-origin allow-forms
+                             allow-popups allow-popups-to-escape-sandbox"
+                  - Permissions granted: Thomas can run JS (chat UI), reach
+                    its own backend API (same-origin within its domain),
+                    submit forms (message input), and open/escape popups.
+                  - Permissions intentionally NOT granted: allow-top-navigation
+                    (Thomas cannot redirect the shift-work.com parent page),
+                    allow-modals (Thomas cannot pop alerts/confirms in parent
+                    context), allow-pointer-lock, allow-orientation-lock.
+                  - Rationale: Thomas is a separate Render service; if it is
+                    ever compromised, the sandbox limits what an attacker can
+                    do against the parent page. Existing allow="microphone;
+                    autoplay" preserved for voice features.
+                  - Only the iframe element changed; no other markup, CSS,
+                    JS, or schema touched.
 
   NAV SYSTEM: .site-header / .main-nav / .nav-cta (fixed 64px)
   HERO IMAGE: /images/second.png (background)
@@ -629,7 +646,7 @@
         <a href="https://shift-work-diagnostic.onrender.com" target="_blank" class="btn-primary">Talk to Thomas &#8594;</a>
       </div>
       <div class="thomas-frame">
-        <iframe src="https://shift-work-diagnostic.onrender.com" title="Thomas — AI Shift Operations Diagnostic" loading="lazy" allow="microphone; autoplay"></iframe>
+        <iframe src="https://shift-work-diagnostic.onrender.com" title="Thomas — AI Shift Operations Diagnostic" loading="lazy" allow="microphone; autoplay" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"></iframe>
       </div>
     </div>
   </div>
