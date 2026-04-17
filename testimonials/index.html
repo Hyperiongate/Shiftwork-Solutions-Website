@@ -6,7 +6,7 @@
   URL: /testimonials/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-16
+  Last Updated: 2026-04-17
 
   CHANGE LOG:
     2026-04-04 — Initial build. Client testimonials organized by theme.
@@ -35,6 +35,13 @@
                     / Thomas / Newsletter) + bottom bar.
                  All testimonial content, client strips, theme labels,
                  and all JS preserved exactly.
+
+    2026-04-17 — CLIENT STRIPS: Converted all 6 static tag grids to
+                 scrolling marquee strips matching the industry page
+                 style. Each strip has a dark navy background, fade
+                 edges, and auto-scrolling animation. Each strip uses
+                 a different speed for visual variety. Tags duplicate
+                 for seamless looping.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
@@ -138,12 +145,31 @@
     .theme-label-line{flex:1;height:1px;background:var(--border-light)}
     .theme-label-text{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);white-space:nowrap}
 
-    /* ── CLIENT STRIPS ── */
-    .client-strip{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad)}
-    .client-strip-inner{background:#F8FAFB;border-radius:8px;padding:20px 24px}
-    .client-strip-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:12px}
-    .client-tags{display:flex;flex-wrap:wrap;gap:8px}
-    .client-tag{background:var(--white);border:1px solid var(--border-med);border-radius:4px;padding:5px 12px;font-size:13px;color:var(--body-text)}
+    /* ── CLIENT STRIPS (marquee style) ── */
+    .client-strip{margin:16px 0;padding:0}
+    .client-strip-inner{background:var(--navy);border-radius:8px;overflow:hidden;position:relative}
+    .client-strip-intro{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.50);text-align:center;padding:14px 24px 0}
+    .client-strip-scroll{padding:12px 0 14px;overflow:hidden;position:relative}
+    .client-strip-fade-l{position:absolute;top:0;left:0;bottom:0;width:60px;background:linear-gradient(to right,var(--navy),transparent);z-index:1;pointer-events:none}
+    .client-strip-fade-r{position:absolute;top:0;right:0;bottom:0;width:60px;background:linear-gradient(to left,var(--navy),transparent);z-index:1;pointer-events:none}
+    .client-marquee-track{display:flex;width:max-content}
+    .client-marquee-track:hover{animation-play-state:paused}
+    .client-tag{display:inline-block;padding:8px 24px;font-size:14px;font-weight:700;color:rgba(255,255,255,.85);white-space:nowrap;letter-spacing:.02em}
+    .client-tag-sep{display:inline-block;color:rgba(232,97,10,.7);font-size:18px;line-height:1;padding:0 2px;vertical-align:middle}
+
+    @keyframes marquee-28{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    @keyframes marquee-32{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    @keyframes marquee-24{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    @keyframes marquee-36{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    @keyframes marquee-20{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    @keyframes marquee-30{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    .track-food{animation:marquee-28 28s linear infinite}
+    .track-chem{animation:marquee-32 32s linear infinite}
+    .track-auto{animation:marquee-24 24s linear infinite}
+    .track-paper{animation:marquee-36 36s linear infinite}
+    .track-mining{animation:marquee-20 20s linear infinite}
+    .track-dist{animation:marquee-30 30s linear infinite}
 
     /* ── NEXT STEPS ── */
     .next-steps{padding:56px var(--page-pad) 64px;background:var(--light-grey);border-top:1px solid var(--border-light)}
@@ -201,7 +227,7 @@
       .nav-links,.nav-cta-wrap{display:none}.mobile-toggle{display:block}
       .nav-logo-text{font-size:16px}
       .hero{padding:36px 20px 40px}.hero h1{font-size:24px}.hero-stats{flex-direction:column;gap:10px}
-      .content-section,.testimonials,.theme-label,.client-strip{padding-left:20px;padding-right:20px}
+      .content-section,.testimonials,.theme-label{padding-left:20px;padding-right:20px}
       .tcard,.tcard-featured{padding:20px 16px}
       .ns-cards{grid-template-columns:1fr}
       .footer-prefooter{padding:32px 20px}
@@ -323,17 +349,207 @@
   <p>Across three decades and dozens of industries. Several clients have engaged us across multiple facilities — a pattern that reflects what happens when the process works.</p>
 </section>
 
-<div class="client-strip"><div class="client-strip-inner"><div class="client-strip-label">Food &amp; Beverage</div><div class="client-tags"><span class="client-tag">Nestl&eacute;</span><span class="client-tag">Kellogg's</span><span class="client-tag">Campbell's</span><span class="client-tag">General Mills</span><span class="client-tag">Pepperidge Farms</span><span class="client-tag">Tropicana</span><span class="client-tag">Mondelez</span><span class="client-tag">Smucker's</span><span class="client-tag">Mars</span><span class="client-tag">Dannon</span><span class="client-tag">Golden State Foods</span><span class="client-tag">Snyder's of Hanover</span><span class="client-tag">Buddig</span><span class="client-tag">Trophy Foods</span></div></div></div>
+<!-- ── FOOD & BEVERAGE ── -->
+<div class="client-strip"><div class="client-strip-inner">
+  <div class="client-strip-intro">Food &amp; Beverage companies that trust Shiftwork Solutions include:</div>
+  <div class="client-strip-scroll">
+    <div class="client-strip-fade-l"></div>
+    <div class="client-strip-fade-r"></div>
+    <div class="client-marquee-track track-food">
+      <span class="client-tag">Nestl&eacute;</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Kellogg's</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Campbell's</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">General Mills</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Pepperidge Farms</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Tropicana</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Mondelez</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Smucker's</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Mars</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Dannon</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Golden State Foods</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Snyder's of Hanover</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Buddig</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Trophy Foods</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Nestl&eacute;</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Kellogg's</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Campbell's</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">General Mills</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Pepperidge Farms</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Tropicana</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Mondelez</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Smucker's</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Mars</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Dannon</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Golden State Foods</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Snyder's of Hanover</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Buddig</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Trophy Foods</span><span class="client-tag-sep">&middot;</span>
+    </div>
+  </div>
+</div></div>
 
-<div class="client-strip"><div class="client-strip-inner"><div class="client-strip-label">Chemical, Pharmaceutical &amp; Life Sciences</div><div class="client-tags"><span class="client-tag">Merck</span><span class="client-tag">Medtronic</span><span class="client-tag">Abbott</span><span class="client-tag">Pfizer</span><span class="client-tag">ThermoFisher</span><span class="client-tag">Dow</span><span class="client-tag">DSM</span><span class="client-tag">AkzoNobel</span><span class="client-tag">Covestro</span><span class="client-tag">Saint-Gobain</span><span class="client-tag">Alkermes</span><span class="client-tag">Infineon Technologies</span></div></div></div>
+<!-- ── CHEMICAL, PHARMACEUTICAL & LIFE SCIENCES ── -->
+<div class="client-strip"><div class="client-strip-inner">
+  <div class="client-strip-intro">Chemical, Pharmaceutical &amp; Life Sciences companies that trust Shiftwork Solutions include:</div>
+  <div class="client-strip-scroll">
+    <div class="client-strip-fade-l"></div>
+    <div class="client-strip-fade-r"></div>
+    <div class="client-marquee-track track-chem">
+      <span class="client-tag">Merck</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Medtronic</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Abbott</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Pfizer</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">ThermoFisher</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Dow</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">DSM</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">AkzoNobel</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Covestro</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Saint-Gobain</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Alkermes</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Infineon Technologies</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Merck</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Medtronic</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Abbott</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Pfizer</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">ThermoFisher</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Dow</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">DSM</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">AkzoNobel</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Covestro</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Saint-Gobain</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Alkermes</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Infineon Technologies</span><span class="client-tag-sep">&middot;</span>
+    </div>
+  </div>
+</div></div>
 
-<div class="client-strip"><div class="client-strip-inner"><div class="client-strip-label">Automotive, Industrial &amp; Manufacturing</div><div class="client-tags"><span class="client-tag">BMW</span><span class="client-tag">Hyundai</span><span class="client-tag">GM</span><span class="client-tag">Toyota</span><span class="client-tag">Borg Warner</span><span class="client-tag">Goodyear</span><span class="client-tag">Panasonic</span><span class="client-tag">Whirlpool</span><span class="client-tag">Siemens</span><span class="client-tag">PPG</span><span class="client-tag">Corning</span><span class="client-tag">Andersen Windows</span><span class="client-tag">Dana Corporation</span><span class="client-tag">Kimberly-Clark</span></div></div></div>
+<!-- ── AUTOMOTIVE, INDUSTRIAL & MANUFACTURING ── -->
+<div class="client-strip"><div class="client-strip-inner">
+  <div class="client-strip-intro">Automotive, Industrial &amp; Manufacturing companies that trust Shiftwork Solutions include:</div>
+  <div class="client-strip-scroll">
+    <div class="client-strip-fade-l"></div>
+    <div class="client-strip-fade-r"></div>
+    <div class="client-marquee-track track-auto">
+      <span class="client-tag">BMW</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Hyundai</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">GM</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Toyota</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Borg Warner</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Goodyear</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Panasonic</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Whirlpool</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Siemens</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">PPG</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Corning</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Andersen Windows</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Dana Corporation</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Kimberly-Clark</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">BMW</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Hyundai</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">GM</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Toyota</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Borg Warner</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Goodyear</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Panasonic</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Whirlpool</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Siemens</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">PPG</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Corning</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Andersen Windows</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Dana Corporation</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Kimberly-Clark</span><span class="client-tag-sep">&middot;</span>
+    </div>
+  </div>
+</div></div>
 
-<div class="client-strip"><div class="client-strip-inner"><div class="client-strip-label">Paper, Packaging &amp; Printing</div><div class="client-tags"><span class="client-tag">International Paper</span><span class="client-tag">WestRock</span><span class="client-tag">Weyerhaeuser</span><span class="client-tag">Appleton Paper</span><span class="client-tag">Menasha Packaging</span><span class="client-tag">Graham Packaging</span><span class="client-tag">Pratt Industries</span><span class="client-tag">Clearwater Paper</span></div></div></div>
+<!-- ── PAPER, PACKAGING & PRINTING ── -->
+<div class="client-strip"><div class="client-strip-inner">
+  <div class="client-strip-intro">Paper, Packaging &amp; Printing companies that trust Shiftwork Solutions include:</div>
+  <div class="client-strip-scroll">
+    <div class="client-strip-fade-l"></div>
+    <div class="client-strip-fade-r"></div>
+    <div class="client-marquee-track track-paper">
+      <span class="client-tag">International Paper</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">WestRock</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Weyerhaeuser</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Appleton Paper</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Menasha Packaging</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Graham Packaging</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Pratt Industries</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Clearwater Paper</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">International Paper</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">WestRock</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Weyerhaeuser</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Appleton Paper</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Menasha Packaging</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Graham Packaging</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Pratt Industries</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Clearwater Paper</span><span class="client-tag-sep">&middot;</span>
+    </div>
+  </div>
+</div></div>
 
-<div class="client-strip"><div class="client-strip-inner"><div class="client-strip-label">Mining, Energy &amp; Utilities</div><div class="client-tags"><span class="client-tag">BHP</span><span class="client-tag">Vale</span><span class="client-tag">Phelps Dodge</span><span class="client-tag">PotashCorp</span><span class="client-tag">Compass Minerals</span><span class="client-tag">Placerdome</span><span class="client-tag">Navajo Refining</span><span class="client-tag">BP</span><span class="client-tag">American Coal Company</span><span class="client-tag">ComEd</span><span class="client-tag">Southern Company</span></div></div></div>
+<!-- ── MINING, ENERGY & UTILITIES ── -->
+<div class="client-strip"><div class="client-strip-inner">
+  <div class="client-strip-intro">Mining, Energy &amp; Utilities companies that trust Shiftwork Solutions include:</div>
+  <div class="client-strip-scroll">
+    <div class="client-strip-fade-l"></div>
+    <div class="client-strip-fade-r"></div>
+    <div class="client-marquee-track track-mining">
+      <span class="client-tag">BHP</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Vale</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Phelps Dodge</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">PotashCorp</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Compass Minerals</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Placerdome</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Navajo Refining</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">BP</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">American Coal Company</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">ComEd</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Southern Company</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">BHP</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Vale</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Phelps Dodge</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">PotashCorp</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Compass Minerals</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Placerdome</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Navajo Refining</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">BP</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">American Coal Company</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">ComEd</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Southern Company</span><span class="client-tag-sep">&middot;</span>
+    </div>
+  </div>
+</div></div>
 
-<div class="client-strip"><div class="client-strip-inner"><div class="client-strip-label">Distribution, Logistics &amp; Other</div><div class="client-tags"><span class="client-tag">FedEx</span><span class="client-tag">DHL</span><span class="client-tag">Kroger</span><span class="client-tag">Xerox</span><span class="client-tag">Tesla</span><span class="client-tag">Raytheon</span><span class="client-tag">Becton Dickinson</span><span class="client-tag">Red Cross</span><span class="client-tag">Unilever</span></div></div></div>
+<!-- ── DISTRIBUTION, LOGISTICS & OTHER ── -->
+<div class="client-strip"><div class="client-strip-inner">
+  <div class="client-strip-intro">Distribution, Logistics &amp; Other companies that trust Shiftwork Solutions include:</div>
+  <div class="client-strip-scroll">
+    <div class="client-strip-fade-l"></div>
+    <div class="client-strip-fade-r"></div>
+    <div class="client-marquee-track track-dist">
+      <span class="client-tag">FedEx</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">DHL</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Kroger</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Xerox</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Tesla</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Raytheon</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Becton Dickinson</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Red Cross</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Unilever</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">FedEx</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">DHL</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Kroger</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Xerox</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Tesla</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Raytheon</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Becton Dickinson</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Red Cross</span><span class="client-tag-sep">&middot;</span>
+      <span class="client-tag">Unilever</span><span class="client-tag-sep">&middot;</span>
+    </div>
+  </div>
+</div></div>
 
 <hr class="divider">
 
