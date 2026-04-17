@@ -5,9 +5,24 @@
   URL: /resources/
 
   Created:      2026-04-03
-  Last Updated: 2026-04-16
+  Last Updated: 2026-04-17
 
   CHANGE LOG:
+    2026-04-17 — Tile text sizes increased 20%+ across all card types:
+                 result-card-title 15→18px, result-card-desc 13→16px,
+                 result-card-tag 9→11px, guide-card-title 15→18px,
+                 guide-card-desc 13→16px, guide-card-tag 10→12px,
+                 guide-card-read 13→16px, guide-cta-title 16→20px,
+                 guide-cta-desc 13→16px, guide-cta-btn 12→15px,
+                 guide-cta-label 12→15px, focused-card-title 13→16px,
+                 focused-card-desc 12→15px, focused-card-tag 9→11px,
+                 focused-card-read 12→15px, trending-card-title 13→16px,
+                 trending-card-desc 12→15px, trending-card-tag 9→11px,
+                 trending-card-read 12→15px, trending-card-soon-title 15→18px,
+                 trending-card-soon-desc 12→15px, trending-card-soon-label 10→12px,
+                 interest-btn-title 17→21px, interest-btn-desc 14→17px,
+                 interest-btn-label 11→14px.
+
     2026-04-16 — FIVE UPDATES applied today:
                  1. Orange section-divider line removed; hero h1 color → #EEAE26
                  2. Interest buttons redesigned: taller split-band layout.
@@ -57,7 +72,7 @@
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-    /* HERO — change 1: h1 = #EEAE26, no divider line */
+    /* HERO */
     .hero{background:#0D1F3C url('/images/second.png') center center/cover no-repeat;padding:60px 36px 68px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.82) 0%,rgba(13,31,60,.60) 55%,rgba(13,31,60,.30) 100%);z-index:0}
     .hero-circle-tr{position:absolute;top:-60px;right:-80px;width:320px;height:320px;border-radius:50%;border:2px solid rgba(232,97,10,.25);z-index:0}
@@ -74,7 +89,7 @@
     .hub-inner{max-width:var(--max-width);margin:0 auto}
     .hub-intro{margin-bottom:28px}
     .interest-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    /* CHANGE 2: split-band interest buttons */
+    /* Interest buttons — split-band layout */
     .interest-btn{background:var(--white);border:2px solid var(--navy);border-radius:10px;cursor:pointer;text-align:left;transition:all .25s ease;outline:none;font-family:Arial,Helvetica,sans-serif;overflow:hidden;padding:0;display:flex;flex-direction:column;min-height:200px}
     .interest-btn:hover{border-color:var(--orange);transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.14)}
     .interest-btn.active{border-color:var(--orange);box-shadow:0 4px 24px rgba(232,97,10,.22)}
@@ -83,10 +98,13 @@
     .interest-btn-icon-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
     .interest-btn-icon{width:36px;height:36px;border-radius:50%;background:var(--light-blue);display:flex;align-items:center;justify-content:center;flex-shrink:0}
     .interest-btn-icon svg{display:block}
-    .interest-btn-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--orange);margin-bottom:0}
-    .interest-btn-title{font-size:17px;font-weight:700;color:var(--navy);line-height:1.3;margin-top:6px}
+    /* UPDATED 2026-04-17: 11→14px (+27%) */
+    .interest-btn-label{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--orange);margin-bottom:0}
+    /* UPDATED 2026-04-17: 17→21px (+24%) */
+    .interest-btn-title{font-size:21px;font-weight:700;color:var(--navy);line-height:1.3;margin-top:6px}
     .interest-btn-bottom{background:var(--navy-dark);padding:14px 18px 18px;flex:1;display:flex;align-items:flex-start}
-    .interest-btn-desc{font-size:14px;color:rgba(255,255,255,.85);line-height:1.55}
+    /* UPDATED 2026-04-17: 14→17px (+21%) */
+    .interest-btn-desc{font-size:17px;color:rgba(255,255,255,.85);line-height:1.55}
     /* Result panel */
     .result-area{display:none;max-width:var(--max-width);margin:32px auto 0;padding:28px 24px 32px;background:var(--white);border:1px solid var(--border-med);border-top:4px solid var(--orange);border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,.06)}
     .result-area.visible{display:block;animation:fadeUp .35s ease both}
@@ -99,16 +117,19 @@
     .result-card-img{width:120px;flex-shrink:0;object-fit:cover;display:block;background-color:var(--light-blue)}
     .result-card-icon{width:80px;min-height:80px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--light-blue)}
     .result-card-body{flex:1;padding:14px 18px;min-width:0}
-    .result-card-tag{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:3px;margin-bottom:6px}
+    /* UPDATED 2026-04-17: 9→11px (+22%) */
+    .result-card-tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:3px;margin-bottom:6px}
     .result-card-tag.guide{background:var(--light-blue);color:var(--navy)}
     .result-card-tag.focused{background:rgba(232,97,10,.1);color:var(--orange)}
     .result-card-tag.tool{background:rgba(29,158,117,.1);color:var(--green)}
-    .result-card-title{font-size:15px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:5px;transition:color .15s}
+    /* UPDATED 2026-04-17: 15→18px (+20%) */
+    .result-card-title{font-size:18px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:5px;transition:color .15s}
     .result-card:hover .result-card-title{color:var(--orange)}
-    .result-card-desc{font-size:13px;color:var(--muted);line-height:1.55}
+    /* UPDATED 2026-04-17: 13→16px (+23%) */
+    .result-card-desc{font-size:16px;color:var(--muted);line-height:1.55}
     .result-card-arrow{flex-shrink:0;display:flex;align-items:center;padding:0 16px;font-size:18px;font-weight:700;color:var(--border-med);transition:color .2s}
     .result-card:hover .result-card-arrow{color:var(--orange)}
-    /* COMPLETE GUIDES — change 3: font +1 */
+    /* COMPLETE GUIDES */
     .guides-section{padding:60px var(--page-pad) 64px;background:var(--white)}
     .guides-inner{max-width:var(--max-width);margin:0 auto}
     .guides-header{margin-bottom:32px}
@@ -118,25 +139,33 @@
     .guide-card:hover{border-top-color:var(--orange);box-shadow:0 6px 24px rgba(0,0,0,.10);transform:translateY(-3px)}
     .guide-card-img{width:100%;height:140px;object-fit:cover;display:block;background:var(--light-blue)}
     .guide-card-body{flex:1;padding:16px 16px 10px}
-    .guide-card-tag{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border-radius:3px;margin-bottom:7px;background:var(--light-blue);color:var(--navy)}
-    .guide-card-title{font-size:15px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:6px;transition:color .15s}
+    /* UPDATED 2026-04-17: 10→12px (+20%) */
+    .guide-card-tag{display:inline-block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border-radius:3px;margin-bottom:7px;background:var(--light-blue);color:var(--navy)}
+    /* UPDATED 2026-04-17: 15→18px (+20%) */
+    .guide-card-title{font-size:18px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:6px;transition:color .15s}
     .guide-card:hover .guide-card-title{color:var(--orange)}
-    .guide-card-desc{font-size:13px;color:var(--muted);line-height:1.55}
+    /* UPDATED 2026-04-17: 13→16px (+23%) */
+    .guide-card-desc{font-size:16px;color:var(--muted);line-height:1.55}
     .guide-card-footer{padding:10px 16px 14px;border-top:1px solid var(--border-light);display:flex;align-items:center;justify-content:flex-end;margin-top:auto}
-    .guide-card-read{font-size:13px;font-weight:700;color:var(--orange);text-decoration:none;display:flex;align-items:center;gap:4px;transition:color .15s}
+    /* UPDATED 2026-04-17: 13→16px (+23%) */
+    .guide-card-read{font-size:16px;font-weight:700;color:var(--orange);text-decoration:none;display:flex;align-items:center;gap:4px;transition:color .15s}
     .guide-card:hover .guide-card-read{color:var(--navy)}
-    /* CTA cards — change 3: both navy, white top band */
+    /* CTA cards — both navy, white top band */
     .guide-cta-card{display:flex;flex-direction:column;border-radius:8px;overflow:hidden;text-decoration:none;transition:all .2s ease;border:2px solid transparent;background:var(--navy)}
     .guide-cta-card:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.18);border-color:var(--orange)}
     .guide-cta-top{background:var(--white);height:140px;padding:0 20px;border-bottom:3px solid var(--orange);display:flex;align-items:center;gap:14px}
     .guide-cta-icon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--light-blue)}
-    .guide-cta-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--navy)}
+    /* UPDATED 2026-04-17: 12→15px (+25%) */
+    .guide-cta-label{font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--navy)}
     .guide-cta-body{flex:1;padding:18px 20px 22px;display:flex;flex-direction:column}
-    .guide-cta-title{font-size:16px;font-weight:700;color:var(--white);line-height:1.3;margin-bottom:10px}
-    .guide-cta-desc{font-size:13px;color:rgba(255,255,255,.65);line-height:1.55;margin-bottom:18px;flex:1}
-    .guide-cta-btn{display:inline-block;padding:9px 18px;background:var(--orange);color:var(--white);font-size:12px;font-weight:700;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap;align-self:flex-start}
+    /* UPDATED 2026-04-17: 16→20px (+25%) */
+    .guide-cta-title{font-size:20px;font-weight:700;color:var(--white);line-height:1.3;margin-bottom:10px}
+    /* UPDATED 2026-04-17: 13→16px (+23%) */
+    .guide-cta-desc{font-size:16px;color:rgba(255,255,255,.65);line-height:1.55;margin-bottom:18px;flex:1}
+    /* UPDATED 2026-04-17: 12→15px (+25%) */
+    .guide-cta-btn{display:inline-block;padding:9px 18px;background:var(--orange);color:var(--white);font-size:15px;font-weight:700;border-radius:4px;text-decoration:none;transition:background .15s;white-space:nowrap;align-self:flex-start}
     .guide-cta-btn:hover{background:#c4510a}
-    /* FOCUSED TOPICS — change 4 */
+    /* FOCUSED TOPICS */
     .focused-section{padding:56px var(--page-pad) 60px;background:var(--light-grey)}
     .focused-inner{max-width:var(--max-width);margin:0 auto}
     .focused-header{margin-bottom:32px}
@@ -146,18 +175,22 @@
     .focused-card.focused-hidden{display:none}
     .focused-card-img{width:100%;height:140px;object-fit:cover;display:block;background:var(--light-blue)}
     .focused-card-body{flex:1;padding:14px 14px 8px}
-    .focused-card-tag{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border-radius:3px;margin-bottom:6px;background:rgba(232,97,10,.1);color:var(--orange)}
-    .focused-card-title{font-size:13px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:5px;transition:color .15s}
+    /* UPDATED 2026-04-17: 9→11px (+22%) */
+    .focused-card-tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border-radius:3px;margin-bottom:6px;background:rgba(232,97,10,.1);color:var(--orange)}
+    /* UPDATED 2026-04-17: 13→16px (+23%) */
+    .focused-card-title{font-size:16px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:5px;transition:color .15s}
     .focused-card:hover .focused-card-title{color:var(--orange)}
-    .focused-card-desc{font-size:12px;color:var(--muted);line-height:1.5}
+    /* UPDATED 2026-04-17: 12→15px (+25%) */
+    .focused-card-desc{font-size:15px;color:var(--muted);line-height:1.5}
     .focused-card-footer{padding:8px 14px 12px;border-top:1px solid var(--border-light);display:flex;align-items:center;justify-content:flex-end;margin-top:auto}
-    .focused-card-read{font-size:12px;font-weight:700;color:var(--orange);display:flex;align-items:center;gap:4px;transition:color .15s}
+    /* UPDATED 2026-04-17: 12→15px (+25%) */
+    .focused-card-read{font-size:15px;font-weight:700;color:var(--orange);display:flex;align-items:center;gap:4px;transition:color .15s}
     .focused-card:hover .focused-card-read{color:var(--navy)}
     .focused-show-more-wrap{margin-top:28px;display:flex;justify-content:center}
     .focused-show-more-btn{padding:11px 32px;background:var(--white);border:2px solid var(--navy);border-radius:4px;font-family:Arial,sans-serif;font-size:14px;font-weight:700;color:var(--navy);cursor:pointer;transition:all .2s ease}
     .focused-show-more-btn:hover{background:var(--navy);color:var(--white)}
     .focused-show-more-btn.hidden{display:none}
-    /* TRENDING CAROUSEL — change 5 */
+    /* TRENDING CAROUSEL */
     .trending-section{padding:52px var(--page-pad) 60px;background:var(--white)}
     .trending-inner{max-width:var(--max-width);margin:0 auto}
     .trending-header{margin-bottom:32px}
@@ -168,18 +201,25 @@
     .trending-card:hover{border-top-color:var(--orange);box-shadow:0 6px 20px rgba(0,0,0,.10);transform:translateY(-3px)}
     .trending-card-img{width:100%;height:130px;object-fit:cover;display:block;background:var(--light-blue)}
     .trending-card-body{flex:1;padding:14px 14px 10px}
-    .trending-card-tag{display:inline-block;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border-radius:3px;margin-bottom:8px;background:rgba(31,78,121,.1);color:var(--navy)}
-    .trending-card-title{font-size:13px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:7px;transition:color .15s}
+    /* UPDATED 2026-04-17: 9→11px (+22%) */
+    .trending-card-tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border-radius:3px;margin-bottom:8px;background:rgba(31,78,121,.1);color:var(--navy)}
+    /* UPDATED 2026-04-17: 13→16px (+23%) */
+    .trending-card-title{font-size:16px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:7px;transition:color .15s}
     .trending-card:hover .trending-card-title{color:var(--orange)}
-    .trending-card-desc{font-size:12px;color:var(--muted);line-height:1.55}
+    /* UPDATED 2026-04-17: 12→15px (+25%) */
+    .trending-card-desc{font-size:15px;color:var(--muted);line-height:1.55}
     .trending-card-footer{padding:10px 14px 12px;border-top:1px solid var(--border-light);display:flex;align-items:center}
-    .trending-card-read{font-size:12px;font-weight:700;color:var(--orange);text-decoration:none;transition:color .15s;display:flex;align-items:center;gap:4px}
+    /* UPDATED 2026-04-17: 12→15px (+25%) */
+    .trending-card-read{font-size:15px;font-weight:700;color:var(--orange);text-decoration:none;transition:color .15s;display:flex;align-items:center;gap:4px}
     .trending-card:hover .trending-card-read{color:var(--navy)}
     .trending-card-soon{flex:0 0 calc(25% - 14px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--navy-dark);border:1px solid var(--navy-dark);border-top:4px solid var(--orange);border-radius:8px;overflow:hidden;padding:28px 20px;min-height:260px}
     .trending-card-soon-icon{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;margin:0 auto 14px}
-    .trending-card-soon-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);margin-bottom:10px}
-    .trending-card-soon-title{font-size:15px;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:10px}
-    .trending-card-soon-desc{font-size:12px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:18px}
+    /* UPDATED 2026-04-17: 10→12px (+20%) */
+    .trending-card-soon-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);margin-bottom:10px}
+    /* UPDATED 2026-04-17: 15→18px (+20%) */
+    .trending-card-soon-title{font-size:18px;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:10px}
+    /* UPDATED 2026-04-17: 12→15px (+25%) */
+    .trending-card-soon-desc{font-size:15px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:18px}
     .trending-card-soon-nl{display:flex;gap:6px;width:100%;flex-wrap:wrap;justify-content:center}
     .trending-card-soon-input{flex:1;min-width:0;padding:8px 10px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:12px;outline:none;transition:border-color .15s}
     .trending-card-soon-input::placeholder{color:rgba(255,255,255,.4)}
@@ -242,7 +282,7 @@
       .hub-section{padding:32px 16px 40px}
       .interest-row{grid-template-columns:1fr 1fr;gap:10px}
       .interest-btn{min-height:170px}
-      .interest-btn-title{font-size:14px}
+      .interest-btn-title{font-size:17px}
       .result-card-img{width:80px}
       .guides-section,.focused-section,.trending-section{padding-left:16px;padding-right:16px}
       .guides-grid{grid-template-columns:1fr 1fr;gap:14px}
