@@ -353,13 +353,14 @@
       return;
     }
 
-    // Show thank-you instantly — visitor never waits for the API
-    status.className='form-status success';
-    status.textContent='Thank you for reaching out! Someone from the Shiftwork Solutions team will be in touch with you shortly.';
-    form.reset();
-    document.getElementById('_loaded').value=Date.now().toString();
-    btn.disabled=false;
-    btn.textContent='Send Message \u2192';
+    // Show thank-you instantly — replace the entire form area
+    document.querySelector('.contact-form-wrap').innerHTML =
+      '<div style="text-align:center;padding:48px 24px 56px;">' +
+        '<div style="font-size:48px;margin-bottom:20px;">&#10003;</div>' +
+        '<h2 style="font-size:28px;font-weight:700;color:#1F4E79;margin-bottom:16px;">Thank You for Reaching Out</h2>' +
+        '<p style="font-size:17px;color:#444;line-height:1.7;max-width:520px;margin:0 auto 32px;">Someone from the Shiftwork Solutions team will be in touch with you shortly. We typically respond within one business day.</p>' +
+        '<a href="/" style="display:inline-block;padding:13px 32px;background:#E8610A;color:#fff;font-size:15px;font-weight:700;text-decoration:none;border-radius:6px;transition:background .2s;" onmouseover="this.style.background=\'#c4510a\'" onmouseout="this.style.background=\'#E8610A\'">Return to Shiftwork Solutions &rarr;</a>' +
+      '</div>';
 
     // Fire API in the background — silently, no UI impact
     var payload={name:name,email:email,company:company,
