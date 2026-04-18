@@ -46,7 +46,14 @@
                   - Associated CSS (.phases-grid, .phase-card, .phase-num,
                     .process-timeline, .process-week, .process-dot) removed
                   - Orphaned <hr> dividers cleaned up
-      2026-04-18  (v10) THREE VISUAL FIXES per screenshot review:
+      2026-04-18  (v11) METHODOLOGY SECTION: Replaced CSS-built five-node
+                  alternating timeline with static image. Image file:
+                  /images/methodology_timeline.jpg (upload to GitHub repo).
+                  Removed all .method-track/.method-node/.method-dot/
+                  .method-connector/.method-label/.method-phase-name/
+                  .method-desc CSS. Section background changed to
+                  --navy-dark (#0D1F3C) to better match slide background.
+                  Inner max-width 960px to let the image breathe fully.
                   1. Editorial sections ("When the Schedule Is Right" and
                      "Who We Work With") — font sizes dramatically reduced
                      to match site scale. ec-col-heading: 29px → 17px.
@@ -394,11 +401,11 @@
 
     /* ── SECTION 5: FIVE-PHASE METHODOLOGY TIMELINE ── */
     .methodology {
-      background: var(--navy);
-      padding: 64px 24px 72px;
+      background: var(--navy-dark);
+      padding: 52px 24px 60px;
     }
     .methodology-inner {
-      max-width: 1100px;
+      max-width: 960px;
       margin: 0 auto;
     }
     .methodology-eyebrow {
@@ -422,117 +429,17 @@
       color: rgba(255,255,255,0.65);
       text-align: center;
       max-width: 640px;
-      margin: 0 auto 52px;
+      margin: 0 auto 36px;
       line-height: 1.65;
     }
-    /* Horizontal timeline track */
-    .method-track {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 260px;
+    .methodology-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
     }
-    /* Horizontal connecting line */
-    .method-track::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: rgba(255,255,255,0.20);
-      transform: translateY(-50%);
-      z-index: 0;
-    }
-    /* Each node wrapper — alternates above/below the axis */
-    .method-node {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      flex: 1;
-    }
-    /* Nodes 1,3,5 — label ABOVE the dot */
-    .method-node.above {
-      flex-direction: column;
-      padding-bottom: 56px; /* pushes dot to axis */
-    }
-    /* Nodes 2,4 — label BELOW the dot */
-    .method-node.below {
-      flex-direction: column-reverse;
-      padding-top: 56px; /* pushes dot to axis */
-    }
-    /* The numbered dot */
-    .method-dot {
-      width: 44px;
-      height: 44px;
-      background: #EEAE26;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--navy-dark);
-      flex-shrink: 0;
-      box-shadow: 0 0 0 5px rgba(238,174,38,0.22);
-      position: relative;
-      z-index: 2;
-    }
-    /* Connector stub from dot to label */
-    .method-connector {
-      width: 2px;
-      height: 32px;
-      background: rgba(255,255,255,0.25);
-      flex-shrink: 0;
-    }
-    .method-label {
-      max-width: 160px;
-      text-align: center;
-    }
-    .method-phase-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: #EEAE26;
-      line-height: 1.3;
-      margin-bottom: 6px;
-    }
-    .method-desc {
-      font-size: 12px;
-      color: rgba(255,255,255,0.70);
-      line-height: 1.55;
-    }
-    /* Mobile: stack vertically */
-    @media (max-width: 760px) {
-      .method-track {
-        flex-direction: column;
-        align-items: flex-start;
-        min-height: auto;
-        gap: 0;
-        padding-left: 28px;
-      }
-      .method-track::before {
-        top: 0;
-        bottom: 0;
-        left: 21px;
-        right: auto;
-        width: 3px;
-        height: auto;
-        transform: none;
-      }
-      .method-node.above,
-      .method-node.below {
-        flex-direction: row;
-        align-items: flex-start;
-        padding: 0 0 28px 0;
-        gap: 14px;
-        width: 100%;
-      }
-      .method-connector { display: none; }
-      .method-label { max-width: none; text-align: left; }
-      .method-dot { flex-shrink: 0; }
+    @media (max-width: 640px) {
+      .methodology { padding: 36px 16px 44px; }
     }
 
     /* ── SECTION 6: PROPRIETARY TOOLS ── */
@@ -915,60 +822,14 @@
     <div class="methodology-eyebrow">How We Get There</div>
     <h2 class="methodology-heading">A Proven Five-Phase Process</h2>
     <p class="methodology-sub">Every engagement moves from diagnosis to sustainable adoption&mdash;not just to a schedule on paper.</p>
-
-    <div class="method-track">
-
-      <!-- Node 1: above axis -->
-      <div class="method-node above">
-        <div class="method-label">
-          <div class="method-phase-name">1. Operations Assessment</div>
-          <div class="method-desc">Understand the current state&mdash;workflows, coverage gaps, cost drivers, and constraints.</div>
-        </div>
-        <div class="method-connector"></div>
-        <div class="method-dot">1</div>
-      </div>
-
-      <!-- Node 2: below axis -->
-      <div class="method-node below">
-        <div class="method-dot">2</div>
-        <div class="method-connector"></div>
-        <div class="method-label">
-          <div class="method-phase-name">2. Scenario-Based Cost Modeling</div>
-          <div class="method-desc">Quantify the financial implications of every viable alternative before any decision is made.</div>
-        </div>
-      </div>
-
-      <!-- Node 3: above axis -->
-      <div class="method-node above">
-        <div class="method-label">
-          <div class="method-phase-name">3. Employee Engagement &amp; Surveys</div>
-          <div class="method-desc">Surface what the workforce actually needs&mdash;and what it can accept&mdash;through our Work-Life Balance Survey&trade;.</div>
-        </div>
-        <div class="method-connector"></div>
-        <div class="method-dot">3</div>
-      </div>
-
-      <!-- Node 4: below axis -->
-      <div class="method-node below">
-        <div class="method-dot">4</div>
-        <div class="method-connector"></div>
-        <div class="method-label">
-          <div class="method-phase-name">4. Schedule Design &amp; Testing</div>
-          <div class="method-desc">Build and validate the schedule against operational requirements and workforce data.</div>
-        </div>
-      </div>
-
-      <!-- Node 5: above axis -->
-      <div class="method-node above">
-        <div class="method-label">
-          <div class="method-phase-name">5. Implementation Roadmap</div>
-          <div class="method-desc">A clear, structured path to adoption&mdash;with communication plan, policy documentation, and change management support to make it last.</div>
-        </div>
-        <div class="method-connector"></div>
-        <div class="method-dot">5</div>
-      </div>
-
-    </div>
+    <img
+      src="/images/methodology_timeline.jpg"
+      alt="Five-phase methodology: Operations Assessment, Scenario-Based Cost Modeling, Employee Engagement and Surveys, Schedule Design and Testing, Implementation Roadmap"
+      class="methodology-img"
+      width="960"
+      height="540"
+      loading="lazy"
+    >
   </div>
 </section>
 
