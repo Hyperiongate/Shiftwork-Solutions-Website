@@ -32,16 +32,22 @@
       2026-04-18  (v15) TWO CHANGES:
                   1. CLIENTS SECTION REPLACED: Static client tag grid removed.
                      Replaced with animated two-strip continuous scrolling marquee
-                     ported from testimonials/index.html. Carries all CSS
-                     (.client-depth, .client-strips, .client-strip-row,
-                     .client-strip-track, .cn, .cn-1 through .cn-16) and the
-                     buildTrack() JS. Google Fonts for marquee name styles added.
-                     Client name lists updated to match verified Company Profile
-                     list used in v14.
+                     ported from testimonials/index.html.
                   2. THOMAS SECTION REMOVED from page body. Thomas remains in
                      the footer (AI ADVISOR column) and in the Resources tiles.
-                     The .thomas CSS is retained for forward compatibility but
-                     the section HTML is gone.
+      2026-04-18  (v15b) FOUR VISUAL FIXES:
+                  1. SERVICE TILES: background changed from dark translucent to
+                     white (rgba(255,255,255,0.96)); h3 color navy, p color
+                     text-mid — readable on white against navy section bg.
+                  2. CLIENT HEADING FONT: client-depth-heading font-family
+                     changed from Playfair Display (serif) to var(--font-body)
+                     (DM Sans) to match section-sub and eyebrow typography.
+                  3. SCROLLING STRIP: Reduced from two rows to one. All clients
+                     merged into single track. Speed slowed from 45s to 80s.
+                     Second strip HTML row and track-bottom JS removed.
+                  4. TEAM SECTION: padding-bottom reduced from 88px (inherited
+                     from .section) to 48px to eliminate excess whitespace
+                     below the three partner cards.
 
   NAV SYSTEM: .site-header / .main-nav / .nav-cta (fixed 64px)
   HERO IMAGE (background): /images/second.png
@@ -238,11 +244,11 @@
     .services .section-sub{color:rgba(255,255,255,0.7);}
     .services-sub-note{font-size:0.88rem;color:rgba(255,255,255,0.5);margin-top:28px;font-style:italic;}
     .services-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:48px;}
-    .service-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-lg);padding:28px 20px;text-align:center;transition:background 0.2s,border-color 0.2s;}
-    .service-card:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);}
-    .service-icon{width:56px;height:56px;border-radius:50%;background:rgba(232,148,10,0.15);color:var(--amber);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 16px;}
-    .service-card h3{font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:8px;line-height:1.3;}
-    .service-card p{font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.5;}
+    .service-card{background:rgba(255,255,255,0.96);border:1px solid rgba(255,255,255,0.2);border-radius:var(--radius-lg);padding:28px 20px;text-align:center;transition:background 0.2s,border-color 0.2s,box-shadow 0.2s;}
+    .service-card:hover{background:#ffffff;border-color:rgba(255,255,255,0.4);box-shadow:0 8px 28px rgba(0,0,0,0.18);}
+    .service-icon{width:56px;height:56px;border-radius:50%;background:rgba(232,148,10,0.12);color:var(--amber);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 16px;}
+    .service-card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.3;}
+    .service-card p{font-size:0.82rem;color:var(--text-mid);line-height:1.5;}
     @media(max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr);}}
     @media(max-width:500px){.services-grid{grid-template-columns:1fr;}}
 
@@ -281,7 +287,7 @@
       letter-spacing:.14em;color:var(--g-navy);margin-bottom:6px;
     }
     .client-depth-heading{
-      font-family:var(--font-display);
+      font-family:var(--font-body);
       font-size:clamp(1.7rem,3.5vw,2.5rem);
       font-weight:700;color:var(--navy);
       margin-bottom:12px;line-height:1.2;
@@ -298,9 +304,7 @@
     .client-strip-row::after{right:0;background:linear-gradient(to left,#fff,transparent);}
     .client-strip-track{display:flex;align-items:center;white-space:nowrap;position:absolute;left:0;top:0;bottom:0;}
     @keyframes scroll-l{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-    @keyframes scroll-r{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
-    #track-top{animation:scroll-l 45s linear infinite;}
-    #track-bottom{animation:scroll-r 38s linear infinite;}
+    #track-top{animation:scroll-l 80s linear infinite;}
     .cn{display:inline-flex;align-items:center;padding:0 32px;height:70px;white-space:nowrap;font-size:24px;border-right:2px solid #f0f0f0;flex-shrink:0;}
     .cn:last-child{border-right:none;}
     .cn-1 {font-family:'Playfair Display',serif;font-weight:700;color:#1a3a5c;}
@@ -321,7 +325,7 @@
     .cn-16{font-family:'Libre Baskerville',serif;font-weight:700;color:#4a0d00;}
 
     /* ── TEAM ── */
-    .team{background:var(--white);}
+    .team{background:var(--white);padding-bottom:48px;}
     .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px;}
     .team-card{background:var(--smoke);border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden;text-align:center;padding:36px 24px 28px;}
     .team-avatar{width:88px;height:88px;border-radius:50%;background:var(--navy);color:var(--amber);font-family:var(--font-display);font-size:1.8rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;overflow:hidden;}
@@ -573,7 +577,6 @@
   </div>
   <div class="client-strips">
     <div class="client-strip-row"><div class="client-strip-track" id="track-top"></div></div>
-    <div class="client-strip-row"><div class="client-strip-track" id="track-bottom"></div></div>
   </div>
 </section>
 
@@ -694,18 +697,16 @@ document.addEventListener('click',function(e){var header=document.querySelector(
 // Newsletter
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'homepage-footer-nl'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
 
-// Scrolling client marquee — verified Company Profile client list
+// Scrolling client marquee — single row, all verified clients, slow pace
 (function(){
-  var topNames = [
+  var allNames = [
     'Nestl\u00e9','Kellogg\'s','Kraft','Campbell\'s','Mars','Coca-Cola','Pepsi',
     'Dannon','Tropicana','Smucker\'s','Mondelez','American Licorice',
-    'Snyder\'s','Shearer Foods','Treehouse Foods','Golden State Foods','Keurig'
-  ];
-  var botNames = [
+    'Snyder\'s','Shearer Foods','Treehouse Foods','Golden State Foods','Keurig',
     'Hyundai','Tesla','Panasonic','Whirlpool','Andersen Windows',
     'Essity','Kimberly Clark','WestRock','International Paper','Clearwater',
     'Appleton Paper','SCA Tissue','Irving Canada','United Airlines',
-    'Dow','Pfizer','GlaxoSmithKline','Monsanto','Sandoz','Pharmacia \u0026 Upjohn',
+    'Dow','Pfizer','GlaxoSmithKline','Monsanto','Pharmacia \u0026 Upjohn',
     'BHP','Phelps Dodge','Vale','Potash','Vulcan',
     'ComEd','TXU','Southern Company','CenterPoint','PG\u0026E','Chevron','Marathon'
   ];
@@ -722,8 +723,7 @@ document.addEventListener('click',function(e){var header=document.querySelector(
     });
   }
 
-  buildTrack('track-top', topNames);
-  buildTrack('track-bottom', botNames);
+  buildTrack('track-top', allNames);
 })();
 </script>
 
