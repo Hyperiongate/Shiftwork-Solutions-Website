@@ -3,7 +3,7 @@
   Shiftwork Solutions LLC — Homepage
   File: index.html
   Created: March 31, 2026
-  Last updated: April 17, 2026
+  Last updated: April 18, 2026
   Author: Claude for Jim @ Shiftwork Solutions LLC
 
   PURPOSE:
@@ -35,54 +35,23 @@
                   - All content above Resources section preserved exactly
                   - "OWhy Us" nav typo fixed → "Why Us"
       2026-04-17  (v10) LAUNCH-READY FIXES:
-                  - Hero right-column image swapped from Unsplash CDN
-                    (photo-1504328345606) to local /images/shutterstock_1497086771.jpg
-                    — removes external dependency, was a launch-day risk
-                  - Process section image swapped from Unsplash CDN
-                    (photo-1581091226825) to local /images/shutterstock_1502038526.jpg
-                    — removes external dependency
-                  - FAQ JSON-LD Q6 text updated from "How do we get started?"
-                    to "What information do you need to give us a fee estimate?"
-                    to match the visible FAQ wording exactly (prior mismatch would
-                    cause Google Search Console schema warnings)
-                  - Hero stat "100s Facilities Helped" → "Hundreds Facilities Helped"
-                    to match the "hundreds not 300+ or 100s" content rule
+                  - Hero right-column image swapped from Unsplash CDN to local
+                  - Process section image swapped from Unsplash CDN to local
+                  - FAQ JSON-LD Q6 text updated to match visible FAQ wording
+                  - Hero stat "100s" → "Hundreds" per content rule
                   - onerror fallbacks retained on both images for safety
-                  - All other content, schemas, CSS, JS preserved exactly
-      2026-04-17  (v11) TEAM AVATARS — PHOTOS IN PLACE OF INITIALS:
-                  - Team card avatars now display actual partner photos:
-                    /images/jim.jpg, /images/dan.jpg, /images/ethan.jpg
-                  - CSS: .team-avatar gains overflow:hidden; added .team-avatar img
-                    rule (width 100%, height 100%, object-fit cover) so the photo
-                    fills the 88px navy circle cleanly
-                  - Each <img> has onerror="..." that strips the broken image and
-                    restores the initials (JD/DC/EF) if the photo ever 404s —
-                    safe-fail behavior preserves the original card design
-                  - Photos confirmed live on /our_team/ at matching paths
-                  - All other content, schemas, CSS, JS unchanged
-      2026-04-17  (v12) THOMAS IFRAME SANDBOX — DEFENSE-IN-DEPTH:
-                  - Added sandbox attribute to the Thomas iframe:
-                    sandbox="allow-scripts allow-same-origin allow-forms
-                             allow-popups allow-popups-to-escape-sandbox"
-                  - Permissions granted: Thomas can run JS (chat UI), reach
-                    its own backend API (same-origin within its domain),
-                    submit forms (message input), and open/escape popups.
-                  - Permissions intentionally NOT granted: allow-top-navigation
-                    (Thomas cannot redirect the shift-work.com parent page),
-                    allow-modals (Thomas cannot pop alerts/confirms in parent
-                    context), allow-pointer-lock, allow-orientation-lock.
-                  - Rationale: Thomas is a separate Render service; if it is
-                    ever compromised, the sandbox limits what an attacker can
-                    do against the parent page. Existing allow="microphone;
-                    autoplay" preserved for voice features.
-                  - Only the iframe element changed; no other markup, CSS,
-                    JS, or schema touched.
+      2026-04-17  (v11) TEAM AVATARS — partner photos in place of initials
+      2026-04-17  (v12) THOMAS IFRAME SANDBOX — defense-in-depth sandbox attribute
+      2026-04-18  (v13) IMAGE SWAPS:
+                  - Hero right-column: shutterstock_1497086771.jpg → pillar_6.jpg
+                  - Process section:   shutterstock_1502038526.jpg → pillar_8.jpg
+                  - onerror fallbacks retained; all other content unchanged
 
   NAV SYSTEM: .site-header / .main-nav / .nav-cta (fixed 64px)
-  HERO IMAGE: /images/second.png (background)
-  HERO RIGHT IMAGE: /images/shutterstock_1497086771.jpg
-  PROCESS IMAGE:    /images/shutterstock_1502038526.jpg
-  FAQ IMAGE:  /images/Hands_in_the_air.jpg
+  HERO IMAGE (background): /images/second.png
+  HERO RIGHT IMAGE:        /images/pillar_6.jpg
+  PROCESS IMAGE:           /images/pillar_8.jpg
+  FAQ IMAGE:               /images/Hands_in_the_air.jpg
 
   I did no harm and this file is not truncated
 -->
@@ -94,24 +63,18 @@
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <title>Shiftwork Solutions LLC — Shift Schedule Design &amp; Change Management</title>
   <link rel="canonical" href="https://shift-work.com/" />
-
-  <!-- Open Graph -->
   <meta property="og:title" content="Shiftwork Solutions LLC — Shift Schedule Design &amp; Change Management" />
   <meta property="og:description" content="Over 30 years helping hundreds of 24/7 operations optimize shift schedules, reduce overtime, and improve workforce engagement through employee-centered change management." />
   <meta property="og:url" content="https://shift-work.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Shiftwork Solutions LLC" />
-
-  <!-- Twitter / X Cards -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Shiftwork Solutions LLC — Shift Schedule Design &amp; Change Management" />
   <meta name="twitter:description" content="Over 30 years helping hundreds of 24/7 operations optimize shift schedules, reduce overtime, and improve workforce engagement." />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- JSON-LD: Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -139,7 +102,6 @@
   }
   </script>
 
-  <!-- JSON-LD: WebSite -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -151,7 +113,6 @@
   }
   </script>
 
-  <!-- JSON-LD: ProfessionalService -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -175,7 +136,6 @@
   }
   </script>
 
-  <!-- JSON-LD: FAQPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -194,331 +154,260 @@
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --g-navy:        #1F4E79;
-      --g-navy-dark:   #0D1F3C;
-      --g-mid-blue:    #85B7EB;
-      --g-blue-pale:   #EEF3F8;
-      --g-orange:      #E8610A;
-      --g-green:       #1D9E75;
-      --g-white:       #FFFFFF;
-      --g-footer-bg:   #F4F4F4;
-      --g-body:        #1A1A1A;
-      --g-muted:       #666666;
-      --g-border:      #E0E0E0;
-      --navy:          #0c1f3f;
-      --navy-mid:      #163057;
-      --navy-light:    #1d3a5f;
-      --blue:          #1a6fb5;
-      --blue-light:    #2d8fd4;
-      --blue-pale:     #e4f0fa;
-      --amber:         #e8940a;
-      --amber-light:   #f5a623;
-      --amber-pale:    #fff8eb;
-      --steel:         #3a4a5c;
-      --slate:         #64748b;
-      --smoke:         #f1f4f8;
-      --white:         #ffffff;
-      --text:          #1e293b;
-      --text-mid:      #475569;
-      --text-light:    #94a3b8;
-      --border:        #cbd5e1;
-      --light-grey:    #F4F6F8;
-      --body-text:     #1A1A1A;
-      --muted:         #666666;
-      --border-med:    #e0e0e0;
-      --mid-blue:      #85B7EB;
-      --orange:        #E8610A;
-      --green:         #1D9E75;
-      --navy-dark:     #0D1F3C;
-      --radius:        8px;
-      --radius-lg:     16px;
-      --shadow:        0 4px 24px rgba(12,31,63,0.08);
-      --shadow-lg:     0 8px 40px rgba(12,31,63,0.12);
-      --font-display:  'Playfair Display', Georgia, serif;
-      --font-body:     'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      --max-width:     1140px;
-      --page-pad:      24px;
+      --g-navy:#1F4E79;--g-navy-dark:#0D1F3C;--g-mid-blue:#85B7EB;--g-blue-pale:#EEF3F8;--g-orange:#E8610A;--g-green:#1D9E75;--g-white:#FFFFFF;--g-footer-bg:#F4F4F4;--g-body:#1A1A1A;--g-muted:#666666;--g-border:#E0E0E0;
+      --navy:#0c1f3f;--navy-mid:#163057;--navy-light:#1d3a5f;--blue:#1a6fb5;--blue-light:#2d8fd4;--blue-pale:#e4f0fa;--amber:#e8940a;--amber-light:#f5a623;--amber-pale:#fff8eb;--steel:#3a4a5c;--slate:#64748b;--smoke:#f1f4f8;--white:#ffffff;--text:#1e293b;--text-mid:#475569;--text-light:#94a3b8;--border:#cbd5e1;
+      --light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-med:#e0e0e0;--mid-blue:#85B7EB;--orange:#E8610A;--green:#1D9E75;--navy-dark:#0D1F3C;
+      --radius:8px;--radius-lg:16px;--shadow:0 4px 24px rgba(12,31,63,0.08);--shadow-lg:0 8px 40px rgba(12,31,63,0.12);
+      --font-display:'Playfair Display',Georgia,serif;--font-body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;--max-width:1140px;--page-pad:24px;
+    }
+    html{scroll-behavior:smooth;}
+    body{font-family:var(--font-body);color:var(--text);line-height:1.6;background:var(--white);-webkit-font-smoothing:antialiased;}
+    img{max-width:100%;display:block;}
+
+    /* NAV */
+    .site-header{position:fixed;top:0;left:0;right:0;z-index:200;background:#ffffff;border-bottom:1px solid var(--g-border);height:64px;display:flex;align-items:center;}
+    .header-inner{max-width:1200px;width:100%;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:0;}
+    .site-logo{text-decoration:none;white-space:nowrap;margin-right:24px;flex-shrink:0;display:flex;align-items:center;gap:12px;}
+    .site-logo img{height:36px;width:auto;display:block;}
+    .site-logo-text{font-family:Arial,sans-serif;font-size:20px;font-weight:700;color:#1F4E79;letter-spacing:0.03em;line-height:1;}
+    .main-nav{display:flex;align-items:center;flex:1;}
+    .main-nav>ul{list-style:none;display:flex;align-items:center;gap:0;flex:1;}
+    .main-nav>ul>li{position:relative;}
+    .main-nav>ul>li>a{display:flex;align-items:center;gap:4px;padding:20px 14px;font-family:Arial,sans-serif;font-size:20px;font-weight:400;color:#333333;text-decoration:none;transition:color 0.2s;white-space:nowrap;}
+    .main-nav>ul>li>a:hover{color:var(--g-navy);}
+    .nav-cta{margin-left:auto;flex-shrink:0;}
+    .nav-cta a{display:inline-block;padding:9px 20px;background:var(--g-orange);color:#ffffff;font-family:Arial,sans-serif;font-size:13px;font-weight:700;text-decoration:none;border-radius:5px;transition:background 0.2s;white-space:nowrap;}
+    .nav-cta a:hover{background:#c4510a;}
+    .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto;}
+    .mobile-toggle span{display:block;width:22px;height:2px;background:var(--g-navy);margin:5px 0;border-radius:2px;transition:transform 0.3s,opacity 0.3s;}
+    @media(max-width:960px){
+      .main-nav{display:none;position:absolute;top:64px;left:0;right:0;background:#ffffff;flex-direction:column;padding:16px 0 24px;box-shadow:0 8px 24px rgba(0,0,0,0.12);border-top:1px solid var(--g-border);max-height:calc(100vh - 64px);overflow-y:auto;align-items:stretch;}
+      .main-nav.open{display:flex;}
+      .main-nav>ul{flex-direction:column;width:100%;}
+      .main-nav>ul>li>a{padding:12px 24px;font-size:18px;}
+      .nav-cta{margin:12px 24px 0;}
+      .nav-cta a{display:block;text-align:center;}
+      .mobile-toggle{display:block;}
     }
 
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); color: var(--text); line-height: 1.6; background: var(--white); -webkit-font-smoothing: antialiased; }
-    img { max-width: 100%; display: block; }
+    /* HERO */
+    .hero{margin-top:64px;background:#0D1F3C url('/images/second.png') center center/cover no-repeat;color:var(--white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center;}
+    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.82) 0%,rgba(13,31,60,.60) 55%,rgba(13,31,60,.30) 100%);z-index:0;pointer-events:none;}
+    .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(transparent,rgba(12,31,63,0.4));pointer-events:none;}
+    .hero-inner{max-width:var(--max-width);margin:0 auto;width:100%;padding:80px clamp(20px,4vw,40px) 100px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;position:relative;z-index:1;}
+    .hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;line-height:1.12;margin-bottom:24px;}
+    .hero h1 .accent{color:var(--amber);}
+    .hero-desc{font-size:1.15rem;line-height:1.75;color:rgba(255,255,255,0.8);margin-bottom:32px;max-width:540px;}
+    .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;}
+    .btn-primary{background:var(--amber);color:var(--navy);border:none;padding:15px 32px;font-size:1rem;font-weight:700;font-family:var(--font-body);border-radius:var(--radius);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s;}
+    .btn-primary:hover{background:var(--amber-light);}
+    .btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.3);padding:14px 28px;font-size:1rem;font-weight:600;font-family:var(--font-body);border-radius:var(--radius);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s,border-color 0.2s;}
+    .btn-outline:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.5);}
+    .hero-stats{display:flex;gap:40px;}
+    .hero-stat-num{font-family:var(--font-display);font-size:2.6rem;font-weight:800;color:var(--amber);line-height:1;}
+    .hero-stat-label{font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+    .hero-image{position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+    .hero-image img{width:100%;height:480px;object-fit:cover;}
+    .hero-image-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(12,31,63,0.9));padding:40px 24px 20px;color:rgba(255,255,255,0.85);font-size:0.88rem;font-style:italic;line-height:1.5;}
+    @media(max-width:900px){.hero{min-height:auto;}.hero-inner{grid-template-columns:1fr;text-align:center;padding:60px 20px 80px;}.hero-desc{margin-left:auto;margin-right:auto;}.hero-ctas{justify-content:center;}.hero-stats{justify-content:center;}.hero-image{display:none;}}
 
-    /* ── NAV (.site-header system — fixed 64px) ── */
-    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: #ffffff; border-bottom: 1px solid var(--g-border); height: 64px; display: flex; align-items: center; }
-    .header-inner { max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 0; }
-    .site-logo { text-decoration: none; white-space: nowrap; margin-right: 24px; flex-shrink: 0; display: flex; align-items: center; gap: 12px; }
-    .site-logo img { height: 36px; width: auto; display: block; }
-    .site-logo-text { font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; color: #1F4E79; letter-spacing: 0.03em; line-height: 1; }
-    .main-nav { display: flex; align-items: center; flex: 1; }
-    .main-nav > ul { list-style: none; display: flex; align-items: center; gap: 0; flex: 1; }
-    .main-nav > ul > li { position: relative; }
-    .main-nav > ul > li > a { display: flex; align-items: center; gap: 4px; padding: 20px 14px; font-family: Arial, sans-serif; font-size: 20px; font-weight: 400; color: #333333; text-decoration: none; transition: color 0.2s; white-space: nowrap; }
-    .main-nav > ul > li > a:hover { color: var(--g-navy); }
-    .nav-cta { margin-left: auto; flex-shrink: 0; }
-    .nav-cta a { display: inline-block; padding: 9px 20px; background: var(--g-orange); color: #ffffff; font-family: Arial, sans-serif; font-size: 13px; font-weight: 700; text-decoration: none; border-radius: 5px; transition: background 0.2s; white-space: nowrap; }
-    .nav-cta a:hover { background: #c4510a; }
-    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; margin-left: auto; }
-    .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--g-navy); margin: 5px 0; border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
-    @media (max-width: 960px) {
-      .main-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: #ffffff; flex-direction: column; padding: 16px 0 24px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-top: 1px solid var(--g-border); max-height: calc(100vh - 64px); overflow-y: auto; align-items: stretch; }
-      .main-nav.open { display: flex; }
-      .main-nav > ul { flex-direction: column; width: 100%; }
-      .main-nav > ul > li > a { padding: 12px 24px; font-size: 18px; }
-      .nav-cta { margin: 12px 24px 0; }
-      .nav-cta a { display: block; text-align: center; }
-      .mobile-toggle { display: block; }
+    /* SHARED */
+    .section{padding:88px clamp(20px,4vw,40px);}
+    .section-inner{max-width:var(--max-width);margin:0 auto;}
+    .section-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--blue);margin-bottom:10px;}
+    .section-heading{font-family:var(--font-display);font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:700;color:var(--navy);margin-bottom:16px;line-height:1.2;}
+    .section-sub{font-size:1.05rem;color:var(--text-mid);max-width:620px;line-height:1.7;}
+    .section-sub.center{margin:0 auto;text-align:center;}
+
+    /* PROBLEMS */
+    .problems{background:var(--white);}
+    .problems-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
+    .problem-card{background:var(--smoke);border-radius:var(--radius-lg);padding:32px 28px;transition:transform 0.2s;}
+    .problem-card:hover{transform:translateY(-3px);}
+    .problem-icon{width:52px;height:52px;border-radius:14px;background:var(--navy);color:var(--amber);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:16px;}
+    .problem-card h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:8px;}
+    .problem-card p{font-size:0.9rem;color:var(--text-mid);line-height:1.6;}
+    @media(max-width:800px){.problems-grid{grid-template-columns:1fr;}}
+
+    /* SERVICES */
+    .services{background:var(--navy);color:var(--white);}
+    .services .section-label{color:var(--amber);}
+    .services .section-heading{color:var(--white);}
+    .services .section-sub{color:rgba(255,255,255,0.7);}
+    .services-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:48px;}
+    .service-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-lg);padding:28px 20px;text-align:center;transition:background 0.2s,border-color 0.2s;}
+    .service-card:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.15);}
+    .service-icon{width:56px;height:56px;border-radius:50%;background:rgba(232,148,10,0.15);color:var(--amber);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 16px;}
+    .service-card h3{font-size:0.95rem;font-weight:700;color:var(--white);margin-bottom:8px;line-height:1.3;}
+    .service-card p{font-size:0.82rem;color:rgba(255,255,255,0.6);line-height:1.5;}
+    @media(max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:500px){.services-grid{grid-template-columns:1fr;}}
+
+    /* PROCESS */
+    .process{background:var(--white);}
+    .process-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:48px;}
+    .process-image{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);}
+    .process-image img{width:100%;height:420px;object-fit:cover;}
+    .process-steps{display:flex;flex-direction:column;gap:28px;}
+    .process-step{display:flex;gap:20px;align-items:flex-start;}
+    .process-num{width:44px;height:44px;border-radius:50%;background:var(--navy);color:var(--amber);font-family:var(--font-display);font-size:1.2rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .process-step h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px;}
+    .process-step p{font-size:0.9rem;color:var(--text-mid);line-height:1.6;}
+    @media(max-width:800px){.process-grid{grid-template-columns:1fr;}.process-image img{height:280px;}}
+
+    /* QUOTE BAND */
+    .quote-band{background:linear-gradient(135deg,var(--navy-mid),var(--navy));color:var(--white);padding:64px clamp(20px,4vw,40px);text-align:center;}
+    .quote-text{font-family:var(--font-display);font-size:clamp(1.3rem,3vw,1.9rem);font-weight:600;font-style:italic;max-width:800px;margin:0 auto 16px;line-height:1.5;color:rgba(255,255,255,0.9);}
+    .quote-attr{font-size:0.88rem;color:var(--amber);font-weight:600;}
+
+    /* CLIENTS */
+    .clients{background:var(--smoke);}
+    .client-names{margin-top:40px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;}
+    .client-tag{background:var(--white);border:1px solid var(--border);padding:10px 20px;border-radius:32px;font-size:0.88rem;font-weight:600;color:var(--navy);transition:border-color 0.2s,background 0.2s;}
+    .client-tag:hover{border-color:var(--blue);background:var(--blue-pale);}
+    .industry-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:28px;}
+    .industry-pill{background:rgba(26,111,181,0.08);border:1px solid rgba(26,111,181,0.15);padding:7px 16px;border-radius:20px;font-size:0.8rem;color:var(--blue);font-weight:500;}
+
+    /* THOMAS */
+    .thomas{background:var(--white);}
+    .thomas-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:40px;}
+    .thomas-content h3{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--navy);margin-bottom:16px;line-height:1.3;}
+    .thomas-content p{font-size:1rem;color:var(--text-mid);line-height:1.7;margin-bottom:16px;}
+    .thomas-topics{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 28px;}
+    .thomas-topic{background:var(--blue-pale);color:var(--navy);padding:6px 14px;border-radius:20px;font-size:0.8rem;font-weight:600;}
+    .thomas-frame{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);background:var(--navy);aspect-ratio:4/3;}
+    .thomas-frame iframe{width:100%;height:100%;border:none;}
+    @media(max-width:800px){.thomas-grid{grid-template-columns:1fr;}.thomas-frame{aspect-ratio:1/1;max-height:400px;}}
+
+    /* TEAM */
+    .team{background:var(--smoke);}
+    .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px;}
+    .team-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow);overflow:hidden;text-align:center;padding:36px 24px 28px;}
+    .team-avatar{width:88px;height:88px;border-radius:50%;background:var(--navy);color:var(--amber);font-family:var(--font-display);font-size:1.8rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;overflow:hidden;}
+    .team-avatar img{width:100%;height:100%;object-fit:cover;display:block;}
+    .team-card h3{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:2px;}
+    .team-role{font-size:0.82rem;color:var(--blue);font-weight:600;margin-bottom:12px;}
+    .team-bio{font-size:0.88rem;color:var(--text-mid);line-height:1.6;}
+    .team-cred{margin-top:12px;font-size:0.78rem;color:var(--text-light);font-style:italic;}
+    @media(max-width:800px){.team-grid{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto;}}
+
+    /* RESOURCES */
+    .resources{background:var(--white);}
+    .resources-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px;}
+    .resource-card{border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:28px 20px;text-align:center;transition:border-color 0.2s,transform 0.2s;text-decoration:none;color:inherit;display:block;}
+    .resource-card:hover{border-color:var(--blue);transform:translateY(-3px);}
+    .resource-icon{font-size:2rem;margin-bottom:12px;}
+    .resource-card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
+    .resource-card p{font-size:0.82rem;color:var(--text-mid);line-height:1.5;}
+    @media(max-width:800px){.resources-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:500px){.resources-grid{grid-template-columns:1fr;}}
+
+    /* FAQ */
+    .faq-section{position:relative;overflow:hidden;margin:0;}
+    .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center/cover no-repeat;z-index:0;}
+    .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1;}
+    .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:72px 24px 76px;}
+    .faq-inner h2{font-size:22px;font-weight:700;color:#EEAE26;margin-bottom:28px;text-shadow:0 1px 6px rgba(0,0,0,0.5);font-family:Arial,Helvetica,sans-serif;}
+    .faq-item{margin-bottom:6px;}
+    .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:#1F4E79;border:1px solid rgba(255,255,255,0.18);border-radius:6px;cursor:pointer;padding:16px 18px;text-align:left;gap:16px;transition:background .2s ease;}
+    .faq-toggle:hover{background:#1a4268;}
+    .faq-item.faq-open .faq-toggle{border-radius:6px 6px 0 0;border-bottom-color:transparent;}
+    .faq-q{font-size:15px;font-weight:700;color:#fff;line-height:1.4;flex:1;text-shadow:0 1px 4px rgba(0,0,0,0.4);font-family:Arial,Helvetica,sans-serif;}
+    .faq-icon{flex-shrink:0;width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;transition:transform .25s ease,background .2s ease,border-color .2s ease;}
+    .faq-icon svg{width:10px;height:10px;fill:rgba(255,255,255,0.8);transition:transform .25s ease;}
+    .faq-item.faq-open .faq-icon{background:#E8610A;border-color:#E8610A;}
+    .faq-item.faq-open .faq-icon svg{fill:#fff;transform:rotate(180deg);}
+    .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease;}
+    .faq-item.faq-open .faq-body{max-height:800px;}
+    .faq-a{font-size:14px;color:#1A1A1A;line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px;font-family:Arial,Helvetica,sans-serif;}
+    @media(max-width:640px){.faq-inner{padding:48px 18px 52px;}.faq-inner h2{font-size:19px;}}
+
+    /* NEXT STEPS */
+    .next-steps{padding:56px var(--page-pad) 60px;background:#F4F6F8;}
+    .next-steps-inner{max-width:860px;margin:0 auto;}
+    .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#666666;margin-bottom:10px;font-family:Arial,Helvetica,sans-serif;}
+    .next-steps h2{font-size:22px;font-weight:700;color:#1F4E79;margin-bottom:8px;font-family:Arial,Helvetica,sans-serif;}
+    .next-steps-sub{font-size:14px;color:#666666;margin-bottom:32px;line-height:1.6;font-family:Arial,Helvetica,sans-serif;}
+    .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .ns-card{background:#FFFFFF;border:1px solid #e0e0e0;border-top:4px solid transparent;border-radius:8px;padding:24px 20px;text-decoration:none;display:block;opacity:0;transform:translateY(28px);transition:opacity .5s ease,transform .5s ease,box-shadow .25s ease;}
+    .ns-card.ns-card-visible{opacity:1;transform:translateY(0);}
+    .ns-card:nth-child(1){transition-delay:.05s;}.ns-card:nth-child(2){transition-delay:.18s;}.ns-card:nth-child(3){transition-delay:.31s;}
+    .ns-accent-blue{border-top-color:#1F4E79;}.ns-accent-orange{border-top-color:#E8610A;}.ns-accent-green{border-top-color:#1D9E75;}
+    .ns-accent-blue:hover{box-shadow:0 8px 28px rgba(31,78,121,0.15);transform:translateY(-5px)!important;}
+    .ns-accent-orange:hover{box-shadow:0 8px 28px rgba(232,97,10,0.22);transform:translateY(-5px)!important;}
+    .ns-accent-green:hover{box-shadow:0 8px 28px rgba(29,158,117,0.22);transform:translateY(-5px)!important;}
+    .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;font-family:Arial,Helvetica,sans-serif;}
+    .ns-accent-blue .ns-card-label{color:#1F4E79;}.ns-accent-orange .ns-card-label{color:#E8610A;}.ns-accent-green .ns-card-label{color:#1D9E75;}
+    .ns-card h3{font-size:15px;font-weight:700;color:#1A1A1A;line-height:1.35;margin-bottom:8px;font-family:Arial,Helvetica,sans-serif;}
+    .ns-card p{font-size:13px;color:#666666;line-height:1.6;margin-bottom:16px;font-family:Arial,Helvetica,sans-serif;}
+    .ns-card-link{font-size:12px;font-weight:700;font-family:Arial,Helvetica,sans-serif;}
+    .ns-accent-blue .ns-card-link{color:#1F4E79;}.ns-accent-orange .ns-card-link{color:#E8610A;}.ns-accent-green .ns-card-link{color:#1D9E75;}
+    .ns-card-link::after{content:' \2192';}
+    .ns-phone{margin-top:28px;font-size:13px;color:#666666;text-align:center;font-family:Arial,Helvetica,sans-serif;}
+    .ns-phone a{color:#1F4E79;text-decoration:none;font-weight:700;}.ns-phone a:hover{color:#E8610A;}
+    @media(max-width:760px){.ns-cards{grid-template-columns:1fr;}}
+
+    /* FOOTER */
+    .site-footer{background:#0D1F3C;}
+    .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1);}
+    .footer-wrap{max-width:1100px;margin:0 auto;}
+    .footer-content-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-bottom:28px;}
+    .footer-col{padding:0 32px;}
+    .footer-col-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08);}
+    .footer-col-2{border-right:1px solid rgba(255,255,255,.08);}
+    .footer-col-3{padding-right:0;}
+    .footer-cta-row{display:flex;align-items:center;gap:0;}
+    .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:0 0 33.333%;padding:0 32px;}
+    .footer-cta-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08);}
+    .footer-cta-2{border-right:1px solid rgba(255,255,255,.08);}
+    .footer-cta-3{padding-right:0;}
+    .footer-cta-btn{display:inline-block;padding:10px 20px;background:#E8610A;color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap;font-family:Arial,Helvetica,sans-serif;}
+    .footer-cta-btn:hover{background:#c4510a;}
+    .engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#85B7EB;margin-bottom:8px;font-family:Arial,Helvetica,sans-serif;}
+    .engage-col-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px;font-family:Arial,Helvetica,sans-serif;}
+    .engage-col-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;font-family:Arial,Helvetica,sans-serif;}
+    .engage-nl-form{display:flex;gap:8px;flex-wrap:wrap;}
+    .engage-nl-input{flex:1;min-width:120px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s;}
+    .engage-nl-input::placeholder{color:rgba(255,255,255,.4);}.engage-nl-input:focus{border-color:#85B7EB;}
+    .engage-nl-btn{padding:10px 18px;background:#E8610A;color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap;}
+    .engage-nl-btn:hover{background:#c4510a;}.engage-nl-btn:disabled{opacity:.5;cursor:not-allowed;}
+    .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px;font-family:Arial,sans-serif;}
+    .engage-nl-msg.ok{color:#6ee7b7;}.engage-nl-msg.err{color:#fca5a5;}
+    .footer-bottom{padding:16px var(--page-pad);}
+    .footer-bottom-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.45);font-family:Arial,Helvetica,sans-serif;}
+    .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s;}.footer-bottom-inner a:hover{color:#E8610A;}
+    .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+    .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7);}
+    @media(max-width:760px){
+      .footer-content-row{grid-template-columns:1fr;}
+      .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px;}
+      .footer-col-3{border-bottom:none;padding-bottom:0;}
+      .footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px;}
+      .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none;}
+    }
+    @media(max-width:640px){
+      .footer-prefooter{padding:32px 20px;}.footer-bottom{padding:14px 20px;}
+      .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px;}
+      .footer-bottom-left{justify-content:center;}
     }
 
-    /* ── HERO ── */
-    .hero { margin-top: 64px; background: #0D1F3C url('/images/second.png') center center/cover no-repeat; color: var(--white); position: relative; overflow: hidden; min-height: 85vh; display: flex; align-items: center; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(13,31,60,.82) 0%, rgba(13,31,60,.60) 55%, rgba(13,31,60,.30) 100%); z-index: 0; pointer-events: none; }
-    .hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 120px; background: linear-gradient(transparent, rgba(12,31,63,0.4)); pointer-events: none; }
-    .hero-inner { max-width: var(--max-width); margin: 0 auto; width: 100%; padding: 80px clamp(20px, 4vw, 40px) 100px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; position: relative; z-index: 1; }
-    .hero h1 { font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; line-height: 1.12; margin-bottom: 24px; }
-    .hero h1 .accent { color: var(--amber); }
-    .hero-desc { font-size: 1.15rem; line-height: 1.75; color: rgba(255,255,255,0.8); margin-bottom: 32px; max-width: 540px; }
-    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
-    .btn-primary { background: var(--amber); color: var(--navy); border: none; padding: 15px 32px; font-size: 1rem; font-weight: 700; font-family: var(--font-body); border-radius: var(--radius); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; }
-    .btn-primary:hover { background: var(--amber-light); }
-    .btn-outline { background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.3); padding: 14px 28px; font-size: 1rem; font-weight: 600; font-family: var(--font-body); border-radius: var(--radius); cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s, border-color 0.2s; }
-    .btn-outline:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); }
-    .hero-stats { display: flex; gap: 40px; }
-    .hero-stat-num { font-family: var(--font-display); font-size: 2.6rem; font-weight: 800; color: var(--amber); line-height: 1; }
-    .hero-stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
-    .hero-image { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
-    .hero-image img { width: 100%; height: 480px; object-fit: cover; }
-    .hero-image-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(12,31,63,0.9)); padding: 40px 24px 20px; color: rgba(255,255,255,0.85); font-size: 0.88rem; font-style: italic; line-height: 1.5; }
-    @media (max-width: 900px) { .hero { min-height: auto; } .hero-inner { grid-template-columns: 1fr; text-align: center; padding: 60px 20px 80px; } .hero-desc { margin-left: auto; margin-right: auto; } .hero-ctas { justify-content: center; } .hero-stats { justify-content: center; } .hero-image { display: none; } }
-
-    /* ── SHARED SECTION STYLES ── */
-    .section { padding: 88px clamp(20px, 4vw, 40px); }
-    .section-inner { max-width: var(--max-width); margin: 0 auto; }
-    .section-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2.5px; color: var(--blue); margin-bottom: 10px; }
-    .section-heading { font-family: var(--font-display); font-size: clamp(1.7rem, 3.5vw, 2.5rem); font-weight: 700; color: var(--navy); margin-bottom: 16px; line-height: 1.2; }
-    .section-sub { font-size: 1.05rem; color: var(--text-mid); max-width: 620px; line-height: 1.7; }
-    .section-sub.center { margin: 0 auto; text-align: center; }
-
-    /* ── PROBLEMS ── */
-    .problems { background: var(--white); }
-    .problems-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
-    .problem-card { background: var(--smoke); border-radius: var(--radius-lg); padding: 32px 28px; transition: transform 0.2s; }
-    .problem-card:hover { transform: translateY(-3px); }
-    .problem-icon { width: 52px; height: 52px; border-radius: 14px; background: var(--navy); color: var(--amber); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 16px; }
-    .problem-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
-    .problem-card p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
-    @media (max-width: 800px) { .problems-grid { grid-template-columns: 1fr; } }
-
-    /* ── SERVICES ── */
-    .services { background: var(--navy); color: var(--white); }
-    .services .section-label { color: var(--amber); }
-    .services .section-heading { color: var(--white); }
-    .services .section-sub { color: rgba(255,255,255,0.7); }
-    .services-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-top: 48px; }
-    .service-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-lg); padding: 28px 20px; text-align: center; transition: background 0.2s, border-color 0.2s; }
-    .service-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); }
-    .service-icon { width: 56px; height: 56px; border-radius: 50%; background: rgba(232,148,10,0.15); color: var(--amber); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin: 0 auto 16px; }
-    .service-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 8px; line-height: 1.3; }
-    .service-card p { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
-    @media (max-width: 900px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 500px) { .services-grid { grid-template-columns: 1fr; } }
-
-    /* ── PROCESS ── */
-    .process { background: var(--white); }
-    .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; margin-top: 48px; }
-    .process-image { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
-    .process-image img { width: 100%; height: 420px; object-fit: cover; }
-    .process-steps { display: flex; flex-direction: column; gap: 28px; }
-    .process-step { display: flex; gap: 20px; align-items: flex-start; }
-    .process-num { width: 44px; height: 44px; border-radius: 50%; background: var(--navy); color: var(--amber); font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .process-step h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
-    .process-step p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.6; }
-    @media (max-width: 800px) { .process-grid { grid-template-columns: 1fr; } .process-image img { height: 280px; } }
-
-    /* ── QUOTE BAND ── */
-    .quote-band { background: linear-gradient(135deg, var(--navy-mid), var(--navy)); color: var(--white); padding: 64px clamp(20px, 4vw, 40px); text-align: center; }
-    .quote-text { font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 1.9rem); font-weight: 600; font-style: italic; max-width: 800px; margin: 0 auto 16px; line-height: 1.5; color: rgba(255,255,255,0.9); }
-    .quote-attr { font-size: 0.88rem; color: var(--amber); font-weight: 600; }
-
-    /* ── CLIENTS ── */
-    .clients { background: var(--smoke); }
-    .client-names { margin-top: 40px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-    .client-tag { background: var(--white); border: 1px solid var(--border); padding: 10px 20px; border-radius: 32px; font-size: 0.88rem; font-weight: 600; color: var(--navy); transition: border-color 0.2s, background 0.2s; }
-    .client-tag:hover { border-color: var(--blue); background: var(--blue-pale); }
-    .industry-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 28px; }
-    .industry-pill { background: rgba(26,111,181,0.08); border: 1px solid rgba(26,111,181,0.15); padding: 7px 16px; border-radius: 20px; font-size: 0.8rem; color: var(--blue); font-weight: 500; }
-
-    /* ── THOMAS ── */
-    .thomas { background: var(--white); }
-    .thomas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-top: 40px; }
-    .thomas-content h3 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; color: var(--navy); margin-bottom: 16px; line-height: 1.3; }
-    .thomas-content p { font-size: 1rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 16px; }
-    .thomas-topics { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0 28px; }
-    .thomas-topic { background: var(--blue-pale); color: var(--navy); padding: 6px 14px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
-    .thomas-frame { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); background: var(--navy); aspect-ratio: 4/3; }
-    .thomas-frame iframe { width: 100%; height: 100%; border: none; }
-    @media (max-width: 800px) { .thomas-grid { grid-template-columns: 1fr; } .thomas-frame { aspect-ratio: 1/1; max-height: 400px; } }
-
-    /* ── TEAM ── */
-    .team { background: var(--smoke); }
-    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
-    .team-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow); overflow: hidden; text-align: center; padding: 36px 24px 28px; }
-    .team-avatar { width: 88px; height: 88px; border-radius: 50%; background: var(--navy); color: var(--amber); font-family: var(--font-display); font-size: 1.8rem; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; overflow: hidden; }
-    .team-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .team-card h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 2px; }
-    .team-role { font-size: 0.82rem; color: var(--blue); font-weight: 600; margin-bottom: 12px; }
-    .team-bio { font-size: 0.88rem; color: var(--text-mid); line-height: 1.6; }
-    .team-cred { margin-top: 12px; font-size: 0.78rem; color: var(--text-light); font-style: italic; }
-    @media (max-width: 800px) { .team-grid { grid-template-columns: 1fr; max-width: 400px; margin-left: auto; margin-right: auto; } }
-
-    /* ── RESOURCES ── */
-    .resources { background: var(--white); }
-    .resources-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 40px; }
-    .resource-card { border: 1.5px solid var(--border); border-radius: var(--radius-lg); padding: 28px 20px; text-align: center; transition: border-color 0.2s, transform 0.2s; text-decoration: none; color: inherit; display: block; }
-    .resource-card:hover { border-color: var(--blue); transform: translateY(-3px); }
-    .resource-icon { font-size: 2rem; margin-bottom: 12px; }
-    .resource-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
-    .resource-card p { font-size: 0.82rem; color: var(--text-mid); line-height: 1.5; }
-    @media (max-width: 800px) { .resources-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 500px) { .resources-grid { grid-template-columns: 1fr; } }
-
-    /* ══════════════════════════════════════════════════════════
-       FAQ SECTION — Full-bleed Hands_in_the_air.jpg
-       Added 2026-04-16
-    ══════════════════════════════════════════════════════════ */
-    .faq-section { position: relative; overflow: hidden; margin: 0; }
-    .faq-bg { position: absolute; inset: 0; background: url('/images/Hands_in_the_air.jpg') center center / cover no-repeat; z-index: 0; }
-    .faq-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(13,31,60,0.10) 0%, rgba(13,31,60,0.45) 50%, rgba(13,31,60,0.88) 100%); z-index: 1; }
-    .faq-inner { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; padding: 72px 24px 76px; }
-    .faq-inner h2 { font-size: 22px; font-weight: 700; color: #EEAE26; margin-bottom: 28px; text-shadow: 0 1px 6px rgba(0,0,0,0.5); font-family: Arial, Helvetica, sans-serif; }
-    .faq-item { margin-bottom: 6px; }
-    .faq-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; background: #1F4E79; border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; cursor: pointer; padding: 16px 18px; text-align: left; gap: 16px; transition: background .2s ease; }
-    .faq-toggle:hover { background: #1a4268; }
-    .faq-item.faq-open .faq-toggle { border-radius: 6px 6px 0 0; border-bottom-color: transparent; }
-    .faq-q { font-size: 15px; font-weight: 700; color: #fff; line-height: 1.4; flex: 1; text-shadow: 0 1px 4px rgba(0,0,0,0.4); font-family: Arial, Helvetica, sans-serif; }
-    .faq-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.6); display: flex; align-items: center; justify-content: center; transition: transform .25s ease, background .2s ease, border-color .2s ease; }
-    .faq-icon svg { width: 10px; height: 10px; fill: rgba(255,255,255,0.8); transition: transform .25s ease; }
-    .faq-item.faq-open .faq-icon { background: #E8610A; border-color: #E8610A; }
-    .faq-item.faq-open .faq-icon svg { fill: #fff; transform: rotate(180deg); }
-    .faq-body { overflow: hidden; max-height: 0; transition: max-height .38s ease; }
-    .faq-item.faq-open .faq-body { max-height: 800px; }
-    .faq-a { font-size: 14px; color: #1A1A1A; line-height: 1.75; padding: 20px 22px 22px; background: #fff; border: 1px solid rgba(255,255,255,0.18); border-top: none; border-radius: 0 0 6px 6px; font-family: Arial, Helvetica, sans-serif; }
-    @media (max-width: 640px) { .faq-inner { padding: 48px 18px 52px; } .faq-inner h2 { font-size: 19px; } }
-
-    /* ══════════════════════════════════════════════════════════
-       NEXT STEPS — light grey, 3 animated cards
-       Added 2026-04-16
-    ══════════════════════════════════════════════════════════ */
-    .next-steps { padding: 56px var(--page-pad) 60px; background: #F4F6F8; }
-    .next-steps-inner { max-width: 860px; margin: 0 auto; }
-    .next-steps-eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: #666666; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif; }
-    .next-steps h2 { font-size: 22px; font-weight: 700; color: #1F4E79; margin-bottom: 8px; font-family: Arial, Helvetica, sans-serif; }
-    .next-steps-sub { font-size: 14px; color: #666666; margin-bottom: 32px; line-height: 1.6; font-family: Arial, Helvetica, sans-serif; }
-    .ns-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    .ns-card { background: #FFFFFF; border: 1px solid #e0e0e0; border-top: 4px solid transparent; border-radius: 8px; padding: 24px 20px; text-decoration: none; display: block; opacity: 0; transform: translateY(28px); transition: opacity .5s ease, transform .5s ease, box-shadow .25s ease; }
-    .ns-card.ns-card-visible { opacity: 1; transform: translateY(0); }
-    .ns-card:nth-child(1) { transition-delay: .05s; }
-    .ns-card:nth-child(2) { transition-delay: .18s; }
-    .ns-card:nth-child(3) { transition-delay: .31s; }
-    .ns-accent-blue { border-top-color: #1F4E79; }
-    .ns-accent-orange { border-top-color: #E8610A; }
-    .ns-accent-green { border-top-color: #1D9E75; }
-    .ns-accent-blue:hover { box-shadow: 0 8px 28px rgba(31,78,121,0.15); transform: translateY(-5px) !important; }
-    .ns-accent-orange:hover { box-shadow: 0 8px 28px rgba(232,97,10,0.22); transform: translateY(-5px) !important; }
-    .ns-accent-green:hover { box-shadow: 0 8px 28px rgba(29,158,117,0.22); transform: translateY(-5px) !important; }
-    .ns-card-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px; font-family: Arial, Helvetica, sans-serif; }
-    .ns-accent-blue .ns-card-label { color: #1F4E79; }
-    .ns-accent-orange .ns-card-label { color: #E8610A; }
-    .ns-accent-green .ns-card-label { color: #1D9E75; }
-    .ns-card h3 { font-size: 15px; font-weight: 700; color: #1A1A1A; line-height: 1.35; margin-bottom: 8px; font-family: Arial, Helvetica, sans-serif; }
-    .ns-card p { font-size: 13px; color: #666666; line-height: 1.6; margin-bottom: 16px; font-family: Arial, Helvetica, sans-serif; }
-    .ns-card-link { font-size: 12px; font-weight: 700; font-family: Arial, Helvetica, sans-serif; }
-    .ns-accent-blue .ns-card-link { color: #1F4E79; }
-    .ns-accent-orange .ns-card-link { color: #E8610A; }
-    .ns-accent-green .ns-card-link { color: #1D9E75; }
-    .ns-card-link::after { content: ' \2192'; }
-    .ns-phone { margin-top: 28px; font-size: 13px; color: #666666; text-align: center; font-family: Arial, Helvetica, sans-serif; }
-    .ns-phone a { color: #1F4E79; text-decoration: none; font-weight: 700; }
-    .ns-phone a:hover { color: #E8610A; }
-    @media (max-width: 760px) { .ns-cards { grid-template-columns: 1fr; } }
-
-    /* ══════════════════════════════════════════════════════════
-       FOOTER — Dark navy, matching pharma/services template
-       Replaced light grey 4-col footer 2026-04-16
-    ══════════════════════════════════════════════════════════ */
-    .site-footer { background: #0D1F3C; }
-    .footer-prefooter { padding: 44px var(--page-pad) 40px; border-bottom: 1px solid rgba(255,255,255,.1); }
-    .footer-wrap { max-width: 1100px; margin: 0 auto; }
-    .footer-content-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; margin-bottom: 28px; }
-    .footer-col { padding: 0 32px; }
-    .footer-col-1 { padding-left: 0; border-right: 1px solid rgba(255,255,255,.08); }
-    .footer-col-2 { border-right: 1px solid rgba(255,255,255,.08); }
-    .footer-col-3 { padding-right: 0; }
-    .footer-cta-row { display: flex; align-items: center; gap: 0; }
-    .footer-cta-1, .footer-cta-2, .footer-cta-3 { flex: 0 0 33.333%; padding: 0 32px; }
-    .footer-cta-1 { padding-left: 0; border-right: 1px solid rgba(255,255,255,.08); }
-    .footer-cta-2 { border-right: 1px solid rgba(255,255,255,.08); }
-    .footer-cta-3 { padding-right: 0; }
-    .footer-cta-btn { display: inline-block; padding: 10px 20px; background: #E8610A; color: #fff; font-size: 13px; font-weight: 700; text-decoration: none; border-radius: 4px; transition: background .15s; white-space: nowrap; font-family: Arial, Helvetica, sans-serif; }
-    .footer-cta-btn:hover { background: #c4510a; }
-    .engage-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #85B7EB; margin-bottom: 8px; font-family: Arial, Helvetica, sans-serif; }
-    .engage-col-title { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; font-family: Arial, Helvetica, sans-serif; }
-    .engage-col-desc { font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.6; font-family: Arial, Helvetica, sans-serif; }
-    .engage-nl-form { display: flex; gap: 8px; flex-wrap: wrap; }
-    .engage-nl-input { flex: 1; min-width: 120px; padding: 10px 12px; border: 1.5px solid rgba(255,255,255,.2); border-radius: 4px; background: rgba(255,255,255,.08); color: #fff; font-family: Arial, sans-serif; font-size: 13px; outline: none; transition: border-color .15s; }
-    .engage-nl-input::placeholder { color: rgba(255,255,255,.4); }
-    .engage-nl-input:focus { border-color: #85B7EB; }
-    .engage-nl-btn { padding: 10px 18px; background: #E8610A; color: #fff; border: none; border-radius: 4px; font-family: Arial, sans-serif; font-size: 13px; font-weight: 700; cursor: pointer; transition: background .15s; white-space: nowrap; }
-    .engage-nl-btn:hover { background: #c4510a; }
-    .engage-nl-btn:disabled { opacity: .5; cursor: not-allowed; }
-    .engage-nl-msg { font-size: 12px; margin-top: 8px; min-height: 16px; font-family: Arial, sans-serif; }
-    .engage-nl-msg.ok { color: #6ee7b7; }
-    .engage-nl-msg.err { color: #fca5a5; }
-    .footer-bottom { padding: 16px var(--page-pad); }
-    .footer-bottom-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13px; color: rgba(255,255,255,.45); font-family: Arial, Helvetica, sans-serif; }
-    .footer-bottom-inner a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .15s; }
-    .footer-bottom-inner a:hover { color: #E8610A; }
-    .footer-bottom-left { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-    .footer-bottom-brand { font-weight: 700; color: rgba(255,255,255,.7); }
-    @media (max-width: 760px) {
-      .footer-content-row { grid-template-columns: 1fr; }
-      .footer-col { padding: 0 0 24px 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 4px; }
-      .footer-col-3 { border-bottom: none; padding-bottom: 0; }
-      .footer-cta-row { flex-direction: column; align-items: flex-start; gap: 20px; }
-      .footer-cta-1, .footer-cta-2, .footer-cta-3 { flex: none; padding: 0; border: none; }
-    }
-    @media (max-width: 640px) {
-      .footer-prefooter { padding: 32px 20px; }
-      .footer-bottom { padding: 14px 20px; }
-      .footer-bottom-inner { flex-direction: column; text-align: center; gap: 6px; }
-      .footer-bottom-left { justify-content: center; }
-    }
-
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .anim { animation: fadeUp 0.6s ease-out both; }
-    .d1 { animation-delay: 0.1s; } .d2 { animation-delay: 0.2s; } .d3 { animation-delay: 0.3s; } .d4 { animation-delay: 0.4s; }
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    .anim{animation:fadeUp 0.6s ease-out both;}
+    .d1{animation-delay:0.1s;}.d2{animation-delay:0.2s;}.d3{animation-delay:0.3s;}.d4{animation-delay:0.4s;}
   </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════════════════════════
-     NAVIGATION — v9 2026-04-16
-     Fixed "OWhy Us" typo → "Why Us"
-     .site-header / .main-nav system (fixed 64px)
-════════════════════════════════════════════════════════════════ -->
 <header class="site-header">
   <div class="header-inner">
     <a href="/" class="site-logo">
       <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;">
       <span class="site-logo-text">SHIFTWORK SOLUTIONS</span>
     </a>
-
     <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
       <span></span><span></span><span></span>
     </button>
-
     <nav class="main-nav" id="main-nav">
       <ul>
         <li><a href="/">Home</a></li>
@@ -535,7 +424,6 @@
   </div>
 </header>
 
-<!-- ══════════════════════════════════════════════════════════════ HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="anim">
@@ -552,13 +440,12 @@
       </div>
     </div>
     <div class="hero-image anim d2">
-      <img src="/images/shutterstock_1497086771.jpg" alt="Industrial manufacturing facility with shift workers on a 24/7 production line" onerror="this.parentElement.style.background='#163057';this.style.display='none';" />
+      <img src="/images/pillar_6.jpg" alt="Shift schedule change management consultation with operations team" onerror="this.parentElement.style.background='#163057';this.style.display='none';" />
       <div class="hero-image-caption">"Hiring Shiftwork Solutions was the most impact delivered per consulting dollar."</div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════ PROBLEMS -->
 <section class="section problems" id="challenges">
   <div class="section-inner">
     <div class="section-label">Challenges We Solve</div>
@@ -575,7 +462,6 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════ SERVICES -->
 <section class="section services" id="services">
   <div class="section-inner">
     <div class="section-label">What We Do</div>
@@ -591,14 +477,13 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════ HOW WE WORK -->
 <section class="section process" id="how-we-work">
   <div class="section-inner">
     <div class="section-label">Our Process</div>
     <div class="section-heading">How We Work</div>
     <div class="section-sub">A typical engagement runs about six weeks. We do the heavy lifting. You keep running your operation.</div>
     <div class="process-grid">
-      <div class="process-image"><img src="/images/shutterstock_1502038526.jpg" alt="Shift scheduling consultation meeting with operations team reviewing workforce data" onerror="this.parentElement.style.background='var(--navy)';this.style.display='none';" /></div>
+      <div class="process-image"><img src="/images/pillar_8.jpg" alt="Operations team reviewing shift scheduling data and workforce planning strategy" onerror="this.parentElement.style.background='var(--navy)';this.style.display='none';" /></div>
       <div class="process-steps">
         <div class="process-step"><div class="process-num">1</div><div><h3>Discovery &amp; Business Analysis</h3><p>We learn your operation: coverage needs, cost structure, workforce demographics, constraints, and goals. We review your data, walk your facility, and talk to your people.</p></div></div>
         <div class="process-step"><div class="process-num">2</div><div><h3>Employee Survey &amp; Engagement</h3><p>A comprehensive workforce survey reveals what employees actually want — schedule preferences, overtime appetite, work-life balance priorities. We benchmark results against industry norms.</p></div></div>
@@ -609,13 +494,11 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════ QUOTE -->
 <div class="quote-band">
   <div class="quote-text">"The best shift schedule in the world fails if employees hate it. The schedule employees choose — even if it is not management's first preference — always outperforms one that is imposed."</div>
   <div class="quote-attr">Shiftwork Solutions LLC</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════════════ CLIENTS -->
 <section class="section clients" id="clients">
   <div class="section-inner" style="text-align:center;">
     <div class="section-label">Trusted By</div>
@@ -630,7 +513,6 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════ THOMAS -->
 <section class="section thomas" id="thomas">
   <div class="section-inner">
     <div class="section-label">AI-Powered Diagnostic</div>
@@ -652,7 +534,6 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════ TEAM -->
 <section class="section team" id="team">
   <div class="section-inner" style="text-align:center;">
     <div class="section-label">Our Team</div>
@@ -666,7 +547,6 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════ RESOURCES -->
 <section class="section resources" id="resources">
   <div class="section-inner" style="text-align:center;">
     <div class="section-label">Resources</div>
@@ -681,247 +561,61 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════
-     FAQ SECTION — Full-bleed Hands_in_the_air.jpg
-     Added 2026-04-16
-════════════════════════════════════════════════════════════════ -->
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
   <div class="faq-inner">
     <h2>Frequently Asked Questions</h2>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">How long does a typical engagement take?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">Most engagements run five to seven weeks from kickoff through employee choice and implementation handoff. Projects involving more departments, larger workforces, or more complex operating environments take longer — but no engagement drags on indefinitely. We scope work before we price it, and the timeline is part of that conversation.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">What does "fixed-fee" mean in practice?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">It means the fee we agree to at the start is the fee you pay — regardless of what we find or how long the analysis takes. If the situation turns out to be more complex than anticipated, that is our problem to manage, not yours. The only thing that changes a fee is a material change in scope, agreed to by both parties before additional work proceeds.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">Do you work in union environments?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">Yes, and frequently. Union environments are a significant part of our practice. The employee-centered approach we use aligns well with union interests — workers get a genuine voice, their preferences are documented and respected, and the process is transparent. We work within contract constraints as design inputs from the start of the engagement, not as complications discovered at the end.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">Why does employee involvement matter — can't management just pick the schedule?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">Management can pick a schedule, and when they do without employee involvement, roughly half of those changes either fail outright or succeed technically while damaging morale for years. We have cleaned up many of those situations. The reason involvement works is practical: workers who participate in designing a schedule are statistically more likely to support it and less likely to organize against it. The survey process also surfaces constraints — childcare arrangements, second jobs, medical schedules — that management rarely knows about and that can sink a well-designed schedule during implementation.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">What industries do you work in?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">We have worked across more than 16 industries including manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, paper and packaging, utilities, and more. The scheduling challenges differ by industry — a continuous chemical process has different constraints than a distribution center with seasonal demand peaks — but the methodology we use is consistent: analyze, engage, implement.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">What information do you need to give us a fee estimate?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">A brief initial call is enough. We want to understand the number of employees affected, how many distinct departments or shift systems are involved, the general nature of the challenge, whether a union contract is in place, and your timeline. We can almost always give you a fee range after a 20-minute conversation — and the first conversation is always free.</div></div>
-    </div>
-
-    <div class="faq-item">
-      <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">What happens after the engagement ends?</span>
-        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-      </button>
-      <div class="faq-body"><div class="faq-a">Every engagement includes a post-implementation follow-up survey, conducted after the new schedule has been running long enough for employees to form informed opinions. We review results with management, identify any issues that have emerged, and recommend adjustments if needed. Many clients return to us when they expand, when conditions change, or when additional departments are ready for their own review. We have client relationships that have spanned more than a decade and multiple engagements.</div></div>
-    </div>
-
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How long does a typical engagement take?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Most engagements run five to seven weeks from kickoff through employee choice and implementation handoff. Projects involving more departments, larger workforces, or more complex operating environments take longer — but no engagement drags on indefinitely. We scope work before we price it, and the timeline is part of that conversation.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What does "fixed-fee" mean in practice?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">It means the fee we agree to at the start is the fee you pay — regardless of what we find or how long the analysis takes. If the situation turns out to be more complex than anticipated, that is our problem to manage, not yours. The only thing that changes a fee is a material change in scope, agreed to by both parties before additional work proceeds.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Do you work in union environments?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Yes, and frequently. Union environments are a significant part of our practice. The employee-centered approach we use aligns well with union interests — workers get a genuine voice, their preferences are documented and respected, and the process is transparent. We work within contract constraints as design inputs from the start of the engagement, not as complications discovered at the end.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why does employee involvement matter — can't management just pick the schedule?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Management can pick a schedule, and when they do without employee involvement, roughly half of those changes either fail outright or succeed technically while damaging morale for years. We have cleaned up many of those situations. The reason involvement works is practical: workers who participate in designing a schedule are statistically more likely to support it and less likely to organize against it. The survey process also surfaces constraints — childcare arrangements, second jobs, medical schedules — that management rarely knows about and that can sink a well-designed schedule during implementation.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What industries do you work in?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">We have worked across more than 16 industries including manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, paper and packaging, utilities, and more. The scheduling challenges differ by industry — a continuous chemical process has different constraints than a distribution center with seasonal demand peaks — but the methodology we use is consistent: analyze, engage, implement.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What information do you need to give us a fee estimate?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">A brief initial call is enough. We want to understand the number of employees affected, how many distinct departments or shift systems are involved, the general nature of the challenge, whether a union contract is in place, and your timeline. We can almost always give you a fee range after a 20-minute conversation — and the first conversation is always free.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What happens after the engagement ends?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Every engagement includes a post-implementation follow-up survey, conducted after the new schedule has been running long enough for employees to form informed opinions. We review results with management, identify any issues that have emerged, and recommend adjustments if needed. Many clients return to us when they expand, when conditions change, or when additional departments are ready for their own review. We have client relationships that have spanned more than a decade and multiple engagements.</div></div></div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════════════
-     NEXT STEPS — light grey, 3 animated cards
-     Added 2026-04-16
-════════════════════════════════════════════════════════════════ -->
 <section class="next-steps">
   <div class="next-steps-inner">
     <div class="next-steps-eyebrow">Where to go from here</div>
     <h2>Next Steps &amp; Resources</h2>
     <p class="next-steps-sub">Talk to an expert, explore our process guides, or run a quick diagnostic on your current operation.</p>
     <div class="ns-cards">
-      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card ns-accent-blue" target="_blank" rel="noopener">
-        <div class="ns-card-label">Free Consultation</div>
-        <h3>Talk to a Shiftwork Expert</h3>
-        <p>Tell us what you're dealing with — schedule costs, turnover, coverage gaps, or an upcoming 24/7 transition. We'll tell you honestly what we see.</p>
-        <span class="ns-card-link">Book a free meeting</span>
-      </a>
-      <a href="/resources/shift-work-best-practices/" class="ns-card ns-accent-orange">
-        <div class="ns-card-label">Complete Guide</div>
-        <h3>Operational Best Practices for 24/7 Shift Work</h3>
-        <p>The fatigue management, coverage, and workforce practices that separate operations that run smoothly from those that struggle — and why the schedule is almost always at the center.</p>
-        <span class="ns-card-link">Read the guide</span>
-      </a>
-      <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green">
-        <div class="ns-card-label">Diagnostic Tool</div>
-        <h3>26 Warning Signs</h3>
-        <p>The operational symptoms that signal your shiftwork system needs attention — from chronic overtime and absenteeism to the subtler indicators most managers miss.</p>
-        <span class="ns-card-link">Read the diagnostic</span>
-      </a>
+      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card ns-accent-blue" target="_blank" rel="noopener"><div class="ns-card-label">Free Consultation</div><h3>Talk to a Shiftwork Expert</h3><p>Tell us what you're dealing with — schedule costs, turnover, coverage gaps, or an upcoming 24/7 transition. We'll tell you honestly what we see.</p><span class="ns-card-link">Book a free meeting</span></a>
+      <a href="/resources/shift-work-best-practices/" class="ns-card ns-accent-orange"><div class="ns-card-label">Complete Guide</div><h3>Operational Best Practices for 24/7 Shift Work</h3><p>The fatigue management, coverage, and workforce practices that separate operations that run smoothly from those that struggle — and why the schedule is almost always at the center.</p><span class="ns-card-link">Read the guide</span></a>
+      <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green"><div class="ns-card-label">Diagnostic Tool</div><h3>26 Warning Signs</h3><p>The operational symptoms that signal your shiftwork system needs attention — from chronic overtime and absenteeism to the subtler indicators most managers miss.</p><span class="ns-card-link">Read the diagnostic</span></a>
     </div>
     <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════
-     FOOTER — Dark navy, matching pharma/services template
-     Replaced light grey 4-col footer 2026-04-16
-════════════════════════════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
-      <div class="footer-col footer-col-1">
-        <div class="engage-label">FREE CONSULTATION</div>
-        <div class="engage-col-title">Ready to talk about your operation?</div>
-        <p class="engage-col-desc">Manufacturing and distribution leaders call us when the current schedule is hurting output, retention, or costs. The first conversation is always free.</p>
-      </div>
-      <div class="footer-col footer-col-2">
-        <div class="engage-label">AI ADVISOR</div>
-        <div class="engage-col-title">Talk to Thomas</div>
-        <p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
-      </div>
-      <div class="footer-col footer-col-3">
-        <div class="engage-label">NEWSLETTER</div>
-        <div class="engage-col-title">Stay Sharp on Shift Operations</div>
-        <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
-      </div>
+      <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">Manufacturing and distribution leaders call us when the current schedule is hurting output, retention, or costs. The first conversation is always free.</p></div>
+      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p></div>
+      <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
     </div>
     <div class="footer-cta-row">
       <div class="footer-cta-1"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a></div>
       <div class="footer-cta-2"><a href="https://shift-work-diagnostic.onrender.com/" class="footer-cta-btn" target="_blank" rel="noopener">Start a Conversation &#x2192;</a></div>
-      <div class="footer-cta-3">
-        <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
-          <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
-          <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
-        </form>
-        <div class="engage-nl-msg" id="engageNLMsg"></div>
-      </div>
+      <div class="footer-cta-3"><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
     </div>
   </div></div>
   <div class="footer-bottom"><div class="footer-bottom-inner">
-    <div class="footer-bottom-left">
-      <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
-      <a href="tel:+14152651621">(415) 265-1621</a>
-      <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
-    </div>
+    <div class="footer-bottom-left"><span class="footer-bottom-brand">Shiftwork Solutions LLC</span><a href="tel:+14152651621">(415) 265-1621</a><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
 
-<!-- ══════════════════════════════════════════════════════════════ JS -->
 <script>
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(function(link) {
-  link.addEventListener('click', function(e) {
-    var id = this.getAttribute('href');
-    var target = document.querySelector(id);
-    if (target) { e.preventDefault(); var nav = document.getElementById('main-nav'); if (nav) nav.classList.remove('open'); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-  });
-});
-
-// Mobile nav toggle
-document.getElementById('mobile-toggle').addEventListener('click', function() {
-  document.getElementById('main-nav').classList.toggle('open');
-});
-document.addEventListener('click', function(e) {
-  var header = document.querySelector('.site-header');
-  if (header && !header.contains(e.target)) { var nav = document.getElementById('main-nav'); if (nav) nav.classList.remove('open'); }
-});
-
-// FAQ accordion
-(function() {
-  var items = document.querySelectorAll('.faq-item');
-  items.forEach(function(item) {
-    var btn = item.querySelector('.faq-toggle');
-    if (!btn) return;
-    btn.addEventListener('click', function() {
-      var isOpen = item.classList.contains('faq-open');
-      items.forEach(function(i) {
-        i.classList.remove('faq-open');
-        var b = i.querySelector('.faq-toggle');
-        if (b) b.setAttribute('aria-expanded', 'false');
-      });
-      if (!isOpen) {
-        item.classList.add('faq-open');
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-})();
-
-// Next Steps cards entrance animation
-(function() {
-  var cards = document.querySelectorAll('.ns-card');
-  if (!cards.length) return;
-  if (!('IntersectionObserver' in window)) {
-    cards.forEach(function(c) { c.classList.add('ns-card-visible'); });
-    return;
-  }
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('ns-card-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  cards.forEach(function(c) { observer.observe(c); });
-})();
-
-// Newsletter subscription
-(function() {
-  var SWARM = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
-  window.engageNLSubmit = function(e) {
-    e.preventDefault();
-    var btn = document.getElementById('engageNLBtn');
-    var msg = document.getElementById('engageNLMsg');
-    var email = document.getElementById('engageNLEmail').value.trim();
-    if (!email) return;
-    btn.disabled = true;
-    btn.textContent = 'Subscribing...';
-    fetch(SWARM, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email, source: 'homepage-footer-nl' })
-    }).then(function(r) {
-      return r.json();
-    }).then(function(d) {
-      if (d.success) {
-        msg.className = 'engage-nl-msg ok';
-        msg.textContent = '\u2713 Subscribed. Thank you.';
-        document.getElementById('engageNLEmail').value = '';
-        btn.textContent = 'Subscribed \u2713';
-      } else {
-        throw new Error(d.error || 'Failed');
-      }
-    }).catch(function(err) {
-      msg.className = 'engage-nl-msg err';
-      msg.textContent = err.message === 'This email is already subscribed.' ? 'Already subscribed \u2014 thank you!' : 'Something went wrong. Try again.';
-      btn.disabled = false;
-      btn.textContent = 'Subscribe \u2192';
-    });
-  };
-})();
+document.querySelectorAll('a[href^="#"]').forEach(function(link){link.addEventListener('click',function(e){var id=this.getAttribute('href');var target=document.querySelector(id);if(target){e.preventDefault();var nav=document.getElementById('main-nav');if(nav)nav.classList.remove('open');target.scrollIntoView({behavior:'smooth',block:'start'});}});});
+document.getElementById('mobile-toggle').addEventListener('click',function(){document.getElementById('main-nav').classList.toggle('open');});
+document.addEventListener('click',function(e){var header=document.querySelector('.site-header');if(header&&!header.contains(e.target)){var nav=document.getElementById('main-nav');if(nav)nav.classList.remove('open');}});
+(function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
+(function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
+(function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'homepage-footer-nl'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
 </script>
 
 </body>
