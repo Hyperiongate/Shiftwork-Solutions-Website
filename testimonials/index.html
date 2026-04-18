@@ -29,6 +29,11 @@
                  5. TAGS: Removed arrow prefixes and pipe separators from CSS.
                     Plain gray italic, pipe separator via ::before only between tags.
                  6. DOT CONNECTORS: Removed .tl-dot CSS and all HTML instances.
+    2026-04-17 — NARROW TESTIMONIAL BACKGROUND:
+                 Added .tl-section-wrap div (max-width:1060px, centered, padded)
+                 around the dark photo cascade section so the background no longer
+                 bleeds full page width. border-radius:12px added to .tl-section.
+                 No other sections affected.
     2026-04-17 — THREE TARGETED UPDATES:
                  1. tl-inner max-width narrowed to 860px (tighter quote cascade).
                  2. Mel Olsson solo card shifted right 192px (≈2 inches).
@@ -240,6 +245,23 @@
     }
     .tl-tag+.tl-tag::before{content:' | ';color:#ccc;}
 
+    /* ── TESTIMONIAL CASCADE WRAPPER — constrains dark background width ── */
+    .tl-section-wrap{
+      max-width:1060px;
+      margin:0 auto;
+      padding:0 40px;
+    }
+    .tl-section{
+      border-radius:12px;
+      overflow:hidden;
+    }
+    @media(max-width:1140px){
+      .tl-section-wrap{padding:0 24px}
+    }
+    @media(max-width:768px){
+      .tl-section-wrap{padding:0 12px}
+      .tl-section{border-radius:8px}
+    }
     @media(max-width:768px){
       .tl-spine{display:none}
       .tl-row{grid-template-columns:1fr}
@@ -451,6 +473,7 @@
 </section>
 
 <!-- ── TESTIMONIAL CASCADE — background is second.png with dark overlay ── -->
+<div class="tl-section-wrap">
 <section class="tl-section">
   <div class="tl-inner">
     <div class="tl-spine"></div>
@@ -542,6 +565,7 @@
 
   </div>
 </section>
+</div><!-- /.tl-section-wrap -->
 
 <!-- ── WHITE SPACE BETWEEN QUOTES AND CLIENT SECTION ── -->
 <div style="height:96px;background:#fff;"></div>
