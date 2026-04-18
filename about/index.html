@@ -24,6 +24,11 @@
                  all inline script execution from that block onward — newsletter
                  form was non-functional. No HTML, CSS, content, or schema
                  changed. Only the closing of the function expression was added.
+    2026-04-17 — PULL QUOTE STYLE: Both pull quotes updated to match Our Team
+                 page treatment — 128px Georgia quotation mark, italic blue text
+                 (#4a6a8a), flex-row layout. Replaced border-left orange style.
+                 CSS updated: .pull-quote-inner/.pull-quote-text/.pull-quote-attr
+                 removed; .pull-quote-mark/.pull-quote-content/.pq-attr added.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
@@ -139,11 +144,12 @@
     .diff-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
     .diff-text{font-size:14px;color:var(--body-text);line-height:1.65;max-width:640px}
 
-    /* ── PULL QUOTE ── */
-    .pull-quote{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad)}
-    .pull-quote-inner{border-left:2px solid var(--orange);padding:14px 0 14px 16px;background:var(--white)}
-    .pull-quote-text{font-size:15px;font-style:italic;color:var(--body-text);line-height:1.7}
-    .pull-quote-attr{font-size:13px;font-weight:700;color:var(--navy);margin-top:8px;font-style:normal}
+    /* ── PULL QUOTE — 128px Georgia mark, italic blue (matches Our Team) ── */
+    .pull-quote{max-width:var(--max-width);margin:32px auto;padding:0 var(--page-pad);display:flex;align-items:center;gap:16px}
+    .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
+    .pull-quote-content{flex:1}
+    .pull-quote-content p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
+    .pull-quote-content .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
 
     /* ── TEAM LIST ── */
     .team-list{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad)}
@@ -269,7 +275,7 @@
       .team-link{margin-left:0}
       .industry-grid{grid-template-columns:repeat(2,1fr);padding:0 20px}
       .diff-list{padding:0 20px}
-      .pull-quote{padding:0 20px}
+      .pull-quote{flex-direction:column;gap:4px;padding:0 20px}.pull-quote-mark{font-size:72px}
       .faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}
       .faq-inner{padding:36px 18px 40px}
       .faq-inner h2{font-size:19px}
@@ -344,10 +350,13 @@
   <p>We also believe that the people doing the work have insight that no outside consultant can replicate. Employee involvement is not a concession to labor relations — it is how you get better information, build genuine buy-in, and ensure the solution accounts for realities that only show up on the floor at 2 AM. Every engagement we lead is designed around this principle.</p>
 </section>
 
-<div class="pull-quote"><div class="pull-quote-inner">
-  <div class="pull-quote-text">"The more the workforce understands and participates, the better the outcome. A collaborative process with well-informed participants leads to results that stretch beyond the boundaries of any single project."</div>
-  <div class="pull-quote-attr">— Jim Dillingham, Shiftwork Solutions</div>
-</div></div>
+<div class="pull-quote">
+  <span class="pull-quote-mark">&#8220;</span>
+  <div class="pull-quote-content">
+    <p>The more the workforce understands and participates, the better the outcome. A collaborative process with well-informed participants leads to results that stretch beyond the boundaries of any single project.</p>
+    <div class="pq-attr">— Jim Dillingham, Shiftwork Solutions</div>
+  </div>
+</div>
 
 <hr class="divider">
 
@@ -401,10 +410,13 @@
   <div class="diff-item"><div class="diff-icon">&#x2605;</div><div><div class="diff-title">We work in union environments</div><div class="diff-text">Many consultants avoid union operations or treat them as special cases. We have worked successfully in union shops throughout our career. We understand the dynamics, the contractual constraints, and the political realities. More importantly, we know how to design solutions that union members choose to support — because they helped build them.</div></div></div>
 </div>
 
-<div class="pull-quote"><div class="pull-quote-inner">
-  <div class="pull-quote-text">"People don't quit jobs — they quit bosses. And they don't quit schedules — they quit operations that make their lives harder than they have to be. Getting the schedule right is one of the highest-return investments a facility can make."</div>
-  <div class="pull-quote-attr">— Dan Capshaw, Shiftwork Solutions</div>
-</div></div>
+<div class="pull-quote">
+  <span class="pull-quote-mark">&#8220;</span>
+  <div class="pull-quote-content">
+    <p>People don't quit jobs — they quit bosses. And they don't quit schedules — they quit operations that make their lives harder than they have to be. Getting the schedule right is one of the highest-return investments a facility can make.</p>
+    <div class="pq-attr">— Dan Capshaw, Shiftwork Solutions</div>
+  </div>
+</div>
 
 <hr class="divider">
 
