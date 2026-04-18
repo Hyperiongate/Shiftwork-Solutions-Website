@@ -91,7 +91,10 @@
     @keyframes tts-wave{0%,100%{transform:scaleY(.5);opacity:.5}50%{transform:scaleY(1);opacity:1}}
 
     /* ── HERO — image changed to /images/26.jpg (2026-04-17) ── */
+    /* Overlay added 2026-04-17: 26.jpg is busy/colorful; heavy gradient overlay
+       ensures gold h1 and white subtitle remain fully legible. */
     .hero{background:#0D1F3C url('/images/26.jpg') center center / cover no-repeat;padding:44px 36px 48px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.90) 0%,rgba(13,31,60,.78) 50%,rgba(13,31,60,.55) 100%);z-index:0;pointer-events:none}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
     .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:12px}
     .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:#EEAE26;max-width:520px;margin-bottom:12px}
