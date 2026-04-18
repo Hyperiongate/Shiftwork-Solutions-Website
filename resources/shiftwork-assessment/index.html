@@ -5,7 +5,7 @@
   URL: /resources/shiftwork-assessment/
 
   Created:      2026-04-03
-  Last Updated: 2026-04-16
+  Last Updated: 2026-04-17
 
   CHANGE LOG:
     2026-04-03 — Complete rebuild from legacy assessment.
@@ -43,12 +43,18 @@
                  fallback scoring, lead capture, and PDF functionality
                  are completely unchanged.
 
+    2026-04-17 — HERO IMAGE: Changed from /images/second.png to
+                 /images/assessment.jpg. Overlay strengthened to
+                 rgba(.90)/.78/.55 (same treatment as 26.jpg) to ensure
+                 gold h1 and white subtitle remain fully legible against
+                 a busy background image.
+
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
     Navy: #1F4E79 | Navy-dark: #0D1F3C | Mid-blue: #85B7EB
     Orange: #E8610A | Green: #1D9E75 | Hero h1: #EEAE26
     Logo: /images/clear_bkgr_logo_2.png
-    Hero image: /images/second.png
+    Hero image: /images/assessment.jpg
 -->
 <html lang="en">
 <head>
@@ -94,9 +100,11 @@
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
 
-    /* ── HERO (matches resources page — second.png, gradient, circles, gold h1) ── */
-    .hero{background:#0D1F3C url('/images/second.png') center center/cover no-repeat;padding:60px 36px 68px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.82) 0%,rgba(13,31,60,.60) 55%,rgba(13,31,60,.30) 100%);z-index:0}
+    /* ── HERO — assessment.jpg + heavy overlay (2026-04-17) ── */
+    /* Overlay opacity .90/.78/.55 matches 26.jpg treatment — ensures legibility
+       against busy background images. */
+    .hero{background:#0D1F3C url('/images/assessment.jpg') center center/cover no-repeat;padding:60px 36px 68px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.90) 0%,rgba(13,31,60,.78) 50%,rgba(13,31,60,.55) 100%);z-index:0;pointer-events:none}
     .hero-circle-tr{position:absolute;top:-60px;right:-80px;width:320px;height:320px;border-radius:50%;border:2px solid rgba(232,97,10,.25);z-index:0}
     .hero-circle-bl{position:absolute;bottom:-100px;left:-50px;width:220px;height:220px;border-radius:50%;border:2px solid rgba(133,183,235,.15);z-index:0}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
