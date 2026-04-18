@@ -46,7 +46,17 @@
                   - Associated CSS (.phases-grid, .phase-card, .phase-num,
                     .process-timeline, .process-week, .process-dot) removed
                   - Orphaned <hr> dividers cleaned up
-      2026-04-18  (v9) MAJOR CONTENT REBUILD per April 2026 spec:
+      2026-04-18  (v10) THREE VISUAL FIXES per screenshot review:
+                  1. Editorial sections ("When the Schedule Is Right" and
+                     "Who We Work With") — font sizes dramatically reduced
+                     to match site scale. ec-col-heading: 29px → 17px.
+                     ec-col-body: 20px → 14px. Line-height 2.18 → 1.72.
+                     editorial-heading: 42px → 24px. Section padding halved.
+                  2. "Better Operations" intro block — same scale reduction
+                     (42px → 24px heading, 21px → 15px lead).
+                  3. Service cards — converted to flex-column so .service-note
+                     italic subtext pins to card bottom with top border separator
+                     via margin-top:auto.
                   HERO: New subtitle — operations/workforce/lasting capability framing.
                         Hero stats updated: 3rd box → "30+ Years" of experience.
                   NEW SECTION 2: "Better Operations. Engaged Workforce."
@@ -201,34 +211,34 @@
       margin-bottom: 14px;
     }
     .better-ops h2 {
-      font-size: 42px;
+      font-size: 24px;
       font-weight: 700;
-      line-height: 1.12;
+      line-height: 1.25;
       color: #111111;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
       max-width: 860px;
     }
     .better-ops-lead {
-      font-size: 21px;
-      line-height: 1.62;
+      font-size: 15px;
+      line-height: 1.70;
       font-weight: 400;
       color: #1A1A1A;
       max-width: 860px;
     }
     @media (max-width: 1024px) {
-      .better-ops h2 { font-size: 34px; }
-      .better-ops-lead { font-size: 19px; }
+      .better-ops h2 { font-size: 21px; }
+      .better-ops-lead { font-size: 14px; }
     }
     @media (max-width: 768px) {
-      .better-ops { padding: 56px 20px 64px; }
-      .better-ops h2 { font-size: 28px; }
-      .better-ops-lead { font-size: 18px; }
+      .better-ops { padding: 36px 20px 44px; }
+      .better-ops h2 { font-size: 20px; }
+      .better-ops-lead { font-size: 14px; }
     }
 
     /* ── SECTION 3a: WHEN THE SCHEDULE IS RIGHT — editorial columns ── */
     .editorial-section {
       background: var(--white);
-      padding: 88px 64px 96px;
+      padding: 48px 64px 56px;
     }
     .editorial-section.alt-bg {
       background: var(--white);
@@ -246,19 +256,19 @@
       margin-bottom: 14px;
     }
     .editorial-heading {
-      font-size: 42px;
+      font-size: 24px;
       font-weight: 700;
-      line-height: 1.12;
+      line-height: 1.25;
       color: #111111;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
     .editorial-lead {
-      font-size: 21px;
-      line-height: 1.62;
+      font-size: 15px;
+      line-height: 1.65;
       font-weight: 400;
       color: #1A1A1A;
       max-width: 900px;
-      margin-bottom: 44px;
+      margin-bottom: 28px;
     }
     /* Three-column open grid with vertical dividers via border-right */
     .ec-grid {
@@ -280,62 +290,63 @@
       padding-right: 0;
     }
     .ec-col-heading {
-      font-size: 29px;
+      font-size: 17px;
       font-weight: 700;
-      line-height: 1.24;
+      line-height: 1.35;
       color: #111111;
-      margin-bottom: 22px;
+      margin-bottom: 12px;
       max-width: 320px;
     }
     .ec-col-body {
-      font-size: 20px;
-      line-height: 2.18;
+      font-size: 14px;
+      line-height: 1.72;
       font-weight: 400;
       color: #1E1E1E;
     }
     .ec-col-body p + p {
-      margin-top: 18px;
+      margin-top: 12px;
     }
     .editorial-closing {
-      margin-top: 48px;
-      max-width: 760px;
-      font-size: 24px;
-      line-height: 1.5;
+      margin-top: 28px;
+      max-width: 680px;
+      font-size: 15px;
+      line-height: 1.65;
       font-weight: 500;
       color: #111111;
+      font-style: italic;
     }
     /* Responsive: tablet 2-col, mobile 1-col */
     @media (max-width: 1024px) {
-      .editorial-section { padding: 72px 40px 80px; }
-      .ec-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 0; row-gap: 40px; }
+      .editorial-section { padding: 40px 40px 48px; }
+      .ec-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 0; row-gap: 32px; }
       .ec-col { border-right: none !important; padding: 0 !important; }
-      .ec-col-heading { font-size: 25px; }
-      .ec-col-body { font-size: 18px; line-height: 1.72; }
-      .editorial-heading { font-size: 34px; }
-      .editorial-lead { font-size: 19px; }
+      .ec-col-heading { font-size: 15px; }
+      .ec-col-body { font-size: 13px; }
+      .editorial-heading { font-size: 21px; }
+      .editorial-lead { font-size: 14px; }
     }
     @media (max-width: 767px) {
-      .editorial-section { padding: 56px 24px 64px; }
+      .editorial-section { padding: 32px 20px 40px; }
       .ec-grid { grid-template-columns: 1fr; gap: 0; row-gap: 0; }
       .ec-col {
         border-right: none !important;
         padding: 0 !important;
         border-top: 1px solid #ECECEC;
-        padding-top: 28px !important;
+        padding-top: 20px !important;
         margin-top: 0;
       }
       .ec-col:first-child { border-top: none; padding-top: 0 !important; }
-      .ec-col-heading { font-size: 23px; }
-      .ec-col-body { font-size: 18px; line-height: 1.67; }
-      .editorial-heading { font-size: 28px; }
-      .editorial-lead { font-size: 18px; margin-bottom: 32px; }
-      .editorial-closing { font-size: 20px; }
+      .ec-col-heading { font-size: 15px; }
+      .ec-col-body { font-size: 13px; }
+      .editorial-heading { font-size: 20px; }
+      .editorial-lead { font-size: 14px; margin-bottom: 20px; }
+      .editorial-closing { font-size: 14px; }
     }
 
     /* ── SECTION 3b: WHO WE WORK WITH — same editorial system, looser ── */
     .who-section {
       background: var(--light-grey);
-      padding: 88px 64px 96px;
+      padding: 48px 64px 56px;
     }
     .who-section .ec-grid {
       gap: 0;
@@ -357,27 +368,27 @@
       line-height: 2.25;
     }
     @media (max-width: 1024px) {
-      .who-section { padding: 72px 40px 80px; }
+      .who-section { padding: 40px 40px 48px; }
       .who-section .ec-col { border-right: none !important; padding: 0 !important; }
     }
     @media (max-width: 767px) {
-      .who-section { padding: 56px 24px 64px; }
+      .who-section { padding: 32px 20px 40px; }
       .who-section .ec-col {
         border-right: none !important;
         padding: 0 !important;
         border-top: 1px solid #DEDEDE;
-        padding-top: 28px !important;
+        padding-top: 20px !important;
       }
       .who-section .ec-col:first-child { border-top: none; padding-top: 0 !important; }
     }
 
     /* ── CORE SERVICES ── */
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 32px; }
-    .service-card { background: var(--white); border: 1px solid var(--border-med); border-top: 3px solid var(--navy); border-radius: var(--radius-lg); padding: 28px 22px; transition: box-shadow 0.2s; }
+    .service-card { background: var(--white); border: 1px solid var(--border-med); border-top: 3px solid var(--navy); border-radius: var(--radius-lg); padding: 28px 22px; transition: box-shadow 0.2s; display: flex; flex-direction: column; }
     .service-card:hover { box-shadow: var(--shadow-lg); }
     .service-card h3 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 10px; line-height: 1.3; }
-    .service-card p { font-size: 13px; color: var(--text-mid); line-height: 1.65; margin-bottom: 10px; }
-    .service-card .service-note { font-size: 12px; color: var(--muted); font-style: italic; }
+    .service-card p { font-size: 13px; color: var(--text-mid); line-height: 1.65; margin-bottom: 10px; flex: 1; }
+    .service-card .service-note { font-size: 12px; color: var(--muted); font-style: italic; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border-light); }
     @media (max-width: 760px) { .services-grid { grid-template-columns: 1fr; } }
     @media (min-width: 560px) and (max-width: 760px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
 
