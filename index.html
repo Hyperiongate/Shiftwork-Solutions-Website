@@ -3,7 +3,7 @@
   Shiftwork Solutions LLC — Homepage
   File: index.html
   Created: March 31, 2026
-  Last updated: April 18, 2026
+  Last updated: April 18, 2026 (v14)
   Author: Claude for Jim @ Shiftwork Solutions LLC
 
   PURPOSE:
@@ -42,10 +42,21 @@
                   - onerror fallbacks retained on both images for safety
       2026-04-17  (v11) TEAM AVATARS — partner photos in place of initials
       2026-04-17  (v12) THOMAS IFRAME SANDBOX — defense-in-depth sandbox attribute
-      2026-04-18  (v13) IMAGE SWAPS:
-                  - Hero right-column: shutterstock_1497086771.jpg → pillar_6.jpg
-                  - Process section:   shutterstock_1502038526.jpg → pillar_8.jpg
-                  - onerror fallbacks retained; all other content unchanged
+      2026-04-18  (v14) CLIENTS MARQUEE + SVG ICONS:
+                  - Clients section: replaced static tags + industry pills with
+                    a single infinite CSS marquee loop using the verified client
+                    list from the copy doc (31 names). Old unverified logos removed.
+                    Pure CSS @keyframes — no JS. Pauses on hover.
+                  - Problems section: 6 emoji icons replaced with inline SVGs
+                    (overtime clock/alert, turnover door/arrow, 24-7 cycle,
+                    coverage gap/chart, damaged trust/warning, survey/question)
+                  - Services section: 5 emoji icons replaced with inline SVGs
+                    (calendar/grid, org chart/people, rotating arrows, clipboard
+                    checklist, dollar/bar chart)
+                  - Resources section: 4 emoji icons replaced with inline SVGs
+                    (open book, handshake/people, warning triangle/list, AI chat bubble)
+                    resource-icon CSS updated: 64x64, navy bg, amber SVG, rounded-xl
+                  - All other content, schemas, CSS, JS unchanged
 
   NAV SYSTEM: .site-header / .main-nav / .nav-cta (fixed 64px)
   HERO IMAGE (background): /images/second.png
@@ -261,13 +272,15 @@
     .quote-text{font-family:var(--font-display);font-size:clamp(1.3rem,3vw,1.9rem);font-weight:600;font-style:italic;max-width:800px;margin:0 auto 16px;line-height:1.5;color:rgba(255,255,255,0.9);}
     .quote-attr{font-size:0.88rem;color:var(--amber);font-weight:600;}
 
-    /* CLIENTS */
-    .clients{background:var(--smoke);}
-    .client-names{margin-top:40px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px;}
-    .client-tag{background:var(--white);border:1px solid var(--border);padding:10px 20px;border-radius:32px;font-size:0.88rem;font-weight:600;color:var(--navy);transition:border-color 0.2s,background 0.2s;}
-    .client-tag:hover{border-color:var(--blue);background:var(--blue-pale);}
-    .industry-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:28px;}
-    .industry-pill{background:rgba(26,111,181,0.08);border:1px solid rgba(26,111,181,0.15);padding:7px 16px;border-radius:20px;font-size:0.8rem;color:var(--blue);font-weight:500;}
+    /* CLIENTS — infinite marquee */
+    .clients{background:var(--smoke);overflow:hidden;}
+    .clients-inner{max-width:var(--max-width);margin:0 auto;}
+    .marquee-track-wrap{overflow:hidden;margin-top:40px;-webkit-mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,black 8%,black 92%,transparent 100%);}
+    .marquee-track{display:flex;gap:12px;width:max-content;animation:marqueeScroll 40s linear infinite;}
+    .marquee-track:hover{animation-play-state:paused;}
+    @keyframes marqueeScroll{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+    .marquee-tag{background:var(--white);border:1px solid var(--border);padding:10px 22px;border-radius:32px;font-size:0.88rem;font-weight:600;color:var(--navy);white-space:nowrap;flex-shrink:0;}
+    .marquee-sep{color:var(--amber);font-size:1rem;font-weight:700;align-self:center;flex-shrink:0;line-height:1;padding:0 4px;}
 
     /* THOMAS */
     .thomas{background:var(--white);}
@@ -297,7 +310,8 @@
     .resources-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px;}
     .resource-card{border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:28px 20px;text-align:center;transition:border-color 0.2s,transform 0.2s;text-decoration:none;color:inherit;display:block;}
     .resource-card:hover{border-color:var(--blue);transform:translateY(-3px);}
-    .resource-icon{font-size:2rem;margin-bottom:12px;}
+    .resource-icon{width:64px;height:64px;border-radius:16px;background:var(--navy);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
+    .resource-icon svg{display:block;}
     .resource-card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
     .resource-card p{font-size:0.82rem;color:var(--text-mid);line-height:1.5;}
     @media(max-width:800px){.resources-grid{grid-template-columns:repeat(2,1fr);}}
@@ -452,12 +466,12 @@
     <div class="section-heading">Sound Familiar?</div>
     <div class="section-sub">These are the problems that bring operations leaders to our door. Every one of them is solvable with the right schedule and the right process.</div>
     <div class="problems-grid">
-      <div class="problem-card"><div class="problem-icon">&#9202;</div><h3>Overtime is out of control</h3><p>Chronic overtime drives up costs and burns out your best people. The 20/60/20 rule applies: 20% of your workforce wants every hour you can offer, 60% will do their share, and 20% wants none. The schedule should reflect that reality.</p></div>
-      <div class="problem-card"><div class="problem-icon">&#128682;</div><h3>You cannot keep people</h3><p>Turnover is rarely about pay alone. When employees feel unheard about their schedules, they leave for competitors who offer predictability. A workforce that helps choose its schedule stays.</p></div>
-      <div class="problem-card"><div class="problem-icon">&#128337;</div><h3>You need to go 24/7</h3><p>The leap from 5-day to 7-day continuous operations is the biggest workforce change most facilities will ever face. Employees fear the unknown. Done right, most end up preferring the new schedule.</p></div>
-      <div class="problem-card"><div class="problem-icon">&#128200;</div><h3>Coverage gaps are hurting output</h3><p>Absenteeism, skill imbalances, and poorly designed shift overlaps leave machines idle and supervisors scrambling. Schedule design is an engineering problem — it deserves an engineering solution.</p></div>
-      <div class="problem-card"><div class="problem-icon">&#128483;</div><h3>A schedule change went badly before</h3><p>Many facilities have tried to change schedules and failed — or succeeded technically but lost trust. Change management is not a PowerPoint. It is walking the shop floor and earning buy-in, crew by crew.</p></div>
-      <div class="problem-card"><div class="problem-icon">&#128202;</div><h3>You do not know what your workforce wants</h3><p>Assumptions about employee preferences are wrong more often than right. A structured survey with normative benchmarking reveals what your people actually think — and how they compare to similar operations.</p></div>
+      <div class="problem-card"><div class="problem-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="13" cy="13" r="9" stroke="#e8940a" stroke-width="2"/><path d="M13 8v5.5l3.5 2" stroke="#e8940a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 4l3 3M22 4l-3 3" stroke="#e8940a" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>Overtime is out of control</h3><p>Chronic overtime drives up costs and burns out your best people. The 20/60/20 rule applies: 20% of your workforce wants every hour you can offer, 60% will do their share, and 20% wants none. The schedule should reflect that reality.</p></div>
+      <div class="problem-card"><div class="problem-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="14" height="18" rx="2" stroke="#e8940a" stroke-width="2"/><path d="M18 10h2a2 2 0 012 2v3a2 2 0 01-2 2h-2" stroke="#e8940a" stroke-width="2" stroke-linecap="round"/><path d="M11 13h7M15 10l3 3-3 3" stroke="#e8940a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>You cannot keep people</h3><p>Turnover is rarely about pay alone. When employees feel unheard about their schedules, they leave for competitors who offer predictability. A workforce that helps choose its schedule stays.</p></div>
+      <div class="problem-card"><div class="problem-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="13" cy="13" r="9" stroke="#e8940a" stroke-width="2"/><path d="M9 13a4 4 0 018 0" stroke="#e8940a" stroke-width="2" stroke-linecap="round"/><path d="M13 9V7M7.5 10.5l-1.4-1.4M18.5 10.5l1.4-1.4" stroke="#e8940a" stroke-width="1.5" stroke-linecap="round"/><text x="9" y="19" font-size="7" font-weight="700" fill="#e8940a" font-family="Arial,sans-serif">24/7</text></svg></div><h3>You need to go 24/7</h3><p>The leap from 5-day to 7-day continuous operations is the biggest workforce change most facilities will ever face. Employees fear the unknown. Done right, most end up preferring the new schedule.</p></div>
+      <div class="problem-card"><div class="problem-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="16" width="4" height="7" rx="1" fill="#e8940a" opacity="0.5"/><rect x="9" y="11" width="4" height="12" rx="1" fill="#e8940a" opacity="0.7"/><rect x="15" y="7" width="4" height="16" rx="1" fill="#e8940a"/><path d="M3 5h20" stroke="#e8940a" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="2 2"/><path d="M19 5l3-3M19 5h3v3" stroke="#e8940a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Coverage gaps are hurting output</h3><p>Absenteeism, skill imbalances, and poorly designed shift overlaps leave machines idle and supervisors scrambling. Schedule design is an engineering problem — it deserves an engineering solution.</p></div>
+      <div class="problem-card"><div class="problem-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 4L3 20h20L13 4z" stroke="#e8940a" stroke-width="2" stroke-linejoin="round"/><path d="M13 11v5" stroke="#e8940a" stroke-width="2" stroke-linecap="round"/><circle cx="13" cy="19" r="1.2" fill="#e8940a"/><path d="M8 4c2-2 6-2 8 0" stroke="#e8940a" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/></svg></div><h3>A schedule change went badly before</h3><p>Many facilities have tried to change schedules and failed — or succeeded technically but lost trust. Change management is not a PowerPoint. It is walking the shop floor and earning buy-in, crew by crew.</p></div>
+      <div class="problem-card"><div class="problem-icon"><svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="13" cy="10" r="6" stroke="#e8940a" stroke-width="2"/><path d="M13 8v2.5" stroke="#e8940a" stroke-width="2" stroke-linecap="round"/><circle cx="13" cy="13" r="1" fill="#e8940a"/><path d="M5 22c0-3.3 3.6-6 8-6s8 2.7 8 6" stroke="#e8940a" stroke-width="2" stroke-linecap="round"/></svg></div><h3>You do not know what your workforce wants</h3><p>Assumptions about employee preferences are wrong more often than right. A structured survey with normative benchmarking reveals what your people actually think — and how they compare to similar operations.</p></div>
     </div>
   </div>
 </section>
@@ -468,11 +482,11 @@
     <div class="section-heading">Five Services. One Integrated Approach.</div>
     <div class="section-sub">Every engagement is customized. No boxed solutions. No software to install. We bring expertise, your team brings knowledge of your operation, and together we build something that works.</div>
     <div class="services-grid">
-      <div class="service-card"><div class="service-icon">&#128197;</div><h3>Schedule Design &amp; Analysis</h3><p>Custom shift patterns that balance coverage, cost, fatigue, and employee preferences. From hundreds of proven schedule configurations.</p></div>
-      <div class="service-card"><div class="service-icon">&#128101;</div><h3>Staffing Strategy</h3><p>Right-size your workforce for the schedule. Model scenarios for hiring, attrition, and growth without guesswork.</p></div>
-      <div class="service-card"><div class="service-icon">&#128260;</div><h3>Change Management</h3><p>Employee-centered implementation that builds buy-in before the first shift rotates. Communication plans, on-shift meetings, and leadership coaching.</p></div>
-      <div class="service-card"><div class="service-icon">&#128203;</div><h3>Workforce Surveys</h3><p>Proprietary diagnostic benchmarked against hundreds of operations across 16 industries. Know where you stand.</p></div>
-      <div class="service-card"><div class="service-icon">&#128176;</div><h3>Cost Analysis</h3><p>True fully loaded cost of every schedule option. Overtime projections, benefit impacts, and ROI modeling. Numbers your CFO will trust.</p></div>
+      <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="5" width="22" height="20" rx="2.5" stroke="#e8940a" stroke-width="1.8"/><path d="M3 11h22" stroke="#e8940a" stroke-width="1.8"/><path d="M9 3v4M19 3v4" stroke="#e8940a" stroke-width="1.8" stroke-linecap="round"/><rect x="7" y="15" width="4" height="4" rx="1" fill="#e8940a" opacity="0.7"/><rect x="13" y="15" width="4" height="4" rx="1" fill="#e8940a" opacity="0.4"/><rect x="7" y="21" width="4" height="1.5" rx="0.75" fill="#e8940a" opacity="0.3"/></svg></div><h3>Schedule Design &amp; Analysis</h3><p>Custom shift patterns that balance coverage, cost, fatigue, and employee preferences. From hundreds of proven schedule configurations.</p></div>
+      <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="10" cy="9" r="4" stroke="#e8940a" stroke-width="1.8"/><path d="M3 22c0-3.9 3.1-7 7-7s7 3.1 7 7" stroke="#e8940a" stroke-width="1.8" stroke-linecap="round"/><circle cx="21" cy="9" r="3" stroke="#e8940a" stroke-width="1.5" opacity="0.6"/><path d="M19 22c0-2.8 1.3-5.1 3-6.2" stroke="#e8940a" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/></svg></div><h3>Staffing Strategy</h3><p>Right-size your workforce for the schedule. Model scenarios for hiring, attrition, and growth without guesswork.</p></div>
+      <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 14c0-5 3.6-9 9-9" stroke="#e8940a" stroke-width="1.8" stroke-linecap="round"/><path d="M5 14l-3-3M5 14l3-3" stroke="#e8940a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 14c0 5-3.6 9-9 9" stroke="#e8940a" stroke-width="1.8" stroke-linecap="round"/><path d="M23 14l3 3M23 14l-3 3" stroke="#e8940a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Change Management</h3><p>Employee-centered implementation that builds buy-in before the first shift rotates. Communication plans, on-shift meetings, and leadership coaching.</p></div>
+      <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="3" width="18" height="22" rx="2" stroke="#e8940a" stroke-width="1.8"/><path d="M10 3v4h8V3" stroke="#e8940a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 13l2 2 5-4" stroke="#e8940a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 19h6" stroke="#e8940a" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/></svg></div><h3>Workforce Surveys</h3><p>Proprietary diagnostic benchmarked against hundreds of operations across 16 industries. Know where you stand.</p></div>
+      <div class="service-card"><div class="service-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="14" width="4" height="10" rx="1" fill="#e8940a" opacity="0.5"/><rect x="10" y="10" width="4" height="14" rx="1" fill="#e8940a" opacity="0.7"/><rect x="16" y="6" width="4" height="18" rx="1" fill="#e8940a"/><circle cx="22" cy="9" r="3.5" stroke="#e8940a" stroke-width="1.5"/><path d="M21 8.5l1 1 1.5-1.5" stroke="#e8940a" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Cost Analysis</h3><p>True fully loaded cost of every schedule option. Overtime projections, benefit impacts, and ROI modeling. Numbers your CFO will trust.</p></div>
     </div>
   </div>
 </section>
@@ -500,15 +514,81 @@
 </div>
 
 <section class="section clients" id="clients">
-  <div class="section-inner" style="text-align:center;">
-    <div class="section-label">Trusted By</div>
-    <div class="section-heading">Hundreds of Facilities. Every Major Industry.</div>
-    <div class="section-sub center">From pharmaceutical giants to food processing plants, mining operations to distribution centers — we have seen your operation before.</div>
-    <div class="client-names">
-      <span class="client-tag">Nestle</span><span class="client-tag">Pfizer</span><span class="client-tag">BMW</span><span class="client-tag">FedEx</span><span class="client-tag">Kraft</span><span class="client-tag">Abbott</span><span class="client-tag">ThermoFisher</span><span class="client-tag">Coca-Cola</span><span class="client-tag">Hyundai</span><span class="client-tag">DHL</span><span class="client-tag">Goodyear</span><span class="client-tag">Mars</span><span class="client-tag">Georgia Pacific</span><span class="client-tag">GM</span><span class="client-tag">Kellogg's</span><span class="client-tag">BHP</span><span class="client-tag">SC Johnson</span><span class="client-tag">Vale</span>
+  <div class="clients-inner" style="text-align:center;padding-top:0;">
+    <div class="section" style="padding-bottom:0;">
+      <div class="section-inner" style="text-align:center;">
+        <div class="section-label">Trusted By</div>
+        <div class="section-heading">Hundreds of Facilities. Every Major Industry.</div>
+        <div class="section-sub center">From food manufacturing to chemical plants, mining operations to distribution centers — we have seen your operation before.</div>
+      </div>
     </div>
-    <div class="industry-grid">
-      <span class="industry-pill">Manufacturing</span><span class="industry-pill">Pharmaceutical</span><span class="industry-pill">Food Processing</span><span class="industry-pill">Mining</span><span class="industry-pill">Distribution</span><span class="industry-pill">Chemical</span><span class="industry-pill">Utilities &amp; Power</span><span class="industry-pill">Automotive</span><span class="industry-pill">Paper &amp; Pulp</span><span class="industry-pill">Oil &amp; Gas</span><span class="industry-pill">Healthcare</span><span class="industry-pill">Transportation</span><span class="industry-pill">Call Centers</span><span class="industry-pill">Packaging</span><span class="industry-pill">Semi-Conductors</span><span class="industry-pill">Law Enforcement</span>
+    <div class="marquee-track-wrap">
+      <div class="marquee-track">
+        <!-- Set 1 -->
+        <span class="marquee-tag">Nestl&eacute;</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Kellogg&#39;s</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Whirlpool</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Campbell&#39;s</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Kraft</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Mars</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Coca-Cola</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Hyundai</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Panasonic</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Tropicana</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Essity</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Kimberly Clark</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">WestRock</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Appleton Paper</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Clearwater</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">International Paper</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Irving Canada</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">SCA Tissue</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Keurig</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Tesla</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Snyder&#39;s</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Shearer Foods</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Andersen Windows</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Golden State Foods</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Treehouse Foods</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">American Licorice</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Mondelez</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Smucker&#39;s</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Dannon</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Pepsi</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">United Airlines</span><span class="marquee-sep">&bull;</span>
+        <!-- Set 2 — exact duplicate for seamless loop -->
+        <span class="marquee-tag">Nestl&eacute;</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Kellogg&#39;s</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Whirlpool</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Campbell&#39;s</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Kraft</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Mars</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Coca-Cola</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Hyundai</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Panasonic</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Tropicana</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Essity</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Kimberly Clark</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">WestRock</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Appleton Paper</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Clearwater</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">International Paper</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Irving Canada</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">SCA Tissue</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Keurig</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Tesla</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Snyder&#39;s</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Shearer Foods</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Andersen Windows</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Golden State Foods</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Treehouse Foods</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">American Licorice</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Mondelez</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Smucker&#39;s</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Dannon</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">Pepsi</span><span class="marquee-sep">&bull;</span>
+        <span class="marquee-tag">United Airlines</span><span class="marquee-sep">&bull;</span>
+      </div>
     </div>
   </div>
 </section>
@@ -553,10 +633,10 @@
     <div class="section-heading">Explore Before You Engage</div>
     <div class="section-sub center">Free tools, articles, and assessments to help you understand your shiftwork challenges.</div>
     <div class="resources-grid">
-      <a href="/resources/shift-schedule-design-guide/" class="resource-card"><div class="resource-icon">&#128203;</div><h3>Schedule Design Guide</h3><p>The complete guide to shift schedule design — patterns, trade-offs, and what actually works.</p></a>
-      <a href="/resources/employee-engagement-shift-work/" class="resource-card"><div class="resource-icon">&#128101;</div><h3>Employee Engagement</h3><p>How to build workforce buy-in and reduce turnover through employee-centered scheduling.</p></a>
-      <a href="/resources/26-warning-signs-schedule-problems/" class="resource-card"><div class="resource-icon">&#128202;</div><h3>26 Warning Signs</h3><p>Is your schedule sending signals? A checklist of symptoms that appear before major failures.</p></a>
-      <a href="https://shift-work-diagnostic.onrender.com" target="_blank" class="resource-card"><div class="resource-icon">&#127919;</div><h3>Talk to Thomas</h3><p>Our AI diagnostic consultant. Describe your situation and get directional guidance in minutes.</p></a>
+      <a href="/resources/shift-schedule-design-guide/" class="resource-card"><div class="resource-icon"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 6a2 2 0 012-2h10l6 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6z" stroke="#e8940a" stroke-width="1.8"/><path d="M17 4v6h6" stroke="#e8940a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 13h12M9 17h8M9 21h5" stroke="#e8940a" stroke-width="1.5" stroke-linecap="round"/></svg></div><h3>Schedule Design Guide</h3><p>The complete guide to shift schedule design — patterns, trade-offs, and what actually works.</p></a>
+      <a href="/resources/employee-engagement-shift-work/" class="resource-card"><div class="resource-icon"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 18c-3.3 0-6 1.8-6 4v1h22v-1c0-2.2-2.7-4-6-4" stroke="#e8940a" stroke-width="1.8" stroke-linecap="round"/><circle cx="15" cy="11" r="5" stroke="#e8940a" stroke-width="1.8"/><path d="M9 16l2 2 4-4" stroke="#e8940a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div><h3>Employee Engagement</h3><p>How to build workforce buy-in and reduce turnover through employee-centered scheduling.</p></a>
+      <a href="/resources/26-warning-signs-schedule-problems/" class="resource-card"><div class="resource-icon"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 5L3 25h24L15 5z" stroke="#e8940a" stroke-width="1.8" stroke-linejoin="round"/><path d="M15 13v6" stroke="#e8940a" stroke-width="2" stroke-linecap="round"/><circle cx="15" cy="22" r="1.3" fill="#e8940a"/><path d="M9 25h4M17 25h4" stroke="#e8940a" stroke-width="1.2" stroke-linecap="round" opacity="0.4"/></svg></div><h3>26 Warning Signs</h3><p>Is your schedule sending signals? A checklist of symptoms that appear before major failures.</p></a>
+      <a href="https://shift-work-diagnostic.onrender.com" target="_blank" class="resource-card"><div class="resource-icon"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 7a3 3 0 013-3h14a3 3 0 013 3v11a3 3 0 01-3 3H18l-3 4-3-4H8a3 3 0 01-3-3V7z" stroke="#e8940a" stroke-width="1.8" stroke-linejoin="round"/><circle cx="10" cy="13" r="1.5" fill="#e8940a"/><circle cx="15" cy="13" r="1.5" fill="#e8940a"/><circle cx="20" cy="13" r="1.5" fill="#e8940a"/></svg></div><h3>Talk to Thomas</h3><p>Our AI diagnostic consultant. Describe your situation and get directional guidance in minutes.</p></a>
     </div>
   </div>
 </section>
