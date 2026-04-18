@@ -262,11 +262,11 @@
     @media(max-width:800px){.problems-grid{grid-template-columns:1fr;}}
 
     /* ── SERVICES ── */
-    .services{background:var(--navy);color:var(--white);}
-    .services .section-label{color:var(--amber);}
-    .services .section-heading{color:var(--white);}
-    .services .section-sub{color:rgba(255,255,255,0.7);}
-    .services-sub-note{font-size:0.88rem;color:rgba(255,255,255,0.5);margin-top:28px;font-style:italic;}
+    .services{background:var(--light-grey);color:var(--body-text);}
+    .services .section-label{color:var(--blue);}
+    .services .section-heading{color:var(--navy);}
+    .services .section-sub{color:var(--text-mid);}
+    .services-sub-note{font-size:0.88rem;color:var(--text-mid);margin-top:28px;font-style:italic;}
     .services-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:20px;margin-top:48px;}
     .service-card{background:rgba(255,255,255,0.96);border:1px solid rgba(255,255,255,0.2);border-radius:var(--radius-lg);padding:28px 20px;text-align:center;transition:background 0.2s,border-color 0.2s,box-shadow 0.2s;}
     .service-card:hover{background:#ffffff;border-color:rgba(255,255,255,0.4);box-shadow:0 8px 28px rgba(0,0,0,0.18);}
@@ -290,8 +290,11 @@
     @media(max-width:800px){.process-grid{grid-template-columns:1fr;}.process-image img{height:280px;}}
 
     /* ── QUOTE BAND ── */
-    .quote-band{background:linear-gradient(135deg,var(--navy-mid),var(--navy));color:var(--white);padding:64px clamp(20px,4vw,40px);text-align:center;}
-    .quote-text{font-family:Arial,Helvetica,sans-serif;font-size:clamp(1.3rem,3vw,1.9rem);font-weight:600;font-style:italic;max-width:800px;margin:0 auto 16px;line-height:1.5;color:rgba(255,255,255,0.9);}
+    /* ── QUOTE BAND ── */
+    .quote-band{background:linear-gradient(135deg,var(--navy-mid),var(--navy));color:var(--white);padding:64px clamp(20px,4vw,40px);text-align:left;}
+    .quote-band-inner{max-width:860px;margin:0 auto;position:relative;padding-left:72px;}
+    .quote-mark{position:absolute;left:0;top:-12px;font-family:Georgia,serif;font-size:6rem;line-height:1;color:var(--amber);font-style:normal;opacity:0.9;}
+    .quote-text{font-family:Arial,Helvetica,sans-serif;font-size:clamp(1.3rem,3vw,1.9rem);font-weight:600;font-style:italic;line-height:1.5;color:rgba(255,255,255,0.9);margin-bottom:16px;}
     .quote-attr{font-size:0.88rem;color:var(--amber);font-weight:600;}
 
     /* ── CLIENT DEPTH — scrolling marquee (ported from testimonials page) ── */
@@ -544,20 +547,20 @@
 <!-- ── CHALLENGES ── -->
 <section class="section problems" id="challenges">
   <div class="section-inner">
-    <div class="section-label">Challenges We Solve</div>
+    <div class="section-label" style="text-transform:uppercase;letter-spacing:.14em;">Early Indicators</div>
     <div class="section-heading">A Pattern We Recognize</div>
-    <div class="section-sub">Every one of these is solvable with the right schedule and the right process.</div>
+    <div class="section-sub">These aren&rsquo;t isolated issues &mdash; they&rsquo;re patterns that point to a schedule no longer aligned with the operation.</div>
     <div class="problems-grid">
       <div class="problem-card">
         <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="17" cy="20" r="11" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="17" y1="20" x2="17" y2="13" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="17" y1="20" x2="23" y2="24" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="26" y1="9" x2="26" y2="3" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><polyline points="22,6 26,2 30,6" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
         <h3>Overtime is driving the operation &mdash; not the schedule.</h3><p>Chronic overtime drives up costs and burns out your best people. The 20/60/20 rule applies: 20% of your workforce wants every hour you can offer, 60% will do their share, and 20% wants none. The schedule should reflect that reality.</p>
       </div>
       <div class="problem-card">
-        <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="9" r="5" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="14" y1="14" x2="14" y2="26" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="14" y1="19" x2="8" y2="26" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="14" y1="19" x2="20" y2="26" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="14" y1="26" x2="9" y2="34" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="14" y1="26" x2="19" y2="34" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="25" y1="18" x2="34" y2="18" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><polyline points="29,13 35,18 29,23" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+        <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="9" r="5" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="9" r="4" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><path d="M2 30 c0-7 4.5-10 10-10 s10 3 10 10" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M26 22 c3.5 0 7 2.5 7 7" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg></div>
         <h3>Good people are leaving &mdash; and it&rsquo;s rarely about pay.</h3><p>Turnover is rarely about pay alone. When employees feel unheard about their schedules, they leave for competitors who offer predictability. A workforce that helps choose its schedule stays.</p>
       </div>
       <div class="problem-card">
-        <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 5 A13 13 0 1 1 5.5 23" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" fill="none"/><polyline points="3,18 5,24 11,21" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><line x1="18" y1="18" x2="18" y2="11" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="18" y1="18" x2="24" y2="18" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><circle cx="18" cy="18" r="1.8" fill="#F5A623"/></svg></div>
+        <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="14" stroke="#F5A623" stroke-width="2.5"/><text x="18" y="23" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="800" fill="#F5A623">24/7</text></svg></div>
         <h3>You need to go 24/7.</h3><p>The leap from 5-day to continuous operations is the biggest workforce change most facilities will ever face. Employees fear the unknown. Done right, most end up preferring the new schedule.</p>
       </div>
       <div class="problem-card">
@@ -565,7 +568,7 @@
         <h3>Coverage gaps are hurting output.</h3><p>Absenteeism, skill imbalances, and poorly designed shift overlaps leave machines idle and supervisors scrambling. Schedule design is a precision problem &mdash; it deserves rigorous analysis, not a template. The right design closes gaps before they become a pattern.</p>
       </div>
       <div class="problem-card">
-        <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="3" width="20" height="30" rx="2" stroke="#F5A623" stroke-width="2.5"/><line x1="13" y1="11" x2="23" y2="11" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="13" y1="17" x2="23" y2="17" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="13" y1="23" x2="19" y2="23" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><polyline points="21,3 16,14 22,18 17,33" stroke="#F5A623" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+        <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 4 L33 30 H3 Z" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="18" y1="14" x2="18" y2="22" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><circle cx="18" cy="27" r="1.8" fill="#F5A623"/></svg></div>
         <h3>A previous schedule change left damage behind.</h3><p>Many facilities have tried to change schedules and failed &mdash; or succeeded technically but lost trust. Change management means walking the shop floor and earning buy-in, crew by crew.</p>
       </div>
       <div class="problem-card">
@@ -592,7 +595,7 @@
         <h3>Staffing &amp; Workforce Planning</h3><p>Right-size your workforce for the schedule. Model scenarios for hiring, attrition, and growth without guesswork.</p>
       </div>
       <div class="service-card">
-        <div class="service-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 4 A14 14 0 1 1 4 18" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" fill="none"/><polyline points="2,12 4,19 11,16" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><polyline points="11,22 16,27 26,14" stroke="#F5A623" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+        <div class="service-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="13" width="10" height="10" rx="1.5" stroke="#F5A623" stroke-width="2.5"/><line x1="14" y1="18" x2="21" y2="18" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><polyline points="18,14 22,18 18,22" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="29" cy="18" r="6" stroke="#F5A623" stroke-width="2.5" fill="none"/><polyline points="26,18 28,21 33,15" stroke="#F5A623" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
         <h3>Change Management</h3><p>Employee-centered implementation that builds buy-in before the first shift rotates. Communication plans, on-shift meetings, and leadership coaching.</p>
       </div>
       <div class="service-card">
@@ -604,7 +607,7 @@
         <h3>Cost Analysis</h3><p>True fully loaded cost of every schedule option. Overtime projections, benefit impacts, and ROI modeling. Numbers your CFO will trust.</p>
       </div>
     </div>
-    <p class="services-sub-note">Engagements also include work and pay policy development as needed. Full detail on the <a href="/services/" style="color:rgba(255,255,255,0.65);text-decoration:underline;">Services page</a>.</p>
+    <p class="services-sub-note">Engagements also include work and pay policy development as needed. Full detail on the <a href="/services/" style="color:var(--navy);text-decoration:underline;">Services page</a>.</p>
   </div>
 </section>
 
@@ -628,8 +631,11 @@
 
 <!-- ── PULL QUOTE ── -->
 <div class="quote-band">
-  <div class="quote-text">&ldquo;The best schedule on paper is not always the best schedule for the floor. The one employees have experienced and chosen to keep &mdash; that&rsquo;s the one that holds.&rdquo;</div>
-  <div class="quote-attr">&mdash; Jim Dillingham, Partner, Shiftwork Solutions LLC</div>
+  <div class="quote-band-inner">
+    <span class="quote-mark">&ldquo;</span>
+    <div class="quote-text">The best schedule on paper is not always the best schedule for the floor. The one employees have experienced and chosen to keep &mdash; that&rsquo;s the one that holds.</div>
+    <div class="quote-attr">&mdash; Jim Dillingham, Partner, Shiftwork Solutions LLC</div>
+  </div>
 </div>
 
 <!-- ── CLIENTS — animated scrolling marquee (ported from testimonials page) ── -->
@@ -698,7 +704,7 @@
       <a href="/resources/shift-schedule-design-guide/" class="resource-card"><img src="/images/pillar_1.jpg" alt="Schedule Design Guide" class="resource-card-img"><div class="resource-card-body"><h3>Schedule Design Guide</h3><p>The complete guide to shift schedule design &mdash; patterns, trade-offs, and what actually works.</p></div></a>
       <a href="/resources/employee-engagement-shift-work/" class="resource-card"><img src="/images/pillar_7.jpg" alt="Employee Engagement" class="resource-card-img"><div class="resource-card-body"><h3>Employee Engagement</h3><p>How to build workforce buy-in and reduce turnover through employee-centered scheduling.</p></div></a>
       <a href="/resources/26-warning-signs-schedule-problems/" class="resource-card"><img src="/images/26.jpg" alt="26 Warning Signs" class="resource-card-img"><div class="resource-card-body"><h3>26 Warning Signs</h3><p>Is your schedule sending signals? A checklist of symptoms that appear before major failures.</p></div></a>
-      <a href="https://shift-work-diagnostic.onrender.com" target="_blank" class="resource-card"><img src="/images/thomas.jpg" alt="Talk to Thomas" class="resource-card-img" style="object-fit:contain;background:#EEF3F8;padding:12px;"><div class="resource-card-body"><h3>Talk to Thomas</h3><p>Our AI diagnostic consultant. Describe your situation and get directional guidance in minutes.</p></div></a>
+      <a href="https://shift-work-diagnostic.onrender.com" target="_blank" class="resource-card"><img src="/images/thomas.jpg" alt="Talk to Thomas" class="resource-card-img" style="object-fit:contain;background:transparent;padding:12px;"><div class="resource-card-body"><h3>Talk to Thomas</h3><p>Our AI diagnostic consultant. Describe your situation and get directional guidance in minutes.</p></div></a>
     </div>
     <div style="text-align:center;margin-top:28px;">
       <a href="/resources/" class="resources-page-btn">Explore all resources &rsaquo;</a>
