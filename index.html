@@ -35,7 +35,15 @@
                      ported from testimonials/index.html.
                   2. THOMAS SECTION REMOVED from page body. Thomas remains in
                      the footer (AI ADVISOR column) and in the Resources tiles.
-      2026-04-18  (v15b) FOUR VISUAL FIXES:
+      2026-04-18  (v15c) HERO LAYOUT REBUILD:
+                  - Grid changed to 3-row: h1 full-width (row 1), left-text +
+                    image side-by-side (row 2), stats full-width (row 3).
+                  - H1 font: Playfair Display → Arial/Helvetica (matches
+                    Industries page and site body standard).
+                  - Stat numbers font: same fix (Arial/Helvetica).
+                  - hero-stat-item divs with border-right separators replace
+                    old flex gap approach for cleaner full-width stats row.
+                  - hero-heading, hero-left wrapper divs added for grid placement.
                   1. SERVICE TILES: background changed from dark translucent to
                      white (rgba(255,255,255,0.96)); h3 color navy, p color
                      text-mid — readable on white against navy section bg.
@@ -197,27 +205,43 @@
     }
 
     /* ── HERO ── */
-    .hero{margin-top:64px;background:#0D1F3C url('/images/second.png') center center/cover no-repeat;color:var(--white);position:relative;overflow:hidden;min-height:85vh;display:flex;align-items:center;}
-    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.82) 0%,rgba(13,31,60,.60) 55%,rgba(13,31,60,.30) 100%);z-index:0;pointer-events:none;}
-    .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(transparent,rgba(12,31,63,0.4));pointer-events:none;}
-    .hero-inner{max-width:var(--max-width);margin:0 auto;width:100%;padding:80px clamp(20px,4vw,40px) 100px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;position:relative;z-index:1;}
-    .hero h1{font-family:var(--font-display);font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;line-height:1.15;margin-bottom:14px;}
+    .hero{margin-top:64px;background:#0D1F3C url('/images/second.png') center center/cover no-repeat;color:var(--white);position:relative;overflow:hidden;display:flex;align-items:center;}
+    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.90) 0%,rgba(13,31,60,.75) 55%,rgba(13,31,60,.45) 100%);z-index:0;pointer-events:none;}
+    /* 3-row grid: h1 full-width | left-text + image | stats full-width */
+    .hero-inner{max-width:var(--max-width);margin:0 auto;width:100%;padding:48px clamp(20px,4vw,40px) 48px;display:grid;grid-template-columns:1.1fr 0.9fr;grid-template-rows:auto auto auto;column-gap:56px;position:relative;z-index:1;}
+    /* Row 1: h1 spans both columns */
+    .hero-heading{grid-column:1 / -1;grid-row:1;margin-bottom:28px;}
+    .hero h1{font-family:Arial,Helvetica,sans-serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;line-height:1.15;margin:0;}
     .hero h1 .accent{color:var(--amber);}
-    .hero-subhead{font-size:1.05rem;font-weight:600;color:rgba(255,255,255,0.75);margin-bottom:20px;line-height:1.5;}
-    .hero-desc{font-size:1.05rem;line-height:1.75;color:rgba(255,255,255,0.8);margin-bottom:32px;max-width:540px;}
-    .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;}
-    .btn-primary{background:var(--amber);color:var(--navy);border:none;padding:15px 32px;font-size:1rem;font-weight:700;font-family:var(--font-body);border-radius:var(--radius);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s;}
+    /* Row 2: text left, image right */
+    .hero-left{grid-column:1;grid-row:2;display:flex;flex-direction:column;justify-content:flex-start;}
+    .hero-subhead{font-size:1rem;font-weight:600;color:rgba(255,255,255,0.75);margin-bottom:18px;line-height:1.5;}
+    .hero-desc{font-size:0.98rem;line-height:1.75;color:rgba(255,255,255,0.8);margin-bottom:28px;}
+    .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+    .hero-image{grid-column:2;grid-row:2;position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.35);align-self:start;}
+    .hero-image img{width:100%;height:400px;object-fit:cover;display:block;}
+    .hero-image-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(12,31,63,0.9));padding:36px 20px 18px;color:rgba(255,255,255,0.85);font-size:0.82rem;font-style:italic;line-height:1.5;}
+    /* Row 3: stats span both columns */
+    .hero-stats{grid-column:1 / -1;grid-row:3;display:flex;gap:0;margin-top:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.18);}
+    .hero-stat-item{flex:1;padding-right:32px;border-right:1px solid rgba(255,255,255,0.15);}
+    .hero-stat-item+.hero-stat-item{padding-left:32px;}
+    .hero-stat-item:last-child{border-right:none;}
+    .hero-stat-num{font-family:Arial,Helvetica,sans-serif;font-size:2rem;font-weight:800;color:var(--amber);line-height:1;}
+    .hero-stat-label{font-size:0.75rem;color:rgba(255,255,255,0.65);text-transform:uppercase;letter-spacing:1px;margin-top:4px;font-weight:600;}
+    .hero-stat-desc{font-size:0.80rem;color:rgba(255,255,255,0.5);line-height:1.45;margin-top:5px;}
+    .btn-primary{background:var(--amber);color:var(--navy);border:none;padding:14px 28px;font-size:0.95rem;font-weight:700;font-family:var(--font-body);border-radius:var(--radius);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s;}
     .btn-primary:hover{background:var(--amber-light);}
-    .btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.3);padding:14px 28px;font-size:1rem;font-weight:600;font-family:var(--font-body);border-radius:var(--radius);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s,border-color 0.2s;}
+    .btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,0.3);padding:13px 24px;font-size:0.95rem;font-weight:600;font-family:var(--font-body);border-radius:var(--radius);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s,border-color 0.2s;}
     .btn-outline:hover{background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.5);}
-    .hero-stats{display:flex;gap:32px;flex-wrap:wrap;}
-    .hero-stat-num{font-family:var(--font-display);font-size:2.4rem;font-weight:800;color:var(--amber);line-height:1;}
-    .hero-stat-label{font-size:0.78rem;color:rgba(255,255,255,0.65);text-transform:uppercase;letter-spacing:1px;margin-top:3px;font-weight:600;}
-    .hero-stat-desc{font-size:0.78rem;color:rgba(255,255,255,0.5);line-height:1.4;margin-top:4px;max-width:160px;}
-    .hero-image{position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.3);}
-    .hero-image img{width:100%;height:480px;object-fit:cover;}
-    .hero-image-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(12,31,63,0.9));padding:40px 24px 20px;color:rgba(255,255,255,0.85);font-size:0.88rem;font-style:italic;line-height:1.5;}
-    @media(max-width:900px){.hero{min-height:auto;}.hero-inner{grid-template-columns:1fr;text-align:center;padding:60px 20px 80px;}.hero-desc{margin-left:auto;margin-right:auto;}.hero-ctas{justify-content:center;}.hero-stats{justify-content:center;}.hero-stat-desc{max-width:none;}.hero-image{display:none;}}
+    @media(max-width:900px){
+      .hero-inner{grid-template-columns:1fr;grid-template-rows:auto auto auto auto;column-gap:0;row-gap:24px;padding:40px 20px;}
+      .hero-heading{margin-bottom:0;}
+      .hero-left{grid-column:1;grid-row:2;}
+      .hero-image{grid-column:1;grid-row:3;display:none;}
+      .hero-stats{grid-column:1;grid-row:4;flex-wrap:wrap;gap:20px;}
+      .hero-stat-item{flex:1 1 40%;padding:0;border-right:none;}
+      .hero-stat-item+.hero-stat-item{padding-left:0;}
+    }
 
     /* ── SHARED ── */
     .section{padding:88px clamp(20px,4vw,40px);}
@@ -477,35 +501,41 @@
 <!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="anim">
+    <!-- Row 1: headline spans full width -->
+    <div class="hero-heading anim">
       <h1>Cost efficiency, workforce engagement, and operational reliability &mdash; <span class="accent">delivered simultaneously.</span></h1>
+    </div>
+    <!-- Row 2 left: subhead, body, buttons -->
+    <div class="hero-left anim">
       <p class="hero-subhead">Shift scheduling that balances business needs with employee preferences &mdash; built on 30 years of 24/7 experience.</p>
       <p class="hero-desc">We help manufacturers and distribution centers design shift schedules that reduce labor cost, improve retention, and hold under variable demand &mdash; without software, without disruption, and without leaving your employees out of the decision.</p>
       <div class="hero-ctas">
         <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" target="_blank" class="btn-primary">Book a Free Consultation &#8594;</a>
         <a href="https://shift-work-diagnostic.onrender.com" target="_blank" class="btn-outline">Talk to Thomas, Our AI Advisor</a>
       </div>
-      <div class="hero-stats">
-        <div>
-          <div class="hero-stat-num">Up to 30%</div>
-          <div class="hero-stat-label">Overtime reduction</div>
-          <div class="hero-stat-desc">Through schedule redesign and better overtime distribution.</div>
-        </div>
-        <div>
-          <div class="hero-stat-num">Up to 40%</div>
-          <div class="hero-stat-label">Capacity increase</div>
-          <div class="hero-stat-desc">From 5-day to 7-day continuous &mdash; using assets you already own.</div>
-        </div>
-        <div>
-          <div class="hero-stat-num">~3 months</div>
-          <div class="hero-stat-label">Typical ROI payback</div>
-          <div class="hero-stat-desc">Most clients recover the engagement fee through overtime reduction or improved asset utilization.</div>
-        </div>
-      </div>
     </div>
+    <!-- Row 2 right: image -->
     <div class="hero-image anim d2">
       <img src="/images/pillar_6.jpg" alt="Shift schedule change management consultation with operations team" onerror="this.parentElement.style.background='#163057';this.style.display='none';" />
       <div class="hero-image-caption">"Hiring Shiftwork Solutions was the most impact delivered per consulting dollar."</div>
+    </div>
+    <!-- Row 3: stats span full width -->
+    <div class="hero-stats">
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">Up to 30%</div>
+        <div class="hero-stat-label">Overtime reduction</div>
+        <div class="hero-stat-desc">Through schedule redesign and better overtime distribution.</div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">Up to 40%</div>
+        <div class="hero-stat-label">Capacity increase</div>
+        <div class="hero-stat-desc">From 5-day to 7-day continuous &mdash; using assets you already own.</div>
+      </div>
+      <div class="hero-stat-item">
+        <div class="hero-stat-num">~3 months</div>
+        <div class="hero-stat-label">Typical ROI payback</div>
+        <div class="hero-stat-desc">Most clients recover the engagement fee through overtime reduction or improved asset utilization.</div>
+      </div>
     </div>
   </div>
 </section>
