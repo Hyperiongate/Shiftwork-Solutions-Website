@@ -5,9 +5,15 @@
   URL: /resources/
 
   Created:      2026-04-03
-  Last Updated: 2026-04-17
+  Last Updated: 2026-04-18
 
   CHANGE LOG:
+    2026-04-18 — SHOW LESS: After clicking "Show More Articles", a
+                 "Show Less ↑" button now replaces it. Clicking Show Less
+                 re-hides the three extra cards and restores "Show More
+                 Articles ↓". Only showMoreFocused() JS function changed;
+                 no HTML, CSS, or any other script changed.
+
     2026-04-17 — "Not Sure Yet" result tiles: replaced SVG icons with actual
                  images for all three cards (26.jpg, assessment.jpg, thomas.jpg).
                  Changed icon: properties to img: in the unsure DATA object.
@@ -498,10 +504,31 @@ window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElement
 window.soonNLSubmit=function(){var btn=document.getElementById('soonNLBtn'),msg=document.getElementById('soonNLMsg'),email=document.getElementById('soonNLEmail').value.trim();if(!email){msg.className='trending-card-soon-msg err';msg.textContent='Please enter your email.';return;}btn.disabled=true;btn.textContent='...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-trending-soon'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='trending-card-soon-msg ok';msg.textContent='\u2713 You\u2019re on the list.';document.getElementById('soonNLEmail').value='';btn.textContent='\u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='trending-card-soon-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed!':'Try again.';btn.disabled=false;btn.textContent='Notify Me';});};
 })();
 
-/* Show More Focused */
-window.showMoreFocused=function(){
-  document.querySelectorAll('.focused-card.focused-hidden').forEach(function(c){c.classList.remove('focused-hidden');c.style.animation='fadeUp .35s ease both';});
-  document.getElementById('focusedShowMore').classList.add('hidden');
+/* Show More / Show Less for Spotlight Articles */
+window.showMoreFocused = function() {
+  document.querySelectorAll('.focused-card.focused-hidden').forEach(function(c) {
+    c.classList.remove('focused-hidden');
+    c.style.animation = 'fadeUp .35s ease both';
+  });
+  var btn = document.getElementById('focusedShowMore');
+  btn.textContent = 'Show Less \u2191';
+  btn.onclick = showLessFocused;
+};
+
+window.showLessFocused = function() {
+  var cards = document.querySelectorAll('.focused-card');
+  var hidden = 0;
+  cards.forEach(function(c, i) {
+    if (i >= 4) {
+      c.classList.add('focused-hidden');
+      hidden++;
+    }
+  });
+  var btn = document.getElementById('focusedShowMore');
+  btn.textContent = 'Show More Articles \u2193';
+  btn.onclick = showMoreFocused;
+  /* Scroll back up to the section heading so the user isn't left staring at a blank grid */
+  document.querySelector('.focused-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
 
 /* Infinite Carousel */
