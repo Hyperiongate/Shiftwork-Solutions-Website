@@ -18,18 +18,17 @@
                  over three decades." One unified scrolling marquee of
                  all client names. Light blue gradient background —
                  picks up the site's mid-blue palette without going dark.
-    2026-04-17 — TWO VISUAL CHANGES:
-                 1. QUOTE SECTION BACKGROUND: .tl-section now uses
-                    /images/second.png as background (same hero image),
-                    with dark overlay via ::before. Gold spine and cards
-                    remain; cards on white so text stays legible.
-                    White spacer div below section removed.
-                 2. REPRESENTATIVE CLIENTS SECTION: Removed eyebrow,
-                    headline ("Hundreds of engagements..."), and subtitle
-                    paragraph. Section now shows only the scrolling strips.
-                    Background changed from navy to a horizontal
-                    gray→white→gray gradient. Strip fade edges updated
-                    to match white center.
+    2026-04-17 — MAJOR CONTENT & STRUCTURE REVISION:
+                 1. HERO: New subtitle — performance, alignment, retention focus.
+                 2. INTRO: New eyebrow/h2/body text — results that hold framing.
+                 3. QUOTE GROUPS: Restructured from 5 old groups to 3 new:
+                    - Performance & Cost Control (Crane, Halpin, Bartman partial)
+                    - Retention & Workforce Stability (Bartman, Amrhein, Olsson)
+                    - Guided Change & Confident Execution (Vanhoy, Rinard, Lilly, Hill)
+                 4. QUOTE TEXT: color → #1a1a1a (black).
+                 5. TAGS: Removed arrow prefixes and pipe separators from CSS.
+                    Plain gray italic, pipe separator via ::before only between tags.
+                 6. DOT CONNECTORS: Removed .tl-dot CSS and all HTML instances.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
@@ -207,7 +206,7 @@
     .tl-quote{
       font-size:13.5px;
       font-style:italic;
-      color:#666666;
+      color:#1a1a1a;
       line-height:1.72;
       margin-bottom:18px;
       padding-top:4px;
@@ -227,31 +226,14 @@
       margin-top:14px;
       display:flex;
       flex-wrap:wrap;
-      gap:6px;
+      gap:0;
     }
     .tl-tag{
       font-size:11px;
       font-style:italic;
-      color:#888;
+      color:#999;
     }
-    .tl-tag::before{content:'↓ '}
-    .tl-tag+.tl-tag::before{content:'| ↓ '}
-
-    /* connector dot on spine */
-    .tl-dot{
-      position:relative;z-index:2;
-      display:flex;justify-content:center;
-      margin:4px 0 20px;
-    }
-    .tl-dot::after{
-      content:'';
-      width:14px;height:14px;
-      background:#EEAE26;
-      border-radius:50%;
-      border:3px solid #0D1F3C;
-      box-shadow:0 0 0 2px #EEAE26;
-      display:block;
-    }
+    .tl-tag+.tl-tag::before{content:' | ';color:#ccc;}
 
     @media(max-width:768px){
       .tl-spine{display:none}
@@ -444,7 +426,7 @@
 <section class="hero"><div class="hero-inner">
     <div class="hero-eyebrow">Client Testimonials</div>
     <h1>What Our Clients Say</h1>
-    <p class="hero-subtitle">Plant managers, HR leaders, operations executives, and union presidents — across manufacturing, pharmaceutical, mining, plastics, and food processing.</p>
+    <p class="hero-subtitle">Across industries, clients rely on us to improve performance, workforce alignment, and retention. We help them navigate complex schedule changes&mdash;so they can move forward with informed decisions, without costly mistakes.</p>
     <div class="hero-stats">
       <div class="hero-stat"><div class="hero-stat-num">30+</div><div class="hero-stat-label">Years of client<br>engagements</div></div>
       <div class="hero-stat"><div class="hero-stat-num">16+</div><div class="hero-stat-label">Industries where<br>we've delivered results</div></div>
@@ -460,7 +442,7 @@
 <section class="content-section">
   <div class="eyebrow">In Their Words</div>
   <h2>Results That Speak for Themselves</h2>
-  <p>These are the actual words of people who hired us, worked through our process, and came out the other side with a schedule that works — for the operation and for the workforce. We have not edited for marketing polish. The specifics matter more than the superlatives.</p>
+  <p>The measure of a schedule change isn't the launch&mdash;it's whether the results hold six months later, for the leaders running the operation and the people working it. These are the words of leaders who worked through the change with us&mdash;and saw the results hold.</p>
 </section>
 
 <!-- ── TESTIMONIAL CASCADE — background is second.png with dark overlay ── -->
@@ -468,92 +450,89 @@
   <div class="tl-inner">
     <div class="tl-spine"></div>
 
-    <!-- WIN-WIN-WIN -->
-    <div class="tl-label"><span class="tl-label-pill">Win-Win-Win Results</span></div>
+    <!-- GROUP 1: PERFORMANCE & COST CONTROL -->
+    <div class="tl-label"><span class="tl-label-pill">Performance &amp; Cost Control</span></div>
     <div class="tl-row">
+      <div class="tl-card">
+        <div class="tl-quote">Shiftwork Solutions helped us focus our resources on our most productive equipment &mdash; allowing us to increase our capacity by over 10% without increasing labor costs or buying new equipment. The return on our investment in their consulting services was outstanding.</div>
+        <div class="tl-name">Mike Crane</div>
+        <div class="tl-role">President &mdash; Crane Plastics Company</div>
+        <div class="tl-tags"><span class="tl-tag">&#8593; Capacity</span><span class="tl-tag">&#8595; Cost</span><span class="tl-tag">ROI</span></div>
+      </div>
       <div class="tl-card">
         <div class="tl-quote">Surviving in the tough business world we live in today requires three major components: satisfied shareholders, satisfied customers, and satisfied employees. Shiftwork Solutions led us through a high quality process that proved that a win-win-win is possible, practical, and profitable. Building flexibility into our operating schedules, while meeting these three major components of our business, significantly positions our operations for a workable long-term business equation.</div>
         <div class="tl-name">Rick Halpin</div>
         <div class="tl-role">Plant Manager &mdash; Polymer Group Inc.</div>
-        <div class="tl-tags"><span class="tl-tag">Overtime</span><span class="tl-tag">Turnover</span><span class="tl-tag">Workforce Buy-in</span></div>
-      </div>
-      <div class="tl-card">
-        <div class="tl-quote">Your obvious expertise in shift scheduling, Shiftwork Solutions&rsquo; database of schedules and survey results, and the empathy, sincerity and sensitivity that you showed in dealing with our people were exemplary. In combination, these factors produced an on-target consulting result, which was by far the most impact delivered per consulting dollar that I have seen.</div>
-        <div class="tl-name">C. David Lilly</div>
-        <div class="tl-role">President &mdash; SiteRock Corporation</div>
-        <div class="tl-tags"><span class="tl-tag">ROI</span><span class="tl-tag">Employee Engagement</span></div>
+        <div class="tl-tags"><span class="tl-tag">Business Performance</span><span class="tl-tag">Flexibility</span></div>
       </div>
     </div>
-    <div class="tl-dot"></div>
 
-    <!-- FEATURED LONG QUOTE -->
     <div class="tl-row tl-solo">
       <div class="tl-card">
-        <div class="tl-quote">Jim Dillingham of Shiftwork Solutions is right up there with the best among consultants and business leaders. He learned our business very quickly by studying data and briefly meeting with key people from all levels. By working with and quickly gaining the trust of our people, Jim eliminated the volatility, softened emotions, eased fears, and helped our people select an alternate schedule that best matched their lifestyles. His disarming nature, thorough knowledge of the intricacies of work schedules and how they affect associates and their families, and superb communication skills led to a very successful implementation of an alternate schedule that significantly reduced overtime and turnover. He delivered the best results per consulting dollar I have ever seen. On top of all this, he is fun to work with.</div>
+        <div class="tl-quote">Jim Dillingham of Shiftwork Solutions is right up there with the best among consultants and business leaders&hellip; superb communication skills led to a very successful implementation of an alternate schedule that significantly reduced overtime and turnover. He delivered the best results per consulting dollar I have ever seen.</div>
         <div class="tl-name">John Bartman, SPHR</div>
         <div class="tl-role">VP Human Resources &mdash; Snyder&rsquo;s of Hanover</div>
-        <div class="tl-tags"><span class="tl-tag">Overtime Reduction</span><span class="tl-tag">Turnover</span><span class="tl-tag">ROI</span></div>
+        <div class="tl-tags"><span class="tl-tag">&#8595; Overtime</span><span class="tl-tag">&#8595; Turnover</span></div>
       </div>
     </div>
-    <div class="tl-dot"></div>
 
-    <!-- CONTINUOUS OPERATIONS -->
-    <div class="tl-label"><span class="tl-label-pill">Going to Continuous Operations</span></div>
+    <!-- GROUP 2: RETENTION & WORKFORCE STABILITY -->
+    <div class="tl-label"><span class="tl-label-pill">Retention &amp; Workforce Stability</span></div>
     <div class="tl-row">
       <div class="tl-card">
-        <div class="tl-quote">Hiring Shiftwork Solutions was some of the best dollars we have spent. We hired them to help us go to continuous operations with buy-in from the workforce. Dan Capshaw&rsquo;s exemplary operations analysis and work with our people showed how tightening our policies would be supported by the workforce and allow us to gain the additional capacity that we needed without changing schedules at this time. If you are looking for someone with sincerity and sensitivity in dealing with the whole workforce, then Dan Capshaw and Shiftwork Solutions are the ones you want to call.</div>
-        <div class="tl-name">Rick Rinard</div>
-        <div class="tl-role">Plant Manager &mdash; Dana Corporation</div>
-        <div class="tl-tags"><span class="tl-tag">Capacity</span><span class="tl-tag">Workforce Buy-in</span></div>
+        <div class="tl-quote">By working with and quickly gaining the trust of our people, Jim eliminated the volatility, softened emotions, eased fears, and helped our people select an alternate schedule that best matched their lifestyles.</div>
+        <div class="tl-name">John Bartman, SPHR</div>
+        <div class="tl-role">VP Human Resources &mdash; Snyder&rsquo;s of Hanover</div>
+        <div class="tl-tags"><span class="tl-tag">Workforce Alignment</span><span class="tl-tag">&#8595; Turnover</span><span class="tl-tag">&#8593; Buy-in</span></div>
       </div>
       <div class="tl-card">
         <div class="tl-quote">Shiftwork Solutions helped us to successfully expand from 5 days a week to 7 days a week. Their expertise was instrumental in achieving employee support for this change.</div>
         <div class="tl-name">Kathy Amrhein</div>
         <div class="tl-role">Human Resources Manager &mdash; Pharmacia</div>
-        <div class="tl-tags"><span class="tl-tag">7-Day Operations</span><span class="tl-tag">Employee Support</span></div>
+        <div class="tl-tags"><span class="tl-tag">Workforce Buy-in</span><span class="tl-tag">Engagement</span><span class="tl-tag">Changing to 7-Day Operations</span></div>
       </div>
     </div>
-    <div class="tl-dot"></div>
 
-    <div class="tl-row tl-solo" style="max-width:580px;margin-left:0;">
+    <div class="tl-row tl-solo" style="margin-left:0;">
       <div class="tl-card">
-        <div class="tl-quote">Shiftwork Solutions helped us focus our resources on our most productive equipment &mdash; allowing us to increase our capacity by over 10% without increasing labor costs or buying new equipment. The return on our investment in their consulting services was outstanding.</div>
-        <div class="tl-name">Mike Crane</div>
-        <div class="tl-role">President &mdash; Crane Plastics Company</div>
-        <div class="tl-tags"><span class="tl-tag">Capacity +10%</span><span class="tl-tag">No New Equipment</span><span class="tl-tag">ROI</span></div>
+        <div class="tl-quote">Trying to balance a company&rsquo;s needs with the needs of its members is not an easy task. Dan Capshaw was instrumental in helping the company find fair alternatives that met our members&rsquo; needs.</div>
+        <div class="tl-name">Mel Olsson</div>
+        <div class="tl-role">President &mdash; UAW Local 571</div>
+        <div class="tl-tags"><span class="tl-tag">Fairness</span><span class="tl-tag">Union Alignment</span></div>
       </div>
     </div>
-    <div class="tl-dot"></div>
 
-    <!-- MANAGING CHANGE -->
-    <div class="tl-label"><span class="tl-label-pill">Managing the Change</span></div>
+    <!-- GROUP 3: GUIDED CHANGE & CONFIDENT EXECUTION -->
+    <div class="tl-label"><span class="tl-label-pill">Guided Change &amp; Confident Execution</span></div>
     <div class="tl-row">
       <div class="tl-card">
         <div class="tl-quote">A shift structure change is an emotional event for an organization and Shiftwork Solutions was great in not only helping us manage that change, but in helping the organization decide what change should be made.</div>
         <div class="tl-name">Mike Vanhoy</div>
         <div class="tl-role">VP Operations &mdash; Infineon Technologies</div>
-        <div class="tl-tags"><span class="tl-tag">Change Management</span><span class="tl-tag">Decision Process</span></div>
+        <div class="tl-tags"><span class="tl-tag">Decision Clarity</span><span class="tl-tag">Structured Process</span></div>
+      </div>
+      <div class="tl-card">
+        <div class="tl-quote">Hiring Shiftwork Solutions was some of the best dollars we have spent. We hired them to help us go to continuous operations with buy-in from the workforce. Dan Capshaw&rsquo;s exemplary operations analysis and work with our people showed how tightening our policies would be supported by the workforce and allow us to gain the additional capacity that we needed without changing schedules at this time.</div>
+        <div class="tl-name">Rick Rinard</div>
+        <div class="tl-role">Plant Manager &mdash; Dana Corporation</div>
+        <div class="tl-tags"><span class="tl-tag">Trusted Guidance</span><span class="tl-tag">ROI</span></div>
+      </div>
+    </div>
+
+    <div class="tl-row">
+      <div class="tl-card">
+        <div class="tl-quote">Your obvious expertise in shift scheduling, Shiftwork Solutions&rsquo; database of schedules and survey results, and the empathy, sincerity and sensitivity that you showed in dealing with our people were exemplary. In combination, these factors produced an on-target consulting result, which was by far the most impact delivered per consulting dollar that I have seen.</div>
+        <div class="tl-name">C. David Lilly</div>
+        <div class="tl-role">President &mdash; SiteRock Corporation</div>
+        <div class="tl-tags"><span class="tl-tag">Expertise</span><span class="tl-tag">High-Impact Results</span></div>
       </div>
       <div class="tl-card">
         <div class="tl-quote">When it comes to helping shiftwork operations perform at the highest level possible, the consultants at Shiftwork Solutions are the best.</div>
         <div class="tl-name">Bruce Hill</div>
         <div class="tl-role">VP Human Resources &mdash; The American Coal Company</div>
-        <div class="tl-tags"><span class="tl-tag">Performance</span><span class="tl-tag">Operations</span></div>
+        <div class="tl-tags"><span class="tl-tag">Implementation</span><span class="tl-tag">Best Results Per Consulting Dollar</span></div>
       </div>
     </div>
-    <div class="tl-dot"></div>
-
-    <!-- WORKING WITH UNIONS -->
-    <div class="tl-label"><span class="tl-label-pill">Working With Unions</span></div>
-    <div class="tl-row tl-solo">
-      <div class="tl-card">
-        <div class="tl-quote">I would like to take this opportunity to recommend Shiftwork Solutions LLC to you. Our organization, the United Auto Workers Local 571, has been associated with Dan Capshaw in the past and found him to be very thorough and attentive to our needs. As a union organization, we are acutely familiar with some of the problems associated with shiftwork. Trying to balance a company&rsquo;s needs with the needs of its members is not an easy task. Our members&hellip; successfully changed to an alternative shift schedule to meet operational demands. Dan Capshaw&hellip; was instrumental in helping the company find fair alternatives that met our members&rsquo; needs. If you are thinking about changing schedules, I highly recommend you give Dan a call.</div>
-        <div class="tl-name">Mel Olsson</div>
-        <div class="tl-role">President &mdash; UAW Local 571</div>
-        <div class="tl-tags"><span class="tl-tag">Union Environment</span><span class="tl-tag">Schedule Change</span><span class="tl-tag">Member Buy-in</span></div>
-      </div>
-    </div>
-    <div class="tl-dot"></div>
 
   </div>
 </section>
