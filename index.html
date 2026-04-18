@@ -352,14 +352,14 @@
     .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px;}
     .team-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:none;overflow:hidden;text-align:center;}
     .team-card-top{background:var(--navy-dark);padding:32px 24px 24px;}
-    .team-card-bottom{padding:20px 24px 24px;background:var(--white);}
+    .team-card-bottom{padding:20px 24px 24px;background:var(--white);display:flex;flex-direction:column;flex:1;}
     .team-avatar{width:114px;height:114px;border-radius:50%;background:var(--navy);color:var(--amber);font-family:Arial,Helvetica,sans-serif;font-size:2.2rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;overflow:hidden;transition:box-shadow 0.2s;}
     .team-avatar:hover{box-shadow:0 0 0 8px rgba(255,255,255,0.18);}
     .team-avatar img{width:100%;height:100%;object-fit:cover;display:block;}
     .team-card h3{font-size:1.1rem;font-weight:700;color:#ffffff;margin-bottom:4px;}
     .team-role{font-size:0.82rem;color:var(--mid-blue);font-weight:600;margin-bottom:0;}
-    .team-bio{font-size:0.88rem;color:var(--text-mid);line-height:1.6;}
-    .team-cred{margin-top:12px;font-size:0.78rem;color:var(--text-light);font-style:italic;}
+    .team-bio{font-size:0.88rem;color:var(--text-mid);line-height:1.6;flex:1;}
+    .team-cred{margin-top:16px;padding-top:12px;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text-light);font-style:italic;}
     @media(max-width:800px){.team-grid{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto;}}
 
     /* ── RESOURCES ── */
@@ -367,9 +367,10 @@
     .resources-page-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;background:transparent;color:var(--text-mid);font-family:Arial,sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:5px;border:1px solid var(--border);transition:color 0.2s,border-color 0.2s;white-space:nowrap;}
     .resources-page-btn:hover{color:var(--g-navy);border-color:var(--g-navy);}
     .resources-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-    .resource-card{border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:28px 20px;text-align:center;transition:border-color 0.2s,transform 0.2s;text-decoration:none;color:inherit;display:block;}
+    .resource-card{border:1.5px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;text-align:center;transition:border-color 0.2s,transform 0.2s;text-decoration:none;color:inherit;display:flex;flex-direction:column;}
     .resource-card:hover{border-color:var(--blue);transform:translateY(-3px);}
-    .resource-icon{font-size:2rem;margin-bottom:12px;}
+    .resource-card-img{width:100%;height:140px;object-fit:cover;display:block;background:var(--light-grey);}
+    .resource-card-body{padding:20px 16px 20px;flex:1;}
     .resource-card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
     .resource-card p{font-size:0.82rem;color:var(--text-mid);line-height:1.5;}
     @media(max-width:800px){.resources-grid{grid-template-columns:repeat(2,1fr);}}
@@ -379,7 +380,7 @@
     .faq-section{position:relative;overflow:hidden;margin:0;}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center/cover no-repeat;z-index:0;}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1;}
-    .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:72px 24px 76px;}
+    .faq-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;padding:72px 40px 76px;}
     .faq-inner h2{font-size:22px;font-weight:700;color:#EEAE26;margin-bottom:28px;text-shadow:0 1px 6px rgba(0,0,0,0.5);font-family:Arial,Helvetica,sans-serif;}
     .faq-item{margin-bottom:6px;}
     .faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:#1F4E79;border:1px solid rgba(255,255,255,0.18);border-radius:6px;cursor:pointer;padding:16px 18px;text-align:left;gap:16px;transition:background .2s ease;}
@@ -397,7 +398,7 @@
 
     /* ── NEXT STEPS ── */
     .next-steps{padding:56px var(--page-pad) 60px;background:#F4F6F8;}
-    .next-steps-inner{max-width:860px;margin:0 auto;}
+    .next-steps-inner{max-width:1100px;margin:0 auto;}
     .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#666666;margin-bottom:10px;font-family:Arial,Helvetica,sans-serif;}
     .next-steps h2{font-size:22px;font-weight:700;color:#1F4E79;margin-bottom:8px;font-family:Arial,Helvetica,sans-serif;}
     .next-steps-sub{font-size:14px;color:#666666;margin-bottom:32px;line-height:1.6;font-family:Arial,Helvetica,sans-serif;}
@@ -659,14 +660,18 @@
     <div class="section-heading">Start Here</div>
     <p class="section-sub" style="margin:0 auto 40px;">Free tools, articles, and assessments to help you understand your shiftwork challenges.</p>
     <div class="resources-grid">
-      <a href="/resources/shift-schedule-design-guide/" class="resource-card"><div class="resource-icon">&#128203;</div><h3>Schedule Design Guide</h3><p>The complete guide to shift schedule design &mdash; patterns, trade-offs, and what actually works.</p></a>
-      <a href="/resources/employee-engagement-shift-work/" class="resource-card"><div class="resource-icon">&#128101;</div><h3>Employee Engagement</h3><p>How to build workforce buy-in and reduce turnover through employee-centered scheduling.</p></a>
-      <a href="/resources/26-warning-signs-schedule-problems/" class="resource-card"><div class="resource-icon">&#128202;</div><h3>26 Warning Signs</h3><p>Is your schedule sending signals? A checklist of symptoms that appear before major failures.</p></a>
-      <a href="https://shift-work-diagnostic.onrender.com" target="_blank" class="resource-card"><div class="resource-icon">&#127919;</div><h3>Talk to Thomas</h3><p>Our AI diagnostic consultant. Describe your situation and get directional guidance in minutes.</p></a>
+      <a href="/resources/shift-schedule-design-guide/" class="resource-card"><img src="/images/pillar_1.jpg" alt="Schedule Design Guide" class="resource-card-img"><div class="resource-card-body"><h3>Schedule Design Guide</h3><p>The complete guide to shift schedule design &mdash; patterns, trade-offs, and what actually works.</p></div></a>
+      <a href="/resources/employee-engagement-shift-work/" class="resource-card"><img src="/images/pillar_7.jpg" alt="Employee Engagement" class="resource-card-img"><div class="resource-card-body"><h3>Employee Engagement</h3><p>How to build workforce buy-in and reduce turnover through employee-centered scheduling.</p></div></a>
+      <a href="/resources/26-warning-signs-schedule-problems/" class="resource-card"><img src="/images/pillar_5.jpg" alt="26 Warning Signs" class="resource-card-img"><div class="resource-card-body"><h3>26 Warning Signs</h3><p>Is your schedule sending signals? A checklist of symptoms that appear before major failures.</p></div></a>
+      <a href="https://shift-work-diagnostic.onrender.com" target="_blank" class="resource-card"><img src="/images/thomas.jpg" alt="Talk to Thomas" class="resource-card-img"><div class="resource-card-body"><h3>Talk to Thomas</h3><p>Our AI diagnostic consultant. Describe your situation and get directional guidance in minutes.</p></div></a>
     </div>
     <div style="text-align:center;margin-top:28px;">
       <a href="/resources/" class="resources-page-btn">Explore all resources &rsaquo;</a>
     </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
