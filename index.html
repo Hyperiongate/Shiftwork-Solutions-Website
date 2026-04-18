@@ -362,18 +362,15 @@
 
     /* ── RESOURCES ── */
     .resources{background:var(--white);}
-    .resources-sub-wrap{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:40px;}
-    .resources-sub-wrap .section-sub{margin-bottom:0;white-space:nowrap;}
-    .resources-page-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;background:var(--g-navy);color:#fff;font-family:Arial,sans-serif;font-size:13px;font-weight:700;text-decoration:none;border-radius:5px;transition:background 0.2s;white-space:nowrap;flex-shrink:0;}
-    .resources-page-btn:hover{background:#163b5e;}
-    .resources-page-btn::after{content:' \2192';}
+    .resources-page-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;background:transparent;color:var(--text-mid);font-family:Arial,sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:5px;border:1px solid var(--border);transition:color 0.2s,border-color 0.2s;white-space:nowrap;}
+    .resources-page-btn:hover{color:var(--g-navy);border-color:var(--g-navy);}
     .resources-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
     .resource-card{border:1.5px solid var(--border);border-radius:var(--radius-lg);padding:28px 20px;text-align:center;transition:border-color 0.2s,transform 0.2s;text-decoration:none;color:inherit;display:block;}
     .resource-card:hover{border-color:var(--blue);transform:translateY(-3px);}
     .resource-icon{font-size:2rem;margin-bottom:12px;}
     .resource-card h3{font-size:0.95rem;font-weight:700;color:var(--navy);margin-bottom:6px;}
     .resource-card p{font-size:0.82rem;color:var(--text-mid);line-height:1.5;}
-    @media(max-width:800px){.resources-grid{grid-template-columns:repeat(2,1fr);}.resources-sub-wrap .section-sub{white-space:normal;}}
+    @media(max-width:800px){.resources-grid{grid-template-columns:repeat(2,1fr);}}
     @media(max-width:500px){.resources-grid{grid-template-columns:1fr;}}
 
     /* ── FAQ ── */
@@ -647,20 +644,16 @@
   <div class="section-inner" style="text-align:center;">
     <div class="section-label">Resources</div>
     <div class="section-heading">Start Here</div>
-    <div class="resources-sub-wrap">
-      <p class="section-sub">Free tools, articles, and assessments to help you understand your shiftwork challenges.</p>
-      <a href="/resources/" class="resources-page-btn">Take me to the site&rsquo;s resources page</a>
-    </div>
+    <p class="section-sub" style="margin:0 auto 40px;">Free tools, articles, and assessments to help you understand your shiftwork challenges.</p>
     <div class="resources-grid">
       <a href="/resources/shift-schedule-design-guide/" class="resource-card"><div class="resource-icon">&#128203;</div><h3>Schedule Design Guide</h3><p>The complete guide to shift schedule design &mdash; patterns, trade-offs, and what actually works.</p></a>
       <a href="/resources/employee-engagement-shift-work/" class="resource-card"><div class="resource-icon">&#128101;</div><h3>Employee Engagement</h3><p>How to build workforce buy-in and reduce turnover through employee-centered scheduling.</p></a>
       <a href="/resources/26-warning-signs-schedule-problems/" class="resource-card"><div class="resource-icon">&#128202;</div><h3>26 Warning Signs</h3><p>Is your schedule sending signals? A checklist of symptoms that appear before major failures.</p></a>
       <a href="https://shift-work-diagnostic.onrender.com" target="_blank" class="resource-card"><div class="resource-icon">&#127919;</div><h3>Talk to Thomas</h3><p>Our AI diagnostic consultant. Describe your situation and get directional guidance in minutes.</p></a>
     </div>
-  </div>
-</section>
-
-<!-- ── FAQ ── -->
+    <div style="text-align:center;margin-top:28px;">
+      <a href="/resources/" class="resources-page-btn">Explore all resources &rsaquo;</a>
+    </div>
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
