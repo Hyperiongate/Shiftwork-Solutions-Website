@@ -3,7 +3,7 @@
   Shiftwork Solutions LLC — Services
   File: services/index.html (deploys as /services/index.html on Render)
   Created: April 2, 2026
-  Last updated: April 16, 2026
+  Last updated: April 17, 2026
   Author: Claude for Jim @ Shiftwork Solutions LLC
 
   PURPOSE:
@@ -40,6 +40,12 @@
                     (Free Consultation / Thomas AI / Newsletter + CTA row)
                   - All body content (What We Do, services grid, challenges,
                     pull quote, process timeline, insight cards) preserved
+      2026-04-17  (v8) SECTION REMOVALS:
+                  - "We Do Three Things" (3-phase cards) section removed
+                  - "A Typical Engagement, Week by Week" process timeline removed
+                  - Associated CSS (.phases-grid, .phase-card, .phase-num,
+                    .process-timeline, .process-week, .process-dot) removed
+                  - Orphaned <hr> dividers cleaned up
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/second.png
@@ -160,18 +166,6 @@
     @media (max-width: 760px) { .services-grid { grid-template-columns: 1fr; } }
     @media (min-width: 560px) and (max-width: 760px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
 
-    /* ── WHAT WE DO — 3 PHASES ── */
-    .phases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 28px; }
-    .phase-card { background: var(--white); border: 1px solid var(--border-med); border-radius: var(--radius-lg); padding: 28px 22px; border-top: 3px solid var(--navy); }
-    .phase-card.phase-engage { border-top-color: var(--orange); }
-    .phase-card.phase-implement { border-top-color: var(--green); }
-    .phase-num { font-size: 32px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 6px; }
-    .phase-card.phase-engage .phase-num { color: var(--orange); }
-    .phase-card.phase-implement .phase-num { color: var(--green); }
-    .phase-card h3 { font-size: 16px; font-weight: 700; color: var(--body-text); margin-bottom: 10px; line-height: 1.3; }
-    .phase-card p { font-size: 13px; color: var(--text-mid); line-height: 1.65; }
-    @media (max-width: 760px) { .phases-grid { grid-template-columns: 1fr; } }
-
     /* ── CHALLENGES ── */
     .challenges-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
     .challenge-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); border-radius: var(--radius); padding: 20px 18px; transition: background 0.2s; }
@@ -198,16 +192,6 @@
     .insight-card .ic-label { font-size: 13px; font-weight: 700; color: var(--body-text); margin-bottom: 8px; }
     .insight-card .ic-body { font-size: 12px; color: var(--text-mid); line-height: 1.6; }
     @media (max-width: 680px) { .three-col { grid-template-columns: 1fr; } }
-
-    /* ── PROCESS TIMELINE ── */
-    .process-timeline { margin-top: 32px; position: relative; padding-left: 44px; }
-    .process-timeline::before { content: ''; position: absolute; left: 14px; top: 0; bottom: 0; width: 2px; background: var(--border-med); }
-    .process-week { position: relative; margin-bottom: 28px; padding-left: 20px; }
-    .process-week:last-child { margin-bottom: 0; }
-    .process-dot { position: absolute; left: -36px; top: 2px; width: 26px; height: 26px; border-radius: 50%; background: var(--navy); color: var(--white); font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
-    .process-week-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--navy); margin-bottom: 2px; }
-    .process-week h3 { font-size: 14px; font-weight: 700; color: var(--body-text); margin-bottom: 4px; }
-    .process-week p { font-size: 13px; color: var(--text-mid); line-height: 1.65; }
 
     /* ── FAQ SECTION (full-bleed with Hands_in_the_air.jpg) ── */
     .faq-section { position: relative; overflow: hidden; margin: 40px 0 0; left: 50%; right: 50%; margin-left: calc(-50vw); margin-right: calc(-50vw); width: 100vw; }
@@ -363,39 +347,6 @@
 <!-- ── BREADCRUMB ── -->
 <div class="breadcrumb-bar"><div class="breadcrumb-inner"><a href="/">Home</a><span>›</span><span>Our Services</span></div></div>
 
-<!-- ══════════════════════════════════════════════════════════════
-     WHAT WE DO — ANALYZE, ENGAGE, IMPLEMENT
-     Added 2026-04-06
-════════════════════════════════════════════════════════════════ -->
-<section class="section" id="what-we-do">
-  <div class="section-inner">
-    <div class="section-eyebrow">In Simplest Terms</div>
-    <h2 class="section-heading">We Do Three Things</h2>
-    <div class="section-body">
-      <p>Every engagement — regardless of size, industry, or complexity — follows the same proven structure. We analyze your current operation to understand what's really happening. We engage your workforce so the people affected by the schedule have a genuine voice in shaping it. And we implement — designing the solution, building the policies, and supporting the transition until it holds on its own.</p>
-    </div>
-    <div class="phases-grid">
-      <div class="phase-card">
-        <div class="phase-num">1</div>
-        <h3>Analyze the Current Situation</h3>
-        <p>We collect operating data, walk your facility, meet with leadership and supervisors, and build a clear picture of how the current schedule is performing — what it's costing, where it's creating strain, and what opportunities exist. The business analysis, cost modeling, and benchmarking against our proprietary database give you facts, not assumptions.</p>
-      </div>
-      <div class="phase-card phase-engage">
-        <div class="phase-num">2</div>
-        <h3>Engage the Workforce</h3>
-        <p>We survey every affected employee to understand what they actually value — shift preferences, overtime appetite, work-life priorities, and satisfaction with the current system. This isn't a formality. The survey data shapes the schedule options we develop, and the involvement builds the buy-in that makes implementation succeed. People support what they helped create.</p>
-      </div>
-      <div class="phase-card phase-implement">
-        <div class="phase-num">3</div>
-        <h3>Implement</h3>
-        <p>We design schedule options that meet your operational requirements and reflect what the workforce told us. We develop the pay and time-off policies that align with the new pattern. We present the options to employees, facilitate the selection process, and support the transition. The workforce chooses — and the schedule they pick becomes their schedule.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider" style="max-width:860px; margin: 0 auto;" />
-
 <!-- ── INTRODUCTION + SERVICES GRID ── -->
 <section class="section" id="introduction">
   <div class="section-inner">
@@ -485,26 +436,6 @@
         <p>We don't believe in one-size-fits-all solutions. Every operation is unique, every workforce is different, and every challenge requires thoughtful analysis — and a process that gives employees a real voice in the outcome.</p>
         <div class="pq-attr">— Jim Dillingham, Partner, Shiftwork Solutions LLC</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── PROCESS TIMELINE ── -->
-<section class="section" id="our-process">
-  <div class="section-inner">
-    <div class="section-eyebrow">How It Works</div>
-    <h2 class="section-heading">A Typical Engagement, Week by Week</h2>
-    <div class="section-body"><p>Every project is different, but the structure is proven. We do the heavy lifting. You keep running your operation.</p></div>
-    <div class="process-timeline">
-      <div class="process-week"><div class="process-dot">P</div><div class="process-week-label">Pre-Project</div><h3>Background Data Collection</h3><p>Before anyone sets foot on site, we collect historical operating data, current schedule descriptions for every department, planned work levels, and cost information. We arrive prepared.</p></div>
-      <div class="process-week"><div class="process-dot">1</div><div class="process-week-label">Week 1 · On-Site</div><h3>Discovery &amp; Kickoff</h3><p>Project kickoff with leadership and supervisors. Meetings with each work area to understand their role, current schedule, requirements, and issues. Individual sessions with the controller, HR, and safety. This week is about listening.</p></div>
-      <div class="process-week"><div class="process-dot">2</div><div class="process-week-label">Week 2 · Off-Site</div><h3>Business Analysis</h3><p>Analyze everything collected in Week 1. Build the business case. Develop cost, benefit, and risk analysis. Prepare preliminary findings and schedule modeling.</p></div>
-      <div class="process-week"><div class="process-dot">3</div><div class="process-week-label">Week 3 · On-Site</div><h3>Analysis Review &amp; Survey Prep</h3><p>Review business analysis with leadership. Finalize the workforce survey instrument based on what we learned about your specific operation.</p></div>
-      <div class="process-week"><div class="process-dot">4</div><div class="process-week-label">Week 4 · On-Site</div><h3>Employee Orientation &amp; Survey</h3><p>Employee orientation and survey meetings. Every affected employee participates. Consultants available for individual questions. This is where workforce involvement begins in earnest.</p></div>
-      <div class="process-week"><div class="process-dot">5</div><div class="process-week-label">Week 5 · Off-Site</div><h3>Survey Processing &amp; Report</h3><p>Process survey results. Tabulate by overall results and by demographic groups — departments, shifts, family care responsibilities. Build the comparison report with normative benchmarks.</p></div>
-      <div class="process-week"><div class="process-dot">6</div><div class="process-week-label">Week 6 · On-Site</div><h3>Options Development</h3><p>Present survey results to management. Develop schedule options and pay policies based on what the survey revealed. Begin implementation documentation.</p></div>
-      <div class="process-week"><div class="process-dot">7</div><div class="process-week-label">Week 7 · On-Site</div><h3>Employee Choice &amp; Implementation</h3><p>Present options to all affected personnel. Distribute implementation documentation. Collect schedule preference forms. The workforce chooses — and the schedule they pick becomes their schedule.</p></div>
-      <div class="process-week"><div class="process-dot">✓</div><div class="process-week-label">Follow-Up</div><h3>Post-Implementation Review</h3><p>Conduct a follow-up survey after implementation. Measure satisfaction, identify any issues, and make adjustments. We don't disappear after Week 7.</p></div>
     </div>
   </div>
 </section>
