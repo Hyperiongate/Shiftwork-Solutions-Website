@@ -29,6 +29,10 @@
                  5. TAGS: Removed arrow prefixes and pipe separators from CSS.
                     Plain gray italic, pipe separator via ::before only between tags.
                  6. DOT CONNECTORS: Removed .tl-dot CSS and all HTML instances.
+    2026-04-17 — THREE TARGETED UPDATES:
+                 1. tl-inner max-width narrowed to 860px (tighter quote cascade).
+                 2. Mel Olsson solo card shifted right 192px (≈2 inches).
+                 3. "Representative Clients" eyebrow changed to "Trusted By".
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
@@ -128,8 +132,9 @@
       z-index:0;
       pointer-events:none;
     }
+    /* CHANGE 1: max-width narrowed from 1100px to 860px for tighter cascade */
     .tl-inner{
-      max-width:1100px;
+      max-width:860px;
       margin:0 auto;
       padding:0 32px;
       position:relative;
@@ -493,7 +498,8 @@
       </div>
     </div>
 
-    <div class="tl-row tl-solo" style="margin-left:0;">
+    <!-- CHANGE 2: Mel Olsson solo card shifted right ~2 inches (192px) -->
+    <div class="tl-row tl-solo" style="margin-left:192px;">
       <div class="tl-card">
         <div class="tl-quote">Trying to balance a company&rsquo;s needs with the needs of its members is not an easy task. Dan Capshaw was instrumental in helping the company find fair alternatives that met our members&rsquo; needs.</div>
         <div class="tl-name">Mel Olsson</div>
@@ -540,10 +546,10 @@
 <!-- ── WHITE SPACE BETWEEN QUOTES AND CLIENT SECTION ── -->
 <div style="height:96px;background:#fff;"></div>
 
-<!-- ── CLIENT DEPTH — Representative Clients label + scrolling strips, gray/white/gray gradient ── -->
+<!-- ── CLIENT DEPTH — CHANGE 3: "Representative Clients" → "Trusted By" ── -->
 <section class="client-depth">
   <div class="client-depth-inner">
-    <div class="client-depth-eyebrow">Representative Clients</div>
+    <div class="client-depth-eyebrow">Trusted By</div>
   </div>
   <div class="client-strips">
     <div class="client-strip-row" id="strip-top"><div class="client-strip-track" id="track-top"></div></div>
