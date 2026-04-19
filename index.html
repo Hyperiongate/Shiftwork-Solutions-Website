@@ -6,11 +6,6 @@
   Last updated: April 18, 2026
   Author: Claude for Jim @ Shiftwork Solutions LLC
 
-  PURPOSE:
-      Homepage for shift-work.com static site served from Render.
-      Self-contained HTML/CSS/JS with no external dependencies except
-      Google Fonts.
-
   CHANGE LOG:
       2026-03-31  Initial standalone homepage created
       2026-04-02  (v2) Updated nav to match definitive wireframe
@@ -25,45 +20,19 @@
       2026-04-17  (v11) Team avatar photos
       2026-04-17  (v12) Thomas iframe sandbox
       2026-04-18  (v13) Hero images: pillar_6.jpg + pillar_8.jpg
-      2026-04-18  (v14) COPY DOC OVERHAUL: new hero, outcome stats, challenges
-                  copy, Jim Dillingham pull quote, verified client list, team
-                  heading/bio updates, Thomas moved after team, Resources
-                  heading + button, section reorder
-      2026-04-18  (v15) TWO CHANGES:
-                  1. CLIENTS SECTION REPLACED: Static client tag grid removed.
-                     Replaced with animated two-strip continuous scrolling marquee
-                     ported from testimonials/index.html.
-                  2. THOMAS SECTION REMOVED from page body. Thomas remains in
-                     the footer (AI ADVISOR column) and in the Resources tiles.
-      2026-04-18  (v15c) HERO LAYOUT REBUILD:
-                  - Grid changed to 3-row: h1 full-width (row 1), left-text +
-                    image side-by-side (row 2), stats full-width (row 3).
-                  - H1 font: Playfair Display → Arial/Helvetica (matches
-                    Industries page and site body standard).
-                  - Stat numbers font: same fix (Arial/Helvetica).
-                  - hero-stat-item divs with border-right separators replace
-                    old flex gap approach for cleaner full-width stats row.
-                  - hero-heading, hero-left wrapper divs added for grid placement.
-                  1. SERVICE TILES: background changed from dark translucent to
-                     white (rgba(255,255,255,0.96)); h3 color navy, p color
-                     text-mid — readable on white against navy section bg.
-                  2. CLIENT HEADING FONT: client-depth-heading font-family
-                     changed from Playfair Display (serif) to var(--font-body)
-                     (DM Sans) to match section-sub and eyebrow typography.
-                  3. SCROLLING STRIP: Reduced from two rows to one. All clients
-                     merged into single track. Speed slowed from 45s to 80s.
-                     Second strip HTML row and track-bottom JS removed.
-                  4. TEAM SECTION: padding-bottom reduced from 88px (inherited
-                     from .section) to 48px to eliminate excess whitespace
-                     below the three partner cards.
+      2026-04-18  (v14) COPY DOC OVERHAUL
+      2026-04-18  (v15) Animated scrolling client marquee; Thomas removed from body
+      2026-04-18  (v15c) Hero layout rebuild; service tiles white; single marquee strip
+      2026-04-18  (v16) PULL QUOTE RESTYLE:
+                  - background: dark navy gradient REMOVED — transparent
+                  - .quote-mark color: amber — #9CA3AF (gray)
+                  - .quote-text font-weight: 600 — 400 (normal); italic retained
+                  - .quote-text color: white — #1A1A1A (black)
+                  - .quote-attr color: amber — #1A1A1A (black)
 
-  NAV SYSTEM: .site-header / .main-nav / .nav-cta (fixed 64px)
-  HERO IMAGE (background): /images/second.png
-  HERO RIGHT IMAGE:        /images/pillar_6.jpg
-  PROCESS IMAGE:           /images/pillar_8.jpg
-  FAQ IMAGE:               /images/Hands_in_the_air.jpg
-
-  I did no harm and this file is not truncated
+  NAV: .site-header / .main-nav / .nav-cta (fixed 64px)
+  HERO BG: /images/second.png | HERO RIGHT: /images/pillar_6.jpg
+  PROCESS: /images/pillar_8.jpg | FAQ: /images/Hands_in_the_air.jpg
 -->
 <html lang="en">
 <head>
@@ -82,10 +51,8 @@
   <meta name="twitter:title" content="Shiftwork Solutions LLC — Shift Schedule Design &amp; Change Management" />
   <meta name="twitter:description" content="Over 30 years helping hundreds of 24/7 operations optimize shift schedules, reduce overtime, and improve workforce engagement." />
 
-  <!-- Display fonts for nav/hero -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Main display + body fonts, plus marquee name fonts -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700;800&family=Oswald:wght@600&family=Libre+Baskerville:wght@700&family=Raleway:wght@800&family=Merriweather:wght@700&family=Montserrat:wght@800&family=Lora:wght@700&family=Bebas+Neue&display=swap" rel="stylesheet" />
 
   <script type="application/ld+json">
@@ -97,15 +64,10 @@
     "logo": "https://shift-work.com/images/clear_bkgr_logo_2.png",
     "telephone": "+14152651621",
     "email": "Contact@shift-work.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "San Rafael",
-      "addressRegion": "CA",
-      "addressCountry": "US"
-    },
-    "description": "Fixed-fee management consulting for shift schedule optimization, workforce engagement, and 24/7 industrial operations. Over three decades helping hundreds of facilities across 16+ industries.",
+    "address": {"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"},
+    "description": "Fixed-fee management consulting for shift schedule optimization, workforce engagement, and 24/7 industrial operations.",
     "foundingDate": "1993",
-    "numberOfEmployees": { "@type": "QuantitativeValue", "value": 3 },
+    "numberOfEmployees": {"@type":"QuantitativeValue","value":3},
     "knowsAbout": ["shift schedule design","change management","workforce surveys","24/7 operations","overtime management","employee engagement","continuous operations staffing","manufacturing workforce planning"],
     "member": [
       {"@type":"Person","name":"Jim Dillingham","jobTitle":"Partner & Senior Consultant","alumniOf":[{"@type":"EducationalOrganization","name":"United States Naval Academy"},{"@type":"EducationalOrganization","name":"Purdue University"},{"@type":"EducationalOrganization","name":"ESC Rouen"}]},
@@ -116,14 +78,7 @@
   </script>
 
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Shiftwork Solutions LLC",
-    "url": "https://shift-work.com",
-    "description": "Shift schedule design, change management, and workforce consulting for 24/7 industrial operations.",
-    "publisher": { "@type": "Organization", "name": "Shiftwork Solutions LLC" }
-  }
+  {"@context":"https://schema.org","@type":"WebSite","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","description":"Shift schedule design, change management, and workforce consulting for 24/7 industrial operations.","publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC"}}
   </script>
 
   <script type="application/ld+json">
@@ -134,15 +89,9 @@
     "url": "https://shift-work.com",
     "telephone": "+14152651621",
     "email": "Contact@shift-work.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "San Rafael",
-      "addressRegion": "CA",
-      "postalCode": "94901",
-      "addressCountry": "US"
-    },
-    "geo": { "@type": "GeoCoordinates", "latitude": 37.9735, "longitude": -122.5311 },
-    "areaServed": { "@type": "Country", "name": "United States" },
+    "address": {"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","postalCode":"94901","addressCountry":"US"},
+    "geo": {"@type":"GeoCoordinates","latitude":37.9735,"longitude":-122.5311},
+    "areaServed": {"@type":"Country","name":"United States"},
     "serviceType": ["Shift Schedule Design","Change Management Consulting","Workforce Survey & Analysis","Staffing Strategy","Overtime Cost Analysis"],
     "priceRange": "Fixed-fee engagements",
     "description": "Fixed-fee management consulting for shift schedule optimization, workforce engagement, and 24/7 industrial operations across manufacturing, pharmaceutical, food processing, mining, distribution, and chemical industries."
@@ -157,10 +106,10 @@
       {"@type":"Question","name":"How long does a typical engagement take?","acceptedAnswer":{"@type":"Answer","text":"Most engagements run five to seven weeks from kickoff through employee choice and implementation handoff. Projects involving more departments, larger workforces, or more complex operating environments take longer — but no engagement drags on indefinitely. We scope work before we price it, and the timeline is part of that conversation."}},
       {"@type":"Question","name":"What does \"fixed-fee\" mean in practice?","acceptedAnswer":{"@type":"Answer","text":"It means the fee we agree to at the start is the fee you pay — regardless of what we find or how long the analysis takes. If the situation turns out to be more complex than anticipated, that is our problem to manage, not yours. The only thing that changes a fee is a material change in scope, agreed to by both parties before additional work proceeds."}},
       {"@type":"Question","name":"Do you work in union environments?","acceptedAnswer":{"@type":"Answer","text":"Yes, and frequently. Union environments are a significant part of our practice. The employee-centered approach we use aligns well with union interests — workers get a genuine voice, their preferences are documented and respected, and the process is transparent. We work within contract constraints as design inputs from the start of the engagement, not as complications discovered at the end."}},
-      {"@type":"Question","name":"Why does employee involvement matter — can't management just pick the schedule?","acceptedAnswer":{"@type":"Answer","text":"Management can pick a schedule, and when they do without employee involvement, roughly half of those changes either fail outright or succeed technically while damaging morale for years. We have cleaned up many of those situations. The reason involvement works is practical: workers who participate in designing a schedule are statistically more likely to support it and less likely to organize against it. The survey process also surfaces constraints — childcare arrangements, second jobs, medical schedules — that management rarely knows about and that can sink a well-designed schedule during implementation."}},
-      {"@type":"Question","name":"What industries do you work in?","acceptedAnswer":{"@type":"Answer","text":"We have worked across more than 16 industries including manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, paper and packaging, utilities, and more. The scheduling challenges differ by industry — a continuous chemical process has different constraints than a distribution center with seasonal demand peaks — but the methodology we use is consistent: analyze, engage, implement."}},
+      {"@type":"Question","name":"Why does employee involvement matter — can't management just pick the schedule?","acceptedAnswer":{"@type":"Answer","text":"Management can pick a schedule, and when they do without employee involvement, roughly half of those changes either fail outright or succeed technically while damaging morale for years. We have cleaned up many of those situations. The reason involvement works is practical: workers who participate in designing a schedule are statistically more likely to support it and less likely to organize against it."}},
+      {"@type":"Question","name":"What industries do you work in?","acceptedAnswer":{"@type":"Answer","text":"We have worked across more than 16 industries including manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, paper and packaging, utilities, and more."}},
       {"@type":"Question","name":"What information do you need to give us a fee estimate?","acceptedAnswer":{"@type":"Answer","text":"A brief initial call is enough. We want to understand the number of employees affected, how many distinct departments or shift systems are involved, the general nature of the challenge, whether a union contract is in place, and your timeline. We can almost always give you a fee range after a 20-minute conversation — and the first conversation is always free."}},
-      {"@type":"Question","name":"What happens after the engagement ends?","acceptedAnswer":{"@type":"Answer","text":"Every engagement includes a post-implementation follow-up survey, conducted after the new schedule has been running long enough for employees to form informed opinions. We review results with management, identify any issues that have emerged, and recommend adjustments if needed. Many clients return to us when they expand, when conditions change, or when additional departments are ready for their own review. We have client relationships that have spanned more than a decade and multiple engagements."}}
+      {"@type":"Question","name":"What happens after the engagement ends?","acceptedAnswer":{"@type":"Answer","text":"Every engagement includes a post-implementation follow-up survey, conducted after the new schedule has been running long enough for employees to form informed opinions. We review results with management, identify any issues that have emerged, and recommend adjustments if needed."}}
     ]
   }
   </script>
@@ -178,7 +127,7 @@
     body{font-family:var(--font-body);color:var(--text);line-height:1.6;background:var(--white);-webkit-font-smoothing:antialiased;}
     img{max-width:100%;display:block;}
 
-    /* ── NAV ── */
+    /* NAV */
     .site-header{position:fixed;top:0;left:0;right:0;z-index:200;background:#ffffff;border-bottom:1px solid var(--g-border);height:64px;display:flex;align-items:center;}
     .header-inner{max-width:1200px;width:100%;margin:0 auto;padding:0 24px;display:flex;align-items:center;}
     .site-logo{text-decoration:none;white-space:nowrap;margin-right:24px;flex-shrink:0;display:flex;align-items:center;gap:12px;}
@@ -204,23 +153,19 @@
       .mobile-toggle{display:block;}
     }
 
-    /* ── HERO ── */
+    /* HERO */
     .hero{margin-top:64px;background:#0D1F3C url('/images/second.png') center center/cover no-repeat;color:var(--white);position:relative;overflow:hidden;display:flex;align-items:center;}
     .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.90) 0%,rgba(13,31,60,.75) 55%,rgba(13,31,60,.45) 100%);z-index:0;pointer-events:none;}
-    /* 3-row grid: h1 full-width | left-text + image | stats full-width */
     .hero-inner{max-width:var(--max-width);margin:0 auto;width:100%;padding:48px clamp(20px,4vw,40px) 48px;display:grid;grid-template-columns:1.1fr 0.9fr;grid-template-rows:auto auto auto;column-gap:56px;position:relative;z-index:1;}
-    /* Row 1: h1 spans both columns */
     .hero-heading{grid-column:1 / -1;grid-row:1;margin-bottom:28px;}
     .hero h1{font-family:Arial,Helvetica,sans-serif;font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;line-height:1.15;margin:0;}
     .hero h1 .accent{color:var(--amber);}
-    /* Row 2: text left, image right */
     .hero-left{grid-column:1;grid-row:2;display:flex;flex-direction:column;justify-content:space-between;}
     .hero-subhead{font-family:Arial,Helvetica,sans-serif;font-size:1.2rem;font-weight:400;color:rgba(255,255,255,0.85);margin-bottom:18px;line-height:1.75;}
     .hero-desc{font-family:Arial,Helvetica,sans-serif;font-size:1.18rem;line-height:1.75;color:rgba(255,255,255,0.8);margin-bottom:0;flex:1;}
     .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px;}
     .hero-image{grid-column:2;grid-row:2;position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.35);align-self:start;}
     .hero-image img{width:100%;height:400px;object-fit:cover;display:block;}
-    /* Row 3: stats span both columns */
     .hero-stats{grid-column:1 / -1;grid-row:3;display:flex;gap:0;margin-top:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.18);}
     .hero-stat-item{flex:1;padding-right:32px;border-right:1px solid rgba(255,255,255,0.15);}
     .hero-stat-item+.hero-stat-item{padding-left:32px;}
@@ -242,7 +187,7 @@
       .hero-stat-item+.hero-stat-item{padding-left:0;}
     }
 
-    /* ── SHARED ── */
+    /* SHARED */
     .section{padding:88px clamp(20px,4vw,40px);}
     .section-inner{max-width:var(--max-width);margin:0 auto;}
     .section-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--blue);margin-bottom:10px;}
@@ -250,7 +195,7 @@
     .section-sub{font-size:1.05rem;color:var(--text-mid);max-width:620px;line-height:1.7;}
     .section-sub.center{margin:0 auto;text-align:center;}
 
-    /* ── PROBLEMS ── */
+    /* PROBLEMS */
     .problems{background:var(--white);}
     .problems-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
     .problem-card{background:var(--smoke);border-radius:var(--radius-lg);padding:32px 28px;transition:transform 0.2s;text-align:center;}
@@ -261,7 +206,7 @@
     .problem-card p{font-size:0.9rem;color:var(--text-mid);line-height:1.6;text-align:left;}
     @media(max-width:800px){.problems-grid{grid-template-columns:1fr;}}
 
-    /* ── SERVICES ── */
+    /* SERVICES */
     .services{background:var(--light-grey);color:var(--body-text);box-shadow:inset 24px 0 0 0 var(--navy-dark);}
     .services .section-label{color:var(--blue);}
     .services .section-heading{color:var(--navy);}
@@ -277,7 +222,7 @@
     @media(max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr);}}
     @media(max-width:500px){.services-grid{grid-template-columns:1fr;}}
 
-    /* ── PROCESS ── */
+    /* PROCESS */
     .process{background:var(--white);}
     .process-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:48px;}
     .process-image{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);}
@@ -289,42 +234,23 @@
     .process-step p{font-size:0.9rem;color:var(--text-mid);line-height:1.6;}
     @media(max-width:800px){.process-grid{grid-template-columns:1fr;}.process-image img{height:280px;}}
 
-    /* ── QUOTE BAND ── */
-    /* ── QUOTE BAND ── */
-    .quote-band{background:linear-gradient(135deg,var(--navy-mid),var(--navy));color:var(--white);padding:64px clamp(20px,4vw,40px);text-align:left;}
+    /* QUOTE BAND — v16 (2026-04-18)
+       background: transparent (removed dark navy gradient)
+       quote-mark: #9CA3AF (gray)
+       quote-text: weight 400, color #1A1A1A, italic retained
+       quote-attr: color #1A1A1A */
+    .quote-band{background:transparent;color:#1A1A1A;padding:64px clamp(20px,4vw,40px);text-align:left;}
     .quote-band-inner{max-width:860px;margin:0 auto;position:relative;padding-left:72px;}
-    .quote-mark{position:absolute;left:0;top:-12px;font-family:Georgia,serif;font-size:6rem;line-height:1;color:var(--amber);font-style:normal;opacity:0.9;}
-    .quote-text{font-family:Arial,Helvetica,sans-serif;font-size:clamp(1.3rem,3vw,1.9rem);font-weight:600;font-style:italic;line-height:1.5;color:rgba(255,255,255,0.9);margin-bottom:16px;}
-    .quote-attr{font-size:0.88rem;color:var(--amber);font-weight:600;}
+    .quote-mark{position:absolute;left:0;top:-12px;font-family:Georgia,serif;font-size:6rem;line-height:1;color:#9CA3AF;font-style:normal;opacity:1;}
+    .quote-text{font-family:Arial,Helvetica,sans-serif;font-size:clamp(1.3rem,3vw,1.9rem);font-weight:400;font-style:italic;line-height:1.5;color:#1A1A1A;margin-bottom:16px;}
+    .quote-attr{font-size:0.88rem;color:#1A1A1A;font-weight:600;}
 
-    /* ── CLIENT DEPTH — scrolling marquee (ported from testimonials page) ── */
-    .client-depth{
-      padding:52px 0 56px;
-      background:linear-gradient(to right,#d0d4d8 0%,#f4f4f4 30%,#ffffff 50%,#f4f4f4 70%,#d0d4d8 100%);
-      overflow:hidden;
-      position:relative;
-    }
-    .client-depth-inner{
-      max-width:var(--max-width);
-      margin:0 auto 40px;
-      padding:0 var(--page-pad);
-      text-align:center;
-    }
-    .client-depth-eyebrow{
-      font-size:11px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.14em;color:var(--g-navy);margin-bottom:6px;
-    }
-    .client-depth-heading{
-      font-family:var(--font-body);
-      font-size:clamp(1.7rem,3.5vw,2.5rem);
-      font-weight:700;color:var(--navy);
-      margin-bottom:12px;line-height:1.2;
-    }
-    .client-depth-sub{
-      font-size:1.05rem;color:var(--text-mid);
-      max-width:620px;margin:0 auto;line-height:1.7;
-    }
-    /* Two-strip continuous scroll */
+    /* CLIENT DEPTH */
+    .client-depth{padding:52px 0 56px;background:linear-gradient(to right,#d0d4d8 0%,#f4f4f4 30%,#ffffff 50%,#f4f4f4 70%,#d0d4d8 100%);overflow:hidden;position:relative;}
+    .client-depth-inner{max-width:var(--max-width);margin:0 auto 40px;padding:0 var(--page-pad);text-align:center;}
+    .client-depth-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--g-navy);margin-bottom:6px;}
+    .client-depth-heading{font-family:var(--font-body);font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.2;}
+    .client-depth-sub{font-size:1.05rem;color:var(--text-mid);max-width:620px;margin:0 auto;line-height:1.7;}
     .client-strips{display:flex;flex-direction:column;gap:10px;overflow:hidden;padding:0;}
     .client-strip-row{background:#ffffff;height:70px;overflow:hidden;position:relative;display:flex;align-items:center;}
     .client-strip-row::before,.client-strip-row::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;}
@@ -335,15 +261,15 @@
     #track-top{animation:scroll-l 80s linear infinite;}
     .cn{display:inline-flex;align-items:center;padding:0 32px;height:70px;white-space:nowrap;font-size:24px;border-right:2px solid #f0f0f0;flex-shrink:0;}
     .cn:last-child{border-right:none;}
-    .cn-1 {font-family:'Playfair Display',serif;font-weight:700;color:#1a3a5c;}
-    .cn-2 {font-family:'Oswald',sans-serif;font-weight:600;color:#7b2d00;letter-spacing:.06em;}
-    .cn-3 {font-family:'Libre Baskerville',serif;font-weight:700;color:#1d4e2a;}
-    .cn-4 {font-family:'Raleway',sans-serif;font-weight:800;color:#3d1a6e;letter-spacing:.04em;}
-    .cn-5 {font-family:'Merriweather',serif;font-weight:700;color:#4a1942;}
-    .cn-6 {font-family:'Montserrat',sans-serif;font-weight:800;color:#003d5b;letter-spacing:.02em;}
-    .cn-7 {font-family:'Lora',serif;font-weight:700;color:#5c2d00;}
-    .cn-8 {font-family:'Bebas Neue',sans-serif;font-weight:400;color:#1a1a2e;letter-spacing:.08em;font-size:28px;}
-    .cn-9 {font-family:'Oswald',sans-serif;font-weight:600;color:#1f3d1f;letter-spacing:.05em;}
+    .cn-1{font-family:'Playfair Display',serif;font-weight:700;color:#1a3a5c;}
+    .cn-2{font-family:'Oswald',sans-serif;font-weight:600;color:#7b2d00;letter-spacing:.06em;}
+    .cn-3{font-family:'Libre Baskerville',serif;font-weight:700;color:#1d4e2a;}
+    .cn-4{font-family:'Raleway',sans-serif;font-weight:800;color:#3d1a6e;letter-spacing:.04em;}
+    .cn-5{font-family:'Merriweather',serif;font-weight:700;color:#4a1942;}
+    .cn-6{font-family:'Montserrat',sans-serif;font-weight:800;color:#003d5b;letter-spacing:.02em;}
+    .cn-7{font-family:'Lora',serif;font-weight:700;color:#5c2d00;}
+    .cn-8{font-family:'Bebas Neue',sans-serif;font-weight:400;color:#1a1a2e;letter-spacing:.08em;font-size:28px;}
+    .cn-9{font-family:'Oswald',sans-serif;font-weight:600;color:#1f3d1f;letter-spacing:.05em;}
     .cn-10{font-family:'Playfair Display',serif;font-weight:700;color:#5c1a2d;}
     .cn-11{font-family:'Raleway',sans-serif;font-weight:800;color:#2d3a00;}
     .cn-12{font-family:'Bebas Neue',sans-serif;font-weight:400;color:#00354d;letter-spacing:.07em;font-size:28px;}
@@ -352,7 +278,7 @@
     .cn-15{font-family:'Lora',serif;font-weight:700;color:#003333;}
     .cn-16{font-family:'Libre Baskerville',serif;font-weight:700;color:#4a0d00;}
 
-    /* ── TEAM ── */
+    /* TEAM */
     .team{background:var(--white);padding-bottom:48px;}
     .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px;}
     .team-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:none;overflow:hidden;text-align:center;padding:0 0 24px;display:flex;flex-direction:column;position:relative;}
@@ -367,7 +293,7 @@
     .team-cred{margin-top:16px;padding-top:12px;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text-light);font-style:italic;text-align:left;}
     @media(max-width:800px){.team-grid{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto;}}
 
-    /* ── RESOURCES ── */
+    /* RESOURCES */
     .resources{background:var(--white);}
     .resources-page-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;background:transparent;color:var(--text-mid);font-family:Arial,sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:5px;border:1px solid var(--border);transition:color 0.2s,border-color 0.2s,box-shadow 0.2s;white-space:nowrap;}
     .resources-page-btn:hover{color:var(--g-navy);border-color:var(--g-navy);box-shadow:0 4px 16px rgba(31,78,121,0.15);}
@@ -381,7 +307,7 @@
     @media(max-width:800px){.resources-grid{grid-template-columns:repeat(2,1fr);}}
     @media(max-width:500px){.resources-grid{grid-template-columns:1fr;}}
 
-    /* ── FAQ ── */
+    /* FAQ */
     .faq-section{position:relative;overflow:hidden;margin:0;}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center/cover no-repeat;z-index:0;}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1;}
@@ -401,7 +327,7 @@
     .faq-a{font-size:14px;color:#1A1A1A;line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px;font-family:Arial,Helvetica,sans-serif;}
     @media(max-width:640px){.faq-inner{padding:48px 18px 52px;}.faq-inner h2{font-size:19px;}}
 
-    /* ── NEXT STEPS ── */
+    /* NEXT STEPS */
     .next-steps{padding:56px var(--page-pad) 60px;background:#F4F6F8;}
     .next-steps-inner{max-width:1100px;margin:0 auto;}
     .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#666666;margin-bottom:10px;font-family:Arial,Helvetica,sans-serif;}
@@ -426,7 +352,7 @@
     .ns-phone a{color:#1F4E79;text-decoration:none;font-weight:700;}.ns-phone a:hover{color:#E8610A;}
     @media(max-width:760px){.ns-cards{grid-template-columns:1fr;}}
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     .site-footer{background:#0D1F3C;}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1);}
     .footer-wrap{max-width:1100px;margin:0 auto;}
@@ -477,7 +403,7 @@
 </head>
 <body>
 
-<!-- ── NAV ── -->
+<!-- NAV -->
 <header class="site-header">
   <div class="header-inner">
     <a href="/" class="site-logo">
@@ -503,14 +429,12 @@
   </div>
 </header>
 
-<!-- ── HERO ── -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <!-- Row 1: headline spans full width -->
     <div class="hero-heading anim">
       <h1>Cost efficiency, workforce engagement, and operational reliability &mdash; <span class="accent">delivered simultaneously.</span></h1>
     </div>
-    <!-- Row 2 left: subhead, body, buttons -->
     <div class="hero-left anim">
       <p class="hero-subhead">Shift scheduling that balances business needs with employee preferences &mdash; built on 30 years of 24/7 experience.</p>
       <p class="hero-desc">We help manufacturers and distribution centers design shift schedules that reduce labor cost, improve retention, and hold under variable demand &mdash; without software, without disruption, and without leaving your employees out of the decision.</p>
@@ -519,11 +443,9 @@
         <a href="https://shift-work-diagnostic.onrender.com" target="_blank" class="btn-outline">Talk to Thomas, Our AI Advisor</a>
       </div>
     </div>
-    <!-- Row 2 right: image -->
     <div class="hero-image anim d2">
       <img src="/images/pillar_6.jpg" alt="Shift schedule change management consultation with operations team" onerror="this.parentElement.style.background='#163057';this.style.display='none';" />
     </div>
-    <!-- Row 3: stats span full width -->
     <div class="hero-stats">
       <div class="hero-stat-item">
         <div class="hero-stat-num">Up to 30%</div>
@@ -544,7 +466,7 @@
   </div>
 </section>
 
-<!-- ── CHALLENGES ── -->
+<!-- CHALLENGES -->
 <section class="section problems" id="challenges">
   <div class="section-inner">
     <div class="section-label" style="text-transform:uppercase;letter-spacing:.14em;">Early Indicators</div>
@@ -552,34 +474,34 @@
     <div class="section-sub">These aren&rsquo;t isolated issues &mdash; they&rsquo;re patterns that point to a schedule no longer aligned with the operation.</div>
     <div class="problems-grid">
       <div class="problem-card">
-        <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="17" cy="20" r="11" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="17" y1="20" x2="17" y2="13" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="17" y1="20" x2="23" y2="24" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="26" y1="9" x2="26" y2="3" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><polyline points="22,6 26,2 30,6" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+        <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="17" cy="20" r="11" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="17" y1="20" x2="17" y2="13" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="17" y1="20" x2="23" y2="24" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="26" y1="9" x2="26" y2="3" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><polyline points="22,6 26,2 30,6" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
         <h3>Overtime is driving the operation &mdash; not the schedule.</h3><p>Chronic overtime drives up costs and burns out your best people. The 20/60/20 rule applies: 20% of your workforce wants every hour you can offer, 60% will do their share, and 20% wants none. The schedule should reflect that reality.</p>
       </div>
       <div class="problem-card">
-        <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="9" r="5" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="9" r="4" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><path d="M2 30 c0-7 4.5-10 10-10 s10 3 10 10" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M26 22 c3.5 0 7 2.5 7 7" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg></div>
+        <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="12" cy="9" r="5" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><circle cx="24" cy="9" r="4" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><path d="M2 30 c0-7 4.5-10 10-10 s10 3 10 10" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M26 22 c3.5 0 7 2.5 7 7" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg></div>
         <h3>Good people are leaving &mdash; and it&rsquo;s rarely about pay.</h3><p>Turnover is rarely about pay alone. When employees feel unheard about their schedules, they leave for competitors who offer predictability. A workforce that helps choose its schedule stays.</p>
       </div>
       <div class="problem-card">
-        <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="18" cy="18" r="14" stroke="#F5A623" stroke-width="2.5"/><text x="18" y="23" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="800" fill="#F5A623">24/7</text></svg></div>
+        <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="14" stroke="#F5A623" stroke-width="2.5"/><text x="18" y="23" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="800" fill="#F5A623">24/7</text></svg></div>
         <h3>You need to go 24/7.</h3><p>The leap from 5-day to continuous operations is the biggest workforce change most facilities will ever face. Employees fear the unknown. Done right, most end up preferring the new schedule.</p>
       </div>
       <div class="problem-card">
-        <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="4" width="9" height="9" rx="1.5" stroke="#F5A623" stroke-width="2.5"/><rect x="14" y="4" width="9" height="9" rx="1.5" stroke="#F5A623" stroke-width="2.5"/><rect x="25" y="4" width="9" height="9" rx="1.5" stroke="#F5A623" stroke-width="2.5"/><rect x="3" y="17" width="9" height="9" rx="1.5" stroke="#F5A623" stroke-width="2.5"/><rect x="25" y="17" width="9" height="9" rx="1.5" stroke="#F5A623" stroke-width="2.5"/><rect x="14" y="17" width="9" height="9" rx="1.5" stroke="#F5A623" stroke-width="2.5" stroke-dasharray="3,2"/><line x1="17" y1="20" x2="20" y2="23" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="20" y1="20" x2="17" y2="23" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/></svg></div>
-        <h3>Coverage gaps are hurting output.</h3><p>Absenteeism, skill imbalances, and poorly designed shift overlaps leave machines idle and supervisors scrambling. Schedule design is a precision problem &mdash; it deserves rigorous analysis, not a template. The right design closes gaps before they become a pattern.</p>
+        <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="3" y="4" width="9" height="9" rx="1.5" stroke="#F5A623" stroke-width="2.5"/><rect x="14" y="4" width="9" height="9" rx="1.5" stroke="#F5A623" stroke-width="2.5"/><rect x="25" y="4" width="9" height="9" rx="1.5" stroke="#F5A623" stroke-width="2.5"/><rect x="3" y="17" width="9" height="9" rx="1.5" stroke="#F5A623" stroke-width="2.5"/><rect x="25" y="17" width="9" height="9" rx="1.5" stroke="#F5A623" stroke-width="2.5"/><rect x="14" y="17" width="9" height="9" rx="1.5" stroke="#F5A623" stroke-width="2.5" stroke-dasharray="3,2"/><line x1="17" y1="20" x2="20" y2="23" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="20" y1="20" x2="17" y2="23" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+        <h3>Coverage gaps are hurting output.</h3><p>Absenteeism, skill imbalances, and poorly designed shift overlaps leave machines idle and supervisors scrambling. Schedule design is a precision problem &mdash; it deserves rigorous analysis, not a template.</p>
       </div>
       <div class="problem-card">
-        <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 4 L33 30 H3 Z" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="18" y1="14" x2="18" y2="22" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><circle cx="18" cy="27" r="1.8" fill="#F5A623"/></svg></div>
+        <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><path d="M18 4 L33 30 H3 Z" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="18" y1="14" x2="18" y2="22" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><circle cx="18" cy="27" r="1.8" fill="#F5A623"/></svg></div>
         <h3>A previous schedule change left damage behind.</h3><p>Many facilities have tried to change schedules and failed &mdash; or succeeded technically but lost trust. Change management means walking the shop floor and earning buy-in, crew by crew.</p>
       </div>
       <div class="problem-card">
-        <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="7" y="9" width="22" height="26" rx="2" stroke="#F5A623" stroke-width="2.5"/><rect x="13" y="5" width="10" height="7" rx="2" stroke="#F5A623" stroke-width="2.5"/><path d="M15 20 q0-3 3-3 t3 3 q0 2-3 3" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" fill="none"/><circle cx="18" cy="29" r="1.8" fill="#F5A623"/></svg></div>
+        <div class="problem-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="7" y="9" width="22" height="26" rx="2" stroke="#F5A623" stroke-width="2.5"/><rect x="13" y="5" width="10" height="7" rx="2" stroke="#F5A623" stroke-width="2.5"/><path d="M15 20 q0-3 3-3 t3 3 q0 2-3 3" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" fill="none"/><circle cx="18" cy="29" r="1.8" fill="#F5A623"/></svg></div>
         <h3>You&rsquo;re guessing what your workforce wants.</h3><p>Assumptions about employee preferences are wrong more often than right. A structured survey with normative benchmarking reveals what your people actually think &mdash; and how they compare to similar operations.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── SERVICES ── -->
+<!-- SERVICES -->
 <section class="section services" id="services">
   <div class="section-inner">
     <div class="section-label">What We Do</div>
@@ -587,23 +509,23 @@
     <div class="section-sub">Every engagement is customized. No software to install. We bring the expertise; your team brings knowledge of your operation.</div>
     <div class="services-grid">
       <div class="service-card">
-        <div class="service-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="5" width="28" height="26" rx="3" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="4" y1="13" x2="32" y2="13" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="3" x2="12" y2="9" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="24" y1="3" x2="24" y2="9" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="10" y1="20" x2="16" y2="20" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="10" y1="26" x2="16" y2="26" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="20" x2="27" y2="20" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="26" x2="27" y2="26" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+        <div class="service-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="4" y="5" width="28" height="26" rx="3" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="4" y1="13" x2="32" y2="13" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="3" x2="12" y2="9" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="24" y1="3" x2="24" y2="9" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="10" y1="20" x2="16" y2="20" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="10" y1="26" x2="16" y2="26" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="20" x2="27" y2="20" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="21" y1="26" x2="27" y2="26" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/></svg></div>
         <h3>Schedule Design &amp; Analysis</h3><p>Custom shift patterns that balance coverage, cost, fatigue, and employee preferences &mdash; drawn from hundreds of proven configurations.</p>
       </div>
       <div class="service-card">
-        <div class="service-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="13" cy="10" r="5" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><circle cx="25" cy="10" r="4" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><path d="M3 28 c0-6 4.5-9 10-9 s10 3 10 9" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M25 19 c3 0 6 2 6 6" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" fill="none"/><line x1="25" y1="28" x2="29" y2="28" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+        <div class="service-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="13" cy="10" r="5" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><circle cx="25" cy="10" r="4" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><path d="M3 28 c0-6 4.5-9 10-9 s10 3 10 9" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" fill="none"/><path d="M25 19 c3 0 6 2 6 6" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" fill="none"/><line x1="25" y1="28" x2="29" y2="28" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/></svg></div>
         <h3>Staffing &amp; Workforce Planning</h3><p>Right-size your workforce for the schedule. Model scenarios for hiring, attrition, and growth without guesswork.</p>
       </div>
       <div class="service-card">
-        <div class="service-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="3" y="13" width="10" height="10" rx="1.5" stroke="#F5A623" stroke-width="2.5"/><line x1="14" y1="18" x2="21" y2="18" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><polyline points="18,14 22,18 18,22" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="29" cy="18" r="6" stroke="#F5A623" stroke-width="2.5" fill="none"/><polyline points="26,18 28,21 33,15" stroke="#F5A623" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
+        <div class="service-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="3" y="13" width="10" height="10" rx="1.5" stroke="#F5A623" stroke-width="2.5"/><line x1="14" y1="18" x2="21" y2="18" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><polyline points="18,14 22,18 18,22" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="29" cy="18" r="6" stroke="#F5A623" stroke-width="2.5" fill="none"/><polyline points="26,18 28,21 33,15" stroke="#F5A623" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></div>
         <h3>Change Management</h3><p>Employee-centered implementation that builds buy-in before the first shift rotates. Communication plans, on-shift meetings, and leadership coaching.</p>
       </div>
       <div class="service-card">
-        <div class="service-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="7" y="3" width="22" height="30" rx="2" stroke="#F5A623" stroke-width="2.5"/><rect x="13" y="0" width="10" height="7" rx="2" stroke="#F5A623" stroke-width="2.5"/><line x1="12" y1="14" x2="24" y2="14" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="20" x2="24" y2="20" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="26" x2="19" y2="26" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+        <div class="service-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><rect x="7" y="3" width="22" height="30" rx="2" stroke="#F5A623" stroke-width="2.5"/><rect x="13" y="0" width="10" height="7" rx="2" stroke="#F5A623" stroke-width="2.5"/><line x1="12" y1="14" x2="24" y2="14" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="20" x2="24" y2="20" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="12" y1="26" x2="19" y2="26" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/></svg></div>
         <h3>Workforce Surveys</h3><p>Proprietary diagnostic benchmarked against operations across multiple industries. Know where you stand before you decide.</p>
       </div>
       <div class="service-card">
-        <div class="service-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="4,28 12,18 18,22 26,10 33,14" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="12" cy="18" r="2.5" fill="#F5A623"/><circle cx="18" cy="22" r="2.5" fill="#F5A623"/><circle cx="26" cy="10" r="2.5" fill="#F5A623"/><line x1="4" y1="32" x2="33" y2="32" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="4" y1="28" x2="4" y2="32" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+        <div class="service-icon"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"><polyline points="4,28 12,18 18,22 26,10 33,14" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="12" cy="18" r="2.5" fill="#F5A623"/><circle cx="18" cy="22" r="2.5" fill="#F5A623"/><circle cx="26" cy="10" r="2.5" fill="#F5A623"/><line x1="4" y1="32" x2="33" y2="32" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/><line x1="4" y1="28" x2="4" y2="32" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/></svg></div>
         <h3>Cost Analysis</h3><p>True fully loaded cost of every schedule option. Overtime projections, benefit impacts, and ROI modeling. Numbers your CFO will trust.</p>
       </div>
     </div>
@@ -611,7 +533,7 @@
   </div>
 </section>
 
-<!-- ── HOW WE WORK ── -->
+<!-- HOW WE WORK -->
 <section class="section process" id="how-we-work">
   <div class="section-inner">
     <div class="section-label">Our Process</div>
@@ -629,7 +551,7 @@
   </div>
 </section>
 
-<!-- ── PULL QUOTE ── -->
+<!-- PULL QUOTE — v16: transparent bg, gray quote mark, black normal-weight text -->
 <div class="quote-band">
   <div class="quote-band-inner">
     <span class="quote-mark">&ldquo;</span>
@@ -638,7 +560,7 @@
   </div>
 </div>
 
-<!-- ── CLIENTS — animated scrolling marquee (ported from testimonials page) ── -->
+<!-- CLIENTS -->
 <section class="client-depth" id="clients">
   <div class="client-depth-inner">
     <div class="client-depth-eyebrow">Trusted By</div>
@@ -650,7 +572,7 @@
   </div>
 </section>
 
-<!-- ── TEAM ── -->
+<!-- TEAM -->
 <section class="section team" id="team">
   <div class="section-inner" style="text-align:center;">
     <div class="section-label">Our Team</div>
@@ -658,43 +580,37 @@
     <div class="section-sub center">Every engagement is led by a partner. Senior expertise from kickoff through implementation.</div>
     <div class="team-grid">
       <div class="team-card">
-        <div class="team-card-top">
-          <a href="/our_team/" aria-label="Meet our team"><div class="team-avatar"><img src="/images/jim.jpg" alt="Jim Dillingham, Partner at Shiftwork Solutions" onerror="var p=this.parentElement; this.remove(); p.textContent='JD';"></div></a>
-        </div>
+        <div class="team-card-top"><a href="/our_team/" aria-label="Meet our team"><div class="team-avatar"><img src="/images/jim.jpg" alt="Jim Dillingham, Partner at Shiftwork Solutions" onerror="var p=this.parentElement; this.remove(); p.textContent='JD';"></div></a></div>
         <div class="team-card-bottom">
-        <h3>Jim Dillingham</h3>
-        <div class="team-role">Partner &amp; Senior Consultant</div>
-        <p class="team-bio">Former Naval officer turned workforce strategist. Specializes in change management with a philosophy that the more the workforce understands and participates, the better the outcome.</p>
-        <p class="team-cred">Naval Academy (Mathematics) &middot; Purdue (Management) &middot; ESC Rouen (MBA)</p>
+          <h3>Jim Dillingham</h3>
+          <div class="team-role">Partner &amp; Senior Consultant</div>
+          <p class="team-bio">Former Naval officer turned workforce strategist. Specializes in change management with a philosophy that the more the workforce understands and participates, the better the outcome.</p>
+          <p class="team-cred">Naval Academy (Mathematics) &middot; Purdue (Management) &middot; ESC Rouen (MBA)</p>
         </div>
       </div>
       <div class="team-card">
-        <div class="team-card-top">
-          <a href="/our_team/" aria-label="Meet our team"><div class="team-avatar"><img src="/images/dan.jpg" alt="Dan Capshaw, Partner at Shiftwork Solutions" onerror="var p=this.parentElement; this.remove(); p.textContent='DC';"></div></a>
-        </div>
+        <div class="team-card-top"><a href="/our_team/" aria-label="Meet our team"><div class="team-avatar"><img src="/images/dan.jpg" alt="Dan Capshaw, Partner at Shiftwork Solutions" onerror="var p=this.parentElement; this.remove(); p.textContent='DC';"></div></a></div>
         <div class="team-card-bottom">
-        <h3>Dan Capshaw</h3>
-        <div class="team-role">Partner &amp; Senior Consultant</div>
-        <p class="team-bio">Chemical engineer and Lean Six Sigma Black Belt. Brings operations rigor to every schedule design &mdash; from submarine engineering to pharmaceutical manufacturing.</p>
-        <p class="team-cred">Johns Hopkins (Chemical Engineering) &middot; UC Berkeley Haas &middot; Lean Six Sigma Black Belt</p>
+          <h3>Dan Capshaw</h3>
+          <div class="team-role">Partner &amp; Senior Consultant</div>
+          <p class="team-bio">Chemical engineer and Lean Six Sigma Black Belt. Brings operations rigor to every schedule design &mdash; from submarine engineering to pharmaceutical manufacturing.</p>
+          <p class="team-cred">Johns Hopkins (Chemical Engineering) &middot; UC Berkeley Haas &middot; Lean Six Sigma Black Belt</p>
         </div>
       </div>
       <div class="team-card">
-        <div class="team-card-top">
-          <a href="/our_team/" aria-label="Meet our team"><div class="team-avatar"><img src="/images/ethan.jpg" alt="Ethan Franklin, Partner at Shiftwork Solutions" onerror="var p=this.parentElement; this.remove(); p.textContent='EF';"></div></a>
-        </div>
+        <div class="team-card-top"><a href="/our_team/" aria-label="Meet our team"><div class="team-avatar"><img src="/images/ethan.jpg" alt="Ethan Franklin, Partner at Shiftwork Solutions" onerror="var p=this.parentElement; this.remove(); p.textContent='EF';"></div></a></div>
         <div class="team-card-bottom">
-        <h3>Ethan Franklin</h3>
-        <div class="team-role">Partner &amp; Senior Consultant</div>
-        <p class="team-bio">Combines data-driven workforce analysis with a deep understanding of what employees actually need. Has helped facilities across manufacturing, distribution, and chemical operations improve satisfaction and bottom-line performance over more than 25 years.</p>
-        <p class="team-cred">BS &amp; MS in General Engineering &middot; MBA &middot; University of Illinois at Urbana-Champaign &middot; JD &middot; Loyola University Chicago School of Law</p>
+          <h3>Ethan Franklin</h3>
+          <div class="team-role">Partner &amp; Senior Consultant</div>
+          <p class="team-bio">Combines data-driven workforce analysis with a deep understanding of what employees actually need. Has helped facilities across manufacturing, distribution, and chemical operations improve satisfaction and bottom-line performance over more than 25 years.</p>
+          <p class="team-cred">BS &amp; MS in General Engineering &middot; MBA &middot; University of Illinois at Urbana-Champaign &middot; JD &middot; Loyola University Chicago School of Law</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── RESOURCES ── -->
+<!-- RESOURCES -->
 <section class="section resources" id="resources">
   <div class="section-inner" style="text-align:center;">
     <div class="section-label">Resources</div>
@@ -712,7 +628,7 @@
   </div>
 </section>
 
-<!-- ── FAQ ── -->
+<!-- FAQ -->
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
@@ -728,7 +644,7 @@
   </div>
 </div>
 
-<!-- ── NEXT STEPS ── -->
+<!-- NEXT STEPS -->
 <section class="next-steps">
   <div class="next-steps-inner">
     <div class="next-steps-eyebrow">Where to go from here</div>
@@ -743,7 +659,7 @@
   </div>
 </section>
 
-<!-- ── FOOTER ── -->
+<!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
@@ -763,49 +679,22 @@
   </div></div>
 </footer>
 
-<!-- ── JS ── -->
+<!-- JS -->
 <script>
-// Nav
 document.querySelectorAll('a[href^="#"]').forEach(function(link){link.addEventListener('click',function(e){var id=this.getAttribute('href');var target=document.querySelector(id);if(target){e.preventDefault();var nav=document.getElementById('main-nav');if(nav)nav.classList.remove('open');target.scrollIntoView({behavior:'smooth',block:'start'});}});});
 document.getElementById('mobile-toggle').addEventListener('click',function(){document.getElementById('main-nav').classList.toggle('open');});
 document.addEventListener('click',function(e){var header=document.querySelector('.site-header');if(header&&!header.contains(e.target)){var nav=document.getElementById('main-nav');if(nav)nav.classList.remove('open');}});
 
-// FAQ accordion
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
 
-// Next Steps card animation
 (function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
 
-// Newsletter
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'homepage-footer-nl'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
 
-// Scrolling client marquee — single row, all verified clients, slow pace
 (function(){
-  var allNames = [
-    'Nestl\u00e9','Kellogg\'s','Kraft','Campbell\'s','Mars','Coca-Cola','Pepsi',
-    'Dannon','Tropicana','Smucker\'s','Mondelez','American Licorice',
-    'Snyder\'s','Shearer Foods','Treehouse Foods','Golden State Foods','Keurig',
-    'Hyundai','Tesla','Panasonic','Whirlpool','Andersen Windows',
-    'Essity','Kimberly Clark','WestRock','International Paper','Clearwater',
-    'Appleton Paper','SCA Tissue','Irving Canada','United Airlines',
-    'Dow','Pfizer','GlaxoSmithKline','Monsanto','Pharmacia \u0026 Upjohn',
-    'BHP','Phelps Dodge','Vale','Potash','Vulcan',
-    'ComEd','TXU','Southern Company','CenterPoint','PG\u0026E','Chevron','Marathon'
-  ];
-
-  function buildTrack(trackId, names) {
-    var track = document.getElementById(trackId);
-    if (!track) return;
-    var all = names.concat(names); // duplicate for seamless loop
-    all.forEach(function(name, i) {
-      var span = document.createElement('span');
-      span.className = 'cn cn-' + ((i % 16) + 1);
-      span.textContent = name;
-      track.appendChild(span);
-    });
-  }
-
-  buildTrack('track-top', allNames);
+  var allNames=['Nestl\u00e9','Kellogg\'s','Kraft','Campbell\'s','Mars','Coca-Cola','Pepsi','Dannon','Tropicana','Smucker\'s','Mondelez','American Licorice','Snyder\'s','Shearer Foods','Treehouse Foods','Golden State Foods','Keurig','Hyundai','Tesla','Panasonic','Whirlpool','Andersen Windows','Essity','Kimberly Clark','WestRock','International Paper','Clearwater','Appleton Paper','SCA Tissue','Irving Canada','United Airlines','Dow','Pfizer','GlaxoSmithKline','Monsanto','Pharmacia \u0026 Upjohn','BHP','Phelps Dodge','Vale','Potash','Vulcan','ComEd','TXU','Southern Company','CenterPoint','PG\u0026E','Chevron','Marathon'];
+  function buildTrack(trackId,names){var track=document.getElementById(trackId);if(!track)return;var all=names.concat(names);all.forEach(function(name,i){var span=document.createElement('span');span.className='cn cn-'+((i%16)+1);span.textContent=name;track.appendChild(span);});}
+  buildTrack('track-top',allNames);
 })();
 </script>
 
