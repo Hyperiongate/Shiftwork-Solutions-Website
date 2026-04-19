@@ -96,16 +96,24 @@
     .whyus-tile-link::after{content:' \2192'}
     .whyus-tile:hover .whyus-tile-link{color:var(--orange)}
 
-    /* ── BRIDGE ── */
+    /* ── PULL QUOTE (white bg) ── */
+    .pull-quote-section{background:var(--white);padding:0 var(--page-pad)}
+    .pull-quote{max-width:var(--max-width);margin:0 auto;padding:40px 0;display:flex;align-items:center;gap:16px}
+    .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
+    .pull-quote-content p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
+    .pull-quote-content .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
+
+    /* ── BRIDGE (kept in CSS but unused) ── */
     .bridge{padding:48px var(--page-pad);background:var(--light-blue)}
     .bridge-inner{max-width:var(--max-width);margin:0 auto}
     .bridge p{font-size:17px;line-height:1.80;color:var(--body-text);max-width:800px}
 
     /* ── GAINS HEADER — white bg, image left, text+strip right ── */
     .gains-header-section{background:var(--white);padding:60px var(--page-pad) 52px}
-    .gains-header-inner{max-width:var(--gains-max);margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:52px;align-items:start}
-    .gains-header-img{width:100%;border-radius:8px;overflow:hidden}
-    .gains-header-img img{width:100%;height:320px;object-fit:cover;object-position:center;display:block;border-radius:8px}
+    .gains-header-inner{max-width:var(--gains-max);margin:0 auto;display:grid;grid-template-columns:320px 1fr;gap:52px;align-items:stretch}
+    .gains-header-img{width:100%;border-radius:8px;overflow:hidden;display:flex}
+    .gains-header-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;border-radius:8px;min-height:280px}
+    .gains-header-text{display:flex;flex-direction:column}
     .gains-header-text h2{font-size:32px;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:10px}
     .gains-header-text .gains-intro{font-size:16px;color:var(--muted);line-height:1.65;margin-bottom:28px}
     /* At-a-glance strip — right column */
@@ -113,6 +121,8 @@
     .gains-strip-list{list-style:none;padding:0;margin:0}
     .gains-strip-list li{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border-light)}
     .gains-strip-list li:first-child{border-top:1px solid var(--border-light)}
+    /* grey box wrapping the at-a-glance strip */
+    .gains-strip-box{background:var(--light-grey);border-radius:8px;padding:20px 22px;margin-top:28px}
     .strip-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--navy);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px}
     .strip-text{font-size:15px;color:var(--body-text);line-height:1.65}
     @media(max-width:768px){
@@ -348,10 +358,16 @@
   </div>
 </div></section>
 
-<!-- ── BRIDGE ── -->
-<section class="bridge"><div class="bridge-inner">
-  <p>A schedule can look right on paper &mdash; and still fail on the floor. The difference is rarely the design. Any schedule can launch. Far fewer hold &mdash; through the policy changes, the operational realities, and the workforce dynamics no spreadsheet captures. That's what thirty years of data-led, people-centered work has taught us to get right.</p>
-</div></section>
+<!-- ── ETHAN FRANKLIN PULL QUOTE ── -->
+<div class="pull-quote-section">
+  <div class="pull-quote">
+    <span class="pull-quote-mark">&#8220;</span>
+    <div class="pull-quote-content">
+      <p>A schedule can look right on paper &mdash; and still fail on the floor. The difference is rarely the design. Any schedule can launch. Far fewer hold &mdash; through the policy changes, the operational realities, and the workforce dynamics no spreadsheet captures. That's what thirty years of data-led, people-centered work has taught us to get right.</p>
+      <div class="pq-attr">— Ethan Franklin, Shiftwork Solutions</div>
+    </div>
+  </div>
+</div>
 
 <!-- ── GAINS HEADER: white bg, whyus.jpg left, heading + at-a-glance right ── -->
 <section class="gains-header-section">
@@ -360,16 +376,18 @@
       <img src="/images/whyus.jpg" alt="Shiftwork Solutions consulting team">
     </div>
     <div class="gains-header-text">
-      <h2>What Clients Gain from Working with Shiftwork Solutions</h2>
+      <h2>What Clients Gain</h2>
       <p class="gains-intro">When schedule decisions are built on data and workforce insight, results hold &mdash; in practice.</p>
-      <div class="gains-strip-label">At a glance</div>
-      <ol class="gains-strip-list">
-        <li><div class="strip-num">1</div><div class="strip-text">A clear view of where the operation truly stands &mdash; before any change is made.</div></li>
-        <li><div class="strip-num">2</div><div class="strip-text">Structural reductions in overtime, idle time, and coverage gaps &mdash; built in from the start.</div></li>
-        <li><div class="strip-num">3</div><div class="strip-text">Real workforce buy-in &mdash; and a schedule that holds over time.</div></li>
-        <li><div class="strip-num">4</div><div class="strip-text">A fully managed transition &mdash; without consuming management bandwidth.</div></li>
-        <li><div class="strip-num">5</div><div class="strip-text">Measurable gains in productivity, retention, and morale that compound over time.</div></li>
-      </ol>
+      <div class="gains-strip-box">
+        <div class="gains-strip-label">At a glance</div>
+        <ol class="gains-strip-list">
+          <li><div class="strip-num">1</div><div class="strip-text">A clear view of where the operation truly stands &mdash; before any change is made.</div></li>
+          <li><div class="strip-num">2</div><div class="strip-text">Structural reductions in overtime, idle time, and coverage gaps &mdash; built in from the start.</div></li>
+          <li><div class="strip-num">3</div><div class="strip-text">Real workforce buy-in &mdash; and a schedule that holds over time.</div></li>
+          <li><div class="strip-num">4</div><div class="strip-text">A fully managed transition &mdash; without consuming management bandwidth.</div></li>
+          <li><div class="strip-num">5</div><div class="strip-text">Measurable gains in productivity, retention, and morale that compound over time.</div></li>
+        </ol>
+      </div>
     </div>
   </div>
 </section>
@@ -445,15 +463,6 @@
   </div>
 </div></section>
 
-<!-- ── OUTCOME STRIP ── -->
-<section class="outcome-strip"><div class="outcome-inner">
-  <div class="outcome-grid">
-    <div class="outcome-card"><div class="outcome-title">Costs Down</div><div class="outcome-desc">Overtime reduced structurally</div></div>
-    <div class="outcome-card"><div class="outcome-title">Retention Up</div><div class="outcome-desc">Schedules employees sustain</div></div>
-    <div class="outcome-card"><div class="outcome-title">Productivity Up</div><div class="outcome-desc">Coverage aligned to demand</div></div>
-    <div class="outcome-card"><div class="outcome-title">Buy-In That Holds</div><div class="outcome-desc">Workforce prepared at launch</div></div>
-  </div>
-</div></section>
 
 <!-- ── INFOGRAPHIC ── -->
 <section class="infographic"><div class="infographic-inner">
