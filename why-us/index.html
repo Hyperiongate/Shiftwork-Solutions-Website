@@ -108,26 +108,23 @@
     .bridge-inner{max-width:var(--max-width);margin:0 auto}
     .bridge p{font-size:17px;line-height:1.80;color:var(--body-text);max-width:800px}
 
-    /* ── GAINS HEADER — white bg, image left, text+strip right ── */
-    .gains-header-section{background:var(--white);padding:60px var(--page-pad) 52px}
-    .gains-header-inner{max-width:var(--gains-max);margin:0 auto;display:grid;grid-template-columns:320px 1fr;gap:52px;align-items:stretch}
-    .gains-header-img{width:100%;border-radius:8px;overflow:hidden;display:flex}
-    .gains-header-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;border-radius:8px;min-height:280px}
-    .gains-header-text{display:flex;flex-direction:column}
-    .gains-header-text h2{font-size:32px;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:10px}
-    .gains-header-text .gains-intro{font-size:16px;color:var(--muted);line-height:1.65;margin-bottom:28px}
-    /* At-a-glance strip — right column */
-    .gains-strip-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:14px}
-    .gains-strip-list{list-style:none;padding:0;margin:0}
-    .gains-strip-list li{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border-light)}
-    .gains-strip-list li:first-child{border-top:1px solid var(--border-light)}
-    /* grey box wrapping the at-a-glance strip */
-    .gains-strip-box{background:var(--light-grey);border-radius:8px;padding:20px 22px;margin-top:28px}
-    .strip-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--navy);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px}
-    .strip-text{font-size:15px;color:var(--body-text);line-height:1.65}
-    @media(max-width:768px){
-      .gains-header-inner{grid-template-columns:1fr}
-      .gains-header-img img{height:220px}
+    /* ── WHAT CLIENTS GAIN — homepage process section format ── */
+    .gains-header-section{background:var(--white);padding:88px var(--page-pad)}
+    .gains-header-inner{max-width:var(--max-width);margin:0 auto}
+    .gains-section-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--mid-blue);margin-bottom:10px}
+    .gains-section-heading{font-family:Arial,Helvetica,sans-serif;font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:700;color:var(--navy);margin-bottom:16px;line-height:1.2}
+    .gains-section-sub{font-size:1.05rem;color:var(--muted);max-width:620px;line-height:1.7}
+    .gains-process-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:48px}
+    .gains-process-image{border-radius:16px;overflow:hidden;box-shadow:0 8px 40px rgba(12,31,63,0.12)}
+    .gains-process-image img{width:100%;height:420px;object-fit:cover;display:block}
+    .gains-process-steps{display:flex;flex-direction:column;gap:28px}
+    .gains-process-step{display:flex;gap:20px;align-items:flex-start}
+    .gains-process-num{width:44px;height:44px;border-radius:50%;background:var(--navy);color:#e8940a;font-family:Arial,Helvetica,sans-serif;font-size:1.2rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .gains-process-step h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+    .gains-process-step p{font-size:0.9rem;color:var(--muted);line-height:1.6}
+    @media(max-width:800px){
+      .gains-process-grid{grid-template-columns:1fr}
+      .gains-process-image img{height:280px}
     }
 
     /* ── GAINS CARDS (dark navy) ── */
@@ -270,7 +267,7 @@
       .gains-row{grid-template-columns:1fr}
       .gains-strip-list li{gap:12px}
       .gains-header-inner{grid-template-columns:1fr}
-      .gains-header-img img{height:200px}
+      .gains-process-image img{height:200px}
     }
     @media(max-width:640px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
@@ -369,24 +366,37 @@
   </div>
 </div>
 
-<!-- ── GAINS HEADER: white bg, whyus.jpg left, heading + at-a-glance right ── -->
+<!-- ── WHAT CLIENTS GAIN — homepage process section format ── -->
 <section class="gains-header-section">
   <div class="gains-header-inner">
-    <div class="gains-header-img">
-      <img src="/images/whyus.jpg" alt="Shiftwork Solutions consulting team">
-    </div>
-    <div class="gains-header-text">
-      <h2>What Clients Gain</h2>
-      <p class="gains-intro">When schedule decisions are built on data and workforce insight, results hold &mdash; in practice.</p>
-      <div class="gains-strip-box">
-        <div class="gains-strip-label">At a glance</div>
-        <ol class="gains-strip-list">
-          <li><div class="strip-num">1</div><div class="strip-text">A clear view of where the operation truly stands &mdash; before any change is made.</div></li>
-          <li><div class="strip-num">2</div><div class="strip-text">Structural reductions in overtime, idle time, and coverage gaps &mdash; built in from the start.</div></li>
-          <li><div class="strip-num">3</div><div class="strip-text">Real workforce buy-in &mdash; and a schedule that holds over time.</div></li>
-          <li><div class="strip-num">4</div><div class="strip-text">A fully managed transition &mdash; without consuming management bandwidth.</div></li>
-          <li><div class="strip-num">5</div><div class="strip-text">Measurable gains in productivity, retention, and morale that compound over time.</div></li>
-        </ol>
+    <div class="gains-section-label">Results We Deliver</div>
+    <div class="gains-section-heading">What Clients Gain</div>
+    <p class="gains-section-sub">When schedule decisions are built on data and workforce insight, results hold &mdash; in practice.</p>
+    <div class="gains-process-grid">
+      <div class="gains-process-image">
+        <img src="/images/whyus.jpg" alt="Shiftwork Solutions consulting team">
+      </div>
+      <div class="gains-process-steps">
+        <div class="gains-process-step">
+          <div class="gains-process-num">1</div>
+          <div><h3>A clear view before any change is made</h3><p>A clear view of where the operation truly stands &mdash; its strengths, risks, and highest-leverage opportunities &mdash; grounded in real data.</p></div>
+        </div>
+        <div class="gains-process-step">
+          <div class="gains-process-num">2</div>
+          <div><h3>Cost efficiency built in, not patched in</h3><p>Structural reductions in overtime, idle time, and coverage gaps &mdash; validated across multiple schedule scenarios before implementation begins.</p></div>
+        </div>
+        <div class="gains-process-step">
+          <div class="gains-process-num">3</div>
+          <div><h3>Real workforce buy-in that holds</h3><p>A schedule the workforce helped choose performs differently from one imposed on them. Buy-in is built before the first shift rotates.</p></div>
+        </div>
+        <div class="gains-process-step">
+          <div class="gains-process-num">4</div>
+          <div><h3>A fully managed transition</h3><p>Communication, policy alignment, and workforce preparation &mdash; so leadership stays focused on running the operation, not managing resistance.</p></div>
+        </div>
+        <div class="gains-process-step">
+          <div class="gains-process-num">5</div>
+          <div><h3>Measurable impact that compounds</h3><p>Higher productivity, stronger retention, and improved morale &mdash; driven by schedules that align with both operational demand and workforce reality.</p></div>
+        </div>
       </div>
     </div>
   </div>
