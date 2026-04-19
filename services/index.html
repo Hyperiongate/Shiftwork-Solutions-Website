@@ -155,7 +155,7 @@
     /* ── SECTION 2: EDITORIAL INTRO — Better Operations ── */
     .better-ops {
       background: var(--white);
-      padding: 72px 24px 80px;
+      padding: 48px 24px 36px;
       border-bottom: 1px solid var(--border-light);
     }
     .better-ops-inner {
@@ -197,7 +197,7 @@
     /* ── SECTION 3a: WHEN THE SCHEDULE IS RIGHT ── */
     .editorial-section {
       background: var(--white);
-      padding: 52px var(--page-pad) 60px;
+      padding: 32px var(--page-pad) 60px;
     }
     .editorial-inner {
       max-width: var(--max-width);
@@ -487,10 +487,18 @@
 
     /* ── CHALLENGES ── */
     .challenges-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 30px; }
-    .challenge-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10); border-radius: var(--radius); padding: 22px 20px; transition: background 0.2s; }
-    .challenge-card:hover { background: rgba(255,255,255,0.10); }
-    .challenge-card h3 { font-size: 14px; font-weight: 700; color: var(--white); margin-bottom: 8px; }
-    .challenge-card p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.6; }
+    .challenge-card { background: var(--white); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius); padding: 22px 20px; transition: box-shadow 0.2s, transform 0.2s; }
+    .challenge-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.18); transform: translateY(-2px); }
+    .challenge-card h3 { font-size: 14px; font-weight: 700; color: var(--dark-heading); margin-bottom: 8px; }
+    .challenge-card p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.6; }
+    /* Thomas challenge card — white with image */
+    .challenge-card-thomas { background: var(--white); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius); padding: 0; transition: box-shadow 0.2s, transform 0.2s; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; }
+    .challenge-card-thomas:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.22); transform: translateY(-2px); }
+    .challenge-card-thomas img { width: 100%; height: 100px; object-fit: cover; display: block; }
+    .challenge-card-thomas-body { padding: 14px 18px 16px; flex: 1; }
+    .challenge-card-thomas-body h3 { font-size: 14px; font-weight: 700; color: var(--dark-heading); margin-bottom: 6px; }
+    .challenge-card-thomas-body p { font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.55; margin-bottom: 8px; }
+    .challenge-card-thomas-body span { font-size: 12px; font-weight: 700; color: var(--orange); }
     @media (max-width: 760px) { .challenges-grid { grid-template-columns: 1fr; } }
     @media (min-width: 520px) and (max-width: 760px) { .challenges-grid { grid-template-columns: repeat(2, 1fr); } }
 
@@ -919,6 +927,14 @@
         <h3>Greenfield or expansion</h3>
         <p>New facility, new line, or consolidation. You have one chance to set the schedule right from the start.</p>
       </div>
+      <a href="https://shift-work-diagnostic.onrender.com/" class="challenge-card-thomas" target="_blank" rel="noopener">
+        <img src="/images/thomas.jpg" alt="Talk to Thomas, AI shift advisor">
+        <div class="challenge-card-thomas-body">
+          <h3>Talk to Thomas</h3>
+          <p>Our AI shift operations advisor. Ask a question about your operation — available now, no appointment needed.</p>
+          <span>Start a conversation &#x2192;</span>
+        </div>
+      </a>
     </div>
   </div>
 </section>
