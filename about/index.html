@@ -6,29 +6,20 @@
   URL: /about/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-17
+  Last Updated: 2026-04-18
 
   CHANGE LOG:
     2026-04-04 — Initial build.
     2026-04-04 — NAV + BUTTON + SEO + URL AUDIT.
     2026-04-13 — Nav rename + hero background (second.png).
     2026-04-16 — FAQ section upgrade: Hands_in_the_air.jpg accordion.
-    2026-04-16 — NAV: "Our Company" -> "Why Us" (href /why-us/ unchanged).
-                 NEXT STEPS: added standard light-grey 3-card section after FAQ.
-                 FOOTER: replaced 2-col engage-band + light-grey footer with
-                 standard 3-col dark-navy prefooter (Free Consultation / Thomas /
-                 Newsletter) + standard bottom bar. CSS updated to match.
-    2026-04-17 — CRITICAL FIX: Closed unterminated window.engageNLSubmit function
-                 in newsletter IIFE (was missing "};" before "})();"). Prior to
-                 this fix the page contained a JavaScript syntax error that broke
-                 all inline script execution from that block onward — newsletter
-                 form was non-functional. No HTML, CSS, content, or schema
-                 changed. Only the closing of the function expression was added.
-    2026-04-17 — PULL QUOTE STYLE: Both pull quotes updated to match Our Team
-                 page treatment — 128px Georgia quotation mark, italic blue text
-                 (#4a6a8a), flex-row layout. Replaced border-left orange style.
-                 CSS updated: .pull-quote-inner/.pull-quote-text/.pull-quote-attr
-                 removed; .pull-quote-mark/.pull-quote-content/.pq-attr added.
+    2026-04-16 — NAV: "Our Company" -> "Why Us". NEXT STEPS + FOOTER added.
+    2026-04-17 — JS fix, pull quote style update.
+    2026-04-18 — TWO CHANGES:
+                 1. "Who We Are" section: white background, thomas.jpg left,
+                    text right (two-column layout).
+                 2. Industry tiles: background changed from light-blue to
+                    light-grey (#F4F6F8).
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
@@ -101,7 +92,43 @@
     .breadcrumb-inner a:hover{color:var(--navy)}
     .breadcrumb-inner .bc-current{color:var(--navy);font-weight:700}
 
-    /* ── CONTENT ── */
+    /* ── WHO WE ARE — two-column: image left, text right ── */
+    .who-we-are-section{
+      background:var(--white);
+      padding:40px var(--page-pad) 32px;
+    }
+    .who-we-are-inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:260px 1fr;
+      gap:40px;
+      align-items:start;
+    }
+    .who-we-are-img{
+      width:100%;
+      border-radius:8px;
+      overflow:hidden;
+      flex-shrink:0;
+    }
+    .who-we-are-img img{
+      width:100%;
+      height:280px;
+      object-fit:cover;
+      object-position:center top;
+      display:block;
+      border-radius:8px;
+    }
+    .who-we-are-text .eyebrow{margin-bottom:6px}
+    .who-we-are-text h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:16px}
+    .who-we-are-text p{font-size:15px;line-height:1.75;color:var(--body-text);margin-bottom:16px}
+    .who-we-are-text p:last-child{margin-bottom:0}
+    @media(max-width:640px){
+      .who-we-are-inner{grid-template-columns:1fr}
+      .who-we-are-img img{height:200px;object-position:center}
+    }
+
+    /* ── CONTENT (other sections) ── */
     .content-section{max-width:var(--max-width);margin:0 auto;padding:20px var(--page-pad) 0}
     .eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:6px}
     .content-section h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:16px}
@@ -132,9 +159,9 @@
     .process-items li{font-size:13px;color:var(--body-text);line-height:1.6;padding:4px 0;padding-left:14px;position:relative}
     .process-items li::before{content:'→';position:absolute;left:0;color:var(--mid-blue);font-size:11px;top:6px}
 
-    /* ── INDUSTRY GRID ── */
+    /* ── INDUSTRY GRID — tiles now light-grey ── */
     .industry-grid{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad);display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-    .industry-tile{background:var(--light-blue);border-radius:6px;padding:12px 14px;font-size:13px;font-weight:700;color:var(--navy);line-height:1.3;text-align:center}
+    .industry-tile{background:var(--light-grey);border-radius:6px;padding:12px 14px;font-size:13px;font-weight:700;color:var(--navy);line-height:1.3;text-align:center}
 
     /* ── DIFFERENTIATORS ── */
     .diff-list{max-width:var(--max-width);margin:16px auto;padding:0 var(--page-pad)}
@@ -144,7 +171,7 @@
     .diff-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
     .diff-text{font-size:14px;color:var(--body-text);line-height:1.65;max-width:640px}
 
-    /* ── PULL QUOTE — 128px Georgia mark, italic blue (matches Our Team) ── */
+    /* ── PULL QUOTE ── */
     .pull-quote{max-width:var(--max-width);margin:32px auto;padding:0 var(--page-pad);display:flex;align-items:center;gap:16px}
     .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
@@ -191,7 +218,6 @@
     .cta-btn-primary:hover{background:#c4510a}
     .cta-link{font-size:13px;color:var(--mid-blue);text-decoration:none;font-weight:500}
     .cta-link:hover{text-decoration:underline;color:var(--white)}
-    .cta-vector{position:absolute;right:-20px;bottom:-20px;width:200px;height:200px;background:url('/images/shutterstock_1502038526.jpg') center / cover;opacity:.2;pointer-events:none}
 
     /* ── NEXT STEPS ── */
     .next-steps{padding:56px var(--page-pad) 60px;background:var(--light-grey)}
@@ -201,16 +227,12 @@
     .next-steps-sub{font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.6}
     .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
     .ns-card{background:var(--white);border:1px solid var(--border-med);border-top:4px solid transparent;border-radius:8px;padding:24px 20px;text-decoration:none;display:block;transition:box-shadow .25s ease}
-    .ns-card.ns-card-visible{}
-    .ns-card:nth-child(1){transition-delay:.05s}
-    .ns-card:nth-child(2){transition-delay:.18s}
-    .ns-card:nth-child(3){transition-delay:.31s}
     .ns-accent-blue{border-top-color:var(--navy)}
     .ns-accent-orange{border-top-color:var(--orange)}
     .ns-accent-green{border-top-color:var(--green)}
-    .ns-accent-blue:hover{box-shadow:0 8px 28px rgba(31,78,121,0.15);transform:translateY(-5px) !important}
-    .ns-accent-orange:hover{box-shadow:0 8px 28px rgba(232,97,10,0.22);transform:translateY(-5px) !important}
-    .ns-accent-green:hover{box-shadow:0 8px 28px rgba(29,158,117,0.22);transform:translateY(-5px) !important}
+    .ns-accent-blue:hover{box-shadow:0 8px 28px rgba(31,78,121,0.15);transform:translateY(-5px)}
+    .ns-accent-orange:hover{box-shadow:0 8px 28px rgba(232,97,10,0.22);transform:translateY(-5px)}
+    .ns-accent-green:hover{box-shadow:0 8px 28px rgba(29,158,117,0.22);transform:translateY(-5px)}
     .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
     .ns-accent-blue .ns-card-label{color:var(--navy)}
     .ns-accent-orange .ns-card-label{color:var(--orange)}
@@ -267,6 +289,9 @@
       .mobile-toggle{display:block}
       .nav-logo-text{font-size:16px}
       .hero{padding:32px 20px 36px}.hero h1{font-size:24px}.hero-stats{flex-direction:column;gap:10px}
+      .who-we-are-section{padding:28px 20px}
+      .who-we-are-inner{grid-template-columns:1fr}
+      .who-we-are-img img{height:200px}
       .content-section{padding:16px 20px 0}
       .three-col,.process-grid{grid-template-columns:1fr;padding:0 20px}
       .team-list{padding:0 20px}
@@ -327,11 +352,19 @@
   <a href="/">Home</a> &rsaquo; <span class="bc-current">About Us</span>
 </div></div>
 
-<section class="content-section">
-  <div class="eyebrow">Who We Are</div>
-  <h2>The Shiftwork Specialists</h2>
-  <p>Shiftwork Solutions LLC is a leading U.S.-based consulting firm specializing in workforce scheduling and operational optimization for shift-intensive industries. For over 30 years, we have helped manufacturing plants, distribution centers, mines, utilities, and other 24/7 operations improve retention, reduce costs, and boost performance through data-driven, people-centric labor strategies. We work in both union and non-union environments.</p>
-  <p>We are not a generalist management consulting firm with a shiftwork practice. This is all we do. Every principle we apply, every framework we use, and every recommendation we make has been tested in real operations — often under difficult conditions — and refined through hundreds of engagements across dozens of industries. That depth of specialization is something you cannot replicate with generalists, no matter how talented they are.</p>
+<!-- ── WHO WE ARE — white bg, thomas.jpg left, text right ── -->
+<section class="who-we-are-section">
+  <div class="who-we-are-inner">
+    <div class="who-we-are-img">
+      <img src="/images/whyus.jpg" alt="Shiftwork Solutions consulting team">
+    </div>
+    <div class="who-we-are-text">
+      <div class="eyebrow">Who We Are</div>
+      <h2>The Shiftwork Specialists</h2>
+      <p>Shiftwork Solutions LLC is a leading U.S.-based consulting firm specializing in workforce scheduling and operational optimization for shift-intensive industries. For over 30 years, we have helped manufacturing plants, distribution centers, mines, utilities, and other 24/7 operations improve retention, reduce costs, and boost performance through data-driven, people-centric labor strategies. We work in both union and non-union environments.</p>
+      <p>We are not a generalist management consulting firm with a shiftwork practice. This is all we do. Every principle we apply, every framework we use, and every recommendation we make has been tested in real operations — often under difficult conditions — and refined through hundreds of engagements across dozens of industries. That depth of specialization is something you cannot replicate with generalists, no matter how talented they are.</p>
+    </div>
+  </div>
 </section>
 
 <div class="three-col">
@@ -380,6 +413,7 @@
   <p>Shiftwork challenges look different in a food processing plant than in a chemical refinery, and different again in a distribution center or a mining operation. Our industry depth means we arrive already knowing the operational realities, the workforce dynamics, and the policy constraints specific to your sector.</p>
 </section>
 
+<!-- ── INDUSTRY GRID — tiles now light-grey ── -->
 <div class="industry-grid">
   <div class="industry-tile">Food &amp; Beverage Manufacturing</div>
   <div class="industry-tile">Chemical &amp; Pharmaceutical</div>
