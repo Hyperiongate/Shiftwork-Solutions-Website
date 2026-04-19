@@ -279,52 +279,71 @@
 
     /* ── SECTION 3b: WHO WE WORK WITH ── */
     /* item 4: image left + 3-col text right, headings dark blue */
+    /* ── WHO WE WORK WITH — full-bleed, image flush left ── */
     .who-section {
       background: var(--light-grey);
-      padding: 52px var(--page-pad) 60px;
+      padding: 0;
+      overflow: hidden;
     }
-    .who-layout {
+    .who-inner {
       display: grid;
-      grid-template-columns: 340px 1fr;
-      gap: 48px;
-      align-items: start;
+      grid-template-columns: 38% 62%;
+      min-height: 480px;
+    }
+    /* Left: image fills its cell edge-to-edge, no padding */
+    .who-image-col {
+      position: relative;
+      overflow: hidden;
+      min-height: 480px;
     }
     .who-image-col img {
+      position: absolute;
+      inset: 0;
       width: 100%;
-      height: auto;
-      border-radius: 8px;
-      display: block;
+      height: 100%;
       object-fit: cover;
+      display: block;
+      border-radius: 0;
+    }
+    /* Right: text gets generous padding */
+    .who-text-col {
+      padding: 52px 48px 52px 52px;
     }
     .who-text-col .editorial-heading {
       color: var(--dark-heading);
+      font-size: 28px;
+      margin-bottom: 10px;
     }
     .who-text-col .editorial-lead {
       color: #333;
+      font-size: 16px;
+      margin-bottom: 28px;
     }
     .who-section .ec-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0;
     }
-    .who-section .ec-col { padding: 0 22px; }
+    .who-section .ec-col { padding: 0 20px; }
     .who-section .ec-col:first-child { padding-left: 0; border-right: 1px solid #CCCCCC; }
     .who-section .ec-col:nth-child(2) { border-right: 1px solid #CCCCCC; }
     .who-section .ec-col:last-child { padding-right: 0; }
-    /* item 4: who section subheadings → dark heading blue */
     .who-section .ec-col-heading {
       color: var(--dark-heading);
-      font-size: 17px;
+      font-size: 16px;
     }
-    .who-section .ec-col-body { line-height: 1.85; font-size: 15px; }
+    .who-section .ec-col-body { line-height: 1.80; font-size: 14px; }
     @media (max-width: 1024px) {
-      .who-layout { grid-template-columns: 1fr; gap: 28px; }
-      .who-section .ec-col { border-right: none !important; padding: 0 !important; }
+      .who-inner { grid-template-columns: 1fr; min-height: auto; }
+      .who-image-col { position: relative; height: 280px; min-height: 280px; }
+      .who-text-col { padding: 36px 32px; }
       .who-section .ec-grid { grid-template-columns: 1fr; row-gap: 24px; }
+      .who-section .ec-col { border-right: none !important; padding: 0 !important; }
     }
     @media (max-width: 767px) {
-      .who-section { padding: 36px var(--page-pad) 44px; }
-      .who-section .ec-col { border-top: 1px solid #DEDEDE; padding-top: 22px !important; }
+      .who-image-col { height: 220px; min-height: 220px; }
+      .who-text-col { padding: 28px 20px; }
+      .who-section .ec-col { border-top: 1px solid #DEDEDE; padding-top: 20px !important; }
       .who-section .ec-col:first-child { border-top: none; padding-top: 0 !important; }
     }
 
@@ -692,46 +711,41 @@
      item 4: 3people.jpg LEFT, text columns RIGHT
 ════════════════════════════════════════════════════════════════ -->
 <section class="who-section">
-  <div class="editorial-inner">
-    <div class="who-layout">
-      <!-- Left: image -->
-      <div class="who-image-col">
-        <img src="/images/3people.jpg" alt="Operations leaders in discussion" loading="lazy">
-      </div>
-      <!-- Right: heading + 3 columns -->
-      <div class="who-text-col">
-        <h2 class="editorial-heading">Who We Work With</h2>
-        <p class="editorial-lead">Running shift operations&mdash;but the system is no longer working the way it should.</p>
-        <div class="ec-grid">
-          <div class="ec-col">
-            <div class="ec-col-heading">Running shift operations&mdash;but the system is no longer working.</div>
-            <div class="ec-col-body">
-              <p>Overtime is rising. Turnover won&rsquo;t stabilize. Coverage gaps keep appearing. The current schedule was built for a different operation.</p>
-              <p>We redesign it around the operation running today&mdash;built for what comes next.</p>
-            </div>
+  <div class="who-inner">
+    <!-- Left: image flush to edges -->
+    <div class="who-image-col">
+      <img src="/images/3people.jpg" alt="Operations leaders in discussion" loading="lazy">
+    </div>
+    <!-- Right: heading + 3 columns -->
+    <div class="who-text-col">
+      <h2 class="editorial-heading">Who We Work With</h2>
+      <p class="editorial-lead">Running shift operations&mdash;but the system is no longer working the way it should.</p>
+      <div class="ec-grid">
+        <div class="ec-col">
+          <div class="ec-col-heading">Running shift operations&mdash;but the system is no longer working.</div>
+          <div class="ec-col-body">
+            <p>Overtime is rising. Turnover won&rsquo;t stabilize. Coverage gaps keep appearing. The current schedule was built for a different operation.</p>
+            <p>We redesign it around the operation running today&mdash;built for what comes next.</p>
           </div>
-          <div class="ec-col">
-            <div class="ec-col-heading">Transitioning from 5-day to continuous operations.</div>
-            <div class="ec-col-body">
-              <p>The financial case is often clear. Workforce acceptance rarely is.</p>
-              <p>We define the business case, design the right crew structure, model financial outcomes, and guide the transition&mdash;so it lands as an improvement, not an imposition.</p>
-            </div>
+        </div>
+        <div class="ec-col">
+          <div class="ec-col-heading">Transitioning from 5-day to continuous operations.</div>
+          <div class="ec-col-body">
+            <p>The financial case is often clear. Workforce acceptance rarely is.</p>
+            <p>We define the business case, design the right crew structure, model financial outcomes, and guide the transition&mdash;so it lands as an improvement, not an imposition.</p>
           </div>
-          <div class="ec-col">
-            <div class="ec-col-heading">Managing complexity in multi-shift operations.</div>
-            <div class="ec-col-body">
-              <p>Too many schedules, misaligned start times, and departments that don&rsquo;t coordinate well.</p>
-              <p>We simplify&mdash;reducing schedule proliferation, aligning coverage to actual workflow, and building standards that hold across shifts and facilities.</p>
-            </div>
+        </div>
+        <div class="ec-col">
+          <div class="ec-col-heading">Managing complexity in multi-shift operations.</div>
+          <div class="ec-col-body">
+            <p>Too many schedules, misaligned start times, and departments that don&rsquo;t coordinate well.</p>
+            <p>We simplify&mdash;reducing schedule proliferation, aligning coverage to actual workflow, and building standards that hold across shifts and facilities.</p>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+    </div><!-- /.who-text-col -->
+  </div><!-- /.who-inner -->
 </section>
-
-<!-- ══════════════════════════════════════════════════════════════
-     SECTION 4: CORE SERVICES GRID
      item 3: orange border + per-card bold highlights on hover
 ════════════════════════════════════════════════════════════════ -->
 <section class="section" id="introduction">
