@@ -279,22 +279,25 @@
 
     /* ── SECTION 3b: WHO WE WORK WITH ── */
     /* item 4: image left + 3-col text right, headings dark blue */
-    /* ── WHO WE WORK WITH — full-bleed, image flush left ── */
+    /* ── WHO WE WORK WITH — contained layout, image matches text height ── */
     .who-section {
       background: var(--light-grey);
-      padding: 0;
-      overflow: hidden;
+      padding: 52px var(--page-pad) 60px;
     }
     .who-inner {
+      max-width: 1200px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: 38% 62%;
-      min-height: 480px;
+      grid-template-columns: 360px 1fr;
+      gap: 52px;
+      align-items: stretch;
     }
-    /* Left: image fills its cell edge-to-edge, no padding */
+    /* Image fills its grid cell height exactly */
     .who-image-col {
       position: relative;
+      border-radius: 8px;
       overflow: hidden;
-      min-height: 480px;
+      min-height: 360px;
     }
     .who-image-col img {
       position: absolute;
@@ -303,11 +306,13 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      border-radius: 0;
+      border-radius: 8px;
     }
-    /* Right: text gets generous padding */
+    /* Right: text column */
     .who-text-col {
-      padding: 52px 48px 52px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
     .who-text-col .editorial-heading {
       color: var(--dark-heading);
@@ -334,15 +339,14 @@
     }
     .who-section .ec-col-body { line-height: 1.80; font-size: 14px; }
     @media (max-width: 1024px) {
-      .who-inner { grid-template-columns: 1fr; min-height: auto; }
-      .who-image-col { position: relative; height: 280px; min-height: 280px; }
-      .who-text-col { padding: 36px 32px; }
+      .who-inner { grid-template-columns: 1fr; gap: 28px; }
+      .who-image-col { min-height: 260px; height: 260px; position: relative; }
       .who-section .ec-grid { grid-template-columns: 1fr; row-gap: 24px; }
       .who-section .ec-col { border-right: none !important; padding: 0 !important; }
     }
     @media (max-width: 767px) {
-      .who-image-col { height: 220px; min-height: 220px; }
-      .who-text-col { padding: 28px 20px; }
+      .who-section { padding: 36px var(--page-pad) 44px; }
+      .who-image-col { min-height: 200px; height: 200px; }
       .who-section .ec-col { border-top: 1px solid #DEDEDE; padding-top: 20px !important; }
       .who-section .ec-col:first-child { border-top: none; padding-top: 0 !important; }
     }
