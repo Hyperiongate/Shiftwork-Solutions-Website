@@ -4,7 +4,7 @@
   File: contact/index.html
   URL: /contact/
   Created: April 2, 2026
-  Last updated: 2026-04-17
+  Last updated: 2026-04-19
   CHANGE LOG:
     2026-04-07  SECURITY HARDENING (form backends, honeypot, timestamp)
     2026-04-13  NAV RENAME + HERO BACKGROUND (second.png)
@@ -17,6 +17,13 @@
                 API call fires in background. Fallback to Formspree also
                 fires silently in background if Swarm is unavailable.
                 Visitor never sees a delay or "Sending..." state.
+    2026-04-19  REVERTED INSTANT THANK-YOU: Instant thank-you was masking
+                delivery failures. Form now waits for confirmed delivery
+                before showing thank-you. Flow: Swarm first → Formspree
+                fallback if Swarm fails → error message if both fail.
+                Button shows "Sending..." while in-flight and re-enables
+                on error so user can retry. Thank-you only shown after
+                confirmed success from either backend.
   FORM BACKEND (primary):  https://ai-swarm-orchestrator.onrender.com/api/contact/submit
   FORM BACKEND (fallback): https://formspree.io/f/xwvwnwea
 -->
@@ -103,6 +110,13 @@
     .btn-submit:hover{background:#c4510a}
     .btn-submit:disabled{background:#a0a0a0;cursor:not-allowed}
     .form-privacy{font-size:12px;color:var(--muted);margin-top:10px;text-align:center}
+    /* THANK YOU STATE */
+    .thankyou-wrap{text-align:center;padding:48px 24px 56px}
+    .thankyou-wrap .ty-check{font-size:48px;margin-bottom:20px}
+    .thankyou-wrap h2{font-size:28px;font-weight:700;color:var(--navy);margin-bottom:16px}
+    .thankyou-wrap p{font-size:17px;color:#444;line-height:1.7;max-width:520px;margin:0 auto 32px}
+    .thankyou-wrap a{display:inline-block;padding:13px 32px;background:var(--orange);color:#fff;font-size:15px;font-weight:700;text-decoration:none;border-radius:6px;transition:background .2s}
+    .thankyou-wrap a:hover{background:#c4510a}
     /* NEXT STEPS */
     .next-steps{padding:56px var(--page-pad) 64px;background:var(--light-grey);border-top:1px solid var(--border-light)}
     .next-steps-inner{max-width:var(--max-content);margin:0 auto}
@@ -211,7 +225,7 @@
 
 <section class="contact-section">
   <div class="contact-inner">
-    <div class="contact-form-wrap">
+    <div class="contact-form-wrap" id="contact-form-wrap">
       <h2>Send Us a Message</h2>
       <p class="form-intro">Tell us about your operation and what you&#x2019;re trying to solve. The more context you share, the more useful our first conversation will be.</p>
       <div id="form-status" class="form-status"></div>
@@ -312,86 +326,165 @@
 
 <script>
 (function(){
-  var CONTACT_API='https://ai-swarm-orchestrator.onrender.com/api/contact/submit';
-  var FORMSPREE_FALLBACK='https://formspree.io/f/xwvwnwea';
-  document.getElementById('_loaded').value=Date.now().toString();
-  document.getElementById('mobile-toggle').addEventListener('click',function(){document.getElementById('main-nav').classList.toggle('open');});
-  document.addEventListener('click',function(e){var h=document.querySelector('.site-header');if(h&&!h.contains(e.target))document.getElementById('main-nav').classList.remove('open');});
-  document.getElementById('contact-form').addEventListener('submit',function(e){
+  var CONTACT_API   = 'https://ai-swarm-orchestrator.onrender.com/api/contact/submit';
+  var FORMSPREE     = 'https://formspree.io/f/xwvwnwea';
+
+  // Stamp load time for bot-speed check
+  document.getElementById('_loaded').value = Date.now().toString();
+
+  // Mobile nav toggle
+  document.getElementById('mobile-toggle').addEventListener('click', function(){
+    document.getElementById('main-nav').classList.toggle('open');
+  });
+  document.addEventListener('click', function(e){
+    var h = document.querySelector('.site-header');
+    if(h && !h.contains(e.target)) document.getElementById('main-nav').classList.remove('open');
+  });
+
+  // Show thank-you — replaces the form area
+  function showThankYou() {
+    document.getElementById('contact-form-wrap').innerHTML =
+      '<div class="thankyou-wrap">' +
+        '<div class="ty-check">&#10003;</div>' +
+        '<h2>Thank You for Reaching Out</h2>' +
+        '<p>Someone from the Shiftwork Solutions team will be in touch with you shortly. We typically respond within one business day.</p>' +
+        '<a href="/">Return to Shiftwork Solutions &rarr;</a>' +
+      '</div>';
+  }
+
+  // Show error — re-enables button so user can retry
+  function showError(msg) {
+    var status = document.getElementById('form-status');
+    var btn    = document.getElementById('submit-btn');
+    status.className  = 'form-status error';
+    status.textContent = msg || 'Something went wrong. Please try again or call us at (415) 265-1621.';
+    if(btn){ btn.disabled = false; btn.textContent = 'Send Message \u2192'; }
+  }
+
+  // Formspree fallback — called only if Swarm fails
+  function tryFormspree(name, email, company, message) {
+    var fd = new FormData();
+    fd.append('name',    name);
+    fd.append('email',   email);
+    fd.append('company', company);
+    fd.append('message', message);
+    fd.append('_subject','New Contact Form \u2014 shift-work.com');
+    fetch(FORMSPREE, { method:'POST', body:fd, headers:{'Accept':'application/json'} })
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if(d.ok || d.next){ showThankYou(); }
+        else { showError(); }
+      })
+      .catch(function(){ showError(); });
+  }
+
+  document.getElementById('contact-form').addEventListener('submit', function(e){
     e.preventDefault();
-    var form=this,btn=document.getElementById('submit-btn'),status=document.getElementById('form-status');
+
+    var status = document.getElementById('form-status');
+    var btn    = document.getElementById('submit-btn');
+
+    // Hide any previous status
+    status.className  = 'form-status';
+    status.textContent = '';
 
     // Honeypot check
-    if(document.getElementById('_gotcha').value!==''){
-      status.className='form-status success';
-      status.textContent='Thank you for reaching out! Someone from the Shiftwork Solutions team will be in touch with you shortly.';
-      form.reset();
+    if(document.getElementById('_gotcha').value !== ''){
+      showThankYou(); // silently discard bot submission
       return;
     }
 
-    // Timestamp check (bot submitted too fast)
-    var loadedAt=parseInt(document.getElementById('_loaded').value,10);
-    if(Date.now()-loadedAt<3000){
-      status.className='form-status error';
-      status.textContent='Please take a moment to fill out the form completely.';
+    // Timestamp check — reject if submitted in under 3 seconds
+    var loadedAt = parseInt(document.getElementById('_loaded').value, 10);
+    if(Date.now() - loadedAt < 3000){
+      showError('Please take a moment to fill out the form completely.');
       return;
     }
 
-    // Validation
-    var name=document.getElementById('name').value.trim(),
-        email=document.getElementById('email').value.trim(),
-        company=document.getElementById('company').value.trim(),
-        message=document.getElementById('message').value.trim();
-    if(!name||!email||!company||!message){
-      status.className='form-status error';
-      status.textContent='Please fill in all required fields.';
+    // Required field validation
+    var name    = document.getElementById('name').value.trim();
+    var email   = document.getElementById('email').value.trim();
+    var company = document.getElementById('company').value.trim();
+    var message = document.getElementById('message').value.trim();
+
+    if(!name || !email || !company || !message){
+      showError('Please fill in all required fields.');
       return;
     }
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-      status.className='form-status error';
-      status.textContent='Please enter a valid email address.';
+      showError('Please enter a valid email address.');
       return;
     }
 
-    // Show thank-you instantly — replace the entire form area
-    document.querySelector('.contact-form-wrap').innerHTML =
-      '<div style="text-align:center;padding:48px 24px 56px;">' +
-        '<div style="font-size:48px;margin-bottom:20px;">&#10003;</div>' +
-        '<h2 style="font-size:28px;font-weight:700;color:#1F4E79;margin-bottom:16px;">Thank You for Reaching Out</h2>' +
-        '<p style="font-size:17px;color:#444;line-height:1.7;max-width:520px;margin:0 auto 32px;">Someone from the Shiftwork Solutions team will be in touch with you shortly. We typically respond within one business day.</p>' +
-        '<a href="/" style="display:inline-block;padding:13px 32px;background:#E8610A;color:#fff;font-size:15px;font-weight:700;text-decoration:none;border-radius:6px;transition:background .2s;" onmouseover="this.style.background=\'#c4510a\'" onmouseout="this.style.background=\'#E8610A\'">Return to Shiftwork Solutions &rarr;</a>' +
-      '</div>';
+    // Disable button and show sending state
+    btn.disabled    = true;
+    btn.textContent = 'Sending\u2026';
 
-    // Fire API in the background — silently, no UI impact
-    var payload={name:name,email:email,company:company,
-      phone:document.getElementById('phone').value.trim()||null,
-      employees:document.getElementById('employees').value||null,
-      message:message,source:'website-contact-page',
-      honeypot:document.getElementById('_gotcha').value,
-      timestamp:document.getElementById('_loaded').value};
-    fetch(CONTACT_API,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)})
+    // Collect full payload
+    var payload = {
+      name:      name,
+      email:     email,
+      company:   company,
+      phone:     document.getElementById('phone').value.trim()    || null,
+      employees: document.getElementById('employees').value       || null,
+      message:   message,
+      source:    'website-contact-page',
+      honeypot:  document.getElementById('_gotcha').value,
+      timestamp: document.getElementById('_loaded').value
+    };
+
+    // Try Swarm first
+    fetch(CONTACT_API, {
+      method:  'POST',
+      headers: {'Content-Type':'application/json','Accept':'application/json'},
+      body:    JSON.stringify(payload)
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      if(d.success){ showThankYou(); }
+      else {
+        // Swarm returned a non-success response — fall back to Formspree
+        console.warn('Swarm returned non-success, trying Formspree:', d);
+        tryFormspree(name, email, company, message);
+      }
+    })
     .catch(function(err){
-      // Swarm unavailable — silently fall back to Formspree
-      console.warn('Swarm backend unavailable, falling back to Formspree:',err.message);
-      var fd=new FormData();
-      fd.append('name',name);fd.append('email',email);
-      fd.append('company',company);fd.append('message',message);
-      fd.append('_subject','New Contact Form \u2014 shift-work.com');
-      fetch(FORMSPREE_FALLBACK,{method:'POST',body:fd,headers:{'Accept':'application/json'}})
-      .catch(function(e){console.warn('Formspree fallback also failed:',e.message);});
+      // Swarm network failure — fall back to Formspree
+      console.warn('Swarm unreachable, trying Formspree:', err.message);
+      tryFormspree(name, email, company, message);
     });
   });
 
-  if(window.location.search.indexOf('sent=true')>-1){
-    var s=document.getElementById('form-status');
-    s.className='form-status success';
-    s.textContent='Thank you for reaching out! Someone from the Shiftwork Solutions team will be in touch with you shortly.';
-    history.replaceState(null,'','/contact/');
-  }
 })();
+
+// Footer newsletter
 (function(){
-  var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
-  window.footerNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('footerNLBtn'),msg=document.getElementById('footerNLMsg'),email=document.getElementById('footerNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'contact-footer-nl'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('footerNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};
+  var SWARM = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
+  window.footerNLSubmit = function(e){
+    e.preventDefault();
+    var btn   = document.getElementById('footerNLBtn');
+    var msg   = document.getElementById('footerNLMsg');
+    var email = document.getElementById('footerNLEmail').value.trim();
+    if(!email) return;
+    btn.disabled    = true;
+    btn.textContent = 'Subscribing\u2026';
+    fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'contact-footer-nl'})})
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if(d.success){
+          msg.className   = 'engage-nl-msg ok';
+          msg.textContent = '\u2713 Subscribed. Thank you.';
+          document.getElementById('footerNLEmail').value = '';
+          btn.textContent = 'Subscribed \u2713';
+        } else { throw new Error(d.error || 'Failed'); }
+      })
+      .catch(function(err){
+        msg.className   = 'engage-nl-msg err';
+        msg.textContent = err.message === 'This email is already subscribed.' ? 'Already subscribed \u2014 thank you!' : 'Something went wrong. Try again.';
+        btn.disabled    = false;
+        btn.textContent = 'Subscribe \u2192';
+      });
+  };
 })();
 </script>
 </body>
