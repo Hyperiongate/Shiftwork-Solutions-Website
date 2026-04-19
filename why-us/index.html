@@ -6,59 +6,22 @@
   URL: /why-us/
 
   Created:      2026-04-05
-  Last Updated: 2026-04-16
+  Last Updated: 2026-04-18
 
   CHANGE LOG:
-    2026-04-05 — Initial build. Tile-based landing page.
+    2026-04-05 — Initial build.
     2026-04-13 — MAJOR REBUILD from content spec V5.
-    2026-04-13 — CTA band background changed to --navy.
-    2026-04-13 — Nav text + hero eyebrow renamed "Our Company".
-    2026-04-13 — Hero background replaced with second.png + gradient overlay.
+    2026-04-13 — CTA band background → navy. Nav/eyebrow → "Our Company".
+    2026-04-13 — Hero background → second.png + gradient overlay.
     2026-04-16 — CTA BAND REPLACED: three-card Next Steps section.
-    2026-04-16 — VISUAL OVERHAUL to match resources page standards
-                 (nav, footer, typography, FAQ accordion section).
-    2026-04-16 — NAV LABEL ONLY: "Our Company" -> "Why Us" in the top menu
-                 (link target /why-us/ unchanged). Hero eyebrow and
-                 BreadcrumbList JSON-LD intentionally left as "Our Company"
-                 per Jim's instruction: menu text only.
-    2026-04-16 — FAQ REBUILD to match Chemical & Pharmaceutical industry
-                 template exactly:
-                 * Full-bleed section (100vw, left:50%/right:50% with
-                   -50vw margins) containing Hands_in_the_air.jpg background
-                   image, radial-gradient vignette overlay (Option B: light
-                   center → dark edges, navy-dark).
-                 * Gold #EEAE26 heading with text-shadow.
-                 * Navy (#1F4E79) toggle buttons with white text, chevron
-                   SVG icon that rotates 180° when open; orange when active.
-                 * White answer panels below buttons (14px/1.75).
-                 * Markup converted from div-onclick pattern to button /
-                   max-height transition pattern for smoother animation and
-                   proper aria-expanded semantics.
-                 * All 8 questions and their multi-paragraph answers
-                   preserved verbatim. toggleFaq() global JS replaced with
-                   listener-based single-open behavior matching the
-                   chem/pharma page.
-                 * Mobile (≤640px) respects the -50vw breakout and adjusts
-                   .faq-inner padding.
-                 No other sections touched; functionality otherwise
-                 identical to previous deploy.
-    2026-04-16 — SECTION ORDER SWAP: FAQ section moved ABOVE Next Steps.
-                 New flow: Infographic (white) → FAQ (full-bleed image +
-                 dark vignette) → Next Steps (light-grey) → Footer
-                 (navy-dark). Improves visual rhythm — FAQ becomes the
-                 dark pause between the white infographic and the
-                 light-grey action area, rather than being sandwiched
-                 between two light sections. Pure HTML block move; no CSS
-                 or JS changes. Full-bleed math still valid because both
-                 sections are direct children of body.
+    2026-04-16 — VISUAL OVERHAUL, FAQ accordion rebuild, section order swap.
+    2026-04-18 — GAINS SECTION HEADER REDESIGN:
+                 "What Clients Gain" heading + "At a Glance" numbered strip
+                 moved into a white-background two-column section:
+                 whyus.jpg left (280px), heading/intro/strip right.
+                 Dark navy gains-section now starts at the gain cards.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
-  DESIGN CONSTANTS:
-    Navy: #1F4E79 | Navy-dark: #0D1F3C | Mid-blue: #85B7EB
-    Orange: #E8610A | Green: #1D9E75 | Warm yellow: #F5C842
-    Logo: /images/clear_bkgr_logo_2.png
-    Hero image: /images/second.png
-    FAQ image: /images/Hands_in_the_air.jpg
 -->
 <html lang="en">
 <head>
@@ -92,7 +55,7 @@
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white);overflow-x:hidden}
 
-    /* ── NAV (matches resources page) ── */
+    /* ── NAV ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0;display:flex;align-items:center;gap:12px}
@@ -138,18 +101,28 @@
     .bridge-inner{max-width:var(--max-width);margin:0 auto}
     .bridge p{font-size:17px;line-height:1.80;color:var(--body-text);max-width:800px}
 
-    /* ── GAINS SECTION ── */
-    .gains-section{background:var(--navy-dark);padding:80px var(--page-pad)}
-    .gains-inner{max-width:var(--gains-max);margin:0 auto}
-    .gains-heading{font-size:36px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:12px;max-width:700px}
-    .gains-intro{font-size:17px;color:var(--mid-blue);line-height:1.65;margin-bottom:40px;max-width:660px}
-    .gains-strip{margin-bottom:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.1)}
-    .gains-strip-label{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.45);margin-bottom:20px}
+    /* ── GAINS HEADER — white bg, image left, text+strip right ── */
+    .gains-header-section{background:var(--white);padding:60px var(--page-pad) 52px}
+    .gains-header-inner{max-width:var(--gains-max);margin:0 auto;display:grid;grid-template-columns:280px 1fr;gap:52px;align-items:start}
+    .gains-header-img{width:100%;border-radius:8px;overflow:hidden}
+    .gains-header-img img{width:100%;height:320px;object-fit:cover;object-position:center;display:block;border-radius:8px}
+    .gains-header-text h2{font-size:32px;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:10px}
+    .gains-header-text .gains-intro{font-size:16px;color:var(--muted);line-height:1.65;margin-bottom:28px}
+    /* At-a-glance strip — right column */
+    .gains-strip-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:14px}
     .gains-strip-list{list-style:none;padding:0;margin:0}
-    .gains-strip-list li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.06)}
-    .gains-strip-list li:first-child{border-top:1px solid rgba(255,255,255,.06)}
-    .strip-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.08);color:var(--mid-blue);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px}
-    .strip-text{font-size:15px;color:rgba(255,255,255,.85);line-height:1.65}
+    .gains-strip-list li{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--border-light)}
+    .gains-strip-list li:first-child{border-top:1px solid var(--border-light)}
+    .strip-num{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--navy);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;margin-top:1px}
+    .strip-text{font-size:15px;color:var(--body-text);line-height:1.65}
+    @media(max-width:768px){
+      .gains-header-inner{grid-template-columns:1fr}
+      .gains-header-img img{height:220px}
+    }
+
+    /* ── GAINS CARDS (dark navy) ── */
+    .gains-section{background:var(--navy-dark);padding:52px var(--page-pad) 80px}
+    .gains-inner{max-width:var(--gains-max);margin:0 auto}
     .gains-cards{display:flex;flex-direction:column;gap:24px}
     .gains-row{display:grid;grid-template-columns:1fr 1fr;gap:24px}
     .gain-card{border-radius:12px;padding:24px;min-height:140px;transition:box-shadow .2s}
@@ -213,7 +186,7 @@
     .ns-card:hover .ns-card-link{color:var(--orange)}
     @media(max-width:640px){.ns-cards{grid-template-columns:1fr}}
 
-    /* ── FAQ SECTION: full-bleed with Hands_in_the_air.jpg background ── */
+    /* ── FAQ SECTION ── */
     .faq-section{position:relative;overflow:hidden;left:50%;right:50%;margin-left:calc(-50vw);margin-right:calc(-50vw);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
@@ -238,7 +211,7 @@
     .faq-a p{margin:0}
     .faq-a p + p{margin-top:12px}
 
-    /* ── FOOTER (matches resources page) ── */
+    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -286,6 +259,8 @@
     @media(max-width:768px){
       .gains-row{grid-template-columns:1fr}
       .gains-strip-list li{gap:12px}
+      .gains-header-inner{grid-template-columns:1fr}
+      .gains-header-img img{height:200px}
     }
     @media(max-width:640px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
@@ -294,7 +269,8 @@
       .whyus-section{padding:36px 20px 40px}
       .whyus-grid{grid-template-columns:1fr}
       .bridge{padding:32px 20px}
-      .gains-section{padding:48px 20px}
+      .gains-header-section{padding:40px 20px 36px}
+      .gains-section{padding:36px 20px 48px}
       .gains-heading{font-size:26px}
       .gains-row{grid-template-columns:1fr}
       .outcome-strip{padding:36px 20px}
@@ -377,22 +353,29 @@
   <p>A schedule can look right on paper &mdash; and still fail on the floor. The difference is rarely the design. Any schedule can launch. Far fewer hold &mdash; through the policy changes, the operational realities, and the workforce dynamics no spreadsheet captures. That's what thirty years of data-led, people-centered work has taught us to get right.</p>
 </div></section>
 
-<!-- ── WHAT CLIENTS GAIN ── -->
-<section class="gains-section"><div class="gains-inner">
-  <h2 class="gains-heading">What Clients Gain from Working with Shiftwork Solutions</h2>
-  <p class="gains-intro">When schedule decisions are built on data and workforce insight, results hold &mdash; in practice.</p>
-
-  <div class="gains-strip">
-    <div class="gains-strip-label">At a glance</div>
-    <ol class="gains-strip-list">
-      <li><div class="strip-num">1</div><div class="strip-text">A clear view of where the operation truly stands &mdash; before any change is made.</div></li>
-      <li><div class="strip-num">2</div><div class="strip-text">Structural reductions in overtime, idle time, and coverage gaps &mdash; built in from the start.</div></li>
-      <li><div class="strip-num">3</div><div class="strip-text">Real workforce buy-in &mdash; and a schedule that holds over time.</div></li>
-      <li><div class="strip-num">4</div><div class="strip-text">A fully managed transition &mdash; without consuming management bandwidth.</div></li>
-      <li><div class="strip-num">5</div><div class="strip-text">Measurable gains in productivity, retention, and morale that compound over time.</div></li>
-    </ol>
+<!-- ── GAINS HEADER: white bg, whyus.jpg left, heading + at-a-glance right ── -->
+<section class="gains-header-section">
+  <div class="gains-header-inner">
+    <div class="gains-header-img">
+      <img src="/images/whyus.jpg" alt="Shiftwork Solutions consulting team">
+    </div>
+    <div class="gains-header-text">
+      <h2>What Clients Gain from Working with Shiftwork Solutions</h2>
+      <p class="gains-intro">When schedule decisions are built on data and workforce insight, results hold &mdash; in practice.</p>
+      <div class="gains-strip-label">At a glance</div>
+      <ol class="gains-strip-list">
+        <li><div class="strip-num">1</div><div class="strip-text">A clear view of where the operation truly stands &mdash; before any change is made.</div></li>
+        <li><div class="strip-num">2</div><div class="strip-text">Structural reductions in overtime, idle time, and coverage gaps &mdash; built in from the start.</div></li>
+        <li><div class="strip-num">3</div><div class="strip-text">Real workforce buy-in &mdash; and a schedule that holds over time.</div></li>
+        <li><div class="strip-num">4</div><div class="strip-text">A fully managed transition &mdash; without consuming management bandwidth.</div></li>
+        <li><div class="strip-num">5</div><div class="strip-text">Measurable gains in productivity, retention, and morale that compound over time.</div></li>
+      </ol>
+    </div>
   </div>
+</section>
 
+<!-- ── GAINS CARDS: dark navy, no heading (moved above) ── -->
+<section class="gains-section"><div class="gains-inner">
   <div class="gains-cards">
     <div class="gains-row">
       <div class="gain-card gain-card-left">
@@ -496,7 +479,7 @@
   <div class="balance-tagline">Dual-track success: operational outcomes + human outcomes.</div>
 </div></section>
 
-<!-- ── FAQ SECTION: full-bleed with Hands_in_the_air.jpg background, navy toggle buttons, white answer panels ── -->
+<!-- ── FAQ ── -->
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
@@ -507,74 +490,41 @@
       <p class="faq-sub">Straightforward answers to the questions operations leaders ask most before engaging us.</p>
     </div>
     <div class="faq-list">
-
       <div class="faq-item">
-        <button class="faq-toggle" aria-expanded="false">
-          <span class="faq-q">Why hire a consultant instead of handling schedule design internally?</span>
-          <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-        </button>
+        <button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why hire a consultant instead of handling schedule design internally?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button>
         <div class="faq-body"><div class="faq-a"><p>Internal teams are too close to the problem. They know the history, the politics, and the personalities &mdash; and that knowledge, while valuable, also limits what they can see and say. An experienced outside firm brings neutral credibility, pattern recognition across hundreds of similar situations, and the ability to have conversations that internal teams cannot.</p><p>There's also a practical factor: redesigning a shift schedule while simultaneously running a 24/7 operation is a significant management burden. We take on the structural work so your leadership stays focused on production.</p></div></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-toggle" aria-expanded="false">
-          <span class="faq-q">What does a typical engagement look like?</span>
-          <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-        </button>
+        <button class="faq-toggle" aria-expanded="false"><span class="faq-q">What does a typical engagement look like?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button>
         <div class="faq-body"><div class="faq-a"><p>Every engagement begins with a diagnostic phase &mdash; an honest assessment of where the operation stands, what the workforce actually needs, and what the financial levers are. From there we develop schedule options, model costs, engage the workforce, and manage implementation.</p><p>Most engagements run 3&ndash;6 months depending on complexity and scope. We work alongside your team, not around them. You make the decisions; we give you the analysis, the facilitation, and the change management infrastructure to make them confidently.</p></div></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-toggle" aria-expanded="false">
-          <span class="faq-q">How do you handle workforce resistance to schedule changes?</span>
-          <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-        </button>
+        <button class="faq-toggle" aria-expanded="false"><span class="faq-q">How do you handle workforce resistance to schedule changes?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button>
         <div class="faq-body"><div class="faq-a"><p>By anticipating it and designing around it. Resistance is almost always a function of poor communication, inadequate notice, or a schedule that doesn't reflect what the workforce actually said it needed. We conduct workforce surveys, hold facilitated sessions, and build the communication plan before implementation begins &mdash; not after resistance appears.</p><p>As a neutral third party, we can engage with employees in ways that internal management often can't. People say things to an outside firm they won't say to their supervisor. That candor is what makes the solution durable.</p></div></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-toggle" aria-expanded="false">
-          <span class="faq-q">Do you work with unionized facilities?</span>
-          <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-        </button>
+        <button class="faq-toggle" aria-expanded="false"><span class="faq-q">Do you work with unionized facilities?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button>
         <div class="faq-body"><div class="faq-a"><p>Yes. A significant portion of our engagements involve unionized workforces. Schedule changes in union environments require careful attention to contract language, negotiation timing, and the relationship between management and union leadership. We've navigated that landscape across dozens of facilities and understand what makes the difference between a change that clears the table and one that ends up in arbitration.</p><p>Our neutral position often helps here. When both sides see us as an objective resource rather than a management tool, the conversations are more productive.</p></div></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-toggle" aria-expanded="false">
-          <span class="faq-q">How is your approach different from software-based scheduling tools?</span>
-          <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-        </button>
+        <button class="faq-toggle" aria-expanded="false"><span class="faq-q">How is your approach different from software-based scheduling tools?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button>
         <div class="faq-body"><div class="faq-a"><p>Scheduling software optimizes coverage based on the parameters you give it. It can't tell you which parameters matter, which schedule patterns tend to fail with a workforce like yours, or how to build the organizational conditions for a change to take hold. Tools answer the question you ask. Thirty years of experience tells you which question to ask in the first place.</p><p>We use analytical tools &mdash; including AI-assisted scenario modeling &mdash; as part of our process. But the diagnostic judgment, the workforce engagement, and the change management are human work that no software replaces.</p></div></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-toggle" aria-expanded="false">
-          <span class="faq-q">What industries do you work with?</span>
-          <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-        </button>
+        <button class="faq-toggle" aria-expanded="false"><span class="faq-q">What industries do you work with?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button>
         <div class="faq-body"><div class="faq-a"><p>Our practice is focused exclusively on shiftwork-intensive operations: manufacturing, distribution, mining, refining, food &amp; beverage, chemical and pharmaceutical, and paper &amp; packaging. We do not consult outside these industries. That focus is intentional &mdash; the depth of pattern recognition we bring is a direct result of working exclusively in these environments for thirty years.</p></div></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-toggle" aria-expanded="false">
-          <span class="faq-q">Who will actually be working on our engagement?</span>
-          <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-        </button>
+        <button class="faq-toggle" aria-expanded="false"><span class="faq-q">Who will actually be working on our engagement?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button>
         <div class="faq-body"><div class="faq-a"><p>A senior partner. That is not a marketing claim &mdash; it is a structural fact about how we operate. We are a small, senior firm by design. Jim Dillingham, Dan Capshaw, and Ethan Franklin each have 28&ndash;32+ years of hands-on experience, and one of them leads every engagement directly.</p><p>We do not use junior associates, subcontractors, or project managers as the primary client contact. You work with the people whose names are on the door.</p></div></div>
       </div>
-
       <div class="faq-item">
-        <button class="faq-toggle" aria-expanded="false">
-          <span class="faq-q">What happens after the new schedule is implemented?</span>
-          <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
-        </button>
+        <button class="faq-toggle" aria-expanded="false"><span class="faq-q">What happens after the new schedule is implemented?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button>
         <div class="faq-body"><div class="faq-a"><p>Implementation is where most schedule changes fail &mdash; not the design phase. We stay engaged through the transition period, monitoring early indicators, addressing emerging issues, and making adjustments before they become problems. Policy alignment, supervisor training, and workforce communication are all part of what we manage through to stability.</p><p>Our measure of success is not a new schedule on paper. It is an operation that is running better six months after we leave than it was before we arrived.</p></div></div>
       </div>
-
-    </div><!-- /.faq-list -->
-  </div><!-- /.faq-inner -->
-</div><!-- /.faq-section -->
+    </div>
+  </div>
+</div>
 
 <!-- ── NEXT STEPS ── -->
 <section class="next-steps">
@@ -605,50 +555,27 @@
   </div>
 </section>
 
-<!-- ── FOOTER (matches resources page) ── -->
+<!-- ── FOOTER ── -->
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
-      <div class="footer-col footer-col-1">
-        <div class="engage-label">FREE CONSULTATION</div>
-        <div class="engage-col-title">Ready to talk about your operation?</div>
-        <p class="engage-col-desc">Manufacturing and distribution operations running 24/7 typically have more room to improve than they realize. The first conversation is always free.</p>
-      </div>
-      <div class="footer-col footer-col-2">
-        <div class="engage-label">AI ADVISOR</div>
-        <div class="engage-col-title">Talk to Thomas</div>
-        <p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
-      </div>
-      <div class="footer-col footer-col-3">
-        <div class="engage-label">NEWSLETTER</div>
-        <div class="engage-col-title">Stay Sharp on Shift Operations</div>
-        <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
-      </div>
+      <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">Manufacturing and distribution operations running 24/7 typically have more room to improve than they realize. The first conversation is always free.</p></div>
+      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p></div>
+      <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
     </div>
     <div class="footer-cta-row">
       <div class="footer-cta-1"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a></div>
       <div class="footer-cta-2"><a href="https://shift-work-diagnostic.onrender.com/" class="footer-cta-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a></div>
-      <div class="footer-cta-3">
-        <form class="engage-nl-form" onsubmit="footerNLSubmit(event)">
-          <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="footerNLEmail">
-          <button type="submit" class="engage-nl-btn" id="footerNLBtn">Subscribe &#x2192;</button>
-        </form>
-        <div class="engage-nl-msg" id="footerNLMsg"></div>
-      </div>
+      <div class="footer-cta-3"><form class="engage-nl-form" onsubmit="footerNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="footerNLEmail"><button type="submit" class="engage-nl-btn" id="footerNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="footerNLMsg"></div></div>
     </div>
   </div></div>
   <div class="footer-bottom"><div class="footer-bottom-inner">
-    <div class="footer-bottom-left">
-      <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
-      <a href="tel:+14152651621">(415) 265-1621</a>
-      <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
-    </div>
+    <div class="footer-bottom-left"><span class="footer-bottom-brand">Shiftwork Solutions LLC</span><a href="tel:+14152651621">(415) 265-1621</a><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
 
 <script>
-/* ── Mobile nav ── */
 document.getElementById('mobileToggle').addEventListener('click', function () {
   var n = document.getElementById('navLinks');
   var open = n.style.display === 'flex';
@@ -662,7 +589,6 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
   }
 });
 
-/* ── FAQ accordion (matches chem/pharma template: button/max-height, single-open) ── */
 (function () {
   var items = document.querySelectorAll('.faq-item');
   items.forEach(function (item) {
@@ -683,7 +609,6 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
   });
 })();
 
-/* ── Footer newsletter ── */
 (function () {
   var SWARM = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
   window.footerNLSubmit = function (e) {
@@ -711,7 +636,6 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
         msg.textContent = err.message === 'This email is already subscribed.' ? 'Already subscribed \u2014 thank you!' : 'Something went wrong. Try again.';
         btn.disabled = false; btn.textContent = 'Subscribe \u2192';
       });
-  };
 })();
 </script>
 </body>
