@@ -5,43 +5,20 @@
   URL: /industries/
 
   Created:      2026-04-05
-  Last Updated: 2026-04-17
+  Last Updated: 2026-04-18
 
   CHANGE LOG:
-    2026-04-05 — Initial build. Tile-based landing page for 6 industry pages.
+    2026-04-05 — Initial build.
     2026-04-06 — Added Paper & Packaging tile (7th industry).
     2026-04-06 — LAYOUT REDESIGN: industry images, row layout, action tiles.
     2026-04-13 — Nav: "Why Us" → "Our Company". Hero: second.png background.
     2026-04-15 — Footer: replaced old engage-band + #F4F4F4 footer with standard
                  3-col dark-navy prefooter. Hero H1 color → #EEAE26.
-    2026-04-16 — NAV STANDARD UPGRADE:
-                 1. Logo path: clear%20bkgr%20logo%202.png → clear_bkgr_logo_2.png
-                 2. SHIFTWORK SOLUTIONS text span added next to logo
-                 3. nav-logo CSS: added flex, align-items, gap, whitespace
-                 4. nav-logo-text CSS added (20px, navy, bold)
-                 5. Nav link font-size: 13.5px → 20px
-    2026-04-17 — SEO STRUCTURED DATA + VISIBLE BREADCRUMB:
-                 1. Added three JSON-LD schema blocks in <head>:
-                    • Organization — mirrors the Organization schema used
-                      on all other pages (name, URL, telephone, email,
-                      contactPoint)
-                    • BreadcrumbList — Home > Industries (matching the new
-                      visible breadcrumb)
-                    • CollectionPage — with mainEntity ItemList containing
-                      all 7 industry subpage URLs. This is the correct schema
-                      type for a hub/landing page that catalogs sub-resources
-                      and tells search engines "these 7 pages are children
-                      of this hub."
-                    Prior state had ZERO JSON-LD on this page — a real
-                    SEO gap compared to every other page on the site.
-                 2. Added visible breadcrumb bar between hero and industries
-                    grid, using the same light-blue pattern and styling
-                    used on about/our_team/industry detail pages.
-                    CSS added: .breadcrumb-bar and .breadcrumb-inner rules
-                    scoped to match the site standard.
-                 3. Changelog updated with today's date.
-                 All 7 industry tiles, both action tiles, hero, footer,
-                 and JS preserved exactly.
+    2026-04-16 — NAV STANDARD UPGRADE.
+    2026-04-17 — SEO STRUCTURED DATA + VISIBLE BREADCRUMB.
+    2026-04-18 — ROW 3: Action tiles removed. Paper & Packaging centered alone.
+                 Empty placeholder divs keep grid alignment. Action tile CSS
+                 retained in case needed elsewhere.
 
   I did no harm and this file is not truncated
 -->
@@ -61,14 +38,9 @@
   <meta name="twitter:title" content="Industries We Serve | Shiftwork Solutions">
   <meta name="twitter:description" content="Custom shift schedule consulting for seven core industries running 24/7 operations.">
 
-  <!-- JSON-LD: Organization -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
-
-  <!-- JSON-LD: BreadcrumbList -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://shift-work.com/industries/"}]}</script>
-
-  <!-- JSON-LD: CollectionPage (hub listing all 7 industry sub-pages) -->
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Industries We Serve","url":"https://shift-work.com/industries/","description":"Shiftwork Solutions serves seven core industries running 24/7 operations. Each industry page details how shift schedule optimization applies to that environment.","isPartOf":{"@type":"WebSite","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"mainEntity":{"@type":"ItemList","numberOfItems":7,"itemListElement":[{"@type":"ListItem","position":1,"name":"Manufacturing & Assembly","url":"https://shift-work.com/industries/manufacturing-assembly-operations/"},{"@type":"ListItem","position":2,"name":"Distribution & Logistics","url":"https://shift-work.com/industries/distribution-logistics-operations/"},{"@type":"ListItem","position":3,"name":"Mining & Extraction","url":"https://shift-work.com/industries/mining-extraction-industries/"},{"@type":"ListItem","position":4,"name":"Refining & Utilities","url":"https://shift-work.com/industries/refining-utilities-operations/"},{"@type":"ListItem","position":5,"name":"Food & Beverage","url":"https://shift-work.com/industries/food-beverage-manufacturing/"},{"@type":"ListItem","position":6,"name":"Chemical & Pharmaceutical","url":"https://shift-work.com/industries/chemical-pharmaceutical-operations/"},{"@type":"ListItem","position":7,"name":"Paper & Packaging","url":"https://shift-work.com/industries/paper-packaging-operations/"}]}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Industries We Serve","url":"https://shift-work.com/industries/","description":"Shiftwork Solutions serves seven core industries running 24/7 operations.","isPartOf":{"@type":"WebSite","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"mainEntity":{"@type":"ItemList","numberOfItems":7,"itemListElement":[{"@type":"ListItem","position":1,"name":"Manufacturing & Assembly","url":"https://shift-work.com/industries/manufacturing-assembly-operations/"},{"@type":"ListItem","position":2,"name":"Distribution & Logistics","url":"https://shift-work.com/industries/distribution-logistics-operations/"},{"@type":"ListItem","position":3,"name":"Mining & Extraction","url":"https://shift-work.com/industries/mining-extraction-industries/"},{"@type":"ListItem","position":4,"name":"Refining & Utilities","url":"https://shift-work.com/industries/refining-utilities-operations/"},{"@type":"ListItem","position":5,"name":"Food & Beverage","url":"https://shift-work.com/industries/food-beverage-manufacturing/"},{"@type":"ListItem","position":6,"name":"Chemical & Pharmaceutical","url":"https://shift-work.com/industries/chemical-pharmaceutical-operations/"},{"@type":"ListItem","position":7,"name":"Paper & Packaging","url":"https://shift-work.com/industries/paper-packaging-operations/"}]}}</script>
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -96,15 +68,12 @@
     .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
     .hero h1{font-size:32px;font-weight:700;line-height:1.2;color:#EEAE26;max-width:620px;margin-bottom:14px}
     .hero-subtitle{font-size:16px;line-height:1.65;color:var(--mid-blue);max-width:620px}
-
-    /* ── BREADCRUMB (added 2026-04-17 to match site standard) ── */
     .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
     .breadcrumb-inner a{color:var(--navy);text-decoration:none}
     .breadcrumb-inner a:hover{text-decoration:underline}
     .breadcrumb-inner span.bc-sep{margin:0 6px;opacity:.5}
     .breadcrumb-inner .bc-current{color:var(--navy);font-weight:700}
-
     .industries-section{padding:56px var(--page-pad) 60px;background:var(--white)}
     .section-wrap{max-width:var(--max-width);margin:0 auto}
     .section-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
@@ -119,6 +88,7 @@
     .industry-link{font-size:12px;font-weight:700;color:var(--navy);text-decoration:none}
     .industry-link::after{content:' →'}
     .industry-tile:hover .industry-link{color:var(--orange)}
+    /* Action tile CSS retained for potential future use */
     .action-tile{background:var(--navy-dark);border-radius:6px;padding:24px 20px;display:flex;flex-direction:column;justify-content:center}
     .action-tile-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
     .action-tile-title{font-size:16px;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:8px}
@@ -206,7 +176,6 @@
   <p class="hero-subtitle">Decades of hands-on experience across hundreds of 24/7 operations. Every industry has unique scheduling challenges — we've solved them all.</p>
 </div></section>
 
-<!-- BREADCRUMB — added 2026-04-17 -->
 <div class="breadcrumb-bar"><div class="breadcrumb-inner">
   <a href="/">Home</a><span class="bc-sep">&#x203A;</span><span class="bc-current">Industries</span>
 </div></div>
@@ -245,23 +214,13 @@
       <div class="industry-body"><div class="industry-title">Chemical &amp; Pharmaceutical</div><span class="industry-link">Learn more</span></div>
     </a>
 
-    <!-- ── ROW 3: CTA + Paper + CTA ── -->
-    <div class="action-tile" style="display:flex;flex-direction:column;justify-content:center;align-items:stretch;text-align:center;">
-      <div class="action-tile-label">Get in Touch</div>
-      <div class="action-tile-title">Contact Us</div>
-      <div class="action-tile-text">Questions about your operation? Reach out — we'll tell you honestly what we see.</div>
-      <a href="/contact/" class="action-tile-btn">Contact Us &#x2192;</a>
-    </div>
+    <!-- ── ROW 3: Paper & Packaging centered, CTAs removed ── -->
+    <div></div>
     <a href="/industries/paper-packaging-operations/" class="industry-tile">
       <img src="/images/paper.jpg" alt="Paper and packaging shift operations" class="industry-img">
       <div class="industry-body"><div class="industry-title">Paper &amp; Packaging</div><span class="industry-link">Learn more</span></div>
     </a>
-    <div class="action-tile" style="display:flex;flex-direction:column;justify-content:center;align-items:stretch;text-align:center;">
-      <div class="action-tile-label">Schedule a Call</div>
-      <div class="action-tile-title">Book a Free Meeting</div>
-      <div class="action-tile-text">Talk directly with a senior consultant who has led hundreds of schedule transformations.</div>
-      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="action-tile-btn" target="_blank" rel="noopener">Book a Meeting &#x2192;</a>
-    </div>
+    <div></div>
 
   </div>
 </div></section>
