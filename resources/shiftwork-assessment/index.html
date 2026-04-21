@@ -1,55 +1,106 @@
 <!DOCTYPE html>
 <!--
   resources/shiftwork-assessment/index.html
-  Shiftwork Solutions LLC — Shift Operations Health Assessment
-  URL: /resources/shiftwork-assessment/
+  Shiftwork Solutions LLC — The Shiftwork Operations Reality Check
+  URL: /resources/shiftwork-assessment/  (URL preserved)
 
   Created:      2026-04-03
-  Last Updated: 2026-04-17
+  Last Updated: 2026-04-21
 
   CHANGE LOG:
-    2026-04-03 — Complete rebuild from legacy assessment.
-                 AI evaluation via Claude API. PDF via window.print().
-                 Lead capture via Swarm backend. 35 questions, 8 dimensions.
+    2026-04-21 — "FREE" LABEL ADDED TO DEEPER ANALYSIS CTA:
+                 1. T1 results CTA card eyebrow: "Deeper Analysis"
+                    → "Free Deeper Analysis" (matches parity with the
+                    "Free Consultation" card beside it).
+                 2. T1 results CTA card body copy: appended
+                    " — free, no obligation." to reinforce.
+                 3. T2 form intro eyebrow: "Deeper Analysis"
+                    → "Free Deeper Analysis" so the label stays
+                    consistent when the user clicks through.
+                 No other changes. All Reality Check logic, AI
+                 commentary, 35Q engine, Swarm backend, PDF, and
+                 visual treatment unchanged.
 
-    2026-04-05 — NAV + BUTTON + SEO AUDIT:
-                 1. NAV: Logo → image (was text)
-                    Services → direct link (no dropdown)
-                    Resources → direct link (no dropdown)
-                 2. BUTTONS: Nav CTA → "Book a Free Meeting" ORANGE (#E8610A)
-                    + booking URL with ?ismsaljsauthenabled=true
-                    CTA results button → ORANGE bg
-                 3. SEO: Added Twitter Card tags
+    2026-04-03 — Initial rebuild. AI evaluation via Claude API. PDF via
+                 window.print(). Lead capture via Swarm backend. 35 questions,
+                 8 dimensions.
 
-    2026-04-16 — VISUAL OVERHAUL to match resources page (doc 2) standards:
-                 1. NAV: Added "SHIFTWORK SOLUTIONS" text next to logo,
-                    nav links bumped to 20px, "Why Us" → "Our Company",
-                    logo src corrected to clear_bkgr_logo_2.png (underscores).
-                 2. HERO: Replaced flat navy hero with second.png background
-                    + gradient overlay + decorative circles + fadeUp animation.
-                    h1 color → #EEAE26 (gold). Subtitle → white/75%.
-                 3. FOOTER: Replaced thin grey footer with full dark navy
-                    3-column pre-footer (Free Consultation / Talk to Thomas /
-                    Newsletter with working subscribe form) + bottom bar with
-                    phone, email, copyright. Matches resources page exactly.
-                 4. TYPOGRAPHY: Body copy up to 15px. intro-lead up to 16px.
-                    Form labels 14px. q-text up to 20px. answer-btn 15px.
-                    Section headings improved. Better line-height throughout.
-                 5. FORM CARD: Refreshed styling — white bg, orange accent top
-                    border, improved spacing. Section intro highlight updated.
-                 6. RESULTS: Improved narrative block, rec-item padding,
-                    overall score card polish.
-                 All 35 questions, AI evaluation logic, Claude API call,
-                 fallback scoring, lead capture, and PDF functionality
-                 are completely unchanged.
+    2026-04-05 — NAV + BUTTON + SEO audit.
 
-    2026-04-17 — HERO IMAGE: Changed from /images/second.png to
-                 /images/assessment.jpg. Overlay strengthened to
-                 rgba(.90)/.78/.55 (same treatment as 26.jpg) to ensure
-                 gold h1 and white subtitle remain fully legible against
-                 a busy background image.
+    2026-04-16 — Visual overhaul to match resources page standards.
 
-  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
+    2026-04-17 — Hero image changed to /images/assessment.jpg, overlay
+                 strengthened for legibility.
+
+    2026-04-21 — MAJOR RESTRUCTURE: Two-tier experience.
+                 ================================================
+                 TIER 1 — The Shiftwork Operations Reality Check
+                 ================================================
+                 New front door. Eight questions. Seven "prediction vs.
+                 pattern" reveals drawn from Shiftwork Solutions'
+                 public-level benchmark data (20/60/20, 70/70, fixed vs.
+                 rotating, true cost of overtime, change-resistance,
+                 absenteeism attitudes, night-shift sleep). One
+                 biggest-challenge context question. No email required.
+                 No form up front. Results appear immediately on screen.
+                 All reveals are SCRIPTED (not AI-generated) to guarantee
+                 consistent disclosure of proprietary benchmark data.
+                 Only the closing personalized commentary is AI-generated
+                 via Claude API with tight guardrails against giving
+                 away industry-specific benchmarks.
+
+                 ================================================
+                 TIER 2 — The Detailed Operations Analysis
+                 ================================================
+                 Optional deeper dive. Reachable only after completing
+                 Tier 1. Uses the existing 35-question engine unchanged.
+                 Form slimmed from 7 required fields to 3 required + 2
+                 optional (email, industry, number of shift workers
+                 required; name, company optional). Biggest challenge
+                 carried over from Tier 1 Q8. All existing dimensional
+                 scoring, Claude API call, fallback logic, PDF, and
+                 Swarm lead-capture preserved.
+
+                 ================================================
+                 PDF
+                 ================================================
+                 PDF (via window.print) now includes:
+                 - Tier 1 Reality Check summary at the top (all 8
+                   questions, their prediction, the benchmark pattern,
+                   the reveal narrative)
+                 - Database callout paragraph
+                 - Tier 2 dimensional analysis (unchanged from v1)
+                 - Closing CTA and contact block
+                 Print CSS hides nav, footer, buttons, and both sets of
+                 question screens so the PDF is clean.
+
+                 ================================================
+                 BACKEND
+                 ================================================
+                 routes/assessment.py is NOT modified. Tier 2 form
+                 submits the same payload structure the existing
+                 endpoint already expects; unsent fields are empty
+                 strings. Reality Check predictions live in the
+                 browser and the PDF only — they are NOT written to
+                 Google Sheets in this version. (Future enhancement:
+                 add prediction columns to the sheet and log them.)
+
+                 ================================================
+                 VISUAL STANDARD
+                 ================================================
+                 Hero: assessment.jpg + heavy overlay (preserved).
+                 Reality Check reveals: card-based layout, navy accent,
+                 prediction/pattern side-by-side treatment with visual
+                 hierarchy that makes each reveal feel distinctive.
+                 Tier 2 form: refined card styling, inline hint text
+                 for optional fields, matches Resources hub card
+                 standards.
+                 Results pages (both tiers): use accent headings with
+                 orange left border matching guide pages. Better
+                 spacing, typography, and visual hierarchy than v1.
+                 Footer: unchanged (already matches resources page).
+
+  NAV SYSTEM:      .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
     Navy: #1F4E79 | Navy-dark: #0D1F3C | Mid-blue: #85B7EB
     Orange: #E8610A | Green: #1D9E75 | Hero h1: #EEAE26
@@ -60,17 +111,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shift Operations Health Assessment | Shiftwork Solutions</title>
-  <meta name="description" content="Free 10-minute assessment of your shift operation across 8 critical dimensions. Get an AI-powered evaluation with scores, strengths, and actionable recommendations.">
+  <title>The Shiftwork Operations Reality Check | Shiftwork Solutions</title>
+  <meta name="description" content="Compare your thinking against 20,000+ shift worker responses from hundreds of 24/7 operations. Four minutes, eight questions, immediate results. No email required.">
   <link rel="canonical" href="https://shift-work.com/resources/shiftwork-assessment/">
-  <meta property="og:title" content="Shift Operations Health Assessment | Shiftwork Solutions">
-  <meta property="og:description" content="Free 10-minute assessment. AI-powered evaluation across 8 dimensions of shift operations health.">
+  <meta property="og:title" content="The Shiftwork Operations Reality Check | Shiftwork Solutions">
+  <meta property="og:description" content="Compare your instincts to patterns from 20,000+ shift worker responses. Four minutes. No form required.">
   <meta property="og:url" content="https://shift-work.com/resources/shiftwork-assessment/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Shift Operations Health Assessment | Shiftwork Solutions">
-  <meta name="twitter:description" content="Free 10-minute assessment. AI-powered evaluation across 8 dimensions of shift operations health.">
+  <meta name="twitter:title" content="The Shiftwork Operations Reality Check | Shiftwork Solutions">
+  <meta name="twitter:description" content="Compare your instincts to patterns from 20,000+ shift worker responses. Four minutes. No form required.">
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -78,7 +129,8 @@
       --navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;
       --orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;
       --body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;
-      --cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px
+      --cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px;
+      --hover-blue:#1a4a7a
     }
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
@@ -100,21 +152,20 @@
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
 
-    /* ── HERO — assessment.jpg + heavy overlay (2026-04-17) ── */
-    /* Overlay opacity .90/.78/.55 matches 26.jpg treatment — ensures legibility
-       against busy background images. */
-    .hero{background:#0D1F3C url('/images/assessment.jpg') center center/cover no-repeat;padding:60px 36px 68px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.90) 0%,rgba(13,31,60,.78) 50%,rgba(13,31,60,.55) 100%);z-index:0;pointer-events:none}
+    /* ── HERO ── */
+    .hero{background:#0D1F3C url('/images/assessment.jpg') center center/cover no-repeat;padding:64px 36px 72px;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.92) 0%,rgba(13,31,60,.80) 50%,rgba(13,31,60,.58) 100%);z-index:0;pointer-events:none}
     .hero-circle-tr{position:absolute;top:-60px;right:-80px;width:320px;height:320px;border-radius:50%;border:2px solid rgba(232,97,10,.25);z-index:0}
     .hero-circle-bl{position:absolute;bottom:-100px;left:-50px;width:220px;height:220px;border-radius:50%;border:2px solid rgba(133,183,235,.15);z-index:0}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
-    .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:14px;animation:fadeUp .5s .05s ease both}
-    .hero h1{font-size:36px;font-weight:700;line-height:1.15;color:#EEAE26;max-width:680px;margin-bottom:16px;animation:fadeUp .5s .1s ease both}
-    .hero-subtitle{font-size:16px;line-height:1.7;color:rgba(255,255,255,.80);max-width:580px;margin-bottom:32px;animation:fadeUp .5s .2s ease both}
+    .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--mid-blue);margin-bottom:14px;animation:fadeUp .5s .05s ease both}
+    .hero h1{font-size:38px;font-weight:700;line-height:1.12;color:#EEAE26;max-width:720px;margin-bottom:14px;animation:fadeUp .5s .1s ease both}
+    .hero-tag{font-size:18px;font-weight:400;font-style:italic;color:rgba(255,255,255,.85);max-width:640px;margin-bottom:18px;animation:fadeUp .5s .15s ease both}
+    .hero-subtitle{font-size:16px;line-height:1.75;color:rgba(255,255,255,.82);max-width:620px;margin-bottom:32px;animation:fadeUp .5s .2s ease both}
     .hero-stats{display:flex;gap:16px;flex-wrap:wrap;animation:fadeUp .5s .3s ease both}
-    .hero-stat{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:16px 22px;min-width:150px}
-    .hero-stat-num{font-size:28px;font-weight:700;color:var(--white);line-height:1.1}
-    .hero-stat-label{font-size:12px;color:rgba(255,255,255,.70);margin-top:5px;line-height:1.4}
+    .hero-stat{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:8px;padding:18px 24px;min-width:160px}
+    .hero-stat-num{font-size:26px;font-weight:700;color:var(--white);line-height:1.1}
+    .hero-stat-label{font-size:12px;color:rgba(255,255,255,.72);margin-top:6px;line-height:1.45}
     @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 
     /* ── BREADCRUMB ── */
@@ -125,78 +176,150 @@
     .breadcrumb-inner .bc-current{color:var(--navy);font-weight:700}
 
     /* ── ASSESSMENT WRAPPER ── */
-    .assessment-wrap{max-width:var(--max-width);margin:0 auto;padding:36px var(--page-pad) 56px}
+    .assessment-wrap{max-width:var(--max-width);margin:0 auto;padding:40px var(--page-pad) 60px}
 
-    /* ── INTRO SCREEN ── */
-    .intro-lead{font-size:16px;line-height:1.80;color:var(--body-text);margin-bottom:24px;max-width:720px}
-    .intro-highlight{background:var(--light-blue);border-left:4px solid var(--navy);border-radius:0 8px 8px 0;padding:22px 24px;margin:24px 0}
-    .intro-highlight h3{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:14px;text-transform:uppercase;letter-spacing:.06em}
-    .intro-highlight ul{list-style:none;padding:0}
-    .intro-highlight ul li{font-size:15px;color:var(--body-text);padding:6px 0;padding-left:24px;position:relative;line-height:1.55}
-    .intro-highlight ul li::before{content:"✓";position:absolute;left:0;color:var(--navy);font-weight:700;font-size:14px}
-    .dims-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0}
-    .dim-card{background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:6px;padding:14px 16px;font-size:13px;font-weight:700;color:var(--navy);line-height:1.35}
+    /* ── SHARED ACCENT HEADING ── */
+    .accent-h{font-size:22px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:10px;padding-left:14px;border-left:4px solid var(--orange)}
+    .section-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
 
-    /* ── FORM CARD ── */
-    .form-card{background:var(--white);border:1px solid var(--border-med);border-top:4px solid var(--orange);border-radius:8px;padding:32px;margin:32px 0;box-shadow:0 4px 20px rgba(0,0,0,.06)}
-    .form-card h3{font-size:20px;font-weight:700;color:var(--body-text);margin-bottom:6px}
+    /* ── TIER 1 INTRO ── */
+    .t1-intro-para{font-size:16px;line-height:1.85;color:var(--body-text);margin-bottom:18px;max-width:740px}
+    .t1-intro-para strong{color:var(--navy)}
+    .t1-meta-card{background:var(--light-blue);border-left:4px solid var(--navy);border-radius:0 8px 8px 0;padding:22px 26px;margin:28px 0 32px;max-width:740px}
+    .t1-meta-card-row{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+    .t1-meta-card-row:last-child{margin-bottom:0}
+    .t1-meta-icon{flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--navy);font-weight:700;font-size:14px}
+    .t1-meta-text{font-size:14px;color:var(--body-text);line-height:1.55}
+    .t1-meta-text strong{color:var(--navy);font-weight:700}
+    .t1-start-wrap{margin-top:32px;text-align:center;padding:8px 0 4px}
+    .t1-start-btn{display:inline-block;padding:15px 44px;background:var(--orange);color:var(--white);font-family:Arial,sans-serif;font-size:16px;font-weight:700;border:none;border-radius:5px;cursor:pointer;transition:background .15s;text-decoration:none}
+    .t1-start-btn:hover{background:#c4510a}
+    .t1-start-sub{font-size:13px;color:var(--muted);margin-top:14px;font-style:italic}
+
+    /* ── PROGRESS (shared) ── */
+    .progress-wrap{margin-bottom:28px}
+    .progress-track{background:var(--border-med);height:7px;border-radius:4px;margin-bottom:8px;overflow:hidden}
+    .progress-fill{background:var(--navy);height:100%;border-radius:4px;transition:width .3s ease}
+    .progress-label{font-size:13px;color:var(--muted)}
+
+    /* ── QUESTION SCREEN (shared for T1 and T2) ── */
+    .question-screen{display:none}
+    .q-number{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:8px}
+    .q-category{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;background:var(--light-blue);color:var(--navy);padding:4px 11px;border-radius:3px;margin-bottom:18px}
+    .q-text{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.38;margin-bottom:30px;max-width:700px}
+    .q-sub{font-size:14px;color:var(--muted);line-height:1.6;margin-top:-20px;margin-bottom:26px;max-width:680px;font-style:italic}
+    .answer-grid{display:flex;flex-direction:column;gap:12px;max-width:600px}
+    .answer-btn{padding:16px 22px;background:var(--white);border:2px solid var(--border-med);border-radius:7px;font-family:Arial,sans-serif;font-size:15px;font-weight:600;color:var(--body-text);text-align:left;cursor:pointer;transition:border-color .15s,background .15s,color .15s;line-height:1.4}
+    .answer-btn:hover{border-color:var(--navy);background:var(--light-blue);color:var(--navy)}
+    .answer-btn.selected{border-color:var(--navy);background:var(--navy);color:var(--white)}
+    .answer-btn:disabled{opacity:.6;cursor:not-allowed}
+    .q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:36px}
+    .btn-prev{padding:11px 26px;background:var(--white);border:1.5px solid var(--border-med);border-radius:4px;font-family:Arial,sans-serif;font-size:14px;font-weight:700;color:var(--muted);cursor:pointer;transition:border-color .15s,color .15s}
+    .btn-prev:hover{border-color:var(--navy);color:var(--navy)}
+    .btn-prev:disabled{opacity:.4;cursor:not-allowed}
+
+    /* ── LOADING (shared) ── */
+    .ai-loading{display:none;text-align:center;padding:64px 20px}
+    .ai-loading-icon{font-size:42px;margin-bottom:20px;animation:spin 1.2s linear infinite;display:inline-block}
+    @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+    .ai-loading h3{font-size:22px;font-weight:700;color:var(--body-text);margin-bottom:10px}
+    .ai-loading p{font-size:15px;color:var(--muted);max-width:460px;margin:0 auto}
+    .ai-loading-steps{margin-top:20px;font-size:14px;color:var(--navy);font-weight:600}
+
+    /* ── TIER 1 RESULTS ── */
+    .t1-results{display:none}
+    .t1-results-header{background:var(--navy);border-radius:10px;padding:34px 32px;margin-bottom:36px;color:var(--white);position:relative;overflow:hidden}
+    .t1-results-header::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;border:2px solid rgba(232,97,10,.25);pointer-events:none}
+    .t1-results-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:12px;position:relative;z-index:1}
+    .t1-results-header h2{font-size:24px;font-weight:700;line-height:1.3;color:#EEAE26;margin-bottom:10px;position:relative;z-index:1}
+    .t1-results-header p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.85);max-width:620px;position:relative;z-index:1}
+
+    .reveal-card{background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:8px;padding:26px 28px;margin-bottom:22px;box-shadow:0 2px 10px rgba(0,0,0,.04);transition:box-shadow .2s ease}
+    .reveal-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.08)}
+    .reveal-card-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);margin-bottom:10px}
+    .reveal-card h3{font-size:17px;font-weight:700;color:var(--body-text);line-height:1.4;margin-bottom:18px}
+    .reveal-compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+    .reveal-compare-cell{background:var(--light-grey);border-radius:6px;padding:14px 18px}
+    .reveal-compare-cell.pattern{background:var(--light-blue)}
+    .reveal-compare-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:6px}
+    .reveal-compare-cell.pattern .reveal-compare-label{color:var(--navy)}
+    .reveal-compare-value{font-size:16px;font-weight:700;color:var(--body-text);line-height:1.35}
+    .reveal-compare-cell.pattern .reveal-compare-value{color:var(--navy)}
+    .reveal-narrative{font-size:15px;line-height:1.78;color:var(--body-text)}
+
+    .db-callout{background:var(--navy-dark);border-radius:10px;padding:30px 34px;margin:40px 0;color:var(--white);position:relative;overflow:hidden}
+    .db-callout::before{content:'';position:absolute;top:-30px;left:-40px;width:140px;height:140px;border-radius:50%;border:2px solid rgba(133,183,235,.15);pointer-events:none}
+    .db-callout-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--mid-blue);margin-bottom:10px;position:relative;z-index:1}
+    .db-callout h3{font-size:19px;font-weight:700;color:#EEAE26;margin-bottom:14px;line-height:1.3;position:relative;z-index:1}
+    .db-callout p{font-size:15px;line-height:1.78;color:rgba(255,255,255,.85);max-width:680px;position:relative;z-index:1}
+
+    .commentary-block{background:var(--light-grey);border-left:4px solid var(--orange);border-radius:0 8px 8px 0;padding:26px 30px;margin:36px 0}
+    .commentary-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);margin-bottom:10px}
+    .commentary-block h3{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:14px;line-height:1.3}
+    .commentary-block p{font-size:15px;line-height:1.78;color:var(--body-text);margin-bottom:12px}
+    .commentary-block p:last-child{margin-bottom:0}
+
+    .closing-argument{background:var(--white);border:2px solid var(--navy);border-radius:10px;padding:32px;margin:40px 0 32px;text-align:center}
+    .closing-argument h3{font-size:19px;font-weight:700;color:var(--navy);margin-bottom:14px;line-height:1.35}
+    .closing-argument p{font-size:15px;line-height:1.78;color:var(--body-text);max-width:640px;margin:0 auto}
+
+    /* ── TIER 1 CTAs ── */
+    .t1-cta-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:30px 0}
+    .t1-cta-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:8px;padding:24px 26px;text-decoration:none;transition:all .2s ease;cursor:pointer}
+    .t1-cta-card:hover{border-top-color:var(--orange);box-shadow:0 6px 20px rgba(0,0,0,.10);transform:translateY(-2px)}
+    .t1-cta-card.primary{border-top-color:var(--orange);background:linear-gradient(to bottom,#fff8f4 0%,var(--white) 100%)}
+    .t1-cta-card.primary:hover{border-top-color:var(--orange)}
+    .t1-cta-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--orange);margin-bottom:10px}
+    .t1-cta-card h4{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px;line-height:1.35}
+    .t1-cta-card p{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:14px;flex:1}
+    .t1-cta-action{font-size:14px;font-weight:700;color:var(--orange);display:inline-flex;align-items:center;gap:6px}
+    .t1-cta-tertiary{text-align:center;padding:14px 0;margin-bottom:20px}
+    .t1-cta-tertiary a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .15s}
+    .t1-cta-tertiary a:hover{color:var(--navy);text-decoration:underline}
+
+    /* ── TIER 2 FORM ── */
+    .t2-form-screen{display:none}
+    .t2-form-intro{background:var(--light-blue);border-left:4px solid var(--navy);border-radius:0 8px 8px 0;padding:22px 26px;margin-bottom:32px}
+    .t2-form-intro h3{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px}
+    .t2-form-intro p{font-size:14px;color:var(--body-text);line-height:1.7}
+
+    .form-card{background:var(--white);border:1px solid var(--border-med);border-top:4px solid var(--orange);border-radius:8px;padding:32px;margin-bottom:24px;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+    .form-card h3{font-size:19px;font-weight:700;color:var(--body-text);margin-bottom:6px}
     .form-card .form-sub{font-size:14px;color:var(--muted);margin-bottom:26px;line-height:1.6}
     .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
     .form-group{display:flex;flex-direction:column;gap:6px}
     .form-group label{font-size:14px;font-weight:700;color:var(--body-text)}
     .form-group .req{color:var(--orange)}
+    .form-group .opt{font-size:12px;font-weight:400;color:var(--muted);font-style:italic;margin-left:6px}
     .form-group input,.form-group select{padding:11px 14px;border:1.5px solid var(--border-med);border-radius:5px;font-family:Arial,sans-serif;font-size:15px;color:var(--body-text);background:var(--white);transition:border-color .15s}
     .form-group input:focus,.form-group select:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(31,78,121,.08)}
     .form-group-full{margin-bottom:18px}
+    .form-group-hint{font-size:12px;color:var(--muted);margin-top:4px;font-style:italic}
     .newsletter-row{display:flex;align-items:flex-start;gap:12px;background:var(--light-grey);border:1px solid var(--border-med);border-radius:6px;padding:14px 16px;margin:18px 0}
     .newsletter-row input[type="checkbox"]{width:17px;height:17px;flex-shrink:0;margin-top:2px;accent-color:var(--navy)}
     .newsletter-row label{font-size:14px;color:var(--body-text);line-height:1.55;cursor:pointer}
     .privacy-note{font-size:12px;color:var(--muted);text-align:center;margin:14px 0}
     .privacy-note a{color:var(--navy);text-decoration:none}
     .privacy-note a:hover{text-decoration:underline}
-    .btn-primary{display:inline-block;padding:13px 36px;background:var(--orange);color:var(--white);font-family:Arial,sans-serif;font-size:15px;font-weight:700;border:none;border-radius:4px;cursor:pointer;transition:background .15s;text-align:center}
+    .btn-primary{display:inline-block;padding:13px 36px;background:var(--orange);color:var(--white);font-family:Arial,sans-serif;font-size:15px;font-weight:700;border:none;border-radius:4px;cursor:pointer;transition:background .15s;text-align:center;text-decoration:none}
     .btn-primary:hover{background:#c4510a}
     .btn-primary:disabled{opacity:.55;cursor:not-allowed}
     .btn-center{display:block;margin:0 auto}
+    .btn-secondary{display:inline-block;padding:11px 26px;background:var(--white);border:1.5px solid var(--border-med);border-radius:4px;font-family:Arial,sans-serif;font-size:14px;font-weight:700;color:var(--muted);cursor:pointer;transition:border-color .15s,color .15s;text-decoration:none}
+    .btn-secondary:hover{border-color:var(--navy);color:var(--navy)}
     .form-msg{margin-top:16px;padding:13px 16px;border-radius:5px;font-size:14px;display:none}
     .form-msg.info{background:#EEF3F8;color:var(--navy);border:1px solid var(--mid-blue);display:block}
     .form-msg.success{background:#e8f5e9;color:#1b5e20;border:1px solid #a5d6a7;display:block}
     .form-msg.error{background:#fce4ec;color:#880e4f;border:1px solid #f48fb1;display:block}
 
-    /* ── QUESTION SCREEN ── */
-    .question-screen{display:none}
-    .progress-track{background:var(--border-med);height:7px;border-radius:4px;margin-bottom:8px;overflow:hidden}
-    .progress-fill{background:var(--navy);height:100%;border-radius:4px;transition:width .3s ease}
-    .progress-label{font-size:13px;color:var(--muted);margin-bottom:28px}
-    .q-number{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--navy);margin-bottom:8px}
-    .q-category{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;background:var(--light-blue);color:var(--navy);padding:4px 10px;border-radius:3px;margin-bottom:16px}
-    .q-text{font-size:20px;font-weight:700;color:var(--body-text);line-height:1.4;margin-bottom:28px;max-width:660px}
-    .answer-grid{display:flex;flex-direction:column;gap:12px;max-width:580px}
-    .answer-btn{padding:16px 20px;background:var(--white);border:2px solid var(--border-med);border-radius:7px;font-family:Arial,sans-serif;font-size:15px;font-weight:600;color:var(--body-text);text-align:left;cursor:pointer;transition:border-color .15s,background .15s;line-height:1.4}
-    .answer-btn:hover{border-color:var(--navy);background:var(--light-blue);color:var(--navy)}
-    .answer-btn.selected{border-color:var(--navy);background:var(--navy);color:var(--white)}
-    .answer-btn:disabled{opacity:.6;cursor:not-allowed}
-    .q-nav{display:flex;justify-content:space-between;margin-top:36px}
-    .btn-prev{padding:11px 26px;background:var(--white);border:1.5px solid var(--border-med);border-radius:4px;font-family:Arial,sans-serif;font-size:14px;font-weight:700;color:var(--muted);cursor:pointer;transition:border-color .15s,color .15s}
-    .btn-prev:hover{border-color:var(--navy);color:var(--navy)}
-    .btn-prev:disabled{opacity:.4;cursor:not-allowed}
-
-    /* ── LOADING ── */
-    .ai-loading{display:none;text-align:center;padding:56px 0}
-    .ai-loading-icon{font-size:40px;margin-bottom:18px;animation:spin 1.2s linear infinite;display:inline-block}
-    @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-    .ai-loading h3{font-size:20px;font-weight:700;color:var(--body-text);margin-bottom:10px}
-    .ai-loading p{font-size:15px;color:var(--muted)}
-    .ai-loading-steps{margin-top:18px;font-size:14px;color:var(--navy)}
-
-    /* ── RESULTS ── */
-    .results-screen{display:none}
+    /* ── TIER 2 RESULTS ── */
+    .t2-results{display:none}
     .results-overall{background:var(--navy);border-radius:10px;padding:36px;text-align:center;margin-bottom:32px;color:var(--white)}
-    .results-overall h2{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:14px}
+    .results-overall h2{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
     .overall-score-num{font-size:64px;font-weight:700;line-height:1;margin-bottom:10px;color:#EEAE26}
-    .overall-score-label{font-size:16px;color:rgba(255,255,255,.85)}
-    .results-narrative{background:var(--light-grey);border-left:4px solid var(--orange);border-radius:0 8px 8px 0;padding:20px 24px;margin-bottom:32px;font-size:15px;line-height:1.80;color:var(--body-text)}
-    .dims-section h2{font-size:20px;font-weight:700;color:var(--body-text);margin-bottom:22px;padding-left:14px;border-left:4px solid var(--navy)}
+    .overall-score-label{font-size:16px;color:rgba(255,255,255,.88)}
+    .results-narrative{background:var(--light-grey);border-left:4px solid var(--orange);border-radius:0 8px 8px 0;padding:22px 26px;margin-bottom:36px;font-size:15px;line-height:1.80;color:var(--body-text)}
+    .dims-section h2{font-size:20px;font-weight:700;color:var(--body-text);margin-bottom:24px;padding-left:14px;border-left:4px solid var(--navy)}
     .dim-row{margin-bottom:22px}
     .dim-row-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
     .dim-row-header h3{font-size:15px;font-weight:700;color:var(--body-text)}
@@ -209,29 +332,36 @@
     .dim-high{color:#2e7d32;font-weight:700}
     .rec-section{margin:32px 0}
     .rec-section h3{font-size:18px;font-weight:700;color:var(--body-text);padding-bottom:10px;border-bottom:2px solid var(--navy);margin-bottom:16px}
-    .rec-item{background:var(--light-grey);border-left:4px solid var(--navy);border-radius:0 6px 6px 0;padding:16px 20px;margin-bottom:14px;font-size:15px;line-height:1.70;color:var(--body-text)}
+    .rec-item{background:var(--light-grey);border-left:4px solid var(--navy);border-radius:0 6px 6px 0;padding:16px 20px;margin-bottom:14px;font-size:15px;line-height:1.72;color:var(--body-text)}
     .rec-item strong{color:var(--navy)}
     .rec-item.strength{border-left-color:var(--green);background:#f0faf5}
     .rec-item.strength strong{color:var(--green)}
     .rec-item.action{border-left-color:var(--orange);background:#fef6f0}
     .rec-item.action strong{color:var(--orange)}
     .ss-note{margin-top:12px;padding:12px 14px;background:var(--light-blue);border-radius:5px;font-size:13px;color:var(--navy);font-style:italic;line-height:1.6}
-    .cta-section{margin:40px 0 0}
+
+    .cta-section{margin:44px 0 0}
     .cta-box{background:var(--navy);border-radius:10px;padding:36px;text-align:center}
     .cta-box h2{font-size:22px;font-weight:700;color:var(--white);margin-bottom:12px}
-    .cta-box p{font-size:15px;color:var(--cta-sub);line-height:1.70;margin-bottom:24px;max-width:520px;margin-left:auto;margin-right:auto}
+    .cta-box p{font-size:15px;color:var(--cta-sub);line-height:1.72;margin-bottom:24px;max-width:540px;margin-left:auto;margin-right:auto}
     .cta-actions{display:flex;align-items:center;justify-content:center;gap:22px;flex-wrap:wrap}
     .cta-btn-primary{display:inline-block;padding:13px 30px;background:var(--orange);color:var(--white);font-size:14px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s}
     .cta-btn-primary:hover{background:#c4510a}
     .cta-link{font-size:14px;color:var(--mid-blue);text-decoration:none;font-weight:500}
     .cta-link:hover{text-decoration:underline;color:var(--white)}
-    .pdf-section{background:var(--light-grey);border:2px solid var(--navy);border-radius:8px;padding:30px;margin:32px 0;text-align:center}
+    .pdf-section{background:var(--light-grey);border:2px solid var(--navy);border-radius:8px;padding:30px;margin:36px 0;text-align:center}
     .pdf-section h3{font-size:18px;font-weight:700;color:var(--body-text);margin-bottom:10px}
     .pdf-section p{font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.6}
     .btn-pdf{display:inline-block;padding:13px 34px;background:var(--navy);color:var(--white);font-family:Arial,sans-serif;font-size:15px;font-weight:700;border:none;border-radius:4px;cursor:pointer;transition:background .15s}
     .btn-pdf:hover{background:#174067}
     .btn-restart{display:block;margin:18px auto 0;padding:11px 26px;background:var(--white);border:1.5px solid var(--border-med);border-radius:4px;font-family:Arial,sans-serif;font-size:14px;font-weight:700;color:var(--muted);cursor:pointer;transition:border-color .15s,color .15s}
     .btn-restart:hover{border-color:var(--navy);color:var(--navy)}
+
+    /* ── PDF-ONLY RECAP BLOCK ──
+       Hidden on screen. Shown only when printing — lets the PDF include
+       a clean recap of the Reality Check answers/reveals without
+       cluttering the on-screen experience. */
+    .pdf-recap{display:none}
 
     /* ── FOOTER (matches resources page exactly) ── */
     .site-footer{background:var(--navy-dark)}
@@ -271,27 +401,39 @@
 
     /* ── PRINT ── */
     @media print{
-      .site-nav,.breadcrumb-bar,.pdf-section,.btn-restart,.cta-section,.site-footer{display:none!important}
-      .hero{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:28px 24px}
-      body{font-size:13px}
-      .assessment-wrap{padding:16px 0}
-      .results-overall{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-      .dim-track{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-      .rec-item.strength,.rec-item.action,.ss-note{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-      .results-screen{display:block!important}
+      .site-nav,.breadcrumb-bar,.pdf-section,.btn-restart,.cta-section,
+      .site-footer,.t1-cta-row,.t1-cta-tertiary,.closing-argument,
+      .question-screen,.t2-form-screen,.ai-loading,
+      #screen-t1-intro,.hero{display:none!important}
+      body{font-size:13px;color:#000}
+      .assessment-wrap{padding:16px 0;max-width:100%}
+      .t1-results,.t2-results{display:block!important}
+      .t1-results-header,.results-overall,.db-callout,.dim-track,
+      .rec-item.strength,.rec-item.action,.ss-note,.commentary-block,
+      .reveal-card,.reveal-compare-cell{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      .pdf-recap{display:block!important}
+      .reveal-card,.rec-item,.commentary-block,.db-callout{page-break-inside:avoid}
+      .t1-results-header,.results-overall{page-break-after:avoid}
     }
 
     /* ── RESPONSIVE ── */
     @media(max-width:768px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
       .nav-logo-text{font-size:16px}
-      .hero{padding:40px 20px 48px}
-      .hero h1{font-size:26px}
+      .hero{padding:42px 20px 50px}
+      .hero h1{font-size:28px}
+      .hero-tag{font-size:16px}
       .hero-stats{flex-direction:column;gap:10px}
-      .assessment-wrap{padding:28px 16px 44px}
-      .dims-grid{grid-template-columns:repeat(2,1fr)}
+      .hero-stat{min-width:auto}
+      .assessment-wrap{padding:30px 16px 48px}
       .form-row{grid-template-columns:1fr}
       .answer-grid{max-width:100%}
+      .reveal-compare{grid-template-columns:1fr}
+      .t1-cta-row{grid-template-columns:1fr}
+      .reveal-card{padding:22px 20px}
+      .db-callout{padding:24px 22px}
+      .closing-argument{padding:26px 22px}
+      .t1-results-header{padding:26px 22px}
       .footer-prefooter{padding:32px 20px}
       .footer-content-row{grid-template-columns:1fr}
       .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
@@ -303,9 +445,9 @@
       .footer-bottom-left{justify-content:center}
     }
     @media(max-width:480px){
-      .dims-grid{grid-template-columns:1fr 1fr}
       .hero-stats{flex-direction:row;flex-wrap:wrap}
       .hero-stat{flex:1;min-width:100px}
+      .q-text{font-size:18px}
     }
   </style>
 </head>
@@ -334,106 +476,247 @@
   <div class="hero-circle-tr"></div>
   <div class="hero-circle-bl"></div>
   <div class="hero-inner">
-    <div class="hero-eyebrow">Resources &rsaquo; Free Assessment Tool</div>
-    <h1>Shift Operations Health Assessment</h1>
-    <p class="hero-subtitle">10 minutes. 35 questions. AI-powered evaluation across the 8 dimensions that determine whether your shift operation is working — or quietly costing you.</p>
+    <div class="hero-eyebrow">Resources &rsaquo; Free Benchmark Tool</div>
+    <h1>The Shiftwork Operations Reality Check</h1>
+    <p class="hero-tag">Where your instincts meet the benchmark.</p>
+    <p class="hero-subtitle">Compare your thinking against more than 20,000 shift worker responses drawn from hundreds of 24/7 operations. Four minutes, eight questions, immediate results. No email required.</p>
     <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">35</div><div class="hero-stat-label">Questions across<br>8 dimensions</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">AI</div><div class="hero-stat-label">Evaluated — not<br>just scored</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">Free</div><div class="hero-stat-label">PDF report<br>included</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">20,000+</div><div class="hero-stat-label">Shift worker<br>benchmark responses</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">8</div><div class="hero-stat-label">Questions &middot;<br>Roughly 4 minutes</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">0</div><div class="hero-stat-label">Forms to fill out<br>before you see results</div></div>
     </div>
   </div>
 </section>
 
 <!-- ── BREADCRUMB ── -->
 <div class="breadcrumb-bar"><div class="breadcrumb-inner">
-  <a href="/">Home</a> &rsaquo; <a href="/resources/">Resources</a> &rsaquo; <span class="bc-current">Shift Operations Health Assessment</span>
+  <a href="/">Home</a> &rsaquo; <a href="/resources/">Resources</a> &rsaquo; <span class="bc-current">Reality Check</span>
 </div></div>
 
 <!-- ── ASSESSMENT CONTENT ── -->
 <div class="assessment-wrap">
 
-  <!-- INTRO SCREEN -->
-  <div id="screen-intro">
-    <p class="intro-lead">Is your shift operation supporting performance — or quietly eroding it? This assessment analyzes the eight critical dimensions that determine operational stability, workforce health, and cost efficiency. You'll get a personalized AI evaluation, not just a number.</p>
-    <div class="intro-highlight">
-      <h3>In under 10 minutes, you'll get:</h3>
-      <ul>
-        <li>A health score across all 8 dimensions</li>
-        <li>AI-written insights on your specific pattern of answers</li>
-        <li>Your highest-impact improvement areas</li>
-        <li>Practical recommended actions</li>
-        <li>A downloadable PDF report</li>
-      </ul>
+  <!-- ============================================================ -->
+  <!-- TIER 1: INTRO SCREEN                                          -->
+  <!-- ============================================================ -->
+  <div id="screen-t1-intro">
+    <div class="section-eyebrow">How It Works</div>
+    <div class="accent-h">A short exercise in what&rsquo;s knowable &mdash; and what isn&rsquo;t.</div>
+    <p class="t1-intro-para" style="margin-top:18px;">Every shift operations leader makes daily decisions based on what they believe about their workforce &mdash; who wants overtime, who doesn&rsquo;t, what employees value, how they feel about the schedule they&rsquo;re working.</p>
+    <p class="t1-intro-para">Some of those beliefs are accurate. Some aren&rsquo;t. The tricky part is knowing which is which.</p>
+    <p class="t1-intro-para">This short exercise lets you compare your instincts to patterns drawn from our benchmark database &mdash; more than <strong>20,000 shift worker responses across hundreds of 24/7 operations</strong>. You&rsquo;ll see where your thinking aligns with what shift workers across North America actually say, and, just as importantly, where the honest answer for your specific facility remains an open question.</p>
+
+    <div class="t1-meta-card">
+      <div class="t1-meta-card-row">
+        <div class="t1-meta-icon">1</div>
+        <div class="t1-meta-text"><strong>Eight questions.</strong> Seven compare your thinking to our benchmark. One asks what&rsquo;s on your mind right now.</div>
+      </div>
+      <div class="t1-meta-card-row">
+        <div class="t1-meta-icon">2</div>
+        <div class="t1-meta-text"><strong>About four minutes.</strong> Results appear immediately on screen &mdash; no email, no form, no strings.</div>
+      </div>
+      <div class="t1-meta-card-row">
+        <div class="t1-meta-icon">3</div>
+        <div class="t1-meta-text"><strong>Optional deeper dive.</strong> If the Reality Check sparks interest, you can follow with a more detailed analysis of your own operation.</div>
+      </div>
     </div>
-    <div class="dims-grid">
-      <div class="dim-card">Work-Life Balance</div>
-      <div class="dim-card">Employee Health</div>
-      <div class="dim-card">Alertness Management</div>
-      <div class="dim-card">Overtime Management</div>
-      <div class="dim-card">Operational Efficiency</div>
-      <div class="dim-card">Quality &amp; Safety</div>
-      <div class="dim-card">Communication</div>
-      <div class="dim-card">Workforce Stability</div>
-    </div>
-    <div class="form-card">
-      <h3>Get Started — Receive Your Personalized Report</h3>
-      <p class="form-sub">Complete the form below, then take the 35-question assessment and download your AI-generated PDF analysis.</p>
-      <form id="contactForm" onsubmit="submitContactForm(event)">
-        <div class="form-row">
-          <div class="form-group"><label for="full_name">Full Name <span class="req">*</span></label><input type="text" id="full_name" name="full_name" required autocomplete="name"></div>
-          <div class="form-group"><label for="email">Work Email <span class="req">*</span></label><input type="email" id="email" name="email" required autocomplete="email"></div>
-        </div>
-        <div class="form-group form-group-full"><label for="company">Company <span class="req">*</span></label><input type="text" id="company" name="company" required autocomplete="organization"></div>
-        <div class="form-row">
-          <div class="form-group"><label for="industry">Industry <span class="req">*</span></label><select id="industry" name="industry" required><option value="">Select Industry</option><option value="Food & Beverage">Food &amp; Beverage Manufacturing</option><option value="Pharmaceutical">Pharmaceutical</option><option value="Chemical">Chemical Manufacturing</option><option value="Automotive">Automotive</option><option value="Electronics">Electronics / Semiconductors</option><option value="Distribution">Distribution / Warehousing</option><option value="Healthcare">Healthcare</option><option value="Transportation">Transportation / Logistics</option><option value="Mining">Mining / Extraction</option><option value="Energy">Energy / Utilities</option><option value="Other Manufacturing">Other Manufacturing</option><option value="Other">Other</option></select></div>
-          <div class="form-group"><label for="shift_workers">Number of Shift Workers <span class="req">*</span></label><select id="shift_workers" name="shift_workers" required><option value="">Select Range</option><option value="1-25">1–25</option><option value="26-50">26–50</option><option value="51-100">51–100</option><option value="101-250">101–250</option><option value="251-500">251–500</option><option value="500+">500+</option></select></div>
-        </div>
-        <div class="form-row">
-          <div class="form-group"><label for="shift_length">Primary Shift Length <span class="req">*</span></label><select id="shift_length" name="shift_length" required><option value="">Select Length</option><option value="8-hour">8-hour shifts</option><option value="10-hour">10-hour shifts</option><option value="12-hour">12-hour shifts</option><option value="Mixed">Mixed / Variable</option></select></div>
-          <div class="form-group"><label for="biggest_challenge">Biggest Challenge <span class="req">*</span></label><select id="biggest_challenge" name="biggest_challenge" required><option value="">Select Challenge</option><option value="Recruiting">Recruiting / Staffing</option><option value="Retention">Employee Retention</option><option value="Overtime">Managing Overtime</option><option value="Work-Life Balance">Work-Life Balance</option><option value="Schedule Design">Schedule Design</option><option value="Coverage">Coverage / Absenteeism</option><option value="Communication">Communication</option><option value="Other">Other</option></select></div>
-        </div>
-        <div class="newsletter-row">
-          <input type="checkbox" id="newsletter_signup" name="newsletter_signup" checked>
-          <label for="newsletter_signup">Yes, I'd like to receive Shiftwork Solutions' newsletter with insights on shift operations, scheduling best practices, and industry trends.</label>
-        </div>
-        <div class="privacy-note">By submitting this form, you agree to our <a href="https://shift-work.com/shiftwork-solutions-llc-privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>. We never share your information with third parties.</div>
-        <button type="submit" class="btn-primary btn-center" id="contactSubmitBtn">Begin Assessment &#x2192;</button>
-        <div class="form-msg" id="contactFormMsg"></div>
-      </form>
+
+    <div class="t1-start-wrap">
+      <button type="button" class="t1-start-btn" onclick="startT1()">Start the Reality Check &#x2192;</button>
+      <p class="t1-start-sub">Takes about four minutes. Free. No contact information required.</p>
     </div>
   </div>
 
-  <!-- QUESTION SCREEN -->
-  <div id="screen-questions" class="question-screen">
-    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
-    <div class="progress-label" id="progressLabel">Question 1 of 35</div>
-    <div id="questionArea">
-      <div class="q-number" id="qNumber">Question 1 of 35</div>
-      <div class="q-category" id="qCategory">Work-Life Balance</div>
-      <div class="q-text" id="qText"></div>
-      <div class="answer-grid" id="answerGrid"></div>
+  <!-- ============================================================ -->
+  <!-- TIER 1: QUESTION SCREEN                                       -->
+  <!-- ============================================================ -->
+  <div id="screen-t1-questions" class="question-screen">
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="t1ProgressFill"></div></div>
+      <div class="progress-label" id="t1ProgressLabel">Question 1 of 8</div>
     </div>
+    <div class="q-number" id="t1QNumber">Question 1 of 8</div>
+    <div class="q-category" id="t1QCategory">Overtime Preferences</div>
+    <div class="q-text" id="t1QText"></div>
+    <div class="q-sub" id="t1QSub" style="display:none;"></div>
+    <div class="answer-grid" id="t1AnswerGrid"></div>
     <div class="q-nav">
-      <button class="btn-prev" id="btnPrev" onclick="prevQuestion()" disabled>&#x2190; Previous</button>
+      <button class="btn-prev" id="t1BtnPrev" onclick="t1PrevQuestion()" disabled>&#x2190; Previous</button>
       <span></span>
     </div>
   </div>
 
-  <!-- LOADING SCREEN -->
-  <div id="screen-loading" class="ai-loading">
+  <!-- ============================================================ -->
+  <!-- TIER 1: LOADING SCREEN (for AI closing commentary)            -->
+  <!-- ============================================================ -->
+  <div id="screen-t1-loading" class="ai-loading">
     <div class="ai-loading-icon">&#x2699;</div>
-    <h3>Analyzing Your Responses</h3>
-    <p>Our AI is reading your answers across all 8 dimensions</p>
-    <div class="ai-loading-steps" id="loadingSteps">Preparing evaluation&#x2026;</div>
+    <h3>Preparing Your Reality Check</h3>
+    <p>Comparing your answers to the benchmark and writing a short commentary.</p>
+    <div class="ai-loading-steps" id="t1LoadingSteps">Reviewing your answers&#x2026;</div>
   </div>
 
-  <!-- RESULTS SCREEN -->
-  <div id="screen-results" class="results-screen">
+  <!-- ============================================================ -->
+  <!-- TIER 1: RESULTS SCREEN                                        -->
+  <!-- ============================================================ -->
+  <div id="screen-t1-results" class="t1-results">
+    <div class="t1-results-header">
+      <div class="t1-results-eyebrow">Your Reality Check</div>
+      <h2>Here&rsquo;s what you thought. Here&rsquo;s what the benchmark shows.</h2>
+      <p>Each section below shows your answer alongside the pattern we see across hundreds of 24/7 operations. The honest answer for your specific facility remains an open question &mdash; and that&rsquo;s the point.</p>
+    </div>
+
+    <div id="t1RevealsContainer"></div>
+
+    <div id="t1CommentaryContainer"></div>
+
+    <div class="closing-argument">
+      <h3>The best decisions about a workforce come from knowing what that workforce actually thinks.</h3>
+      <p>Not from assumptions, and not from general patterns. Our workforce surveys apply this same benchmark data to your specific facility &mdash; calibrated to your industry, your shift structure, and your specific concerns. That&rsquo;s how you stop guessing and start knowing.</p>
+    </div>
+
+    <div class="section-eyebrow" style="margin-top:40px;">Where to Go From Here</div>
+    <div class="accent-h" style="margin-bottom:22px;">Three ways to take this further.</div>
+
+    <div class="t1-cta-row">
+      <a href="#" onclick="goToT2(); return false;" class="t1-cta-card primary">
+        <span class="t1-cta-label">Free Deeper Analysis</span>
+        <h4>Get an analysis of your specific operation</h4>
+        <p>An additional five minutes. A 35-question look at your actual operation across eight dimensions. We&rsquo;ll email you a personalized PDF report &mdash; free, no obligation.</p>
+        <span class="t1-cta-action">Go Deeper &#x2192;</span>
+      </a>
+      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" target="_blank" rel="noopener" class="t1-cta-card">
+        <span class="t1-cta-label">Free Consultation</span>
+        <h4>Talk to a shift work expert</h4>
+        <p>Tell us what you&rsquo;re dealing with. Twenty minutes. No pitch &mdash; just a focused conversation about your operation.</p>
+        <span class="t1-cta-action">Book a Meeting &#x2192;</span>
+      </a>
+    </div>
+
+    <div class="t1-cta-tertiary">
+      <a href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener">Or talk to Thomas, our AI shift advisor &rsaquo;</a>
+    </div>
+
+    <button class="btn-restart" onclick="restartAll()">Take the Reality Check Again</button>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TIER 2: FORM SCREEN                                           -->
+  <!-- ============================================================ -->
+  <div id="screen-t2-form" class="t2-form-screen">
+    <div class="section-eyebrow">Free Deeper Analysis</div>
+    <div class="accent-h">A closer look at your specific operation.</div>
+
+    <div class="t2-form-intro">
+      <h3>What&rsquo;s different about this part?</h3>
+      <p>The Reality Check compared your thinking to general patterns. This next part asks about your actual operation across eight dimensions &mdash; work-life balance, employee health, alertness, overtime, operations, quality, communication, and workforce stability. You&rsquo;ll get a personalized PDF report with your scores, strengths, and priority areas for improvement.</p>
+    </div>
+
+    <div class="form-card">
+      <h3>A few details so we can personalize your report</h3>
+      <p class="form-sub">Three short fields. Name and company are optional. Takes about 20 seconds.</p>
+      <form id="t2ContactForm" onsubmit="submitT2Form(event)">
+        <div class="form-group form-group-full">
+          <label for="t2_email">Work Email <span class="req">*</span></label>
+          <input type="email" id="t2_email" name="t2_email" required autocomplete="email">
+          <div class="form-group-hint">Your personalized PDF report will be addressed and tailored using the information below.</div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="t2_industry">Industry <span class="req">*</span></label>
+            <select id="t2_industry" name="t2_industry" required>
+              <option value="">Select industry</option>
+              <option value="Food &amp; Beverage">Food &amp; Beverage Manufacturing</option>
+              <option value="Pharmaceutical">Pharmaceutical</option>
+              <option value="Chemical">Chemical Manufacturing</option>
+              <option value="Automotive">Automotive</option>
+              <option value="Electronics">Electronics / Semiconductors</option>
+              <option value="Distribution">Distribution / Warehousing</option>
+              <option value="Healthcare">Healthcare</option>
+              <option value="Transportation">Transportation / Logistics</option>
+              <option value="Mining">Mining / Extraction</option>
+              <option value="Energy">Energy / Utilities</option>
+              <option value="Paper &amp; Pulp">Paper &amp; Pulp</option>
+              <option value="Other Manufacturing">Other Manufacturing</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="t2_shift_workers">Shift Workers <span class="req">*</span></label>
+            <select id="t2_shift_workers" name="t2_shift_workers" required>
+              <option value="">Select range</option>
+              <option value="1-25">1&ndash;25</option>
+              <option value="26-50">26&ndash;50</option>
+              <option value="51-100">51&ndash;100</option>
+              <option value="101-250">101&ndash;250</option>
+              <option value="251-500">251&ndash;500</option>
+              <option value="500+">500+</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="t2_name">Name <span class="opt">(optional)</span></label>
+            <input type="text" id="t2_name" name="t2_name" autocomplete="name">
+            <div class="form-group-hint">So we can address your report personally.</div>
+          </div>
+          <div class="form-group">
+            <label for="t2_company">Company <span class="opt">(optional)</span></label>
+            <input type="text" id="t2_company" name="t2_company" autocomplete="organization">
+            <div class="form-group-hint">Appears on the report header.</div>
+          </div>
+        </div>
+        <div class="newsletter-row">
+          <input type="checkbox" id="t2_newsletter" name="t2_newsletter" checked>
+          <label for="t2_newsletter">Yes, I&rsquo;d like the Shiftwork Solutions newsletter &mdash; practical insights on 24/7 operations, sent monthly.</label>
+        </div>
+        <div class="privacy-note">By continuing, you agree to our <a href="https://shift-work.com/shiftwork-solutions-llc-privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>. We never share your information with third parties.</div>
+        <button type="submit" class="btn-primary btn-center" id="t2SubmitBtn">Continue to the Analysis &#x2192;</button>
+        <div class="form-msg" id="t2FormMsg"></div>
+      </form>
+    </div>
+
+    <div style="text-align:center;margin-top:10px;">
+      <button class="btn-secondary" onclick="backToT1Results()">&#x2190; Back to Reality Check Results</button>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TIER 2: QUESTION SCREEN                                       -->
+  <!-- ============================================================ -->
+  <div id="screen-t2-questions" class="question-screen">
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="t2ProgressFill"></div></div>
+      <div class="progress-label" id="t2ProgressLabel">Question 1 of 35</div>
+    </div>
+    <div class="q-number" id="t2QNumber">Question 1 of 35</div>
+    <div class="q-category" id="t2QCategory">Work-Life Balance</div>
+    <div class="q-text" id="t2QText"></div>
+    <div class="answer-grid" id="t2AnswerGrid"></div>
+    <div class="q-nav">
+      <button class="btn-prev" id="t2BtnPrev" onclick="t2PrevQuestion()" disabled>&#x2190; Previous</button>
+      <span></span>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TIER 2: LOADING SCREEN                                        -->
+  <!-- ============================================================ -->
+  <div id="screen-t2-loading" class="ai-loading">
+    <div class="ai-loading-icon">&#x2699;</div>
+    <h3>Analyzing Your Responses</h3>
+    <p>Reading your 35 answers across all eight dimensions.</p>
+    <div class="ai-loading-steps" id="t2LoadingSteps">Preparing evaluation&#x2026;</div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- TIER 2: RESULTS SCREEN                                        -->
+  <!-- ============================================================ -->
+  <div id="screen-t2-results" class="t2-results">
     <div class="results-overall">
       <h2>Overall Shift Operations Health Score</h2>
       <div class="overall-score-num" id="overallScore">--</div>
-      <div class="overall-score-label" id="overallLabel">Assessment Complete</div>
+      <div class="overall-score-label" id="overallLabel">Analysis Complete</div>
     </div>
     <div class="results-narrative" id="resultsNarrative"></div>
     <div class="dims-section">
@@ -452,24 +735,40 @@
       <h3>&#x1F3AF; Recommended Actions</h3>
       <div id="actionsList"></div>
     </div>
+
+    <div class="db-callout">
+      <div class="db-callout-eyebrow">About the Benchmark</div>
+      <h3>The Shiftwork Solutions Normative Database</h3>
+      <p>The comparisons and analysis you&rsquo;ve seen are drawn from the Shiftwork Solutions normative database &mdash; responses from more than 20,000 shift workers across hundreds of 24/7 operations in 16 industries. It&rsquo;s the largest benchmark dataset of its kind, built over three decades of client engagements. The full dataset isn&rsquo;t publicly available; it&rsquo;s used in our workforce surveys and schedule design engagements, where it becomes the foundation for understanding how a specific workforce compares to the industry as a whole.</p>
+    </div>
+
     <div class="cta-section">
       <div class="cta-box">
         <h2>Ready to Take Action?</h2>
-        <p>Shiftwork Solutions specializes in addressing exactly the challenges identified in your assessment. With hundreds of facility engagements across North America, we can develop a customized action plan for your operation.</p>
+        <p>Shiftwork Solutions specializes in addressing exactly the challenges identified in your analysis. With hundreds of facility engagements across North America, we can develop a customized action plan for your operation.</p>
         <div class="cta-actions">
           <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="cta-btn-primary" target="_blank" rel="noopener">Schedule a Consultation</a>
           <a href="https://shift-work-diagnostic.onrender.com/" class="cta-link" target="_blank" rel="noopener">Talk to Thomas &#x2192;</a>
         </div>
       </div>
     </div>
+
     <div class="pdf-section">
-      <h3>&#x1F4C4; Download Your Personalized PDF Report</h3>
-      <p>Your complete assessment results and AI recommendations — formatted for printing or sharing.</p>
+      <h3>&#x1F4C4; Download Your Complete Report</h3>
+      <p>Your full Reality Check results plus the detailed operations analysis &mdash; formatted for printing or sharing as a PDF.</p>
       <button class="btn-pdf" onclick="downloadPDF()">Download PDF Report</button>
       <div class="form-msg" id="pdfMsg"></div>
     </div>
-    <button class="btn-restart" onclick="restartAssessment()">Take Assessment Again</button>
+    <button class="btn-restart" onclick="restartAll()">Start Over from the Reality Check</button>
   </div>
+
+  <!-- ============================================================ -->
+  <!-- PDF-ONLY RECAP (hidden on screen, visible only when printing) -->
+  <!-- Contains a clean text summary of Tier 1 answers/reveals so the -->
+  <!-- printed PDF includes them at the top. Populated by JS after T1 -->
+  <!-- is complete. -->
+  <!-- ============================================================ -->
+  <div class="pdf-recap" id="pdfRecap"></div>
 
 </div><!-- /.assessment-wrap -->
 
@@ -485,7 +784,7 @@
       <div class="footer-col footer-col-2">
         <div class="engage-label">AI ADVISOR</div>
         <div class="engage-col-title">Talk to Thomas</div>
-        <p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
+        <p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor &mdash; available now, no appointment needed.</p>
       </div>
       <div class="footer-col footer-col-3">
         <div class="engage-label">NEWSLETTER</div>
@@ -516,13 +815,14 @@
 </footer>
 
 <script>
-/* ── Mobile nav ── */
+/* ============================================================ */
+/* Mobile nav                                                   */
+/* ============================================================ */
 document.getElementById('mobileToggle').addEventListener('click', function () {
   var n = document.getElementById('navLinks');
   var open = n.style.display === 'flex';
-  if (open) {
-    n.style.display = 'none';
-  } else {
+  if (open) { n.style.display = 'none'; }
+  else {
     n.style.display = 'flex';
     n.style.flexDirection = 'column';
     n.style.position = 'absolute';
@@ -537,7 +837,9 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
   }
 });
 
-/* ── Footer newsletter ── */
+/* ============================================================ */
+/* Footer newsletter                                            */
+/* ============================================================ */
 (function () {
   var SWARM = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
   window.footerNLSubmit = function (e) {
@@ -568,23 +870,481 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
   };
 })();
 
-/* ── Assessment logic (unchanged) ── */
+/* ============================================================ */
+/* THE REALITY CHECK — Tier 1 logic                             */
+/* ============================================================ */
 (function () {
   'use strict';
+
   var SWARM_API = 'https://ai-swarm-orchestrator.onrender.com';
-  var contactData = null;
-  var assessmentId = null;
-  var answers = {};
-  var currentQ = 0;
-  var isTransitioning = false;
-  var advanceTimer = null;
-  var CATEGORY_NAMES = {
+
+  /* ----- Shared state across tiers ----- */
+  var t1Answers = {};           // {qid: selectedOptionIndex}
+  var t1CurrentQ = 0;
+  var t1IsTransitioning = false;
+  var t1AdvanceTimer = null;
+  var t1AICommentary = null;    // AI-generated closing commentary text
+
+  var t2Answers = {};           // {qid: selectedOptionIndex}
+  var t2CurrentQ = 0;
+  var t2IsTransitioning = false;
+  var t2AdvanceTimer = null;
+  var t2ContactData = null;
+  var t2AssessmentId = null;
+
+  /* =========================================================
+     TIER 1 QUESTIONS
+     =========================================================
+     Each question has:
+       id, category (display label), text, subText (optional),
+       opts (answer options), benchmarkText (short pattern summary
+       shown in results card), revealCopy (function returning the
+       scripted narrative — receives user's selected option text).
+     The Q8 biggest-challenge question has no benchmarkText/reveal;
+     it's used only for the AI closing commentary.
+  ========================================================= */
+  var t1Questions = [
+    {
+      id: 1,
+      category: 'Overtime Preferences',
+      text: 'Of your shift workforce, what percentage would you estimate actively wants all the overtime they can get?',
+      opts: ['Less than 10%', 'About 20%', 'About 35%', 'About 50%', 'More than 50%'],
+      benchmarkLabel: 'What the benchmark shows',
+      benchmarkText: 'Roughly 20% actively seek overtime, 60% will work a fair share, 20% want none.',
+      revealCopy: function (yourAnswer) {
+        return 'You estimated <strong>' + yourAnswer + '</strong>. Across hundreds of 24/7 operations we\u2019ve surveyed, the pattern sits closer to 20% actively seeking maximum overtime, 60% willing to work a fair share, and 20% who\u2019d prefer none at all. Most operations leaders land somewhere in a wide range on this question \u2014 which is itself telling. Whether your own workforce matches the general 20/60/20 pattern, or leans differently, is something only a structured conversation with your workforce can actually answer.';
+      }
+    },
+    {
+      id: 2,
+      category: 'Fixed vs. Rotating',
+      text: 'If your shift workers could choose, what percentage do you think would prefer fixed shifts over rotating?',
+      opts: ['Less than 40%', 'About 50%', 'About 65%', 'About 80%', 'More than 90%'],
+      benchmarkLabel: 'What the benchmark shows',
+      benchmarkText: 'More than 80% prefer fixed shifts; about 60% would accept a non-preferred fixed shift over rotating.',
+      revealCopy: function (yourAnswer) {
+        return 'You estimated <strong>' + yourAnswer + '</strong>. In shift worker surveys spanning hundreds of 24/7 operations, more than 80% say they\u2019d prefer a fixed shift. Roughly 60% say they\u2019d accept a fixed shift that wasn\u2019t their first choice rather than stay on any rotating schedule. The preference holds across industries, tenure, and shift length. It\u2019s one of the most consistent findings in the data \u2014 and one that\u2019s rarely reflected in the schedules workforces are actually running.';
+      }
+    },
+    {
+      id: 3,
+      category: 'Communication',
+      text: 'How would you rate the quality of communication between your management team and your shift workers about schedules and work conditions?',
+      opts: ['Excellent', 'Good', 'Average', 'Below average', 'Poor'],
+      benchmarkLabel: 'What the benchmark shows',
+      benchmarkText: 'About 70% of managers rate communication as good or better; about 70% of their workers rate it below that.',
+      revealCopy: function (yourAnswer) {
+        return 'You rated it <strong>' + yourAnswer + '</strong>. About 70% of managers across operations we\u2019ve surveyed rate their own communication as good or excellent. About 70% of their shift workers, asked the same question about the same managers, rate it below that mark. The gap is one of the most consistently observed patterns in shift operations research. It doesn\u2019t mean managers are out of touch \u2014 it means informal observation isn\u2019t a reliable way to detect how communication is actually landing. Without a structured way to measure it at your facility, the size of any gap is genuinely unknown.';
+      }
+    },
+    {
+      id: 4,
+      category: 'True Cost of Overtime',
+      text: 'When fully loaded \u2014 including benefits, PTO, training, and administrative costs \u2014 how much more does an overtime hour actually cost your operation than a straight-time hour?',
+      opts: ['About 10% more', 'About 25% more', 'About 50% more (time-and-a-half)', 'About 75% more', 'More than 100% more'],
+      benchmarkLabel: 'What the benchmark shows',
+      benchmarkText: 'The true fully loaded premium typically falls in the 5\u201310% range, not the 50% time-and-a-half implies.',
+      revealCopy: function (yourAnswer) {
+        return 'You estimated <strong>' + yourAnswer + '</strong>. The \u201ctime-and-a-half\u201d framing creates an intuitive sense that overtime costs 50% more than regular hours \u2014 and most managers, quite reasonably, carry that figure in their heads. When the calculation is done on a fully loaded basis (including benefits, PTO accrual, training, and the alternative cost of carrying additional headcount), the true premium typically falls in the 5\u201310% range. This doesn\u2019t mean overtime is always the right answer, but it does mean the cost conversation is usually built on a number that\u2019s significantly too high. What your actual fully loaded premium works out to depends on your specific cost structure.';
+      }
+    },
+    {
+      id: 5,
+      category: 'Schedule Change Resistance',
+      text: 'If you proposed a significant schedule change tomorrow \u2014 say, moving from rotating to fixed shifts, or from 8s to 12s \u2014 what percentage of your workforce do you think would resist?',
+      opts: ['Less than 10%', 'About 25%', 'About 50%', 'About 75%', 'More than 90%'],
+      benchmarkLabel: 'What the benchmark shows',
+      benchmarkText: 'In employee-centered change processes, most workers support the new schedule; about 5% will express dissatisfaction regardless.',
+      revealCopy: function (yourAnswer) {
+        return 'You estimated <strong>' + yourAnswer + '</strong>. In operations where a schedule change is announced without structured workforce input, resistance rates are often high enough to derail the change \u2014 or to damage morale for years, even when the change technically succeeds. In engagements where workers are genuinely involved in evaluating options, most end up supporting the new schedule, and a meaningful percentage report preferring it over the old one. There\u2019s also a baseline: about 5% of any workforce will express dissatisfaction regardless of what\u2019s offered. How your workforce would respond depends far more on <em>how</em> a change is run than on what the change itself is.';
+      }
+    },
+    {
+      id: 6,
+      category: 'Absenteeism Attitudes',
+      text: 'What percentage of your shift workers do you think believe other employees\u2019 unplanned absences negatively affect their own work life?',
+      opts: ['Less than 25%', 'About 40%', 'About 55%', 'About 65%', 'More than 75%'],
+      benchmarkLabel: 'What the benchmark shows',
+      benchmarkText: 'Roughly two-thirds of shift workers say others\u2019 absenteeism adversely affects them \u2014 and would support tighter policies.',
+      revealCopy: function (yourAnswer) {
+        return 'You estimated <strong>' + yourAnswer + '</strong>. When we ask shift workers directly, about two-thirds say that other employees\u2019 unplanned absences adversely affect their own lifestyle \u2014 and a similar majority say they\u2019d support tighter absentee policies. This often runs counter to the assumption that tighter absence policies would be seen as management overreach. The workforce often wants the problem addressed more than management does. Whether that\u2019s true at your facility is a measurable question.';
+      }
+    },
+    {
+      id: 7,
+      category: 'Night-Shift Sleep',
+      text: 'On a typical workday, how many hours of sleep would you estimate your night-shift employees get?',
+      opts: ['Less than 5 hours', 'About 5.5 hours', 'About 6.5 hours', 'About 7 hours', 'More than 7 hours'],
+      benchmarkLabel: 'What the benchmark shows',
+      benchmarkText: 'Shift workers average about 6.5 hours of sleep on workdays \u2014 below the adult population average and well below recommended levels.',
+      revealCopy: function (yourAnswer) {
+        return 'You estimated <strong>' + yourAnswer + '</strong>. Shift workers across the operations we\u2019ve surveyed average about 6.5 hours of sleep on workdays \u2014 roughly 25 minutes less than the general adult population, which itself is below what the National Sleep Foundation recommends. About one in five shift workers reports a safety or performance problem from sleepiness in any given week. This is a population-level figure; individual facilities vary considerably depending on schedule design, shift rotation pattern, and the local culture around rest.';
+      }
+    },
+    {
+      id: 8,
+      category: 'What\u2019s On Your Mind',
+      text: 'Of these, which is the single biggest challenge in your operation right now?',
+      subText: 'We\u2019ll use this to tailor the closing commentary to what\u2019s most relevant to you.',
+      opts: [
+        'Recruiting / Staffing',
+        'Retaining experienced workers',
+        'Managing overtime',
+        'Work-life balance complaints',
+        'Coverage / absenteeism',
+        'Communication with the workforce',
+        'Planning an upcoming schedule change',
+        'Other'
+      ],
+      // No benchmarkText / revealCopy — this question drives the AI commentary only.
+      isContext: true
+    }
+  ];
+
+  /* ----- Screen switching ----- */
+  var ALL_SCREENS = [
+    'screen-t1-intro',
+    'screen-t1-questions',
+    'screen-t1-loading',
+    'screen-t1-results',
+    'screen-t2-form',
+    'screen-t2-questions',
+    'screen-t2-loading',
+    'screen-t2-results'
+  ];
+
+  function show(id) {
+    ALL_SCREENS.forEach(function (s) {
+      var el = document.getElementById(s);
+      if (!el) return;
+      el.style.display = (s === id) ? 'block' : 'none';
+    });
+  }
+
+  /* =========================================================
+     TIER 1 — question flow
+     ========================================================= */
+  window.startT1 = function () {
+    t1CurrentQ = 0;
+    t1Answers = {};
+    show('screen-t1-questions');
+    window.scrollTo(0, 0);
+    renderT1Question();
+  };
+
+  function renderT1Question() {
+    if (t1IsTransitioning) return;
+    var q = t1Questions[t1CurrentQ];
+    var total = t1Questions.length;
+    var pct = Math.round(((t1CurrentQ + 1) / total) * 100);
+    document.getElementById('t1ProgressFill').style.width = pct + '%';
+    document.getElementById('t1ProgressLabel').textContent = 'Question ' + (t1CurrentQ + 1) + ' of ' + total;
+    document.getElementById('t1QNumber').textContent = 'Question ' + (t1CurrentQ + 1) + ' of ' + total;
+    document.getElementById('t1QCategory').textContent = q.category;
+    document.getElementById('t1QText').innerHTML = q.text;
+    var subEl = document.getElementById('t1QSub');
+    if (q.subText) {
+      subEl.textContent = q.subText;
+      subEl.style.display = 'block';
+    } else {
+      subEl.style.display = 'none';
+    }
+    var grid = document.getElementById('t1AnswerGrid');
+    grid.innerHTML = '';
+    q.opts.forEach(function (opt, idx) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'answer-btn' + (t1Answers[q.id] === idx ? ' selected' : '');
+      btn.textContent = opt;
+      btn.onclick = function () { t1SelectAnswer(idx); };
+      grid.appendChild(btn);
+    });
+    document.getElementById('t1BtnPrev').disabled = (t1CurrentQ === 0);
+  }
+
+  function t1SelectAnswer(idx) {
+    if (t1IsTransitioning) return;
+    var q = t1Questions[t1CurrentQ];
+    if (t1Answers[q.id] === idx) return;
+    if (t1AdvanceTimer) { clearTimeout(t1AdvanceTimer); t1AdvanceTimer = null; }
+    t1IsTransitioning = true;
+    t1Answers[q.id] = idx;
+    var btns = document.querySelectorAll('#t1AnswerGrid .answer-btn');
+    btns.forEach(function (b, i) {
+      b.classList.toggle('selected', i === idx);
+      b.disabled = true;
+    });
+    t1AdvanceTimer = setTimeout(function () {
+      t1AdvanceTimer = null;
+      t1IsTransitioning = false;
+      if (t1CurrentQ < t1Questions.length - 1) {
+        t1CurrentQ++;
+        renderT1Question();
+        window.scrollTo(0, 0);
+      } else {
+        startT1Evaluation();
+      }
+    }, 380);
+  }
+
+  window.t1PrevQuestion = function () {
+    if (t1AdvanceTimer) { clearTimeout(t1AdvanceTimer); t1AdvanceTimer = null; }
+    t1IsTransitioning = false;
+    if (t1CurrentQ > 0) { t1CurrentQ--; renderT1Question(); window.scrollTo(0, 0); }
+  };
+
+  /* ----- Tier 1 evaluation (AI-generated closing commentary only) ----- */
+  var t1LoadingMessages = [
+    'Reviewing your answers\u2026',
+    'Comparing to the benchmark\u2026',
+    'Writing your closing commentary\u2026',
+    'Preparing your results\u2026'
+  ];
+  var t1LoadingInterval = null;
+  var t1LoadingStep = 0;
+
+  function startT1LoadingAnim() {
+    t1LoadingStep = 0;
+    document.getElementById('t1LoadingSteps').textContent = t1LoadingMessages[0];
+    t1LoadingInterval = setInterval(function () {
+      t1LoadingStep = (t1LoadingStep + 1) % t1LoadingMessages.length;
+      document.getElementById('t1LoadingSteps').textContent = t1LoadingMessages[t1LoadingStep];
+    }, 1800);
+  }
+  function stopT1LoadingAnim() {
+    if (t1LoadingInterval) { clearInterval(t1LoadingInterval); t1LoadingInterval = null; }
+  }
+
+  function startT1Evaluation() {
+    show('screen-t1-loading');
+    window.scrollTo(0, 0);
+    startT1LoadingAnim();
+    callT1ClaudeAPI();
+  }
+
+  /* Build the Tier 1 AI prompt — VERY tightly guarded.
+     The AI's only job here is the closing 2-3 paragraph commentary.
+     All benchmark reveals are already scripted in the reveal cards. */
+  function buildT1Prompt() {
+    var challengeIdx = t1Answers[8];
+    var challenge = (challengeIdx !== undefined) ? t1Questions[7].opts[challengeIdx] : 'not specified';
+
+    var predictionSummary = [];
+    for (var i = 0; i < 7; i++) {
+      var q = t1Questions[i];
+      var aIdx = t1Answers[q.id];
+      var aText = (aIdx !== undefined) ? q.opts[aIdx] : '(no answer)';
+      predictionSummary.push('- ' + q.category + ': they predicted "' + aText + '"');
+    }
+
+    return 'You are writing a short closing commentary for a manager who just completed the Shiftwork Solutions Reality Check \u2014 an eight-question exercise that compared their intuitions about their workforce to general benchmark patterns from 20,000+ shift worker responses.\n\n' +
+      'The manager\u2019s stated biggest current challenge: ' + challenge + '\n\n' +
+      'Their predictions across the seven benchmark questions:\n' + predictionSummary.join('\n') + '\n\n' +
+      '=== YOUR TASK ===\n' +
+      'Write a closing commentary of exactly 2-3 short paragraphs that ties their stated challenge together with the patterns they just saw, and ends pointing at what remains genuinely unknown about their specific facility.\n\n' +
+      'Return ONLY a valid JSON object \u2014 no markdown, no explanation outside the JSON:\n' +
+      '{\n' +
+      '  "heading": <string, under 80 chars, a warm accent heading for the commentary>,\n' +
+      '  "paragraphs": [<string>, <string>, <optional third string>]\n' +
+      '}\n\n' +
+      '=== HARD CONSTRAINTS \u2014 these are non-negotiable ===\n' +
+      '1. DO NOT give industry-specific benchmark numbers of any kind. No "in food and beverage, the number is X%". No industry-specific percentages. Keep all references to benchmark data at the "across hundreds of operations" level.\n' +
+      '2. DO NOT give numeric targets or thresholds that would let them self-diagnose without help (e.g., never say "if your overtime is above 15%, that indicates X").\n' +
+      '3. DO NOT explain methodology \u2014 never describe HOW the database was built, how comparisons are calculated, or how a workforce survey is designed.\n' +
+      '4. DO NOT give prescriptive implementation steps. Commentary is observational, not a to-do list. No "implement a three-tier overtime distribution system" type advice.\n' +
+      '5. DO NOT invent new statistics or benchmark figures. Only reference what\u2019s already been shown in the seven reveals.\n' +
+      '6. DO frame the manager\u2019s predictions as reasonable. Never say they\u2019re wrong. The tone is "both of us facing an unknown" \u2014 the benchmark is a general pattern, and their specific facility is a genuinely open question that only a proper workforce survey can answer.\n' +
+      '7. DO tie the commentary to their stated biggest challenge. Reference it naturally.\n' +
+      '8. DO end on what remains unknown about THEIR facility specifically \u2014 what a proper workforce conversation would reveal.\n' +
+      '9. DO NOT use the word "Shiftwork Solutions" more than once across the commentary. Don\u2019t sound like a sales pitch.\n' +
+      '10. Keep each paragraph to 3-5 sentences. Total commentary under 250 words.\n' +
+      '11. Return ONLY the JSON object \u2014 no preamble, no markdown fences, no trailing commentary.';
+  }
+
+  function callT1ClaudeAPI() {
+    fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 800,
+        messages: [{ role: 'user', content: buildT1Prompt() }]
+      })
+    }).then(function (r) {
+      if (!r.ok) throw new Error('API error ' + r.status);
+      return r.json();
+    }).then(function (data) {
+      var text = '';
+      if (data.content && data.content.length > 0) {
+        data.content.forEach(function (block) {
+          if (block.type === 'text') text += block.text;
+        });
+      }
+      text = text.replace(/```json|```/g, '').trim();
+      try {
+        t1AICommentary = JSON.parse(text);
+      } catch (e) {
+        t1AICommentary = null;
+      }
+      stopT1LoadingAnim();
+      renderT1Results();
+    }).catch(function (err) {
+      console.warn('T1 commentary skipped:', err);
+      t1AICommentary = null;
+      stopT1LoadingAnim();
+      renderT1Results();
+    });
+  }
+
+  function renderT1Results() {
+    /* Reveals */
+    var revealsHtml = '';
+    for (var i = 0; i < 7; i++) {
+      var q = t1Questions[i];
+      var aIdx = t1Answers[q.id];
+      var yourAnswer = (aIdx !== undefined) ? q.opts[aIdx] : '(no answer)';
+      var narrative = q.revealCopy(yourAnswer);
+
+      revealsHtml += '<div class="reveal-card">' +
+        '<div class="reveal-card-eyebrow">Reveal ' + (i + 1) + ' of 7 &middot; ' + q.category + '</div>' +
+        '<h3>' + q.text + '</h3>' +
+        '<div class="reveal-compare">' +
+          '<div class="reveal-compare-cell">' +
+            '<div class="reveal-compare-label">Your Prediction</div>' +
+            '<div class="reveal-compare-value">' + yourAnswer + '</div>' +
+          '</div>' +
+          '<div class="reveal-compare-cell pattern">' +
+            '<div class="reveal-compare-label">The Benchmark Pattern</div>' +
+            '<div class="reveal-compare-value">' + q.benchmarkText + '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="reveal-narrative">' + narrative + '</div>' +
+      '</div>';
+
+      /* Insert the database callout after the 4th reveal */
+      if (i === 3) {
+        revealsHtml += '<div class="db-callout">' +
+          '<div class="db-callout-eyebrow">About the Benchmark</div>' +
+          '<h3>The Shiftwork Solutions Normative Database</h3>' +
+          '<p>The comparisons you\u2019re seeing are drawn from the Shiftwork Solutions normative database \u2014 responses from more than 20,000 shift workers across hundreds of 24/7 operations in 16 industries. It\u2019s the largest benchmark dataset of its kind, built over three decades of client engagements. The full dataset isn\u2019t publicly available; it\u2019s used in our workforce surveys and schedule design engagements, where it becomes the foundation for understanding how a specific workforce compares to the industry as a whole.</p>' +
+        '</div>';
+      }
+    }
+    document.getElementById('t1RevealsContainer').innerHTML = revealsHtml;
+
+    /* AI commentary */
+    var cHtml = '';
+    if (t1AICommentary && t1AICommentary.paragraphs && t1AICommentary.paragraphs.length > 0) {
+      cHtml = '<div class="commentary-block">' +
+        '<div class="commentary-eyebrow">What this means for you</div>' +
+        '<h3>' + (t1AICommentary.heading || 'Reading the pattern in context') + '</h3>';
+      t1AICommentary.paragraphs.forEach(function (p) {
+        if (p && p.trim().length > 0) {
+          cHtml += '<p>' + p + '</p>';
+        }
+      });
+      cHtml += '</div>';
+    } else {
+      /* Fallback commentary if AI unavailable */
+      cHtml = '<div class="commentary-block">' +
+        '<div class="commentary-eyebrow">What this means for you</div>' +
+        '<h3>Reading the pattern in context</h3>' +
+        '<p>The seven reveals above show where general industry patterns sit. What they can\u2019t tell you is where your specific workforce sits relative to those patterns \u2014 whether your operation is more or less typical on any given dimension.</p>' +
+        '<p>That\u2019s the gap a proper workforce survey closes. Instead of general benchmarks, you get your actual workforce\u2019s actual answers, compared against the same dataset you just saw summarized.</p>' +
+      '</div>';
+    }
+    document.getElementById('t1CommentaryContainer').innerHTML = cHtml;
+
+    /* Populate hidden PDF recap block now so printing from either
+       tier\u2019s results includes the Tier 1 summary */
+    populatePdfRecap();
+
+    show('screen-t1-results');
+    window.scrollTo(0, 0);
+  }
+
+  /* Build the PDF-only recap block (hidden on screen, shown when printing) */
+  function populatePdfRecap() {
+    var html = '<div style="padding:20px 0;border-bottom:2px solid #1F4E79;margin-bottom:16px;">' +
+      '<h1 style="font-size:22px;color:#1F4E79;margin-bottom:6px;">Shiftwork Solutions Reality Check &mdash; Your Report</h1>' +
+      '<p style="font-size:12px;color:#666;">Generated ' + new Date().toLocaleDateString() + ' &middot; shift-work.com &middot; (415) 265-1621</p>' +
+    '</div>';
+
+    html += '<h2 style="font-size:16px;color:#1F4E79;margin:14px 0 10px;border-left:4px solid #E8610A;padding-left:10px;">Part 1: Your Reality Check Results</h2>';
+    html += '<p style="font-size:12px;line-height:1.6;margin-bottom:14px;">Below is a record of each Reality Check question, your prediction, the benchmark pattern drawn from 20,000+ shift worker responses, and the commentary that accompanied each reveal.</p>';
+
+    for (var i = 0; i < 7; i++) {
+      var q = t1Questions[i];
+      var aIdx = t1Answers[q.id];
+      var yourAnswer = (aIdx !== undefined) ? q.opts[aIdx] : '(no answer)';
+      html += '<div style="margin-bottom:14px;padding:12px;border:1px solid #ccc;page-break-inside:avoid;">' +
+        '<div style="font-size:10px;color:#E8610A;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;">Reveal ' + (i + 1) + ' &middot; ' + q.category + '</div>' +
+        '<div style="font-size:13px;font-weight:700;margin-bottom:8px;">' + q.text + '</div>' +
+        '<div style="font-size:11px;margin-bottom:4px;"><strong>Your prediction:</strong> ' + yourAnswer + '</div>' +
+        '<div style="font-size:11px;margin-bottom:8px;"><strong>Benchmark pattern:</strong> ' + q.benchmarkText + '</div>' +
+        '<div style="font-size:11px;line-height:1.55;">' + q.revealCopy(yourAnswer) + '</div>' +
+      '</div>';
+    }
+
+    /* Biggest-challenge context */
+    var cIdx = t1Answers[8];
+    if (cIdx !== undefined) {
+      html += '<div style="margin:14px 0;padding:10px 12px;background:#f4f6f8;border-left:3px solid #1F4E79;font-size:11px;">' +
+        '<strong>Your biggest-stated challenge:</strong> ' + t1Questions[7].opts[cIdx] +
+      '</div>';
+    }
+
+    /* Closing commentary */
+    if (t1AICommentary && t1AICommentary.paragraphs) {
+      html += '<div style="margin:14px 0;padding:12px;background:#f4f6f8;border-left:4px solid #E8610A;page-break-inside:avoid;">' +
+        '<div style="font-size:10px;color:#E8610A;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;">What this means for you</div>' +
+        '<div style="font-size:12px;font-weight:700;color:#1F4E79;margin-bottom:8px;">' + (t1AICommentary.heading || '') + '</div>';
+      t1AICommentary.paragraphs.forEach(function (p) {
+        if (p && p.trim().length > 0) {
+          html += '<p style="font-size:11px;line-height:1.65;margin-bottom:8px;">' + p + '</p>';
+        }
+      });
+      html += '</div>';
+    }
+
+    /* Database callout */
+    html += '<div style="margin:14px 0;padding:12px;background:#0D1F3C;color:#fff;page-break-inside:avoid;">' +
+      '<div style="font-size:10px;color:#85B7EB;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px;">About the Benchmark</div>' +
+      '<div style="font-size:12px;font-weight:700;color:#EEAE26;margin-bottom:6px;">The Shiftwork Solutions Normative Database</div>' +
+      '<p style="font-size:10px;line-height:1.6;color:rgba(255,255,255,.85);">Drawn from more than 20,000 shift worker responses across hundreds of 24/7 operations in 16 industries \u2014 the largest benchmark dataset of its kind, built over three decades of client engagements. Used in our workforce surveys and schedule design engagements.</p>' +
+    '</div>';
+
+    /* Divider before Tier 2 */
+    html += '<div style="margin:24px 0 10px;border-top:2px solid #1F4E79;padding-top:14px;">' +
+      '<h2 style="font-size:16px;color:#1F4E79;border-left:4px solid #E8610A;padding-left:10px;">Part 2: Detailed Operations Analysis</h2>' +
+    '</div>';
+
+    document.getElementById('pdfRecap').innerHTML = html;
+  }
+
+  /* =========================================================
+     TIER 1 -> TIER 2 transition
+     ========================================================= */
+  window.goToT2 = function () {
+    show('screen-t2-form');
+    window.scrollTo(0, 0);
+  };
+  window.backToT1Results = function () {
+    show('screen-t1-results');
+    window.scrollTo(0, 0);
+  };
+
+  /* =========================================================
+     TIER 2 — 35-question assessment (existing logic, preserved)
+     ========================================================= */
+  var T2_CATEGORY_NAMES = {
     worklife: 'Work-Life Balance', health: 'Employee Health',
     alertness: 'Alertness Management', overtime: 'Overtime Management',
     operations: 'Operational Efficiency', quality: 'Quality & Safety',
     communication: 'Communication', workforce: 'Workforce Stability'
   };
-  var questions = [
+
+  var t2Questions = [
     {id:1,cat:'worklife',text:'Do employees complain about work-life balance issues related to their schedules?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
     {id:2,cat:'worklife',text:'Do employees struggle to attend family events, appointments, or personal commitments due to their work schedules?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
     {id:3,cat:'worklife',text:'From a management perspective, do you feel your scheduling practices adequately consider employee personal needs?',opts:['Yes','Somewhat','No'],scoring:[0,1,2]},
@@ -592,7 +1352,7 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
     {id:5,cat:'worklife',text:'Are employees indicating that work is negatively impacting their family relationships or personal health?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
     {id:6,cat:'worklife',text:'Is there a disconnect between what employees say they need for work-life balance and what management believes they need?',opts:['Yes','Somewhat','No'],scoring:[2,1,0]},
     {id:7,cat:'health',text:'Does your facility use rotating shifts (where employees change shifts on a regular basis)?',opts:['Yes','No'],scoring:[2,0]},
-    {id:8,cat:'health',text:'Do employees typically work more than 5–6 consecutive days without a break?',opts:['Yes','No'],scoring:[2,0]},
+    {id:8,cat:'health',text:'Do employees typically work more than 5\u20136 consecutive days without a break?',opts:['Yes','No'],scoring:[2,0]},
     {id:9,cat:'health',text:'Have you experienced safety incidents or accidents that may be related to employee fatigue or sleepiness?',opts:['Frequently','Rarely','Never'],scoring:[2,1,0]},
     {id:10,cat:'health',text:'Do employees report health issues they attribute to their work schedule (sleep problems, digestive issues, stress)?',opts:['Frequently','Rarely','Never'],scoring:[2,1,0]},
     {id:11,cat:'health',text:'Do your shift start times begin earlier than 6:00 AM?',opts:['Yes','No'],scoring:[2,0]},
@@ -600,7 +1360,7 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
     {id:13,cat:'alertness',text:'Have employees mentioned feeling excessively tired or struggling to stay awake during their shifts?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
     {id:14,cat:'alertness',text:'Are quality issues or errors more common during specific shifts (especially night shifts or extended shifts)?',opts:['Yes, more on Day shifts','Yes, more on Night shifts','No difference between shifts'],scoring:[1,2,0]},
     {id:15,cat:'alertness',text:'Do you have formal strategies for managing fatigue and maintaining alertness on night shifts?',opts:['Yes','No'],scoring:[0,2]},
-    {id:16,cat:'overtime',text:'Are you running overtime levels consistently above 10–15%?',opts:['Always','Sometimes','Rarely or Never'],scoring:[2,1,0]},
+    {id:16,cat:'overtime',text:'Are you running overtime levels consistently above 10\u201315%?',opts:['Always','Sometimes','Rarely or Never'],scoring:[2,1,0]},
     {id:17,cat:'overtime',text:'Do employees complain about unfair overtime distribution?',opts:['Always','Sometimes','Rarely or Never'],scoring:[2,1,0]},
     {id:18,cat:'overtime',text:'Do employees usually get at least 24 hours of notice before being assigned to work overtime?',opts:['All the time','Occasionally','Never'],scoring:[0,1,2]},
     {id:19,cat:'overtime',text:'Are your overtime costs consistently higher than you would like?',opts:['Always','Sometimes','Rarely or Never'],scoring:[2,1,0]},
@@ -622,161 +1382,206 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
     {id:35,cat:'workforce',text:'Are employees leaving for competitors who offer more desirable schedules?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]}
   ];
 
-  function show(id) {
-    ['screen-intro','screen-questions','screen-loading','screen-results'].forEach(function (s) {
-      document.getElementById(s).style.display = (s === id) ? 'block' : 'none';
-    });
-  }
-
-  window.submitContactForm = function (e) {
+  /* ----- Tier 2 form submission ----- */
+  window.submitT2Form = function (e) {
     e.preventDefault();
-    var btn = document.getElementById('contactSubmitBtn');
-    var msg = document.getElementById('contactFormMsg');
-    contactData = {
-      name: document.getElementById('full_name').value.trim(),
-      email: document.getElementById('email').value.trim(),
-      company: document.getElementById('company').value.trim(),
-      industry: document.getElementById('industry').value,
-      shift_workers: document.getElementById('shift_workers').value,
-      shift_length: document.getElementById('shift_length').value,
-      primary_challenge: document.getElementById('biggest_challenge').value,
-      newsletter_signup: document.getElementById('newsletter_signup').checked
+    var btn = document.getElementById('t2SubmitBtn');
+    var msg = document.getElementById('t2FormMsg');
+
+    /* Carry the biggest-challenge answer from Tier 1 into t2ContactData.
+       If the user didn't complete T1 Q8 for some reason, send empty. */
+    var challengeIdx = t1Answers[8];
+    var carriedChallenge = (challengeIdx !== undefined) ? t1Questions[7].opts[challengeIdx] : '';
+
+    t2ContactData = {
+      name: document.getElementById('t2_name').value.trim(),
+      email: document.getElementById('t2_email').value.trim(),
+      company: document.getElementById('t2_company').value.trim(),
+      industry: document.getElementById('t2_industry').value,
+      shift_workers: document.getElementById('t2_shift_workers').value,
+      shift_length: '',  /* no longer collected; backend accepts empty */
+      primary_challenge: carriedChallenge,
+      newsletter_signup: document.getElementById('t2_newsletter').checked
     };
+
     btn.disabled = true;
     btn.textContent = 'Saving\u2026';
     msg.className = 'form-msg info';
     msg.textContent = 'Saving your information\u2026';
+
     fetch(SWARM_API + '/api/assessment/lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(contactData)
+      body: JSON.stringify(t2ContactData)
     }).then(function (r) {
       return r.ok ? r.json() : Promise.reject('HTTP ' + r.status);
     }).then(function (d) {
-      if (d && d.id) assessmentId = d.id;
+      if (d && d.id) t2AssessmentId = d.id;
     }).catch(function (err) {
       console.warn('Lead capture skipped:', err);
     });
+
     setTimeout(function () {
-      msg.textContent = 'Starting your assessment\u2026';
-      setTimeout(startAssessment, 600);
+      msg.textContent = 'Starting your analysis\u2026';
+      setTimeout(startT2Questions, 600);
     }, 500);
   };
 
-  function startAssessment() {
-    currentQ = 0; answers = {};
-    show('screen-questions');
+  function startT2Questions() {
+    t2CurrentQ = 0;
+    t2Answers = {};
+    show('screen-t2-questions');
     window.scrollTo(0, 0);
-    renderQuestion();
+    renderT2Question();
   }
 
-  function renderQuestion() {
-    if (isTransitioning) return;
-    var q = questions[currentQ];
-    var pct = Math.round(((currentQ + 1) / questions.length) * 100);
-    document.getElementById('progressFill').style.width = pct + '%';
-    document.getElementById('progressLabel').textContent = 'Question ' + (currentQ + 1) + ' of ' + questions.length;
-    document.getElementById('qNumber').textContent = 'Question ' + (currentQ + 1) + ' of ' + questions.length;
-    document.getElementById('qCategory').textContent = CATEGORY_NAMES[q.cat] || q.cat;
-    document.getElementById('qText').textContent = q.text;
-    var grid = document.getElementById('answerGrid');
+  function renderT2Question() {
+    if (t2IsTransitioning) return;
+    var q = t2Questions[t2CurrentQ];
+    var total = t2Questions.length;
+    var pct = Math.round(((t2CurrentQ + 1) / total) * 100);
+    document.getElementById('t2ProgressFill').style.width = pct + '%';
+    document.getElementById('t2ProgressLabel').textContent = 'Question ' + (t2CurrentQ + 1) + ' of ' + total;
+    document.getElementById('t2QNumber').textContent = 'Question ' + (t2CurrentQ + 1) + ' of ' + total;
+    document.getElementById('t2QCategory').textContent = T2_CATEGORY_NAMES[q.cat] || q.cat;
+    document.getElementById('t2QText').textContent = q.text;
+    var grid = document.getElementById('t2AnswerGrid');
     grid.innerHTML = '';
     q.opts.forEach(function (opt, idx) {
       var btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'answer-btn' + (answers[q.id] === idx ? ' selected' : '');
+      btn.className = 'answer-btn' + (t2Answers[q.id] === idx ? ' selected' : '');
       btn.textContent = opt;
-      btn.onclick = function () { selectAnswer(idx); };
+      btn.onclick = function () { t2SelectAnswer(idx); };
       grid.appendChild(btn);
     });
-    document.getElementById('btnPrev').disabled = (currentQ === 0);
+    document.getElementById('t2BtnPrev').disabled = (t2CurrentQ === 0);
   }
 
-  function selectAnswer(idx) {
-    if (isTransitioning) return;
-    var q = questions[currentQ];
-    if (answers[q.id] === idx) return;
-    if (advanceTimer) { clearTimeout(advanceTimer); advanceTimer = null; }
-    isTransitioning = true;
-    answers[q.id] = idx;
-    var btns = document.querySelectorAll('.answer-btn');
+  function t2SelectAnswer(idx) {
+    if (t2IsTransitioning) return;
+    var q = t2Questions[t2CurrentQ];
+    if (t2Answers[q.id] === idx) return;
+    if (t2AdvanceTimer) { clearTimeout(t2AdvanceTimer); t2AdvanceTimer = null; }
+    t2IsTransitioning = true;
+    t2Answers[q.id] = idx;
+    var btns = document.querySelectorAll('#t2AnswerGrid .answer-btn');
     btns.forEach(function (b, i) {
       b.classList.toggle('selected', i === idx);
       b.disabled = true;
     });
-    advanceTimer = setTimeout(function () {
-      advanceTimer = null;
-      isTransitioning = false;
-      if (currentQ < questions.length - 1) {
-        currentQ++;
-        renderQuestion();
+    t2AdvanceTimer = setTimeout(function () {
+      t2AdvanceTimer = null;
+      t2IsTransitioning = false;
+      if (t2CurrentQ < t2Questions.length - 1) {
+        t2CurrentQ++;
+        renderT2Question();
+        window.scrollTo(0, 0);
       } else {
-        startEvaluation();
+        startT2Evaluation();
       }
     }, 380);
   }
 
-  window.prevQuestion = function () {
-    if (advanceTimer) { clearTimeout(advanceTimer); advanceTimer = null; }
-    isTransitioning = false;
-    if (currentQ > 0) { currentQ--; renderQuestion(); }
+  window.t2PrevQuestion = function () {
+    if (t2AdvanceTimer) { clearTimeout(t2AdvanceTimer); t2AdvanceTimer = null; }
+    t2IsTransitioning = false;
+    if (t2CurrentQ > 0) { t2CurrentQ--; renderT2Question(); window.scrollTo(0, 0); }
   };
 
-  function startEvaluation() {
-    show('screen-loading');
-    window.scrollTo(0, 0);
-    animateLoadingSteps();
-    callClaudeAPI();
-  }
-
-  var loadingMessages = [
+  /* ----- Tier 2 evaluation ----- */
+  var t2LoadingMessages = [
     'Reading your 35 answers\u2026',
     'Scoring all 8 dimensions\u2026',
     'Identifying patterns across categories\u2026',
     'Writing your personalized recommendations\u2026',
     'Finalizing your report\u2026'
   ];
-  var loadingStep = 0;
-  var loadingInterval = null;
+  var t2LoadingStep = 0;
+  var t2LoadingInterval = null;
 
-  function animateLoadingSteps() {
-    loadingStep = 0;
-    document.getElementById('loadingSteps').textContent = loadingMessages[0];
-    loadingInterval = setInterval(function () {
-      loadingStep = (loadingStep + 1) % loadingMessages.length;
-      document.getElementById('loadingSteps').textContent = loadingMessages[loadingStep];
+  function startT2LoadingAnim() {
+    t2LoadingStep = 0;
+    document.getElementById('t2LoadingSteps').textContent = t2LoadingMessages[0];
+    t2LoadingInterval = setInterval(function () {
+      t2LoadingStep = (t2LoadingStep + 1) % t2LoadingMessages.length;
+      document.getElementById('t2LoadingSteps').textContent = t2LoadingMessages[t2LoadingStep];
     }, 2200);
   }
-
-  function stopLoadingAnimation() {
-    if (loadingInterval) { clearInterval(loadingInterval); loadingInterval = null; }
+  function stopT2LoadingAnim() {
+    if (t2LoadingInterval) { clearInterval(t2LoadingInterval); t2LoadingInterval = null; }
   }
 
-  function buildAnswerSummary() {
+  function startT2Evaluation() {
+    show('screen-t2-loading');
+    window.scrollTo(0, 0);
+    startT2LoadingAnim();
+    callT2ClaudeAPI();
+  }
+
+  function buildT2AnswerSummary() {
     var lines = [];
-    questions.forEach(function (q) {
-      var idx = answers[q.id];
+    t2Questions.forEach(function (q) {
+      var idx = t2Answers[q.id];
       var answerText = (idx !== undefined) ? q.opts[idx] : '(unanswered)';
-      lines.push('Q' + q.id + ' [' + CATEGORY_NAMES[q.cat] + '] ' + q.text + '\n    Answer: ' + answerText);
+      lines.push('Q' + q.id + ' [' + T2_CATEGORY_NAMES[q.cat] + '] ' + q.text + '\n    Answer: ' + answerText);
     });
     return lines.join('\n\n');
   }
 
-  function buildPrompt() {
-    var profile = contactData
-      ? 'Company: ' + contactData.company + '\nIndustry: ' + contactData.industry + '\nShift workers: ' + contactData.shift_workers + '\nPrimary shift length: ' + contactData.shift_length + '\nSelf-identified biggest challenge: ' + contactData.primary_challenge
+  function buildT2Prompt() {
+    var profile = t2ContactData
+      ? 'Company: ' + (t2ContactData.company || '(not provided)') +
+        '\nIndustry: ' + t2ContactData.industry +
+        '\nShift workers: ' + t2ContactData.shift_workers +
+        '\nSelf-identified biggest challenge: ' + (t2ContactData.primary_challenge || '(not specified)')
       : '(No contact profile available)';
-    return 'You are an expert shift operations consultant at Shiftwork Solutions LLC, a firm with hundreds of client engagements across manufacturing, distribution, pharmaceutical, food processing, mining, energy, and related industries.\n\nA facility manager has completed a 35-question Shift Operations Health Assessment. Below is their facility profile and every question with their answer.\n\n=== FACILITY PROFILE ===\n' + profile + '\n\n=== ALL 35 ANSWERS ===\n' + buildAnswerSummary() + '\n\n=== YOUR TASK ===\nAnalyze these responses and return ONLY a valid JSON object — no markdown, no explanation outside the JSON. The object must match this exact schema:\n\n{\n  "overall_score": <integer 0-100>,\n  "overall_label": <string — one of: "Critical — Immediate Action Required", "Fair — Several Areas Need Attention", "Good — Some Opportunities for Improvement", "Excellent — Operation Is Performing Well">,\n  "narrative": <2-3 sentence plain-language summary of their specific situation, referencing their industry/size/shift type where relevant>,\n  "dimensions": {\n    "worklife": { "score": <0-100>, "label": "Work-Life Balance", "low_label": "Critical Issues", "high_label": "Excellent Balance" },\n    "health": { "score": <0-100>, "label": "Employee Health", "low_label": "High Risk", "high_label": "Very Healthy" },\n    "alertness": { "score": <0-100>, "label": "Alertness Management", "low_label": "Significant Fatigue", "high_label": "Highly Alert" },\n    "overtime": { "score": <0-100>, "label": "Overtime Management", "low_label": "Out of Control", "high_label": "Well Managed" },\n    "operations": { "score": <0-100>, "label": "Operational Efficiency", "low_label": "Major Issues", "high_label": "Highly Efficient" },\n    "quality": { "score": <0-100>, "label": "Quality & Safety", "low_label": "Critical", "high_label": "Excellent" },\n    "communication": { "score": <0-100>, "label": "Communication", "low_label": "Breakdown", "high_label": "Effective" },\n    "workforce": { "score": <0-100>, "label": "Workforce Stability", "low_label": "High Turnover", "high_label": "Stable & Strong" }\n  },\n  "strengths": [\n    { "title": <string>, "detail": <1-2 sentence explanation> }\n  ],\n  "opportunities": [\n    { "title": <string>, "detail": <2-3 sentence explanation>, "shiftwork_note": <1-2 sentence on how Shiftwork Solutions addresses this> }\n  ],\n  "actions": [\n    <string — one concrete recommended action, 1 sentence each>\n  ]\n}\n\nRules:\n- overall_score should be a genuine reflection of all 35 answers\n- Dimension scores: 100 = no concerns, 0 = maximum concern\n- strengths: only dimensions scoring 70+\n- opportunities: only dimensions scoring below 50\n- actions: 3-6 items, ordered by priority\n- shiftwork_note: always mention Shiftwork Solutions by name\n- narrative: be direct and honest\n- Return ONLY the JSON object.';
+
+    return 'You are an expert shift operations consultant at Shiftwork Solutions LLC, a firm with hundreds of client engagements across manufacturing, distribution, pharmaceutical, food processing, mining, energy, and related industries.\n\n' +
+      'A facility manager has completed a 35-question Shift Operations Analysis. Below is their facility profile and every question with their answer.\n\n' +
+      '=== FACILITY PROFILE ===\n' + profile + '\n\n' +
+      '=== ALL 35 ANSWERS ===\n' + buildT2AnswerSummary() + '\n\n' +
+      '=== YOUR TASK ===\n' +
+      'Analyze these responses and return ONLY a valid JSON object \u2014 no markdown, no explanation outside the JSON. The object must match this exact schema:\n\n' +
+      '{\n' +
+      '  "overall_score": <integer 0-100>,\n' +
+      '  "overall_label": <string \u2014 one of: "Critical \u2014 Immediate Action Required", "Fair \u2014 Several Areas Need Attention", "Good \u2014 Some Opportunities for Improvement", "Excellent \u2014 Operation Is Performing Well">,\n' +
+      '  "narrative": <2-3 sentence plain-language summary of their specific situation, referencing their industry/size where relevant>,\n' +
+      '  "dimensions": {\n' +
+      '    "worklife": { "score": <0-100>, "label": "Work-Life Balance", "low_label": "Critical Issues", "high_label": "Excellent Balance" },\n' +
+      '    "health": { "score": <0-100>, "label": "Employee Health", "low_label": "High Risk", "high_label": "Very Healthy" },\n' +
+      '    "alertness": { "score": <0-100>, "label": "Alertness Management", "low_label": "Significant Fatigue", "high_label": "Highly Alert" },\n' +
+      '    "overtime": { "score": <0-100>, "label": "Overtime Management", "low_label": "Out of Control", "high_label": "Well Managed" },\n' +
+      '    "operations": { "score": <0-100>, "label": "Operational Efficiency", "low_label": "Major Issues", "high_label": "Highly Efficient" },\n' +
+      '    "quality": { "score": <0-100>, "label": "Quality & Safety", "low_label": "Critical", "high_label": "Excellent" },\n' +
+      '    "communication": { "score": <0-100>, "label": "Communication", "low_label": "Breakdown", "high_label": "Effective" },\n' +
+      '    "workforce": { "score": <0-100>, "label": "Workforce Stability", "low_label": "High Turnover", "high_label": "Stable & Strong" }\n' +
+      '  },\n' +
+      '  "strengths": [ { "title": <string>, "detail": <1-2 sentence explanation> } ],\n' +
+      '  "opportunities": [ { "title": <string>, "detail": <2-3 sentence explanation>, "shiftwork_note": <1-2 sentence on how Shiftwork Solutions addresses this> } ],\n' +
+      '  "actions": [ <string \u2014 one concrete recommended action, 1 sentence each> ]\n' +
+      '}\n\n' +
+      'Rules:\n' +
+      '- overall_score should be a genuine reflection of all 35 answers\n' +
+      '- Dimension scores: 100 = no concerns, 0 = maximum concern\n' +
+      '- strengths: only dimensions scoring 70+\n' +
+      '- opportunities: only dimensions scoring below 50\n' +
+      '- actions: 3-6 items, ordered by priority\n' +
+      '- shiftwork_note: always mention Shiftwork Solutions by name\n' +
+      '- narrative: be direct and honest\n' +
+      '- DO NOT give industry-specific benchmark percentages. Keep language at "across hundreds of operations" level.\n' +
+      '- Recommendations are observational and directional, not prescriptive implementation plans.\n' +
+      '- Return ONLY the JSON object.';
   }
 
-  function callClaudeAPI() {
+  function callT2ClaudeAPI() {
     fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
         max_tokens: 1800,
-        messages: [{ role: 'user', content: buildPrompt() }]
+        messages: [{ role: 'user', content: buildT2Prompt() }]
       })
     }).then(function (r) {
       if (!r.ok) throw new Error('API error ' + r.status);
@@ -788,50 +1593,70 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
       }
       text = text.replace(/```json|```/g, '').trim();
       var evaluation = JSON.parse(text);
-      stopLoadingAnimation();
-      renderResults(evaluation);
+      stopT2LoadingAnim();
+      renderT2Results(evaluation);
     }).catch(function (err) {
       console.error('Claude API error:', err);
-      stopLoadingAnimation();
-      renderFallbackResults();
+      stopT2LoadingAnim();
+      renderT2FallbackResults();
     });
   }
 
-  function renderResults(ev) {
+  function renderT2Results(ev) {
     document.getElementById('overallScore').textContent = ev.overall_score + '%';
     document.getElementById('overallLabel').textContent = ev.overall_label || '';
     document.getElementById('resultsNarrative').textContent = ev.narrative || '';
+
     var barOrder = ['worklife','health','alertness','overtime','operations','quality','communication','workforce'];
     var barsDiv = document.getElementById('dimBars');
     barsDiv.innerHTML = '';
     barOrder.forEach(function (key) {
       var d = ev.dimensions[key];
       if (!d) return;
-      barsDiv.innerHTML += '<div class="dim-row"><div class="dim-row-header"><h3>' + d.label + '</h3><span class="dim-score">' + d.score + '%</span></div><div class="dim-track"><div class="dim-pointer" style="left:' + d.score + '%"></div></div><div class="dim-scale"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div><div class="dim-extremes"><span class="dim-low">' + (d.low_label || '') + '</span><span class="dim-high">' + (d.high_label || '') + '</span></div></div>';
+      barsDiv.innerHTML += '<div class="dim-row">' +
+        '<div class="dim-row-header"><h3>' + d.label + '</h3><span class="dim-score">' + d.score + '%</span></div>' +
+        '<div class="dim-track"><div class="dim-pointer" style="left:' + d.score + '%"></div></div>' +
+        '<div class="dim-scale"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>' +
+        '<div class="dim-extremes"><span class="dim-low">' + (d.low_label || '') + '</span><span class="dim-high">' + (d.high_label || '') + '</span></div>' +
+      '</div>';
     });
+
     var sDiv = document.getElementById('strengthsList');
     if (ev.strengths && ev.strengths.length > 0) {
-      sDiv.innerHTML = ev.strengths.map(function (s) { return '<div class="rec-item strength"><strong>' + s.title + ':</strong> ' + s.detail + '</div>'; }).join('');
+      sDiv.innerHTML = ev.strengths.map(function (s) {
+        return '<div class="rec-item strength"><strong>' + s.title + ':</strong> ' + s.detail + '</div>';
+      }).join('');
     } else {
-      sDiv.innerHTML = '<div class="rec-item">Your assessment indicates several areas need attention across multiple categories.</div>';
+      sDiv.innerHTML = '<div class="rec-item">Your analysis indicates several areas need attention across multiple categories.</div>';
     }
+
     var oDiv = document.getElementById('opportunitiesList');
     if (ev.opportunities && ev.opportunities.length > 0) {
       oDiv.innerHTML = ev.opportunities.map(function (o) {
-        return '<div class="rec-item"><strong>' + o.title + ':</strong> ' + o.detail + (o.shiftwork_note ? '<div class="ss-note"><strong>How Shiftwork Solutions Can Help:</strong> ' + o.shiftwork_note + '</div>' : '') + '</div>';
+        return '<div class="rec-item"><strong>' + o.title + ':</strong> ' + o.detail +
+          (o.shiftwork_note ? '<div class="ss-note"><strong>How Shiftwork Solutions Can Help:</strong> ' + o.shiftwork_note + '</div>' : '') + '</div>';
       }).join('');
     } else {
       oDiv.innerHTML = '<div class="rec-item strength">Your operation is performing well across all major categories.</div>';
     }
+
     var aDiv = document.getElementById('actionsList');
     if (ev.actions && ev.actions.length > 0) {
-      aDiv.innerHTML = ev.actions.map(function (a) { return '<div class="rec-item action">\u2022 ' + a + '</div>'; }).join('');
+      aDiv.innerHTML = ev.actions.map(function (a) {
+        return '<div class="rec-item action">\u2022 ' + a + '</div>';
+      }).join('');
     } else {
       aDiv.innerHTML = '<div class="rec-item">Continue with your current approach and focus on continuous improvement.</div>';
     }
-    if (assessmentId) {
-      var scorePayload = { assessment_id: assessmentId, overall_score: ev.overall_score, answers: answers };
-      ['worklife','health','alertness','overtime','operations','quality','communication','workforce'].forEach(function (k) {
+
+    /* Push scores to the Swarm backend (same as before) */
+    if (t2AssessmentId) {
+      var scorePayload = {
+        assessment_id: t2AssessmentId,
+        overall_score: ev.overall_score,
+        answers: t2Answers
+      };
+      barOrder.forEach(function (k) {
         if (ev.dimensions[k]) scorePayload[k + '_score'] = ev.dimensions[k].score;
       });
       fetch(SWARM_API + '/api/assessment/update-scores', {
@@ -840,55 +1665,69 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
         body: JSON.stringify(scorePayload)
       }).catch(function (e) { console.warn('Score update skipped:', e); });
     }
-    show('screen-results');
+
+    show('screen-t2-results');
     window.scrollTo(0, 0);
   }
 
-  function renderFallbackResults() {
+  function renderT2FallbackResults() {
     var cats = {};
     var dimOrder = ['worklife','health','alertness','overtime','operations','quality','communication','workforce'];
     dimOrder.forEach(function (k) { cats[k] = { concern: 0, max: 0 }; });
-    questions.forEach(function (q) {
-      var idx = answers[q.id];
+    t2Questions.forEach(function (q) {
+      var idx = t2Answers[q.id];
       if (idx === undefined) return;
       cats[q.cat].concern += q.scoring[idx];
       cats[q.cat].max += Math.max.apply(null, q.scoring);
     });
     var totalConcern = 0, totalMax = 0;
     dimOrder.forEach(function (k) { totalConcern += cats[k].concern; totalMax += cats[k].max; });
-    var overall = Math.round(100 - (totalConcern / totalMax * 100));
+    var overall = totalMax > 0 ? Math.round(100 - (totalConcern / totalMax * 100)) : 0;
+
     var dimLabels = {
-      worklife:  { label: 'Work-Life Balance',      low: 'Critical Issues',    high: 'Excellent Balance' },
-      health:    { label: 'Employee Health',         low: 'High Risk',          high: 'Very Healthy' },
+      worklife:  { label: 'Work-Life Balance',      low: 'Critical Issues',     high: 'Excellent Balance' },
+      health:    { label: 'Employee Health',         low: 'High Risk',           high: 'Very Healthy' },
       alertness: { label: 'Alertness Management',    low: 'Significant Fatigue', high: 'Highly Alert' },
-      overtime:  { label: 'Overtime Management',     low: 'Out of Control',     high: 'Well Managed' },
-      operations:{ label: 'Operational Efficiency',  low: 'Major Issues',       high: 'Highly Efficient' },
-      quality:   { label: 'Quality & Safety',        low: 'Critical',           high: 'Excellent' },
-      communication:{ label: 'Communication',        low: 'Breakdown',          high: 'Effective' },
-      workforce: { label: 'Workforce Stability',     low: 'High Turnover',      high: 'Stable & Strong' }
+      overtime:  { label: 'Overtime Management',     low: 'Out of Control',      high: 'Well Managed' },
+      operations:{ label: 'Operational Efficiency',  low: 'Major Issues',        high: 'Highly Efficient' },
+      quality:   { label: 'Quality & Safety',        low: 'Critical',            high: 'Excellent' },
+      communication:{ label: 'Communication',        low: 'Breakdown',           high: 'Effective' },
+      workforce: { label: 'Workforce Stability',     low: 'High Turnover',       high: 'Stable & Strong' }
     };
     var dims = {};
     dimOrder.forEach(function (k) {
       var score = cats[k].max > 0 ? Math.round(100 - (cats[k].concern / cats[k].max * 100)) : 100;
       dims[k] = { score: score, label: dimLabels[k].label, low_label: dimLabels[k].low, high_label: dimLabels[k].high };
     });
+
     var label = overall >= 80 ? 'Excellent \u2014 Operation Is Performing Well'
               : overall >= 60 ? 'Good \u2014 Some Opportunities for Improvement'
               : overall >= 40 ? 'Fair \u2014 Several Areas Need Attention'
-              : 'Critical \u2014 Immediate Action Required';
-    var strengths = dimOrder.filter(function (k) { return dims[k].score >= 70; }).map(function (k) { return { title: dims[k].label, detail: 'Performing well in this dimension.' }; });
-    var opportunities = dimOrder.filter(function (k) { return dims[k].score < 50; }).map(function (k) { return { title: dims[k].label, detail: 'This dimension shows significant concern based on your responses.', shiftwork_note: 'Shiftwork Solutions has addressed this dimension across hundreds of facilities. Contact us for a consultation.' }; });
-    renderResults({
+              :                 'Critical \u2014 Immediate Action Required';
+
+    var strengths = dimOrder.filter(function (k) { return dims[k].score >= 70; })
+                            .map(function (k) { return { title: dims[k].label, detail: 'Performing well in this dimension.' }; });
+    var opportunities = dimOrder.filter(function (k) { return dims[k].score < 50; })
+                                .map(function (k) { return { title: dims[k].label, detail: 'This dimension shows significant concern based on your responses.', shiftwork_note: 'Shiftwork Solutions has addressed this dimension across hundreds of facilities. Contact us for a consultation.' }; });
+
+    renderT2Results({
       overall_score: overall,
       overall_label: label,
       narrative: 'Your results are displayed below. Note: AI narrative analysis was temporarily unavailable \u2014 scores reflect your answers directly. Contact Shiftwork Solutions at (415) 265-1621 for a personal consultation.',
       dimensions: dims,
       strengths: strengths,
       opportunities: opportunities,
-      actions: ['Contact Shiftwork Solutions to discuss your assessment results and develop a customized improvement plan.']
+      actions: ['Contact Shiftwork Solutions to discuss your analysis results and develop a customized improvement plan.']
     });
   }
 
+  /* =========================================================
+     PDF download
+     =========================================================
+     Uses the browser's print dialog ("Save as PDF"). The @media
+     print rules show the hidden pdfRecap (Tier 1 summary) plus
+     whichever Tier 2 results are currently populated.
+  ========================================================= */
   window.downloadPDF = function () {
     var msg = document.getElementById('pdfMsg');
     msg.className = 'form-msg info';
@@ -896,20 +1735,46 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
     setTimeout(function () { window.print(); }, 400);
   };
 
-  window.restartAssessment = function () {
-    if (advanceTimer) { clearTimeout(advanceTimer); advanceTimer = null; }
-    currentQ = 0; answers = {}; contactData = null; assessmentId = null; isTransitioning = false;
-    document.getElementById('contactForm').reset();
-    document.getElementById('newsletter_signup').checked = true;
-    document.getElementById('contactFormMsg').style.display = 'none';
-    document.getElementById('contactSubmitBtn').disabled = false;
-    document.getElementById('contactSubmitBtn').textContent = 'Begin Assessment \u2192';
-    document.getElementById('pdfMsg').style.display = 'none';
-    show('screen-intro');
+  /* =========================================================
+     Restart everything
+     ========================================================= */
+  window.restartAll = function () {
+    if (t1AdvanceTimer) { clearTimeout(t1AdvanceTimer); t1AdvanceTimer = null; }
+    if (t2AdvanceTimer) { clearTimeout(t2AdvanceTimer); t2AdvanceTimer = null; }
+    stopT1LoadingAnim();
+    stopT2LoadingAnim();
+
+    t1Answers = {};
+    t1CurrentQ = 0;
+    t1IsTransitioning = false;
+    t1AICommentary = null;
+
+    t2Answers = {};
+    t2CurrentQ = 0;
+    t2IsTransitioning = false;
+    t2ContactData = null;
+    t2AssessmentId = null;
+
+    var form = document.getElementById('t2ContactForm');
+    if (form) {
+      form.reset();
+      document.getElementById('t2_newsletter').checked = true;
+    }
+    var fmsg = document.getElementById('t2FormMsg');
+    if (fmsg) { fmsg.style.display = 'none'; fmsg.className = 'form-msg'; fmsg.textContent = ''; }
+    var pmsg = document.getElementById('pdfMsg');
+    if (pmsg) { pmsg.style.display = 'none'; pmsg.className = 'form-msg'; pmsg.textContent = ''; }
+    var sbtn = document.getElementById('t2SubmitBtn');
+    if (sbtn) { sbtn.disabled = false; sbtn.textContent = 'Continue to the Analysis \u2192'; }
+
+    document.getElementById('pdfRecap').innerHTML = '';
+
+    show('screen-t1-intro');
     window.scrollTo(0, 0);
   };
 
-  show('screen-intro');
+  /* Initial state */
+  show('screen-t1-intro');
 })();
 </script>
 </body>
