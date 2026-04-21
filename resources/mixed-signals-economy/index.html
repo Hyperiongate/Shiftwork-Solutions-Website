@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <!--
-  resources/32-hour-workweek-manufacturing/index.html
+  resources/mixed-signals-economy/index.html
   Shiftwork Solutions LLC — Trending Topic Article
-  URL: /resources/32-hour-workweek-manufacturing/
-  Created: 2026-04-04 | Last Updated: 2026-04-16
+  URL: /resources/mixed-signals-economy/
+  Created: 2026-04-04 | Last Updated: 2026-04-21
 
   CHANGE LOG:
     2026-04-04 — Initial build from source Word doc.
@@ -32,9 +32,22 @@
                     Text colors updated: eyebrow/sub/phone to --muted, h2 to --navy.
                     Card label/link colors: blue card uses --navy (not --mid-blue).
     2026-04-16 — NAV LABEL: "Our Company" → "Why Us".
+    2026-04-21 — CONTENT UPDATE: Article body updated to reflect March 2026 data.
+                 Changes: hero subtitle updated; intro paragraphs replaced with March
+                 PMI/payroll/oil shock data; signal cards updated (Output: ISM 52.7,
+                 Employment: ISM contraction + net -7K YTD, Input Costs: CPI energy
+                 +10.9%, Consumer Confidence: UMich 47.6 historic low); "What's
+                 Actually Happening" section replaced with "The Pressure Building
+                 Underneath" and "An Inflection Point in the Making?"; Susan Spence
+                 ISM chair quote added; "The Freeze Instinct Is Costly" section
+                 removed (content absorbed into Inflection Point section); pull quote
+                 updated with Jim Dillingham attribution; "The Honest Takeaway"
+                 updated with oil/energy data and Jim Dillingham pull quote;
+                 FAQ updated: 5 questions revised to reflect March data and oil shock;
+                 Sources section added at bottom of article-wrap.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
-  HERO IMAGE: /images/32.jpg
+  HERO IMAGE: /images/mixed.jpg
   FAQ IMAGE:  /images/Hands_in_the_air.jpg
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
   DESIGN SYSTEM:
@@ -54,7 +67,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
   <meta name="twitter:card" content="summary">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "The Mixed Signals Economy: What Shifting Labor Markets Mean for 24/7 Operations", "description": "Manufacturing is expanding. Employment is contracting. Unemployment is rising. What are operations leaders supposed to do with that?", "url": "https://shift-work.com/resources/mixed-signals-economy/", "datePublished": "2026-04-04", "dateModified": "2026-04-16", "author": {"@type": "Organization", "name": "Shiftwork Solutions LLC"}, "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "The Mixed Signals Economy: What Shifting Labor Markets Mean for 24/7 Operations", "description": "Manufacturing is expanding. Input costs are surging. Consumer confidence just hit a historic low. The data isn\u2019t contradicting itself \u2014 it\u2019s telling a more complicated story.", "url": "https://shift-work.com/resources/mixed-signals-economy/", "datePublished": "2026-04-04", "dateModified": "2026-04-21", "author": {"@type": "Organization", "name": "Shiftwork Solutions LLC"}, "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"The Mixed Signals Economy","item":"https://shift-work.com/resources/mixed-signals-economy/"}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -114,6 +127,11 @@
     .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
     .insight-card{background:var(--light-blue);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
     .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.5}
+    .sources-section{margin:40px 0 0;padding:24px 28px;background:var(--light-blue);border-left:4px solid var(--navy);border-radius:6px}
+    .sources-section h3{font-size:14px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+    .sources-section ul{list-style:none;padding:0;margin:0}
+    .sources-section ul li{font-size:13px;color:var(--muted);line-height:1.6;padding:4px 0;border-bottom:1px solid var(--border-light)}
+    .sources-section ul li:last-child{border-bottom:none}
     .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
@@ -211,7 +229,7 @@
     .signal-card .sc-value{font-size:11px;color:var(--muted);line-height:1.4}
     .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.5;font-weight:500}
     @media(max-width:760px){.ns-cards{grid-template-columns:1fr}.insight-cards{grid-template-columns:1fr 1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.next-steps{padding:40px 20px 44px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.insight-cards{grid-template-columns:1fr}}
+    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.next-steps{padding:40px 20px 44px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.insight-cards{grid-template-columns:1fr}.signal-cards{grid-template-columns:1fr 1fr}}
   </style>
 </head>
 <body>
@@ -236,7 +254,7 @@
 <section class="hero"><div class="hero-inner">
   <div class="hero-eyebrow">Trending Topics</div>
   <h1>The Mixed Signals Economy: What Shifting Labor Markets Mean for 24/7 Operations</h1>
-  <p class="hero-subtitle">Manufacturing is expanding. Employment is contracting. Unemployment is rising. What are operations leaders supposed to do with that?</p>
+  <p class="hero-subtitle">Manufacturing is expanding. Input costs are surging. Consumer confidence just hit a historic low. The data isn&#x2019;t contradicting itself &#x2014; it&#x2019;s telling a more complicated story.</p>
   <span class="hero-tag">Economy</span>
 </div></section>
 
@@ -245,47 +263,60 @@
 <div class="article-wrap">
   <div class="article-meta"><span class="meta-tag">Economy</span><span class="meta-date">April 2026</span><span class="meta-read">6 min read</span></div>
 
-  <p>The economic signals coming into 2026 don&#x2019;t tell a clean story. U.S. manufacturing output rose in February for the second consecutive month. The ISM Manufacturing PMI confirmed the expansion, with 12 industries reporting growth.</p>
-  <p>That sounds like good news. And in some ways it is.</p>
-  <p>But look closer and the picture gets complicated. The ISM employment index was contracting in the same report. Total nonfarm payroll employment dropped by 92,000 in February. And price pressures &#x2014; driven by tariffs, supply chain uncertainty, and volatile input costs &#x2014; remain a significant headwind for manufacturers trying to plan more than a quarter ahead.</p>
+  <p>Over the past few months, the U.S. economy has held up better than many expected. March payrolls rebounded to 178,000. Manufacturing has been in expansion for three consecutive months. The Wells Fargo CEO described the economy as &#x201C;still extremely strong&#x201D; as recently as April.</p>
+  <p>But the details underneath are softer. Unemployment sits at 4.3%, partly driven by people leaving the labor force. Price pressures are rising in factories and at the consumer level. And the oil shock has added a new inflationary layer: Brent crude jumped from $66 a barrel in late February to an average of $103 in March, and the EIA now expects elevated prices to persist through 2026, already pushing up fuel, shipping, and input costs across manufacturing and supply chains.</p>
+  <p>The key is reading these signals together rather than in isolation. Cost pressure, tighter margins, and geopolitical energy risk are complicating the operating environment in ways that don&#x2019;t show up in the headline numbers.</p>
 
   <div class="signal-cards">
-    <div class="signal-card up"><div class="sc-icon">&#128200;</div><div class="sc-metric">Output</div><div class="sc-value">Manufacturing output up 0.2% &#x2014; 2nd consecutive month of expansion</div></div>
-    <div class="signal-card down"><div class="sc-icon">&#128201;</div><div class="sc-metric">Employment</div><div class="sc-value">ISM employment index contracting in the same report as output growth</div></div>
-    <div class="signal-card down"><div class="sc-icon">&#8679;</div><div class="sc-metric">Unemployment</div><div class="sc-value">Nonfarm payrolls dropped 92,000 in February</div></div>
-    <div class="signal-card mixed"><div class="sc-icon">&#9888;</div><div class="sc-metric">Cost Pressure</div><div class="sc-value">Tariffs, supply chain uncertainty, volatile input costs &#x2014; all persistent</div></div>
+    <div class="signal-card up"><div class="sc-icon">&#128200;</div><div class="sc-metric">Output</div><div class="sc-value">ISM Manufacturing PMI at 52.7 in March &#x2014; third consecutive month of expansion</div></div>
+    <div class="signal-card down"><div class="sc-icon">&#128201;</div><div class="sc-metric">Employment</div><div class="sc-value">ISM employment sub-index still in contraction; manufacturing net &#x2212;7,000 jobs YTD despite a 15K gain in March</div></div>
+    <div class="signal-card down"><div class="sc-icon">&#8679;</div><div class="sc-metric">Input Costs</div><div class="sc-value">BLS CPI energy index up 10.9% in a single month &#x2014; largest increase since 2005; ISM Prices Paid at a four-year high</div></div>
+    <div class="signal-card mixed"><div class="sc-icon">&#9888;</div><div class="sc-metric">Consumer Confidence</div><div class="sc-value">University of Michigan Sentiment Index at a historic low of 47.6 in early April &#x2014; worst reading in 74 years</div></div>
   </div>
 
-  <h2>What&#x2019;s Actually Happening</h2>
-  <p>The gap between output growth and employment contraction isn&#x2019;t a mystery &#x2014; it&#x2019;s a pattern. When manufacturers are uncertain about whether demand will hold, they don&#x2019;t hire. They run existing crews harder. They extend overtime. They defer the headcount decision until the signal gets clearer.</p>
-  <p>The result is a workforce that&#x2019;s producing more with the same &#x2014; or fewer &#x2014; people. That&#x2019;s sustainable for a quarter. It isn&#x2019;t sustainable as a strategy.</p>
-  <p>At the same time, the labor market is softening in some places and remaining tight in others. The national unemployment number ticking upward doesn&#x2019;t mean the worker you need is suddenly available in your region, in your industry, at your shift hours.</p>
+  <h2>The Pressure Building Underneath</h2>
+  <p>The ISM Prices Paid sub-index surged from 59 in January to 78.3 in March &#x2014; a four-year high &#x2014; with 17 of 18 industries reporting higher input costs. The BLS CPI confirmed the pass-through: gasoline rose 21.2% in a single month, the largest monthly increase on record, accounting for nearly three-quarters of the entire March headline CPI increase. The EIA&#x2019;s April Short-Term Energy Outlook projects diesel averaging $4.80/gal across 2026.</p>
+  <p>This is the combination that compresses margins: demand holding, but input costs rising faster than most operations can pass through to customers. Workforce cost is the largest controllable variable in that equation.</p>
+
+  <h2>An Inflection Point in the Making?</h2>
+  <p>Consumer spending has held up so far &#x2014; savings buffers and tax refund season provided cushion even as confidence collapsed. But economists are warning that gap is closing. As energy prices feed through into more categories &#x2014; food, freight, manufactured goods &#x2014; and as tax refund spending fades, households that are already at a sentiment low may begin pulling back on actual purchases.</p>
+  <p>ISM chair Susan Spence captured where manufacturers currently stand: companies are &#x201C;holding and will try to keep the same staffing levels or increase overtime.&#x201D; That is a rational response to today&#x2019;s conditions. It is not a strategy for what may be coming. An operation built only on current activity readings will be caught flat-footed if demand softens while input costs stay elevated &#x2014; a margin squeeze with no room to maneuver on the workforce side.</p>
 
   <div class="pull-quote">
     <span class="pull-quote-mark">&#8220;</span>
     <div class="pull-quote-content">
-      <p>The companies that consistently outperform through uncertain periods aren&#x2019;t the ones that predicted the future correctly. They&#x2019;re the ones that built workforce architectures flexible enough to respond in either direction.</p>
+      <p>The operations that navigate uncertain periods best aren&#x2019;t the ones that predicted what would happen &#x2014; they&#x2019;re the ones that built workforce architectures flexible enough to respond in either direction.</p>
+      <p class="pq-attr">&#x2014; Jim Dillingham, Shiftwork Solutions</p>
     </div>
   </div>
 
-  <h2>The Freeze Instinct Is Costly</h2>
-  <p>When signals are mixed, the instinct is to wait. Hold off on schedule changes. Defer the workforce strategy conversation. See how things shake out before committing to anything. It&#x2019;s understandable. It&#x2019;s also expensive.</p>
-  <p>Operations that freeze workforce decisions during uncertainty don&#x2019;t hold steady &#x2014; they drift. Overtime creeps up to cover coverage gaps that were supposed to be temporary. Turnover rises because employees read the instability and start looking. When the picture does clarify &#x2014; in either direction &#x2014; the organization is less prepared to move than it would have been if it had kept building.</p>
-
   <h2>What Flexibility Actually Means</h2>
   <p>In a mixed-signals environment, workforce flexibility has specific, practical dimensions.</p>
-  <p>It means knowing how much of your current coverage depends on overtime versus scheduled headcount, and whether that ratio is a choice or an accident. Operations running 15% or 20% overtime as a structural baseline have almost no room to absorb a demand spike without burning out their workforce or blowing their labor budget.</p>
-  <p>It means understanding your workforce&#x2019;s actual overtime preferences &#x2014; the roughly 20% who want all you can offer, the 20% who want none, and the 60% in the middle &#x2014; and designing distribution policies around that reality rather than defaulting to equal distribution that satisfies almost no one.</p>
-  <p>It means having a schedule architecture that can scale headcount up or down without requiring a complete redesign.</p>
+  <p>It means knowing how much of your current coverage depends on overtime versus scheduled headcount &#x2014; and whether that ratio is intentional. Operations running 15&#x2013;20% structural overtime have almost no capacity to respond in either direction without pain.</p>
+  <p>It means understanding your workforce&#x2019;s actual overtime preferences &#x2014; roughly 20% want all available hours, 20% want none, and 60% will do their fair share &#x2014; and designing distribution policy around that reality.</p>
+  <p>It means having a schedule architecture that can scale up or down without a complete redesign. That&#x2019;s the same answer whether the second half of 2026 brings continued demand, a consumer pullback, or sustained cost pressure that doesn&#x2019;t fully unwind until late in the year.</p>
 
   <div class="insight-cards">
-    <div class="insight-card"><div class="ic-label"><strong>20% / 60% / 20%</strong> &#x2014; The real distribution of overtime preferences in most workforces. Policy that ignores this satisfies almost no one.</div></div>
-    <div class="insight-card"><div class="ic-label"><strong>15&#x2013;20% structural overtime</strong> leaves no room to absorb a demand spike &#x2014; a common and costly exposure in uncertain times.</div></div>
-    <div class="insight-card"><div class="ic-label"><strong>Workforce decisions deferred during uncertainty</strong> don&#x2019;t hold steady &#x2014; they drift toward overtime creep, turnover, and coverage gaps.</div></div>
+    <div class="insight-card"><div class="ic-label"><strong>20% / 60% / 20%</strong> &#x2014; The real distribution of overtime preferences in most workforces. Uniform distribution satisfies almost no one.</div></div>
+    <div class="insight-card"><div class="ic-label"><strong>15&#x2013;20% structural overtime</strong> leaves no room to absorb a shift in either direction &#x2014; a common and costly exposure in uncertain times.</div></div>
+    <div class="insight-card"><div class="ic-label"><strong>Deferred workforce decisions</strong> don&#x2019;t hold steady &#x2014; they drift toward overtime creep, turnover, and coverage gaps.</div></div>
   </div>
 
   <h2>The Honest Takeaway</h2>
-  <p>Nobody knows exactly where this goes. The right response to an unstable environment is a more deliberate workforce strategy, not a deferred one. The organizations that will be best positioned when the picture clarifies are the ones using this period to examine what their current schedule and staffing architecture can actually handle &#x2014; and what it can&#x2019;t.</p>
+  <p>Nobody knows exactly where this goes. The economy may stay resilient. It may be at an inflection point. What&#x2019;s clear is that input costs are elevated, energy prices will remain a factor through late 2026, and consumer confidence is at a historic low.</p>
+  <p>Uncertainty is not a reason to wait. It&#x2019;s a reason to know where you stand.</p>
+
+  <div class="sources-section">
+    <h3>Sources</h3>
+    <ul>
+      <li>Bureau of Labor Statistics &#x2014; The Employment Situation, March 2026 (bls.gov)</li>
+      <li>Bureau of Labor Statistics &#x2014; Consumer Price Index, March 2026 (bls.gov)</li>
+      <li>U.S. Energy Information Administration &#x2014; Short-Term Energy Outlook, April 2026 (eia.gov)</li>
+      <li>Institute for Supply Management &#x2014; Manufacturing PMI Report on Business, March 2026 (ismworld.org)</li>
+      <li>University of Michigan &#x2014; Consumer Sentiment Index, April 2026 (preliminary)</li>
+      <li>Wells Fargo CEO Charles Scharf &#x2014; Economic Club of Washington, D.C., April 2026</li>
+    </ul>
+  </div>
 
 </div><!-- /.article-wrap -->
 
@@ -294,11 +325,11 @@
   <div class="faq-overlay"></div>
   <div class="faq-inner">
     <h2>Frequently Asked Questions</h2>
-    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why is manufacturing output growing while manufacturing employment is shrinking?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">When manufacturers are uncertain about whether demand will hold, they don&#x2019;t hire &#x2014; they run existing crews harder, extend overtime, and defer headcount decisions. The result is a workforce producing more with the same or fewer people. That pattern is sustainable for a quarter, but not as a long-term strategy.</div></div></div>
-    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why is waiting for economic clarity a costly workforce strategy?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Operations that freeze workforce decisions during uncertainty don&#x2019;t hold steady &#x2014; they drift. Overtime creeps up, turnover rises, and schedules that were already straining become harder to defend. When the picture does clarify, the organization is less prepared to move than it would have been if it had continued building deliberately.</div></div></div>
-    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What does workforce flexibility actually mean for 24/7 operations?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">It means knowing how much of your coverage depends on overtime versus scheduled headcount, understanding the workforce&#x2019;s actual overtime preferences (roughly 20% want all available hours, 20% want none, 60% will do their fair share), and having a schedule architecture that can scale headcount up or down without requiring a complete redesign.</div></div></div>
-    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What is the 20/60/20 overtime rule and why does it matter in uncertain times?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">In most workforces, approximately 20% of employees want every overtime hour available, 60% will do their fair share, and 20% want none. Overtime distribution policies that ignore this reality &#x2014; defaulting to equal distribution &#x2014; satisfy almost no one. In uncertain conditions where overtime levels may fluctuate, designing around this distribution becomes more important, not less.</div></div></div>
-    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How should operations leaders respond to contradictory economic signals?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Not with paralysis &#x2014; with more deliberate workforce strategy. The organizations that navigate mixed-signal periods best are those that use the uncertainty to examine what their current schedule and staffing architecture can actually handle in either direction. That means modeling overtime exposure, understanding scale-up and scale-down options, and building flexibility into the schedule structure before conditions force a reactive decision.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why is manufacturing output growing while employment remains under pressure?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The ISM Manufacturing PMI has been in expansion for three consecutive months, and manufacturers added 15,000 jobs in March &#x2014; the first positive month in years. But the ISM employment sub-index remains in contraction, and the sector is still down a net 7,000 jobs year-to-date. ISM chair Susan Spence explained the posture directly: companies are holding headcount steady and increasing overtime rather than hiring into an uncertain demand environment. That&#x2019;s a rational short-term response &#x2014; but it leaves no room to move in either direction without strain.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What is the oil shock actually doing to manufacturing costs?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The BLS March CPI report showed energy prices rising 10.9% in a single month &#x2014; the largest increase since 2005 &#x2014; with gasoline up 21.2%, the largest monthly jump on record. The EIA&#x2019;s April Short-Term Energy Outlook projects Brent crude averaging $96/bbl for the full year, with diesel averaging $4.80/gal. Higher energy costs feed directly into materials, chemicals, logistics, and supplier pricing &#x2014; categories that manufacturers absorb whether or not they can pass them through to customers. The EIA expects elevated prices to persist through late 2026 even under optimistic assumptions.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">If demand is resilient, why does this moment require a more deliberate workforce strategy?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Because demand resilience and margin pressure can coexist &#x2014; and in the current environment, they are. Input costs are rising faster than most operations can pass through to customers. Consumer confidence is at a historic low, and economists are warning that the gap between how consumers feel and how they spend won&#x2019;t stay wide indefinitely. A workforce strategy built only on activity readings will be caught flat-footed by the margin and demand dynamics. One designed with flexibility in both directions is positioned regardless of which signal proves dominant.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What does workforce flexibility actually mean for 24/7 operations?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">It means knowing how much of your current coverage depends on overtime versus scheduled headcount &#x2014; and whether that ratio is intentional. It means understanding your workforce&#x2019;s actual overtime preferences (roughly 20% want all available hours, 20% want none, 60% will do their fair share) and designing distribution policies accordingly. And it means having a schedule architecture that can scale up or down without a complete redesign &#x2014; the same answer whether the second half of 2026 brings demand growth, a consumer pullback, or sustained cost pressure.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How should operations leaders respond to contradictory economic signals?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">By reading them together rather than in isolation. Solid PMI and payroll numbers do not cancel out worsening inflation and margin pressure &#x2014; they coexist with them. The right response isn&#x2019;t paralysis, and it isn&#x2019;t optimism based on the headline numbers alone. It&#x2019;s using this period to examine what your current schedule and staffing architecture can actually handle, model your exposure in both directions, and build flexibility before conditions force a reactive decision.</div></div></div>
   </div>
 </div><!-- /.faq-section -->
 
@@ -317,8 +348,8 @@
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
-      <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">Uncertainty is not a reason to wait. It's a reason to know where you stand. The first conversation is free.</p></div>
-      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p></div>
+      <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">Uncertainty is not a reason to wait. It&#x2019;s a reason to know where you stand. The first conversation is free.</p></div>
+      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor &#x2014; available now, no appointment needed.</p></div>
       <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
     </div>
     <div class="footer-cta-row">
