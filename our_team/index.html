@@ -6,37 +6,35 @@
   URL: /our_team/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-17
+  Last Updated: 2026-04-22
 
   CHANGE LOG:
     2026-04-04 — Initial build. Three partner bio sections.
     2026-04-04 — NAV + BUTTON + SEO + URL audit.
     2026-04-06 — NAV: all items flat direct links.
-    2026-04-13 — Bio text v2 (narrative style). Nav "Why Us" -> "Our Company".
-    2026-04-16 — STANDARD UPGRADE (Chemical/Pharma template applied):
-                 hero, nav standard, pull-quote restyle, next steps,
-                 dark-navy 3-col footer.
-    2026-04-17 — BREADCRUMB SCHEMA + FAQ ACCORDION UPGRADE:
-                 1. JSON-LD BreadcrumbList position 2 name changed from
-                    "Our Company" to "Why Us" to match the visible
-                    breadcrumb exactly. URL remains /why-us/ unchanged.
-                    (Prior mismatch would cause Google Search Console
-                    structured data warnings.)
-                 2. Static FAQ section replaced with full-bleed interactive
-                    accordion matching about page + homepage pattern:
-                    - Hands_in_the_air.jpg full-bleed background image
-                    - Radial gradient overlay (dark at edges, light at center)
-                    - Navy question bars with white text + shadow
-                    - Orange circular expand icons that rotate on open
-                    - Click-to-toggle behavior: opening one closes others
-                    - aria-expanded states on buttons
-                    All 6 Q&A pairs preserved word-for-word from the prior
-                    static version. FAQPage JSON-LD schema unchanged.
-                 3. Hero stat "100s" → "Hundreds" to match the content rule
-                    ("hundreds not 300+ or 100s"). Same fix previously applied
-                    to homepage v10.
-                 4. Changelog updated with today's date.
-                 All other content, CSS, and JS preserved exactly.
+    2026-04-13 — Bio text v2. Nav "Why Us" -> "Our Company".
+    2026-04-16 — STANDARD UPGRADE to Chemical/Pharma template.
+    2026-04-17 — BREADCRUMB SCHEMA + FAQ ACCORDION UPGRADE.
+    2026-04-22 — BOTTOM SECTION REWRITE:
+                 The "How We Work / What Makes Our Team Different" section
+                 near the bottom was replaced. Prior version opened with
+                 "Most consulting firms staff projects with junior analysts
+                 supervised by a distant partner..." which framed the pitch
+                 by knocking competitors. Jim flagged this as off-brand —
+                 "a bit low blow, below our level, not elegant."
+                 - Eyebrow: "How We Work" → "On Every Engagement"
+                   (renders as ON EVERY ENGAGEMENT via text-transform CSS,
+                   matches the other eyebrows on this page).
+                 - H2: "What Makes Our Team Different" → "Working With Our
+                   Team".
+                 - Three body paragraphs replaced with the approved copy:
+                   senior-involvement claim, plant-floor judgment paragraph
+                   rephrased without the "academic exercise" barb at rivals,
+                   and a positive-framing close on complementary strengths.
+                 No other changes — nav, hero, breadcrumb, three insight
+                 cards, three bios, three pull quotes, FAQ section, Next
+                 Steps, footer, and all JS preserved exactly. JSON-LD
+                 schemas unchanged. CSS unchanged.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
 
@@ -143,8 +141,6 @@
 
     /* ══════════════════════════════════════════════════════════
        FAQ SECTION — Full-bleed Hands_in_the_air.jpg accordion
-       Upgraded 2026-04-17 to match about + homepage template
-       (replaced prior static white-background FAQ)
     ══════════════════════════════════════════════════════════ */
     .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw);margin-right:calc(-50vw);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
@@ -164,7 +160,7 @@
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px;font-family:Arial,Helvetica,sans-serif}
 
-    /* ── NEXT STEPS — navy bg, animated white cards ── */
+    /* ── NEXT STEPS — light grey bg, animated white cards ── */
     .next-steps{padding:56px var(--page-pad) 60px;background:var(--light-grey)}
     .next-steps-inner{max-width:var(--max-width);margin:0 auto}
     .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
@@ -398,17 +394,22 @@
 
 <hr class="divider">
 
+<!-- ══════════════════════════════════════════════════════════════
+     SECTION REWRITTEN 2026-04-22:
+     Previous version opened with a "most consulting firms staff with
+     junior analysts..." critique of competitors. Replaced with positive
+     framing per Jim's instruction.
+════════════════════════════════════════════════════════════════ -->
 <section class="content-section">
-  <div class="eyebrow">How We Work</div>
-  <h2>What Makes Our Team Different</h2>
-  <p>Most consulting firms staff projects with junior analysts supervised by a distant partner. At Shiftwork Solutions, the partner is the project. Jim, Dan, or Ethan will be the person walking your plant floor, talking to your employees, analyzing your data, and presenting options to your leadership team.</p>
-  <p>This matters because shiftwork consulting is not an academic exercise. It requires reading a workforce, understanding operational constraints that only become visible on the floor, and building trust with employees who have heard promises before. That kind of judgment comes from doing it hundreds of times &#x2014; not from a training manual.</p>
-  <p>Our partners bring complementary strengths. Military leadership and operational discipline. Chemical engineering rigor and Lean Six Sigma methodology. Legal expertise and data-driven workforce analysis. Combined, they cover the full spectrum of challenges that 24/7 operations present &#x2014; from schedule mathematics to employee engagement to policy design to change management.</p>
+  <div class="eyebrow">On Every Engagement</div>
+  <h2>Working With Our Team</h2>
+  <p>Senior consultants are directly involved in every engagement&#x2014;from analysis to plant-floor conversations to final recommendations.</p>
+  <p>Shiftwork consulting isn&#x2019;t an academic exercise. It requires reading a workforce, understanding operational constraints that only become visible on the floor, and building trust with employees who have seen changes come and go. That kind of judgment comes from experience&#x2014;across industries, operating models, and workforce environments.</p>
+  <p>Our team brings complementary strengths across operations, engineering, and workforce strategy&#x2014;covering the full system, so solutions hold under real operating conditions.</p>
 </section>
 
 <!-- ══════════════════════════════════════════════════════════════
      FAQ SECTION — Full-bleed Hands_in_the_air.jpg accordion
-     Upgraded 2026-04-17 from static to accordion
 ════════════════════════════════════════════════════════════════ -->
 <div class="faq-section" id="faq">
   <div class="faq-bg"></div>
@@ -526,7 +527,7 @@ document.getElementById('mobileToggle').addEventListener('click',function(){
   }
 });
 
-// FAQ accordion (added 2026-04-17)
+// FAQ accordion
 (function(){
   var items=document.querySelectorAll('.faq-item');
   items.forEach(function(item){
