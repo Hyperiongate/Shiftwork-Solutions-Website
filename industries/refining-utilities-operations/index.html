@@ -14,6 +14,9 @@
     2026-04-16 — NAV FIXES: logo src -> clear_bkgr_logo_2.png (underscores);
                  SHIFTWORK SOLUTIONS text added; nav links font-size -> 20px;
                  "Our Company" label -> "Why Us" (href /why-us/ unchanged).
+    2026-04-22b — THOMAS FLOAT REDESIGN: white background, no orange border,
+                 thinner (100px/108px hover), 90px image, navy text, mid-blue
+                 button. Reference spec for all industry pages.
     2026-04-22 — FULL STANDARD UPDATE (Page Bottom Standard v1):
                  - LISTEN BUTTON: removed (HTML, CSS, SpeechSynthesis JS).
                  - NEXT STEPS: removed entirely (HTML, CSS, IntersectionObserver JS).
@@ -275,14 +278,14 @@
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
 
     /* ── THOMAS FLOATING WIDGET ── */
-    .thomas-float{position:fixed;right:0;top:40%;transform:translateY(-50%);z-index:950;width:130px;background:var(--navy-dark);border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-4px 4px 20px rgba(0,0,0,0.35);border-left:3px solid var(--orange);transition:width .25s ease,box-shadow .25s ease;display:block}
-    .thomas-float:hover{width:140px;box-shadow:-6px 6px 28px rgba(0,0,0,0.45)}
-    .thomas-float-img{width:100%;height:110px;object-fit:cover;object-position:center top;display:block}
-    .thomas-float-body{padding:10px 10px 12px;text-align:center}
-    .thomas-float-name{font-family:Arial,sans-serif;font-size:12px;font-weight:700;color:#fff;line-height:1.3;display:block;margin-bottom:3px}
-    .thomas-float-sub{font-family:Arial,sans-serif;font-size:10px;font-weight:400;color:var(--mid-blue);line-height:1.4;display:block;margin-bottom:8px}
-    .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:10px;font-weight:700;color:var(--white);background:var(--orange);border-radius:3px;padding:5px 8px;text-transform:uppercase;letter-spacing:.06em;transition:background .15s}
-    .thomas-float:hover .thomas-float-cta{background:#c4510a}
+    .thomas-float{position:fixed;right:0;top:40%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
+    .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
+    .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
+    .thomas-float-body{padding:8px 8px 10px;text-align:center}
+    .thomas-float-name{font-family:Arial,sans-serif;font-size:11px;font-weight:700;color:var(--navy);line-height:1.3;display:block;margin-bottom:2px}
+    .thomas-float-sub{font-family:Arial,sans-serif;font-size:9px;font-weight:400;color:var(--muted);line-height:1.4;display:block;margin-bottom:7px}
+    .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
+    .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
     @media(max-width:768px){.thomas-float{display:none}}
 
     /* ── RESPONSIVE ── */
