@@ -3,7 +3,7 @@
   resources/overtime-tax-break-businesses/index.html
   Shiftwork Solutions LLC — Trending Topic Article
   URL: /resources/overtime-tax-break-businesses/
-  Created: 2026-04-04 | Last Updated: 2026-04-16
+  Created: 2026-04-04 | Last Updated: 2026-04-22
 
   CHANGE LOG:
     2026-04-04 — Initial build. 2026-04-05 — NAV audit, FAQ added.
@@ -14,6 +14,13 @@
     2026-04-16 — NAV LABEL: "Our Company" → "Why Us". Fixed missing
                  article-wrap closing tag — FAQ/Next
                  Steps/Footer now render full-width correctly.
+    2026-04-22 — INSIGHT CARD BACKGROUND: Changed .insight-card background
+                 from var(--light-blue) (#EEF3F8 pale blue) to
+                 var(--light-grey) (#F4F6F8) to match the partner-card-top
+                 grey on the homepage. ONLY change in this update. Nothing
+                 else touched — navy top borders on the insight cards remain,
+                 numbers remain navy, content unchanged, data-table alternating
+                 row shading (also --light-blue) intentionally left alone.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/tax.jpg
@@ -30,7 +37,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
   <meta name="twitter:card" content="summary">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Overtime Tax Break: What It Means for Businesses", "description": "Overtime just got a tax break — but what does that really mean for employees and employers in 24/7 operations?", "url": "https://shift-work.com/resources/overtime-tax-break-businesses/", "datePublished": "2026-04-04", "dateModified": "2026-04-16", "author": {"@type": "Organization", "name": "Shiftwork Solutions LLC"}, "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Overtime Tax Break: What It Means for Businesses", "description": "Overtime just got a tax break — but what does that really mean for employees and employers in 24/7 operations?", "url": "https://shift-work.com/resources/overtime-tax-break-businesses/", "datePublished": "2026-04-04", "dateModified": "2026-04-22", "author": {"@type": "Organization", "name": "Shiftwork Solutions LLC"}, "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Overtime Tax Break","item":"https://shift-work.com/resources/overtime-tax-break-businesses/"}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,8 +94,11 @@
     .data-table tr:nth-child(even) td{background:var(--light-blue)}
     .data-table tr:last-child td{border-bottom:none}
     .data-table .highlight{color:var(--orange);font-weight:700}
+    /* ── INSIGHT CARDS — background updated 2026-04-22 ──
+       Changed from --light-blue (#EEF3F8) to --light-grey (#F4F6F8)
+       to match the partner-card-top grey on the homepage. */
     .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
-    .insight-card{background:var(--light-blue);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
+    .insight-card{background:var(--light-grey);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
     .insight-card .ic-num{font-size:24px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:6px}
     .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.5}
     .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
