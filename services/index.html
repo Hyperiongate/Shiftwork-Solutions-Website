@@ -3,7 +3,7 @@
   Shiftwork Solutions LLC — Services
   File: services/index.html (deploys as /services/index.html on Render)
   Created: April 2, 2026
-  Last updated: April 18, 2026
+  Last updated: April 22, 2026
   Author: Claude for Jim @ Shiftwork Solutions LLC
 
   PURPOSE:
@@ -23,29 +23,39 @@
       2026-04-16  (v7) MAJOR TEMPLATE ALIGNMENT to chemical/pharma template
       2026-04-17  (v8) SECTION REMOVALS — 3-phase cards and timeline removed
       2026-04-18  (v11) METHODOLOGY SECTION + editorial font/layout work
-      2026-04-18  (v12) 13 VISUAL/CONTENT CHANGES:
-                  1.  All fonts enlarged globally (body 16px→17px, headings up)
-                  2.  Results stat numbers → warm yellow #EEAE26
-                  3.  Service cards: orange border on hover + per-card bold highlights
-                  4.  Who We Work With: 3people.jpg left col, text 3-col right;
-                      main heading + subheadings darker blue (#1a3a5c)
-                  5.  ec-col-heading bold text → darker blue (#1a3a5c)
-                  6.  Tool cards: orange top border on hover
-                  7.  SVG icons in #EEAE26 added to each tool card
-                  8.  Tools context paragraph replaced (non-italic, new copy)
-                  9.  Gap between tools and Results reduced (padding cut)
-                  10. Results cards: white bg, black body text, dark navy titles
-                  11. Methodology section removed entirely
-                  12. gears.jpg as obscured background behind Results section
-                  13. Pull quote: whitespace reduced, italic removed, fonts grown
+      2026-04-18  (v12) 13 VISUAL/CONTENT CHANGES (see prior entries)
+      2026-04-22  (v13) TOOL CARD IMAGES — full-width photo band:
+                  a. Replaced the three centered 56px icons with full-width
+                     photographic bands at the top of each tool card.
+                  b. Image files (all in /images/): sbd.jpg (Card 1),
+                     survey.jpg (Card 2 — replaces balance.jpg),
+                     modeling.jpg (Card 3 — replaces scenario.jpg).
+                  c. Image band ~96px tall (~1 inch), full card width,
+                     object-fit:cover so the image fills side-to-side
+                     without distortion (center-crops vertically if needed).
+                  d. Top corners of image rounded to match card radius
+                     (sits just under the existing navy top border).
+                     Navy top border preserved; orange-on-hover preserved.
+                  e. .tool-card padding restructured: top padding removed
+                     so image goes edge-to-edge; content below retains
+                     28px padding. Separate .tool-card-body div added to
+                     hold the pad-restored text content.
+                  Nothing else changed: nav, hero, all other sections,
+                  services grid, challenges, pull quote, FAQ, Next Steps,
+                  footer, and JS preserved exactly.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/second.png
 
+  TOOL CARD IMAGES (this page):
+      /images/sbd.jpg       — SBD Benchmarking Database card
+      /images/survey.jpg    — Work-Life Balance Survey card
+      /images/modeling.jpg  — Scenario-Based Cost Modeling card
+
   DESIGN SYSTEM:
       Navy: #1F4E79 (primary), #0D1F3C (dark anchor)
       Mid-blue: #85B7EB, Orange: #E8610A, Green: #1D9E75
-      Dark heading blue: #1a3a5c
+      Dark heading blue: #1a3a5c, Gold accent: #EEAE26
       White nav, light-grey sections, dark navy footer
 
   I did no harm and this file is not truncated
@@ -153,112 +163,29 @@
     .stripe-a .section-body { color: rgba(255,255,255,0.78); max-width: 100%; }
 
     /* ── SECTION 2: EDITORIAL INTRO — Better Operations ── */
-    .better-ops {
-      background: var(--white);
-      padding: 48px 24px 36px;
-      border-bottom: 1px solid var(--border-light);
-    }
-    .better-ops-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-    .better-ops-eyebrow {
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #2D4F73;
-      margin-bottom: 16px;
-    }
-    .better-ops h2 {
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 1.25;
-      color: #111111;
-      margin-bottom: 14px;
-      max-width: 860px;
-    }
-    .better-ops-lead {
-      font-size: 17px;
-      line-height: 1.72;
-      font-weight: 400;
-      color: #1A1A1A;
-      max-width: 860px;
-    }
-    @media (max-width: 1024px) {
-      .better-ops h2 { font-size: 24px; }
-      .better-ops-lead { font-size: 16px; }
-    }
-    @media (max-width: 768px) {
-      .better-ops { padding: 40px 20px 48px; }
-      .better-ops h2 { font-size: 22px; }
-    }
+    .better-ops { background: var(--white); padding: 48px 24px 36px; border-bottom: 1px solid var(--border-light); }
+    .better-ops-inner { max-width: var(--max-width); margin: 0 auto; }
+    .better-ops-eyebrow { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #2D4F73; margin-bottom: 16px; }
+    .better-ops h2 { font-size: 28px; font-weight: 700; line-height: 1.25; color: #111111; margin-bottom: 14px; max-width: 860px; }
+    .better-ops-lead { font-size: 17px; line-height: 1.72; font-weight: 400; color: #1A1A1A; max-width: 860px; }
+    @media (max-width: 1024px) { .better-ops h2 { font-size: 24px; } .better-ops-lead { font-size: 16px; } }
+    @media (max-width: 768px) { .better-ops { padding: 40px 20px 48px; } .better-ops h2 { font-size: 22px; } }
 
     /* ── SECTION 3a: WHEN THE SCHEDULE IS RIGHT ── */
-    .editorial-section {
-      background: var(--white);
-      padding: 32px var(--page-pad) 60px;
-    }
-    .editorial-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-    .editorial-eyebrow {
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #2D4F73;
-      margin-bottom: 16px;
-    }
-    .editorial-heading {
-      font-size: 28px;
-      font-weight: 700;
-      line-height: 1.25;
-      color: #111111;
-      margin-bottom: 14px;
-    }
-    .editorial-lead {
-      font-size: 17px;
-      line-height: 1.68;
-      font-weight: 400;
-      color: #1A1A1A;
-      max-width: 900px;
-      margin-bottom: 30px;
-    }
-    .ec-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-    }
+    .editorial-section { background: var(--white); padding: 32px var(--page-pad) 60px; }
+    .editorial-inner { max-width: var(--max-width); margin: 0 auto; }
+    .editorial-eyebrow { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: #2D4F73; margin-bottom: 16px; }
+    .editorial-heading { font-size: 28px; font-weight: 700; line-height: 1.25; color: #111111; margin-bottom: 14px; }
+    .editorial-lead { font-size: 17px; line-height: 1.68; font-weight: 400; color: #1A1A1A; max-width: 900px; margin-bottom: 30px; }
+    .ec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
     .ec-col { padding: 0 22px; }
     .ec-col:first-child { padding-left: 0; border-right: 1px solid #E6E6E6; }
     .ec-col:nth-child(2) { border-right: 1px solid #E6E6E6; }
     .ec-col:last-child { padding-right: 0; }
-    /* item 5: ec-col-heading → darker blue */
-    .ec-col-heading {
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 1.35;
-      color: var(--dark-heading);
-      margin-bottom: 14px;
-      max-width: 320px;
-    }
-    .ec-col-body {
-      font-size: 15px;
-      line-height: 1.75;
-      font-weight: 400;
-      color: #1E1E1E;
-    }
+    .ec-col-heading { font-size: 18px; font-weight: 700; line-height: 1.35; color: var(--dark-heading); margin-bottom: 14px; max-width: 320px; }
+    .ec-col-body { font-size: 15px; line-height: 1.75; font-weight: 400; color: #1E1E1E; }
     .ec-col-body p + p { margin-top: 14px; }
-    .editorial-closing {
-      margin-top: 30px;
-      max-width: 680px;
-      font-size: 16px;
-      line-height: 1.68;
-      font-weight: 500;
-      color: #111111;
-    }
+    .editorial-closing { margin-top: 30px; max-width: 680px; font-size: 16px; line-height: 1.68; font-weight: 500; color: #111111; }
     @media (max-width: 1024px) {
       .editorial-section { padding: 44px var(--page-pad) 52px; }
       .ec-grid { grid-template-columns: repeat(2, 1fr); gap: 32px 0; row-gap: 32px; }
@@ -278,65 +205,19 @@
     }
 
     /* ── SECTION 3b: WHO WE WORK WITH ── */
-    /* item 4: image left + 3-col text right, headings dark blue */
-    /* ── WHO WE WORK WITH — contained layout, image matches text height ── */
-    .who-section {
-      background: var(--light-grey);
-      padding: 52px var(--page-pad) 60px;
-    }
-    .who-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 360px 1fr;
-      gap: 52px;
-      align-items: stretch;
-    }
-    /* Image fills its grid cell height exactly */
-    .who-image-col {
-      position: relative;
-      border-radius: 8px;
-      overflow: hidden;
-      min-height: 360px;
-    }
-    .who-image-col img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      border-radius: 8px;
-    }
-    /* Right: text column */
-    .who-text-col {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-    }
-    .who-text-col .editorial-heading {
-      color: var(--dark-heading);
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-    .who-text-col .editorial-lead {
-      color: #333;
-      font-size: 16px;
-      margin-bottom: 28px;
-    }
-    .who-section .ec-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-    }
+    .who-section { background: var(--light-grey); padding: 52px var(--page-pad) 60px; }
+    .who-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 360px 1fr; gap: 52px; align-items: stretch; }
+    .who-image-col { position: relative; border-radius: 8px; overflow: hidden; min-height: 360px; }
+    .who-image-col img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 8px; }
+    .who-text-col { display: flex; flex-direction: column; justify-content: flex-start; }
+    .who-text-col .editorial-heading { color: var(--dark-heading); font-size: 28px; margin-bottom: 10px; }
+    .who-text-col .editorial-lead { color: #333; font-size: 16px; margin-bottom: 28px; }
+    .who-section .ec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; }
     .who-section .ec-col { padding: 0 20px; }
     .who-section .ec-col:first-child { padding-left: 0; border-right: 1px solid #CCCCCC; }
     .who-section .ec-col:nth-child(2) { border-right: 1px solid #CCCCCC; }
     .who-section .ec-col:last-child { padding-right: 0; }
-    .who-section .ec-col-heading {
-      color: var(--dark-heading);
-      font-size: 16px;
-    }
+    .who-section .ec-col-heading { color: var(--dark-heading); font-size: 16px; }
     .who-section .ec-col-body { line-height: 1.80; font-size: 14px; }
     @media (max-width: 1024px) {
       .who-inner { grid-template-columns: 1fr; gap: 28px; }
@@ -353,135 +234,73 @@
 
     /* ── CORE SERVICES ── */
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 34px; }
-    /* item 3: orange border on hover, flex-column for pinned note */
-    .service-card {
-      background: var(--white);
-      border: 1px solid var(--border-med);
-      border-top: 3px solid var(--navy);
-      border-radius: var(--radius-lg);
-      padding: 30px 24px;
-      transition: box-shadow 0.2s, border-top-color 0.2s, border-color 0.2s;
-      display: flex;
-      flex-direction: column;
-    }
-    .service-card:hover {
-      box-shadow: var(--shadow-lg);
-      border-top-color: var(--orange);
-      border-color: var(--orange);
-    }
+    .service-card { background: var(--white); border: 1px solid var(--border-med); border-top: 3px solid var(--navy); border-radius: var(--radius-lg); padding: 30px 24px; transition: box-shadow 0.2s, border-top-color 0.2s, border-color 0.2s; display: flex; flex-direction: column; }
+    .service-card:hover { box-shadow: var(--shadow-lg); border-top-color: var(--orange); border-color: var(--orange); }
     .service-card h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 12px; line-height: 1.3; }
     .service-card p { font-size: 14px; color: var(--text-mid); line-height: 1.7; margin-bottom: 10px; flex: 1; }
     .service-card .service-note { font-size: 13px; color: var(--muted); margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border-light); }
-    /* item 3: hover bold highlights — hidden by default, shown on hover */
     .service-card .h-bold { font-weight: 400; transition: font-weight 0.15s; }
     .service-card:hover .h-bold { font-weight: 700; color: #1A1A1A; }
     @media (max-width: 760px) { .services-grid { grid-template-columns: 1fr; } }
     @media (min-width: 560px) and (max-width: 760px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
 
     /* ── SECTION 6: PROPRIETARY TOOLS ── */
-    .tools-section {
-      background: var(--light-grey);
-      padding: 64px 24px 40px; /* item 9: reduced bottom padding to close gap */
-    }
-    .tools-inner {
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-    .tools-eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--navy);
-      margin-bottom: 10px;
-    }
-    .tools-heading {
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--body-text);
-      margin-bottom: 8px;
-      line-height: 1.25;
-    }
-    .tools-sub {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.68;
-      max-width: 640px;
-      margin-bottom: 34px;
-    }
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      margin-bottom: 32px;
-    }
+    .tools-section { background: var(--light-grey); padding: 64px 24px 40px; }
+    .tools-inner { max-width: var(--max-width); margin: 0 auto; }
+    .tools-eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--navy); margin-bottom: 10px; }
+    .tools-heading { font-size: 26px; font-weight: 700; color: var(--body-text); margin-bottom: 8px; line-height: 1.25; }
+    .tools-sub { font-size: 15px; color: var(--muted); line-height: 1.68; max-width: 640px; margin-bottom: 34px; }
+    .tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-bottom: 32px; }
+
+    /* ── TOOL CARD — 2026-04-22 v13 full-width image band ──
+       Card has no top padding so .tool-img fills card width edge-to-edge.
+       .tool-card-body wraps content below with the original 28px 22px padding. */
     .tool-card {
       background: var(--white);
       border: 1px solid var(--border-med);
       border-top: 3px solid var(--navy);
       border-radius: var(--radius-lg);
-      padding: 28px 22px;
+      padding: 0;
+      overflow: hidden;
       transition: box-shadow 0.2s, border-top-color 0.2s;
+      display: flex;
+      flex-direction: column;
     }
-    /* item 6: orange top border on hover */
     .tool-card:hover { box-shadow: var(--shadow-lg); border-top-color: var(--orange); }
-    /* item 7: icon container */
-    /* tool-icon SVGs replaced by img tags */
-    .tool-img { width: 56px; height: 56px; object-fit: contain; display: block; margin: 0 auto 16px; }
-    .tool-card h3 {
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 12px;
-      line-height: 1.3;
+
+    /* Image band — ~96px tall (~1 inch). Fills card width edge-to-edge.
+       object-fit:cover preserves aspect ratio — will center-crop vertically
+       if the source aspect ratio doesn't match the band, but will never
+       distort. Top corners rounded to match the card's border-radius so the
+       image sits just below the navy top border without overflowing. */
+    .tool-img {
+      width: 100%;
+      height: 96px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      border-top-left-radius: calc(var(--radius-lg) - 1px);
+      border-top-right-radius: calc(var(--radius-lg) - 1px);
     }
-    .tool-card p {
-      font-size: 14px;
-      color: var(--text-mid);
-      line-height: 1.7;
-    }
-    /* item 8: new non-italic context paragraph */
-    .tools-context {
-      font-size: 15px;
-      color: #444;
-      line-height: 1.75;
-      max-width: 860px;
-      font-style: normal;
-    }
+    .tool-card-body { padding: 20px 22px 24px; }
+
+    .tool-card h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 12px; line-height: 1.3; }
+    .tool-card p { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+    .tools-context { font-size: 15px; color: #444; line-height: 1.75; max-width: 860px; font-style: normal; }
     @media (max-width: 760px) { .tools-grid { grid-template-columns: 1fr; } }
     @media (min-width: 560px) and (max-width: 760px) { .tools-grid { grid-template-columns: repeat(2, 1fr); } }
 
     /* ── RESULTS — item 10: white cards, dark titles, item 12: gears.jpg bg ── */
-    .results-section {
-      position: relative;
-      overflow: hidden;
-      padding: 48px 24px 56px; /* item 9: reduced top padding to close gap */
-      background: var(--smoke);
-    }
-    .results-bg {
-      position: absolute;
-      inset: 0;
-      background: url('/images/gears.jpg') center center / cover no-repeat;
-      z-index: 0;
-      opacity: 0.10; /* item 12: obscured — just a hint of texture */
-    }
-    .results-inner {
-      position: relative;
-      z-index: 1;
-      max-width: var(--max-width);
-      margin: 0 auto;
-    }
-    /* item 10: white cards, black body text, dark navy titles */
+    .results-section { position: relative; overflow: hidden; padding: 48px 24px 56px; background: var(--smoke); }
+    .results-bg { position: absolute; inset: 0; background: url('/images/gears.jpg') center center / cover no-repeat; z-index: 0; opacity: 0.10; }
+    .results-inner { position: relative; z-index: 1; max-width: var(--max-width); margin: 0 auto; }
     .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 30px; }
     .insight-card { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border-med); padding: 26px 20px; }
     .insight-card.navy-top { border-top: 3px solid var(--navy); }
     .insight-card.orange-top { border-top: 3px solid var(--orange); }
     .insight-card.green-top { border-top: 3px solid var(--green); }
-    /* item 2 + 13: stat numbers warm yellow, enlarged */
     .insight-card .ic-num { font-size: 36px; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 8px; }
-    /* item 10: label dark navy, bold */
     .insight-card .ic-label { font-size: 15px; font-weight: 700; color: var(--dark-heading); margin-bottom: 10px; }
-    /* item 10: body text dark/black */
     .insight-card .ic-body { font-size: 14px; color: #1A1A1A; line-height: 1.68; }
     @media (max-width: 680px) { .three-col { grid-template-columns: 1fr; } }
 
@@ -491,7 +310,6 @@
     .challenge-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.18); transform: translateY(-2px); }
     .challenge-card h3 { font-size: 14px; font-weight: 700; color: var(--dark-heading); margin-bottom: 8px; }
     .challenge-card p { font-size: 13px; color: #1A1A1A; line-height: 1.6; }
-    /* Thomas challenge card — white with image */
     .challenge-card-thomas { background: var(--white); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius); padding: 0; transition: box-shadow 0.2s, transform 0.2s; overflow: hidden; text-decoration: none; display: flex; flex-direction: column; }
     .challenge-card-thomas:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.22); transform: translateY(-2px); }
     .challenge-card-thomas img { width: 100%; height: 90px; object-fit: contain; object-position: center; display: block; background: var(--white); padding: 6px 0; }
@@ -502,23 +320,11 @@
     @media (max-width: 760px) { .challenges-grid { grid-template-columns: 1fr; } }
     @media (min-width: 520px) and (max-width: 760px) { .challenges-grid { grid-template-columns: repeat(2, 1fr); } }
 
-    /* ── PULL QUOTE — item 13: reduced whitespace, no italic, grown fonts ── */
-    .pull-quote-section {
-      padding: 40px 24px;
-      background: var(--white);
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
-    }
-    .pull-quote {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      display: flex;
-      align-items: flex-start;
-      gap: 18px;
-    }
+    /* ── PULL QUOTE ── */
+    .pull-quote-section { padding: 40px 24px; background: var(--white); border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+    .pull-quote { max-width: var(--max-width); margin: 0 auto; display: flex; align-items: flex-start; gap: 18px; }
     .pull-quote-mark { flex-shrink: 0; font-size: 100px; line-height: 0.85; font-family: Georgia, 'Times New Roman', serif; color: #cccccc; user-select: none; margin-top: 8px; }
     .pull-quote-content { flex: 1; }
-    /* item 13: not italic, larger font */
     .pull-quote p { font-size: 19px; font-weight: 400; line-height: 1.65; color: #2c4a6a; margin: 0; font-style: normal; }
     .pull-quote .pq-attr { font-size: 14px; font-weight: 600; color: var(--muted); margin-top: 10px; font-style: normal; }
 
@@ -716,15 +522,12 @@
 
 <!-- ══════════════════════════════════════════════════════════════
      SECTION 3b: WHO WE WORK WITH
-     item 4: 3people.jpg LEFT, text columns RIGHT
 ════════════════════════════════════════════════════════════════ -->
 <section class="who-section">
   <div class="who-inner">
-    <!-- Left: image flush to edges -->
     <div class="who-image-col">
       <img src="/images/3people.jpg" alt="Operations leaders in discussion" loading="lazy">
     </div>
-    <!-- Right: heading + 3 columns -->
     <div class="who-text-col">
       <h2 class="editorial-heading">Who We Work With</h2>
       <p class="editorial-lead">Running shift operations&mdash;but the system is no longer working the way it should.</p>
@@ -751,13 +554,12 @@
           </div>
         </div>
       </div>
-    </div><!-- /.who-text-col -->
-  </div><!-- /.who-inner -->
+    </div>
+  </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════════════
      SECTION 4: CORE SERVICES GRID
-     item 3: orange border + per-card bold highlights on hover
 ════════════════════════════════════════════════════════════════ -->
 <section class="section" id="introduction">
   <div class="section-inner">
@@ -768,42 +570,36 @@
     </div>
     <div class="services-grid" id="schedule-design">
 
-      <!-- Card 1: Schedule Design -->
       <div class="service-card">
         <h3>Schedule Design &amp; Analysis</h3>
         <p>Custom schedules built around <span class="h-bold">your specific coverage requirements, demand patterns, and workforce reality</span>. We don&rsquo;t pick from a menu&mdash;we design around what your operation actually needs.</p>
         <div class="service-note">8-hour, 12-hour, fixed, rotating, hybrid, semi-continuous, fly-in/fly-out, and more</div>
       </div>
 
-      <!-- Card 2: Staffing Strategy -->
       <div class="service-card" id="staffing-strategy">
         <h3>Staffing Strategy</h3>
         <p>Right-size your workforce before committing to a pattern. We <span class="h-bold">model headcount scenarios</span> for hiring, attrition, and growth&mdash;so staffing decisions are grounded in the schedule, not made after the fact.</p>
         <div class="service-note">Headcount modeling, relief crew sizing, skill-balance analysis, vacancy planning</div>
       </div>
 
-      <!-- Card 3: Change Management -->
       <div class="service-card" id="change-management">
         <h3>Change Management</h3>
         <p>This is the 80% that determines success or failure. Employee-centered implementation that <span class="h-bold">builds buy-in</span> before the first shift rotates. Communication plans, on-shift meetings, leadership coaching, and the employee choice process that makes the schedule theirs.</p>
         <div class="service-note">Communication planning, on-shift meetings, employee orientation, schedule selection facilitation</div>
       </div>
 
-      <!-- Card 4: Employee Engagement Surveys -->
       <div class="service-card" id="workforce-surveys">
         <h3>Employee Engagement Surveys</h3>
         <p>Our proprietary Work-Life Balance Survey&trade; is built for shiftwork&mdash;not adapted from generic surveys. It captures real <span class="h-bold">workforce perspectives</span> and benchmarks results across industries. Every result is benchmarked against our normative database&mdash;for informed decision-making. From hundreds of facilities across 16+ industries.</p>
         <div class="service-note">Customizable survey, normative benchmarking, demographic breakouts, trend tracking</div>
       </div>
 
-      <!-- Card 5: Cost Analysis -->
       <div class="service-card" id="cost-analysis">
         <h3>Cost Analysis</h3>
         <p>The true, fully loaded cost of every schedule option&mdash;not just wages, but benefits, paid time off, training, and administrative overhead. Overtime projections, benefit impacts, and <span class="h-bold">scenario comparison</span>&mdash;across every schedule option. Numbers your CFO will trust because they account for what most analyses miss.</p>
         <div class="service-note">Fully loaded labor costs, adverse cost analysis, scenario comparison, break-even modeling</div>
       </div>
 
-      <!-- Card 6: Policy Development -->
       <div class="service-card" id="policy-development">
         <h3>Policy Development</h3>
         <p>Schedule changes cascade into vacation accrual, holiday pay, overtime distribution, shift differentials, and call-off procedures. We develop the work and pay policies that align with the new schedule&mdash;and <span class="h-bold">prevent the conflicts</span> that erode trust after implementation.</p>
@@ -817,11 +613,7 @@
 <hr class="divider" />
 
 <!-- ══════════════════════════════════════════════════════════════
-     SECTION 6: PROPRIETARY TOOLS
-     item 6: orange top border on hover
-     item 7: SVG icons in #EEAE26
-     item 8: new non-italic context paragraph
-     item 9: reduced bottom padding
+     SECTION 6: PROPRIETARY TOOLS — 2026-04-22 v13 full-width image bands
 ════════════════════════════════════════════════════════════════ -->
 <section class="tools-section">
   <div class="tools-inner">
@@ -830,37 +622,40 @@
     <p class="tools-sub">Proprietary tools developed through decades of engagements&mdash;built to uncover the patterns that drive cost, coverage, and workforce stability.</p>
     <div class="tools-grid">
 
-      <!-- Tool 1: SBD Benchmarking — database/chart icon -->
+      <!-- Tool 1: SBD Benchmarking — full-width image band -->
       <div class="tool-card">
-        <img src="/images/sbd.jpg" alt="SBD Benchmarking Database icon" class="tool-img">
-        <h3>SBD&trade; Benchmarking Database</h3>
-        <p>Industry-wide performance comparisons across hundreds of shiftwork facilities. When we say an overtime rate is high or a staffing ratio is off, we&rsquo;re measuring against real operations&mdash;not theoretical benchmarks.</p>
+        <img src="/images/sbd.jpg" alt="SBD Benchmarking Database" class="tool-img" loading="lazy">
+        <div class="tool-card-body">
+          <h3>SBD&trade; Benchmarking Database</h3>
+          <p>Industry-wide performance comparisons across hundreds of shiftwork facilities. When we say an overtime rate is high or a staffing ratio is off, we&rsquo;re measuring against real operations&mdash;not theoretical benchmarks.</p>
+        </div>
       </div>
 
-      <!-- Tool 2: Work-Life Balance Survey — scale/balance icon -->
+      <!-- Tool 2: Work-Life Balance Survey — full-width image band (was balance.jpg) -->
       <div class="tool-card">
-        <img src="/images/balance.jpg" alt="Work-Life Balance Survey icon" class="tool-img">
-        <h3>Work-Life Balance Survey&trade;</h3>
-        <p>Built specifically for shift workers, capturing the preferences and pain points that generic tools miss. Every result is benchmarked against our normative database for operational context.</p>
+        <img src="/images/survey.jpg" alt="Work-Life Balance Survey" class="tool-img" loading="lazy">
+        <div class="tool-card-body">
+          <h3>Work-Life Balance Survey&trade;</h3>
+          <p>Built specifically for shift workers, capturing the preferences and pain points that generic tools miss. Every result is benchmarked against our normative database for operational context.</p>
+        </div>
       </div>
 
-      <!-- Tool 3: Scenario-Based Cost Modeling — calculator/graph icon -->
+      <!-- Tool 3: Scenario-Based Cost Modeling — full-width image band (was scenario.jpg) -->
       <div class="tool-card">
-        <img src="/images/scenario.jpg" alt="Scenario-Based Cost Modeling icon" class="tool-img">
-        <h3>Scenario-Based Cost Modeling&trade;</h3>
-        <p>Full labor cost picture across multiple schedule options&mdash;wages, benefits, overhead, and overtime projections included. Leadership makes a confident, data-supported decision before a single shift changes.</p>
+        <img src="/images/modeling.jpg" alt="Scenario-Based Cost Modeling" class="tool-img" loading="lazy">
+        <div class="tool-card-body">
+          <h3>Scenario-Based Cost Modeling&trade;</h3>
+          <p>Full labor cost picture across multiple schedule options&mdash;wages, benefits, overhead, and overtime projections included. Leadership makes a confident, data-supported decision before a single shift changes.</p>
+        </div>
       </div>
 
     </div>
-    <!-- item 8: new non-italic context text -->
     <p class="tools-context">A proven change management framework and implementation playbook. Built and tested across hundreds of engagements, designed for complex shift schedule changes&mdash;where decisions take effect immediately across the workforce.</p>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════════════════════════
-     RESULTS — item 10: white cards, dark navy titles, black body
-              item 12: gears.jpg obscured background
-              item 9: reduced top padding to close gap
+     RESULTS
 ════════════════════════════════════════════════════════════════ -->
 <section class="results-section">
   <div class="results-bg" aria-hidden="true"></div>
@@ -937,7 +732,7 @@
   </div>
 </section>
 
-<!-- ── PULL QUOTE — item 13: tighter, non-italic, larger font ── -->
+<!-- ── PULL QUOTE ── -->
 <div class="pull-quote-section">
   <div class="pull-quote">
     <span class="pull-quote-mark">&#8220;</span>
