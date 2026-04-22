@@ -10,44 +10,50 @@
     2026-04-05 — NAV + BUTTON + SEO AUDIT. FAQ section added.
     2026-04-15 — Nav/Hero/FAQ/Next Steps standardization.
     2026-04-16 — NAV LABEL: "Our Company" → "Why Us".
-    2026-04-21 — CONTENT UPDATE: March 2026 data, oil shock section, Susan Spence
-                 quote, sources block, revised FAQ.
-    2026-04-22 — THREE VISUAL CHANGE BLOCKS:
-                 A. SIGNAL CARDS (.signal-cards — Output / Employment / Input
-                    Costs / Consumer Confidence):
-                    - Removed green/red/amber tinted backgrounds; all four cards
-                      now use --light-grey (#F4F6F8) matching partner-card-top
-                      grey on homepage.
-                    - Top borders unified: green/red/amber replaced with --navy
-                      (#1F4E79) on all four.
-                    - Replaced Unicode emoji icons (📈📉⬆⚠) with custom navy SVG
-                      glyphs on amber #EEAE26 circles (40px): trending up,
-                      trending down, dollar-up, warning triangle.
-                    - .sc-metric label colors (OUTPUT, EMPLOYMENT, INPUT COSTS,
-                      CONSUMER CONFIDENCE) unified to --navy (was green/red/amber).
-                 B. PULL QUOTE ATTRIBUTION:
-                    - "Jim Dillingham, Shiftwork Solutions" → "Dan Capshaw,
-                      Shiftwork Solutions"
-                 C. INSIGHT CARDS (.insight-cards — 20/60/20, 15–20% structural
-                    overtime, Deferred workforce decisions):
-                    - Background var(--light-blue) (#EEF3F8) → var(--light-grey)
-                      (#F4F6F8) matching the signal-card change.
-                    - Bold <strong> portion of each label bumped 13px → 17px
-                      (regular text stays 13px); added .ic-label strong rule
-                      for the size bump, line-height set for readability.
-                 No other content, nav, hero, FAQ, Next Steps, footer, or JS
-                 changes. Data table, sources block, italic pull quote styling,
-                 and all JSON-LD schemas preserved exactly.
+    2026-04-21 — CONTENT UPDATE: March 2026 data, oil shock section,
+                 Susan Spence quote, sources block, revised FAQ.
+    2026-04-22 — THREE VISUAL CHANGE BLOCKS (first pass):
+                 A. SIGNAL CARDS grey backgrounds, navy borders, custom
+                    SVG icons on amber circles, navy metric labels.
+                 B. PULL QUOTE ATTRIBUTION: "Jim Dillingham" → "Dan Capshaw".
+                 C. INSIGHT CARDS light-grey bg + bold 17px navy emphasis.
+    2026-04-22 — SIGNAL CARD ICONS REBUILT TO MATCH HOMEPAGE STYLE:
+                 Previous amber circle + small navy SVG glyph replaced
+                 with the homepage's problem-icon / service-icon style:
+                 - Container: 64px × 64px rounded-square (border-radius
+                   14px), background #0D1F3C (navy-dark) — matches
+                   homepage exactly.
+                 - Inner glyph: 36px × 36px SVG viewBox 0 0 36 36 with
+                   stroke #F5A623, stroke-width 2.5, stroke-linecap and
+                   stroke-linejoin round, fill:none.
+                 - Four new glyphs purpose-built for these metrics:
+                   Output (bar chart + up-trend arrow),
+                   Employment (bar chart + down-trend arrow),
+                   Input Costs (dollar sign + rising arrow),
+                   Consumer Confidence (gauge/dial, needle low).
+                   Symbols are NOT copies of homepage glyphs — matched
+                   on style, weight, and color only per spec.
+                 - .sc-icon-wrap replaced with .sc-icon (scoped under
+                   .signal-card). Old amber-circle CSS removed.
+                 No other changes: all other visual updates, content, nav,
+                 hero, FAQ, Next Steps, footer, JS preserved exactly.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/mixed.jpg
   FAQ IMAGE:  /images/Hands_in_the_air.jpg
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
+
+  HOMEPAGE ICON SPEC (MATCHED HERE):
+    Container — 64px × 64px, border-radius 14px, bg #0D1F3C (navy-dark),
+                centered with 16px bottom margin.
+    SVG glyph — 36px × 36px, viewBox 0 0 36 36, stroke #F5A623,
+                stroke-width 2.5, linecap + linejoin round, fill:none.
+
   DESIGN SYSTEM:
     --navy: #1F4E79  --navy-dark: #0D1F3C  --mid-blue: #85B7EB
     --light-blue: #EEF3F8  --light-grey: #F4F6F8
     --orange: #E8610A  --green: #1D9E75
-    Gold accent: #EEAE26
+    Gold accent: #EEAE26   Homepage icon amber: #F5A623
     --body-text: #1A1A1A  --max-width: 860px
     Font: Arial, Helvetica, sans-serif
 
@@ -120,10 +126,7 @@
     .data-table tr:last-child td{border-bottom:none}
     .data-table .highlight{color:var(--orange);font-weight:700}
 
-    /* ── INSIGHT CARDS — Block C (2026-04-22) ──
-       Background: light-blue → light-grey matching signal-card change.
-       Bold <strong> portion of each label: 13px → 17px.
-       Regular (non-bold) text remains 13px. */
+    /* ── INSIGHT CARDS — Block C (2026-04-22) ── */
     .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
     .insight-card{background:var(--light-grey);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
     .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.65;font-weight:500}
@@ -219,14 +222,15 @@
     .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
 
-    /* ── SIGNAL CARDS — Block A (2026-04-22) ──
-       All four cards unified: light-grey background, navy top border,
-       navy metric labels. Emoji icons replaced with navy SVG glyphs
-       on amber circles. */
+    /* ── SIGNAL CARDS — updated 2026-04-22 ──
+       Card backgrounds, borders, and metric labels from Block A.
+       Icons match the homepage problem-icon / service-icon style:
+       64px × 64px rounded-square (14px radius), dark navy #0D1F3C bg,
+       inner 36px SVG stroke #F5A623 stroke-width 2.5. */
     .signal-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0}
-    .signal-card{background:var(--light-grey);border-top:3px solid var(--navy);border-radius:6px;padding:18px 14px;text-align:center}
-    .signal-card .sc-icon-wrap{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#EEAE26;margin:0 auto 10px}
-    .signal-card .sc-icon-wrap svg{width:22px;height:22px;fill:var(--navy);display:block}
+    .signal-card{background:var(--light-grey);border-top:3px solid var(--navy);border-radius:6px;padding:22px 14px 18px;text-align:center}
+    .signal-card .sc-icon{width:64px;height:64px;border-radius:14px;background:var(--navy-dark);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
+    .signal-card .sc-icon svg{display:block;width:36px;height:36px}
     .signal-card .sc-metric{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;color:var(--navy)}
     .signal-card .sc-value{font-size:11px;color:var(--body-text);line-height:1.5}
 
@@ -270,34 +274,69 @@
   <p>The key is reading these signals together rather than in isolation. Cost pressure, tighter margins, and geopolitical energy risk are complicating the operating environment in ways that don&#x2019;t show up in the headline numbers.</p>
 
   <div class="signal-cards">
+
+    <!-- OUTPUT — bar chart + up-trend arrow -->
     <div class="signal-card">
-      <div class="sc-icon-wrap" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M3.5 17.5l6-6 4 4 7-8 1.5 1.5-8.5 9.5-4-4-4.5 4.5z"/><path d="M14 6.5h7v7h-2V9.9l-.5.5-1.5-1.5.5-.5H14z"/></svg>
+      <div class="sc-icon" aria-hidden="true">
+        <svg viewBox="0 0 36 36" fill="none">
+          <line x1="4" y1="32" x2="32" y2="32" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/>
+          <rect x="6" y="22" width="4.5" height="10" stroke="#F5A623" stroke-width="2.5" stroke-linejoin="round"/>
+          <rect x="13" y="17" width="4.5" height="15" stroke="#F5A623" stroke-width="2.5" stroke-linejoin="round"/>
+          <rect x="20" y="12" width="4.5" height="20" stroke="#F5A623" stroke-width="2.5" stroke-linejoin="round"/>
+          <polyline points="6,14 13,9 20,5 28,3" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="24,3 28,3 28,7" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </div>
       <div class="sc-metric">Output</div>
       <div class="sc-value">ISM Manufacturing PMI at 52.7 in March &#x2014; third consecutive month of expansion</div>
     </div>
+
+    <!-- EMPLOYMENT — bar chart + down-trend arrow -->
     <div class="signal-card">
-      <div class="sc-icon-wrap" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M3.5 7.5l6 6 4-4 7 8 1.5-1.5-8.5-9.5-4 4-4.5-4.5z"/><path d="M14 18.5h7v-7h-2v3.6l-.5-.5-1.5 1.5.5.5H14z"/></svg>
+      <div class="sc-icon" aria-hidden="true">
+        <svg viewBox="0 0 36 36" fill="none">
+          <line x1="4" y1="32" x2="32" y2="32" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/>
+          <rect x="6" y="12" width="4.5" height="20" stroke="#F5A623" stroke-width="2.5" stroke-linejoin="round"/>
+          <rect x="13" y="17" width="4.5" height="15" stroke="#F5A623" stroke-width="2.5" stroke-linejoin="round"/>
+          <rect x="20" y="22" width="4.5" height="10" stroke="#F5A623" stroke-width="2.5" stroke-linejoin="round"/>
+          <polyline points="6,5 13,9 20,13 28,18" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="24,18 28,18 28,14" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </div>
       <div class="sc-metric">Employment</div>
       <div class="sc-value">ISM employment sub-index still in contraction; manufacturing net &#x2212;7,000 jobs YTD despite a 15K gain in March</div>
     </div>
+
+    <!-- INPUT COSTS — dollar sign with rising arrow -->
     <div class="signal-card">
-      <div class="sc-icon-wrap" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 2.5c-2.6 0-4.7 1.6-4.7 3.8 0 2 1.7 3 4.3 3.7 2.2.5 2.9 1 2.9 1.8 0 .9-1 1.5-2.5 1.5-1.7 0-2.8-.7-2.9-1.9H7.3c.1 1.9 1.5 3.2 3.7 3.5v2h2v-2c2.3-.3 3.7-1.7 3.7-3.6 0-2.1-1.7-3.1-4.4-3.8-2-.5-2.8-1-2.8-1.8 0-.9 1-1.4 2.4-1.4 1.5 0 2.4.7 2.5 1.8h2.1C16.4 4.3 14.9 3 12.7 2.7v-2h-2v2c-.3 0-.5 0-.7.1z" transform="translate(0 2)"/><path d="M5 4l2.5-2.5L10 4H8v3H7V4H5z"/></svg>
+      <div class="sc-icon" aria-hidden="true">
+        <svg viewBox="0 0 36 36" fill="none">
+          <path d="M22 11c0-2.5-2.5-4-5.5-4s-5.5 1.5-5.5 4c0 2.5 2.5 3.5 5.5 4.5s5.5 2 5.5 4.5c0 2.5-2.5 4-5.5 4s-5.5-1.5-5.5-4" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="16.5" y1="4" x2="16.5" y2="27" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="29" y1="30" x2="29" y2="14" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/>
+          <polyline points="25,18 29,14 33,18" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </div>
       <div class="sc-metric">Input Costs</div>
       <div class="sc-value">BLS CPI energy index up 10.9% in a single month &#x2014; largest increase since 2005; ISM Prices Paid at a four-year high</div>
     </div>
+
+    <!-- CONSUMER CONFIDENCE — gauge pointing to the low end -->
     <div class="signal-card">
-      <div class="sc-icon-wrap" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M12 2L1.5 21h21L12 2zm0 4.3L19.7 19H4.3L12 6.3zM11 10v5h2v-5h-2zm0 6v2h2v-2h-2z"/></svg>
+      <div class="sc-icon" aria-hidden="true">
+        <svg viewBox="0 0 36 36" fill="none">
+          <path d="M5 25 A13 13 0 0 1 31 25" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="5" y1="25" x2="8" y2="23" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="31" y1="25" x2="28" y2="23" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="18" y1="12" x2="18" y2="15" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="18" y1="25" x2="9" y2="20" stroke="#F5A623" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="18" cy="25" r="2" fill="#F5A623"/>
+        </svg>
       </div>
       <div class="sc-metric">Consumer Confidence</div>
       <div class="sc-value">University of Michigan Sentiment Index at a historic low of 47.6 in early April &#x2014; worst reading in 74 years</div>
     </div>
+
   </div>
 
   <h2>The Pressure Building Underneath</h2>
@@ -396,7 +435,7 @@ document.getElementById('mobileToggle').addEventListener('click',function(){var 
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
 (function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
-(function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p,h2,h3');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim());});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
+(function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p,h2,h3');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim());});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Pause';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
 </script>
 </body>
 </html>
