@@ -3,48 +3,41 @@
   resources/mixed-signals-economy/index.html
   Shiftwork Solutions LLC — Trending Topic Article
   URL: /resources/mixed-signals-economy/
-  Created: 2026-04-04 | Last Updated: 2026-04-21
+  Created: 2026-04-04 | Last Updated: 2026-04-22
 
   CHANGE LOG:
     2026-04-04 — Initial build from source Word doc.
     2026-04-05 — NAV + BUTTON + SEO AUDIT. FAQ section added.
-    2026-04-15 — Nav: "Why Us" -> "Our Company". Next Steps: dark navy animated
-                 cards. Removed floating CTA section and engage-band. Footer:
-                 standard dark-navy 3-col prefooter.
-    2026-04-15 — (v2) THREE NAV + HERO + FAQ FIXES:
-                 1. Logo src corrected: clear%20bkgr%20logo%202.png →
-                    clear_bkgr_logo_2.png (underscores match actual repo filename)
-                 2. "SHIFTWORK SOLUTIONS" bold navy text added to right of logo;
-                    both logo image and text link to homepage. .nav-logo-text class
-                    added; font-size 20px, font-weight 700, color #1F4E79, Arial.
-                    .nav-logo gap set to 12px to space image from text.
-                 3. Nav link font-size increased from 13.5px to 20px (matching
-                    homepage standard). Mobile nav font-size set to 18px.
-                 4. Hero image changed from second.png to /images/32.jpg with same
-                    gradient overlay treatment as industry pages.
-                 5. FAQ section rebuilt to match industry page style: full-bleed
-                    Hands_in_the_air.jpg background, dark vignette overlay, navy
-                    accordion toggle buttons, #EEAE26 heading, white answer panels,
-                    accordion open/close JS behavior. Old static FAQ markup removed.
-                 6. Next Steps section: background changed from navy to light grey
-                    (#F4F6F8) to visually separate it from the dark navy footer.
-                    Card borders changed from white/transparent to solid --border-med.
-                    Text colors updated: eyebrow/sub/phone to --muted, h2 to --navy.
-                    Card label/link colors: blue card uses --navy (not --mid-blue).
+    2026-04-15 — Nav/Hero/FAQ/Next Steps standardization.
     2026-04-16 — NAV LABEL: "Our Company" → "Why Us".
-    2026-04-21 — CONTENT UPDATE: Article body updated to reflect March 2026 data.
-                 Changes: hero subtitle updated; intro paragraphs replaced with March
-                 PMI/payroll/oil shock data; signal cards updated (Output: ISM 52.7,
-                 Employment: ISM contraction + net -7K YTD, Input Costs: CPI energy
-                 +10.9%, Consumer Confidence: UMich 47.6 historic low); "What's
-                 Actually Happening" section replaced with "The Pressure Building
-                 Underneath" and "An Inflection Point in the Making?"; Susan Spence
-                 ISM chair quote added; "The Freeze Instinct Is Costly" section
-                 removed (content absorbed into Inflection Point section); pull quote
-                 updated with Jim Dillingham attribution; "The Honest Takeaway"
-                 updated with oil/energy data and Jim Dillingham pull quote;
-                 FAQ updated: 5 questions revised to reflect March data and oil shock;
-                 Sources section added at bottom of article-wrap.
+    2026-04-21 — CONTENT UPDATE: March 2026 data, oil shock section, Susan Spence
+                 quote, sources block, revised FAQ.
+    2026-04-22 — THREE VISUAL CHANGE BLOCKS:
+                 A. SIGNAL CARDS (.signal-cards — Output / Employment / Input
+                    Costs / Consumer Confidence):
+                    - Removed green/red/amber tinted backgrounds; all four cards
+                      now use --light-grey (#F4F6F8) matching partner-card-top
+                      grey on homepage.
+                    - Top borders unified: green/red/amber replaced with --navy
+                      (#1F4E79) on all four.
+                    - Replaced Unicode emoji icons (📈📉⬆⚠) with custom navy SVG
+                      glyphs on amber #EEAE26 circles (40px): trending up,
+                      trending down, dollar-up, warning triangle.
+                    - .sc-metric label colors (OUTPUT, EMPLOYMENT, INPUT COSTS,
+                      CONSUMER CONFIDENCE) unified to --navy (was green/red/amber).
+                 B. PULL QUOTE ATTRIBUTION:
+                    - "Jim Dillingham, Shiftwork Solutions" → "Dan Capshaw,
+                      Shiftwork Solutions"
+                 C. INSIGHT CARDS (.insight-cards — 20/60/20, 15–20% structural
+                    overtime, Deferred workforce decisions):
+                    - Background var(--light-blue) (#EEF3F8) → var(--light-grey)
+                      (#F4F6F8) matching the signal-card change.
+                    - Bold <strong> portion of each label bumped 13px → 17px
+                      (regular text stays 13px); added .ic-label strong rule
+                      for the size bump, line-height set for readability.
+                 No other content, nav, hero, FAQ, Next Steps, footer, or JS
+                 changes. Data table, sources block, italic pull quote styling,
+                 and all JSON-LD schemas preserved exactly.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/mixed.jpg
@@ -52,7 +45,9 @@
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
   DESIGN SYSTEM:
     --navy: #1F4E79  --navy-dark: #0D1F3C  --mid-blue: #85B7EB
-    --light-blue: #EEF3F8  --orange: #E8610A  --green: #1D9E75
+    --light-blue: #EEF3F8  --light-grey: #F4F6F8
+    --orange: #E8610A  --green: #1D9E75
+    Gold accent: #EEAE26
     --body-text: #1A1A1A  --max-width: 860px
     Font: Arial, Helvetica, sans-serif
 
@@ -67,7 +62,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
   <meta name="twitter:card" content="summary">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "The Mixed Signals Economy: What Shifting Labor Markets Mean for 24/7 Operations", "description": "Manufacturing is expanding. Input costs are surging. Consumer confidence just hit a historic low. The data isn\u2019t contradicting itself \u2014 it\u2019s telling a more complicated story.", "url": "https://shift-work.com/resources/mixed-signals-economy/", "datePublished": "2026-04-04", "dateModified": "2026-04-21", "author": {"@type": "Organization", "name": "Shiftwork Solutions LLC"}, "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "The Mixed Signals Economy: What Shifting Labor Markets Mean for 24/7 Operations", "description": "Manufacturing is expanding. Input costs are surging. Consumer confidence just hit a historic low. The data isn\u2019t contradicting itself \u2014 it\u2019s telling a more complicated story.", "url": "https://shift-work.com/resources/mixed-signals-economy/", "datePublished": "2026-04-04", "dateModified": "2026-04-22", "author": {"@type": "Organization", "name": "Shiftwork Solutions LLC"}, "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"The Mixed Signals Economy","item":"https://shift-work.com/resources/mixed-signals-economy/"}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -124,9 +119,16 @@
     .data-table tr:nth-child(even) td{background:var(--light-blue)}
     .data-table tr:last-child td{border-bottom:none}
     .data-table .highlight{color:var(--orange);font-weight:700}
+
+    /* ── INSIGHT CARDS — Block C (2026-04-22) ──
+       Background: light-blue → light-grey matching signal-card change.
+       Bold <strong> portion of each label: 13px → 17px.
+       Regular (non-bold) text remains 13px. */
     .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
-    .insight-card{background:var(--light-blue);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
-    .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.5}
+    .insight-card{background:var(--light-grey);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
+    .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.65;font-weight:500}
+    .insight-card .ic-label strong{font-size:17px;font-weight:700;color:var(--navy);display:inline-block;line-height:1.3;margin-bottom:4px}
+
     .sources-section{margin:40px 0 0;padding:24px 28px;background:var(--light-blue);border-left:4px solid var(--navy);border-radius:6px}
     .sources-section h3{font-size:14px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
     .sources-section ul{list-style:none;padding:0;margin:0}
@@ -216,18 +218,18 @@
     .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
     .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
+
+    /* ── SIGNAL CARDS — Block A (2026-04-22) ──
+       All four cards unified: light-grey background, navy top border,
+       navy metric labels. Emoji icons replaced with navy SVG glyphs
+       on amber circles. */
     .signal-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0}
-    .signal-card{border-radius:6px;padding:16px 14px;text-align:center}
-    .signal-card.up{background:#F0FDF4;border-top:3px solid var(--green)}
-    .signal-card.down{background:#FEF2F2;border-top:3px solid #DC2626}
-    .signal-card.mixed{background:#FFFBEB;border-top:3px solid #F59E0B}
-    .signal-card .sc-icon{font-size:22px;margin-bottom:6px}
-    .signal-card .sc-metric{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
-    .signal-card.up .sc-metric{color:#166534}
-    .signal-card.down .sc-metric{color:#991B1B}
-    .signal-card.mixed .sc-metric{color:#92400E}
-    .signal-card .sc-value{font-size:11px;color:var(--muted);line-height:1.4}
-    .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.5;font-weight:500}
+    .signal-card{background:var(--light-grey);border-top:3px solid var(--navy);border-radius:6px;padding:18px 14px;text-align:center}
+    .signal-card .sc-icon-wrap{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:#EEAE26;margin:0 auto 10px}
+    .signal-card .sc-icon-wrap svg{width:22px;height:22px;fill:var(--navy);display:block}
+    .signal-card .sc-metric{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;color:var(--navy)}
+    .signal-card .sc-value{font-size:11px;color:var(--body-text);line-height:1.5}
+
     @media(max-width:760px){.ns-cards{grid-template-columns:1fr}.insight-cards{grid-template-columns:1fr 1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
     @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.next-steps{padding:40px 20px 44px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.insight-cards{grid-template-columns:1fr}.signal-cards{grid-template-columns:1fr 1fr}}
   </style>
@@ -268,10 +270,34 @@
   <p>The key is reading these signals together rather than in isolation. Cost pressure, tighter margins, and geopolitical energy risk are complicating the operating environment in ways that don&#x2019;t show up in the headline numbers.</p>
 
   <div class="signal-cards">
-    <div class="signal-card up"><div class="sc-icon">&#128200;</div><div class="sc-metric">Output</div><div class="sc-value">ISM Manufacturing PMI at 52.7 in March &#x2014; third consecutive month of expansion</div></div>
-    <div class="signal-card down"><div class="sc-icon">&#128201;</div><div class="sc-metric">Employment</div><div class="sc-value">ISM employment sub-index still in contraction; manufacturing net &#x2212;7,000 jobs YTD despite a 15K gain in March</div></div>
-    <div class="signal-card down"><div class="sc-icon">&#8679;</div><div class="sc-metric">Input Costs</div><div class="sc-value">BLS CPI energy index up 10.9% in a single month &#x2014; largest increase since 2005; ISM Prices Paid at a four-year high</div></div>
-    <div class="signal-card mixed"><div class="sc-icon">&#9888;</div><div class="sc-metric">Consumer Confidence</div><div class="sc-value">University of Michigan Sentiment Index at a historic low of 47.6 in early April &#x2014; worst reading in 74 years</div></div>
+    <div class="signal-card">
+      <div class="sc-icon-wrap" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M3.5 17.5l6-6 4 4 7-8 1.5 1.5-8.5 9.5-4-4-4.5 4.5z"/><path d="M14 6.5h7v7h-2V9.9l-.5.5-1.5-1.5.5-.5H14z"/></svg>
+      </div>
+      <div class="sc-metric">Output</div>
+      <div class="sc-value">ISM Manufacturing PMI at 52.7 in March &#x2014; third consecutive month of expansion</div>
+    </div>
+    <div class="signal-card">
+      <div class="sc-icon-wrap" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M3.5 7.5l6 6 4-4 7 8 1.5-1.5-8.5-9.5-4 4-4.5-4.5z"/><path d="M14 18.5h7v-7h-2v3.6l-.5-.5-1.5 1.5.5.5H14z"/></svg>
+      </div>
+      <div class="sc-metric">Employment</div>
+      <div class="sc-value">ISM employment sub-index still in contraction; manufacturing net &#x2212;7,000 jobs YTD despite a 15K gain in March</div>
+    </div>
+    <div class="signal-card">
+      <div class="sc-icon-wrap" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 2.5c-2.6 0-4.7 1.6-4.7 3.8 0 2 1.7 3 4.3 3.7 2.2.5 2.9 1 2.9 1.8 0 .9-1 1.5-2.5 1.5-1.7 0-2.8-.7-2.9-1.9H7.3c.1 1.9 1.5 3.2 3.7 3.5v2h2v-2c2.3-.3 3.7-1.7 3.7-3.6 0-2.1-1.7-3.1-4.4-3.8-2-.5-2.8-1-2.8-1.8 0-.9 1-1.4 2.4-1.4 1.5 0 2.4.7 2.5 1.8h2.1C16.4 4.3 14.9 3 12.7 2.7v-2h-2v2c-.3 0-.5 0-.7.1z" transform="translate(0 2)"/><path d="M5 4l2.5-2.5L10 4H8v3H7V4H5z"/></svg>
+      </div>
+      <div class="sc-metric">Input Costs</div>
+      <div class="sc-value">BLS CPI energy index up 10.9% in a single month &#x2014; largest increase since 2005; ISM Prices Paid at a four-year high</div>
+    </div>
+    <div class="signal-card">
+      <div class="sc-icon-wrap" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 2L1.5 21h21L12 2zm0 4.3L19.7 19H4.3L12 6.3zM11 10v5h2v-5h-2zm0 6v2h2v-2h-2z"/></svg>
+      </div>
+      <div class="sc-metric">Consumer Confidence</div>
+      <div class="sc-value">University of Michigan Sentiment Index at a historic low of 47.6 in early April &#x2014; worst reading in 74 years</div>
+    </div>
   </div>
 
   <h2>The Pressure Building Underneath</h2>
@@ -286,7 +312,7 @@
     <span class="pull-quote-mark">&#8220;</span>
     <div class="pull-quote-content">
       <p>The operations that navigate uncertain periods best aren&#x2019;t the ones that predicted what would happen &#x2014; they&#x2019;re the ones that built workforce architectures flexible enough to respond in either direction.</p>
-      <p class="pq-attr">&#x2014; Jim Dillingham, Shiftwork Solutions</p>
+      <p class="pq-attr">&#x2014; Dan Capshaw, Shiftwork Solutions</p>
     </div>
   </div>
 
