@@ -23,20 +23,30 @@
                  by knocking competitors. Jim flagged this as off-brand —
                  "a bit low blow, below our level, not elegant."
                  - Eyebrow: "How We Work" → "On Every Engagement"
-                   (renders as ON EVERY ENGAGEMENT via text-transform CSS,
-                   matches the other eyebrows on this page).
-                 - H2: "What Makes Our Team Different" → "Working With Our
-                   Team".
-                 - Three body paragraphs replaced with the approved copy:
-                   senior-involvement claim, plant-floor judgment paragraph
-                   rephrased without the "academic exercise" barb at rivals,
-                   and a positive-framing close on complementary strengths.
-                 No other changes — nav, hero, breadcrumb, three insight
-                 cards, three bios, three pull quotes, FAQ section, Next
-                 Steps, footer, and all JS preserved exactly. JSON-LD
-                 schemas unchanged. CSS unchanged.
+                 - H2: "What Makes Our Team Different" → "Working With Our Team"
+                 - Three body paragraphs replaced with approved positive-framing copy.
+                 No other changes — nav, hero, breadcrumb, three insight cards,
+                 three bios, three pull quotes, FAQ section, Next Steps, footer,
+                 and all JS preserved exactly. JSON-LD schemas unchanged. CSS unchanged.
+    2026-04-22 — PAGE BOTTOM STANDARD applied (second pass, same date):
+                 REMOVED: <section class="next-steps"> and all contents.
+                 REMOVED: All .next-steps / .ns-card / .ns-accent-* CSS rules.
+                 REMOVED: IntersectionObserver JS block that animated ns-cards.
+                 UPDATED: Footer replaced with standard 3-col structure
+                   (FREE ASSESSMENT / 26 Warning Signs / Newsletter)
+                   per Page Bottom Standard 2D.
+                 UPDATED: .faq-section margin changed from margin:40px 0 to
+                   margin:40px 0 0 0 to eliminate white gap before bridge stripe.
+                 UPDATED: Pull quote text color changed from #4a6a8a italic to
+                   var(--body-text) non-italic per Page Bottom Standard Section 6A.
+                   Applied to all three pull quotes on this page.
+                 ADDED: Bridge stripe between FAQ and footer.
+                 ADDED: Thomas floating widget (fixed right edge, desktop only).
 
-  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
+  NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
+  HERO IMAGE: /images/second.png
+  FAQ IMAGE: /images/Hands_in_the_air.jpg
+  DESIGN CONSTANTS: navy #1F4E79, orange #E8610A, max-width 860px
 
   I did no harm and this file is not truncated
 -->
@@ -66,7 +76,7 @@
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
 
-    /* ── NAV ── */
+    /* ── NAV (System B — sticky 56px) ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0;display:flex;align-items:center;gap:12px}
@@ -81,7 +91,7 @@
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
 
-    /* ── HERO — second.png + gradient, gold h1 ── */
+    /* ── HERO ── */
     .hero{background:var(--navy-dark);padding:44px 36px 48px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:url('/images/second.png') center center/cover no-repeat;z-index:0}
     .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,0.88) 0%,rgba(31,78,121,0.75) 55%,rgba(31,78,121,0.35) 100%);z-index:0}
@@ -132,17 +142,15 @@
     .insight-label{font-size:14px;font-weight:700;color:var(--body-text);margin-bottom:6px}
     .insight-text{font-size:13px;color:var(--muted);line-height:1.55}
 
-    /* ── PULL QUOTES — 128px Georgia mark, italic blue ── */
+    /* ── PULL QUOTE — 128px Georgia mark, body-text color, non-italic (Page Bottom Standard 6A) ── */
     .pull-quote{max-width:var(--max-width);margin:32px auto;padding:0 var(--page-pad);display:flex;align-items:center;gap:16px}
     .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
-    .pull-quote-content p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
+    .pull-quote-content p{font-size:15px;font-weight:400;line-height:1.75;color:var(--body-text);margin:0;font-style:normal}
     .pull-quote-content .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
 
-    /* ══════════════════════════════════════════════════════════
-       FAQ SECTION — Full-bleed Hands_in_the_air.jpg accordion
-    ══════════════════════════════════════════════════════════ */
-    .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw);margin-right:calc(-50vw);width:100vw}
+    /* ── FAQ — bottom margin 0 to sit flush against bridge stripe ── */
+    .faq-section{position:relative;overflow:hidden;margin:40px 0 0 0;left:50%;right:50%;margin-left:calc(-50vw);margin-right:calc(-50vw);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
     .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:52px 24px 56px}
@@ -160,40 +168,12 @@
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px;font-family:Arial,Helvetica,sans-serif}
 
-    /* ── NEXT STEPS — light grey bg, animated white cards ── */
-    .next-steps{padding:56px var(--page-pad) 60px;background:var(--light-grey)}
-    .next-steps-inner{max-width:var(--max-width);margin:0 auto}
-    .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
-    .next-steps h2{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:8px}
-    .next-steps-sub{font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.6}
-    .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .ns-card{background:var(--white);border:1px solid var(--border-med);border-top:4px solid transparent;border-radius:8px;padding:24px 20px;text-decoration:none;display:block;opacity:0;transform:translateY(28px);transition:opacity .5s ease,transform .5s ease,box-shadow .25s ease}
-    .ns-card.ns-card-visible{opacity:1;transform:translateY(0)}
-    .ns-card:nth-child(1){transition-delay:.05s}
-    .ns-card:nth-child(2){transition-delay:.18s}
-    .ns-card:nth-child(3){transition-delay:.31s}
-    .ns-accent-blue{border-top-color:var(--mid-blue)}
-    .ns-accent-orange{border-top-color:var(--orange)}
-    .ns-accent-green{border-top-color:var(--green)}
-    .ns-accent-blue:hover{box-shadow:0 8px 28px rgba(31,78,121,0.15);transform:translateY(-5px) !important}
-    .ns-accent-orange:hover{box-shadow:0 8px 28px rgba(232,97,10,.22);transform:translateY(-5px) !important}
-    .ns-accent-green:hover{box-shadow:0 8px 28px rgba(29,158,117,.22);transform:translateY(-5px) !important}
-    .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
-    .ns-accent-blue .ns-card-label{color:var(--navy)}
-    .ns-accent-orange .ns-card-label{color:var(--orange)}
-    .ns-accent-green .ns-card-label{color:var(--green)}
-    .ns-card h3{font-size:15px;font-weight:700;color:var(--body-text);line-height:1.35;margin-bottom:8px}
-    .ns-card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px}
-    .ns-card-link{font-size:12px;font-weight:700}
-    .ns-accent-blue .ns-card-link{color:var(--navy)}
-    .ns-accent-orange .ns-card-link{color:var(--orange)}
-    .ns-accent-green .ns-card-link{color:var(--green)}
-    .ns-card-link::after{content:' →'}
-    .ns-phone{margin-top:28px;font-size:13px;color:var(--muted);text-align:center}
-    .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
-    .ns-phone a:hover{color:var(--orange)}
+    /* ── BRIDGE STRIPE — sits flush below FAQ ── */
+    .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
+    .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
+    .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
 
-    /* ── FOOTER — dark navy 3-col ── */
+    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -228,6 +208,20 @@
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
 
+    /* ── THOMAS FLOATING WIDGET ──
+       Fixed right-side card, positioned 1/3 up from the bottom of the viewport.
+       Visible on desktop only (hidden below 768px).
+       z-index 950: above content, below nav (1000). */
+    .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
+    .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
+    .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
+    .thomas-float-body{padding:8px 8px 10px;text-align:center}
+    .thomas-float-name{font-family:Arial,sans-serif;font-size:11px;font-weight:700;color:var(--navy);line-height:1.3;display:block;margin-bottom:2px}
+    .thomas-float-sub{font-family:Arial,sans-serif;font-size:9px;font-weight:400;color:var(--muted);line-height:1.4;display:block;margin-bottom:7px}
+    .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
+    .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
+    @media(max-width:768px){.thomas-float{display:none}}
+
     /* ── RESPONSIVE ── */
     @media(max-width:768px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
@@ -244,8 +238,8 @@
       .faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}
       .faq-inner{padding:36px 18px 40px}
       .faq-inner h2{font-size:19px}
-      .ns-cards{grid-template-columns:1fr}
-      .next-steps{padding:40px 20px 44px}
+      .bridge-stripe{padding:28px 20px}
+      .bridge-stripe-text{font-size:17px}
     }
     @media(max-width:640px){
       .footer-prefooter{padding:32px 20px}
@@ -468,43 +462,36 @@
   </div>
 </div>
 
-<section class="next-steps"><div class="next-steps-inner">
-  <div class="next-steps-eyebrow">Where to go from here</div>
-  <h2>Next Steps &amp; Resources</h2>
-  <p class="next-steps-sub">Talk to a partner, read about our services, or start with a diagnostic.</p>
-  <div class="ns-cards">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card ns-accent-blue" target="_blank" rel="noopener">
-      <div class="ns-card-label">Free Consultation</div>
-      <h3>Talk Directly to a Partner</h3>
-      <p>The first conversation is always free. No pitch, no pressure &#x2014; just a real discussion about your situation with a partner who has seen it before.</p>
-      <span class="ns-card-link">Book a free meeting</span>
-    </a>
-    <a href="/services/" class="ns-card ns-accent-orange">
-      <div class="ns-card-label">Our Services</div>
-      <h3>What We Do &amp; How We Work</h3>
-      <p>Every project is fixed-fee and partner-led. Learn about our process: discovery, workforce survey, schedule design, and implementation support.</p>
-      <span class="ns-card-link">Explore our services</span>
-    </a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green">
-      <div class="ns-card-label">Diagnostic Tool</div>
-      <h3>26 Warning Signs</h3>
-      <p>A checklist of the operational symptoms that signal when your shiftwork system needs attention &#x2014; built from hundreds of operations assessments.</p>
-      <span class="ns-card-link">Read the diagnostic</span>
-    </a>
-  </div>
-  <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
-</div></section>
+<!-- ── BRIDGE STRIPE ──
+     Gray breathing room between FAQ and footer.
+     Soft directional prompt toward footer CTAs — no button needed. -->
+<div class="bridge-stripe">
+  <div class="bridge-stripe-text">Ready to take the next step?</div>
+  <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
+</div>
 
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
-      <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">The first conversation is always free. A senior partner will listen to your situation and give you an honest assessment of whether we can help.</p></div>
-      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor &#x2014; available now, no appointment needed.</p></div>
-      <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
+      <div class="footer-col footer-col-1">
+        <div class="engage-label">FREE ASSESSMENT</div>
+        <div class="engage-col-title">Shiftwork Operations Reality Check</div>
+        <p class="engage-col-desc">Compare your instincts to more than 20,000 shift worker responses. Free. Five minutes. No email required.</p>
+      </div>
+      <div class="footer-col footer-col-2">
+        <div class="engage-label">DIAGNOSTIC ARTICLE</div>
+        <div class="engage-col-title">The 26 Warning Signs</div>
+        <p class="engage-col-desc">Twenty-six operational symptoms that signal your shiftwork system may need attention. If you're seeing several, the schedule is likely the source.</p>
+      </div>
+      <div class="footer-col footer-col-3">
+        <div class="engage-label">NEWSLETTER</div>
+        <div class="engage-col-title">Stay Sharp on Shift Operations</div>
+        <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
+      </div>
     </div>
     <div class="footer-cta-row">
-      <div class="footer-cta-1"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a></div>
-      <div class="footer-cta-2"><a href="https://shift-work-diagnostic.onrender.com/" class="footer-cta-btn" target="_blank" rel="noopener">Start a Conversation &#x2192;</a></div>
+      <div class="footer-cta-1"><a href="https://www.shift-work.com/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Reality Check &#x2192;</a></div>
+      <div class="footer-cta-2"><a href="/resources/26-warning-signs-schedule-problems/" class="footer-cta-btn">Read the Warning Signs &#x2192;</a></div>
       <div class="footer-cta-3"><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
     </div>
   </div></div>
@@ -513,6 +500,24 @@
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
+
+<!-- ── THOMAS FLOATING WIDGET ──
+     Fixed to right edge, ~40% from top of viewport.
+     Hidden on mobile (max-width:768px).
+     Opens Thomas diagnostic app in new tab. -->
+<a class="thomas-float"
+   href="https://shift-work-diagnostic.onrender.com/"
+   target="_blank"
+   rel="noopener"
+   aria-label="Meet Thomas, your AI Shift Advisor">
+  <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
+  <div class="thomas-float-body">
+    <span class="thomas-float-name">Meet Thomas</span>
+    <span class="thomas-float-sub">Your AI Shift Advisor</span>
+    <span class="thomas-float-cta">Chat Now &rarr;</span>
+  </div>
+</a>
+<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
 document.getElementById('mobileToggle').addEventListener('click',function(){
@@ -547,9 +552,6 @@ document.getElementById('mobileToggle').addEventListener('click',function(){
     });
   });
 })();
-
-// Next Steps entrance animation
-(function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('ns-card-visible');obs.unobserve(e.target);}});},{threshold:0.15});cards.forEach(function(c){obs.observe(c);});})();
 
 // Newsletter submit
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn'),msg=document.getElementById('engageNLMsg'),email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-our-team'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
