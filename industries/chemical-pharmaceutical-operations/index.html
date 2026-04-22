@@ -5,7 +5,7 @@
   URL: /industries/chemical-pharmaceutical-operations/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-16
+  Last Updated: 2026-04-22
 
   CHANGE LOG:
     2026-04-04 — Initial build from source Word doc.
@@ -18,12 +18,35 @@
     2026-04-16 — NAV FIXES: logo src -> clear_bkgr_logo_2.png (underscores);
                  SHIFTWORK SOLUTIONS text added; nav links font-size -> 20px;
                  "Our Company" label -> "Why Us" (href /why-us/ unchanged).
-                 NEXT STEPS: background -> var(--light-grey); text colors updated
-                 to navy/muted to match pillar page style. Decorative circles removed.
+                 NEXT STEPS: background -> var(--light-grey); text colors updated.
+    2026-04-22 — FULL STANDARD UPDATE (Page Bottom Standard v1):
+                 - LISTEN BUTTON: removed (HTML, CSS, SpeechSynthesis JS).
+                 - NEXT STEPS: removed entirely (HTML, CSS, IntersectionObserver JS).
+                 - CLIENT STRIP: replaced old navy marquee with single-strip
+                   multi-font styled scroll. ID: pharma-track. Animation:
+                   pharma-scroll-l. Industry-specific pharma/chemical names.
+                   Added 8 Google Fonts alongside existing DM Sans import.
+                 - BRIDGE STRIPE: added between FAQ and footer.
+                 - FOOTER REBUILT: 3 columns — (1) Reality Check, (2) 26 Warning
+                   Signs, (3) Newsletter. Removed FREE CONSULTATION, AI ADVISOR,
+                   booking CTA, Thomas CTA columns and all related CSS.
+                 - THOMAS FLOAT: added (fixed right side, top:40%, hidden mobile).
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/Pharma.jpg
   FAQ IMAGE:  /images/Hands_in_the_air.jpg
+  THOMAS WIDGET: /images/thomas.jpg -> https://shift-work-diagnostic.onrender.com/
+
+  CLIENT STRIP: Single strip, pharma/chemical-specific names, multi-font styled.
+  FOOTER COLUMNS:
+    Col 1: Reality Check  -> /resources/shiftwork-assessment/
+    Col 2: 26 Warning Signs -> /resources/26-warning-signs-schedule-problems/
+    Col 3: Newsletter subscribe form
+
+  CTA STRATEGY:
+    Nav     -> Book a Free Meeting + Contact (always visible)
+    Thomas  -> AI chat (persistent right-side float)
+    Footer  -> Content/diagnostic CTAs only
 -->
 <html lang="en">
 <head>
@@ -40,14 +63,19 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Shift Scheduling for Chemical &amp; Pharmaceutical Operations | Shiftwork Solutions LLC">
   <meta name="twitter:description" content="Process continuity, cGMP compliance, and fatigue management built into schedule design for chemical and pharmaceutical operations.">
+
+  <!-- Google Fonts: DM Sans (existing) + 8 fonts for multi-font client strip -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&family=Playfair+Display:wght@700&family=Oswald:wght@600&family=Libre+Baskerville:wght@700&family=Raleway:wght@800&family=Merriweather:wght@700&family=Montserrat:wght@800&family=Lora:wght@700&family=Bebas+Neue&display=swap" rel="stylesheet">
+
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
+
+    /* ── NAV ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo img{height:36px;width:auto;display:block}
@@ -63,6 +91,8 @@
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
+
+    /* ── HERO ── */
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:url('/images/Pharma.jpg') center center / cover no-repeat;opacity:1;z-index:0}
     .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,0.88) 0%,rgba(31,78,121,0.75) 55%,rgba(31,78,121,0.35) 100%);z-index:0}
@@ -70,11 +100,15 @@
     .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:#EEAE26;max-width:600px;margin-bottom:14px}
     .hero-subtitle{font-size:16px;line-height:1.65;color:rgba(255,255,255,0.88);max-width:560px}
     .hero-tag{display:inline-block;margin-top:16px;background:rgba(232,97,10,0.9);color:var(--white);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 12px;border-radius:3px}
+
+    /* ── BREADCRUMB ── */
     .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
     .breadcrumb-inner a{color:var(--navy);text-decoration:none}
     .breadcrumb-inner a:hover{text-decoration:underline}
     .breadcrumb-inner span{margin:0 6px;opacity:.5}
+
+    /* ── ARTICLE ── */
     .article-wrap{max-width:var(--max-width);margin:0 auto;padding:48px var(--page-pad) 56px}
     .article-meta{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border-light);flex-wrap:wrap}
     .meta-tag{display:inline-block;background:var(--light-blue);color:var(--navy);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:3px}
@@ -82,23 +116,89 @@
     .article-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin:36px 0 14px}
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
     .article-wrap p:last-child{margin-bottom:0}
-    .client-strip{background:var(--navy);border-radius:8px;margin:32px 0;padding:0;overflow:hidden;position:relative}
-    .client-strip-intro{font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:.08em;padding:16px 24px 0;text-align:center}
-    .client-strip-scroll{padding:14px 0 16px;overflow:hidden;position:relative}
-    .client-strip-fade-l{position:absolute;top:0;left:0;bottom:0;width:60px;background:linear-gradient(to right,var(--navy),transparent);z-index:1;pointer-events:none}
-    .client-strip-fade-r{position:absolute;top:0;right:0;bottom:0;width:60px;background:linear-gradient(to left,var(--navy),transparent);z-index:1;pointer-events:none}
-    .client-marquee-track{display:flex;width:max-content;animation:clientScroll 22s linear infinite}
-    .client-marquee-track:hover{animation-play-state:paused}
-    @keyframes clientScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-    .client-tag{display:inline-block;padding:8px 32px;font-family:'DM Sans',Arial,Helvetica,sans-serif;font-size:18px;font-weight:500;color:rgba(255,255,255,0.88);white-space:nowrap;letter-spacing:.01em}
-    .client-tag-sep{display:inline-block;color:rgba(232,97,10,0.7);font-size:18px;line-height:1;padding:0 2px;vertical-align:middle}
+
+    /* ── CLIENT STRIP — STYLED SINGLE-STRIP SCROLL ──
+       White background with gradient fades. Multi-font creative
+       treatment: 16 cn style classes, 8 Google Fonts, dark color combos.
+       Names are chemical/pharmaceutical-industry-specific.
+       ID: pharma-track. Animation: pharma-scroll-l.
+       Single strip scrolling left, seamlessly looped. */
+    .client-strip-section{
+      margin:32px 0;
+      background:linear-gradient(to right,#d8dce0 0%,#f4f4f4 20%,#ffffff 50%,#f4f4f4 80%,#d8dce0 100%);
+      border-radius:8px;
+      overflow:hidden;
+      padding:0;
+    }
+    .client-strip-intro{
+      font-size:11px;font-weight:700;text-transform:uppercase;
+      letter-spacing:.1em;color:var(--navy);
+      padding:16px 24px 0;text-align:center;
+    }
+    .client-strip-row{
+      height:70px;
+      overflow:hidden;
+      position:relative;
+      display:flex;
+      align-items:center;
+      margin-top:8px;
+    }
+    .client-strip-row::before,
+    .client-strip-row::after{
+      content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;
+    }
+    .client-strip-row::before{left:0;background:linear-gradient(to right,#fff,transparent)}
+    .client-strip-row::after{right:0;background:linear-gradient(to left,#fff,transparent)}
+    .client-strip-track{
+      display:flex;
+      align-items:center;
+      white-space:nowrap;
+      position:absolute;
+      left:0;top:0;bottom:0;
+    }
+    @keyframes pharma-scroll-l{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    #pharma-track{animation:pharma-scroll-l 42s linear infinite}
+    #pharma-track:hover{animation-play-state:paused}
+
+    /* Each name: its own font + dark color combination */
+    .cn{
+      display:inline-flex;align-items:center;
+      padding:0 32px;height:70px;
+      white-space:nowrap;
+      font-size:22px;
+      border-right:2px solid #f0f0f0;
+      flex-shrink:0;
+    }
+    .cn:last-child{border-right:none}
+    .cn-1 {font-family:'Playfair Display',serif;    font-weight:700;color:#1a3a5c}
+    .cn-2 {font-family:'Oswald',sans-serif;         font-weight:600;color:#7b2d00;letter-spacing:.06em}
+    .cn-3 {font-family:'Libre Baskerville',serif;   font-weight:700;color:#1d4e2a}
+    .cn-4 {font-family:'Raleway',sans-serif;        font-weight:800;color:#3d1a6e;letter-spacing:.04em}
+    .cn-5 {font-family:'Merriweather',serif;        font-weight:700;color:#4a1942}
+    .cn-6 {font-family:'Montserrat',sans-serif;     font-weight:800;color:#003d5b;letter-spacing:.02em}
+    .cn-7 {font-family:'Lora',serif;                font-weight:700;color:#5c2d00}
+    .cn-8 {font-family:'Bebas Neue',sans-serif;     font-weight:400;color:#1a1a2e;letter-spacing:.08em;font-size:26px}
+    .cn-9 {font-family:'Oswald',sans-serif;         font-weight:600;color:#1f3d1f;letter-spacing:.05em}
+    .cn-10{font-family:'Playfair Display',serif;    font-weight:700;color:#5c1a2d}
+    .cn-11{font-family:'Raleway',sans-serif;        font-weight:800;color:#2d3a00}
+    .cn-12{font-family:'Bebas Neue',sans-serif;     font-weight:400;color:#00354d;letter-spacing:.07em;font-size:26px}
+    .cn-13{font-family:'Merriweather',serif;        font-weight:700;color:#3d2200}
+    .cn-14{font-family:'Montserrat',sans-serif;     font-weight:800;color:#1a0a3d;letter-spacing:.03em}
+    .cn-15{font-family:'Lora',serif;                font-weight:700;color:#003333}
+    .cn-16{font-family:'Libre Baskerville',serif;   font-weight:700;color:#4a0d00}
+
+    /* ── PULL QUOTE ── */
     .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:center;gap:16px}
     .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
     .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
     .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
+
+    /* ── CALLOUT BOX ── */
     .callout-box{background:linear-gradient(to right,#E4E7EB,var(--white) 40%,var(--white) 60%,#E4E7EB);border-radius:6px;padding:22px 28px;margin:32px 0;text-align:center}
     .callout-box p{font-size:16px;line-height:1.6;color:var(--body-text);font-weight:400;margin:0;font-style:normal}
+
+    /* ── INSIGHT CARDS ── */
     .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
     .insight-card{background:transparent;border-top:3px solid var(--border-med);border-radius:0;padding:20px 18px 20px 0;transition:transform .2s ease}
     .insight-card:hover{transform:scale(1.04)}
@@ -107,6 +207,8 @@
     .insight-card:nth-child(3) .ic-title{color:var(--green)}
     .insight-card .ic-title{font-size:14px;font-weight:700;margin-bottom:8px;line-height:1.3}
     .insight-card .ic-text{font-size:13px;color:var(--muted);line-height:1.6;font-weight:400}
+
+    /* ── FAQ SECTION ── */
     .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
@@ -124,37 +226,13 @@
     .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease,padding .25s ease}
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
-    .next-steps{padding:56px var(--page-pad) 60px;background:var(--light-grey)}
-    .next-steps-inner{max-width:var(--max-width);margin:0 auto}
-    .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
-    .next-steps h2{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:8px}
-    .next-steps-sub{font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.6}
-    .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .ns-card{background:var(--white);border:1px solid var(--border-med);border-top:4px solid transparent;border-radius:8px;padding:24px 20px;text-decoration:none;display:block;opacity:0;transform:translateY(28px);transition:opacity .5s ease,transform .5s ease,box-shadow .25s ease}
-    .ns-card.ns-card-visible{opacity:1;transform:translateY(0)}
-    .ns-card:nth-child(1){transition-delay:.05s}
-    .ns-card:nth-child(2){transition-delay:.18s}
-    .ns-card:nth-child(3){transition-delay:.31s}
-    .ns-accent-blue{border-top-color:var(--navy)}
-    .ns-accent-orange{border-top-color:var(--orange)}
-    .ns-accent-green{border-top-color:var(--green)}
-    .ns-accent-blue:hover{box-shadow:0 8px 28px rgba(31,78,121,0.15);transform:translateY(-5px) !important}
-    .ns-accent-orange:hover{box-shadow:0 8px 28px rgba(232,97,10,0.22);transform:translateY(-5px) !important}
-    .ns-accent-green:hover{box-shadow:0 8px 28px rgba(29,158,117,0.22);transform:translateY(-5px) !important}
-    .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
-    .ns-accent-blue .ns-card-label{color:var(--navy)}
-    .ns-accent-orange .ns-card-label{color:var(--orange)}
-    .ns-accent-green .ns-card-label{color:var(--green)}
-    .ns-card h3{font-size:15px;font-weight:700;color:var(--body-text);line-height:1.35;margin-bottom:8px}
-    .ns-card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px}
-    .ns-card-link{font-size:12px;font-weight:700}
-    .ns-accent-blue .ns-card-link{color:var(--navy)}
-    .ns-accent-orange .ns-card-link{color:var(--orange)}
-    .ns-accent-green .ns-card-link{color:var(--green)}
-    .ns-card-link::after{content:' \2192'}
-    .ns-phone{margin-top:28px;font-size:13px;color:var(--muted);text-align:center}
-    .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
-    .ns-phone a:hover{color:var(--orange)}
+
+    /* ── BRIDGE STRIPE ── */
+    .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
+    .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
+    .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
+
+    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -181,25 +259,61 @@
     .engage-nl-btn:hover{background:#c4510a}
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
-    .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
+    .engage-nl-msg.ok{color:#6ee7b7}
+    .engage-nl-msg.err{color:#fca5a5}
     .footer-bottom{padding:16px var(--page-pad)}
     .footer-bottom-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.45)}
     .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-    .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
-    .listen-btn:hover{background:#c4510a}
-    .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
-    @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.insight-cards{grid-template-columns:1fr}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.next-steps{padding:40px 20px 44px}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}}
+
+    /* ── THOMAS FLOATING WIDGET ── */
+    .thomas-float{position:fixed;right:0;top:40%;transform:translateY(-50%);z-index:950;width:130px;background:var(--navy-dark);border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-4px 4px 20px rgba(0,0,0,0.35);border-left:3px solid var(--orange);transition:width .25s ease,box-shadow .25s ease;display:block}
+    .thomas-float:hover{width:140px;box-shadow:-6px 6px 28px rgba(0,0,0,0.45)}
+    .thomas-float-img{width:100%;height:110px;object-fit:cover;object-position:center top;display:block}
+    .thomas-float-body{padding:10px 10px 12px;text-align:center}
+    .thomas-float-name{font-family:Arial,sans-serif;font-size:12px;font-weight:700;color:#fff;line-height:1.3;display:block;margin-bottom:3px}
+    .thomas-float-sub{font-family:Arial,sans-serif;font-size:10px;font-weight:400;color:var(--mid-blue);line-height:1.4;display:block;margin-bottom:8px}
+    .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:10px;font-weight:700;color:var(--white);background:var(--orange);border-radius:3px;padding:5px 8px;text-transform:uppercase;letter-spacing:.06em;transition:background .15s}
+    .thomas-float:hover .thomas-float-cta{background:#c4510a}
+    @media(max-width:768px){.thomas-float{display:none}}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:760px){
+      .insight-cards{grid-template-columns:1fr 1fr}
+      .footer-content-row{grid-template-columns:1fr}
+      .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
+      .footer-col-3{border-bottom:none;padding-bottom:0}
+      .footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}
+      .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}
+      .faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}
+    }
+    @media(max-width:640px){
+      .nav-links{display:none}
+      .nav-cta-wrap{display:none}
+      .mobile-toggle{display:block}
+      .hero{padding:32px 20px 36px}
+      .hero h1{font-size:22px}
+      .article-wrap{padding:32px 20px 40px}
+      .insight-cards{grid-template-columns:1fr}
+      .footer-prefooter{padding:32px 20px}
+      .footer-bottom{padding:14px 20px}
+      .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
+      .footer-bottom-left{justify-content:center}
+      .faq-inner{padding:36px 18px 40px}
+      .faq-inner h2{font-size:19px}
+      .bridge-stripe{padding:28px 20px}
+      .bridge-stripe-text{font-size:17px}
+    }
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Chemical and Pharmaceutical Operations: Precision, Compliance, and Continuity","description":"Shift scheduling for chemical and pharmaceutical operations demands more than coverage — process continuity, regulatory compliance, and fatigue management must be built in by design.","url":"https://shift-work.com/industries/chemical-pharmaceutical-operations/","datePublished":"2026-04-04","dateModified":"2026-04-16","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"shift scheduling chemical pharmaceutical operations, pharmaceutical manufacturing shift schedule, cGMP shift work, FDA compliance scheduling, process continuity staffing, chemical plant 24/7 scheduling, validation shift scheduling, fatigue management pharmaceutical"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Chemical and Pharmaceutical Operations: Precision, Compliance, and Continuity","description":"Shift scheduling for chemical and pharmaceutical operations demands more than coverage — process continuity, regulatory compliance, and fatigue management must be built in by design.","url":"https://shift-work.com/industries/chemical-pharmaceutical-operations/","datePublished":"2026-04-04","dateModified":"2026-04-22","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"shift scheduling chemical pharmaceutical operations, pharmaceutical manufacturing shift schedule, cGMP shift work, FDA compliance scheduling, process continuity staffing, chemical plant 24/7 scheduling, validation shift scheduling, fatigue management pharmaceutical"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://shift-work.com/industries/"},{"@type":"ListItem","position":3,"name":"Chemical & Pharmaceutical","item":"https://shift-work.com/industries/chemical-pharmaceutical-operations/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do cGMP requirements affect shift schedule design?","acceptedAnswer":{"@type":"Answer","text":"cGMP requirements govern documentation, supervision, and auditing of pharmaceutical manufacturing — and those requirements translate directly into scheduling constraints. A schedule that reduces supervisory coverage during certain shifts may create cGMP compliance gaps. The practical implication is that regulatory review has to happen during schedule design, not after it."}},{"@type":"Question","name":"What triggers revalidation when a pharmaceutical schedule changes?","acceptedAnswer":{"@type":"Answer","text":"Revalidation can be triggered by changes that affect how a process is staffed, supervised, or monitored in ways that touch product quality parameters. A shift pattern change that alters when qualified supervisors are present, how product sampling is timed, or how in-process testing is conducted may require validation activities before full implementation."}},{"@type":"Question","name":"Why is fatigue management more critical in this industry than in others?","acceptedAnswer":{"@type":"Answer","text":"In chemical and pharmaceutical operations, errors made by a fatigued operator may not be immediately visible — they can compound through subsequent process steps and surface only at final testing, or after product has reached the market. Schedules that minimize chronic fatigue accumulation are operationally and regulatorily necessary."}},{"@type":"Question","name":"How long does it take to implement a schedule change in a pharmaceutical facility?","acceptedAnswer":{"@type":"Answer","text":"Substantially longer than in most industries — driven by regulatory requirements rather than schedule complexity. A change that would take weeks in general manufacturing may take months in pharmaceutical facilities due to documentation, change control, and potentially validation activities."}},{"@type":"Question","name":"What makes shift transitions particularly critical in continuous chemical or pharmaceutical processes?","acceptedAnswer":{"@type":"Answer","text":"A shift transition in continuous process operations is not just a personnel handoff — it is a knowledge transfer about the current state of a process that may have been running for hours or days. The quality of shift transitions is as important as their frequency in continuous process environments."}},{"@type":"Question","name":"How does workforce turnover cost differ in chemical and pharmaceutical manufacturing?","acceptedAnswer":{"@type":"Answer","text":"Significantly higher than in most industries. The time required to bring a replacement to full qualification can run 12 to 18 months, even with an experienced hire. Schedules that improve retention deliver a correspondingly higher return on investment."}},{"@type":"Question","name":"What does effective scheduling actually look like in this industry?","acceptedAnswer":{"@type":"Answer","text":"The scheduling solutions that work in chemical and pharmaceutical manufacturing provide continuous coverage with built-in redundancy, support knowledge transfer at shift boundaries rather than just headcount coverage, manage fatigue accumulation explicitly, and accommodate regulatory, validation, and documentation requirements as design inputs rather than afterthoughts."}}]}</script>
 </head>
 <body>
+
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo">
     <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;">
@@ -237,27 +351,11 @@
 
   <p>Shift scheduling in this environment is not primarily a workforce optimization problem. It is a risk management problem. The schedule determines who is present when, how knowledge transfers between shifts, how fatigue accumulates across a workforce handling hazardous materials and precision instrumentation, and whether the operation can meet regulatory requirements consistently across every shift, every day, every year.</p>
 
-  <div class="client-strip">
-    <div class="client-strip-intro">Chemical and Pharmaceutical companies that trust Shiftwork Solutions include:</div>
-    <div class="client-strip-scroll">
-      <div class="client-strip-fade-l"></div>
-      <div class="client-strip-fade-r"></div>
-      <div class="client-marquee-track" id="clientTrack">
-        <span class="client-tag">Dow</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Pfizer</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">GlaxoSmithKline</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Monsanto</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Sandoz</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Pharmacia &amp; Upjohn</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">AkzoNobel</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Dow</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Pfizer</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">GlaxoSmithKline</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Monsanto</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Sandoz</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Pharmacia &amp; Upjohn</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">AkzoNobel</span><span class="client-tag-sep">&middot;</span>
-      </div>
+  <!-- ── CLIENT STRIP — single strip, pharma/chemical-specific names, multi-font ── -->
+  <div class="client-strip-section">
+    <div class="client-strip-intro">Chemical &amp; Pharmaceutical companies that trust Shiftwork Solutions include:</div>
+    <div class="client-strip-row">
+      <div class="client-strip-track" id="pharma-track"></div>
     </div>
   </div>
 
@@ -345,6 +443,7 @@
 
 </div><!-- /.article-wrap -->
 
+<!-- ── FAQ SECTION ── -->
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
@@ -368,45 +467,97 @@
   </div>
 </div>
 
-<section class="next-steps"><div class="next-steps-inner">
-  <div class="next-steps-eyebrow">Where to go from here</div>
-  <h2>Next Steps &amp; Resources</h2>
-  <p class="next-steps-sub">Talk to an expert, read the guide, or run a quick diagnostic on your current operation.</p>
-  <div class="ns-cards">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card ns-accent-blue" target="_blank" rel="noopener"><div class="ns-card-label">Free Consultation</div><h3>Talk to a Shiftwork Expert</h3><p>Share the specifics of your operation: process type, current shift structure, regulatory environment, and workforce challenges. We'll identify where your current schedule is creating risk — and what a better design would address.</p><span class="ns-card-link">Book a free meeting</span></a>
-    <a href="/resources/shift-work-best-practices/" class="ns-card ns-accent-orange"><div class="ns-card-label">Complete Guide</div><h3>Operational Best Practices for 24/7 Shift Work</h3><p>The fatigue management, coverage redundancy, and shift transition practices most relevant to chemical and pharmaceutical environments — and the operations that get them right.</p><span class="ns-card-link">Read the guide</span></a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green"><div class="ns-card-label">Diagnostic Tool</div><h3>26 Warning Signs</h3><p>The operational symptoms that signal your shiftwork system needs attention — including coverage gaps, training backlogs, and fatigue-related quality issues most common in regulated manufacturing environments.</p><span class="ns-card-link">Read the diagnostic</span></a>
-  </div>
-  <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
-</div></section>
+<!-- ── BRIDGE STRIPE ── -->
+<div class="bridge-stripe">
+  <div class="bridge-stripe-text">Ready to take the next step?</div>
+  <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
+</div>
 
+<!-- ── FOOTER: Reality Check | 26 Warning Signs | Newsletter ── -->
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
-      <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">Chemical and pharmaceutical operations require a level of scheduling precision that generic approaches don't provide. The first conversation is always free.</p></div>
-      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p></div>
-      <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
+      <div class="footer-col footer-col-1">
+        <div class="engage-label">FREE ASSESSMENT</div>
+        <div class="engage-col-title">Shiftwork Operations Reality Check</div>
+        <p class="engage-col-desc">Compare your instincts to more than 20,000 shift worker responses. Free. Five minutes. No email required.</p>
+      </div>
+      <div class="footer-col footer-col-2">
+        <div class="engage-label">DIAGNOSTIC ARTICLE</div>
+        <div class="engage-col-title">The 26 Warning Signs</div>
+        <p class="engage-col-desc">Twenty-six operational symptoms that signal your shiftwork system may need attention. If you're seeing several, the schedule is likely the source.</p>
+      </div>
+      <div class="footer-col footer-col-3">
+        <div class="engage-label">NEWSLETTER</div>
+        <div class="engage-col-title">Stay Sharp on Shift Operations</div>
+        <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
+      </div>
     </div>
     <div class="footer-cta-row">
-      <div class="footer-cta-1"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a></div>
-      <div class="footer-cta-2"><a href="https://shift-work-diagnostic.onrender.com/" class="footer-cta-btn" target="_blank" rel="noopener">Start a Conversation &#x2192;</a></div>
-      <div class="footer-cta-3"><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
+      <div class="footer-cta-1">
+        <a href="https://www.shift-work.com/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Reality Check &#x2192;</a>
+      </div>
+      <div class="footer-cta-2">
+        <a href="/resources/26-warning-signs-schedule-problems/" class="footer-cta-btn">Read the Warning Signs &#x2192;</a>
+      </div>
+      <div class="footer-cta-3">
+        <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
+          <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
+          <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
+        </form>
+        <div class="engage-nl-msg" id="engageNLMsg"></div>
+      </div>
     </div>
   </div></div>
   <div class="footer-bottom"><div class="footer-bottom-inner">
-    <div class="footer-bottom-left"><span class="footer-bottom-brand">Shiftwork Solutions LLC</span><a href="tel:+14152651621">(415) 265-1621</a><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
+    <div class="footer-bottom-left">
+      <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+      <a href="tel:+14152651621">(415) 265-1621</a>
+      <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+    </div>
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
 
-<button class="listen-btn" id="listenBtn" aria-label="Listen to this article"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg><span id="listenLabel">Listen</span></button>
+<!-- ── THOMAS FLOATING WIDGET ── -->
+<a class="thomas-float"
+   href="https://shift-work-diagnostic.onrender.com/"
+   target="_blank"
+   rel="noopener"
+   aria-label="Meet Thomas, your AI Shift Advisor">
+  <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
+  <div class="thomas-float-body">
+    <span class="thomas-float-name">Meet Thomas</span>
+    <span class="thomas-float-sub">Your AI Shift Advisor</span>
+    <span class="thomas-float-cta">Chat Now &rarr;</span>
+  </div>
+</a>
 
 <script>
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
-(function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
-(function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p, h2');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim());});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
+/* ── PHARMA/CHEMICAL CLIENT STRIP ──
+   Industry-specific names. Doubled for seamless loop.
+   Each name cycles through cn-1 to cn-16 styles. */
+(function(){
+  var names=[
+    'Dow','Pfizer','GlaxoSmithKline','Monsanto','Sandoz',
+    'Pharmacia','AkzoNobel','Merck','Abbott','Becton Dickinson',
+    'Baxter','Eli Lilly','Bristol-Myers Squibb','BASF',
+    'Bayer','Covestro','ThermoFisher','Air Products',
+    'Solvay','Celanese'
+  ];
+  var track=document.getElementById('pharma-track');
+  if(!track)return;
+  var all=names.concat(names);
+  all.forEach(function(name,i){
+    var span=document.createElement('span');
+    span.className='cn cn-'+((i%16)+1);
+    span.textContent=name;
+    track.appendChild(span);
+  });
+})();
 </script>
 </body>
 </html>
