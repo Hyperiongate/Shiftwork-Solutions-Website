@@ -5,7 +5,7 @@
   Deploy to: resources/26-warning-signs-schedule-problems/index.html
 
   Created:      2026-04-05
-  Last Updated: 2026-04-17
+  Last Updated: 2026-04-22
 
   CHANGE LOG:
     2026-04-05 — Initial build.
@@ -28,6 +28,17 @@
                  - All 26 warning sign cards, article content, pull quote,
                    insight cards, listen button, all JS preserved exactly
     2026-04-17 — HERO IMAGE: Changed from /images/second.png to /images/26.jpg.
+    2026-04-22 — PAGE BOTTOM STANDARD APPLIED (Page_Bottom_Standard guide):
+                 - REMOVED: Listen button (.listen-float HTML, CSS, SpeechSynthesis JS)
+                 - REMOVED: Next Steps section (HTML, CSS, IntersectionObserver JS) — deprecated
+                 - ADDED: Bridge stripe (between FAQ and footer)
+                 - ADDED: Thomas floating widget (fixed right-edge card)
+                 - UPDATED: Footer corrected to 3-column standard:
+                     Col 1: FREE ASSESSMENT / Shiftwork Operations Reality Check
+                     Col 2: DIAGNOSTIC ARTICLE / The 26 Warning Signs
+                     Col 3: NEWSLETTER / Stay Sharp on Shift Operations
+                 - UPDATED: .faq-section margin set to explicit margin:40px 0 0 0
+                 - UPDATED: dateModified in Article JSON-LD -> 2026-04-22
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/26.jpg
@@ -52,7 +63,7 @@
   <meta name="twitter:description" content="Even well-run operations show subtle signs when the shiftwork system is under strain. Here are 26 symptoms to watch for.">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the warning signs that a shift schedule needs to change?","acceptedAnswer":{"@type":"Answer","text":"Common signs include rising overtime without increased output, chronic difficulty staffing nights and weekends, growing absenteeism, turnover concentrated on specific shifts, and policies that no longer fit the current schedule pattern."}},{"@type":"Question","name":"Why does overtime keep rising even when production volume hasn't changed?","acceptedAnswer":{"@type":"Answer","text":"This pattern almost always signals a coverage model that no longer fits true workload demand — a schedule misalignment presenting itself as a labor cost problem."}},{"@type":"Question","name":"How do you know if your shift schedule is causing turnover?","acceptedAnswer":{"@type":"Answer","text":"If the same shifts or departments cycle through replacements while others retain employees, that asymmetry is diagnostic. People are voting with their feet against instability, fatigue, or a shift pattern that doesn't allow a sustainable personal life."}},{"@type":"Question","name":"What should you do when you recognize multiple schedule warning signs?","acceptedAnswer":{"@type":"Answer","text":"Rather than addressing symptoms individually, examine whether the schedule underlying everything is still the right fit for your operation's actual demand, workforce composition, and competitive environment."}},{"@type":"Question","name":"How many warning signs indicate a serious schedule problem?","acceptedAnswer":{"@type":"Answer","text":"Most operations experiencing real schedule strain will recognize a cluster — five, eight, ten signals that individually seem manageable and collectively point to something structural."}},{"@type":"Question","name":"Why do temporary schedule fixes become permanent?","acceptedAnswer":{"@type":"Answer","text":"Stop-gap overtime lists, borrowed staff arrangements, and informal coverage deals were implemented as short-term responses and become foundational to how the operation runs. The schedule loses its elasticity, compensated by sustained human effort that can't hold indefinitely."}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"26 Warning Signs","item":"https://shift-work.com/resources/26-warning-signs-schedule-problems/"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"26 Warning Signs Your Shift Schedule Needs Attention","url":"https://shift-work.com/resources/26-warning-signs-schedule-problems/","datePublished":"2026-04-05","dateModified":"2026-04-17","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"26 Warning Signs Your Shift Schedule Needs Attention","url":"https://shift-work.com/resources/26-warning-signs-schedule-problems/","datePublished":"2026-04-05","dateModified":"2026-04-22","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com"}</script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -76,21 +87,7 @@
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
 
-    /* ── LISTEN BUTTON ── */
-    .listen-float{position:fixed;bottom:24px;right:24px;z-index:900;display:flex;align-items:center;gap:8px;padding:10px 18px;background:var(--orange);color:var(--white);border:none;border-radius:28px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.18);transition:background .15s,transform .1s}
-    .listen-float:hover{background:#c4510a;transform:translateY(-1px)}
-    .listen-wave{display:none;align-items:center;gap:2px;height:14px}
-    .listen-float.playing .listen-wave{display:flex}
-    .listen-float.playing .listen-icon-static{display:none}
-    .listen-wave span{display:block;width:2px;background:var(--white);border-radius:1px;animation:tts-wave .8s ease-in-out infinite}
-    .listen-wave span:nth-child(1){height:4px;animation-delay:0s}
-    .listen-wave span:nth-child(2){height:8px;animation-delay:.1s}
-    .listen-wave span:nth-child(3){height:12px;animation-delay:.2s}
-    .listen-wave span:nth-child(4){height:8px;animation-delay:.3s}
-    .listen-wave span:nth-child(5){height:4px;animation-delay:.4s}
-    @keyframes tts-wave{0%,100%{transform:scaleY(.5);opacity:.5}50%{transform:scaleY(1);opacity:1}}
-
-    /* ── HERO — image changed to /images/26.jpg (2026-04-17) ── */
+    /* ── HERO — image /images/26.jpg (2026-04-17) ── */
     /* Overlay added 2026-04-17: 26.jpg is busy/colorful; heavy gradient overlay
        ensures gold h1 and white subtitle remain fully legible. */
     .hero{background:#0D1F3C url('/images/26.jpg') center center / cover no-repeat;padding:44px 36px 48px;position:relative;overflow:hidden}
@@ -157,8 +154,9 @@
     /* ══════════════════════════════════════════════════════════
        FAQ SECTION — Full-bleed Hands_in_the_air.jpg
        Standardized 2026-04-16
+       IMPORTANT: margin bottom is 0 — bridge stripe sits flush against FAQ.
     ══════════════════════════════════════════════════════════ */
-    .faq-section{position:relative;overflow:hidden;margin:40px 0 0}
+    .faq-section{position:relative;overflow:hidden;margin:40px 0 0 0}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
     .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:52px 24px 56px}
@@ -177,44 +175,32 @@
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
     @media(max-width:640px){.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}}
 
-    /* ══════════════════════════════════════════════════════════
-       NEXT STEPS — light grey, 3 animated cards
-       Standardized 2026-04-16 (moved below FAQ)
-    ══════════════════════════════════════════════════════════ */
-    .next-steps{padding:56px var(--page-pad) 60px;background:var(--light-grey)}
-    .next-steps-inner{max-width:var(--max-width);margin:0 auto}
-    .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
-    .next-steps h2{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:8px}
-    .next-steps-sub{font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.6}
-    .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .ns-card{background:var(--white);border:1px solid var(--border-med);border-top:4px solid transparent;border-radius:8px;padding:24px 20px;text-decoration:none;display:block;opacity:0;transform:translateY(28px);transition:opacity .5s ease,transform .5s ease,box-shadow .25s ease}
-    .ns-card.ns-card-visible{opacity:1;transform:translateY(0)}
-    .ns-card:nth-child(1){transition-delay:.05s}
-    .ns-card:nth-child(2){transition-delay:.18s}
-    .ns-card:nth-child(3){transition-delay:.31s}
-    .ns-accent-blue{border-top-color:var(--navy)}
-    .ns-accent-orange{border-top-color:var(--orange)}
-    .ns-accent-green{border-top-color:var(--green)}
-    .ns-accent-blue:hover{box-shadow:0 8px 28px rgba(31,78,121,0.15);transform:translateY(-5px) !important}
-    .ns-accent-orange:hover{box-shadow:0 8px 28px rgba(232,97,10,0.22);transform:translateY(-5px) !important}
-    .ns-accent-green:hover{box-shadow:0 8px 28px rgba(29,158,117,0.22);transform:translateY(-5px) !important}
-    .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
-    .ns-accent-blue .ns-card-label{color:var(--navy)}
-    .ns-accent-orange .ns-card-label{color:var(--orange)}
-    .ns-accent-green .ns-card-label{color:var(--green)}
-    .ns-card h3{font-size:15px;font-weight:700;color:var(--body-text);line-height:1.35;margin-bottom:8px}
-    .ns-card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px}
-    .ns-card-link{font-size:12px;font-weight:700}
-    .ns-accent-blue .ns-card-link{color:var(--navy)}
-    .ns-accent-orange .ns-card-link{color:var(--orange)}
-    .ns-accent-green .ns-card-link{color:var(--green)}
-    .ns-card-link::after{content:' \2192'}
-    .ns-phone{margin-top:28px;font-size:13px;color:var(--muted);text-align:center}
-    .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
-    .ns-phone a:hover{color:var(--orange)}
-    @media(max-width:760px){.ns-cards{grid-template-columns:1fr}}
+    /* ── BRIDGE STRIPE ──
+       Gray breathing room between FAQ and footer.
+       IMPORTANT: faq-section bottom margin is 0 so bridge sits flush. */
+    .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
+    .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
+    .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
+    @media(max-width:640px){
+      .bridge-stripe{padding:28px 20px}
+      .bridge-stripe-text{font-size:17px}
+    }
 
-    /* ── FOOTER (dark navy — already standard, preserved exactly) ── */
+    /* ── THOMAS FLOATING WIDGET ──
+       Fixed right-side card, positioned 1/3 up from the bottom of the viewport.
+       z-index 950: above content, below nav (1000).
+       White background, mid-blue CTA button. Hidden on mobile. */
+    .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
+    .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
+    .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
+    .thomas-float-body{padding:8px 8px 10px;text-align:center}
+    .thomas-float-name{font-family:Arial,sans-serif;font-size:11px;font-weight:700;color:var(--navy);line-height:1.3;display:block;margin-bottom:2px}
+    .thomas-float-sub{font-family:Arial,sans-serif;font-size:9px;font-weight:400;color:var(--muted);line-height:1.4;display:block;margin-bottom:7px}
+    .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
+    .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
+    @media(max-width:768px){.thomas-float{display:none}}
+
+    /* ── FOOTER (dark navy — standard 3-col) ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -265,7 +251,6 @@
       .footer-bottom{padding:14px 20px}
       .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
       .footer-bottom-left{justify-content:center}
-      .next-steps{padding:40px 20px 44px}
     }
   </style>
 </head>
@@ -415,7 +400,7 @@
 
 <!-- ══════════════════════════════════════════════════════════════
      FAQ SECTION — Full-bleed Hands_in_the_air.jpg accordion
-     Standardized 2026-04-16
+     Standardized 2026-04-16 | margin bottom 0 for flush bridge stripe
 ════════════════════════════════════════════════════════════════ -->
 <div class="faq-section">
   <div class="faq-bg"></div>
@@ -474,53 +459,42 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════════════
-     NEXT STEPS — light grey, 3 animated cards
-     Moved below FAQ, standardized 2026-04-16
-     Destinations preserved: Book / Free Assessment / Talk to Thomas
-════════════════════════════════════════════════════════════════ -->
-<section class="next-steps">
-  <div class="next-steps-inner">
-    <div class="next-steps-eyebrow">Where to go from here</div>
-    <h2>Next Steps &amp; Resources</h2>
-    <p class="next-steps-sub">Talk to an expert, take the free assessment, or ask Thomas what the signs mean for your operation.</p>
-    <div class="ns-cards">
-      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card ns-accent-blue" target="_blank" rel="noopener">
-        <div class="ns-card-label">Free Consultation</div>
-        <h3>Speak with a Shiftwork Expert</h3>
-        <p>Describe what you're seeing. We'll tell you honestly whether it's a schedule problem — and what addressing it would actually involve.</p>
-        <span class="ns-card-link">Book a free meeting</span>
-      </a>
-      <a href="/resources/shiftwork-assessment/" class="ns-card ns-accent-orange">
-        <div class="ns-card-label">Free Assessment</div>
-        <h3>Free Shift Operations Assessment</h3>
-        <p>Evaluate eight mission-critical dimensions of your shiftwork operation in under 10 minutes. See how you compare to similar operations.</p>
-        <span class="ns-card-link">Take the assessment</span>
-      </a>
-      <a href="https://shift-work-diagnostic.onrender.com/" class="ns-card ns-accent-green" target="_blank" rel="noopener">
-        <div class="ns-card-label">AI Advisor</div>
-        <h3>Talk to Thomas</h3>
-        <p>Have a question about what you're seeing in your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
-        <span class="ns-card-link">Start a conversation</span>
-      </a>
-    </div>
-    <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
-  </div>
-</section>
+<!-- ── BRIDGE STRIPE ──
+     Gray breathing room between FAQ and footer.
+     Soft directional prompt toward footer CTAs — no button needed. -->
+<div class="bridge-stripe">
+  <div class="bridge-stripe-text">Ready to take the next step?</div>
+  <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
+</div>
 
 <!-- ══════════════════════════════════════════════════════════════
-     FOOTER — Dark navy 3-col (preserved exactly from prior version)
+     FOOTER — Standard 3-column (corrected 2026-04-22)
+     Col 1: FREE ASSESSMENT / Shiftwork Operations Reality Check
+     Col 2: DIAGNOSTIC ARTICLE / The 26 Warning Signs
+     Col 3: NEWSLETTER / Stay Sharp on Shift Operations
 ════════════════════════════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
-      <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">The warning signs are there. Recognizing the pattern is the first step. The first conversation is always free.</p></div>
-      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p></div>
-      <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
+      <div class="footer-col footer-col-1">
+        <div class="engage-label">FREE ASSESSMENT</div>
+        <div class="engage-col-title">Shiftwork Operations Reality Check</div>
+        <p class="engage-col-desc">Eight dimensions. Ten minutes. See exactly where your operation stands — and where the risks are hiding.</p>
+      </div>
+      <div class="footer-col footer-col-2">
+        <div class="engage-label">DIAGNOSTIC ARTICLE</div>
+        <div class="engage-col-title">The 26 Warning Signs</div>
+        <p class="engage-col-desc">A practical guide to the symptoms that signal your shift schedule may be working against you — organized by category.</p>
+      </div>
+      <div class="footer-col footer-col-3">
+        <div class="engage-label">NEWSLETTER</div>
+        <div class="engage-col-title">Stay Sharp on Shift Operations</div>
+        <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
+      </div>
     </div>
     <div class="footer-cta-row">
-      <div class="footer-cta-1"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a></div>
-      <div class="footer-cta-2"><a href="https://shift-work-diagnostic.onrender.com/" class="footer-cta-btn" target="_blank" rel="noopener">Start a Conversation &#x2192;</a></div>
+      <div class="footer-cta-1"><a href="https://www.shift-work.com/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Reality Check &#x2192;</a></div>
+      <div class="footer-cta-2"><a href="/resources/26-warning-signs-schedule-problems/" class="footer-cta-btn">Read the Warning Signs &#x2192;</a></div>
       <div class="footer-cta-3"><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
     </div>
   </div></div>
@@ -530,11 +504,23 @@
   </div></div>
 </footer>
 
-<button class="listen-float" id="listenBtn" onclick="toggleListen()">
-  <span class="listen-icon listen-icon-static">🔊</span>
-  <span class="listen-wave"><span></span><span></span><span></span><span></span><span></span></span>
-  <span id="listenLabel">Listen to article</span>
-</button>
+<!-- ── THOMAS FLOATING WIDGET ──
+     Fixed to right edge, ~40% from top of viewport.
+     Hidden on mobile (max-width:768px).
+     Opens Thomas diagnostic app in new tab. -->
+<a class="thomas-float"
+   href="https://shift-work-diagnostic.onrender.com/"
+   target="_blank"
+   rel="noopener"
+   aria-label="Meet Thomas, your AI Shift Advisor">
+  <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
+  <div class="thomas-float-body">
+    <span class="thomas-float-name">Meet Thomas</span>
+    <span class="thomas-float-sub">Your AI Shift Advisor</span>
+    <span class="thomas-float-cta">Chat Now &rarr;</span>
+  </div>
+</a>
+<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
 // Mobile nav toggle
@@ -569,48 +555,7 @@ document.getElementById('mobileToggle').addEventListener('click', function() {
   });
 })();
 
-// Next Steps cards entrance animation
-(function() {
-  var cards = document.querySelectorAll('.ns-card');
-  if (!cards.length) return;
-  if (!('IntersectionObserver' in window)) {
-    cards.forEach(function(c) { c.classList.add('ns-card-visible'); });
-    return;
-  }
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('ns-card-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  cards.forEach(function(c) { observer.observe(c); });
-})();
-
-// Listen button (text-to-speech) — preserved exactly
-var ttsUtterance = null; var ttsPlaying = false;
-function getArticleText() {
-  var nodes = document.querySelectorAll('.content-section p, .sign-desc, .pull-quote-text');
-  var parts = [];
-  for (var i = 0; i < nodes.length; i++) { var t = nodes[i].textContent.trim(); if (t) parts.push(t); }
-  return parts.join(' ');
-}
-function ttsReset(btn, label) { ttsPlaying = false; ttsUtterance = null; btn.classList.remove('playing', 'loading'); label.textContent = 'Listen to article'; }
-function toggleListen() {
-  var btn = document.getElementById('listenBtn'); var label = document.getElementById('listenLabel');
-  if (!window.speechSynthesis) { label.textContent = 'Not supported'; return; }
-  if (ttsPlaying) { window.speechSynthesis.cancel(); ttsReset(btn, label); return; }
-  var text = getArticleText(); if (!text) return;
-  ttsUtterance = new SpeechSynthesisUtterance(text);
-  ttsUtterance.rate = 0.95;
-  ttsUtterance.onstart = function() { ttsPlaying = true; btn.classList.remove('loading'); btn.classList.add('playing'); label.textContent = 'Stop listening'; };
-  ttsUtterance.onend = function() { ttsReset(btn, label); };
-  ttsUtterance.onerror = function(e) { ttsReset(btn, label); };
-  btn.classList.add('loading'); label.textContent = 'Loading...'; window.speechSynthesis.speak(ttsUtterance);
-}
-
-// Newsletter subscription — preserved exactly
+// Newsletter subscription
 (function() {
   var SWARM = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
   window.engageNLSubmit = function(e) {
