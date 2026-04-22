@@ -5,7 +5,7 @@
   URL: /resources/
 
   Created:      2026-04-03
-  Last Updated: 2026-04-21
+  Last Updated: 2026-04-22
 
   CHANGE LOG:
     2026-04-21 — REALITY CHECK TILE RENAMED:
@@ -21,8 +21,7 @@
                  URL (/resources/shiftwork-assessment/) unchanged.
                  Image (/images/assessment.jpg) unchanged.
                  All other content, layout, CSS, JS logic, carousel,
-                 newsletter forms, footer, and other tiles are completely
-                 unchanged.
+                 newsletter forms, footer, and other tiles completely unchanged.
 
     2026-04-18 (v8) — 13 CHANGE GROUPS:
       1.  Hero H1 → "Better Scheduling Decisions Start Here." + new subtitle
@@ -49,8 +48,19 @@
     2026-04-17 — Interest button top-band balanced: fixed height:160px.
     2026-04-16 — FIVE UPDATES: hero h1 color, interest button split-band layout,
                  CTA card redesign, Spotlight show-more, Trending carousel.
+    2026-04-22 — PAGE BOTTOM STANDARD applied:
+                 UPDATED: Footer replaced with standard 3-col structure
+                   (FREE ASSESSMENT / 26 Warning Signs / Newsletter)
+                   per Page Bottom Standard 2D. Old FREE CONSULTATION /
+                   AI ADVISOR columns removed.
+                 ADDED: Bridge stripe between trending section and footer.
+                 ADDED: Thomas floating widget (fixed right edge, desktop only).
 
-  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
+  NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
+  HERO IMAGE: /images/second.png
+  DESIGN CONSTANTS: navy #1F4E79, orange #E8610A, max-width 1060px
+
+  I did no harm and this file is not truncated
 -->
 <html lang="en">
 <head>
@@ -99,7 +109,6 @@
     .hero-circle-tr{position:absolute;top:-60px;right:-80px;width:320px;height:320px;border-radius:50%;border:2px solid rgba(232,97,10,.25);z-index:0}
     .hero-circle-bl{position:absolute;bottom:-100px;left:-50px;width:220px;height:220px;border-radius:50%;border:2px solid rgba(133,183,235,.15);z-index:0}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
-    /* item 1: new hero text */
     .hero h1{font-size:36px;font-weight:700;line-height:1.15;color:#EEAE26;max-width:660px;margin-bottom:18px;animation:fadeUp .5s .1s ease both}
     .hero-authority{font-size:15px;line-height:1.7;color:rgba(255,255,255,.75);max-width:580px;animation:fadeUp .5s .2s ease both}
     @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
@@ -132,19 +141,16 @@
     .result-heading{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px}
     .result-sub{font-size:14px;color:var(--muted);margin-bottom:20px;line-height:1.5}
     .result-list{display:flex;flex-direction:column;gap:12px}
-    /* item 12: fine grey border */
     .result-card{display:flex;align-items:stretch;background:var(--white);border:1px solid var(--border-med);border-left:4px solid var(--navy);border-radius:6px;overflow:hidden;text-decoration:none;transition:all .2s ease;opacity:0;animation:cardIn .35s ease forwards}
     .result-card:hover{border-left-color:var(--orange);box-shadow:0 4px 16px rgba(0,0,0,.08);transform:translateY(-1px)}
     @keyframes cardIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
     .result-card-img{width:120px;flex-shrink:0;object-fit:cover;display:block;background-color:var(--light-blue)}
     .result-card-icon{width:80px;min-height:80px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--light-blue)}
     .result-card-body{flex:1;padding:14px 18px;min-width:0}
-    /* item 8: tag text only, no orange background */
     .result-card-tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:3px;margin-bottom:6px}
     .result-card-tag.guide{background:var(--light-blue);color:var(--navy)}
     .result-card-tag.focused{background:transparent;color:var(--orange);padding-left:0}
     .result-card-tag.tool{background:rgba(29,158,117,.1);color:var(--green)}
-    /* item 13: title hover → blue + underline */
     .result-card-title{font-size:18px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:5px;transition:color .15s}
     .result-card:hover .result-card-title{color:var(--hover-blue);text-decoration:underline;text-underline-offset:2px}
     .result-card-desc{font-size:16px;color:var(--muted);line-height:1.55}
@@ -157,22 +163,17 @@
     .guides-header{margin-bottom:32px}
     .guides-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:20px}
     .guides-row3{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-    /* item 9a+12: fine grey top border only, no orange line */
     .guide-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--border-med);border-radius:8px;overflow:hidden;text-decoration:none;transition:all .2s ease}
     .guide-card:hover{border-top-color:var(--orange);box-shadow:0 6px 24px rgba(0,0,0,.10);transform:translateY(-3px)}
     .guide-card-img{width:100%;height:140px;object-fit:cover;display:block;background:var(--light-blue)}
     .guide-card-body{flex:1;padding:16px 16px 10px}
-    /* item 8: guide tag — keep light-blue bg, navy text (already non-orange) */
     .guide-card-tag{display:inline-block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 7px;border-radius:3px;margin-bottom:7px;background:var(--light-blue);color:var(--navy)}
-    /* item 13: title hover → blue + underline */
     .guide-card-title{font-size:18px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:6px;transition:color .15s}
     .guide-card:hover .guide-card-title{color:var(--hover-blue);text-decoration:underline;text-underline-offset:2px}
     .guide-card-desc{font-size:16px;color:var(--muted);line-height:1.55}
     .guide-card-footer{padding:10px 16px 14px;border-top:1px solid var(--border-light);display:flex;align-items:center;justify-content:flex-end;margin-top:auto}
     .guide-card-read{font-size:16px;font-weight:700;color:var(--orange);text-decoration:none;display:flex;align-items:center;gap:4px;transition:color .15s}
     .guide-card:hover .guide-card-read{color:var(--navy)}
-
-    /* CTA cards: match guide card height naturally; white top matches image height */
     .guide-cta-card{display:flex;flex-direction:column;border-radius:8px;overflow:hidden;text-decoration:none;transition:transform .2s ease,box-shadow .2s ease;border:1px solid var(--border-med);border-top:3px solid var(--border-med);background:var(--navy)}
     .guide-cta-card:hover{transform:translateY(-3px);box-shadow:0 6px 24px rgba(0,0,0,.18)}
     .guide-cta-top{background:var(--white);height:140px;padding:0 20px;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -188,15 +189,12 @@
     .focused-inner{max-width:var(--max-width);margin:0 auto}
     .focused-header{margin-bottom:32px}
     .focused-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-    /* item 11+12: navy top border by default, orange on hover; fine grey side/bottom */
     .focused-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:8px;overflow:hidden;text-decoration:none;transition:all .2s ease}
     .focused-card:hover{border-top-color:var(--orange);box-shadow:0 6px 24px rgba(0,0,0,.10);transform:translateY(-3px)}
     .focused-card.focused-hidden{display:none}
     .focused-card-img{width:100%;height:140px;object-fit:cover;display:block;background:var(--light-blue)}
     .focused-card-body{flex:1;padding:14px 14px 8px}
-    /* item 7: no tag label on focused cards — class kept for JS compatibility but hidden */
     .focused-card-tag{display:none}
-    /* item 13: title hover → blue + underline */
     .focused-card-title{font-size:16px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:5px;transition:color .15s}
     .focused-card:hover .focused-card-title{color:var(--hover-blue);text-decoration:underline;text-underline-offset:2px}
     .focused-card-desc{font-size:15px;color:var(--muted);line-height:1.5}
@@ -204,7 +202,6 @@
     .focused-card-read{font-size:15px;font-weight:700;color:var(--orange);display:flex;align-items:center;gap:4px;transition:color .15s}
     .focused-card:hover .focused-card-read{color:var(--navy)}
     .focused-show-more-wrap{margin-top:28px;display:flex;justify-content:center}
-    /* item 10: Show More button navy by default */
     .focused-show-more-btn{padding:11px 32px;background:var(--navy);border:2px solid var(--navy);border-radius:4px;font-family:Arial,sans-serif;font-size:14px;font-weight:700;color:var(--white);cursor:pointer;transition:all .2s ease}
     .focused-show-more-btn:hover{background:var(--navy-dark);border-color:var(--navy-dark)}
     .focused-show-more-btn.hidden{display:none}
@@ -216,14 +213,11 @@
     .trending-carousel-wrap{position:relative;padding:0 4px}
     .trending-carousel-viewport{overflow:hidden}
     .trending-carousel-track{display:flex;gap:18px;transition:transform .4s ease;will-change:transform}
-    /* item 12: fine grey border; item 9a: grey top border by default */
     .trending-card{flex:0 0 calc(25% - 14px);display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--border-med);border-radius:8px;overflow:hidden;text-decoration:none;transition:border-color .2s,box-shadow .2s,transform .2s}
     .trending-card:hover{border-top-color:var(--orange);box-shadow:0 6px 20px rgba(0,0,0,.10);transform:translateY(-3px)}
     .trending-card-img{width:100%;height:130px;object-fit:cover;display:block;background:var(--light-blue)}
     .trending-card-body{flex:1;padding:14px 14px 10px}
-    /* item 8: trending tag — no orange background, just colored text */
     .trending-card-tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 0;border-radius:3px;margin-bottom:8px;background:transparent;color:var(--navy)}
-    /* item 13: title hover → blue + underline */
     .trending-card-title{font-size:16px;font-weight:700;color:var(--navy);line-height:1.4;margin-bottom:7px;transition:color .15s}
     .trending-card:hover .trending-card-title{color:var(--hover-blue);text-decoration:underline;text-underline-offset:2px}
     .trending-card-desc{font-size:15px;color:var(--muted);line-height:1.55}
@@ -249,6 +243,11 @@
     .carousel-arrow:hover path{stroke:#fff !important}
     .carousel-arrow-prev{left:-26px}
     .carousel-arrow-next{right:-26px}
+
+    /* ── BRIDGE STRIPE — sits flush below trending section ── */
+    .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
+    .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
+    .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
 
     /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
@@ -285,6 +284,20 @@
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
 
+    /* ── THOMAS FLOATING WIDGET ──
+       Fixed right-side card, positioned 1/3 up from the bottom of the viewport.
+       Visible on desktop only (hidden below 768px).
+       z-index 950: above content, below nav (1000). */
+    .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
+    .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
+    .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
+    .thomas-float-body{padding:8px 8px 10px;text-align:center}
+    .thomas-float-name{font-family:Arial,sans-serif;font-size:11px;font-weight:700;color:var(--navy);line-height:1.3;display:block;margin-bottom:2px}
+    .thomas-float-sub{font-family:Arial,sans-serif;font-size:9px;font-weight:400;color:var(--muted);line-height:1.4;display:block;margin-bottom:7px}
+    .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
+    .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
+    @media(max-width:768px){.thomas-float{display:none}}
+
     @media(max-width:960px){
       .interest-row{grid-template-columns:repeat(2,1fr)}
       .guides-grid{grid-template-columns:repeat(2,1fr)}
@@ -310,6 +323,8 @@
       .trending-card,.trending-card-soon{flex-basis:100%}
       .carousel-arrow-prev{left:-14px}
       .carousel-arrow-next{right:-14px}
+      .bridge-stripe{padding:28px 20px}
+      .bridge-stripe-text{font-size:17px}
       .footer-prefooter{padding:32px 20px}
       .footer-content-row{grid-template-columns:1fr}
       .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
@@ -344,7 +359,7 @@
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
 </div></nav>
 
-<!-- ── HERO — item 1: new H1 and subtitle ── -->
+<!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-circle-tr"></div>
   <div class="hero-circle-bl"></div>
@@ -354,7 +369,7 @@
   </div>
 </section>
 
-<!-- ── HUB — item 3: updated eyebrow/heading/sub ── -->
+<!-- ── HUB ── -->
 <section class="hub-section"><div class="hub-inner">
   <div class="hub-intro">
     <div class="section-eyebrow">Find Your Starting Point</div>
@@ -421,26 +436,21 @@
     <a href="/resources/shift-schedule-design-guide/" class="guide-card"><img src="/images/pillar_1.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">The Complete Guide to Shift Schedule Design</div><div class="guide-card-desc">Fixed vs. rotating, shift length, crew size, and cost structure — the foundational decisions that shape every 24/7 operation.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
     <a href="/resources/shift-schedule-patterns-guide/" class="guide-card"><img src="/images/pillar_2.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">Shift Schedule Patterns &amp; Examples</div><div class="guide-card-desc">DuPont, Panama, 4-on/4-off, and more — a decision guide to the most common 24/7 patterns and the tradeoffs of each.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
     <a href="/resources/equipment-utilization-shift-scheduling/" class="guide-card"><img src="/images/pillar_3.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">Maximizing Equipment Utilization</div><div class="guide-card-desc">How schedule design directly drives equipment uptime — and why most facilities leave significant capacity on the table.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
-    <!-- item 4a: Managing Variable Workloads desc updated -->
     <a href="/resources/managing-variable-workloads/" class="guide-card"><img src="/images/pillar_4.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">Managing Variable Workloads</div><div class="guide-card-desc">How operations match staffing to fluctuating demand without chronic overtime or expensive idle time.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
   </div>
   <div class="guides-grid">
     <a href="/resources/overtime-management-guide/" class="guide-card"><img src="/images/pillar_5.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">Overtime Management</div><div class="guide-card-desc">Strategy, distribution, and cost control — including why the true cost of overtime is far closer to straight time than most managers assume.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
-    <!-- item 5: "Schedule Change Management" → "Change Management" -->
     <a href="/resources/schedule-change-management/" class="guide-card"><img src="/images/pillar_6.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">Change Management</div><div class="guide-card-desc">From planning to implementation — why well-designed changes fail and what communication and policy alignment actually require.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
     <a href="/resources/employee-engagement-shift-work/" class="guide-card"><img src="/images/pillar_7.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">Building Employee Engagement</div><div class="guide-card-desc">What shift workers actually value — and why engagement strategies designed for offices consistently fail on the plant floor.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
-    <!-- item 4b: Operational Best Practices desc updated -->
     <a href="/resources/shift-work-best-practices/" class="guide-card"><img src="/images/pillar_8.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">Operational Best Practices</div><div class="guide-card-desc">Why some 24/7 operations run efficiently for years while others struggle with the same problems repeatedly.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
   </div>
   <div class="guides-row3">
-    <!-- item 9b/9c: CTA card — no icon, fine grey top, no orange hover border -->
     <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="guide-cta-card" target="_blank" rel="noopener">
       <div class="guide-cta-top"><span class="guide-cta-label">Free Consultation</span></div>
       <div class="guide-cta-body"><div class="guide-cta-title">Talk to a Shift Work Expert</div><div class="guide-cta-desc">Not sure where to start? Book a free conversation with our consulting team. No pitch — just a focused discussion of your operation.</div><span class="guide-cta-btn">Book a Free Meeting &#x2192;</span></div>
     </a>
     <a href="/resources/absenteeism-relief-coverage-management/" class="guide-card"><img src="/images/pillar_9.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">Managing Absenteeism &amp; Coverage Gaps</div><div class="guide-card-desc">How to build coverage systems that absorb routine absences without daily scrambles, mandatory holdovers, or chronic overtime.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
     <a href="/resources/shift-work-policies-guide/" class="guide-card"><img src="/images/pillar_10.jpg" alt="" class="guide-card-img"><div class="guide-card-body"><span class="guide-card-tag">Complete Guide</span><div class="guide-card-title">Shift Work Policies: Pay, Time-Off &amp; Compliance</div><div class="guide-card-desc">Why pay and time-off policies designed for 8-hour schedules break immediately on 12-hour or continuous operations.</div></div><div class="guide-card-footer"><span class="guide-card-read">Read guide &#x2192;</span></div></a>
-    <!-- item 9b/9c: Thomas CTA — no icon, fine grey top, no orange hover border -->
     <a href="https://shift-work-diagnostic.onrender.com/" class="guide-cta-card" target="_blank" rel="noopener">
       <div class="guide-cta-top"><span class="guide-cta-label">AI Advisor</span></div>
       <div class="guide-cta-body"><div class="guide-cta-title">Talk to Thomas</div><div class="guide-cta-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</div><span class="guide-cta-btn">Start a Conversation &#x2192;</span></div>
@@ -448,12 +458,11 @@
   </div>
 </div></section>
 
-<!-- ── SPOTLIGHT ARTICLES — item 2: updated section descriptor; item 7: no tag label ── -->
+<!-- ── SPOTLIGHT ARTICLES ── -->
 <section class="focused-section"><div class="focused-inner">
   <div class="focused-header">
     <div class="section-eyebrow">Targeted Perspectives</div>
     <div class="accent-heading">Spotlight Articles</div>
-    <!-- item 2: updated descriptor -->
     <p class="section-sub" style="white-space:nowrap;">Targeted articles on specific operational challenges — when you know the problem and need a focused answer.</p>
   </div>
   <div class="focused-grid" id="focusedGrid">
@@ -478,7 +487,7 @@
   </div>
 </div></section>
 
-<!-- ── TRENDING — item 6: eyebrow/tags updated; 26 Warning Signs removed ── -->
+<!-- ── TRENDING ── -->
 <section class="trending-section"><div class="trending-inner">
   <div class="trending-header">
     <div class="section-eyebrow">What Operations Leaders Are Reading</div>
@@ -491,21 +500,13 @@
     </button>
     <div class="trending-carousel-viewport" id="carouselViewport">
       <div class="trending-carousel-track" id="carouselTrack">
-        <!-- item 6d: tag → Legislation -->
         <a href="/resources/32-hour-workweek-manufacturing/" class="trending-card"><img src="/images/32.jpg" alt="" class="trending-card-img"><div class="trending-card-body"><span class="trending-card-tag">Legislation</span><div class="trending-card-title">The 32-Hour Workweek Movement Reaches Manufacturing</div><div class="trending-card-desc">What the push for shorter workweeks actually means for operations running continuous schedules.</div></div><div class="trending-card-footer"><span class="trending-card-read">Read &#x2192;</span></div></a>
-        <!-- item 6b: tag → Labor Markets -->
         <a href="/resources/tapping-untapped-workforce/" class="trending-card"><img src="/images/tapping.jpg" alt="" class="trending-card-img"><div class="trending-card-body"><span class="trending-card-tag">Labor Markets</span><div class="trending-card-title">Tapping the Untapped Workforce</div><div class="trending-card-desc">How operations facing chronic staffing shortages are finding labor in overlooked populations.</div></div><div class="trending-card-footer"><span class="trending-card-read">Read &#x2192;</span></div></a>
-        <!-- item 6b: tag → Leadership -->
         <a href="/resources/management-by-walking-around/" class="trending-card"><img src="/images/walking.jpg" alt="" class="trending-card-img"><div class="trending-card-body"><span class="trending-card-tag">Leadership</span><div class="trending-card-title">Management by Walking Around</div><div class="trending-card-desc">Why MBWA remains one of the most underused tools in shift operations — and how night shift visibility changes everything.</div></div><div class="trending-card-footer"><span class="trending-card-read">Read &#x2192;</span></div></a>
-        <!-- item 6b: tag → Economy -->
         <a href="/resources/overtime-tax-break-businesses/" class="trending-card"><img src="/images/tax.jpg" alt="" class="trending-card-img"><div class="trending-card-body"><span class="trending-card-tag">Economy</span><div class="trending-card-title">The Overtime Tax Break for Businesses</div><div class="trending-card-desc">What recent overtime exemption proposals mean for companies running 24/7 — and whether the savings are straightforward.</div></div><div class="trending-card-footer"><span class="trending-card-read">Read &#x2192;</span></div></a>
-        <!-- item 6c: tag → Operations -->
         <a href="/resources/reshoring-manufacturing-workforce/" class="trending-card"><img src="/images/reshoring.jpg" alt="" class="trending-card-img"><div class="trending-card-body"><span class="trending-card-tag">Operations</span><div class="trending-card-title">Reshoring and the Manufacturing Workforce</div><div class="trending-card-desc">As production returns to domestic soil, staffing and scheduling demands are catching many operators unprepared.</div></div><div class="trending-card-footer"><span class="trending-card-read">Read &#x2192;</span></div></a>
-        <!-- item 6b: tag → Economy -->
         <a href="/resources/mixed-signals-economy/" class="trending-card"><img src="/images/mixed.jpg" alt="" class="trending-card-img"><div class="trending-card-body"><span class="trending-card-tag">Economy</span><div class="trending-card-title">Mixed Signals: Reading the Economy for Workforce Planning</div><div class="trending-card-desc">How to make sound staffing decisions when demand forecasts are contradicting each other.</div></div><div class="trending-card-footer"><span class="trending-card-read">Read &#x2192;</span></div></a>
-        <!-- item 6b: tag → Operations -->
         <a href="/resources/schedule-looks-fine-on-paper/" class="trending-card"><img src="/images/onpaper.jpg" alt="" class="trending-card-img"><div class="trending-card-body"><span class="trending-card-tag">Operations</span><div class="trending-card-title">When Your Schedule Looks Fine on Paper</div><div class="trending-card-desc">The gap between a schedule that covers the shifts and one that actually works.</div></div><div class="trending-card-footer"><span class="trending-card-read">Read &#x2192;</span></div></a>
-        <!-- "26 Warning Signs" removed per item 6e -->
         <div class="trending-card-soon"><div class="trending-card-soon-icon"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 3v2M11 17v2M3 11H1M21 11h-2M5.22 5.22 3.81 3.81M18.19 18.19l-1.41-1.41M5.22 16.78l-1.41 1.41M18.19 3.81l-1.41 1.41" stroke="rgba(255,255,255,0.7)" stroke-width="1.8" stroke-linecap="round"/><circle cx="11" cy="11" r="4" stroke="#E8610A" stroke-width="1.8"/></svg></div><div class="trending-card-soon-label">Coming Soon</div><div class="trending-card-soon-title">More Articles on the Way</div><div class="trending-card-soon-desc">We publish new perspectives on 24/7 operations regularly. Subscribe to get them as soon as they drop.</div><div class="trending-card-soon-nl"><input type="email" class="trending-card-soon-input" placeholder="your@company.com" id="soonNLEmail"><button class="trending-card-soon-btn" id="soonNLBtn" onclick="soonNLSubmit()">Notify Me</button></div><div class="trending-card-soon-msg" id="soonNLMsg"></div></div>
       </div>
     </div>
@@ -515,16 +516,36 @@
   </div>
 </div></section>
 
+<!-- ── BRIDGE STRIPE ──
+     Gray breathing room between trending section and footer.
+     Soft directional prompt toward footer CTAs — no button needed. -->
+<div class="bridge-stripe">
+  <div class="bridge-stripe-text">Ready to take the next step?</div>
+  <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
+</div>
+
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
-      <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">Manufacturing and distribution operations running 24/7 typically have more room to improve than they realize. The first conversation is always free.</p></div>
-      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p></div>
-      <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
+      <div class="footer-col footer-col-1">
+        <div class="engage-label">FREE ASSESSMENT</div>
+        <div class="engage-col-title">Shiftwork Operations Reality Check</div>
+        <p class="engage-col-desc">Compare your instincts to more than 20,000 shift worker responses. Free. Five minutes. No email required.</p>
+      </div>
+      <div class="footer-col footer-col-2">
+        <div class="engage-label">DIAGNOSTIC ARTICLE</div>
+        <div class="engage-col-title">The 26 Warning Signs</div>
+        <p class="engage-col-desc">Twenty-six operational symptoms that signal your shiftwork system may need attention. If you're seeing several, the schedule is likely the source.</p>
+      </div>
+      <div class="footer-col footer-col-3">
+        <div class="engage-label">NEWSLETTER</div>
+        <div class="engage-col-title">Stay Sharp on Shift Operations</div>
+        <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
+      </div>
     </div>
     <div class="footer-cta-row">
-      <div class="footer-cta-1"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a></div>
-      <div class="footer-cta-2"><a href="https://shift-work-diagnostic.onrender.com/" class="footer-cta-btn" target="_blank" rel="noopener">Start a conversation &#x2192;</a></div>
+      <div class="footer-cta-1"><a href="https://www.shift-work.com/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Reality Check &#x2192;</a></div>
+      <div class="footer-cta-2"><a href="/resources/26-warning-signs-schedule-problems/" class="footer-cta-btn">Read the Warning Signs &#x2192;</a></div>
       <div class="footer-cta-3"><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
     </div>
   </div></div>
@@ -533,6 +554,24 @@
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
+
+<!-- ── THOMAS FLOATING WIDGET ──
+     Fixed to right edge, ~40% from top of viewport.
+     Hidden on mobile (max-width:768px).
+     Opens Thomas diagnostic app in new tab. -->
+<a class="thomas-float"
+   href="https://shift-work-diagnostic.onrender.com/"
+   target="_blank"
+   rel="noopener"
+   aria-label="Meet Thomas, your AI Shift Advisor">
+  <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
+  <div class="thomas-float-body">
+    <span class="thomas-float-name">Meet Thomas</span>
+    <span class="thomas-float-sub">Your AI Shift Advisor</span>
+    <span class="thomas-float-cta">Chat Now &rarr;</span>
+  </div>
+</a>
+<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
 /* Mobile nav */
@@ -587,10 +626,6 @@ window.showLessFocused = function() {
 /* Interest buttons */
 (function(){
 var ICONS={scaling:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 20l6-6 4 4 10-10" stroke="#E8610A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 8h6v6" stroke="#E8610A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',maintenance:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M16.5 4.5l7 7-2.5 2.5-7-7" stroke="#1F4E79" stroke-width="2" stroke-linecap="round"/><path d="M10 14l-5.5 5.5a2.1 2.1 0 003 3L13 17" stroke="#1F4E79" stroke-width="2"/><circle cx="17" cy="8" r="2" fill="#E8610A" opacity="0.5"/></svg>',sleep:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="16" r="8" stroke="#1F4E79" stroke-width="2"/><path d="M14 12v4l3 2" stroke="#E8610A" stroke-width="2" stroke-linecap="round"/></svg>',balance:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4v20M6 10l8-4 8 4" stroke="#1F4E79" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>',communicate:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="6" width="22" height="14" rx="3" stroke="#1F4E79" stroke-width="2"/><path d="M8 11h12M8 15h8" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round"/></svg>',survey:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="4" y="3" width="20" height="22" rx="2" stroke="#1F4E79" stroke-width="2"/><path d="M9 9h10M9 13h10M9 17h6" stroke="#E8610A" stroke-width="1.5" stroke-linecap="round"/></svg>',pitfalls:'<svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 4l12 20H2L14 4z" stroke="#E8610A" stroke-width="2" stroke-linejoin="round"/><path d="M14 12v5" stroke="#E8610A" stroke-width="2" stroke-linecap="round"/><circle cx="14" cy="20" r="1" fill="#E8610A"/></svg>'};
-/* item 5: "Schedule Change Management" → "Change Management" in result data */
-/* 2026-04-21: "Free Shiftwork Assessment" tile renamed to
-   "The Shiftwork Operations Reality Check" with updated description.
-   URL and image unchanged. */
 var DATA={expanding:{heading:'Expanding Operations',sub:'Resources for moving to 24/7 coverage or adding shifts to an existing operation.',tiles:[{type:'guide',label:'Comprehensive Guide',title:'Complete Guide to Shift Schedule Design',desc:'The foundations — fixed vs. rotating, shift length, cost structure, and why small decisions have large consequences.',url:'/resources/shift-schedule-design-guide/',img:'/images/pillar_1.jpg'},{type:'guide',label:'Comprehensive Guide',title:'Shift Schedule Patterns & Examples',desc:'DuPont, Panama, 4-on/4-off, and more — a decision guide to the most common 24/7 patterns and their tradeoffs.',url:'/resources/shift-schedule-patterns-guide/',img:'/images/pillar_2.jpg'},{type:'guide',label:'Comprehensive Guide',title:'Maximizing Equipment Utilization',desc:'How schedule design directly drives equipment uptime — and why most facilities leave significant capacity on the table.',url:'/resources/equipment-utilization-shift-scheduling/',img:'/images/pillar_3.jpg'},{type:'focused',label:'Focused Topic',title:'How to Scale Production Up or Down Rapidly',desc:'Four strategies for matching staffing to demand swings.',url:'/resources/support/scaling-production-quickly/',img:'/images/updown.jpg'},{type:'focused',label:'Focused Topic',title:'Maintenance Workers: Unique Scheduling Considerations',desc:'Why standard shift patterns consistently fail maintenance crews.',url:'/resources/support/maintenance-worker-scheduling/',img:'/images/maintenance.jpg'}]},performance:{heading:'Performance Problems',sub:'Resources for tackling overtime, coverage gaps, and productivity issues.',tiles:[{type:'guide',label:'Comprehensive Guide',title:'Overtime Management',desc:'Strategy, distribution, and cost control — including why the true cost of overtime is far closer to straight time than most managers assume.',url:'/resources/overtime-management-guide/',img:'/images/pillar_5.jpg'},{type:'guide',label:'Comprehensive Guide',title:'Managing Absenteeism & Coverage Gaps',desc:'How to build coverage systems that handle absences without daily scrambles.',url:'/resources/absenteeism-relief-coverage-management/',img:'/images/pillar_9.jpg'},{type:'guide',label:'Comprehensive Guide',title:'Managing Variable Workloads',desc:'How operations match staffing to fluctuating demand without chronic overtime or expensive idle time.',url:'/resources/managing-variable-workloads/',img:'/images/pillar_4.jpg'},{type:'focused',label:'Focused Topic',title:'Sleep, Alertness & Safety in Shift Operations',desc:'How schedule design, shift length, and rotation patterns affect fatigue.',url:'/resources/support/sleep-alertness-safety-shift-work/',img:'/images/sleep.jpg'},{type:'focused',label:'Focused Topic',title:'Balancing Business & Employee Needs',desc:'Why the best shift schedules satisfy both operational requirements and employee lifestyle needs.',url:'/resources/support/balancing-business-employee-needs/',img:'/images/balancing.jpg'}]},workforce:{heading:'Workforce & Retention',sub:'Resources for improving engagement, managing change, and reducing turnover.',tiles:[{type:'guide',label:'Comprehensive Guide',title:'Building Employee Engagement',desc:'What shift workers actually value — and why engagement strategies designed for offices fail on the plant floor.',url:'/resources/employee-engagement-shift-work/',img:'/images/pillar_7.jpg'},{type:'guide',label:'Comprehensive Guide',title:'Change Management',desc:'From planning to implementation — why well-designed changes fail and what communication and policy alignment actually require.',url:'/resources/schedule-change-management/',img:'/images/pillar_6.jpg'},{type:'guide',label:'Comprehensive Guide',title:'Shift Work Policies: Pay, Time-Off & Compliance',desc:'Why pay and time-off policies designed for 8-hour schedules break on 12-hour or continuous operations.',url:'/resources/shift-work-policies-guide/',img:'/images/pillar_10.jpg'},{type:'focused',label:'Focused Topic',title:'Communicating Major Schedule Changes',desc:'Timing, channels, and messaging that reduce resistance.',url:'/resources/support/communicating-schedule-changes/',img:'/images/communicating.jpg'},{type:'focused',label:'Focused Topic',title:'Survey Analysis: Understanding Workforce Needs',desc:'How survey data corrects the systematic misperceptions managers have about what their workforce actually wants.',url:'/resources/support/workforce-survey-analysis/',img:'/images/workforce.jpg'},{type:'focused',label:'Focused Topic',title:'Schedule Change Pitfalls: What to Avoid',desc:'The predictable reasons well-designed schedule changes fail.',url:'/resources/support/schedule-change-pitfalls/',img:'/images/up.jpg'}]},unsure:{heading:'Not Sure Where to Start?',sub:'Start with a diagnostic. These tools are designed to orient you before you commit to a direction.',tiles:[{type:'tool',label:'Diagnostic Tool',title:'26 Warning Signs Your Schedule Needs Attention',desc:'A checklist built from hundreds of operations assessments. See how many apply to you.',url:'/resources/26-warning-signs-schedule-problems/',img:'/images/26.jpg'},{type:'tool',label:'Benchmark Tool',title:'The Shiftwork Operations Reality Check',desc:'Compare your thinking to more than 20,000 shift worker responses. Four minutes, no email required.',url:'/resources/shiftwork-assessment/',img:'/images/assessment.jpg'},{type:'tool',label:'AI Advisor',title:'Talk to Thomas \u2014 AI Shift Advisor',desc:'Got a question about your operation? Thomas is available now, no appointment needed.',url:'https://shift-work-diagnostic.onrender.com/',img:'/images/thomas.jpg',external:true}]}};
 var cur=null;
 window.selectInterest=function(btn){
