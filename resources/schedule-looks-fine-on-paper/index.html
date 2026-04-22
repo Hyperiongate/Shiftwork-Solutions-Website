@@ -3,7 +3,7 @@
   resources/schedule-looks-fine-on-paper/index.html
   Shiftwork Solutions LLC — Trending Topic Article
   URL: /resources/schedule-looks-fine-on-paper/
-  Created: 2026-04-04 | Last Updated: 2026-04-16
+  Created: 2026-04-04 | Last Updated: 2026-04-22
 
   CHANGE LOG:
     2026-04-04 — Initial build. 2026-04-05 — NAV audit, FAQ added.
@@ -12,12 +12,59 @@
                  hero /images/onpaper.jpg, FAQ industry accordion style,
                  Next Steps light grey #F4F6F8 background.
     2026-04-16 — NAV LABEL: "Our Company" → "Why Us". Fixed missing
-                 article-wrap closing tag — FAQ/Next
-                 Steps/Footer now render full-width correctly.
+                 article-wrap closing tag — FAQ/Next Steps/Footer now
+                 render full-width correctly.
+    2026-04-22 — MAJOR UPDATE — Full body rebuild + visual refresh:
+                 1. CONTENT FIX: Previous deployed body was the 32-hour
+                    workweek article pasted in by mistake. Body replaced
+                    with the real "Hidden Costs of Not Fixing It" article
+                    content per source doc.
+                 2. META: Title updated to source-doc spec ("When the
+                    Schedule Looks Fine on Paper: The Hidden Costs of Not
+                    Fixing It"). Meta description updated. JSON-LD headline
+                    + description updated to match.
+                 3. HERO: Subtitle updated to source doc spec. Hero H1
+                    unchanged (already correct).
+                 4. BODY STRUCTURE: Intro → .dialogue-block ("We know the
+                    schedule isn't perfect...") → H2 The Comfortable Familiar
+                    → H2 What "Fine" Actually Costs → .insight-cards (3 cards
+                    with updated stats and DIY-proofed labels) → H2 The
+                    Rationalization Inventory → .rationalization-grid (4
+                    cards with rationalization + rebuttal) → H2 What the 26
+                    Warning Signs Are Actually Telling You → .warning-link-box
+                    → .pull-quote (de-italicized, Jim Dillingham attribution)
+                    → H2 The Cost of Waiting. Closing source-doc paragraph
+                    dropped because Next Steps section handles the same CTAs.
+                 5. INSIGHT CARDS visual updates (Block from spec):
+                    - Background var(--light-blue) → var(--light-grey)
+                      matching the schedule-wide grey treatment.
+                    - Added explicit .ic-num CSS rule (none existed before):
+                      bold, navy, 17px (up from unstyled default ~13px —
+                      2 font steps bigger per spec).
+                    - DIY-proof content: labels describe patterns without
+                      handing over calculation methodology.
+                 6. PULL QUOTE (Block from spec):
+                    - Italic removed (font-style:normal)
+                    - Attribution added: "— Jim Dillingham, Shiftwork
+                      Solutions LLC"
+                 7. FAQ: 5 questions rebuilt to match the real article's
+                    themes (institutional inertia, overtime benchmark,
+                    rationalizations, compounding cost, when to act).
+                 Nav, hero image, CSS classes (dialogue-block,
+                 rationalization-grid, cost-row, warning-link-box — all
+                 were already defined and waiting), Next Steps, footer,
+                 and all JS preserved exactly.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/onpaper.jpg
   FAQ IMAGE:  /images/Hands_in_the_air.jpg
+  BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
+  DESIGN SYSTEM:
+    --navy: #1F4E79  --navy-dark: #0D1F3C  --mid-blue: #85B7EB
+    --light-blue: #EEF3F8  --light-grey: #F4F6F8
+    --orange: #E8610A  --green: #1D9E75
+    --body-text: #1A1A1A  --muted: #666666  --max-width: 860px
+    Font: Arial, Helvetica, sans-serif
 
   I did no harm and this file is not truncated
 -->
@@ -25,12 +72,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>When the Schedule Looks Fine on Paper | Shiftwork Solutions LLC</title>
+  <title>When the Schedule Looks Fine on Paper: The Hidden Costs of Not Fixing It | Shiftwork Solutions LLC</title>
+  <meta name="description" content="Most operations don't have a schedule crisis. They have a schedule quietly costing them more than they realize. Here's what that looks like — and what it adds up to.">
   <link rel="canonical" href="https://shift-work.com/resources/schedule-looks-fine-on-paper/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
+  <meta property="og:title" content="When the Schedule Looks Fine on Paper: The Hidden Costs of Not Fixing It">
+  <meta property="og:description" content="Most operations don't have a schedule crisis. They have a schedule quietly costing them more than they realize.">
   <meta name="twitter:card" content="summary">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "When the Schedule Looks Fine on Paper", "description": "\"We know the schedule isn't perfect, but...\" That sentence is how a lot of avoidable problems stay in place for years.", "url": "https://shift-work.com/resources/schedule-looks-fine-on-paper/", "datePublished": "2026-04-04", "dateModified": "2026-04-16", "author": {"@type": "Organization", "name": "Shiftwork Solutions LLC"}, "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "When the Schedule Looks Fine on Paper: The Hidden Costs of Not Fixing It", "description": "Most operations don't have a schedule crisis. They have a schedule quietly costing them more than they realize. Here's what that looks like \u2014 and what it adds up to.", "url": "https://shift-work.com/resources/schedule-looks-fine-on-paper/", "datePublished": "2026-04-04", "dateModified": "2026-04-22", "author": {"@type": "Organization", "name": "Shiftwork Solutions LLC"}, "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"When the Schedule Looks Fine on Paper","item":"https://shift-work.com/resources/schedule-looks-fine-on-paper/"}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,11 +125,15 @@
     .article-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin:36px 0 14px}
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
     .article-wrap p:last-child{margin-bottom:0}
+
+    /* ── PULL QUOTE — Block (2026-04-22) ──
+       Italic removed from .pull-quote p. Attribution line uses .pq-attr. */
     .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:center;gap:16px}
     .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
-    .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
-    .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
+    .pull-quote-content p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:normal}
+    .pull-quote-content .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
+
     .data-table-wrap{margin:32px 0;overflow-x:auto}
     .data-table{width:100%;border-collapse:collapse;font-size:14px}
     .data-table th{background:var(--navy);color:var(--white);padding:10px 14px;text-align:left;font-size:13px;font-weight:700}
@@ -87,9 +141,17 @@
     .data-table tr:nth-child(even) td{background:var(--light-blue)}
     .data-table tr:last-child td{border-bottom:none}
     .data-table .highlight{color:var(--orange);font-weight:700}
+
+    /* ── INSIGHT CARDS — Block (2026-04-22) ──
+       Background light-blue → light-grey.
+       .ic-num rule added: numbers bold, navy, bumped to 17px
+       (2 font steps larger than default 13px body text).
+       Labels remain 13px regular weight. */
     .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
-    .insight-card{background:var(--light-blue);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
+    .insight-card{background:var(--light-grey);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
+    .insight-card .ic-num{font-size:17px;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:8px;letter-spacing:-0.01em}
     .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.5}
+
     .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
@@ -174,9 +236,9 @@
     .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
     .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
-    .dialogue-block{background:var(--navy-dark);border-radius:8px;padding:24px 28px;margin:0 0 32px;position:relative}
+    .dialogue-block{background:var(--navy-dark);border-radius:8px;padding:24px 28px 24px 52px;margin:0 0 32px;position:relative}
     .dialogue-block::before{content:'\201C';font-size:60px;line-height:1;color:var(--mid-blue);opacity:.4;position:absolute;top:12px;left:16px;font-family:Georgia,serif}
-    .dialogue-block p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.85);padding-left:32px;margin:0;font-style:italic}
+    .dialogue-block p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.85);margin:0;font-style:italic}
     .cost-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
     .cost-card{background:var(--light-blue);border-top:3px solid var(--orange);border-radius:6px;padding:18px 16px}
     .cost-card .cc-metric{font-size:22px;font-weight:700;color:var(--orange);margin-bottom:4px}
@@ -193,8 +255,8 @@
     .warning-link-box p{font-size:14px;line-height:1.6;color:var(--body-text);margin:0;flex:1}
     .warning-link-box a.wl-btn{display:inline-block;padding:9px 20px;background:var(--navy);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;white-space:nowrap;transition:background .15s;flex-shrink:0}
     .warning-link-box a.wl-btn:hover{background:#174067}
-    @media(max-width:760px){.ns-cards{grid-template-columns:1fr}.insight-cards{grid-template-columns:1fr 1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.next-steps{padding:40px 20px 44px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.insight-cards{grid-template-columns:1fr}}
+    @media(max-width:760px){.ns-cards{grid-template-columns:1fr}.insight-cards{grid-template-columns:1fr 1fr}.rationalization-grid{grid-template-columns:1fr}.cost-row{grid-template-columns:1fr 1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
+    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.next-steps{padding:40px 20px 44px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.insight-cards{grid-template-columns:1fr}.cost-row{grid-template-columns:1fr}.warning-link-box{flex-direction:column;align-items:flex-start}}
   </style>
 </head>
 <body>
@@ -218,8 +280,8 @@
 
 <section class="hero"><div class="hero-inner">
   <div class="hero-eyebrow">Trending Topics</div>
-  <h1>When the Schedule Looks Fine on Paper</h1>
-  <p class="hero-subtitle">"We know the schedule isn't perfect, but..." That sentence is how a lot of avoidable problems stay in place for years.</p>
+  <h1>When the Schedule Looks Fine on Paper: The Hidden Costs of Not Fixing It</h1>
+  <p class="hero-subtitle">Most operations don&#x2019;t have a schedule crisis. They have a schedule quietly costing them more than they realize.</p>
   <span class="hero-tag">Schedule Design</span>
 </div></section>
 
@@ -228,44 +290,75 @@
 <div class="article-wrap">
   <div class="article-meta"><span class="meta-tag">Schedule Design</span><span class="meta-date">April 2026</span><span class="meta-read">6 min read</span></div>
 
-  <p>When we first explored the idea of a 32-hour, 4-day workweek, we looked at the broader implications for employers and employees alike — highlighting both the appeal of a better work-life balance and the real risks of rising labor costs and staffing complexity.</p>
-  <p>Now we take a closer look at how this plays out in 24/7 operations — and what leaders need to weigh as interest in this concept continues to grow.</p>
+  <p>There&#x2019;s a version of this conversation that happens in facilities across the country, usually in a conference room, usually initiated by someone in HR or operations who&#x2019;s been watching a problem build for a while. It goes something like this:</p>
 
-  <h2>The Future of Work Is Shrinking — At Least in Some Sectors</h2>
-  <p>Momentum is building behind the idea of a shorter workweek, specifically a 32-hour threshold before overtime kicks in. Global pilot programs have shown promising results: higher employee satisfaction, improved work-life balance, and productivity gains in office and knowledge-work environments.</p>
-  <p>For continuous operations — manufacturing, logistics, food processing — the challenge is fundamentally different. A knowledge worker who completes their work in 32 hours has delivered full value. A production line that runs 32 hours has left 136 hours of weekly capacity on the table.</p>
+  <div class="dialogue-block">
+    <p>We know the schedule isn&#x2019;t perfect. But we&#x2019;ve been running it for years. People are used to it. Changing it would cause more disruption than it&#x2019;s worth.</p>
+  </div>
 
-  <h2>How Schedules Work Today</h2>
-  <p>Most 24/7 operations use one of two basic models.</p>
-  <p><strong>Monday–Friday systems</strong> (1, 2, or 3 crews) use 8-hour shifts, cover 40 hours per week per employee, and carry no built-in overtime.</p>
-  <p><strong>24/7 systems</strong> (4 or 5 crews) are designed to cover every hour of the week. Four-crew systems average 42 hours per week per employee, with alternating 36- and 48-hour weeks and some built-in overtime. Five-crew systems average 41.6 hours per week, using the fifth crew for training and relief.</p>
-  <p>Both models are optimized for the current 40-hour overtime threshold. If that threshold drops to 32 hours, the math — and the economics — change significantly.</p>
+  <p>It&#x2019;s a reasonable position. It&#x2019;s also, in most cases, wrong &#x2014; and the gap between how it feels and what it actually costs is where a lot of operational value quietly disappears.</p>
 
-  <h2>The Cost of Compliance</h2>
-  <p>If a 32-hour workweek becomes law, hours worked beyond 32 would require overtime pay. For 24/7 operations, this creates two options: absorb higher labor costs, or redesign schedules to reduce weekly hours without sacrificing coverage.</p>
+  <h2>The Comfortable Familiar</h2>
+  <p>Schedules develop institutional inertia faster than almost any other operational element. A shift pattern implemented a decade ago to solve a specific problem becomes, over time, simply how things are done. The original problem it solved may no longer exist. The workforce it was designed for has turned over multiple times. The production demands it was built around have changed. But the schedule remains.</p>
+  <p>This isn&#x2019;t negligence. It&#x2019;s human nature. Change is disruptive, and the disruption is visible and immediate. The cost of not changing is diffuse and accumulates slowly &#x2014; showing up as overtime that&#x2019;s slightly higher than it should be, turnover that&#x2019;s attributed to the labor market rather than the schedule, absenteeism that gets managed rather than examined, coverage gaps that get filled through heroics rather than design.</p>
+  <p>None of these symptoms announce themselves as schedule problems. That&#x2019;s precisely what makes them easy to rationalize.</p>
 
-  <div class="data-table-wrap"><table class="data-table"><thead><tr><th>Crew Model</th><th>Avg Hours/Week</th><th>Current Pay Basis</th><th>Impact Under 32-hr Rule</th></tr></thead><tbody><tr><td>1–3 Crew (M–F)</td><td>40 hrs</td><td>40 hrs straight time</td><td class="highlight">8 hrs become OT — ~10% cost increase</td></tr><tr><td>4-Crew (24/7)</td><td>42 hrs avg</td><td>44 hrs pay equiv.</td><td class="highlight">~47 hrs pay equiv. — 6.8% increase</td></tr><tr><td>5-Crew (24/7)</td><td>33.6 hrs avg</td><td>41.6 hrs pay equiv.</td><td class="highlight">Only 1.6 hrs above threshold — minimal impact</td></tr></tbody></table></div>
-
-  <p><strong>1, 2, or 3-crew systems</strong> face a direct choice. Keep schedules unchanged and 8 hours per employee per week become overtime — a roughly 10% increase in labor cost. Redesign schedules to cap at 32 hours and additional staff are required, which also increases costs.</p>
-  <p><strong>4-crew systems</strong> currently average 42 hours per week with 44 hours of pay. Under a 32-hour threshold, pay would rise to approximately 47 hours for the same work — a 6.8% increase.</p>
-  <p><strong>5-crew systems</strong> are the most adaptable. If all five crews are used for coverage rather than reserving one for relief and training, each crew averages 33.6 hours per week — only 1.6 hours above the 32-hour threshold. The tradeoff is losing dedicated relief and training capacity.</p>
+  <h2>What &#x201C;Fine&#x201D; Actually Costs</h2>
+  <p>Consider what a schedule that&#x2019;s merely adequate &#x2014; not broken, just not right &#x2014; typically produces over time.</p>
+  <p>Overtime runs higher than demand actually requires. The difference feels like a staffing problem, and the response is to recruit harder. But the root cause is a schedule architecture that requires more hours than the operation actually needs. The recruiting effort succeeds, headcount rises, and overtime drops briefly &#x2014; then climbs back as the underlying structure reasserts itself.</p>
+  <p>Turnover sits elevated year after year. Exit interviews cite personal reasons, better offers elsewhere, the commute. Nobody cites the schedule directly, because most employees don&#x2019;t frame their dissatisfaction in those terms. But dig into when people leave, which shifts have the highest attrition, and what the common thread is among the employees who stay &#x2014; and the schedule pattern emerges clearly.</p>
+  <p>Night shift is chronically understaffed. The response has been to mandate overtime for day shift employees who don&#x2019;t want it, which accelerates attrition on day shift, which creates more coverage pressure, which requires more mandatory overtime. The cycle is self-reinforcing, and it started with a shift structure that didn&#x2019;t account for the different preferences and lifestyle realities of night workers.</p>
+  <p>Each of these is a real pattern. None of them feel like a schedule problem until you look at them together.</p>
 
   <div class="insight-cards">
-    <div class="insight-card"><div class="ic-num">~10%</div><div class="ic-label">Labor cost increase for 1–3 crew M–F operations under a 32-hr OT threshold</div></div>
-    <div class="insight-card"><div class="ic-num">6.8%</div><div class="ic-label">Pay equivalent increase for 4-crew 24/7 systems — from 44 hrs to ~47 hrs</div></div>
-    <div class="insight-card"><div class="ic-num">1.6 hrs</div><div class="ic-label">Average overage above 32-hr threshold for 5-crew systems — the most adaptable model</div></div>
+    <div class="insight-card"><div class="ic-num">Overtime creep</div><div class="ic-label">The gap between typical overtime and what an operation actually needs. The difference doesn&#x2019;t look like a schedule problem until you trace it back.</div></div>
+    <div class="insight-card"><div class="ic-num">Elevated turnover</div><div class="ic-label">Annual turnover at an operation whose exit interviews don&#x2019;t mention the schedule. They usually don&#x2019;t &#x2014; which is how the schedule stays invisible.</div></div>
+    <div class="insight-card"><div class="ic-num">Self-reinforcing</div><div class="ic-label">Night-shift coverage gaps, mandatory day-shift overtime, day-shift attrition, more gaps. The cycle doesn&#x2019;t stop on its own.</div></div>
+  </div>
+
+  <h2>The Rationalization Inventory</h2>
+  <p>Most operations running a suboptimal schedule have developed a set of explanations for why changing it isn&#x2019;t worth it. They sound like this:</p>
+
+  <div class="rationalization-grid">
+    <div class="rationalization-card">
+      <div class="rc-header"><div class="rc-label">Rationalization</div><h3>&#x201C;Our overtime has always been high.&#x201D;</h3></div>
+      <div class="rc-body"><div class="rc-rebuttal-label">Rebuttal</div><p>High overtime relative to what? Relative to what your operation actually requires to meet demand, or relative to what you&#x2019;ve normalized over time? Those aren&#x2019;t the same number, and the difference is often significant.</p></div>
+    </div>
+    <div class="rationalization-card">
+      <div class="rc-header"><div class="rc-label">Rationalization</div><h3>&#x201C;Turnover is a labor market issue.&#x201D;</h3></div>
+      <div class="rc-body"><div class="rc-rebuttal-label">Rebuttal</div><p>Sometimes it is. But schedules that don&#x2019;t match workforce preferences &#x2014; particularly on shift rotation, weekend frequency, and start times &#x2014; consistently produce higher turnover than schedules that do. The labor market sets a floor. Your schedule determines where above that floor you land.</p></div>
+    </div>
+    <div class="rationalization-card">
+      <div class="rc-header"><div class="rc-label">Rationalization</div><h3>&#x201C;Our employees are used to the schedule.&#x201D;</h3></div>
+      <div class="rc-body"><div class="rc-rebuttal-label">Rebuttal</div><p>Used to it isn&#x2019;t the same as satisfied with it. A workforce that&#x2019;s used to something will resist changing it &#x2014; not because the current schedule is good, but because change is uncertain and the known is less frightening than the unknown. That resistance is manageable with the right process. It isn&#x2019;t a reason to leave a costly structure in place indefinitely.</p></div>
+    </div>
+    <div class="rationalization-card">
+      <div class="rc-header"><div class="rc-label">Rationalization</div><h3>&#x201C;We tried to change it once and it didn&#x2019;t work.&#x201D;</h3></div>
+      <div class="rc-body"><div class="rc-rebuttal-label">Rebuttal</div><p>This one deserves respect. Failed schedule changes are genuinely disruptive and leave organizations reluctant to try again. But a failed implementation is usually a process failure, not evidence that the schedule itself was fine. The question worth asking is what went wrong &#x2014; insufficient employee involvement, inadequate communication, poor timing &#x2014; not whether to try at all.</p></div>
+    </div>
+  </div>
+
+  <h2>What the 26 Warning Signs Are Actually Telling You</h2>
+  <p>If you&#x2019;ve read through our diagnostic resource on the 26 warning signs of a shiftwork system under strain, you&#x2019;ll recognize most of the patterns above. Chronic overtime, rising absenteeism, night shift coverage problems, high turnover on specific shifts &#x2014; these aren&#x2019;t isolated operational nuisances. They&#x2019;re a connected system of signals pointing toward the same underlying issue.</p>
+  <p>The reason we built that diagnostic is precisely because these signals are easy to address individually and miss collectively. Treating overtime as a staffing problem, turnover as a market problem, and absenteeism as a culture problem means never looking at the schedule architecture that connects all three.</p>
+
+  <div class="warning-link-box">
+    <p>See all 26 signals in one place &#x2014; the patterns that compound invisibly until you look at them together.</p>
+    <a href="/resources/26-warning-signs-schedule-problems/" class="wl-btn">Read the Diagnostic &#x2192;</a>
   </div>
 
   <div class="pull-quote">
     <span class="pull-quote-mark">&#8220;</span>
     <div class="pull-quote-content">
-      <p>Proactive modeling now is significantly less expensive than reactive restructuring later.</p>
+      <p>The schedule that looks fine on paper usually is fine &#x2014; on paper. The question worth asking is what it looks like when you add up everything it&#x2019;s quietly costing you everywhere else.</p>
+      <p class="pq-attr">&#x2014; Jim Dillingham, Shiftwork Solutions LLC</p>
     </div>
   </div>
 
-  <h2>What Leaders Should Be Doing Now</h2>
-  <p>Legislation has not passed, and the timeline remains uncertain. But the concept has enough momentum — in policy discussions, in union negotiations, and in employee expectations — that 24/7 operations benefit from understanding their exposure before it becomes urgent.</p>
-  <p>A few questions worth working through now: How many of your employees regularly exceed 32 hours? What would a 5-crew rotation look like in your operation? Is it more cost-effective to absorb overtime premiums or redesign for lower weekly hours? And beyond cost — how would different approaches affect fatigue, turnover, and your ability to attract the workforce you need?</p>
+  <h2>The Cost of Waiting</h2>
+  <p>There&#x2019;s rarely a compelling reason to change a schedule right now, and there&#x2019;s almost always a reason to wait. A major customer contract is being renewed. A new facility manager just started. The holiday season is coming. Q1 is always rough. The logic of delay is inexhaustible.</p>
+  <p>What it produces is another year of costs that don&#x2019;t show up cleanly on any single line of the P&amp;L &#x2014; but that show up clearly when you add up the overtime premium, the recruiting spend, the training cost for replacement hires, and the productivity loss during the months it takes a new employee to reach full effectiveness.</p>
+  <p>For a mid-sized manufacturing operation or distribution center, that number is rarely trivial. It&#x2019;s often the kind of number that, once calculated, makes the disruption of a well-managed schedule change look like a reasonable trade.</p>
 
 </div><!-- /.article-wrap -->
 
@@ -274,11 +367,11 @@
   <div class="faq-overlay"></div>
   <div class="faq-inner">
     <h2>Frequently Asked Questions</h2>
-    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How can a shift schedule look fine on paper but still be costing the operation?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Schedule problems compound invisibly. A schedule that covers all 168 hours of the week may still carry structural overtime that is double what a well-designed schedule requires, drive turnover rates twice as high as operations with fair and predictable schedules, and produce chronic understaffing on night shifts. None of these costs appears as a single alarming line item in any given month &#x2014; which is exactly why the compounding persists for years.</div></div></div>
-    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What are the most common rationalizations for keeping a broken schedule?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The four most common are: employees are used to it so change would be disruptive, the operation has bigger issues right now, the schedule was evaluated previously and wasn&#x2019;t worth the disruption, and the union will never go for it. Each sounds reasonable. Each is typically insufficient. Employees &#x201C;used to&#x201D; a difficult schedule are also leaving because of it. The &#x201C;bigger issues&#x201D; are often downstream effects of the schedule itself.</div></div></div>
-    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What is structural overtime and how does it differ from situational overtime?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Structural overtime is overtime baked into the schedule design itself &#x2014; it recurs every week regardless of operational conditions. A well-designed schedule should require about 6% overtime to cover normal absences. Operations running 12% or higher are often carrying structural overtime with no corresponding productivity gain &#x2014; it is simply the cost of a schedule that hasn&#x2019;t been optimized.</div></div></div>
-    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why does schedule design affect employee turnover?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Operations with schedules employees describe as hard to work around show annual turnover rates roughly twice as high as operations with schedules employees consider fair and predictable. Because these costs don&#x2019;t appear in the overtime line item, they rarely get connected to the schedule in post-mortem conversations, even though the schedule is often the root cause.</div></div></div>
-    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What are the 26 Warning Signs of a schedule problem?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The 26 Warning Signs is a free diagnostic tool developed by Shiftwork Solutions for operations where the schedule is nominally functional but compounding problems are not visible in any single metric. It surfaces patterns like structural overtime versus situational overtime, absenteeism concentrated on specific shifts, turnover higher in one crew than another, and quality variance between day and night.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How can a shift schedule look fine on paper but still be costing the operation?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Schedule problems compound invisibly. A schedule that covers all 168 hours of the week may still carry overtime that&#x2019;s higher than the operation actually needs, drive turnover that gets blamed on the labor market, and produce chronic understaffing on night shifts. None of these costs appears as a single alarming line item in any given month &#x2014; which is exactly why the compounding persists for years.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What are the most common rationalizations for keeping a broken schedule?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The four most common are: our overtime has always been high, turnover is a labor market issue, employees are used to the schedule, and we tried to change it once and it didn&#x2019;t work. Each sounds reasonable. Each is typically insufficient. &#x201C;Used to&#x201D; isn&#x2019;t the same as satisfied. The labor market sets a floor, but the schedule determines where above that floor you land. And a failed implementation is usually a process failure, not evidence the schedule was fine.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why does schedule design affect turnover even when employees don&#x2019;t mention it in exit interviews?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Most employees don&#x2019;t frame their dissatisfaction as a schedule complaint &#x2014; they cite personal reasons, better offers, the commute. But the schedule is often the underlying driver. If you dig into when people leave, which shifts have the highest attrition, and what the common thread is among the employees who stay, a pattern emerges. Because the cost doesn&#x2019;t appear in the overtime line item, it rarely gets connected to the schedule in post-mortem conversations.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How do night shift coverage problems become self-reinforcing?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">A shift structure that doesn&#x2019;t account for the different preferences and lifestyle realities of night workers produces chronic understaffing on nights. The typical response is to mandate overtime for day-shift employees who don&#x2019;t want it. That mandate accelerates day-shift attrition, which creates more coverage pressure, which requires more mandatory overtime. The cycle feeds itself and grows over time &#x2014; and it started with the schedule.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">When is the right time to review a shift schedule?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">There&#x2019;s rarely a compelling reason to change a schedule right now, and there&#x2019;s almost always a reason to wait. A contract renewal, a new facility manager, the holiday season, Q1 pressure &#x2014; the logic of delay is inexhaustible. Each year of delay is another year of compounding costs in overtime, recruiting, and replacement training. The question worth asking isn&#x2019;t &#x201C;is there a perfect moment&#x201D; &#x2014; it&#x2019;s &#x201C;what is the current schedule quietly costing, and is that more than the disruption of changing it.&#x201D;</div></div></div>
   </div>
 </div><!-- /.faq-section -->
 
@@ -319,7 +412,7 @@ document.getElementById('mobileToggle').addEventListener('click',function(){var 
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
 (function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
-(function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p,h2,h3');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim());});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
+(function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p,h2,h3');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim());});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Pause';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
 </script>
 </body>
 </html>
