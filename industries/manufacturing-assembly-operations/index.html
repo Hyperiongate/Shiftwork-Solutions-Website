@@ -20,20 +20,22 @@
                  FOOTER: replaced Thomas column with Contact Us column.
     2026-04-22 — LISTEN BUTTON: removed entirely. Added Thomas floating widget
                  (fixed right side, top:40%, hidden mobile).
-    2026-04-22 — FOOTER REBUILD: Removed Next Steps and Resources section entirely
-                 (all HTML + CSS). Footer rebuilt as 3 columns: (1) Reality Check,
-                 (2) 26 Warning Signs, (3) Newsletter. Removed FREE CONSULTATION
-                 and CONTACT US footer columns and all related CSS. Added gray
-                 bridge stripe between FAQ and footer with "Ready to take the
-                 next step?" text. Nav handles booking/contact. Thomas float
-                 handles AI chat. Footer handles content/diagnostic CTAs only.
+    2026-04-22 — FOOTER REBUILD: Removed Next Steps and Resources section entirely.
+                 Footer rebuilt: (1) Reality Check, (2) 26 Warning Signs,
+                 (3) Newsletter. Bridge stripe added between FAQ and footer.
+    2026-04-22 — CLIENT STRIP REBUILD: Replaced simple navy marquee with
+                 single-strip styled scroll. Multi-font creative treatment
+                 (8 Google Fonts, 16 cn styles). Manufacturing-specific
+                 client names only. White background with gradient fades.
+                 JS builds track dynamically. Seamless left-scroll loop.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/manufacturing.jpg
   FAQ IMAGE:  /images/Hands_in_the_air.jpg
   THOMAS WIDGET: /images/thomas.jpg -> https://shift-work-diagnostic.onrender.com/
 
-  FOOTER COLUMNS (current):
+  CLIENT STRIP: Single strip, manufacturing-specific names, multi-font styled.
+  FOOTER COLUMNS:
     Col 1: Reality Check  -> /resources/shiftwork-assessment/
     Col 2: 26 Warning Signs -> /resources/26-warning-signs-schedule-problems/
     Col 3: Newsletter subscribe form
@@ -58,6 +60,12 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Manufacturing Shift Scheduling | Shiftwork Solutions LLC">
   <meta name="twitter:description" content="Shift scheduling for manufacturing and assembly operations: capacity expansion, equipment utilization, workforce planning, and union change management.">
+
+  <!-- Google Fonts for multi-font client strip -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Oswald:wght@600&family=Libre+Baskerville:wght@700&family=Raleway:wght@800&family=Merriweather:wght@700&family=Montserrat:wght@800&family=Lora:wght@700&family=Bebas+Neue&display=swap" rel="stylesheet">
+
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--max-width:860px;--page-pad:24px}
@@ -106,17 +114,76 @@
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
     .article-wrap p:last-child{margin-bottom:0}
 
-    /* ── CLIENT MARQUEE ── */
-    .client-strip{background:var(--navy);border-radius:8px;margin:32px 0;padding:0;overflow:hidden;position:relative}
-    .client-strip-intro{font-size:12px;font-weight:600;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:.08em;padding:16px 24px 0;text-align:center}
-    .client-strip-scroll{padding:14px 0 16px;overflow:hidden;position:relative}
-    .client-strip-fade-l{position:absolute;top:0;left:0;bottom:0;width:60px;background:linear-gradient(to right,var(--navy),transparent);z-index:1;pointer-events:none}
-    .client-strip-fade-r{position:absolute;top:0;right:0;bottom:0;width:60px;background:linear-gradient(to left,var(--navy),transparent);z-index:1;pointer-events:none}
-    .client-marquee-track{display:flex;width:max-content;animation:clientScroll 22s linear infinite}
-    .client-marquee-track:hover{animation-play-state:paused}
-    @keyframes clientScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-    .client-tag{display:inline-block;padding:8px 28px;font-size:14px;font-weight:700;color:rgba(255,255,255,0.85);white-space:nowrap;letter-spacing:.02em}
-    .client-tag-sep{display:inline-block;color:rgba(232,97,10,0.7);font-size:18px;line-height:1;padding:0 2px;vertical-align:middle}
+    /* ── CLIENT STRIP — STYLED SINGLE-STRIP SCROLL ──
+       White background with gradient fades. Multi-font creative
+       treatment: 16 cn style classes, each a different typeface
+       and dark color combination. JS builds the track dynamically.
+       Names are manufacturing-industry-specific.
+       Single strip scrolling left, seamlessly looped. */
+    .client-strip-section{
+      margin:32px 0;
+      background:linear-gradient(to right,#d8dce0 0%,#f4f4f4 20%,#ffffff 50%,#f4f4f4 80%,#d8dce0 100%);
+      border-radius:8px;
+      overflow:hidden;
+      padding:0;
+    }
+    .client-strip-intro{
+      font-size:11px;font-weight:700;text-transform:uppercase;
+      letter-spacing:.1em;color:var(--navy);
+      padding:16px 24px 0;text-align:center;
+    }
+    .client-strip-row{
+      height:70px;
+      overflow:hidden;
+      position:relative;
+      display:flex;
+      align-items:center;
+      margin-top:8px;
+    }
+    /* Gradient fades to white on each side */
+    .client-strip-row::before,
+    .client-strip-row::after{
+      content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;
+    }
+    .client-strip-row::before{left:0;background:linear-gradient(to right,#fff,transparent)}
+    .client-strip-row::after{right:0;background:linear-gradient(to left,#fff,transparent)}
+    .client-strip-track{
+      display:flex;
+      align-items:center;
+      white-space:nowrap;
+      position:absolute;
+      left:0;top:0;bottom:0;
+    }
+    @keyframes mfg-scroll-l{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    #mfg-track{animation:mfg-scroll-l 40s linear infinite}
+    #mfg-track:hover{animation-play-state:paused}
+
+    /* Each name: its own font + dark color combination */
+    .cn{
+      display:inline-flex;align-items:center;
+      padding:0 32px;height:70px;
+      white-space:nowrap;
+      font-size:22px;
+      border-right:2px solid #f0f0f0;
+      flex-shrink:0;
+    }
+    .cn:last-child{border-right:none}
+    .cn-1 {font-family:'Playfair Display',serif;    font-weight:700;color:#1a3a5c}
+    .cn-2 {font-family:'Oswald',sans-serif;         font-weight:600;color:#7b2d00;letter-spacing:.06em}
+    .cn-3 {font-family:'Libre Baskerville',serif;   font-weight:700;color:#1d4e2a}
+    .cn-4 {font-family:'Raleway',sans-serif;        font-weight:800;color:#3d1a6e;letter-spacing:.04em}
+    .cn-5 {font-family:'Merriweather',serif;        font-weight:700;color:#4a1942}
+    .cn-6 {font-family:'Montserrat',sans-serif;     font-weight:800;color:#003d5b;letter-spacing:.02em}
+    .cn-7 {font-family:'Lora',serif;                font-weight:700;color:#5c2d00}
+    .cn-8 {font-family:'Bebas Neue',sans-serif;     font-weight:400;color:#1a1a2e;letter-spacing:.08em;font-size:26px}
+    .cn-9 {font-family:'Oswald',sans-serif;         font-weight:600;color:#1f3d1f;letter-spacing:.05em}
+    .cn-10{font-family:'Playfair Display',serif;    font-weight:700;color:#5c1a2d}
+    .cn-11{font-family:'Raleway',sans-serif;        font-weight:800;color:#2d3a00}
+    .cn-12{font-family:'Bebas Neue',sans-serif;     font-weight:400;color:#00354d;letter-spacing:.07em;font-size:26px}
+    .cn-13{font-family:'Merriweather',serif;        font-weight:700;color:#3d2200}
+    .cn-14{font-family:'Montserrat',sans-serif;     font-weight:800;color:#1a0a3d;letter-spacing:.03em}
+    .cn-15{font-family:'Lora',serif;                font-weight:700;color:#003333}
+    .cn-16{font-family:'Libre Baskerville',serif;   font-weight:700;color:#4a0d00}
 
     /* ── PULL QUOTE ── */
     .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:center;gap:16px}
@@ -158,11 +225,7 @@
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
 
-    /* ── BRIDGE STRIPE ──
-       Light gray band between FAQ and footer.
-       Provides visual breathing room and a soft directional
-       prompt pointing visitors toward the footer CTAs below.
-       No button — footer handles the actions. */
+    /* ── BRIDGE STRIPE ── */
     .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
     .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
     .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
@@ -203,11 +266,7 @@
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
 
-    /* ── THOMAS FLOATING WIDGET ──
-       Fixed right-side card, anchored ~40% from top of viewport.
-       Visible on desktop only (hidden below 768px).
-       z-index 950: above content, below nav (1000).
-       No JS required — plain anchor tag. */
+    /* ── THOMAS FLOATING WIDGET ── */
     .thomas-float{position:fixed;right:0;top:40%;transform:translateY(-50%);z-index:950;width:130px;background:var(--navy-dark);border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-4px 4px 20px rgba(0,0,0,0.35);border-left:3px solid var(--orange);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:140px;box-shadow:-6px 6px 28px rgba(0,0,0,0.45)}
     .thomas-float-img{width:100%;height:110px;object-fit:cover;object-position:center top;display:block}
@@ -290,31 +349,11 @@
 
   <p>Shiftwork Solutions LLC has spent more than three decades working with manufacturing and assembly operations — from automotive plants and consumer products facilities to specialty manufacturers — helping them unlock capacity, reduce labor costs, and build workforce systems that hold up over time.</p>
 
-  <div class="client-strip">
-    <div class="client-strip-intro">Manufacturing and Assembly companies that trust Shiftwork Solutions include:</div>
-    <div class="client-strip-scroll">
-      <div class="client-strip-fade-l"></div>
-      <div class="client-strip-fade-r"></div>
-      <div class="client-marquee-track" id="clientTrack">
-        <span class="client-tag">BMW</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Hyundai</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">GM</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Magna</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Goodyear</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Georgia Pacific</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Marvin Windows</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">SC Johnson</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Toro</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">BMW</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Hyundai</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">GM</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Magna</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Goodyear</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Georgia Pacific</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Marvin Windows</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">SC Johnson</span><span class="client-tag-sep">&middot;</span>
-        <span class="client-tag">Toro</span><span class="client-tag-sep">&middot;</span>
-      </div>
+  <!-- ── CLIENT STRIP — single strip, manufacturing-specific names, multi-font ── -->
+  <div class="client-strip-section">
+    <div class="client-strip-intro">Manufacturing &amp; Assembly companies that trust Shiftwork Solutions include:</div>
+    <div class="client-strip-row">
+      <div class="client-strip-track" id="mfg-track"></div>
     </div>
   </div>
 
@@ -408,9 +447,7 @@
   </div>
 </div>
 
-<!-- ── BRIDGE STRIPE ──
-     Gray breathing room between FAQ and footer.
-     Soft directional prompt toward footer CTAs — no button needed. -->
+<!-- ── BRIDGE STRIPE ── -->
 <div class="bridge-stripe">
   <div class="bridge-stripe-text">Ready to take the next step?</div>
   <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
@@ -419,7 +456,6 @@
 <!-- ── FOOTER: Reality Check | 26 Warning Signs | Newsletter ── -->
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
-
     <div class="footer-content-row">
       <div class="footer-col footer-col-1">
         <div class="engage-label">FREE ASSESSMENT</div>
@@ -437,7 +473,6 @@
         <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
       </div>
     </div>
-
     <div class="footer-cta-row">
       <div class="footer-cta-1">
         <a href="https://www.shift-work.com/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Reality Check &#x2192;</a>
@@ -453,7 +488,6 @@
         <div class="engage-nl-msg" id="engageNLMsg"></div>
       </div>
     </div>
-
   </div></div>
   <div class="footer-bottom"><div class="footer-bottom-inner">
     <div class="footer-bottom-left">
@@ -465,10 +499,7 @@
   </div></div>
 </footer>
 
-<!-- ── THOMAS FLOATING WIDGET ──
-     Fixed to right edge, ~40% from top of viewport.
-     Hidden on mobile (max-width:768px).
-     Opens Thomas diagnostic app in new tab. -->
+<!-- ── THOMAS FLOATING WIDGET ── -->
 <a class="thomas-float"
    href="https://shift-work-diagnostic.onrender.com/"
    target="_blank"
@@ -481,12 +512,34 @@
     <span class="thomas-float-cta">Chat Now &rarr;</span>
   </div>
 </a>
-<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
+/* ── MANUFACTURING CLIENT STRIP ──
+   Industry-specific names. Doubled for seamless loop.
+   Each name gets a cn style (1-16) cycling through
+   8 Google Fonts in 16 dark color combinations. */
+(function(){
+  var names=[
+    'BMW','GM','Hyundai','Magna','Goodyear',
+    'Georgia Pacific','Marvin Windows','SC Johnson',
+    'Toro','Dana Corporation','Polymer Group',
+    'Crane Plastics','Snyder\'s of Hanover','Weyerhaeuser',
+    'Corning','Andersen Windows','Kimberly-Clark',
+    'Whirlpool','Toyota','Siemens'
+  ];
+  var track=document.getElementById('mfg-track');
+  if(!track)return;
+  var all=names.concat(names); /* double for seamless loop */
+  all.forEach(function(name,i){
+    var span=document.createElement('span');
+    span.className='cn cn-'+((i%16)+1);
+    span.textContent=name;
+    track.appendChild(span);
+  });
+})();
 </script>
 </body>
 </html>
