@@ -1,46 +1,43 @@
 <!DOCTYPE html>
 <!--
-  resources/32-hour-workweek-manufacturing/index.html
+  resources/reshoring-manufacturing-workforce/index.html
   Shiftwork Solutions LLC — Trending Topic Article
-  URL: /resources/32-hour-workweek-manufacturing/
-  Created: 2026-04-04 | Last Updated: 2026-04-16
+  URL: /resources/reshoring-manufacturing-workforce/
+  Created: 2026-04-04 | Last Updated: 2026-04-22
 
   CHANGE LOG:
     2026-04-04 — Initial build from source Word doc.
     2026-04-05 — NAV + BUTTON + SEO AUDIT. FAQ section added.
-    2026-04-15 — Nav: "Why Us" -> "Our Company". Next Steps: dark navy animated
-                 cards. Removed floating CTA section and engage-band. Footer:
-                 standard dark-navy 3-col prefooter.
-    2026-04-15 — (v2) THREE NAV + HERO + FAQ FIXES:
-                 1. Logo src corrected: clear%20bkgr%20logo%202.png →
-                    clear_bkgr_logo_2.png (underscores match actual repo filename)
-                 2. "SHIFTWORK SOLUTIONS" bold navy text added to right of logo;
-                    both logo image and text link to homepage. .nav-logo-text class
-                    added; font-size 20px, font-weight 700, color #1F4E79, Arial.
-                    .nav-logo gap set to 12px to space image from text.
-                 3. Nav link font-size increased from 13.5px to 20px (matching
-                    homepage standard). Mobile nav font-size set to 18px.
-                 4. Hero image changed from second.png to /images/32.jpg with same
-                    gradient overlay treatment as industry pages.
-                 5. FAQ section rebuilt to match industry page style: full-bleed
-                    Hands_in_the_air.jpg background, dark vignette overlay, navy
-                    accordion toggle buttons, #EEAE26 heading, white answer panels,
-                    accordion open/close JS behavior. Old static FAQ markup removed.
-                 6. Next Steps section: background changed from navy to light grey
-                    (#F4F6F8) to visually separate it from the dark navy footer.
-                    Card borders changed from white/transparent to solid --border-med.
-                    Text colors updated: eyebrow/sub/phone to --muted, h2 to --navy.
-                    Card label/link colors: blue card uses --navy (not --mid-blue).
+    2026-04-15 — Nav/Hero/FAQ/Next Steps standardization.
     2026-04-16 — NAV LABEL: "Our Company" → "Why Us".
+    2026-04-22 — THREE VISUAL CHANGE BLOCKS:
+                 A. CALLOUT BOX (.callout-box — "The Mismatch in Practice"):
+                    - Background: wispy grey gradient (#E4E7EB → white → #E4E7EB)
+                      replaced with solid --light-grey (#F4F6F8) matching
+                      partner-card-top grey on homepage.
+                    - Added orange (#E8610A) 4px left border for emphasis.
+                    - Text alignment, padding, copy unchanged.
+                 B. INSIGHT CARDS (.insight-cards / .insight-card trio):
+                    - Removed card look: no background, no top border,
+                      no padding frame, no border-radius.
+                    - Numbers (.ic-num) magnified 28px → 50px (bold, navy).
+                    - "Year 1" → "1 Year" (middle card label number).
+                    - Grid layout preserved (3 columns desktop).
+                    - Labels (.ic-label) preserved unchanged.
+                 C. PULL QUOTE (the "Getting the schedule right..." quote):
+                    - Removed italic styling from quote paragraph.
+                    - Added attribution: "— Ethan Franklin, Shiftwork Solutions LLC"
+                 No nav, hero, timeline, FAQ, Next Steps, footer, or JS changes.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
-  HERO IMAGE: /images/32.jpg
+  HERO IMAGE: /images/reshoring.jpg
   FAQ IMAGE:  /images/Hands_in_the_air.jpg
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
   DESIGN SYSTEM:
     --navy: #1F4E79  --navy-dark: #0D1F3C  --mid-blue: #85B7EB
-    --light-blue: #EEF3F8  --orange: #E8610A  --green: #1D9E75
-    --body-text: #1A1A1A  --max-width: 860px
+    --light-blue: #EEF3F8  --light-grey: #F4F6F8
+    --orange: #E8610A  --green: #1D9E75
+    --body-text: #1A1A1A  --muted: #666666  --max-width: 860px
     Font: Arial, Helvetica, sans-serif
 
   I did no harm and this file is not truncated
@@ -54,7 +51,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
   <meta name="twitter:card" content="summary">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Reshoring Manufacturing? The Workforce Problem Most Companies Don't See Coming", "description": "Bringing manufacturing back to the U.S. is the strategic move. Staffing it sustainably is where the real work begins.", "url": "https://shift-work.com/resources/reshoring-manufacturing-workforce/", "datePublished": "2026-04-04", "dateModified": "2026-04-16", "author": {"@type": "Organization", "name": "Shiftwork Solutions LLC"}, "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Reshoring Manufacturing? The Workforce Problem Most Companies Don't See Coming", "description": "Bringing manufacturing back to the U.S. is the strategic move. Staffing it sustainably is where the real work begins.", "url": "https://shift-work.com/resources/reshoring-manufacturing-workforce/", "datePublished": "2026-04-04", "dateModified": "2026-04-22", "author": {"@type": "Organization", "name": "Shiftwork Solutions LLC"}, "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Reshoring Manufacturing","item":"https://shift-work.com/resources/reshoring-manufacturing-workforce/"}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -99,11 +96,15 @@
     .article-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin:36px 0 14px}
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
     .article-wrap p:last-child{margin-bottom:0}
+
+    /* ── PULL QUOTE — Block C (2026-04-22) ──
+       Removed italic on .pull-quote p, added .pq-attr attribution styling. */
     .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:center;gap:16px}
     .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
-    .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
-    .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
+    .pull-quote-content p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:normal}
+    .pull-quote-content .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
+
     .data-table-wrap{margin:32px 0;overflow-x:auto}
     .data-table{width:100%;border-collapse:collapse;font-size:14px}
     .data-table th{background:var(--navy);color:var(--white);padding:10px 14px;text-align:left;font-size:13px;font-weight:700}
@@ -111,10 +112,15 @@
     .data-table tr:nth-child(even) td{background:var(--light-blue)}
     .data-table tr:last-child td{border-bottom:none}
     .data-table .highlight{color:var(--orange);font-weight:700}
-    .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
-    .insight-card{background:var(--light-blue);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
-    .insight-card .ic-num{font-size:28px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:6px}
+
+    /* ── INSIGHT CARDS — Block B (2026-04-22) ──
+       Card look removed (no bg, no border, no radius, no padding frame).
+       Numbers magnified from 28px to 50px. Layout grid preserved. */
+    .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:36px 0}
+    .insight-card{background:transparent;border:none;border-radius:0;padding:0}
+    .insight-card .ic-num{font-size:50px;font-weight:800;color:var(--navy);line-height:1.05;margin-bottom:10px;letter-spacing:-0.02em}
     .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.5}
+
     .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
@@ -199,8 +205,13 @@
     .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
     .listen-btn:hover{background:#c4510a}
     .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
-    .callout-box{background:linear-gradient(to right,#E4E7EB,var(--white) 40%,var(--white) 60%,#E4E7EB);border-radius:6px;padding:22px 28px;margin:32px 0;text-align:center}
+
+    /* ── CALLOUT BOX — Block A (2026-04-22) ──
+       Wispy grey gradient replaced with solid --light-grey.
+       Orange 4px left border added for emphasis. */
+    .callout-box{background:var(--light-grey);border-left:4px solid var(--orange);border-radius:0 6px 6px 0;padding:22px 28px;margin:32px 0;text-align:center}
     .callout-box p{font-size:16px;line-height:1.6;color:var(--body-text);font-weight:400;margin:0;font-style:normal}
+
     .timeline{margin:32px 0;position:relative;padding-left:32px}
     .timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:2px;background:var(--border-med)}
     .timeline-item{position:relative;margin-bottom:28px}
@@ -210,8 +221,8 @@
     .timeline-item h3{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:6px}
     .timeline-item.warning h3{color:var(--orange)}
     .timeline-item p{font-size:13px;color:var(--muted);line-height:1.6;margin:0}
-    @media(max-width:760px){.ns-cards{grid-template-columns:1fr}.insight-cards{grid-template-columns:1fr 1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.next-steps{padding:40px 20px 44px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.insight-cards{grid-template-columns:1fr}}
+    @media(max-width:760px){.ns-cards{grid-template-columns:1fr}.insight-cards{grid-template-columns:1fr 1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}.insight-card .ic-num{font-size:42px}}
+    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.next-steps{padding:40px 20px 44px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.insight-cards{grid-template-columns:1fr;gap:28px}.insight-card .ic-num{font-size:44px}}
   </style>
 </head>
 <body>
@@ -260,7 +271,7 @@
 
   <div class="insight-cards">
     <div class="insight-card"><div class="ic-num">80%+</div><div class="ic-label">Share of shift workers who prefer fixed shifts over rotating schedules &#x2014; a major recruiting differentiator</div></div>
-    <div class="insight-card"><div class="ic-num">Year 1</div><div class="ic-label">The window to get the schedule right. After the first year, workforce lives organize around the shift structure you established.</div></div>
+    <div class="insight-card"><div class="ic-num">1 Year</div><div class="ic-label">The window to get the schedule right. After the first year, workforce lives organize around the shift structure you established.</div></div>
     <div class="insight-card"><div class="ic-num">Years</div><div class="ic-label">How long a poorly designed launch schedule costs an operation in turnover and overtime &#x2014; long after the mistake is recognized</div></div>
   </div>
 
@@ -272,6 +283,7 @@
     <span class="pull-quote-mark">&#8220;</span>
     <div class="pull-quote-content">
       <p>Getting the schedule right before launch is significantly easier and less expensive than fixing it afterward. The window to do that well is the planning phase &#x2014; before hiring begins, before the first shift runs, before expectations are set.</p>
+      <div class="pq-attr">&#x2014; Ethan Franklin, Shiftwork Solutions LLC</div>
     </div>
   </div>
 
