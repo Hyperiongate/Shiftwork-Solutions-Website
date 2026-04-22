@@ -5,7 +5,7 @@
   URL: /industries/manufacturing-assembly-operations/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-21
+  Last Updated: 2026-04-22
 
   CHANGE LOG:
     2026-04-04 — Initial build from source Word doc.
@@ -24,10 +24,16 @@
                  CARD 1 TEXT: title -> "Shiftwork Operations Reality Check";
                  descriptor -> "Compare your instincts to more than 20,000 shift
                  worker responses. Free. Five minutes."; CTA -> "Take the Reality Check".
+    2026-04-22 — LISTEN BUTTON: removed entirely (button HTML, all .listen-btn CSS,
+                 and full SpeechSynthesis JS block). Replaced with Thomas floating
+                 widget: fixed right-side card, top:40%, 130px wide, thomas.jpg image,
+                 "Meet Thomas / Your AI Advisor" label, links to Thomas diagnostic app.
+                 Hidden on mobile (max-width:768px). z-index:950.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/manufacturing.jpg
   FAQ IMAGE:  /images/Hands_in_the_air.jpg
+  THOMAS WIDGET: /images/thomas.jpg -> https://shift-work-diagnostic.onrender.com/
 -->
 <html lang="en">
 <head>
@@ -191,13 +197,86 @@
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-    .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
-    .listen-btn:hover{background:#c4510a}
-    .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
+
+    /* ── THOMAS FLOATING WIDGET ── */
+    /* Fixed right-side card, anchored ~40% from top of viewport.
+       Visible on desktop only (hidden below 768px).
+       z-index 950: above content, below nav (1000).
+       No JS required — plain anchor tag. */
+    .thomas-float {
+      position: fixed;
+      right: 0;
+      top: 40%;
+      transform: translateY(-50%);
+      z-index: 950;
+      width: 130px;
+      background: var(--navy-dark);
+      border-radius: 8px 0 0 8px;
+      overflow: hidden;
+      text-decoration: none;
+      box-shadow: -4px 4px 20px rgba(0,0,0,0.35);
+      border-left: 3px solid var(--orange);
+      transition: width .25s ease, box-shadow .25s ease;
+      display: block;
+    }
+    .thomas-float:hover {
+      width: 140px;
+      box-shadow: -6px 6px 28px rgba(0,0,0,0.45);
+    }
+    .thomas-float-img {
+      width: 100%;
+      height: 110px;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .thomas-float-body {
+      padding: 10px 10px 12px;
+      text-align: center;
+    }
+    .thomas-float-name {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      display: block;
+      margin-bottom: 3px;
+    }
+    .thomas-float-sub {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      font-weight: 400;
+      color: var(--mid-blue);
+      line-height: 1.4;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .thomas-float-cta {
+      display: block;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--white);
+      background: var(--orange);
+      border-radius: 3px;
+      padding: 5px 8px;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      transition: background .15s;
+    }
+    .thomas-float:hover .thomas-float-cta {
+      background: #c4510a;
+    }
+    @media(max-width:768px){
+      .thomas-float{display:none}
+    }
+    /* ── END THOMAS FLOATING WIDGET ── */
+
     @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.ns-cards{grid-template-columns:1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
     @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.insight-cards{grid-template-columns:1fr}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.next-steps{padding:40px 20px 44px}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}}
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Manufacturing and Assembly Operations","description":"Shift scheduling for manufacturing and assembly operations: capacity expansion, equipment utilization, workforce planning, and union change management.","url":"https://shift-work.com/industries/manufacturing-assembly-operations/","datePublished":"2026-04-04","dateModified":"2026-04-21","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"manufacturing shift scheduling, shift schedule design manufacturing, equipment utilization shift scheduling, continuous operations manufacturing, union shift schedule change, 24/7 manufacturing workforce"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Manufacturing and Assembly Operations","description":"Shift scheduling for manufacturing and assembly operations: capacity expansion, equipment utilization, workforce planning, and union change management.","url":"https://shift-work.com/industries/manufacturing-assembly-operations/","datePublished":"2026-04-04","dateModified":"2026-04-22","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"manufacturing shift scheduling, shift schedule design manufacturing, equipment utilization shift scheduling, continuous operations manufacturing, union shift schedule change, 24/7 manufacturing workforce"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://shift-work.com/industries/"},{"@type":"ListItem","position":3,"name":"Manufacturing & Assembly","item":"https://shift-work.com/industries/manufacturing-assembly-operations/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What shift schedule do manufacturing workers prefer?","acceptedAnswer":{"@type":"Answer","text":"When surveyed, manufacturing shift workers consistently prefer 10-hour shifts over 8 or 12-hour alternatives. Ten-hour schedules produce more days off per month while avoiding fatigue from consecutive 12-hour days. Most often the obstacles are too great to overcome and the 12-hour shift rules the day."}},{"@type":"Question","name":"How can a manufacturing plant add capacity without buying new equipment?","acceptedAnswer":{"@type":"Answer","text":"Schedule expansion is the most underutilized capacity lever. Most five-day operations run equipment for a fraction of available hours. Expanding to six or seven days captures existing capacity without capital investment and should precede any capital appropriation request."}},{"@type":"Question","name":"Why does quality and safety differ between day and night shifts?","acceptedAnswer":{"@type":"Answer","text":"The most common cause is skill and experience imbalance across shifts. Experienced operators accumulate on day shift through seniority, leaving nights with newer workers and a structural competency gap that shows up in quality metrics and safety incident frequency."}},{"@type":"Question","name":"How do you change a shift schedule in a union manufacturing environment?","acceptedAnswer":{"@type":"Answer","text":"Successfully requires navigating both the contract and workforce relationship simultaneously. Workforce support matters more than contractual compliance alone. Invest in understanding workforce values before proposing options. A timed addendum provides a lower-risk path to testing before committing."}},{"@type":"Question","name":"What does it cost to run the wrong shift schedule?","acceptedAnswer":{"@type":"Answer","text":"Costs accumulate across overtime from schedule gaps, turnover from schedules that don't fit workers' lives, quality issues from fatigued coverage, and opportunity costs from equipment running below available hours — rarely connected to the schedule in standard reporting."}}]}</script>
@@ -343,7 +422,6 @@
 
   <p>The analysis covers equipment utilization and the financial case for schedule expansion, adverse cost modeling of current staffing levels, skill and experience distribution across shifts, fatigue risk based on current rotation patterns, and a comparison of current schedules against our normative database of what similar operations run and what their workforces prefer. The result is a clear picture of where the current schedule is costing the operation and what a better structure would deliver.</p>
 
-
 </div><!-- /.article-wrap -->
 
 <div class="faq-section">
@@ -408,14 +486,29 @@
   </div></div>
 </footer>
 
-<button class="listen-btn" id="listenBtn" aria-label="Listen to this article"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg><span id="listenLabel">Listen</span></button>
+<!-- ── THOMAS FLOATING WIDGET ──
+     Fixed to right edge, ~40% from top of viewport.
+     Hidden on mobile (max-width:768px).
+     Opens Thomas diagnostic app in new tab. -->
+<a class="thomas-float"
+   href="https://shift-work-diagnostic.onrender.com/"
+   target="_blank"
+   rel="noopener"
+   aria-label="Meet Thomas, your AI Shift Advisor">
+  <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
+  <div class="thomas-float-body">
+    <span class="thomas-float-name">Meet Thomas</span>
+    <span class="thomas-float-sub">Your AI Shift Advisor</span>
+    <span class="thomas-float-cta">Chat Now &rarr;</span>
+  </div>
+</a>
+<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
 (function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
-(function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p, h2');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim());});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
 </script>
 </body>
 </html>
