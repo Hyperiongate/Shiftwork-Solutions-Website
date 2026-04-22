@@ -5,7 +5,7 @@
   URL: /industries/
 
   Created:      2026-04-05
-  Last Updated: 2026-04-18
+  Last Updated: 2026-04-22
 
   CHANGE LOG:
     2026-04-05 — Initial build.
@@ -19,6 +19,14 @@
     2026-04-18 — ROW 3: Action tiles removed. Paper & Packaging centered alone.
                  Empty placeholder divs keep grid alignment. Action tile CSS
                  retained in case needed elsewhere.
+    2026-04-22 — HERO SUBTITLE COLOR:
+                 .hero-subtitle color changed from var(--mid-blue) (#85B7EB)
+                 to rgba(255,255,255,0.88) to match the white-subtitle
+                 treatment used on Our Team, Mixed Signals Economy, and
+                 other dark-hero pages. Slightly softened white (0.88 alpha)
+                 avoids competing visually with the gold #EEAE26 H1 above it.
+                 No other changes — H1 stays gold, eyebrow stays mid-blue,
+                 all tiles, nav, footer, JSON-LD, and JS untouched.
 
   I did no harm and this file is not truncated
 -->
@@ -67,7 +75,8 @@
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
     .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
     .hero h1{font-size:32px;font-weight:700;line-height:1.2;color:#EEAE26;max-width:620px;margin-bottom:14px}
-    .hero-subtitle{font-size:16px;line-height:1.65;color:var(--mid-blue);max-width:620px}
+    /* Hero subtitle: white (softened to 0.88 alpha) — updated 2026-04-22 */
+    .hero-subtitle{font-size:16px;line-height:1.65;color:rgba(255,255,255,0.88);max-width:620px}
     .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
     .breadcrumb-inner a{color:var(--navy);text-decoration:none}
@@ -173,7 +182,7 @@
 <section class="hero"><div class="hero-inner">
   <div class="hero-eyebrow">Industries</div>
   <h1>Industries We Serve</h1>
-  <p class="hero-subtitle">Decades of hands-on experience across hundreds of 24/7 operations. Every industry has unique scheduling challenges — we've solved them all.</p>
+  <p class="hero-subtitle">Decades of hands-on experience across hundreds of 24/7 operations. Every industry has unique scheduling challenges &mdash; we've solved them all.</p>
 </div></section>
 
 <div class="breadcrumb-bar"><div class="breadcrumb-inner">
@@ -229,7 +238,7 @@
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
       <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">Whether you run a single plant or dozens of facilities, the first conversation is always free. Tell us what you're dealing with.</p></div>
-      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p></div>
+      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor &mdash; available now, no appointment needed.</p></div>
       <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
     </div>
     <div class="footer-cta-row">
