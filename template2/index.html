@@ -157,12 +157,17 @@
     .callout-label{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--orange);margin-bottom:6px;letter-spacing:.06em}
     .callout-text{font-size:14px;color:var(--body-text);line-height:1.6}
     /* ── PDF DOWNLOAD TAB ── */
-    .pdf-float{position:fixed;right:0;top:calc(66.666% - 130px);transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
+    /* PDF tab sits directly above Thomas.
+       Thomas: top:66.666%, height ~148px, so its top edge ≈ 66.666vh - 74px.
+       PDF tab height ~90px. Gap 10px.
+       PDF tab bottom = Thomas top - gap = (66.666vh - 74px) - 10px
+       PDF tab top = PDF bottom - PDF height = (66.666vh - 84px) - 90px = 66.666vh - 174px */
+    .pdf-float{position:fixed;right:0;top:calc(66.666% - 174px);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .pdf-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
-    .pdf-float-body{padding:14px 8px 14px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:7px}
-    .pdf-float-icon{font-size:22px;line-height:1}
-    .pdf-float-label{font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:var(--navy);line-height:1.3;display:block}
-    .pdf-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--orange);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
+    .pdf-float-body{padding:10px 8px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px}
+    .pdf-float-icon{font-size:20px;line-height:1}
+    .pdf-float-title{font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:var(--navy);line-height:1.35;display:block;text-align:center}
+    .pdf-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--orange);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s;margin-top:2px}
     .pdf-float:hover .pdf-float-cta{background:#c4510a}
     @media(max-width:768px){.pdf-float{display:none}}
     /* ── FAQ SECTION (margin top 40px, flush to bridge stripe) ── */
@@ -483,8 +488,8 @@
    aria-label="Download the Overtime Management Guide PDF">
   <div class="pdf-float-body">
     <span class="pdf-float-icon">&#x1F4C4;</span>
-    <span class="pdf-float-label">Download Guide</span>
-    <span class="pdf-float-cta">PDF &darr;</span>
+    <span class="pdf-float-title">Overtime Management Guide</span>
+    <span class="pdf-float-cta">Download PDF &darr;</span>
   </div>
 </a>
 <!-- ── END PDF DOWNLOAD TAB ── -->
