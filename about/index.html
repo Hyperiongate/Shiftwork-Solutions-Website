@@ -49,6 +49,25 @@
                     by a senior partner." (removed the junior analyst reference
                     per Jim's instruction). Rest of paragraph unchanged.
                  No CSS, structure, or other content changed.
+    2026-04-23 — INDUSTRY SECTION REDESIGN:
+                 REMOVED: Static 12-tile industry grid (4-col, text-only divs).
+                 REMOVED: .industry-grid / .industry-tile CSS rules.
+                 ADDED: Two-panel industries showcase section (.industries-showcase):
+                   LEFT PANEL: eyebrow, H2, descriptive paragraph (static text).
+                   RIGHT PANEL: Auto-cycling image carousel — 7 industry photos
+                     from /images/ with industry name overlaid on each image.
+                     Cycles every 2.5 seconds with crossfade transition.
+                     Dot indicators below carousel.
+                 ADDED: All CSS for .industries-showcase, .showcase-text-panel,
+                   .showcase-carousel-panel, .carousel-slide, .carousel-label,
+                   .carousel-dots. Mobile: stacks vertically (text top, carousel
+                   bottom). Desktop: 50/50 side-by-side, visually connected with
+                   shared border-radius and box-shadow.
+                 ADDED: carousel JS (auto-advance + dot sync) in <script> block.
+                 Industries shown: Manufacturing & Assembly, Distribution &
+                   Logistics, Mining & Extraction, Refining & Utilities,
+                   Food & Beverage, Chemical & Pharmaceutical, Paper & Packaging.
+                 Carousel is decorative only — no links per spec.
 
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   HERO IMAGE: /images/second.png
@@ -156,9 +175,28 @@
     .process-items li{font-size:13px;color:var(--body-text);line-height:1.6;padding:4px 0;padding-left:14px;position:relative}
     .process-items li::before{content:'→';position:absolute;left:0;color:var(--mid-blue);font-size:11px;top:6px}
 
-    /* ── INDUSTRY GRID ── */
-    .industry-grid{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad);display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-    .industry-tile{background:var(--light-blue);border-radius:6px;padding:12px 14px;font-size:13px;font-weight:700;color:var(--navy);line-height:1.3;text-align:center}
+    /* ── INDUSTRIES SHOWCASE — two-panel, 50/50 ── */
+    .industries-showcase{max-width:var(--max-width);margin:28px auto 0;padding:0 var(--page-pad)}
+    .industries-showcase-inner{display:flex;gap:0;border-radius:10px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.10);border:1px solid var(--border-med)}
+
+    /* Left panel: text */
+    .showcase-text-panel{flex:0 0 50%;background:var(--light-blue);padding:36px 32px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid var(--border-med)}
+    .showcase-text-panel .eyebrow{color:var(--navy);margin-bottom:10px}
+    .showcase-text-panel h2{font-size:20px;font-weight:700;color:var(--navy);line-height:1.3;margin-bottom:16px}
+    .showcase-text-panel p{font-size:14px;line-height:1.75;color:var(--body-text);margin:0}
+
+    /* Right panel: carousel */
+    .showcase-carousel-panel{flex:0 0 50%;display:flex;flex-direction:column;background:var(--navy-dark)}
+    .showcase-carousel{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden}
+    .carousel-slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease}
+    .carousel-slide.active{opacity:1}
+    .carousel-slide img{width:100%;height:100%;object-fit:cover;display:block}
+    .carousel-label{position:absolute;bottom:0;left:0;right:0;padding:28px 20px 16px;background:linear-gradient(to top,rgba(13,31,60,.88) 0%,rgba(13,31,60,.0) 100%);font-size:15px;font-weight:700;color:#fff;letter-spacing:.02em;text-shadow:0 1px 4px rgba(0,0,0,.5)}
+
+    /* Dot indicators */
+    .carousel-dots{display:flex;align-items:center;justify-content:center;gap:7px;padding:12px 0;background:var(--navy-dark)}
+    .carousel-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.3);border:none;cursor:default;transition:background .3s,transform .3s;flex-shrink:0}
+    .carousel-dot.dot-active{background:#fff;transform:scale(1.25)}
 
     /* ── DIFFERENTIATORS ── */
     .diff-list{max-width:var(--max-width);margin:16px auto;padding:0 var(--page-pad)}
@@ -280,7 +318,12 @@
       .team-row{flex-wrap:wrap;gap:4px}
       .team-cred{margin-left:0;padding-left:0;text-align:left;width:100%}
       .team-link{margin-left:0}
-      .industry-grid{grid-template-columns:repeat(2,1fr);padding:0 20px}
+      /* Industries showcase: stack vertically on mobile */
+      .industries-showcase{padding:0 16px}
+      .industries-showcase-inner{flex-direction:column;border-radius:8px}
+      .showcase-text-panel{flex:none;padding:24px 20px;border-right:none;border-bottom:1px solid var(--border-med)}
+      .showcase-carousel-panel{flex:none}
+      .showcase-carousel{aspect-ratio:16/9}
       .diff-list{padding:0 20px}
       .pull-quote{flex-direction:column;gap:4px;padding:0 20px}.pull-quote-mark{font-size:72px}
       .faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}
@@ -381,26 +424,58 @@
 
 <hr class="divider">
 
-<section class="content-section">
-  <div class="eyebrow">Industries We Serve</div>
-  <h2>Wherever People Work Shifts, We Work</h2>
-  <p>Shiftwork challenges look different in a food processing plant than in a chemical refinery, and different again in a distribution center or a mining operation. Our industry depth means we arrive already knowing the operational realities, the workforce dynamics, and the policy constraints specific to your sector.</p>
-</section>
+<!-- ── INDUSTRIES SHOWCASE: two-panel, 50/50 ──
+     Left: static descriptive text.
+     Right: auto-cycling carousel of 7 industry photos with overlaid name labels.
+     Cycles every 2.5 seconds with crossfade. Dot indicators below carousel.
+     Decorative only — no links per spec. Mobile: stacks vertically. -->
+<section class="industries-showcase">
+  <div class="industries-showcase-inner">
 
-<div class="industry-grid">
-  <div class="industry-tile">Food &amp; Beverage Manufacturing</div>
-  <div class="industry-tile">Chemical &amp; Pharmaceutical</div>
-  <div class="industry-tile">Mining &amp; Extraction</div>
-  <div class="industry-tile">Utilities &amp; Refining</div>
-  <div class="industry-tile">Manufacturing &amp; Assembly</div>
-  <div class="industry-tile">Distribution &amp; Logistics</div>
-  <div class="industry-tile">Automotive &amp; Tier 1 Supply</div>
-  <div class="industry-tile">Paper &amp; Packaging</div>
-  <div class="industry-tile">Semiconductor &amp; Electronics</div>
-  <div class="industry-tile">Port &amp; Transportation</div>
-  <div class="industry-tile">Healthcare &amp; Hospitals</div>
-  <div class="industry-tile">Contact Centers &amp; Services</div>
-</div>
+    <!-- LEFT: text panel -->
+    <div class="showcase-text-panel">
+      <div class="eyebrow">Industries We Serve</div>
+      <h2>Wherever People Work Shifts, We Work</h2>
+      <p>Shiftwork challenges look different in a food processing plant than in a chemical refinery, and different again in a distribution center or a mining operation. Our industry depth means we arrive already knowing the operational realities, the workforce dynamics, and the policy constraints specific to your sector.</p>
+    </div>
+
+    <!-- RIGHT: image carousel panel -->
+    <div class="showcase-carousel-panel">
+      <div class="showcase-carousel" id="industryCarousel">
+        <div class="carousel-slide active">
+          <img src="/images/manufacturing.jpg" alt="Manufacturing and Assembly operations">
+          <div class="carousel-label">Manufacturing &amp; Assembly</div>
+        </div>
+        <div class="carousel-slide">
+          <img src="/images/distribution.jpg" alt="Distribution and Logistics operations">
+          <div class="carousel-label">Distribution &amp; Logistics</div>
+        </div>
+        <div class="carousel-slide">
+          <img src="/images/mining.jpg" alt="Mining and Extraction operations">
+          <div class="carousel-label">Mining &amp; Extraction</div>
+        </div>
+        <div class="carousel-slide">
+          <img src="/images/Refining.jpg" alt="Refining and Utilities operations">
+          <div class="carousel-label">Refining &amp; Utilities</div>
+        </div>
+        <div class="carousel-slide">
+          <img src="/images/food.jpg" alt="Food and Beverage manufacturing operations">
+          <div class="carousel-label">Food &amp; Beverage</div>
+        </div>
+        <div class="carousel-slide">
+          <img src="/images/Pharma.jpg" alt="Chemical and Pharmaceutical operations">
+          <div class="carousel-label">Chemical &amp; Pharmaceutical</div>
+        </div>
+        <div class="carousel-slide">
+          <img src="/images/paper.jpg" alt="Paper and Packaging operations">
+          <div class="carousel-label">Paper &amp; Packaging</div>
+        </div>
+      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+
+  </div>
+</section>
 
 <hr class="divider">
 
@@ -429,8 +504,6 @@
 
 <section class="content-section">
   <div class="eyebrow">Our Team</div>
-  <!-- ── 2026-04-23: "A Century of Combined Experience." removed from heading;
-       "not a junior analyst" clause removed; H2 changed to "Every Engagement, Led by a Senior Partner."; paragraph opening changed to "Every engagement is led by a senior partner." ── -->
   <h2>Every Engagement, Led by a Senior Partner.</h2>
   <p>Every engagement is led by a senior partner. Jim Dillingham, Dan Capshaw, and Ethan Franklin bring deep expertise in schedule design, engineering rigor, change management, legal compliance, and workforce engagement.</p>
 </section>
@@ -537,6 +610,41 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
       }
     });
   });
+})();
+
+(function () {
+  /* ── Industry carousel: auto-advance every 2.5s with crossfade ── */
+  var slides = document.querySelectorAll('#industryCarousel .carousel-slide');
+  var dotsContainer = document.getElementById('carouselDots');
+  var current = 0;
+  var total = slides.length;
+  var timer = null;
+
+  /* Build dot indicators */
+  for (var i = 0; i < total; i++) {
+    var dot = document.createElement('div');
+    dot.className = 'carousel-dot' + (i === 0 ? ' dot-active' : '');
+    dotsContainer.appendChild(dot);
+  }
+  var dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+  function goTo(index) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('dot-active');
+    current = (index + total) % total;
+    slides[current].classList.add('active');
+    dots[current].classList.add('dot-active');
+  }
+
+  function advance() {
+    goTo(current + 1);
+  }
+
+  function startTimer() {
+    timer = setInterval(advance, 2500);
+  }
+
+  startTimer();
 })();
 
 (function () {
