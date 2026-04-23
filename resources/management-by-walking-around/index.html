@@ -28,12 +28,23 @@
                     → --navy (#1F4E79) dark blue.
                  4. .cc-label colors (PLANT A / PLANT B small caps line) changed
                     from red/green → --muted (#666666) dark grey.
-                 5. .contrast-card h3 titles ("The Painted-Over Window" /
-                    "The Plant Manager Who Showed Up") changed from dark red
-                    #991B1B / dark green #166534 → --navy (#1F4E79).
-                 Checkmarks (✓) in good card and X-marks (✗) in bad card
-                 keep their original green/red colors per instruction.
+                 5. .contrast-card h3 titles changed from dark red/green → --navy.
+                 Checkmarks (✓) and X-marks (✗) keep original green/red colors.
                  No content, nav, footer, FAQ, or JS changes.
+    2026-04-22 — PAGE BOTTOM STANDARD APPLIED (Page_Bottom_Standard guide):
+                 - REMOVED: Listen button (.listen-btn HTML, CSS, SpeechSynthesis JS)
+                 - REMOVED: Next Steps section (HTML, CSS, IntersectionObserver JS)
+                 - ADDED: Bridge stripe (between FAQ and footer)
+                 - ADDED: Thomas floating widget (fixed right-edge card)
+                 - UPDATED: Footer corrected to 3-column standard:
+                     Col 1: FREE ASSESSMENT / Shiftwork Operations Reality Check
+                     Col 2: DIAGNOSTIC ARTICLE / The 26 Warning Signs
+                     Col 3: NEWSLETTER / Stay Sharp on Shift Operations
+                 - UPDATED: .faq-section margin:40px 0 → margin:40px 0 0 0
+                 - UPDATED: Pull quote color:#4a6a8a → color:var(--body-text);
+                             font-style:italic → font-style:normal (Section 6A spec)
+                 NOTE: FAQ JSON-LD schema contains 32-hour workweek questions
+                       (not MBWA) — flagged but left untouched as content decision.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/walking.jpg
@@ -68,6 +79,8 @@
     :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
+
+    /* ── NAV (.site-nav system — sticky 56px) ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0;display:flex;align-items:center;gap:12px}
@@ -83,6 +96,8 @@
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
+
+    /* ── HERO ── */
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:url('/images/walking.jpg') center center / cover no-repeat;opacity:1;z-index:0}
     .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,0.88) 0%,rgba(31,78,121,0.75) 55%,rgba(31,78,121,0.35) 100%);z-index:0}
@@ -91,11 +106,15 @@
     .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:#EEAE26;max-width:620px;margin-bottom:14px}
     .hero-subtitle{font-size:16px;line-height:1.65;color:rgba(255,255,255,0.88);max-width:560px}
     .hero-tag{display:inline-block;margin-top:16px;background:rgba(232,97,10,0.9);color:var(--white);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 12px;border-radius:3px}
+
+    /* ── BREADCRUMB ── */
     .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
     .breadcrumb-inner a{color:var(--navy);text-decoration:none}
     .breadcrumb-inner a:hover{text-decoration:underline}
     .breadcrumb-inner span{margin:0 6px;opacity:.5}
+
+    /* ── ARTICLE ── */
     .article-wrap{max-width:var(--max-width);margin:0 auto;padding:48px var(--page-pad) 56px}
     .article-meta{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border-light);flex-wrap:wrap}
     .meta-tag{display:inline-block;background:var(--light-blue);color:var(--navy);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:3px}
@@ -103,22 +122,41 @@
     .article-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin:36px 0 14px}
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
     .article-wrap p:last-child{margin-bottom:0}
+
+    /* ── PULL QUOTE — Section 6A standard (2026-04-22)
+       color: var(--body-text) — NOT #4a6a8a blue-grey
+       font-style: normal — NOT italic ── */
     .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:center;gap:16px}
     .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
-    .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:#4a6a8a;margin:0;font-style:italic}
+    .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:var(--body-text);margin:0;font-style:normal}
     .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
-    .data-table-wrap{margin:32px 0;overflow-x:auto}
-    .data-table{width:100%;border-collapse:collapse;font-size:14px}
-    .data-table th{background:var(--navy);color:var(--white);padding:10px 14px;text-align:left;font-size:13px;font-weight:700}
-    .data-table td{padding:10px 14px;border-bottom:1px solid var(--border-light)}
-    .data-table tr:nth-child(even) td{background:var(--light-blue)}
-    .data-table tr:last-child td{border-bottom:none}
-    .data-table .highlight{color:var(--orange);font-weight:700}
+
+    /* ── CONTRAST CARDS — restyled 2026-04-22 ──
+       Backgrounds: light grey. Top borders: dark navy.
+       Labels: dark grey. Titles: navy.
+       Checkmarks (✓ green) and X-marks (✗ red) keep original colors. */
+    .contrast-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:32px 0}
+    .contrast-card{border-radius:8px;padding:24px 20px;background:var(--light-grey);border-top:4px solid var(--navy)}
+    .contrast-card .cc-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;color:var(--muted)}
+    .contrast-card h3{font-size:15px;font-weight:700;margin-bottom:12px;line-height:1.3;color:var(--navy)}
+    .contrast-card p{font-size:13px;line-height:1.6;margin-bottom:10px;color:var(--body-text)}
+    .outcome-list{margin:12px 0;padding:0}
+    .outcome-list li{list-style:none;padding:8px 0 8px 24px;border-bottom:1px solid rgba(0,0,0,.06);font-size:13px;line-height:1.5;position:relative}
+    .outcome-list li:last-child{border-bottom:none}
+    .outcome-list li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
+    .outcome-list.bad li::before{content:'✗';color:#DC2626}
+
+    /* ── INSIGHT CARDS ── */
     .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
     .insight-card{background:var(--light-blue);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
     .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.5}
-    .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
+
+    /* ══════════════════════════════════════════════════════════
+       FAQ SECTION — Full-bleed Hands_in_the_air.jpg
+       IMPORTANT: margin bottom is 0 — bridge stripe sits flush.
+    ══════════════════════════════════════════════════════════ */
+    .faq-section{position:relative;overflow:hidden;margin:40px 0 0 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
     .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:52px 24px 56px}
@@ -135,37 +173,29 @@
     .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease,padding .25s ease}
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
-    .next-steps{padding:56px var(--page-pad) 60px;background:#F4F6F8;position:relative;overflow:hidden}
-    .next-steps-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
-    .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
-    .next-steps h2{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:8px}
-    .next-steps-sub{font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.6}
-    .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .ns-card{background:var(--white);border:1px solid var(--border-med);border-top:4px solid transparent;border-radius:8px;padding:24px 20px;text-decoration:none;display:block;opacity:0;transform:translateY(28px);transition:opacity .5s ease,transform .5s ease,box-shadow .25s ease}
-    .ns-card.ns-card-visible{opacity:1;transform:translateY(0)}
-    .ns-card:nth-child(1){transition-delay:.05s}
-    .ns-card:nth-child(2){transition-delay:.18s}
-    .ns-card:nth-child(3){transition-delay:.31s}
-    .ns-accent-blue{border-top-color:var(--navy)}
-    .ns-accent-orange{border-top-color:var(--orange)}
-    .ns-accent-green{border-top-color:var(--green)}
-    .ns-accent-blue:hover{box-shadow:0 8px 28px rgba(31,78,121,0.15);transform:translateY(-5px) !important}
-    .ns-accent-orange:hover{box-shadow:0 8px 28px rgba(232,97,10,0.18);transform:translateY(-5px) !important}
-    .ns-accent-green:hover{box-shadow:0 8px 28px rgba(29,158,117,0.18);transform:translateY(-5px) !important}
-    .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
-    .ns-accent-blue .ns-card-label{color:var(--navy)}
-    .ns-accent-orange .ns-card-label{color:var(--orange)}
-    .ns-accent-green .ns-card-label{color:var(--green)}
-    .ns-card h3{font-size:15px;font-weight:700;color:var(--body-text);line-height:1.35;margin-bottom:8px}
-    .ns-card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px}
-    .ns-card-link{font-size:12px;font-weight:700}
-    .ns-accent-blue .ns-card-link{color:var(--navy)}
-    .ns-accent-orange .ns-card-link{color:var(--orange)}
-    .ns-accent-green .ns-card-link{color:var(--green)}
-    .ns-card-link::after{content:' →'}
-    .ns-phone{margin-top:28px;font-size:13px;color:var(--muted);text-align:center}
-    .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
-    .ns-phone a:hover{color:var(--orange)}
+
+    /* ── BRIDGE STRIPE ──
+       Gray breathing room between FAQ and footer.
+       IMPORTANT: faq-section bottom margin is 0 so bridge sits flush. */
+    .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
+    .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
+    .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
+
+    /* ── THOMAS FLOATING WIDGET ──
+       Fixed right-side card, positioned 1/3 up from the bottom of the viewport.
+       z-index 950: above content, below nav (1000).
+       White background, mid-blue CTA button. Hidden on mobile. */
+    .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
+    .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
+    .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
+    .thomas-float-body{padding:8px 8px 10px;text-align:center}
+    .thomas-float-name{font-family:Arial,sans-serif;font-size:11px;font-weight:700;color:var(--navy);line-height:1.3;display:block;margin-bottom:2px}
+    .thomas-float-sub{font-family:Arial,sans-serif;font-size:9px;font-weight:400;color:var(--muted);line-height:1.4;display:block;margin-bottom:7px}
+    .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
+    .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
+    @media(max-width:768px){.thomas-float{display:none}}
+
+    /* ── FOOTER (dark navy — standard 3-col) ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -199,28 +229,31 @@
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-    .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
-    .listen-btn:hover{background:#c4510a}
-    .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
 
-    /* ── CONTRAST CARDS — restyled 2026-04-22 ──
-       Backgrounds: light grey matching partner-card-top on homepage.
-       Top borders: dark navy (was red / green).
-       Labels (PLANT A / PLANT B): dark grey (was red / green).
-       Titles (h3): navy (was dark red / dark green).
-       Checkmarks (✓ green) and X-marks (✗ red) kept at original colors. */
-    .contrast-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:32px 0}
-    .contrast-card{border-radius:8px;padding:24px 20px;background:var(--light-grey);border-top:4px solid var(--navy)}
-    .contrast-card .cc-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;color:var(--muted)}
-    .contrast-card h3{font-size:15px;font-weight:700;margin-bottom:12px;line-height:1.3;color:var(--navy)}
-    .contrast-card p{font-size:13px;line-height:1.6;margin-bottom:10px;color:var(--body-text)}
-    .outcome-list{margin:12px 0;padding:0}
-    .outcome-list li{list-style:none;padding:8px 0 8px 24px;border-bottom:1px solid rgba(0,0,0,.06);font-size:13px;line-height:1.5;position:relative}
-    .outcome-list li:last-child{border-bottom:none}
-    .outcome-list li::before{content:'✓';position:absolute;left:0;color:var(--green);font-weight:700}
-    .outcome-list.bad li::before{content:'✗';color:#DC2626}
-    @media(max-width:760px){.ns-cards{grid-template-columns:1fr}.insight-cards{grid-template-columns:1fr 1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}.contrast-grid{grid-template-columns:1fr}}
-    @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.next-steps{padding:40px 20px 44px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.insight-cards{grid-template-columns:1fr}}
+    /* ── RESPONSIVE ── */
+    @media(max-width:760px){
+      .insight-cards{grid-template-columns:1fr 1fr}
+      .footer-content-row{grid-template-columns:1fr}
+      .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
+      .footer-col-3{border-bottom:none;padding-bottom:0}
+      .footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}
+      .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}
+      .faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}
+      .contrast-grid{grid-template-columns:1fr}
+    }
+    @media(max-width:640px){
+      .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
+      .nav-logo-text{font-size:16px}
+      .hero{padding:32px 20px 36px}.hero h1{font-size:22px}
+      .article-wrap{padding:32px 20px 40px}
+      .footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}
+      .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
+      .footer-bottom-left{justify-content:center}
+      .faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}
+      .insight-cards{grid-template-columns:1fr}
+      .bridge-stripe{padding:28px 20px}
+      .bridge-stripe-text{font-size:17px}
+    }
   </style>
 </head>
 <body>
@@ -279,6 +312,10 @@
 
 </div><!-- /.article-wrap -->
 
+<!-- ══════════════════════════════════════════════════════════════
+     FAQ SECTION — Full-bleed Hands_in_the_air.jpg accordion
+     margin bottom 0 for flush bridge stripe (2026-04-22)
+════════════════════════════════════════════════════════════════ -->
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
@@ -292,28 +329,42 @@
   </div>
 </div><!-- /.faq-section -->
 
-<section class="next-steps"><div class="next-steps-inner">
-  <div class="next-steps-eyebrow">Where to go from here</div>
-  <h2>Next Steps &amp; Resources</h2>
-  <p class="next-steps-sub">Talk to an expert, read the guide, or run a quick diagnostic on your current operation.</p>
-  <div class="ns-cards">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card ns-accent-blue" target="_blank" rel="noopener"><div class="ns-card-label">Free Consultation</div><h3>Talk to a Shiftwork Expert</h3><p>Explore how an employee engagement process can surface what&#x2019;s really driving turnover, absenteeism, and morale issues in your operation.</p><span class="ns-card-link">Book a free meeting</span></a>
-    <a href="/resources/shiftwork-assessment/" class="ns-card ns-accent-orange"><div class="ns-card-label">Free Assessment</div><h3>Evaluate Your Current Schedule</h3><p>Your schedule affects engagement more than most managers realize. See where your current setup stands.</p><span class="ns-card-link">Take the assessment</span></a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green"><div class="ns-card-label">Diagnostic Tool</div><h3>26 Warning Signs</h3><p>Twenty-six operational symptoms that signal your shiftwork system may need attention &#x2014; many tied directly to engagement and retention.</p><span class="ns-card-link">Read the diagnostic</span></a>
-  </div>
-  <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
-</div></section>
+<!-- ── BRIDGE STRIPE ──
+     Gray breathing room between FAQ and footer.
+     Soft directional prompt toward footer CTAs — no button needed. -->
+<div class="bridge-stripe">
+  <div class="bridge-stripe-text">Ready to take the next step?</div>
+  <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
+</div>
 
+<!-- ══════════════════════════════════════════════════════════════
+     FOOTER — Standard 3-column (corrected 2026-04-22)
+     Col 1: FREE ASSESSMENT / Shiftwork Operations Reality Check
+     Col 2: DIAGNOSTIC ARTICLE / The 26 Warning Signs
+     Col 3: NEWSLETTER / Stay Sharp on Shift Operations
+════════════════════════════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
-      <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">Workforce engagement and retention are directly shaped by how visible and accessible leadership is on the floor. The first conversation is free.</p></div>
-      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p></div>
-      <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
+      <div class="footer-col footer-col-1">
+        <div class="engage-label">FREE ASSESSMENT</div>
+        <div class="engage-col-title">Shiftwork Operations Reality Check</div>
+        <p class="engage-col-desc">Eight dimensions. Ten minutes. See exactly where your operation stands — and where the risks are hiding.</p>
+      </div>
+      <div class="footer-col footer-col-2">
+        <div class="engage-label">DIAGNOSTIC ARTICLE</div>
+        <div class="engage-col-title">The 26 Warning Signs</div>
+        <p class="engage-col-desc">A practical guide to the symptoms that signal your shift schedule may be working against you — organized by category.</p>
+      </div>
+      <div class="footer-col footer-col-3">
+        <div class="engage-label">NEWSLETTER</div>
+        <div class="engage-col-title">Stay Sharp on Shift Operations</div>
+        <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
+      </div>
     </div>
     <div class="footer-cta-row">
-      <div class="footer-cta-1"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a></div>
-      <div class="footer-cta-2"><a href="https://shift-work-diagnostic.onrender.com/" class="footer-cta-btn" target="_blank" rel="noopener">Start a Conversation &#x2192;</a></div>
+      <div class="footer-cta-1"><a href="https://www.shift-work.com/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Reality Check &#x2192;</a></div>
+      <div class="footer-cta-2"><a href="/resources/26-warning-signs-schedule-problems/" class="footer-cta-btn">Read the Warning Signs &#x2192;</a></div>
       <div class="footer-cta-3"><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
     </div>
   </div></div>
@@ -323,13 +374,28 @@
   </div></div>
 </footer>
 
-<button class="listen-btn" id="listenBtn" aria-label="Listen to this article"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg><span id="listenLabel">Listen</span></button>
+<!-- ── THOMAS FLOATING WIDGET ──
+     Fixed to right edge, ~40% from top of viewport.
+     Hidden on mobile (max-width:768px).
+     Opens Thomas diagnostic app in new tab. -->
+<a class="thomas-float"
+   href="https://shift-work-diagnostic.onrender.com/"
+   target="_blank"
+   rel="noopener"
+   aria-label="Meet Thomas, your AI Shift Advisor">
+  <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
+  <div class="thomas-float-body">
+    <span class="thomas-float-name">Meet Thomas</span>
+    <span class="thomas-float-sub">Your AI Shift Advisor</span>
+    <span class="thomas-float-cta">Chat Now &rarr;</span>
+  </div>
+</a>
+<!-- ── END THOMAS FLOATING WIDGET ── -->
+
 <script>
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
-(function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
-(function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p,h2,h3');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim());});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
 </script>
 </body>
 </html>
