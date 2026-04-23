@@ -3,7 +3,7 @@
   Shiftwork Solutions LLC — Homepage
   File: index.html
   Created: March 31, 2026
-  Last updated: April 18, 2026
+  Last updated: April 22, 2026
   Author: Claude for Jim @ Shiftwork Solutions LLC
 
   CHANGE LOG:
@@ -29,6 +29,14 @@
                   - .quote-text font-weight: 600 — 400 (normal); italic retained
                   - .quote-text color: white — #1A1A1A (black)
                   - .quote-attr color: amber — #1A1A1A (black)
+      2026-04-22  (v17) Page Bottom Standard applied:
+                  - Removed: next-steps section (HTML + CSS + IntersectionObserver JS)
+                  - Added: Thomas floating widget (HTML + CSS)
+                  - Added: bridge stripe (HTML + CSS) after FAQ section
+                  - Updated: Footer col-1 to FREE ASSESSMENT (Reality Check)
+                  - Updated: Footer col-2 to DIAGNOSTIC ARTICLE (26 Warning Signs)
+                  - Updated: dateModified in JSON-LD to 2026-04-22
+                  - Note: Thomas widget z-index 150 (homepage nav is z-index 200)
 
   NAV: .site-header / .main-nav / .nav-cta (fixed 64px)
   HERO BG: /images/second.png | HERO RIGHT: /images/pillar_6.jpg
@@ -126,8 +134,6 @@
     html{scroll-behavior:smooth;}
     body{font-family:var(--font-body);color:var(--text);line-height:1.6;background:var(--white);-webkit-font-smoothing:antialiased;}
     img{max-width:100%;display:block;}
-
-    /* NAV */
     .site-header{position:fixed;top:0;left:0;right:0;z-index:200;background:#ffffff;border-bottom:1px solid var(--g-border);height:64px;display:flex;align-items:center;}
     .header-inner{max-width:1200px;width:100%;margin:0 auto;padding:0 24px;display:flex;align-items:center;}
     .site-logo{text-decoration:none;white-space:nowrap;margin-right:24px;flex-shrink:0;display:flex;align-items:center;gap:12px;}
@@ -152,8 +158,6 @@
       .nav-cta a{display:block;text-align:center;}
       .mobile-toggle{display:block;}
     }
-
-    /* HERO */
     .hero{margin-top:64px;background:#0D1F3C url('/images/second.png') center center/cover no-repeat;color:var(--white);position:relative;overflow:hidden;display:flex;align-items:center;}
     .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.90) 0%,rgba(13,31,60,.75) 55%,rgba(13,31,60,.45) 100%);z-index:0;pointer-events:none;}
     .hero-inner{max-width:var(--max-width);margin:0 auto;width:100%;padding:48px clamp(20px,4vw,40px) 48px;display:grid;grid-template-columns:1.1fr 0.9fr;grid-template-rows:auto auto auto;column-gap:56px;position:relative;z-index:1;}
@@ -186,16 +190,12 @@
       .hero-stat-item{flex:1 1 40%;padding:0;border-right:none;}
       .hero-stat-item+.hero-stat-item{padding-left:0;}
     }
-
-    /* SHARED */
     .section{padding:88px clamp(20px,4vw,40px);}
     .section-inner{max-width:var(--max-width);margin:0 auto;}
     .section-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--blue);margin-bottom:10px;}
     .section-heading{font-family:Arial,Helvetica,sans-serif;font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:700;color:var(--navy);margin-bottom:16px;line-height:1.2;}
     .section-sub{font-size:1.05rem;color:var(--text-mid);max-width:620px;line-height:1.7;}
     .section-sub.center{margin:0 auto;text-align:center;}
-
-    /* PROBLEMS */
     .problems{background:var(--white);}
     .problems-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;}
     .problem-card{background:var(--smoke);border-radius:var(--radius-lg);padding:32px 28px;transition:transform 0.2s;text-align:center;}
@@ -205,8 +205,6 @@
     .problem-card h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:8px;text-align:left;}
     .problem-card p{font-size:0.9rem;color:var(--text-mid);line-height:1.6;text-align:left;}
     @media(max-width:800px){.problems-grid{grid-template-columns:1fr;}}
-
-    /* SERVICES */
     .services{background:var(--light-grey);color:var(--body-text);box-shadow:inset 24px 0 0 0 var(--navy-dark);}
     .services .section-label{color:var(--blue);}
     .services .section-heading{color:var(--navy);}
@@ -221,8 +219,6 @@
     .service-card p{font-size:0.82rem;color:var(--text-mid);line-height:1.5;}
     @media(max-width:900px){.services-grid{grid-template-columns:repeat(2,1fr);}}
     @media(max-width:500px){.services-grid{grid-template-columns:1fr;}}
-
-    /* PROCESS */
     .process{background:var(--white);}
     .process-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:48px;}
     .process-image{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);}
@@ -233,19 +229,12 @@
     .process-step h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px;}
     .process-step p{font-size:0.9rem;color:var(--text-mid);line-height:1.6;}
     @media(max-width:800px){.process-grid{grid-template-columns:1fr;}.process-image img{height:280px;}}
-
-    /* QUOTE BAND — v16 (2026-04-18)
-       background: transparent (removed dark navy gradient)
-       quote-mark: #9CA3AF (gray)
-       quote-text: weight 400, color #1A1A1A, italic retained
-       quote-attr: color #1A1A1A */
+    /* QUOTE BAND v16 */
     .quote-band{background:transparent;color:#1A1A1A;padding:64px clamp(20px,4vw,40px);text-align:left;}
     .quote-band-inner{max-width:860px;margin:0 auto;position:relative;padding-left:72px;}
     .quote-mark{position:absolute;left:0;top:-12px;font-family:Georgia,serif;font-size:6rem;line-height:1;color:#9CA3AF;font-style:normal;opacity:1;}
     .quote-text{font-family:Arial,Helvetica,sans-serif;font-size:clamp(1.3rem,3vw,1.9rem);font-weight:400;font-style:italic;line-height:1.5;color:#1A1A1A;margin-bottom:16px;}
     .quote-attr{font-size:0.88rem;color:#1A1A1A;font-weight:600;}
-
-    /* CLIENT DEPTH */
     .client-depth{padding:52px 0 56px;background:linear-gradient(to right,#d0d4d8 0%,#f4f4f4 30%,#ffffff 50%,#f4f4f4 70%,#d0d4d8 100%);overflow:hidden;position:relative;}
     .client-depth-inner{max-width:var(--max-width);margin:0 auto 40px;padding:0 var(--page-pad);text-align:center;}
     .client-depth-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--g-navy);margin-bottom:6px;}
@@ -277,8 +266,6 @@
     .cn-14{font-family:'Montserrat',sans-serif;font-weight:800;color:#1a0a3d;letter-spacing:.03em;}
     .cn-15{font-family:'Lora',serif;font-weight:700;color:#003333;}
     .cn-16{font-family:'Libre Baskerville',serif;font-weight:700;color:#4a0d00;}
-
-    /* TEAM */
     .team{background:var(--white);padding-bottom:48px;}
     .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:48px;}
     .team-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);box-shadow:none;overflow:hidden;text-align:center;padding:0 0 24px;display:flex;flex-direction:column;position:relative;}
@@ -292,8 +279,6 @@
     .team-bio{font-size:0.88rem;color:var(--text-mid);line-height:1.7;flex:1;text-align:left;}
     .team-cred{margin-top:16px;padding-top:12px;border-top:1px solid var(--border);font-size:0.78rem;color:var(--text-light);font-style:italic;text-align:left;}
     @media(max-width:800px){.team-grid{grid-template-columns:1fr;max-width:400px;margin-left:auto;margin-right:auto;}}
-
-    /* RESOURCES */
     .resources{background:var(--white);}
     .resources-page-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;background:transparent;color:var(--text-mid);font-family:Arial,sans-serif;font-size:13px;font-weight:600;text-decoration:none;border-radius:5px;border:1px solid var(--border);transition:color 0.2s,border-color 0.2s,box-shadow 0.2s;white-space:nowrap;}
     .resources-page-btn:hover{color:var(--g-navy);border-color:var(--g-navy);box-shadow:0 4px 16px rgba(31,78,121,0.15);}
@@ -306,8 +291,6 @@
     .resource-card p{font-size:0.82rem;color:var(--text-mid);line-height:1.5;}
     @media(max-width:800px){.resources-grid{grid-template-columns:repeat(2,1fr);}}
     @media(max-width:500px){.resources-grid{grid-template-columns:1fr;}}
-
-    /* FAQ */
     .faq-section{position:relative;overflow:hidden;margin:0;}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center/cover no-repeat;z-index:0;}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1;}
@@ -326,33 +309,11 @@
     .faq-item.faq-open .faq-body{max-height:800px;}
     .faq-a{font-size:14px;color:#1A1A1A;line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px;font-family:Arial,Helvetica,sans-serif;}
     @media(max-width:640px){.faq-inner{padding:48px 18px 52px;}.faq-inner h2{font-size:19px;}}
-
-    /* NEXT STEPS */
-    .next-steps{padding:56px var(--page-pad) 60px;background:#F4F6F8;}
-    .next-steps-inner{max-width:1100px;margin:0 auto;}
-    .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:#666666;margin-bottom:10px;font-family:Arial,Helvetica,sans-serif;}
-    .next-steps h2{font-size:22px;font-weight:700;color:#1F4E79;margin-bottom:8px;font-family:Arial,Helvetica,sans-serif;}
-    .next-steps-sub{font-size:14px;color:#666666;margin-bottom:32px;line-height:1.6;font-family:Arial,Helvetica,sans-serif;}
-    .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-    .ns-card{background:#FFFFFF;border:1px solid #e0e0e0;border-top:4px solid transparent;border-radius:8px;padding:24px 20px;text-decoration:none;display:block;opacity:0;transform:translateY(28px);transition:opacity .5s ease,transform .5s ease,box-shadow .25s ease;}
-    .ns-card.ns-card-visible{opacity:1;transform:translateY(0);}
-    .ns-card:nth-child(1){transition-delay:.05s;}.ns-card:nth-child(2){transition-delay:.18s;}.ns-card:nth-child(3){transition-delay:.31s;}
-    .ns-accent-blue{border-top-color:#1F4E79;}.ns-accent-orange{border-top-color:#E8610A;}.ns-accent-green{border-top-color:#1D9E75;}
-    .ns-accent-blue:hover{box-shadow:0 8px 28px rgba(31,78,121,0.15);transform:translateY(-5px)!important;}
-    .ns-accent-orange:hover{box-shadow:0 8px 28px rgba(232,97,10,0.22);transform:translateY(-5px)!important;}
-    .ns-accent-green:hover{box-shadow:0 8px 28px rgba(29,158,117,0.22);transform:translateY(-5px)!important;}
-    .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px;font-family:Arial,Helvetica,sans-serif;}
-    .ns-accent-blue .ns-card-label{color:#1F4E79;}.ns-accent-orange .ns-card-label{color:#E8610A;}.ns-accent-green .ns-card-label{color:#1D9E75;}
-    .ns-card h3{font-size:15px;font-weight:700;color:#1A1A1A;line-height:1.35;margin-bottom:8px;font-family:Arial,Helvetica,sans-serif;}
-    .ns-card p{font-size:13px;color:#666666;line-height:1.6;margin-bottom:16px;font-family:Arial,Helvetica,sans-serif;}
-    .ns-card-link{font-size:12px;font-weight:700;font-family:Arial,Helvetica,sans-serif;}
-    .ns-accent-blue .ns-card-link{color:#1F4E79;}.ns-accent-orange .ns-card-link{color:#E8610A;}.ns-accent-green .ns-card-link{color:#1D9E75;}
-    .ns-card-link::after{content:' \2192';}
-    .ns-phone{margin-top:28px;font-size:13px;color:#666666;text-align:center;font-family:Arial,Helvetica,sans-serif;}
-    .ns-phone a{color:#1F4E79;text-decoration:none;font-weight:700;}.ns-phone a:hover{color:#E8610A;}
-    @media(max-width:760px){.ns-cards{grid-template-columns:1fr;}}
-
-    /* FOOTER */
+    /* ── BRIDGE STRIPE (2026-04-22) ── */
+    .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center;}
+    .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--g-navy);letter-spacing:.01em;}
+    .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5;}
+    @media(max-width:640px){.bridge-stripe{padding:28px 20px;}.bridge-stripe-text{font-size:17px;}}
     .site-footer{background:#0D1F3C;}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1);}
     .footer-wrap{max-width:1100px;margin:0 auto;}
@@ -395,7 +356,17 @@
       .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px;}
       .footer-bottom-left{justify-content:center;}
     }
-
+    /* ── THOMAS FLOATING WIDGET (2026-04-22) ──
+       z-index 150 on homepage (nav uses z-index 200). */
+    .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:150;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block;}
+    .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26);}
+    .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block;}
+    .thomas-float-body{padding:8px 8px 10px;text-align:center;}
+    .thomas-float-name{font-family:Arial,sans-serif;font-size:11px;font-weight:700;color:#1F4E79;line-height:1.3;display:block;margin-bottom:2px;}
+    .thomas-float-sub{font-family:Arial,sans-serif;font-size:9px;font-weight:400;color:#666666;line-height:1.4;display:block;margin-bottom:7px;}
+    .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:#85B7EB;border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s;}
+    .thomas-float:hover .thomas-float-cta{background:#5a9fd4;}
+    @media(max-width:768px){.thomas-float{display:none;}}
     @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
     .anim{animation:fadeUp 0.6s ease-out both;}
     .d1{animation-delay:0.1s;}.d2{animation-delay:0.2s;}.d3{animation-delay:0.3s;}.d4{animation-delay:0.4s;}
@@ -403,7 +374,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <header class="site-header">
   <div class="header-inner">
     <a href="/" class="site-logo">
@@ -429,7 +399,6 @@
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-heading anim">
@@ -466,7 +435,6 @@
   </div>
 </section>
 
-<!-- CHALLENGES -->
 <section class="section problems" id="challenges">
   <div class="section-inner">
     <div class="section-label" style="text-transform:uppercase;letter-spacing:.14em;">Early Indicators</div>
@@ -501,7 +469,6 @@
   </div>
 </section>
 
-<!-- SERVICES -->
 <section class="section services" id="services">
   <div class="section-inner">
     <div class="section-label">What We Do</div>
@@ -533,7 +500,6 @@
   </div>
 </section>
 
-<!-- HOW WE WORK -->
 <section class="section process" id="how-we-work">
   <div class="section-inner">
     <div class="section-label">Our Process</div>
@@ -551,7 +517,6 @@
   </div>
 </section>
 
-<!-- PULL QUOTE — v16: transparent bg, gray quote mark, black normal-weight text -->
 <div class="quote-band">
   <div class="quote-band-inner">
     <span class="quote-mark">&ldquo;</span>
@@ -560,7 +525,6 @@
   </div>
 </div>
 
-<!-- CLIENTS -->
 <section class="client-depth" id="clients">
   <div class="client-depth-inner">
     <div class="client-depth-eyebrow">Trusted By</div>
@@ -572,7 +536,6 @@
   </div>
 </section>
 
-<!-- TEAM -->
 <section class="section team" id="team">
   <div class="section-inner" style="text-align:center;">
     <div class="section-label">Our Team</div>
@@ -610,7 +573,6 @@
   </div>
 </section>
 
-<!-- RESOURCES -->
 <section class="section resources" id="resources">
   <div class="section-inner" style="text-align:center;">
     <div class="section-label">Resources</div>
@@ -628,7 +590,6 @@
   </div>
 </section>
 
-<!-- FAQ -->
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
@@ -642,34 +603,36 @@
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What information do you need to give us a fee estimate?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">A brief initial call is enough. We want to understand the number of employees affected, how many distinct departments or shift systems are involved, the general nature of the challenge, whether a union contract is in place, and your timeline. We can almost always give you a fee range after a 20-minute conversation — and the first conversation is always free.</div></div></div>
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What happens after the engagement ends?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Every engagement includes a post-implementation follow-up survey, conducted after the new schedule has been running long enough for employees to form informed opinions. We review results with management, identify any issues that have emerged, and recommend adjustments if needed. Many clients return to us when they expand, when conditions change, or when additional departments are ready for their own review. We have client relationships that have spanned more than a decade and multiple engagements.</div></div></div>
   </div>
+</div><!-- /.faq-section -->
+
+<!-- ── BRIDGE STRIPE ── -->
+<div class="bridge-stripe">
+  <div class="bridge-stripe-text">Ready to take the next step?</div>
+  <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
 </div>
 
-<!-- NEXT STEPS -->
-<section class="next-steps">
-  <div class="next-steps-inner">
-    <div class="next-steps-eyebrow">Where to go from here</div>
-    <h2>Next Steps &amp; Resources</h2>
-    <p class="next-steps-sub">Talk to an expert, explore our process guides, or run a quick diagnostic on your current operation.</p>
-    <div class="ns-cards">
-      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card ns-accent-blue" target="_blank" rel="noopener"><div class="ns-card-label">Free Consultation</div><h3>Talk to a Shiftwork Expert</h3><p>Tell us what you&rsquo;re dealing with &mdash; schedule costs, turnover, coverage gaps, or an upcoming 24/7 transition. We&rsquo;ll tell you honestly what we see.</p><span class="ns-card-link">Book a free meeting</span></a>
-      <a href="/resources/shift-work-best-practices/" class="ns-card ns-accent-orange"><div class="ns-card-label">Complete Guide</div><h3>Operational Best Practices for 24/7 Shift Work</h3><p>The fatigue management, coverage, and workforce practices that separate operations that run smoothly from those that struggle.</p><span class="ns-card-link">Read the guide</span></a>
-      <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green"><div class="ns-card-label">Diagnostic Tool</div><h3>26 Warning Signs</h3><p>The operational symptoms that signal your shiftwork system needs attention &mdash; from chronic overtime and absenteeism to the subtler indicators most managers miss.</p><span class="ns-card-link">Read the diagnostic</span></a>
-    </div>
-    <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
-      <div class="footer-col footer-col-1"><div class="engage-label">FREE CONSULTATION</div><div class="engage-col-title">Ready to talk about your operation?</div><p class="engage-col-desc">Manufacturing and distribution leaders call us when the current schedule is hurting output, retention, or costs. The first conversation is always free.</p></div>
-      <div class="footer-col footer-col-2"><div class="engage-label">AI ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p></div>
-      <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
+      <div class="footer-col footer-col-1">
+        <div class="engage-label">FREE ASSESSMENT</div>
+        <div class="engage-col-title">Shiftwork Operations Reality Check</div>
+        <p class="engage-col-desc">A structured assessment of where your shiftwork operation stands — and where the gaps are costing you most.</p>
+      </div>
+      <div class="footer-col footer-col-2">
+        <div class="engage-label">DIAGNOSTIC ARTICLE</div>
+        <div class="engage-col-title">The 26 Warning Signs</div>
+        <p class="engage-col-desc">The operational symptoms that signal when your shiftwork system needs attention — from retention to absenteeism to morale.</p>
+      </div>
+      <div class="footer-col footer-col-3">
+        <div class="engage-label">NEWSLETTER</div>
+        <div class="engage-col-title">Stay Sharp on Shift Operations</div>
+        <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
+      </div>
     </div>
     <div class="footer-cta-row">
-      <div class="footer-cta-1"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a></div>
-      <div class="footer-cta-2"><a href="https://shift-work-diagnostic.onrender.com/" class="footer-cta-btn" target="_blank" rel="noopener">Start a Conversation &#x2192;</a></div>
+      <div class="footer-cta-1"><a href="https://www.shift-work.com/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Reality Check &#x2192;</a></div>
+      <div class="footer-cta-2"><a href="/resources/26-warning-signs-schedule-problems/" class="footer-cta-btn">Read the Warning Signs &#x2192;</a></div>
       <div class="footer-cta-3"><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
     </div>
   </div></div>
@@ -679,18 +642,28 @@
   </div></div>
 </footer>
 
-<!-- JS -->
+<!-- ── THOMAS FLOATING WIDGET ──
+     z-index 150 on homepage (nav is z-index 200). -->
+<a class="thomas-float"
+   href="https://shift-work-diagnostic.onrender.com/"
+   target="_blank"
+   rel="noopener"
+   aria-label="Meet Thomas, your AI Shift Advisor">
+  <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
+  <div class="thomas-float-body">
+    <span class="thomas-float-name">Meet Thomas</span>
+    <span class="thomas-float-sub">Your AI Shift Advisor</span>
+    <span class="thomas-float-cta">Chat Now &rarr;</span>
+  </div>
+</a>
+<!-- ── END THOMAS FLOATING WIDGET ── -->
+
 <script>
 document.querySelectorAll('a[href^="#"]').forEach(function(link){link.addEventListener('click',function(e){var id=this.getAttribute('href');var target=document.querySelector(id);if(target){e.preventDefault();var nav=document.getElementById('main-nav');if(nav)nav.classList.remove('open');target.scrollIntoView({behavior:'smooth',block:'start'});}});});
 document.getElementById('mobile-toggle').addEventListener('click',function(){document.getElementById('main-nav').classList.toggle('open');});
 document.addEventListener('click',function(e){var header=document.querySelector('.site-header');if(header&&!header.contains(e.target)){var nav=document.getElementById('main-nav');if(nav)nav.classList.remove('open');}});
-
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
-
-(function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
-
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'homepage-footer-nl'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
-
 (function(){
   var allNames=['Nestl\u00e9','Kellogg\'s','Kraft','Campbell\'s','Mars','Coca-Cola','Pepsi','Dannon','Tropicana','Smucker\'s','Mondelez','American Licorice','Snyder\'s','Shearer Foods','Treehouse Foods','Golden State Foods','Keurig','Hyundai','Tesla','Panasonic','Whirlpool','Andersen Windows','Essity','Kimberly Clark','WestRock','International Paper','Clearwater','Appleton Paper','SCA Tissue','Irving Canada','United Airlines','Dow','Pfizer','GlaxoSmithKline','Monsanto','Pharmacia \u0026 Upjohn','BHP','Phelps Dodge','Vale','Potash','Vulcan','ComEd','TXU','Southern Company','CenterPoint','PG\u0026E','Chevron','Marathon'];
   function buildTrack(trackId,names){var track=document.getElementById(trackId);if(!track)return;var all=names.concat(names);all.forEach(function(name,i){var span=document.createElement('span');span.className='cn cn-'+((i%16)+1);span.textContent=name;track.appendChild(span);});}
