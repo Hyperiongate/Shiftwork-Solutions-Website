@@ -6,7 +6,7 @@
   URL: /testimonials/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-17
+  Last Updated: 2026-04-22
 
   CHANGE LOG:
     2026-04-04 — Initial build.
@@ -38,8 +38,20 @@
                  1. tl-inner max-width narrowed to 860px (tighter quote cascade).
                  2. Mel Olsson solo card shifted right 192px (≈2 inches).
                  3. "Representative Clients" eyebrow changed to "Trusted By".
+    2026-04-22 — PAGE BOTTOM STANDARD applied:
+                 REMOVED: <section class="next-steps"> and all contents.
+                 REMOVED: All .next-steps / .ns-card / .ns-card-label /
+                   .ns-card-link CSS rules.
+                 UPDATED: Footer replaced with standard 3-col structure
+                   (FREE ASSESSMENT / 26 Warning Signs / Newsletter)
+                   per Page Bottom Standard 2D. footerNLSubmit renamed to
+                   engageNLSubmit; IDs updated accordingly; source tag
+                   website-testimonials-footer-nl preserved.
+                 ADDED: Bridge stripe between client depth section and footer.
+                 ADDED: Thomas floating widget (fixed right edge, desktop only).
 
-  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
+  NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
+  HERO IMAGE: /images/second.png
   DESIGN CONSTANTS:
     Navy: #1F4E79 | Navy-dark: #0D1F3C | Mid-blue: #85B7EB | Orange: #E8610A
     Logo: /images/clear_bkgr_logo_2.png | Hero: /images/second.png
@@ -121,14 +133,11 @@
     hr.divider{max-width:var(--max-width);margin:20px auto;border:none;border-top:1px solid var(--border-light)}
 
     /* ── TESTIMONIAL CASCADE ── */
-    /* Uses the hero background image for visual drama.
-       Dark overlay keeps the gold spine and white cards fully legible. */
     .tl-section{
       background:#0D1F3C url('/images/second.png') center center/cover no-repeat;
       padding:48px 0 56px;
       position:relative;
     }
-    /* Dark overlay so cards and spine are readable against the photo */
     .tl-section::before{
       content:'';
       position:absolute;
@@ -137,7 +146,6 @@
       z-index:0;
       pointer-events:none;
     }
-    /* CHANGE 1: max-width narrowed from 1100px to 860px for tighter cascade */
     .tl-inner{
       max-width:860px;
       margin:0 auto;
@@ -145,7 +153,6 @@
       position:relative;
       z-index:1;
     }
-    /* Gold spine running down the center */
     .tl-spine{
       position:absolute;
       left:50%;
@@ -156,7 +163,6 @@
       transform:translateX(-50%);
       z-index:0;
     }
-    /* Section label on the spine */
     .tl-label{
       position:relative;
       z-index:2;
@@ -176,7 +182,6 @@
       border-radius:20px;
       white-space:nowrap;
     }
-    /* Row: two cards side by side */
     .tl-row{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -186,17 +191,14 @@
       margin-bottom:28px;
       align-items:start;
     }
-    /* Single-card full-width row */
     .tl-row.tl-solo{
       grid-template-columns:1fr;
       max-width:580px;
       margin-left:auto;
       margin-right:auto;
     }
-    /* Stagger: left card drops lower */
     .tl-row .tl-card:first-child{ margin-top:24px; }
     .tl-row .tl-card:last-child{  margin-top:0; }
-
     .tl-card{
       background:#ffffff;
       border-radius:8px;
@@ -245,7 +247,7 @@
     }
     .tl-tag+.tl-tag::before{content:' | ';color:#ccc;}
 
-    /* ── TESTIMONIAL CASCADE WRAPPER — constrains dark background width ── */
+    /* ── TESTIMONIAL CASCADE WRAPPER ── */
     .tl-section-wrap{
       max-width:1060px;
       margin:0 auto;
@@ -286,9 +288,7 @@
       letter-spacing:.14em;color:var(--navy);margin-bottom:14px;
     }
 
-
     /* ── TWO-STRIP CONTINUOUS SCROLL ── */
-
     .client-strips{
       display:flex;
       flex-direction:column;
@@ -304,14 +304,12 @@
       display:flex;
       align-items:center;
     }
-    /* fade edges — now fade to white to match the gradient background */
     .client-strip-row::before,
     .client-strip-row::after{
       content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;
     }
     .client-strip-row::before{left:0;background:linear-gradient(to right,#fff,transparent)}
     .client-strip-row::after{right:0;background:linear-gradient(to left,#fff,transparent)}
-
     .client-strip-track{
       display:flex;
       align-items:center;
@@ -319,15 +317,11 @@
       position:absolute;
       left:0;top:0;bottom:0;
     }
-    /* Top row scrolls left (negative direction) */
     @keyframes scroll-l{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-    /* Bottom row scrolls right (positive direction) */
     @keyframes scroll-r{0%{transform:translateX(-50%)}100%{transform:translateX(0)}}
-
     #track-top{animation:scroll-l 45s linear infinite}
     #track-bottom{animation:scroll-r 38s linear infinite}
 
-    /* Each name gets its own font+color class */
     .cn{
       display:inline-flex;align-items:center;
       padding:0 32px;height:70px;
@@ -338,7 +332,6 @@
     }
     .cn:last-child{border-right:none}
 
-    /* 16 creative name styles — font + dark color combos */
     .cn-1 {font-family:'Playfair Display',serif;    font-weight:700;color:#1a3a5c}
     .cn-2 {font-family:'Oswald',sans-serif;         font-weight:600;color:#7b2d00;letter-spacing:.06em}
     .cn-3 {font-family:'Libre Baskerville',serif;   font-weight:700;color:#1d4e2a}
@@ -356,21 +349,14 @@
     .cn-15{font-family:'Lora',serif;                font-weight:700;color:#003333}
     .cn-16{font-family:'Libre Baskerville',serif;   font-weight:700;color:#4a0d00}
 
-    /* ── NEXT STEPS ── */
-    .next-steps{padding:56px var(--page-pad) 64px;background:var(--light-grey);border-top:1px solid var(--border-light)}
-    .next-steps-inner{max-width:var(--max-width);margin:0 auto}
-    .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
-    .next-steps h2{font-size:24px;font-weight:700;color:var(--body-text);margin-bottom:6px}
-    .next-steps-sub{font-size:15px;color:var(--muted);line-height:1.65;max-width:620px;margin-bottom:28px}
-    .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .ns-card{background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:6px;padding:24px 20px;text-decoration:none;display:block;transition:border-top-color .15s,box-shadow .15s}
-    .ns-card:hover{border-top-color:var(--orange);box-shadow:0 4px 16px rgba(0,0,0,.08)}
-    .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
-    .ns-card h3{font-size:15px;font-weight:700;color:var(--navy);line-height:1.35;margin-bottom:8px}
-    .ns-card p{font-size:13px;color:var(--muted);line-height:1.60;margin-bottom:14px}
-    .ns-card-link{font-size:13px;font-weight:700;color:var(--navy)}
-    .ns-card-link::after{content:' \2192'}
-    .ns-card:hover .ns-card-link{color:var(--orange)}
+    /* ── BRIDGE STRIPE — sits after client depth section ── */
+    .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
+    .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
+    .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
+    @media(max-width:640px){
+      .bridge-stripe{padding:28px 20px}
+      .bridge-stripe-text{font-size:17px}
+    }
 
     /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
@@ -407,6 +393,20 @@
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
 
+    /* ── THOMAS FLOATING WIDGET ──
+       Fixed right-side card, positioned 1/3 up from the bottom of the viewport.
+       Visible on desktop only (hidden below 768px).
+       z-index 950: above content, below nav (1000). */
+    .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
+    .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
+    .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
+    .thomas-float-body{padding:8px 8px 10px;text-align:center}
+    .thomas-float-name{font-family:Arial,sans-serif;font-size:11px;font-weight:700;color:var(--navy);line-height:1.3;display:block;margin-bottom:2px}
+    .thomas-float-sub{font-family:Arial,sans-serif;font-size:9px;font-weight:400;color:var(--muted);line-height:1.4;display:block;margin-bottom:7px}
+    .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
+    .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
+    @media(max-width:768px){.thomas-float{display:none}}
+
     /* ── RESPONSIVE ── */
     @media(max-width:768px){
       .nav-links,.nav-cta-wrap{display:none}.mobile-toggle{display:block}
@@ -414,7 +414,6 @@
       .hero{padding:36px 20px 40px}.hero h1{font-size:24px}.hero-stats{flex-direction:column;gap:10px}
       .content-section,.testimonials,.theme-label{padding-left:20px;padding-right:20px}
       .tcard,.tcard-featured{padding:20px 16px}
-      .ns-cards{grid-template-columns:1fr}
       .client-depth{padding:28px 0}
       .hero-logo{display:none!important}
       .footer-prefooter{padding:32px 20px}
@@ -472,7 +471,7 @@
   <p>The measure of a schedule change isn't the launch&mdash;it's whether the results hold six months later, for the leaders running the operation and the people working it. These are the words of leaders who worked through the change with us&mdash;and saw the results hold.</p>
 </section>
 
-<!-- ── TESTIMONIAL CASCADE — background is second.png with dark overlay ── -->
+<!-- ── TESTIMONIAL CASCADE ── -->
 <div class="tl-section-wrap">
 <section class="tl-section">
   <div class="tl-inner">
@@ -521,7 +520,7 @@
       </div>
     </div>
 
-    <!-- CHANGE 2: Mel Olsson solo card shifted right ~2 inches (192px) -->
+    <!-- Mel Olsson solo card shifted right ~2 inches (192px) -->
     <div class="tl-row tl-solo" style="margin-left:192px;">
       <div class="tl-card">
         <div class="tl-quote">Trying to balance a company&rsquo;s needs with the needs of its members is not an easy task. Dan Capshaw was instrumental in helping the company find fair alternatives that met our members&rsquo; needs.</div>
@@ -570,7 +569,7 @@
 <!-- ── WHITE SPACE BETWEEN QUOTES AND CLIENT SECTION ── -->
 <div style="height:96px;background:#fff;"></div>
 
-<!-- ── CLIENT DEPTH — CHANGE 3: "Representative Clients" → "Trusted By" ── -->
+<!-- ── CLIENT DEPTH ── -->
 <section class="client-depth">
   <div class="client-depth-inner">
     <div class="client-depth-eyebrow">Trusted By</div>
@@ -581,48 +580,26 @@
   </div>
 </section>
 
-<!-- ── NEXT STEPS ── -->
-<section class="next-steps">
-  <div class="next-steps-inner">
-    <div class="next-steps-eyebrow">Where to Go from Here</div>
-    <h2>Ready to Add Your Name to This List?</h2>
-    <p class="next-steps-sub">The first conversation is free. Pick the path that makes sense for where you are right now.</p>
-    <div class="ns-cards">
-      <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card" target="_blank" rel="noopener">
-        <div class="ns-card-label">Free Consultation</div>
-        <h3>Talk to a Senior Consultant</h3>
-        <p>No pitch, no obligation. We'll listen to what isn't working, ask the right questions, and tell you honestly whether and how we can help.</p>
-        <span class="ns-card-link">Book a free meeting</span>
-      </a>
-      <a href="/resources/shiftwork-assessment/" class="ns-card">
-        <div class="ns-card-label">Free Assessment Tool</div>
-        <h3>Shift Operations Health Assessment</h3>
-        <p>Ten minutes, 35 questions, AI-powered evaluation across the 8 dimensions that determine whether your shift operation is working.</p>
-        <span class="ns-card-link">Take the assessment</span>
-      </a>
-      <a href="/about/" class="ns-card">
-        <div class="ns-card-label">Our Company</div>
-        <h3>About Shiftwork Solutions</h3>
-        <p>Three decades, hundreds of operations, one focus. Learn who we are, how we work, and what makes our process different.</p>
-        <span class="ns-card-link">Learn about us</span>
-      </a>
-    </div>
-  </div>
-</section>
+<!-- ── BRIDGE STRIPE ──
+     Gray breathing room between client depth and footer.
+     Soft directional prompt toward footer CTAs — no button needed. -->
+<div class="bridge-stripe">
+  <div class="bridge-stripe-text">Ready to take the next step?</div>
+  <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
+</div>
 
-<!-- ── FOOTER ── -->
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
       <div class="footer-col footer-col-1">
-        <div class="engage-label">FREE CONSULTATION</div>
-        <div class="engage-col-title">Ready to talk about your operation?</div>
-        <p class="engage-col-desc">Manufacturing and distribution operations running 24/7 typically have more room to improve than they realize. The first conversation is always free.</p>
+        <div class="engage-label">FREE ASSESSMENT</div>
+        <div class="engage-col-title">Shiftwork Operations Reality Check</div>
+        <p class="engage-col-desc">Compare your instincts to more than 20,000 shift worker responses. Free. Five minutes. No email required.</p>
       </div>
       <div class="footer-col footer-col-2">
-        <div class="engage-label">AI ADVISOR</div>
-        <div class="engage-col-title">Talk to Thomas</div>
-        <p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift operations advisor — available now, no appointment needed.</p>
+        <div class="engage-label">DIAGNOSTIC ARTICLE</div>
+        <div class="engage-col-title">The 26 Warning Signs</div>
+        <p class="engage-col-desc">Twenty-six operational symptoms that signal your shiftwork system may need attention. If you're seeing several, the schedule is likely the source.</p>
       </div>
       <div class="footer-col footer-col-3">
         <div class="engage-label">NEWSLETTER</div>
@@ -631,14 +608,14 @@
       </div>
     </div>
     <div class="footer-cta-row">
-      <div class="footer-cta-1"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="footer-cta-btn" target="_blank" rel="noopener">Book a Free Consultation &#x2192;</a></div>
-      <div class="footer-cta-2"><a href="https://shift-work-diagnostic.onrender.com/" class="footer-cta-btn" target="_blank" rel="noopener">Start a Conversation &#x2192;</a></div>
+      <div class="footer-cta-1"><a href="https://www.shift-work.com/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Reality Check &#x2192;</a></div>
+      <div class="footer-cta-2"><a href="/resources/26-warning-signs-schedule-problems/" class="footer-cta-btn">Read the Warning Signs &#x2192;</a></div>
       <div class="footer-cta-3">
-        <form class="engage-nl-form" onsubmit="footerNLSubmit(event)">
-          <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="footerNLEmail">
-          <button type="submit" class="engage-nl-btn" id="footerNLBtn">Subscribe &#x2192;</button>
+        <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
+          <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
+          <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
         </form>
-        <div class="engage-nl-msg" id="footerNLMsg"></div>
+        <div class="engage-nl-msg" id="engageNLMsg"></div>
       </div>
     </div>
   </div></div>
@@ -651,6 +628,24 @@
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
+
+<!-- ── THOMAS FLOATING WIDGET ──
+     Fixed to right edge, ~40% from top of viewport.
+     Hidden on mobile (max-width:768px).
+     Opens Thomas diagnostic app in new tab. -->
+<a class="thomas-float"
+   href="https://shift-work-diagnostic.onrender.com/"
+   target="_blank"
+   rel="noopener"
+   aria-label="Meet Thomas, your AI Shift Advisor">
+  <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
+  <div class="thomas-float-body">
+    <span class="thomas-float-name">Meet Thomas</span>
+    <span class="thomas-float-sub">Your AI Shift Advisor</span>
+    <span class="thomas-float-cta">Chat Now &rarr;</span>
+  </div>
+</a>
+<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
 document.getElementById('mobileToggle').addEventListener('click', function () {
@@ -665,13 +660,14 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
     n.style.zIndex = '99';
   }
 });
+
 (function () {
   var SWARM = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
-  window.footerNLSubmit = function (e) {
+  window.engageNLSubmit = function (e) {
     e.preventDefault();
-    var btn = document.getElementById('footerNLBtn');
-    var msg = document.getElementById('footerNLMsg');
-    var email = document.getElementById('footerNLEmail').value.trim();
+    var btn = document.getElementById('engageNLBtn');
+    var msg = document.getElementById('engageNLMsg');
+    var email = document.getElementById('engageNLEmail').value.trim();
     if (!email) return;
     btn.disabled = true; btn.textContent = 'Subscribing...';
     fetch(SWARM, {
@@ -683,7 +679,7 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
         if (d.success) {
           msg.className = 'engage-nl-msg ok';
           msg.textContent = '\u2713 Subscribed. Thank you.';
-          document.getElementById('footerNLEmail').value = '';
+          document.getElementById('engageNLEmail').value = '';
           btn.textContent = 'Subscribed \u2713';
         } else { throw new Error(d.error || 'Failed'); }
       })
@@ -694,6 +690,7 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
       });
   };
 })();
+
 /* ── TWO-STRIP CONTINUOUS SCROLL ── */
 (function(){
   var topNames=['Nestlé','BMW','Merck','FedEx','General Mills','Pfizer','Toyota',
