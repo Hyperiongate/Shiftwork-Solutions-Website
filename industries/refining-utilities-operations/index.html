@@ -34,7 +34,15 @@
                  - FOOTER REBUILT: 3 columns — (1) Reality Check, (2) 26 Warning
                    Signs, (3) Newsletter. Removed FREE CONSULTATION, AI ADVISOR,
                    booking CTA, Thomas CTA columns and all related CSS.
-                 - THOMAS FLOAT: added (fixed right side, top:40%, hidden mobile).
+                 - THOMAS FLOAT: added (fixed right side, hidden mobile).
+    2026-04-22 — PAGE BOTTOM STANDARD CSS CORRECTIONS (final):
+                 - CALLOUT BOX p: font-size:16px -> 15px (matches body text).
+                 - CLIENT STRIP ROW: background:#F0F2F4 added (grey track).
+                 - CLIENT STRIP INTRO: font-size:15px -> 11px (matches all other
+                   industry pages).
+                 - THOMAS FLOAT: top:40% -> top:66.666% (1/3 up from bottom).
+                 - FAQ SECTION: margin:40px 0 -> margin:40px 0 0 0 (eliminates
+                   white gap before bridge stripe).
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/Refining.jpg
@@ -43,10 +51,6 @@
 
   CLIENT STRIP: Single strip, refining/utilities-specific names, multi-font styled.
     ID: refine-track | Animation: refine-scroll-l
-    Names from existing strip + additions:
-    ComEd, TXU, Southern Company, CenterPoint, PG&E, Bell Canada, Chevron,
-    Marathon, Arco, BP, ExxonMobil, Duke Energy, Dominion Energy,
-    Xcel Energy, Entergy, Exelon, NRG Energy, Valero, Phillips 66, ConocoPhillips
 
   FOOTER COLUMNS:
     Col 1: Reality Check  -> /resources/shiftwork-assessment/
@@ -55,7 +59,7 @@
 
   CTA STRATEGY:
     Nav     -> Book a Free Meeting + Contact (always visible)
-    Thomas  -> AI chat (persistent right-side float)
+    Thomas  -> AI chat (persistent right-side float, top:66.666%)
     Footer  -> Content/diagnostic CTAs only
 -->
 <html lang="en">
@@ -133,11 +137,10 @@
     .article-wrap p:last-child{margin-bottom:0}
 
     /* ── CLIENT STRIP — STYLED SINGLE-STRIP SCROLL ──
-       White background with gradient fades. Multi-font creative
-       treatment: 16 cn style classes, 8 Google Fonts, dark color combos.
-       Names are refining/utilities-industry-specific.
-       ID: refine-track. Animation: refine-scroll-l.
-       Single strip scrolling left, seamlessly looped. */
+       Spec (v2): section background:none, border-radius:0.
+       Intro: background:none, font-size:11px (matches other industry pages).
+       Row: background:#F0F2F4 (grey track only).
+       ID: refine-track | Animation: refine-scroll-l */
     .client-strip-section{
       margin:32px 0;
       background:none;
@@ -146,7 +149,7 @@
       padding:0;
     }
     .client-strip-intro{
-      font-size:15px;font-weight:700;text-transform:uppercase;
+      font-size:11px;font-weight:700;text-transform:uppercase;
       letter-spacing:.1em;color:var(--navy);
       padding:16px 24px 0;text-align:center;background:none;
     }
@@ -157,6 +160,7 @@
       display:flex;
       align-items:center;
       margin-top:8px;
+      background:#F0F2F4;
     }
     .client-strip-row::before,
     .client-strip-row::after{
@@ -202,16 +206,21 @@
     .cn-15{font-family:'Lora',serif;                font-weight:700;color:#003333}
     .cn-16{font-family:'Libre Baskerville',serif;   font-weight:700;color:#4a0d00}
 
-    /* ── PULL QUOTE ── */
+    /* ── PULL QUOTE ──
+       Spec (v2): color:var(--body-text), font-style:normal. Already correct. */
     .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:center;gap:16px}
     .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
     .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:var(--body-text);margin:0;font-style:normal}
     .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
 
-    /* ── CALLOUT BOX ── */
+    /* ── CALLOUT BOX ──
+       Spec (v2): background:none; border-left:4px solid var(--navy);
+       border-radius:0; padding:16px 0 16px 20px; text-align:left;
+       p font-size:15px (matches surrounding body text).
+       Note: border, bg, alignment already correct — only font-size updated. */
     .callout-box{background:none;border-left:4px solid var(--navy);border-radius:0;padding:16px 0 16px 20px;margin:32px 0;text-align:left}
-    .callout-box p{font-size:16px;line-height:1.6;color:var(--body-text);font-weight:400;margin:0;font-style:normal}
+    .callout-box p{font-size:15px;line-height:1.6;color:var(--body-text);font-weight:400;margin:0;font-style:normal}
 
     /* ── INSIGHT CARDS ── */
     .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
@@ -223,8 +232,10 @@
     .insight-card .ic-title{font-size:14px;font-weight:700;margin-bottom:8px;line-height:1.3}
     .insight-card .ic-text{font-size:13px;color:var(--muted);line-height:1.6;font-weight:400}
 
-    /* ── FAQ SECTION ── */
-    .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
+    /* ── FAQ SECTION ──
+       Spec (v2): margin:40px 0 0 0 — bottom margin removed to eliminate
+       white gap between FAQ and bridge stripe. */
+    .faq-section{position:relative;overflow:hidden;margin:40px 0 0 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
     .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:52px 24px 56px}
@@ -283,8 +294,11 @@
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
 
-    /* ── THOMAS FLOATING WIDGET ── */
-    .thomas-float{position:fixed;right:0;top:40%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
+    /* ── THOMAS FLOATING WIDGET ──
+       Spec (v2): top:66.666% (1/3 up from bottom); white bg; no orange border;
+       100px width (108px hover); 90px image; navy name; muted sub;
+       mid-blue CTA. z-index:950. Hidden on mobile. */
+    .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
     .thomas-float-body{padding:8px 8px 10px;text-align:center}
@@ -448,7 +462,9 @@
   </div>
 </div>
 
-<!-- ── BRIDGE STRIPE ── -->
+<!-- ── BRIDGE STRIPE ──
+     Gray breathing room between FAQ and footer.
+     Soft directional prompt toward footer CTAs — no button needed. -->
 <div class="bridge-stripe">
   <div class="bridge-stripe-text">Ready to take the next step?</div>
   <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
@@ -500,7 +516,10 @@
   </div></div>
 </footer>
 
-<!-- ── THOMAS FLOATING WIDGET ── -->
+<!-- ── THOMAS FLOATING WIDGET ──
+     Fixed to right edge, 1/3 up from bottom of viewport (top:66.666%).
+     Hidden on mobile (max-width:768px).
+     Opens Thomas diagnostic app in new tab. -->
 <a class="thomas-float"
    href="https://shift-work-diagnostic.onrender.com/"
    target="_blank"
@@ -513,6 +532,7 @@
     <span class="thomas-float-cta">Chat Now &rarr;</span>
   </div>
 </a>
+<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
