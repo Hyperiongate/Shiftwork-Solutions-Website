@@ -157,12 +157,9 @@
     .callout-label{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--orange);margin-bottom:6px;letter-spacing:.06em}
     .callout-text{font-size:14px;color:var(--body-text);line-height:1.6}
     /* ── PDF DOWNLOAD TAB ── */
-    /* PDF tab sits directly above Thomas.
-       Thomas: top:66.666%, height ~148px, so its top edge ≈ 66.666vh - 74px.
-       PDF tab height ~90px. Gap 10px.
-       PDF tab bottom = Thomas top - gap = (66.666vh - 74px) - 10px
-       PDF tab top = PDF bottom - PDF height = (66.666vh - 84px) - 90px = 66.666vh - 174px */
-    .pdf-float{position:fixed;right:0;top:calc(66.666% - 174px);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
+    /* PDF tab anchored from bottom. Thomas sits at bottom:24px, height ~148px.
+       PDF tab bottom = 24 + 148 + 16px gap = 188px. Simple and overlap-proof. */
+    .pdf-float{position:fixed;right:0;bottom:188px;z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .pdf-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .pdf-float-body{padding:10px 8px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px}
     .pdf-float-icon{font-size:20px;line-height:1}
@@ -227,7 +224,7 @@
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
     /* ── THOMAS FLOATING WIDGET ── */
-    .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
+    .thomas-float{position:fixed;right:0;bottom:24px;z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
     .thomas-float-body{padding:8px 8px 10px;text-align:center}
