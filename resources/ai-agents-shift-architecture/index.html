@@ -16,6 +16,15 @@
                  non-italic). FAQ: 5 items on AI agents in shift ops.
                  Hero image: /images/ai.jpg. FAQ bg: Hands_in_the_air.jpg.
                  Nav: "Why Us" (current standard).
+    2026-04-24 — Added second pull quote (Dan Capshaw attribution) in
+                 "The Governance Question" section. Added callout-box
+                 in "Before You Adopt These Tools" section summarizing
+                 the amplification warning. Added .callout-box CSS per
+                 Page Bottom Standard Section 6B (navy left-bar, no
+                 background, 15px body text match).
+                 Added Jim Dillingham attribution to pull quote 1
+                 ("AI plans inside an architecture") in "The
+                 Architecture Layer" section.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/ai.jpg
@@ -43,7 +52,7 @@
   <meta property="og:description" content="Why faster scheduling decisions increase the need for human judgment and governance.">
   <meta property="og:url" content="https://shift-work.com/resources/ai-agents-shift-architecture/">
   <meta name="twitter:card" content="summary">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"From Talkers to Agents: What the Next Phase of AI Means for Shift Scheduling","description":"AI is shifting from tools that answer questions to agents that pursue goals autonomously. Why that makes shift architecture, employee buy-in, and governance more important, not less.","url":"https://shift-work.com/resources/ai-agents-shift-architecture/","datePublished":"2026-04-23","dateModified":"2026-04-23","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"From Talkers to Agents: What the Next Phase of AI Means for Shift Scheduling","description":"AI is shifting from tools that answer questions to agents that pursue goals autonomously. Why that makes shift architecture, employee buy-in, and governance more important, not less.","url":"https://shift-work.com/resources/ai-agents-shift-architecture/","datePublished":"2026-04-23","dateModified":"2026-04-24","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"From Talkers to Agents","item":"https://shift-work.com/resources/ai-agents-shift-architecture/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an AI agent?","acceptedAnswer":{"@type":"Answer","text":"An AI agent is a system that is given a goal and allowed to pursue it over time, rather than simply answering one question at a time. It can use other software, pull data from multiple systems, test options, make decisions, and adjust its plans as conditions change \u2014 all without someone typing a new prompt each step. This is different from ChatGPT-style tools, which respond when asked and do nothing between prompts."}},{"@type":"Question","name":"Can AI schedule a 24/7 operation without human oversight?","acceptedAnswer":{"@type":"Answer","text":"AI can generate and adjust schedules autonomously, but it cannot carry accountability for the human consequences. Fatigue limits, compliance rules, fairness principles, and approval thresholds must be set by people and enforced as hard boundaries the system cannot optimize away. The new generation of agent-based tools operates with less human oversight per decision, which makes strong upstream governance more important, not less."}},{"@type":"Question","name":"What has to be in place before AI scheduling tools can actually work?","acceptedAnswer":{"@type":"Answer","text":"The fundamentals of the workforce system need to be sound: scheduling rules documented, fatigue and compliance guardrails explicit, labor cost structures understood, change processes capable of handling faster iteration, and employee preferences known rather than assumed. Technology amplifies whatever structure already exists. If the architecture is weak, AI will surface the problems faster \u2014 and then keep running on them."}},{"@type":"Question","name":"How is an AI agent different from ChatGPT?","acceptedAnswer":{"@type":"Answer","text":"ChatGPT is a \u201Ctalker\u201D \u2014 a user types a question, it gives an answer, and the interaction ends. An AI agent is given a goal and allowed to pursue it over time, using other software, monitoring data, making decisions, and adjusting plans without being prompted at each step. In a scheduling context, that means a system that continuously monitors absenteeism, demand shifts, and overtime, and revises staffing plans on its own."}},{"@type":"Question","name":"Does AI replace the need for shift scheduling consultants?","acceptedAnswer":{"@type":"Answer","text":"No. AI operates inside an architecture \u2014 the crew structure, shift lengths, rotation rules, relief strategy, overtime distribution, and policy framework that define what the system is allowed to do. Designing that architecture, building employee buy-in, and managing the change through implementation sits outside what any algorithm is built to do. Scheduling software assigns people to shifts. Consultants design the shift system that makes software worth using."}}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -106,6 +115,12 @@
     .pull-quote-content{flex:1}
     .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:var(--body-text);margin:0;font-style:normal}
     .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
+
+    /* ── CALLOUT BOX — Section 6B standard (2026-04-22)
+       No background. Navy left bar. Left-aligned. 15px body match.
+       Used for standalone key statements without attribution. ── */
+    .callout-box{background:none;border-left:4px solid var(--navy);border-radius:0;padding:16px 0 16px 20px;margin:32px 0;text-align:left}
+    .callout-box p{font-size:15px;line-height:1.6;color:var(--body-text);font-weight:400;margin:0;font-style:normal}
 
     /* ── CONTRAST CARDS — "What AI Can Do / What AI Cannot Do" pairing
        Same styling as MBWA Plant A / Plant B: light grey bg, navy top border,
@@ -298,6 +313,7 @@
     <span class="pull-quote-mark">&#8220;</span>
     <div class="pull-quote-content">
       <p>AI plans inside an architecture. It does not build the architecture. A weak input doesn&#x2019;t just produce one weak output anymore &#x2014; it gets operationalized at scale, without asking.</p>
+      <p class="pq-attr">&#x2014; Jim Dillingham, Shiftwork Solutions LLC</p>
     </div>
   </div>
 
@@ -311,6 +327,14 @@
 
   <p>As AI systems take on more of the execution work, governance becomes the real job. Who sets the fatigue limits the algorithm cannot override? Who decides when marginal efficiency gains aren&#x2019;t worth morale damage? Who approves changes that cross operational or workforce thresholds? Who can explain the logic to a supervisor, an employee, or a union?</p>
 
+  <div class="pull-quote">
+    <span class="pull-quote-mark">&#8220;</span>
+    <div class="pull-quote-content">
+      <p>The algorithm can optimize the schedule. It cannot attend the meeting where you tell a midnight crew their rotation is changing. Someone still has to own that conversation.</p>
+      <p class="pq-attr">&#x2014; Dan Capshaw, Shiftwork Solutions LLC</p>
+    </div>
+  </div>
+
   <p>AI can generate options. It cannot carry accountability. Someone still has to own the decision, and that someone still has to live with the workforce consequences.</p>
 
   <h2>Before You Adopt These Tools</h2>
@@ -319,9 +343,12 @@
 
   <p>That changes the stakes considerably. Whatever architecture, rules, and assumptions you hand these systems become the foundation they build on, autonomously, for as long as they run. A weak input doesn&#x2019;t just produce one weak output anymore &#x2014; it gets operationalized at scale, without asking.</p>
 
-  <p>Before introducing AI-driven scheduling tools, the fundamentals of your workforce system need to be sound. Scheduling rules documented. Fatigue and compliance guardrails explicit. Labor cost structures understood. Change processes capable of handling faster iteration. Employee preferences known, not assumed.</p>
+  <!-- CALLOUT BOX — Section 6B: navy left bar, no background, 15px -->
+  <div class="callout-box">
+    <p>Before introducing AI-driven scheduling tools: scheduling rules must be documented, fatigue and compliance guardrails explicit, labor cost structures understood, change processes capable of handling faster iteration, and employee preferences known &#x2014; not assumed. If those foundations are weak, AI will surface the problems faster and then keep running on them.</p>
+  </div>
 
-  <p>If those foundations are weak, AI will surface the problems faster &#x2014; and then keep running on them. If the architecture is sound, the same technology can dramatically improve responsiveness while keeping workforce stability intact.</p>
+  <p>If the architecture is sound, the same technology can dramatically improve responsiveness while keeping workforce stability intact.</p>
 
   <p>Technology amplifies whatever structure already exists &#x2014; strong or weak. Our work, across hundreds of 24/7 operations over three decades, is to make sure the structure is strong before the amplifier gets turned on.</p>
 
