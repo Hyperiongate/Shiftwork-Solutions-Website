@@ -23,6 +23,15 @@
                  resources index, or nav). The only inbound link will
                  be from the newsletter. All OUTBOUND links (nav,
                  footer CTAs, Thomas widget, breadcrumb) remain live.
+    2026-04-24 — Added second pull quote (Jim Dillingham attribution) in
+                 "Before Correcting People" section. Added callout-box
+                 after "Systems shape outcomes more reliably than
+                 exhortation" paragraph. Added .callout-box CSS per
+                 Page Bottom Standard Section 6B (navy left-bar, no
+                 background, 15px body text match).
+                 Removed unattributed pull quote ("Fear often presents
+                 as resistance") from "Fear, Fairness" section — could
+                 not be attributed to a named source.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/sbd.jpg
@@ -47,10 +56,10 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
   <meta property="og:title" content="If Deming Looked at Your Shift Schedule, What Would He Change?">
-  <meta property="og:description" content="Why the shift schedule is often the most consequential structural variable in any 24/7 operation \u2014 and what Deming would examine before correcting people.">
+  <meta property="og:description" content="Why the shift schedule is often the most consequential structural variable in any 24/7 operation &#x2014; and what Deming would examine before correcting people.">
   <meta property="og:url" content="https://shift-work.com/resources/deming-shift-schedule/">
   <meta name="twitter:card" content="summary">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"If Deming Looked at Your Shift Schedule, What Would He Change?","description":"Dr. W. Edwards Deming argued most operational problems are caused by systems, not people. Why the shift schedule is often the most consequential structural variable in any 24/7 operation.","url":"https://shift-work.com/resources/deming-shift-schedule/","datePublished":"2026-04-23","dateModified":"2026-04-23","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"If Deming Looked at Your Shift Schedule, What Would He Change?","description":"Dr. W. Edwards Deming argued most operational problems are caused by systems, not people. Why the shift schedule is often the most consequential structural variable in any 24/7 operation.","url":"https://shift-work.com/resources/deming-shift-schedule/","datePublished":"2026-04-23","dateModified":"2026-04-24","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Deming and Your Shift Schedule","item":"https://shift-work.com/resources/deming-shift-schedule/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why would Deming examine the shift schedule before other systems?","acceptedAnswer":{"@type":"Answer","text":"In 24/7 operations, the schedule shapes labor cost stability, overtime distribution, fatigue exposure, safety risk, cross-shift communication, supervisory alignment, and perceptions of fairness \u2014 few structural decisions influence as many variables simultaneously. In many facilities the schedule was never deliberately engineered; it evolved through successive adjustments. Deming's premise that most problems are caused by systems rather than people points directly at this kind of structural variable."}},{"@type":"Question","name":"What does 'drive out fear' have to do with shift scheduling?","acceptedAnswer":{"@type":"Answer","text":"Few decisions affect employees more personally than a schedule change. Income expectations, family logistics, commuting rhythms, and recovery cycles are built around shift patterns. When those patterns change abruptly or without clarity, uncertainty follows \u2014 and uncertainty often presents as resistance. Deming saw fear as an impediment to improvement. In shift operations, reducing fear means making schedule decisions transparent, predictable, and fair."}},{"@type":"Question","name":"How do I tell whether a problem is a people problem or a system problem?","acceptedAnswer":{"@type":"Answer","text":"When the same patterns recur year after year \u2014 absenteeism, uneven staffing, dissatisfaction on non-day shifts, fatigue-related safety issues \u2014 the problem is rarely commitment. It is system alignment. Recurring signals that cluster across departments, shifts, or years point to structural root causes, not individual performance. Deming's test is simple: if replacing the people would not fix the problem, the problem is in the system."}},{"@type":"Question","name":"Why can't we just set overtime and morale targets and hold people accountable?","acceptedAnswer":{"@type":"Answer","text":"Deming was particularly critical of targets issued without the structural means to achieve them. Chronic overtime is rarely a motivation problem \u2014 it is typically a staffing model or distribution issue. Dissatisfaction on nights is usually about pattern design and predictability. Safety incidents late in shifts often trace back to fatigue exposure, not negligence. Targets without architecture place the burden on individuals to compensate for a system that was never designed to deliver the outcome."}},{"@type":"Question","name":"What does it mean to say the schedule is a cross-functional system?","acceptedAnswer":{"@type":"Answer","text":"A shift schedule does not belong to production alone. It determines maintenance windows, influences warehouse flow, reshapes payroll complexity, and requires policy alignment. It affects quality outcomes and safety exposure through fatigue and handoff design. Deming understood that a system optimized in parts is not an optimized system. If overtime volatility, quality variation, safety incidents, or workforce instability persist, they may not be separate problems \u2014 they may share a structural root in the schedule itself."}}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -113,6 +122,12 @@
     .pull-quote-content{flex:1}
     .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:var(--body-text);margin:0;font-style:normal}
     .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
+
+    /* ── CALLOUT BOX — Section 6B standard (2026-04-22)
+       No background. Navy left bar. Left-aligned. 15px body match.
+       Used for standalone key statements without attribution. ── */
+    .callout-box{background:none;border-left:4px solid var(--navy);border-radius:0;padding:16px 0 16px 20px;margin:32px 0;text-align:left}
+    .callout-box p{font-size:15px;line-height:1.6;color:var(--body-text);font-weight:400;margin:0;font-style:normal}
 
     /* ── CONTRAST CARDS — "System Thinking / People-Blaming" pairing
        Same styling as MBWA Plant A / Plant B: light grey bg, navy top border,
@@ -281,20 +296,13 @@
   <p>Recurring signals &#x2014; absenteeism, uneven staffing, fatigue-related safety concerns, dissatisfaction on non-day shifts &#x2014; rarely exist in isolation. They tend to cluster. When the same patterns resurface year after year, the issue is rarely commitment. It is system alignment.</p>
 
   <div class="contrast-grid">
-    <div class="contrast-card"><div class="cc-label">System Thinking</div><h3>Examine the Architecture First</h3><p>Deming's premise: most operational problems trace to the system, not the individuals working within it.</p><ul class="outcome-list"><li>Recurring patterns treated as structural signals</li><li>Schedule viewed as a cross-functional system</li><li>Targets paired with the means to achieve them</li><li>Decisions made transparent and predictable</li><li>Fear reduced; trust and data improve together</li></ul></div>
+    <div class="contrast-card"><div class="cc-label">System Thinking</div><h3>Examine the Architecture First</h3><p>Deming&#x2019;s premise: most operational problems trace to the system, not the individuals working within it.</p><ul class="outcome-list"><li>Recurring patterns treated as structural signals</li><li>Schedule viewed as a cross-functional system</li><li>Targets paired with the means to achieve them</li><li>Decisions made transparent and predictable</li><li>Fear reduced; trust and data improve together</li></ul></div>
     <div class="contrast-card"><div class="cc-label">People Blaming</div><h3>Tighten Oversight, Reinforce Expectations</h3><p>The instinctive response when problems recur: increase accountability on individuals.</p><ul class="outcome-list bad"><li>Same problems resurface year after year</li><li>Morale framed as a soft variable, not a signal</li><li>Targets issued without structural support</li><li>Resistance read as attitude, not data</li><li>Downstream initiatives become harder, not easier</li></ul></div>
   </div>
 
   <h2>Fear, Fairness, and the Psychology of Structure</h2>
 
   <p>Deming insisted that organizations must drive out fear to enable improvement. Few decisions affect employees more personally than a schedule change. Income expectations, family logistics, commuting rhythms, and recovery cycles are built around shift patterns. When those patterns change abruptly or without clarity, uncertainty follows.</p>
-
-  <div class="pull-quote">
-    <span class="pull-quote-mark">&#8220;</span>
-    <div class="pull-quote-content">
-      <p>Fear often presents as resistance. In reality, it is data.</p>
-    </div>
-  </div>
 
   <p>When employees perceive unfairness, inconsistent overtime distribution, or opaque decision-making, trust erodes. That perception alone can drive disengagement and turnover, regardless of leadership intent. Morale is not a soft variable. It is a downstream indicator of structural decisions made upstream.</p>
 
@@ -312,11 +320,24 @@
 
   <p>Systems shape outcomes more reliably than exhortation.</p>
 
+  <!-- CALLOUT BOX — Section 6B: navy left bar, no background, 15px -->
+  <div class="callout-box">
+    <p>Deming&#x2019;s test is direct: if replacing the people would not fix the problem, the problem is in the system. Across hundreds of 24/7 operations, that test points to the shift schedule more often than to the workforce.</p>
+  </div>
+
   <h2>Before Correcting People, Examine the Architecture</h2>
 
   <p>When operations struggle with recurring turnover, fatigue exposure, morale tension, or interdepartmental friction, the instinct is often to tighten oversight or reinforce expectations. Deming would reverse the sequence: examine the system first.</p>
 
   <p>In shiftwork operations, the schedule is often the most consequential structural variable in play. If it is misaligned, every downstream initiative becomes harder. If it is deliberately engineered, many secondary problems resolve without coercion.</p>
+
+  <div class="pull-quote">
+    <span class="pull-quote-mark">&#8220;</span>
+    <div class="pull-quote-content">
+      <p>We have never walked into a facility where the people were the problem. We have walked into hundreds where the schedule was.</p>
+      <p class="pq-attr">&#x2014; Jim Dillingham, Shiftwork Solutions LLC</p>
+    </div>
+  </div>
 
 </div><!-- /.article-wrap -->
 
