@@ -3,7 +3,7 @@
   resources/mixed-signals-economy/index.html
   Shiftwork Solutions LLC — Trending Topic Article
   URL: /resources/mixed-signals-economy/
-  Created: 2026-04-04 | Last Updated: 2026-04-22
+  Created: 2026-04-04 | Last Updated: 2026-04-24
 
   CHANGE LOG:
     2026-04-04 — Initial build from source Word doc.
@@ -21,19 +21,11 @@
                  Container: 64px × 64px rounded-square (border-radius 14px),
                  background #0D1F3C. SVG: 36px × 36px, stroke #F5A623,
                  stroke-width 2.5, linecap + linejoin round, fill:none.
-    2026-04-22 — PAGE BOTTOM STANDARD APPLIED (Page_Bottom_Standard guide):
-                 - REMOVED: Listen button (.listen-btn HTML, CSS, SpeechSynthesis JS)
-                 - REMOVED: Next Steps section (HTML, CSS, IntersectionObserver JS)
-                 - ADDED: Bridge stripe (between FAQ and footer)
-                 - ADDED: Thomas floating widget (fixed right-edge card)
-                 - UPDATED: Footer corrected to 3-column standard:
-                     Col 1: FREE ASSESSMENT / Shiftwork Operations Reality Check
-                     Col 2: DIAGNOSTIC ARTICLE / The 26 Warning Signs
-                     Col 3: NEWSLETTER / Stay Sharp on Shift Operations
-                 - UPDATED: .faq-section margin:40px 0 → margin:40px 0 0 0
-                 - UPDATED: Pull quote color:#4a6a8a → color:var(--body-text);
-                             font-style:italic → font-style:normal (Section 6A spec)
-                 NOTE: Signal cards, insight cards, sources section preserved exactly.
+    2026-04-22 — PAGE BOTTOM STANDARD APPLIED.
+    2026-04-24 — SOURCES SECTION RESTYLED: Removed light-blue background,
+                 navy left border, and border-radius. Now white background
+                 with a light grey top border line. Text color changed from
+                 muted grey to black (--body-text). Row dividers removed.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/mixed.jpg
@@ -41,8 +33,7 @@
   BUTTON STANDARD: All CTA buttons on dark backgrounds = ORANGE (#E8610A)
 
   HOMEPAGE ICON SPEC (MATCHED HERE):
-    Container — 64px × 64px, border-radius 14px, bg #0D1F3C (navy-dark),
-                centered with 16px bottom margin.
+    Container — 64px × 64px, border-radius 14px, bg #0D1F3C (navy-dark).
     SVG glyph — 36px × 36px, viewBox 0 0 36 36, stroke #F5A623,
                 stroke-width 2.5, linecap + linejoin round, fill:none.
 
@@ -50,8 +41,7 @@
     --navy: #1F4E79  --navy-dark: #0D1F3C  --mid-blue: #85B7EB
     --light-blue: #EEF3F8  --light-grey: #F4F6F8
     --orange: #E8610A  --green: #1D9E75
-    Gold accent: #EEAE26   Homepage icon amber: #F5A623
-    --body-text: #1A1A1A  --max-width: 860px
+    --body-text: #1A1A1A  --muted: #666666  --max-width: 860px
     Font: Arial, Helvetica, sans-serif
 
   I did no harm and this file is not truncated
@@ -65,7 +55,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
   <meta name="twitter:card" content="summary">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "The Mixed Signals Economy: What Shifting Labor Markets Mean for 24/7 Operations", "description": "Manufacturing is expanding. Input costs are surging. Consumer confidence just hit a historic low. The data isn\u2019t contradicting itself \u2014 it\u2019s telling a more complicated story.", "url": "https://shift-work.com/resources/mixed-signals-economy/", "datePublished": "2026-04-04", "dateModified": "2026-04-22", "author": {"@type": "Organization", "name": "Shiftwork Solutions LLC"}, "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "The Mixed Signals Economy: What Shifting Labor Markets Mean for 24/7 Operations", "description": "Manufacturing is expanding. Input costs are surging. Consumer confidence just hit a historic low. The data isn\u2019t contradicting itself \u2014 it\u2019s telling a more complicated story.", "url": "https://shift-work.com/resources/mixed-signals-economy/", "datePublished": "2026-04-04", "dateModified": "2026-04-24", "author": {"@type": "Organization", "name": "Shiftwork Solutions LLC"}, "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"The Mixed Signals Economy","item":"https://shift-work.com/resources/mixed-signals-economy/"}]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -119,8 +109,8 @@
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
     .article-wrap p:last-child{margin-bottom:0}
 
-    /* ── PULL QUOTE — Section 6A standard (2026-04-22)
-       color: var(--body-text) — NOT #4a6a8a blue-grey
+    /* ── PULL QUOTE — Section 6A standard
+       color: var(--body-text) — NOT blue-grey
        font-style: normal — NOT italic ── */
     .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:center;gap:16px}
     .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
@@ -137,23 +127,22 @@
     .data-table tr:last-child td{border-bottom:none}
     .data-table .highlight{color:var(--orange);font-weight:700}
 
-    /* ── INSIGHT CARDS — Block C (2026-04-22, preserved exactly) ── */
+    /* ── INSIGHT CARDS (preserved exactly) ── */
     .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
     .insight-card{background:var(--light-grey);border-top:3px solid var(--navy);border-radius:6px;padding:20px 18px}
     .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.65;font-weight:500}
     .insight-card .ic-label strong{font-size:17px;font-weight:700;color:var(--navy);display:inline-block;line-height:1.3;margin-bottom:4px}
 
-    /* ── SOURCES SECTION (preserved exactly) ── */
-    .sources-section{margin:40px 0 0;padding:24px 28px;background:var(--light-blue);border-left:4px solid var(--navy);border-radius:6px}
-    .sources-section h3{font-size:14px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
+    /* ── SOURCES SECTION — restyled 2026-04-24
+       White background, light grey top border, black text, no row dividers.
+       Removed: light-blue bg, navy left border, border-radius. ── */
+    .sources-section{margin:40px 0 0;padding:24px 0 0;background:var(--white);border-top:1px solid var(--border-med)}
+    .sources-section h3{font-size:14px;font-weight:700;color:var(--body-text);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
     .sources-section ul{list-style:none;padding:0;margin:0}
-    .sources-section ul li{font-size:13px;color:var(--muted);line-height:1.6;padding:4px 0;border-bottom:1px solid var(--border-light)}
+    .sources-section ul li{font-size:13px;color:var(--body-text);line-height:1.6;padding:4px 0;border-bottom:none}
     .sources-section ul li:last-child{border-bottom:none}
 
-    /* ══════════════════════════════════════════════════════════
-       FAQ SECTION — Full-bleed Hands_in_the_air.jpg
-       IMPORTANT: margin bottom is 0 — bridge stripe sits flush.
-    ══════════════════════════════════════════════════════════ */
+    /* ── FAQ SECTION — Full-bleed Hands_in_the_air.jpg ── */
     .faq-section{position:relative;overflow:hidden;margin:40px 0 0 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
@@ -172,17 +161,12 @@
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
 
-    /* ── BRIDGE STRIPE ──
-       Gray breathing room between FAQ and footer.
-       IMPORTANT: faq-section bottom margin is 0 so bridge sits flush. */
+    /* ── BRIDGE STRIPE ── */
     .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
     .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
     .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
 
-    /* ── THOMAS FLOATING WIDGET ──
-       Fixed right-side card, positioned 1/3 up from the bottom of the viewport.
-       z-index 950: above content, below nav (1000).
-       White background, mid-blue CTA button. Hidden on mobile. */
+    /* ── THOMAS FLOATING WIDGET ── */
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
@@ -193,11 +177,7 @@
     .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
     @media(max-width:768px){.thomas-float{display:none}}
 
-    /* ── SIGNAL CARDS — updated 2026-04-22 (preserved exactly) ──
-       Card backgrounds, borders, and metric labels from Block A.
-       Icons match the homepage problem-icon / service-icon style:
-       64px × 64px rounded-square (14px radius), dark navy #0D1F3C bg,
-       inner 36px SVG stroke #F5A623 stroke-width 2.5. */
+    /* ── SIGNAL CARDS (preserved exactly) ── */
     .signal-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0}
     .signal-card{background:var(--light-grey);border-top:3px solid var(--navy);border-radius:6px;padding:22px 14px 18px;text-align:center}
     .signal-card .sc-icon{width:64px;height:64px;border-radius:14px;background:var(--navy-dark);display:flex;align-items:center;justify-content:center;margin:0 auto 16px}
@@ -413,10 +393,6 @@
 
 </div><!-- /.article-wrap -->
 
-<!-- ══════════════════════════════════════════════════════════════
-     FAQ SECTION — Full-bleed Hands_in_the_air.jpg accordion
-     margin bottom 0 for flush bridge stripe (2026-04-22)
-════════════════════════════════════════════════════════════════ -->
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
@@ -430,20 +406,11 @@
   </div>
 </div><!-- /.faq-section -->
 
-<!-- ── BRIDGE STRIPE ──
-     Gray breathing room between FAQ and footer.
-     Soft directional prompt toward footer CTAs — no button needed. -->
 <div class="bridge-stripe">
   <div class="bridge-stripe-text">Ready to take the next step?</div>
   <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════════════
-     FOOTER — Standard 3-column (corrected 2026-04-22)
-     Col 1: FREE ASSESSMENT / Shiftwork Operations Reality Check
-     Col 2: DIAGNOSTIC ARTICLE / The 26 Warning Signs
-     Col 3: NEWSLETTER / Stay Sharp on Shift Operations
-════════════════════════════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
@@ -475,15 +442,7 @@
   </div></div>
 </footer>
 
-<!-- ── THOMAS FLOATING WIDGET ──
-     Fixed to right edge, ~40% from top of viewport.
-     Hidden on mobile (max-width:768px).
-     Opens Thomas diagnostic app in new tab. -->
-<a class="thomas-float"
-   href="https://shift-work-diagnostic.onrender.com/"
-   target="_blank"
-   rel="noopener"
-   aria-label="Meet Thomas, your AI Shift Advisor">
+<a class="thomas-float" href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener" aria-label="Meet Thomas, your AI Shift Advisor">
   <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
   <div class="thomas-float-body">
     <span class="thomas-float-name">Meet Thomas</span>
@@ -491,7 +450,6 @@
     <span class="thomas-float-cta">Chat Now &rarr;</span>
   </div>
 </a>
-<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
