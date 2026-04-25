@@ -5,9 +5,17 @@
   URL: /resources/
 
   Created:      2026-04-03
-  Last Updated: 2026-04-23
+  Last Updated: 2026-04-24
 
   CHANGE LOG:
+    2026-04-24 — SPOTLIGHT ARTICLES: Added Deming article as 8th card
+                 in the focused-grid. Card starts with focused-hidden
+                 class (revealed via Show More button). Points to
+                 /resources/support/deming-shift-schedule/, image
+                 /images/sbd.jpg. Title: "If Deming Looked at Your
+                 Shift Schedule, What Would He Change?" No other
+                 changes to layout, CSS, JS, or any other cards.
+
     2026-04-23 — TRENDING CAROUSEL: Added new AI-agents article as the
                  first card in the trending carousel. Card points to
                  /resources/ai-agents-shift-architecture/, tag
@@ -32,31 +40,6 @@
                  All other content, layout, CSS, JS logic, carousel,
                  newsletter forms, footer, and other tiles completely unchanged.
 
-    2026-04-18 (v8) — 13 CHANGE GROUPS:
-      1.  Hero H1 → "Better Scheduling Decisions Start Here." + new subtitle
-      2.  Focused Topics section descriptor updated
-      3.  Hub eyebrow/heading/sub updated
-      4.  Managing Variable Workloads + Operational Best Practices card descs updated
-      5.  "Schedule Change Management" → "Change Management" throughout
-      6.  Trending tags: all "Trending" tags replaced with functional tags;
-          Reshoring → Operations, 32-Hour → Legislation;
-          26 Warning Signs removed from carousel; eyebrow updated
-      7.  Focused Topics tiles: "Focused Topic" label removed entirely
-      8.  Orange background removed from all card tag labels (text color kept)
-      9.  Pillar cards: orange top border removed (fine grey top only);
-          CTA cards: strong blue border removed, fine grey top only, icons removed,
-          orange hover border removed (shadow+lift only)
-      10. Show More Articles button: navy blue by default
-      11. Spotlight cards: border-top navy by default, orange on hover
-      12. All cards: strong borders → fine grey (1px solid #e0e0e0)
-      13. Article title hover: orange → medium blue + underline
-
-    2026-04-18 — SPOTLIGHT ARTICLE ORDER: Swapped cards 2/3 with 6/7.
-    2026-04-18 — SHOW LESS button added after Show More.
-    2026-04-17 — "Not Sure Yet" result tiles: replaced SVG icons with actual images.
-    2026-04-17 — Interest button top-band balanced: fixed height:160px.
-    2026-04-16 — FIVE UPDATES: hero h1 color, interest button split-band layout,
-                 CTA card redesign, Spotlight show-more, Trending carousel.
     2026-04-22 — PAGE BOTTOM STANDARD applied:
                  UPDATED: Footer replaced with standard 3-col structure
                    (FREE ASSESSMENT / 26 Warning Signs / Newsletter)
@@ -64,6 +47,14 @@
                    AI ADVISOR columns removed.
                  ADDED: Bridge stripe between trending section and footer.
                  ADDED: Thomas floating widget (fixed right edge, desktop only).
+
+    2026-04-18 (v8) — 13 CHANGE GROUPS (see prior changelog for full detail).
+    2026-04-18 — SPOTLIGHT ARTICLE ORDER: Swapped cards 2/3 with 6/7.
+    2026-04-18 — SHOW LESS button added after Show More.
+    2026-04-17 — "Not Sure Yet" result tiles: replaced SVG icons with actual images.
+    2026-04-17 — Interest button top-band balanced: fixed height:160px.
+    2026-04-16 — FIVE UPDATES: hero h1 color, interest button split-band layout,
+                 CTA card redesign, Spotlight show-more, Trending carousel.
 
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   HERO IMAGE: /images/second.png
@@ -90,7 +81,6 @@
       --orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;
       --body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;
       --max-width:1060px;--page-pad:24px;
-      /* item 13: hover blue for article titles */
       --hover-blue:#1a4a7a;
     }
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
@@ -253,7 +243,7 @@
     .carousel-arrow-prev{left:-26px}
     .carousel-arrow-next{right:-26px}
 
-    /* ── BRIDGE STRIPE — sits flush below trending section ── */
+    /* ── BRIDGE STRIPE ── */
     .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
     .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
     .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
@@ -293,10 +283,7 @@
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
 
-    /* ── THOMAS FLOATING WIDGET ──
-       Fixed right-side card, positioned 1/3 up from the bottom of the viewport.
-       Visible on desktop only (hidden below 768px).
-       z-index 950: above content, below nav (1000). */
+    /* ── THOMAS FLOATING WIDGET ── */
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
@@ -467,7 +454,7 @@
   </div>
 </div></section>
 
-<!-- ── SPOTLIGHT ARTICLES ── -->
+<!-- ── SPOTLIGHT ARTICLES — Deming added as 8th card (focused-hidden) ── -->
 <section class="focused-section"><div class="focused-inner">
   <div class="focused-header">
     <div class="section-eyebrow">Targeted Perspectives</div>
@@ -489,6 +476,8 @@
     <a href="/resources/support/maintenance-worker-scheduling/" class="focused-card focused-hidden"><img src="/images/maintenance.jpg" alt="" class="focused-card-img"><div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Maintenance Workers: Unique Scheduling Considerations</div><div class="focused-card-desc">Why standard shift patterns consistently fail maintenance crews — and what approaches actually work.</div></div><div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div></a>
 
     <a href="/resources/support/schedule-change-pitfalls/" class="focused-card focused-hidden"><img src="/images/up.jpg" alt="" class="focused-card-img"><div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Schedule Change Pitfalls: What to Avoid</div><div class="focused-card-desc">The predictable reasons well-designed schedule changes fail — poor communication, policy gaps, and inadequate notice.</div></div><div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div></a>
+
+    <a href="/resources/support/deming-shift-schedule/" class="focused-card focused-hidden"><img src="/images/sbd.jpg" alt="" class="focused-card-img"><div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">If Deming Looked at Your Shift Schedule, What Would He Change?</div><div class="focused-card-desc">Most operational problems are caused by systems, not people. Why the shift schedule is often the most consequential structural variable in any 24/7 operation.</div></div><div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div></a>
 
   </div>
   <div class="focused-show-more-wrap">
@@ -526,9 +515,6 @@
   </div>
 </div></section>
 
-<!-- ── BRIDGE STRIPE ──
-     Gray breathing room between trending section and footer.
-     Soft directional prompt toward footer CTAs — no button needed. -->
 <div class="bridge-stripe">
   <div class="bridge-stripe-text">Ready to take the next step?</div>
   <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
@@ -565,15 +551,7 @@
   </div></div>
 </footer>
 
-<!-- ── THOMAS FLOATING WIDGET ──
-     Fixed to right edge, ~40% from top of viewport.
-     Hidden on mobile (max-width:768px).
-     Opens Thomas diagnostic app in new tab. -->
-<a class="thomas-float"
-   href="https://shift-work-diagnostic.onrender.com/"
-   target="_blank"
-   rel="noopener"
-   aria-label="Meet Thomas, your AI Shift Advisor">
+<a class="thomas-float" href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener" aria-label="Meet Thomas, your AI Shift Advisor">
   <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
   <div class="thomas-float-body">
     <span class="thomas-float-name">Meet Thomas</span>
@@ -581,7 +559,6 @@
     <span class="thomas-float-cta">Chat Now &rarr;</span>
   </div>
 </a>
-<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
 /* Mobile nav */
