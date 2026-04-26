@@ -5,56 +5,19 @@
   URL: /resources/
 
   Created:      2026-04-03
-  Last Updated: 2026-04-24
+  Last Updated: 2026-04-26
 
   CHANGE LOG:
-    2026-04-24 — SPOTLIGHT ARTICLES: Added Deming article as 8th card
-                 in the focused-grid. Card starts with focused-hidden
-                 class (revealed via Show More button). Points to
-                 /resources/support/deming-shift-schedule/, image
-                 /images/sbd.jpg. Title: "If Deming Looked at Your
-                 Shift Schedule, What Would He Change?" No other
-                 changes to layout, CSS, JS, or any other cards.
-
-    2026-04-23 — TRENDING CAROUSEL: Added new AI-agents article as the
-                 first card in the trending carousel. Card points to
-                 /resources/ai-agents-shift-architecture/, tag
-                 "Operations", image /images/ai.jpg. No other changes
-                 to layout, CSS, JS (infinite carousel logic clones
-                 children automatically, so one new card is all that is
-                 required). Card title:
-                 "From Talkers to Agents: AI and Shift Scheduling".
-
-    2026-04-21 — REALITY CHECK TILE RENAMED:
-                 Single targeted change to the "Not Sure Yet" result panel.
-                 The DATA.unsure assessment tile was previously labeled
-                 "Free Shiftwork Assessment" with description
-                 "Answer a short set of questions and get an immediate
-                 evaluation of your operation."
-                 Updated to:
-                   title: "The Shiftwork Operations Reality Check"
-                   desc:  "Compare your thinking to more than 20,000 shift
-                           worker responses. Four minutes, no email required."
-                 URL (/resources/shiftwork-assessment/) unchanged.
-                 Image (/images/assessment.jpg) unchanged.
-                 All other content, layout, CSS, JS logic, carousel,
-                 newsletter forms, footer, and other tiles completely unchanged.
-
-    2026-04-22 — PAGE BOTTOM STANDARD applied:
-                 UPDATED: Footer replaced with standard 3-col structure
-                   (FREE ASSESSMENT / 26 Warning Signs / Newsletter)
-                   per Page Bottom Standard 2D. Old FREE CONSULTATION /
-                   AI ADVISOR columns removed.
-                 ADDED: Bridge stripe between trending section and footer.
-                 ADDED: Thomas floating widget (fixed right edge, desktop only).
-
-    2026-04-18 (v8) — 13 CHANGE GROUPS (see prior changelog for full detail).
-    2026-04-18 — SPOTLIGHT ARTICLE ORDER: Swapped cards 2/3 with 6/7.
-    2026-04-18 — SHOW LESS button added after Show More.
-    2026-04-17 — "Not Sure Yet" result tiles: replaced SVG icons with actual images.
-    2026-04-17 — Interest button top-band balanced: fixed height:160px.
-    2026-04-16 — FIVE UPDATES: hero h1 color, interest button split-band layout,
-                 CTA card redesign, Spotlight show-more, Trending carousel.
+    2026-04-24 — SPOTLIGHT ARTICLES: Added Deming article as 8th card.
+    2026-04-23 — TRENDING CAROUSEL: Added AI-agents article as first card.
+    2026-04-21 — REALITY CHECK TILE RENAMED.
+    2026-04-22 — PAGE BOTTOM STANDARD applied.
+    2026-04-18 — (v8) 13 CHANGE GROUPS.
+    2026-04-26 — AI DISCOVERABILITY SCHEMAS added:
+                 Organization schema (entity signal for AI lists),
+                 CollectionPage schema (signals authoritative resource hub),
+                 meta keywords tag.
+                 All existing content, layout, CSS, and JS preserved exactly.
 
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   HERO IMAGE: /images/second.png
@@ -68,12 +31,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shift Work Resources: Guides, Industry Insights &amp; Diagnostic Tools | Shiftwork Solutions</title>
   <meta name="description" content="Scheduling guides, industry insights, and diagnostic tools built for 24/7 manufacturing and distribution operations. Start with the 26 Warning Signs diagnostic or browse ten comprehensive guides.">
+  <meta name="keywords" content="shift schedule consulting, shift work resources, shift schedule design guide, 24/7 operations, overtime management, change management consulting, workforce surveys, manufacturing scheduling, continuous operations, shiftwork solutions">
   <link rel="canonical" href="https://shift-work.com/resources/">
   <meta property="og:title" content="Shift Work Resources: Guides, Industry Insights &amp; Diagnostic Tools">
   <meta property="og:description" content="Scheduling guides, industry insights, and diagnostic tools built for 24/7 manufacturing and distribution operations.">
   <meta property="og:url" content="https://shift-work.com/resources/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Shift Work Resources: Guides, Industry Insights &amp; Diagnostic Tools">
+  <meta name="twitter:description" content="Scheduling guides, industry insights, and diagnostic tools built for 24/7 manufacturing and distribution operations.">
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       AI DISCOVERABILITY SCHEMAS — added 2026-04-26
+       Organization: consistent entity signal for AI-generated lists.
+       CollectionPage: signals this as an authoritative resource hub.
+       Update sameAs URLs as directory listings are claimed.
+       ══════════════════════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Shiftwork Solutions LLC",
+    "url": "https://shift-work.com",
+    "logo": "https://shift-work.com/images/clear_bkgr_logo_2.png",
+    "telephone": "+14152651621",
+    "email": "Contact@shift-work.com",
+    "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
+    "address": {"@type": "PostalAddress", "addressLocality": "San Rafael", "addressRegion": "CA", "postalCode": "94901", "addressCountry": "US"},
+    "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities.",
+    "foundingDate": "1993",
+    "areaServed": {"@type": "Country", "name": "United States"},
+    "knowsAbout": ["shift schedule design","shift work consulting","24/7 operations management","continuous operations staffing","change management","workforce surveys","overtime management","overtime cost reduction","employee engagement","manufacturing workforce planning","distribution center scheduling","pharmaceutical shift scheduling","chemical plant operations","food and beverage manufacturing","mining shift scheduling","paper and packaging operations","union workforce consulting","rotating shift schedules","fixed shift schedules","12-hour shift schedules","staffing and workforce planning","labor cost analysis","fatigue risk management","post-implementation workforce surveys"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Shift Work Consulting Services",
+      "itemListElement": [
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Shift Schedule Design and Analysis"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Change Management Consulting"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Workforce Surveys and Diagnostics"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Labor Cost and Overtime Analysis"}},
+        {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Policy Development"}}
+      ]
+    },
+    "sameAs": ["https://www.linkedin.com/company/shiftwork-solutions-llc","https://shift-work.com"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Shift Work Resources: Guides, Industry Insights & Diagnostic Tools",
+    "url": "https://shift-work.com/resources/",
+    "description": "Ten comprehensive guides, spotlight articles, and diagnostic tools for 24/7 manufacturing and distribution operations — built from decades of shift work consulting experience.",
+    "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"},
+    "about": {"@type": "Thing", "name": "Shift Schedule Design and Workforce Management"},
+    "hasPart": [
+      {"@type": "Article", "name": "The Complete Guide to Shift Schedule Design", "url": "https://shift-work.com/resources/shift-schedule-design-guide/"},
+      {"@type": "Article", "name": "Shift Schedule Patterns and Examples", "url": "https://shift-work.com/resources/shift-schedule-patterns-guide/"},
+      {"@type": "Article", "name": "Maximizing Equipment Utilization", "url": "https://shift-work.com/resources/equipment-utilization-shift-scheduling/"},
+      {"@type": "Article", "name": "Managing Variable Workloads", "url": "https://shift-work.com/resources/managing-variable-workloads/"},
+      {"@type": "Article", "name": "Overtime Management Strategy and Cost Control", "url": "https://shift-work.com/resources/overtime-management-guide/"},
+      {"@type": "Article", "name": "Schedule Change Management", "url": "https://shift-work.com/resources/schedule-change-management/"},
+      {"@type": "Article", "name": "Building Employee Engagement in Shift Work", "url": "https://shift-work.com/resources/employee-engagement-shift-work/"},
+      {"@type": "Article", "name": "Shift Work Best Practices", "url": "https://shift-work.com/resources/shift-work-best-practices/"},
+      {"@type": "Article", "name": "Managing Absenteeism and Coverage Gaps", "url": "https://shift-work.com/resources/absenteeism-relief-coverage-management/"},
+      {"@type": "Article", "name": "Shift Work Policies: Pay, Time-Off and Compliance", "url": "https://shift-work.com/resources/shift-work-policies-guide/"}
+    ]
+  }
+  </script>
+
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
@@ -454,7 +482,7 @@
   </div>
 </div></section>
 
-<!-- ── SPOTLIGHT ARTICLES — Deming added as 8th card (focused-hidden) ── -->
+<!-- ── SPOTLIGHT ARTICLES ── -->
 <section class="focused-section"><div class="focused-inner">
   <div class="focused-header">
     <div class="section-eyebrow">Targeted Perspectives</div>
@@ -462,23 +490,14 @@
     <p class="section-sub" style="white-space:nowrap;">Targeted articles on specific operational challenges — when you know the problem and need a focused answer.</p>
   </div>
   <div class="focused-grid" id="focusedGrid">
-
     <a href="/resources/support/scaling-production-quickly/" class="focused-card"><img src="/images/updown.jpg" alt="" class="focused-card-img"><div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">How to Scale Production Up or Down Rapidly</div><div class="focused-card-desc">Four strategies for matching staffing to demand swings — overtime, temporary labor, discretionary work, and time-off management.</div></div><div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div></a>
-
     <a href="/resources/support/workforce-survey-analysis/" class="focused-card"><img src="/images/workforce.jpg" alt="" class="focused-card-img"><div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Survey Analysis: Understanding Workforce Needs</div><div class="focused-card-desc">How survey data corrects the systematic misperceptions managers have about what their workforce actually wants.</div></div><div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div></a>
-
     <a href="/resources/support/balancing-business-employee-needs/" class="focused-card"><img src="/images/balancing.jpg" alt="" class="focused-card-img"><div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Balancing Business &amp; Employee Needs</div><div class="focused-card-desc">Why the best shift schedules satisfy both operational requirements and employee lifestyle needs — and how to find them.</div></div><div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div></a>
-
     <a href="/resources/support/communicating-schedule-changes/" class="focused-card"><img src="/images/communicating.jpg" alt="" class="focused-card-img"><div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Communicating Major Schedule Changes</div><div class="focused-card-desc">Timing, channels, and messaging that reduce resistance — and the single most reliable predictor of whether a change will succeed.</div></div><div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div></a>
-
     <a href="/resources/support/sleep-alertness-safety-shift-work/" class="focused-card focused-hidden"><img src="/images/sleep.jpg" alt="" class="focused-card-img"><div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Sleep, Alertness &amp; Safety in Shift Operations</div><div class="focused-card-desc">How schedule design, shift length, and rotation patterns affect fatigue — and what that costs in safety and productivity.</div></div><div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div></a>
-
     <a href="/resources/support/maintenance-worker-scheduling/" class="focused-card focused-hidden"><img src="/images/maintenance.jpg" alt="" class="focused-card-img"><div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Maintenance Workers: Unique Scheduling Considerations</div><div class="focused-card-desc">Why standard shift patterns consistently fail maintenance crews — and what approaches actually work.</div></div><div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div></a>
-
     <a href="/resources/support/schedule-change-pitfalls/" class="focused-card focused-hidden"><img src="/images/up.jpg" alt="" class="focused-card-img"><div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">Schedule Change Pitfalls: What to Avoid</div><div class="focused-card-desc">The predictable reasons well-designed schedule changes fail — poor communication, policy gaps, and inadequate notice.</div></div><div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div></a>
-
     <a href="/resources/support/deming-shift-schedule/" class="focused-card focused-hidden"><img src="/images/sbd.jpg" alt="" class="focused-card-img"><div class="focused-card-body"><span class="focused-card-tag">Focused Topic</span><div class="focused-card-title">If Deming Looked at Your Shift Schedule, What Would He Change?</div><div class="focused-card-desc">Most operational problems are caused by systems, not people. Why the shift schedule is often the most consequential structural variable in any 24/7 operation.</div></div><div class="focused-card-footer"><span class="focused-card-read">Read article &#x2192;</span></div></a>
-
   </div>
   <div class="focused-show-more-wrap">
     <button class="focused-show-more-btn" id="focusedShowMore" onclick="showMoreFocused()">Show More Articles &#x2193;</button>
@@ -571,27 +590,9 @@ window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElement
 window.soonNLSubmit=function(){var btn=document.getElementById('soonNLBtn'),msg=document.getElementById('soonNLMsg'),email=document.getElementById('soonNLEmail').value.trim();if(!email){msg.className='trending-card-soon-msg err';msg.textContent='Please enter your email.';return;}btn.disabled=true;btn.textContent='...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-trending-soon'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='trending-card-soon-msg ok';msg.textContent='\u2713 You\u2019re on the list.';document.getElementById('soonNLEmail').value='';btn.textContent='\u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='trending-card-soon-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed!':'Try again.';btn.disabled=false;btn.textContent='Notify Me';});};
 })();
 
-/* Show More / Show Less for Spotlight Articles */
-window.showMoreFocused = function() {
-  document.querySelectorAll('.focused-card.focused-hidden').forEach(function(c) {
-    c.classList.remove('focused-hidden');
-    c.style.animation = 'fadeUp .35s ease both';
-  });
-  var btn = document.getElementById('focusedShowMore');
-  btn.textContent = 'Show Less \u2191';
-  btn.onclick = showLessFocused;
-};
-
-window.showLessFocused = function() {
-  var cards = document.querySelectorAll('.focused-card');
-  cards.forEach(function(c, i) {
-    if (i >= 4) { c.classList.add('focused-hidden'); }
-  });
-  var btn = document.getElementById('focusedShowMore');
-  btn.textContent = 'Show More Articles \u2193';
-  btn.onclick = showMoreFocused;
-  document.querySelector('.focused-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
-};
+/* Show More / Show Less */
+window.showMoreFocused=function(){document.querySelectorAll('.focused-card.focused-hidden').forEach(function(c){c.classList.remove('focused-hidden');c.style.animation='fadeUp .35s ease both';});var btn=document.getElementById('focusedShowMore');btn.textContent='Show Less \u2191';btn.onclick=showLessFocused;};
+window.showLessFocused=function(){var cards=document.querySelectorAll('.focused-card');cards.forEach(function(c,i){if(i>=4){c.classList.add('focused-hidden');}});var btn=document.getElementById('focusedShowMore');btn.textContent='Show More Articles \u2193';btn.onclick=showMoreFocused;document.querySelector('.focused-section').scrollIntoView({behavior:'smooth',block:'start'});};
 
 /* Infinite Carousel */
 (function(){
