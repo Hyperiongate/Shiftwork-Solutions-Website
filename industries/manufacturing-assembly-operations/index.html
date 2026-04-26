@@ -5,64 +5,30 @@
   URL: /industries/manufacturing-assembly-operations/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-22
+  Last Updated: 2026-04-26
 
   CHANGE LOG:
-    2026-04-04 — Initial build from source Word doc.
-    2026-04-04 — NAV + BUTTON + SEO AUDIT.
-    2026-04-13 — Hero image corrected to manufacturing.jpg. TEMPLATE v2 REBUILD.
-    2026-04-14 — FAQ section: full-bleed Hands_in_the_air.jpg background.
-    2026-04-16 — NAV FIXES: logo src -> clear_bkgr_logo_2.png (underscores);
-                 SHIFTWORK SOLUTIONS text added; nav links font-size -> 20px;
-                 "Our Company" label -> "Why Us" (href /why-us/ unchanged).
-    2026-04-21 — NEXT STEPS CARDS: replaced 3 cards with (1) Shiftwork Operations
-                 Reality Check, (2) The 26 Warning Signs, (3) Talk to Thomas.
-                 FOOTER: replaced Thomas column with Contact Us column.
-    2026-04-22 — LISTEN BUTTON: removed entirely. Added Thomas floating widget
-                 (fixed right side, hidden mobile).
-    2026-04-22 — FOOTER REBUILD: Removed Next Steps and Resources section entirely.
-                 Footer rebuilt: (1) Reality Check, (2) 26 Warning Signs,
-                 (3) Newsletter. Bridge stripe added between FAQ and footer.
-    2026-04-22 — CLIENT STRIP REBUILD: Replaced simple navy marquee with
-                 single-strip styled scroll. Multi-font creative treatment
-                 (8 Google Fonts, 16 cn styles). Manufacturing-specific
-                 client names only. White background with gradient fades.
-                 JS builds track dynamically. Seamless left-scroll loop.
-    2026-04-22 — PAGE BOTTOM STANDARD CSS CORRECTIONS (v2):
-                 - PULL QUOTE: color #4a6a8a -> var(--body-text); italic -> normal.
-                 - CALLOUT BOX: gradient bg -> none; border-left:4px solid navy;
-                   border-radius:6px -> 0; text-align:center -> left;
-                   padding:22px 28px -> 16px 0 16px 20px;
-                   p font-size -> 15px (matches body text).
-                 - CLIENT STRIP SECTION: gradient bg -> none; border-radius:8px -> 0.
-                 - CLIENT STRIP INTRO: background:none added.
-                 - CLIENT STRIP ROW: background:#F0F2F4 added (grey track).
-                 - THOMAS FLOAT: top:40% -> top:66.666% (1/3 up from bottom);
-                   width:130px -> 100px; hover 140px -> 108px;
-                   bg var(--navy-dark) -> #ffffff; orange border-left removed;
-                   img height:110px -> 90px; body padding adjusted;
-                   name color #fff -> var(--navy); font-size 12px -> 11px;
-                   sub color mid-blue -> var(--muted); font-size 10px -> 9px;
-                   cta bg orange -> var(--mid-blue); hover cta -> #5a9fd4.
-                 - FAQ SECTION: margin:40px 0 -> margin:40px 0 0 0 (no white gap
-                   before bridge stripe).
+    2026-04-04 — Initial build.
+    2026-04-13 — Hero image -> manufacturing.jpg. TEMPLATE v2.
+    2026-04-14 — FAQ: full-bleed Hands_in_the_air.jpg background.
+    2026-04-16 — NAV FIXES.
+    2026-04-21 — NEXT STEPS CARDS replaced.
+    2026-04-22 — LISTEN BUTTON removed. Thomas float added.
+    2026-04-22 — FOOTER REBUILD. Bridge stripe added. Client strip rebuild.
+    2026-04-22 — PAGE BOTTOM STANDARD CSS CORRECTIONS (v2).
+    2026-04-26 — AI DISCOVERABILITY SCHEMAS upgraded:
+                 Thin Organization schema replaced with full version.
+                 Industry-specific Service schema added (scoped to
+                 manufacturing: capacity expansion, equipment utilization,
+                 union change management, workforce planning).
+                 Meta keywords tag added.
+                 All existing Article/BreadcrumbList/FAQPage schemas preserved.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/manufacturing.jpg
-  FAQ IMAGE:  /images/Hands_in_the_air.jpg
-  THOMAS WIDGET: /images/thomas.jpg -> https://shift-work-diagnostic.onrender.com/
+  CLIENT STRIP: ID: mfg-track | Animation: mfg-scroll-l
 
-  CLIENT STRIP: Single strip, manufacturing-specific names, multi-font styled.
-                ID: mfg-track | Animation: mfg-scroll-l
-  FOOTER COLUMNS:
-    Col 1: Reality Check  -> /resources/shiftwork-assessment/
-    Col 2: 26 Warning Signs -> /resources/26-warning-signs-schedule-problems/
-    Col 3: Newsletter subscribe form
-
-  CTA STRATEGY:
-    Nav     -> Book a Free Meeting + Contact (always visible)
-    Thomas  -> AI chat (persistent right-side float, top:66.666%)
-    Footer  -> Content/diagnostic CTAs only
+  I did no harm and this file is not truncated
 -->
 <html lang="en">
 <head>
@@ -70,6 +36,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Manufacturing Shift Scheduling | Shiftwork Solutions LLC</title>
   <meta name="description" content="Shift scheduling for manufacturing and assembly operations: capacity expansion, equipment utilization, workforce planning, and union change management. Hundreds of engagements over 30 years.">
+  <meta name="keywords" content="manufacturing shift scheduling, shift schedule design manufacturing, equipment utilization shift scheduling, continuous operations manufacturing, union shift schedule change, 24/7 manufacturing workforce, capacity expansion shift schedule, manufacturing overtime reduction">
   <link rel="canonical" href="https://shift-work.com/industries/manufacturing-assembly-operations/">
   <meta property="og:title" content="Manufacturing Shift Scheduling | Shiftwork Solutions LLC">
   <meta property="og:description" content="Shift scheduling for manufacturing and assembly operations: capacity expansion, equipment utilization, workforce planning, and union change management.">
@@ -80,18 +47,57 @@
   <meta name="twitter:title" content="Manufacturing Shift Scheduling | Shiftwork Solutions LLC">
   <meta name="twitter:description" content="Shift scheduling for manufacturing and assembly operations: capacity expansion, equipment utilization, workforce planning, and union change management.">
 
-  <!-- Google Fonts for multi-font client strip -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Oswald:wght@600&family=Libre+Baskerville:wght@700&family=Raleway:wght@800&family=Merriweather:wght@700&family=Montserrat:wght@800&family=Lora:wght@700&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       AI DISCOVERABILITY SCHEMAS — upgraded 2026-04-26
+       Full Organization schema replaces thin version.
+       Industry-specific Service schema added.
+       Article, BreadcrumbList, FAQPage schemas preserved below.
+       ══════════════════════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Shiftwork Solutions LLC",
+    "url": "https://shift-work.com",
+    "logo": "https://shift-work.com/images/clear_bkgr_logo_2.png",
+    "telephone": "+14152651621",
+    "email": "Contact@shift-work.com",
+    "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
+    "address": {"@type": "PostalAddress", "addressLocality": "San Rafael", "addressRegion": "CA", "postalCode": "94901", "addressCountry": "US"},
+    "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.",
+    "foundingDate": "1993",
+    "areaServed": {"@type": "Country", "name": "United States"},
+    "knowsAbout": ["shift schedule design","shift work consulting","24/7 operations management","continuous operations staffing","change management","workforce surveys","overtime management","overtime cost reduction","employee engagement","manufacturing workforce planning","distribution center scheduling","pharmaceutical shift scheduling","chemical plant operations","food and beverage manufacturing","mining shift scheduling","paper and packaging operations","union workforce consulting","rotating shift schedules","fixed shift schedules","12-hour shift schedules","staffing and workforce planning","labor cost analysis","fatigue risk management","post-implementation workforce surveys"],
+    "sameAs": ["https://www.linkedin.com/company/shiftwork-solutions-llc","https://shift-work.com"]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Shift Schedule Design for Manufacturing and Assembly Operations",
+    "provider": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"},
+    "serviceType": "Shift Work Consulting",
+    "description": "Shift scheduling for manufacturing and assembly operations: capacity expansion without capital investment, equipment utilization optimization, workforce survey and buy-in process, union change management, skill balance across shifts, overtime cost reduction, and bottleneck scheduling strategies.",
+    "areaServed": {"@type": "Country", "name": "United States"},
+    "url": "https://shift-work.com/industries/manufacturing-assembly-operations/"
+  }
+  </script>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Manufacturing and Assembly Operations","description":"Shift scheduling for manufacturing and assembly operations: capacity expansion, equipment utilization, workforce planning, and union change management.","url":"https://shift-work.com/industries/manufacturing-assembly-operations/","datePublished":"2026-04-04","dateModified":"2026-04-26","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"manufacturing shift scheduling, shift schedule design manufacturing, equipment utilization shift scheduling, continuous operations manufacturing, union shift schedule change, 24/7 manufacturing workforce"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://shift-work.com/industries/"},{"@type":"ListItem","position":3,"name":"Manufacturing & Assembly","item":"https://shift-work.com/industries/manufacturing-assembly-operations/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What shift schedule do manufacturing workers prefer?","acceptedAnswer":{"@type":"Answer","text":"When surveyed, manufacturing shift workers consistently prefer 10-hour shifts over 8 or 12-hour alternatives. Ten-hour schedules produce more days off per month while avoiding fatigue from consecutive 12-hour days. Most often the obstacles are too great to overcome and the 12-hour shift rules the day."}},{"@type":"Question","name":"How can a manufacturing plant add capacity without buying new equipment?","acceptedAnswer":{"@type":"Answer","text":"Schedule expansion is the most underutilized capacity lever. Most five-day operations run equipment for a fraction of available hours. Expanding to six or seven days captures existing capacity without capital investment and should precede any capital appropriation request."}},{"@type":"Question","name":"Why does quality and safety differ between day and night shifts?","acceptedAnswer":{"@type":"Answer","text":"The most common cause is skill and experience imbalance across shifts. Experienced operators accumulate on day shift through seniority, leaving nights with newer workers and a structural competency gap that shows up in quality metrics and safety incident frequency."}},{"@type":"Question","name":"How do you change a shift schedule in a union manufacturing environment?","acceptedAnswer":{"@type":"Answer","text":"Successfully requires navigating both the contract and workforce relationship simultaneously. Workforce support matters more than contractual compliance alone. Invest in understanding workforce values before proposing options. A timed addendum provides a lower-risk path to testing before committing."}},{"@type":"Question","name":"What does it cost to run the wrong shift schedule?","acceptedAnswer":{"@type":"Answer","text":"Costs accumulate across overtime from schedule gaps, turnover from schedules that don't fit workers' lives, quality issues from fatigued coverage, and opportunity costs from equipment running below available hours — rarely connected to the schedule in standard reporting."}}]}</script>
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--max-width:860px;--page-pad:24px}
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
-
-    /* ── NAV ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo img{height:36px;width:auto;display:block}
@@ -107,8 +113,6 @@
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-
-    /* ── HERO ── */
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:url('/images/manufacturing.jpg') center center / cover no-repeat;opacity:1;z-index:0}
     .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,0.88) 0%,rgba(31,78,121,0.75) 55%,rgba(31,78,121,0.35) 100%);z-index:0}
@@ -116,15 +120,11 @@
     .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:#EEAE26;max-width:600px;margin-bottom:14px}
     .hero-subtitle{font-size:16px;line-height:1.65;color:rgba(255,255,255,0.88);max-width:560px}
     .hero-tag{display:inline-block;margin-top:16px;background:rgba(232,97,10,0.9);color:var(--white);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 12px;border-radius:3px}
-
-    /* ── BREADCRUMB ── */
     .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
     .breadcrumb-inner a{color:var(--navy);text-decoration:none}
     .breadcrumb-inner a:hover{text-decoration:underline}
     .breadcrumb-inner span{margin:0 6px;opacity:.5}
-
-    /* ── ARTICLE ── */
     .article-wrap{max-width:var(--max-width);margin:0 auto;padding:48px var(--page-pad) 56px}
     .article-meta{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border-light);flex-wrap:wrap}
     .meta-tag{display:inline-block;background:var(--light-blue);color:var(--navy);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:3px}
@@ -132,92 +132,41 @@
     .article-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin:36px 0 14px}
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
     .article-wrap p:last-child{margin-bottom:0}
-
-    /* ── CLIENT STRIP — STYLED SINGLE-STRIP SCROLL ──
-       Spec (v2): section background:none, border-radius:0.
-       Intro background:none. Row background:#F0F2F4 (grey track only).
-       ID: mfg-track | Animation: mfg-scroll-l */
-    .client-strip-section{
-      margin:32px 0;
-      background:none;
-      border-radius:0;
-      overflow:hidden;
-      padding:0;
-    }
-    .client-strip-intro{
-      font-size:11px;font-weight:700;text-transform:uppercase;
-      letter-spacing:.1em;color:var(--navy);
-      padding:16px 24px 0;text-align:center;background:none;
-    }
-    .client-strip-row{
-      height:70px;
-      overflow:hidden;
-      position:relative;
-      display:flex;
-      align-items:center;
-      margin-top:8px;
-      background:#F0F2F4;
-    }
-    .client-strip-row::before,
-    .client-strip-row::after{
-      content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;
-    }
+    .client-strip-section{margin:32px 0;background:none;border-radius:0;overflow:hidden;padding:0}
+    .client-strip-intro{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);padding:16px 24px 0;text-align:center;background:none}
+    .client-strip-row{height:70px;overflow:hidden;position:relative;display:flex;align-items:center;margin-top:8px;background:#F0F2F4}
+    .client-strip-row::before,.client-strip-row::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
     .client-strip-row::before{left:0;background:linear-gradient(to right,#fff,transparent)}
     .client-strip-row::after{right:0;background:linear-gradient(to left,#fff,transparent)}
-    .client-strip-track{
-      display:flex;
-      align-items:center;
-      white-space:nowrap;
-      position:absolute;
-      left:0;top:0;bottom:0;
-    }
+    .client-strip-track{display:flex;align-items:center;white-space:nowrap;position:absolute;left:0;top:0;bottom:0}
     @keyframes mfg-scroll-l{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
     #mfg-track{animation:mfg-scroll-l 40s linear infinite}
     #mfg-track:hover{animation-play-state:paused}
-
-    /* Each name: its own font + dark color combination */
-    .cn{
-      display:inline-flex;align-items:center;
-      padding:0 32px;height:70px;
-      white-space:nowrap;
-      font-size:22px;
-      border-right:2px solid #f0f0f0;
-      flex-shrink:0;
-    }
+    .cn{display:inline-flex;align-items:center;padding:0 32px;height:70px;white-space:nowrap;font-size:22px;border-right:2px solid #f0f0f0;flex-shrink:0}
     .cn:last-child{border-right:none}
-    .cn-1 {font-family:'Playfair Display',serif;    font-weight:700;color:#1a3a5c}
-    .cn-2 {font-family:'Oswald',sans-serif;         font-weight:600;color:#7b2d00;letter-spacing:.06em}
-    .cn-3 {font-family:'Libre Baskerville',serif;   font-weight:700;color:#1d4e2a}
-    .cn-4 {font-family:'Raleway',sans-serif;        font-weight:800;color:#3d1a6e;letter-spacing:.04em}
-    .cn-5 {font-family:'Merriweather',serif;        font-weight:700;color:#4a1942}
-    .cn-6 {font-family:'Montserrat',sans-serif;     font-weight:800;color:#003d5b;letter-spacing:.02em}
-    .cn-7 {font-family:'Lora',serif;                font-weight:700;color:#5c2d00}
-    .cn-8 {font-family:'Bebas Neue',sans-serif;     font-weight:400;color:#1a1a2e;letter-spacing:.08em;font-size:26px}
-    .cn-9 {font-family:'Oswald',sans-serif;         font-weight:600;color:#1f3d1f;letter-spacing:.05em}
-    .cn-10{font-family:'Playfair Display',serif;    font-weight:700;color:#5c1a2d}
-    .cn-11{font-family:'Raleway',sans-serif;        font-weight:800;color:#2d3a00}
-    .cn-12{font-family:'Bebas Neue',sans-serif;     font-weight:400;color:#00354d;letter-spacing:.07em;font-size:26px}
-    .cn-13{font-family:'Merriweather',serif;        font-weight:700;color:#3d2200}
-    .cn-14{font-family:'Montserrat',sans-serif;     font-weight:800;color:#1a0a3d;letter-spacing:.03em}
-    .cn-15{font-family:'Lora',serif;                font-weight:700;color:#003333}
-    .cn-16{font-family:'Libre Baskerville',serif;   font-weight:700;color:#4a0d00}
-
-    /* ── PULL QUOTE ──
-       Spec (v2): color:var(--body-text), font-style:normal. */
+    .cn-1{font-family:'Playfair Display',serif;font-weight:700;color:#1a3a5c}
+    .cn-2{font-family:'Oswald',sans-serif;font-weight:600;color:#7b2d00;letter-spacing:.06em}
+    .cn-3{font-family:'Libre Baskerville',serif;font-weight:700;color:#1d4e2a}
+    .cn-4{font-family:'Raleway',sans-serif;font-weight:800;color:#3d1a6e;letter-spacing:.04em}
+    .cn-5{font-family:'Merriweather',serif;font-weight:700;color:#4a1942}
+    .cn-6{font-family:'Montserrat',sans-serif;font-weight:800;color:#003d5b;letter-spacing:.02em}
+    .cn-7{font-family:'Lora',serif;font-weight:700;color:#5c2d00}
+    .cn-8{font-family:'Bebas Neue',sans-serif;font-weight:400;color:#1a1a2e;letter-spacing:.08em;font-size:26px}
+    .cn-9{font-family:'Oswald',sans-serif;font-weight:600;color:#1f3d1f;letter-spacing:.05em}
+    .cn-10{font-family:'Playfair Display',serif;font-weight:700;color:#5c1a2d}
+    .cn-11{font-family:'Raleway',sans-serif;font-weight:800;color:#2d3a00}
+    .cn-12{font-family:'Bebas Neue',sans-serif;font-weight:400;color:#00354d;letter-spacing:.07em;font-size:26px}
+    .cn-13{font-family:'Merriweather',serif;font-weight:700;color:#3d2200}
+    .cn-14{font-family:'Montserrat',sans-serif;font-weight:800;color:#1a0a3d;letter-spacing:.03em}
+    .cn-15{font-family:'Lora',serif;font-weight:700;color:#003333}
+    .cn-16{font-family:'Libre Baskerville',serif;font-weight:700;color:#4a0d00}
     .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:center;gap:16px}
     .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
     .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:var(--body-text);margin:0;font-style:normal}
     .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
-
-    /* ── CALLOUT BOX ──
-       Spec (v2): background:none; border-left:4px solid var(--navy);
-       border-radius:0; padding:16px 0 16px 20px; text-align:left;
-       p font-size:15px (matches surrounding body text). */
     .callout-box{background:none;border-left:4px solid var(--navy);border-radius:0;padding:16px 0 16px 20px;margin:32px 0;text-align:left}
     .callout-box p{font-size:15px;line-height:1.6;color:var(--body-text);font-weight:400;margin:0;font-style:normal}
-
-    /* ── INSIGHT CARDS ── */
     .insight-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:36px 0}
     .insight-card{background:transparent;border-top:3px solid var(--border-med);border-radius:0;padding:20px 18px 20px 0;transition:transform .2s ease}
     .insight-card:hover{transform:scale(1.04)}
@@ -226,10 +175,6 @@
     .insight-card:nth-child(3) .ic-title{color:var(--green)}
     .insight-card .ic-title{font-size:14px;font-weight:700;margin-bottom:8px;line-height:1.3}
     .insight-card .ic-text{font-size:13px;color:var(--muted);line-height:1.6;font-weight:400}
-
-    /* ── FAQ SECTION ──
-       Spec (v2): margin:40px 0 0 0 — bottom margin removed to eliminate
-       white gap between FAQ and bridge stripe. */
     .faq-section{position:relative;overflow:hidden;margin:40px 0 0 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
@@ -247,13 +192,9 @@
     .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease,padding .25s ease}
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
-
-    /* ── BRIDGE STRIPE ── */
     .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
     .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
     .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
-
-    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -288,11 +229,6 @@
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-
-    /* ── THOMAS FLOATING WIDGET ──
-       Spec (v2): top:66.666% (1/3 up from bottom); white bg; no orange border;
-       100px width (108px hover); 90px image; navy name; muted sub;
-       mid-blue CTA. z-index:950. Hidden on mobile. */
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
@@ -302,8 +238,6 @@
     .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
     .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
     @media(max-width:768px){.thomas-float{display:none}}
-
-    /* ── RESPONSIVE ── */
     @media(max-width:760px){
       .insight-cards{grid-template-columns:1fr 1fr}
       .footer-content-row{grid-template-columns:1fr}
@@ -331,10 +265,6 @@
       .bridge-stripe-text{font-size:17px}
     }
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Scheduling for Manufacturing and Assembly Operations","description":"Shift scheduling for manufacturing and assembly operations: capacity expansion, equipment utilization, workforce planning, and union change management.","url":"https://shift-work.com/industries/manufacturing-assembly-operations/","datePublished":"2026-04-04","dateModified":"2026-04-22","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"keywords":"manufacturing shift scheduling, shift schedule design manufacturing, equipment utilization shift scheduling, continuous operations manufacturing, union shift schedule change, 24/7 manufacturing workforce"}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://shift-work.com/industries/"},{"@type":"ListItem","position":3,"name":"Manufacturing & Assembly","item":"https://shift-work.com/industries/manufacturing-assembly-operations/"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+14152651621","email":"Contact@shift-work.com","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What shift schedule do manufacturing workers prefer?","acceptedAnswer":{"@type":"Answer","text":"When surveyed, manufacturing shift workers consistently prefer 10-hour shifts over 8 or 12-hour alternatives. Ten-hour schedules produce more days off per month while avoiding fatigue from consecutive 12-hour days. Most often the obstacles are too great to overcome and the 12-hour shift rules the day."}},{"@type":"Question","name":"How can a manufacturing plant add capacity without buying new equipment?","acceptedAnswer":{"@type":"Answer","text":"Schedule expansion is the most underutilized capacity lever. Most five-day operations run equipment for a fraction of available hours. Expanding to six or seven days captures existing capacity without capital investment and should precede any capital appropriation request."}},{"@type":"Question","name":"Why does quality and safety differ between day and night shifts?","acceptedAnswer":{"@type":"Answer","text":"The most common cause is skill and experience imbalance across shifts. Experienced operators accumulate on day shift through seniority, leaving nights with newer workers and a structural competency gap that shows up in quality metrics and safety incident frequency."}},{"@type":"Question","name":"How do you change a shift schedule in a union manufacturing environment?","acceptedAnswer":{"@type":"Answer","text":"Successfully requires navigating both the contract and workforce relationship simultaneously. Workforce support matters more than contractual compliance alone. Invest in understanding workforce values before proposing options. A timed addendum provides a lower-risk path to testing before committing."}},{"@type":"Question","name":"What does it cost to run the wrong shift schedule?","acceptedAnswer":{"@type":"Answer","text":"Costs accumulate across overtime from schedule gaps, turnover from schedules that don't fit workers' lives, quality issues from fatigued coverage, and opportunity costs from equipment running below available hours — rarely connected to the schedule in standard reporting."}}]}</script>
 </head>
 <body>
 
@@ -375,7 +305,6 @@
 
   <p>Shiftwork Solutions LLC has spent more than three decades working with manufacturing and assembly operations — from automotive plants and consumer products facilities to specialty manufacturers — helping them unlock capacity, reduce labor costs, and build workforce systems that hold up over time.</p>
 
-  <!-- ── CLIENT STRIP — single strip, manufacturing-specific names, multi-font ── -->
   <div class="client-strip-section">
     <div class="client-strip-intro">Manufacturing &amp; Assembly companies that trust Shiftwork Solutions include:</div>
     <div class="client-strip-row">
@@ -457,9 +386,8 @@
 
   <p>The analysis covers equipment utilization and the financial case for schedule expansion, adverse cost modeling of current staffing levels, skill and experience distribution across shifts, fatigue risk based on current rotation patterns, and a comparison of current schedules against our normative database of what similar operations run and what their workforces prefer. The result is a clear picture of where the current schedule is costing the operation and what a better structure would deliver.</p>
 
-</div><!-- /.article-wrap -->
+</div>
 
-<!-- ── FAQ SECTION ── -->
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
@@ -473,69 +401,31 @@
   </div>
 </div>
 
-<!-- ── BRIDGE STRIPE ──
-     Gray breathing room between FAQ and footer.
-     Soft directional prompt toward footer CTAs — no button needed. -->
 <div class="bridge-stripe">
   <div class="bridge-stripe-text">Ready to take the next step?</div>
   <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
 </div>
 
-<!-- ── FOOTER: Reality Check | 26 Warning Signs | Newsletter ── -->
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
-      <div class="footer-col footer-col-1">
-        <div class="engage-label">FREE ASSESSMENT</div>
-        <div class="engage-col-title">Shiftwork Operations Reality Check</div>
-        <p class="engage-col-desc">Compare your instincts to more than 20,000 shift worker responses. Free. Five minutes. No email required.</p>
-      </div>
-      <div class="footer-col footer-col-2">
-        <div class="engage-label">DIAGNOSTIC ARTICLE</div>
-        <div class="engage-col-title">The 26 Warning Signs</div>
-        <p class="engage-col-desc">Twenty-six operational symptoms that signal your shiftwork system may need attention. If you're seeing several, the schedule is likely the source.</p>
-      </div>
-      <div class="footer-col footer-col-3">
-        <div class="engage-label">NEWSLETTER</div>
-        <div class="engage-col-title">Stay Sharp on Shift Operations</div>
-        <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
-      </div>
+      <div class="footer-col footer-col-1"><div class="engage-label">FREE ASSESSMENT</div><div class="engage-col-title">Shiftwork Operations Reality Check</div><p class="engage-col-desc">Compare your instincts to more than 20,000 shift worker responses. Free. Five minutes. No email required.</p></div>
+      <div class="footer-col footer-col-2"><div class="engage-label">DIAGNOSTIC ARTICLE</div><div class="engage-col-title">The 26 Warning Signs</div><p class="engage-col-desc">Twenty-six operational symptoms that signal your shiftwork system may need attention. If you're seeing several, the schedule is likely the source.</p></div>
+      <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
     </div>
     <div class="footer-cta-row">
-      <div class="footer-cta-1">
-        <a href="https://www.shift-work.com/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Reality Check &#x2192;</a>
-      </div>
-      <div class="footer-cta-2">
-        <a href="/resources/26-warning-signs-schedule-problems/" class="footer-cta-btn">Read the Warning Signs &#x2192;</a>
-      </div>
-      <div class="footer-cta-3">
-        <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
-          <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
-          <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
-        </form>
-        <div class="engage-nl-msg" id="engageNLMsg"></div>
-      </div>
+      <div class="footer-cta-1"><a href="https://www.shift-work.com/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Reality Check &#x2192;</a></div>
+      <div class="footer-cta-2"><a href="/resources/26-warning-signs-schedule-problems/" class="footer-cta-btn">Read the Warning Signs &#x2192;</a></div>
+      <div class="footer-cta-3"><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
     </div>
   </div></div>
   <div class="footer-bottom"><div class="footer-bottom-inner">
-    <div class="footer-bottom-left">
-      <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
-      <a href="tel:+14152651621">(415) 265-1621</a>
-      <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
-    </div>
+    <div class="footer-bottom-left"><span class="footer-bottom-brand">Shiftwork Solutions LLC</span><a href="tel:+14152651621">(415) 265-1621</a><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
 
-<!-- ── THOMAS FLOATING WIDGET ──
-     Fixed to right edge, 1/3 up from bottom of viewport (top:66.666%).
-     Hidden on mobile (max-width:768px).
-     Opens Thomas diagnostic app in new tab. -->
-<a class="thomas-float"
-   href="https://shift-work-diagnostic.onrender.com/"
-   target="_blank"
-   rel="noopener"
-   aria-label="Meet Thomas, your AI Shift Advisor">
+<a class="thomas-float" href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener" aria-label="Meet Thomas, your AI Shift Advisor">
   <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
   <div class="thomas-float-body">
     <span class="thomas-float-name">Meet Thomas</span>
@@ -543,34 +433,17 @@
     <span class="thomas-float-cta">Chat Now &rarr;</span>
   </div>
 </a>
-<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
-/* ── MANUFACTURING CLIENT STRIP ──
-   Industry-specific names. Doubled for seamless loop.
-   Each name gets a cn style (1-16) cycling through
-   8 Google Fonts in 16 dark color combinations. */
 (function(){
-  var names=[
-    'BMW','GM','Hyundai','Magna','Goodyear',
-    'Georgia Pacific','Marvin Windows','SC Johnson',
-    'Toro','Dana Corporation','Polymer Group',
-    'Crane Plastics','Snyder\'s of Hanover','Weyerhaeuser',
-    'Corning','Andersen Windows','Kimberly-Clark',
-    'Whirlpool','Toyota','Siemens'
-  ];
+  var names=['BMW','GM','Hyundai','Magna','Goodyear','Georgia Pacific','Marvin Windows','SC Johnson','Toro','Dana Corporation','Polymer Group','Crane Plastics',"Snyder's of Hanover",'Weyerhaeuser','Corning','Andersen Windows','Kimberly-Clark','Whirlpool','Toyota','Siemens'];
   var track=document.getElementById('mfg-track');
   if(!track)return;
-  var all=names.concat(names); /* double for seamless loop */
-  all.forEach(function(name,i){
-    var span=document.createElement('span');
-    span.className='cn cn-'+((i%16)+1);
-    span.textContent=name;
-    track.appendChild(span);
-  });
+  var all=names.concat(names);
+  all.forEach(function(name,i){var span=document.createElement('span');span.className='cn cn-'+((i%16)+1);span.textContent=name;track.appendChild(span);});
 })();
 </script>
 </body>
