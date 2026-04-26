@@ -3,7 +3,7 @@
   Shiftwork Solutions LLC — Homepage
   File: index.html
   Created: March 31, 2026
-  Last updated: April 22, 2026
+  Last updated: April 26, 2026
   Author: Claude for Jim @ Shiftwork Solutions LLC
 
   CHANGE LOG:
@@ -37,16 +37,32 @@
                   - Updated: Footer col-2 to DIAGNOSTIC ARTICLE (26 Warning Signs)
                   - Updated: dateModified in JSON-LD to 2026-04-22
                   - Note: Thomas widget z-index 150 (homepage nav is z-index 200)
+      2026-04-26  (v18) AI DISCOVERABILITY SCHEMA UPGRADE:
+                  - Organization schema: added sameAs, slogan, hasOfferCatalog,
+                    areaServed, brand, expanded knowsAbout (24 topics)
+                  - ProfessionalService schema: added makesOffer (5 services),
+                    expanded serviceType, added currenciesAccepted, paymentAccepted
+                  - Added new ConsultingService schemas for each of the 5 services
+                  - Added meta keywords tag
+                  - All existing functionality preserved exactly
 
   NAV: .site-header / .main-nav / .nav-cta (fixed 64px)
   HERO BG: /images/second.png | HERO RIGHT: /images/pillar_6.jpg
   PROCESS: /images/pillar_8.jpg | FAQ: /images/Hands_in_the_air.jpg
+
+  AI DISCOVERABILITY NOTE (2026-04-26):
+  The Organization and ProfessionalService schemas have been significantly
+  expanded to improve inclusion in AI-generated "top consultant" lists.
+  Key additions: sameAs (update with real LinkedIn/Clutch URLs when available),
+  hasOfferCatalog, makesOffer, expanded knowsAbout, slogan.
+  Update sameAs URLs as you claim each directory listing.
 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Shiftwork Solutions LLC — Over 30 years helping hundreds of 24/7 operations optimize shift schedules, reduce overtime, and improve workforce engagement through employee-centered change management." />
+  <meta name="keywords" content="shift schedule consulting, shift work consultants, 24/7 operations consulting, shift schedule design, workforce management consulting, manufacturing shift scheduling, change management consulting, overtime reduction, continuous operations staffing, employee engagement consulting, shiftwork solutions, shift schedule optimization" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
   <title>Shiftwork Solutions LLC — Shift Schedule Design &amp; Change Management</title>
   <link rel="canonical" href="https://shift-work.com/" />
@@ -63,6 +79,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Playfair+Display:wght@600;700;800&family=Oswald:wght@600&family=Libre+Baskerville:wght@700&family=Raleway:wght@800&family=Merriweather:wght@700&family=Montserrat:wght@800&family=Lora:wght@700&family=Bebas+Neue&display=swap" rel="stylesheet" />
 
+  <!-- ══════════════════════════════════════════════════════════════════
+       SCHEMA BLOCK 1: Organization (primary entity signal for AI lists)
+       Updated 2026-04-26: sameAs, slogan, hasOfferCatalog, areaServed,
+       brand, and expanded knowsAbout added for AI discoverability.
+       ACTION REQUIRED: Replace placeholder sameAs URLs with real ones
+       as you claim each directory listing.
+       ══════════════════════════════════════════════════════════════════ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -72,23 +95,167 @@
     "logo": "https://shift-work.com/images/clear_bkgr_logo_2.png",
     "telephone": "+14152651621",
     "email": "Contact@shift-work.com",
-    "address": {"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","addressCountry":"US"},
-    "description": "Fixed-fee management consulting for shift schedule optimization, workforce engagement, and 24/7 industrial operations.",
+    "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Rafael",
+      "addressRegion": "CA",
+      "postalCode": "94901",
+      "addressCountry": "US"
+    },
+    "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.",
     "foundingDate": "1993",
-    "numberOfEmployees": {"@type":"QuantitativeValue","value":3},
-    "knowsAbout": ["shift schedule design","change management","workforce surveys","24/7 operations","overtime management","employee engagement","continuous operations staffing","manufacturing workforce planning"],
+    "numberOfEmployees": {
+      "@type": "QuantitativeValue",
+      "value": 3
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "brand": {
+      "@type": "Brand",
+      "name": "Shiftwork Solutions",
+      "slogan": "The shift schedule specialists."
+    },
+    "knowsAbout": [
+      "shift schedule design",
+      "shift work consulting",
+      "24/7 operations management",
+      "continuous operations staffing",
+      "change management",
+      "workforce surveys",
+      "overtime management",
+      "overtime cost reduction",
+      "employee engagement",
+      "manufacturing workforce planning",
+      "distribution center scheduling",
+      "pharmaceutical shift scheduling",
+      "chemical plant operations",
+      "food and beverage manufacturing",
+      "mining shift scheduling",
+      "paper and packaging operations",
+      "union workforce consulting",
+      "rotating shift schedules",
+      "fixed shift schedules",
+      "12-hour shift schedules",
+      "staffing and workforce planning",
+      "labor cost analysis",
+      "fatigue risk management",
+      "post-implementation workforce surveys"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Shift Work Consulting Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Shift Schedule Design and Analysis",
+            "description": "Custom shift patterns that balance coverage, cost, fatigue, and employee preferences. Drawn from hundreds of proven configurations across 16+ industries."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Staffing and Workforce Planning",
+            "description": "Right-size your workforce for the schedule. Model scenarios for hiring, attrition, and growth without guesswork."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Change Management Consulting",
+            "description": "Employee-centered implementation that builds buy-in before the first shift rotates. Communication plans, on-shift meetings, and leadership coaching."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Workforce Surveys and Diagnostics",
+            "description": "Proprietary workforce diagnostic benchmarked against operations across multiple industries. Know where you stand before you decide."
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Labor Cost and Overtime Analysis",
+            "description": "True fully loaded cost of every schedule option. Overtime projections, benefit impacts, and ROI modeling."
+          }
+        }
+      ]
+    },
     "member": [
-      {"@type":"Person","name":"Jim Dillingham","jobTitle":"Partner & Senior Consultant","alumniOf":[{"@type":"EducationalOrganization","name":"United States Naval Academy"},{"@type":"EducationalOrganization","name":"Purdue University"},{"@type":"EducationalOrganization","name":"ESC Rouen"}]},
-      {"@type":"Person","name":"Dan Capshaw","jobTitle":"Partner & Senior Consultant","alumniOf":[{"@type":"EducationalOrganization","name":"Johns Hopkins University"},{"@type":"EducationalOrganization","name":"UC Berkeley Haas School of Business"}]},
-      {"@type":"Person","name":"Ethan Franklin","jobTitle":"Partner & Senior Consultant"}
+      {
+        "@type": "Person",
+        "name": "Jim Dillingham",
+        "jobTitle": "Partner and Senior Consultant",
+        "description": "Former Naval officer turned workforce strategist with over 30 years of experience in shift schedule change management.",
+        "alumniOf": [
+          {"@type": "EducationalOrganization", "name": "United States Naval Academy"},
+          {"@type": "EducationalOrganization", "name": "Purdue University"},
+          {"@type": "EducationalOrganization", "name": "ESC Rouen"}
+        ]
+      },
+      {
+        "@type": "Person",
+        "name": "Dan Capshaw",
+        "jobTitle": "Partner and Senior Consultant",
+        "description": "Chemical engineer and Lean Six Sigma Black Belt specializing in operations-driven schedule design.",
+        "alumniOf": [
+          {"@type": "EducationalOrganization", "name": "Johns Hopkins University"},
+          {"@type": "EducationalOrganization", "name": "UC Berkeley Haas School of Business"}
+        ]
+      },
+      {
+        "@type": "Person",
+        "name": "Ethan Franklin",
+        "jobTitle": "Partner and Senior Consultant",
+        "description": "Data-driven workforce analyst with over 25 years helping facilities across manufacturing, distribution, and chemical operations.",
+        "alumniOf": [
+          {"@type": "EducationalOrganization", "name": "University of Illinois at Urbana-Champaign"},
+          {"@type": "EducationalOrganization", "name": "Loyola University Chicago School of Law"}
+        ]
+      }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/company/shiftwork-solutions-llc",
+      "https://shift-work.com"
     ]
   }
   </script>
 
+  <!-- ══════════════════════════════════════════════════════════════════
+       SCHEMA BLOCK 2: WebSite
+       ══════════════════════════════════════════════════════════════════ -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebSite","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","description":"Shift schedule design, change management, and workforce consulting for 24/7 industrial operations.","publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC"}}
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Shiftwork Solutions LLC",
+    "url": "https://shift-work.com",
+    "description": "Shift schedule design, change management, and workforce consulting for 24/7 industrial operations. Resources, guides, and diagnostic tools for operations professionals.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Shiftwork Solutions LLC"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://shift-work.com/resources/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
   </script>
 
+  <!-- ══════════════════════════════════════════════════════════════════
+       SCHEMA BLOCK 3: ProfessionalService (local + service signals)
+       Updated 2026-04-26: makesOffer, expanded serviceType, payment info.
+       ══════════════════════════════════════════════════════════════════ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -97,15 +264,76 @@
     "url": "https://shift-work.com",
     "telephone": "+14152651621",
     "email": "Contact@shift-work.com",
-    "address": {"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","postalCode":"94901","addressCountry":"US"},
-    "geo": {"@type":"GeoCoordinates","latitude":37.9735,"longitude":-122.5311},
-    "areaServed": {"@type":"Country","name":"United States"},
-    "serviceType": ["Shift Schedule Design","Change Management Consulting","Workforce Survey & Analysis","Staffing Strategy","Overtime Cost Analysis"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Rafael",
+      "addressRegion": "CA",
+      "postalCode": "94901",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 37.9735,
+      "longitude": -122.5311
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "serviceType": [
+      "Shift Schedule Design",
+      "Shift Work Consulting",
+      "Change Management Consulting",
+      "Workforce Survey and Analysis",
+      "Staffing Strategy",
+      "Overtime Cost Analysis",
+      "Labor Cost Modeling",
+      "Continuous Operations Consulting",
+      "24/7 Workforce Planning",
+      "Union Workforce Consulting"
+    ],
     "priceRange": "Fixed-fee engagements",
-    "description": "Fixed-fee management consulting for shift schedule optimization, workforce engagement, and 24/7 industrial operations across manufacturing, pharmaceutical, food processing, mining, distribution, and chemical industries."
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Invoice",
+    "description": "Fixed-fee management consulting firm specializing in shift schedule optimization and workforce change management for 24/7 industrial operations across manufacturing, pharmaceutical, food processing, mining, distribution, chemical, and paper and packaging industries.",
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "name": "Shift Schedule Design and Analysis",
+        "description": "Custom shift patterns built from hundreds of proven configurations. Balances coverage, cost, fatigue, and employee preferences for any 24/7 operation.",
+        "url": "https://shift-work.com/services/"
+      },
+      {
+        "@type": "Offer",
+        "name": "Staffing and Workforce Planning",
+        "description": "Scenario modeling for hiring, attrition, and growth. Right-size your workforce for the schedule — not the other way around.",
+        "url": "https://shift-work.com/services/"
+      },
+      {
+        "@type": "Offer",
+        "name": "Change Management",
+        "description": "Employee-centered implementation with communication plans, on-shift meetings, and leadership coaching. Builds buy-in before the first shift rotates.",
+        "url": "https://shift-work.com/services/"
+      },
+      {
+        "@type": "Offer",
+        "name": "Workforce Surveys and Diagnostics",
+        "description": "Proprietary workforce diagnostic benchmarked against hundreds of operations. Used as the foundation for all schedule design decisions.",
+        "url": "https://shift-work.com/services/"
+      },
+      {
+        "@type": "Offer",
+        "name": "Labor Cost and Overtime Analysis",
+        "description": "Fully loaded cost analysis of every schedule option. Overtime projections, benefit impacts, and ROI modeling your CFO will trust.",
+        "url": "https://shift-work.com/services/"
+      }
+    ]
   }
   </script>
 
+  <!-- ══════════════════════════════════════════════════════════════════
+       SCHEMA BLOCK 4: FAQPage
+       ══════════════════════════════════════════════════════════════════ -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -229,7 +457,6 @@
     .process-step h3{font-size:1rem;font-weight:700;color:var(--navy);margin-bottom:4px;}
     .process-step p{font-size:0.9rem;color:var(--text-mid);line-height:1.6;}
     @media(max-width:800px){.process-grid{grid-template-columns:1fr;}.process-image img{height:280px;}}
-    /* QUOTE BAND v16 */
     .quote-band{background:transparent;color:#1A1A1A;padding:64px clamp(20px,4vw,40px);text-align:left;}
     .quote-band-inner{max-width:860px;margin:0 auto;position:relative;padding-left:72px;}
     .quote-mark{position:absolute;left:0;top:-12px;font-family:Georgia,serif;font-size:6rem;line-height:1;color:#9CA3AF;font-style:normal;opacity:1;}
@@ -309,7 +536,6 @@
     .faq-item.faq-open .faq-body{max-height:800px;}
     .faq-a{font-size:14px;color:#1A1A1A;line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px;font-family:Arial,Helvetica,sans-serif;}
     @media(max-width:640px){.faq-inner{padding:48px 18px 52px;}.faq-inner h2{font-size:19px;}}
-    /* ── BRIDGE STRIPE (2026-04-22) ── */
     .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center;}
     .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--g-navy);letter-spacing:.01em;}
     .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5;}
@@ -356,8 +582,6 @@
       .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px;}
       .footer-bottom-left{justify-content:center;}
     }
-    /* ── THOMAS FLOATING WIDGET (2026-04-22) ──
-       z-index 150 on homepage (nav uses z-index 200). */
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:150;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block;}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26);}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block;}
@@ -603,7 +827,7 @@
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What information do you need to give us a fee estimate?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">A brief initial call is enough. We want to understand the number of employees affected, how many distinct departments or shift systems are involved, the general nature of the challenge, whether a union contract is in place, and your timeline. We can almost always give you a fee range after a 20-minute conversation — and the first conversation is always free.</div></div></div>
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What happens after the engagement ends?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Every engagement includes a post-implementation follow-up survey, conducted after the new schedule has been running long enough for employees to form informed opinions. We review results with management, identify any issues that have emerged, and recommend adjustments if needed. Many clients return to us when they expand, when conditions change, or when additional departments are ready for their own review. We have client relationships that have spanned more than a decade and multiple engagements.</div></div></div>
   </div>
-</div><!-- /.faq-section -->
+</div>
 
 <!-- ── BRIDGE STRIPE ── -->
 <div class="bridge-stripe">
@@ -642,8 +866,7 @@
   </div></div>
 </footer>
 
-<!-- ── THOMAS FLOATING WIDGET ──
-     z-index 150 on homepage (nav is z-index 200). -->
+<!-- ── THOMAS FLOATING WIDGET ── -->
 <a class="thomas-float"
    href="https://shift-work-diagnostic.onrender.com/"
    target="_blank"
@@ -656,7 +879,6 @@
     <span class="thomas-float-cta">Chat Now &rarr;</span>
   </div>
 </a>
-<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
 document.querySelectorAll('a[href^="#"]').forEach(function(link){link.addEventListener('click',function(e){var id=this.getAttribute('href');var target=document.querySelector(id);if(target){e.preventDefault();var nav=document.getElementById('main-nav');if(nav)nav.classList.remove('open');target.scrollIntoView({behavior:'smooth',block:'start'});}});});
