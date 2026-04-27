@@ -3,7 +3,7 @@
   Shiftwork Solutions LLC — Services
   File: services/index.html
   Created: April 2, 2026
-  Last updated: 2026-04-26
+  Last updated: 2026-04-27
   Author: Claude for Jim @ Shiftwork Solutions LLC
 
   PURPOSE:
@@ -30,6 +30,12 @@
                   OG/Twitter meta tags (were missing from this page),
                   meta keywords tag.
                   All existing content, CSS, JS preserved exactly.
+      2026-04-27  (v16) RESULTS SECTION REDESIGN — infographic stat strip:
+                  Removed white insight cards. Numbers enlarged to 88px (64px mobile),
+                  warm yellow (#EEAE26). Labels retained. Body text hidden (display:none).
+                  Background unchanged (light grey + faint gears image).
+                  Three stats separated by light vertical rules on desktop;
+                  horizontal rules on mobile.
 
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   HERO IMAGE: /images/second.png
@@ -336,18 +342,18 @@
     @media (max-width: 760px) { .tools-grid { grid-template-columns: 1fr; } }
     @media (min-width: 560px) and (max-width: 760px) { .tools-grid { grid-template-columns: repeat(2, 1fr); } }
 
+    /* ── RESULTS SECTION — infographic stat strip (v16, 2026-04-27) ── */
     .results-section { position: relative; overflow: hidden; padding: 48px 24px 56px; background: var(--smoke); }
     .results-bg { position: absolute; inset: 0; background: url('/images/gears.jpg') center center / cover no-repeat; z-index: 0; opacity: 0.10; }
     .results-inner { position: relative; z-index: 1; max-width: var(--max-width); margin: 0 auto; }
-    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 30px; }
-    .insight-card { background: var(--white); border-radius: var(--radius); border: 1px solid var(--border-med); padding: 26px 20px; }
-    .insight-card.navy-top { border-top: 3px solid var(--navy); }
-    .insight-card.orange-top { border-top: 3px solid var(--orange); }
-    .insight-card.green-top { border-top: 3px solid var(--green); }
-    .insight-card .ic-num { font-size: 36px; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 8px; }
-    .insight-card .ic-label { font-size: 15px; font-weight: 700; color: var(--dark-heading); margin-bottom: 10px; }
-    .insight-card .ic-body { font-size: 14px; color: #1A1A1A; line-height: 1.68; }
-    @media (max-width: 680px) { .three-col { grid-template-columns: 1fr; } }
+    .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 40px; }
+    .insight-card { background: transparent; border: none; border-radius: 0; padding: 0 32px; text-align: center; border-right: 1px solid rgba(0,0,0,0.12); }
+    .insight-card:last-child { border-right: none; }
+    .insight-card.navy-top, .insight-card.orange-top, .insight-card.green-top { border-top: none; }
+    .insight-card .ic-num { font-size: 88px; font-weight: 700; color: #EEAE26; line-height: 1; margin-bottom: 12px; letter-spacing: -0.02em; }
+    .insight-card .ic-label { font-size: 15px; font-weight: 700; color: var(--dark-heading); margin-bottom: 0; line-height: 1.4; }
+    .insight-card .ic-body { display: none; }
+    @media (max-width: 680px) { .three-col { grid-template-columns: 1fr; } .insight-card { border-right: none; border-bottom: 1px solid rgba(0,0,0,0.12); padding: 28px 0; } .insight-card:last-child { border-bottom: none; } .insight-card .ic-num { font-size: 64px; } }
 
     .challenges-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 30px; }
     .challenge-card { background: var(--white); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius); padding: 22px 20px; transition: box-shadow 0.2s, transform 0.2s; }
