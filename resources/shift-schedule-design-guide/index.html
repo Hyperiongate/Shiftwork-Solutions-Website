@@ -5,29 +5,11 @@
   URL: /resources/shift-schedule-design-guide/
 
   Created:      2026-04-02
-  Last Updated: 2026-04-22
+  Last Updated: 2026-04-28
 
   CHANGE LOG:
-    2026-04-02 — Initial build from Pillar_1_Shift_Schedule_Design_Rev_A_2_18_26.docx
-    2026-04-03 — Standard improvements: spacing, Web Speech API, SEO schemas
-    2026-04-03 — Hero updated to split layout with shutterstock_1497086771.jpg
-    2026-04-03 — Full content rebuild from source Word document
-    2026-04-04 — Nav restructure: flat links, orange CTA
-    2026-04-04 — Button color audit: all CTAs → orange
-    2026-04-16 — FULL STANDARD UPGRADE to match communicating-schedule-changes template:
-                 1. NAV: logo path → clear_bkgr_logo_2.png, SHIFTWORK SOLUTIONS
-                    text added, font-size 20px, flat links (no dropdowns)
-                 2. HERO: replaced shutterstock vector with pillar_1.jpg photo
-                    background; gold h1, orange tag; hero-stats preserved
-                 3. PULL QUOTES (x2): large Georgia quotation mark + italic text
-                 4. CALLOUTS (x2): light-grey background cards
-                 5. INSIGHT CARDS: white cards with colored top borders
-                 6. FAQ: Hands_in_the_air.jpg full-width + navy accordion (8 Q&A)
-                 7. NEXT STEPS: white cards + colored borders + IntersectionObserver
-                 8. CTA BOX: preserved (navy box is content, not chrome)
-                 9. FOOTER: standard 3-col dark navy prefooter + standard bottom bar
-                10. LISTEN BUTTON: simple orange pill
-    2026-04-16 — NAV LABEL: "Our Company" → "Why Us". No other changes.
+    2026-04-28 — Plausible analytics added; footer bottom bar updated with
+                 Case Studies / Privacy Policy / Terms of Use links + sep rule.
     2026-04-22 — PAGE BOTTOM STANDARD APPLIED (Page_Bottom_Standard guide):
                  - REMOVED: Listen button (.listen-btn HTML, CSS, SpeechSynthesis JS)
                  - REMOVED: Next Steps section (HTML, CSS, IntersectionObserver JS)
@@ -43,6 +25,13 @@
                  - UPDATED: dateModified in Article JSON-LD → 2026-04-22
                  NOTE: .callout/.callout-inner grey cards preserved exactly (NOT
                        .callout-box — not subject to Section 6B). CTA box preserved.
+    2026-04-16 — FULL STANDARD UPGRADE to match communicating-schedule-changes template
+    2026-04-04 — Button color audit: all CTAs → orange
+    2026-04-04 — Nav restructure: flat links, orange CTA
+    2026-04-03 — Full content rebuild from source Word document
+    2026-04-03 — Hero updated to split layout with shutterstock_1497086771.jpg
+    2026-04-03 — Standard improvements: spacing, Web Speech API, SEO schemas
+    2026-04-02 — Initial build from Pillar_1_Shift_Schedule_Design_Rev_A_2_18_26.docx
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
@@ -69,6 +58,13 @@
   <meta name="twitter:title" content="The Complete Guide to Shift Schedule Design | Shiftwork Solutions">
   <meta name="twitter:description" content="Expert guide from consultants who have worked with hundreds of facilities across 16+ industries.">
 
+  <!-- ══ PLAUSIBLE ANALYTICS (added 2026-04-28) ══ -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"What is the most important factor in shift schedule design?","acceptedAnswer":{"@type":"Answer","text":"Balancing coverage requirements with worker preferences — schedules that meet operational needs while aligning with what employees value see dramatically higher acceptance and lower turnover."}},
     {"@type":"Question","name":"Do most workers prefer fixed or rotating shifts?","acceptedAnswer":{"@type":"Answer","text":"More than 80% prefer fixed shifts. Over 60% would accept a fixed shift that isn't their preferred time slot rather than rotate through all shifts."}},
@@ -80,7 +76,7 @@
     {"@type":"Question","name":"What is the value of a survey before designing a new schedule?","acceptedAnswer":{"@type":"Answer","text":"It surfaces what workers actually want (which often differs from what management assumes), creates buy-in through involvement, and prevents costly redesigns after implementation."}}
   ]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Shift Schedule Design","item":"https://shift-work.com/resources/shift-schedule-design-guide/"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Complete Guide to Shift Schedule Design","url":"https://shift-work.com/resources/shift-schedule-design-guide/","datePublished":"2026-04-02","dateModified":"2026-04-22","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Complete Guide to Shift Schedule Design","url":"https://shift-work.com/resources/shift-schedule-design-guide/","datePublished":"2026-04-02","dateModified":"2026-04-28","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
 
   <style>
@@ -216,10 +212,10 @@
     .cta-link{font-size:13px;color:var(--mid-blue);text-decoration:none;font-weight:500}
     .cta-link:hover{text-decoration:underline;color:var(--white)}
 
-    /* ══════════════════════════════════════════════════════════
+    /* ══════════════════════════════════════════════════════════════════════
        FAQ SECTION — Full-bleed Hands_in_the_air.jpg
        IMPORTANT: margin bottom is 0 — bridge stripe sits flush.
-    ══════════════════════════════════════════════════════════ */
+    ══════════════════════════════════════════════════════════════════════ */
     .faq-section{position:relative;overflow:hidden;margin:40px 0 0 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
@@ -238,17 +234,12 @@
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
 
-    /* ── BRIDGE STRIPE ──
-       Gray breathing room between FAQ and footer.
-       IMPORTANT: faq-section bottom margin is 0 so bridge sits flush. */
+    /* ── BRIDGE STRIPE ── */
     .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
     .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
     .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
 
-    /* ── THOMAS FLOATING WIDGET ──
-       Fixed right-side card, positioned 1/3 up from the bottom of the viewport.
-       z-index 950: above content, below nav (1000).
-       White background, mid-blue CTA button. Hidden on mobile. */
+    /* ── THOMAS FLOATING WIDGET ── */
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
@@ -293,6 +284,7 @@
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
+    .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none}
 
     /* ── RESPONSIVE ── */
     @media(max-width:760px){
@@ -567,10 +559,7 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════
-     FAQ SECTION — Full-bleed Hands_in_the_air.jpg accordion
-     margin bottom 0 for flush bridge stripe (2026-04-22)
-════════════════════════════════════════════════════════════════ -->
+<!-- FAQ SECTION -->
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
@@ -593,12 +582,7 @@
   <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
 </div>
 
-<!-- ══════════════════════════════════════════════════════════════
-     FOOTER — Standard 3-column (corrected 2026-04-22)
-     Col 1: FREE ASSESSMENT / Shiftwork Operations Reality Check
-     Col 2: DIAGNOSTIC ARTICLE / The 26 Warning Signs
-     Col 3: NEWSLETTER / Stay Sharp on Shift Operations
-════════════════════════════════════════════════════════════════ -->
+<!-- FOOTER — Standard 3-column -->
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
@@ -625,7 +609,19 @@
     </div>
   </div></div>
   <div class="footer-bottom"><div class="footer-bottom-inner">
-    <div class="footer-bottom-left"><span class="footer-bottom-brand">Shiftwork Solutions LLC</span><a href="tel:+14152651621">(415) 265-1621</a><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
+    <div class="footer-bottom-left">
+      <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="tel:+14152651621">(415) 265-1621</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/resources/case-studies/">Case Studies</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/terms-of-use/">Terms of Use</a>
+    </div>
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
