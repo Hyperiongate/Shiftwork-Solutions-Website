@@ -2,49 +2,15 @@
 <!--
   resources/overtime-management-guide/index.html
   Shiftwork Solutions LLC — Pillar Guide 5 of 10
-  URL: /resources/overtime-management-guide/
-
-  Created:      2026-04-02
-  Last Updated: 2026-04-22
-
+  Created: 2026-04-02 | Last Updated: 2026-04-28
   CHANGE LOG:
-    2026-04-02 — Initial build from Pillar_5_Overtime_Management_Rev_A_2_18_26.docx
-    2026-04-03 — Standard improvements: spacing, Web Speech API, SEO schemas
-    2026-04-03 — Engagement layer: logo image, booking CTA, engage band, vectors
-    2026-04-03 — Full content rebuild from source Word document
-    2026-04-03 — Hero updated to split layout with shutterstock image
-    2026-04-04 — Nav restructure: flat links, orange CTA
-    2026-04-05 — Hero background deepened to #163B5C
-    2026-04-16 — FULL STANDARD UPGRADE to match communicating-schedule-changes template:
-                 1. NAV: logo path → clear_bkgr_logo_2.png, SHIFTWORK SOLUTIONS
-                    text added, font-size 20px, flat links (no dropdowns),
-                    "Why Us" → "Our Company" linking to /why-us/
-                 2. HERO: pillar_5.jpg photo background + overlay pattern
-                 3. PULL QUOTES (x2): large Georgia quotation mark + italic text
-                 4. CALLOUT: light-grey background card
-                 5. INSIGHT CARDS: white bg with colored top borders
-                 6. FAQ: Hands_in_the_air.jpg full-width background + navy accordion
-                 7. NEXT STEPS: white cards + colored borders + IntersectionObserver
-                 8. FOOTER: standard 3-col dark navy prefooter
-                 9. LISTEN BUTTON: orange pill matching standard
-    2026-04-22 — Page Bottom Standard applied:
-                 - Removed: next-steps section (HTML + CSS + IntersectionObserver JS)
-                 - Removed: listen-btn (HTML + CSS + SpeechSynthesis JS)
-                 - Added: Thomas floating widget (HTML + CSS)
-                 - Added: bridge stripe (HTML + CSS) after FAQ section
-                 - Fixed: FAQ section margin → 40px 0 0 0
-                 - Updated: Footer col-1 → FREE ASSESSMENT, col-2 → DIAGNOSTIC ARTICLE
-                 - Fixed: Both pull quotes color #4a6a8a → var(--body-text),
-                   font-style:italic → font-style:normal
-                 - Updated: dateModified in Article JSON-LD → 2026-04-22
-
-  NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
-  DESIGN CONSTANTS:
-    Navy: #1F4E79 | Navy-dark: #0D1F3C | Mid-blue: #85B7EB | Orange: #E8610A | Green: #1D9E75
-    Font: Arial/system sans-serif
-    Logo: /images/clear_bkgr_logo_2.png
-    Hero image: /images/pillar_5.jpg
-    FAQ bg: /images/Hands_in_the_air.jpg
+    2026-04-28 — Plausible analytics added; footer bottom bar updated with
+                 Case Studies / Privacy Policy / Terms of Use links + sep rule.
+    2026-04-22 — Page Bottom Standard applied: removed listen+next-steps,
+                 added bridge stripe + Thomas widget, footer corrected,
+                 pull quotes color/style fixed, dateModified updated.
+    2026-04-16 — FULL STANDARD UPGRADE
+    2026-04-02 — Initial build
 -->
 <html lang="en">
 <head>
@@ -52,7 +18,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Overtime Management Strategy &amp; Cost Control Guide | Shiftwork Solutions</title>
   <meta name="description" content="Why overtime costs only ~14% more than straight time, not 50%. The 20/60/20 rule, distribution strategy, and how to build overtime into schedules. From consultants who have worked with hundreds of facilities.">
-  <meta name="keywords" content="overtime management, overtime cost, overtime distribution, mandatory overtime, voluntary overtime, 20/60/20 rule, overtime strategy, shift scheduling overtime, workforce overtime, overtime reduction, overtime planning, predictable overtime, overtime policy, labor costs, shift work overtime">
   <link rel="canonical" href="https://shift-work.com/resources/overtime-management-guide/">
   <meta property="og:title" content="Overtime Management Strategy &amp; Cost Control Guide | Shiftwork Solutions">
   <meta property="og:description" content="Why overtime costs only ~14% more than straight time. The 20/60/20 rule and distribution strategy from consultants who have worked with hundreds of facilities.">
@@ -62,19 +27,16 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Overtime Management: Strategy, Distribution &amp; Cost Control | Shiftwork Solutions">
   <meta name="twitter:description" content="Expert guide from consultants who have worked with hundreds of facilities across 16+ industries.">
-
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"How much does overtime really cost compared to straight time?","acceptedAnswer":{"@type":"Answer","text":"About 14% more when you account for fully loaded costs — not the 50% that 'time-and-a-half' implies."}},
-    {"@type":"Question","name":"What is the 20/60/20 rule in overtime?","acceptedAnswer":{"@type":"Answer","text":"In any workforce, roughly 20% want maximum overtime, 60% will work a fair share, and 20% want none — distribution strategy matters more than total volume."}},
-    {"@type":"Question","name":"Why do facilities with more overtime sometimes have happier employees?","acceptedAnswer":{"@type":"Answer","text":"Because they channel overtime to employees who want it rather than distributing it equally or forcing it on those who don't."}},
-    {"@type":"Question","name":"What is the biggest mistake in overtime management?","acceptedAnswer":{"@type":"Answer","text":"Announcing overtime at the last minute — predictable overtime is dramatically more acceptable than surprise overtime, even in the same amounts."}},
-    {"@type":"Question","name":"When does overtime signal a deeper problem?","acceptedAnswer":{"@type":"Answer","text":"When it's chronic and self-reinforcing — high hours driving turnover, creating more vacancies, requiring more overtime from remaining workers."}},
-    {"@type":"Question","name":"Can you build overtime directly into a schedule?","acceptedAnswer":{"@type":"Answer","text":"Yes — patterns like four-on/two-off twelve-hour schedules build predictable overtime into every week, converting uncertain extra hours into guaranteed compensation."}}
-  ]}</script>
+  <!-- ══ PLAUSIBLE ANALYTICS (added 2026-04-28) ══ -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does overtime really cost compared to straight time?","acceptedAnswer":{"@type":"Answer","text":"About 14% more when you account for fully loaded costs — not the 50% that time-and-a-half implies."}},{"@type":"Question","name":"What is the 20/60/20 rule in overtime?","acceptedAnswer":{"@type":"Answer","text":"In any workforce, roughly 20% want maximum overtime, 60% will work a fair share, and 20% want none — distribution strategy matters more than total volume."}},{"@type":"Question","name":"Why do facilities with more overtime sometimes have happier employees?","acceptedAnswer":{"@type":"Answer","text":"Because they channel overtime to employees who want it rather than distributing it equally or forcing it on those who do not."}},{"@type":"Question","name":"What is the biggest mistake in overtime management?","acceptedAnswer":{"@type":"Answer","text":"Announcing overtime at the last minute — predictable overtime is dramatically more acceptable than surprise overtime, even in the same amounts."}},{"@type":"Question","name":"When does overtime signal a deeper problem?","acceptedAnswer":{"@type":"Answer","text":"When it is chronic and self-reinforcing — high hours driving turnover, creating more vacancies, requiring more overtime from remaining workers."}},{"@type":"Question","name":"Can you build overtime directly into a schedule?","acceptedAnswer":{"@type":"Answer","text":"Yes — patterns like four-on/two-off twelve-hour schedules build predictable overtime into every week, converting uncertain extra hours into guaranteed compensation."}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Overtime Management Guide","item":"https://shift-work.com/resources/overtime-management-guide/"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Overtime Management: Strategy, Distribution & Cost Control","url":"https://shift-work.com/resources/overtime-management-guide/","datePublished":"2026-04-02","dateModified":"2026-04-22","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Overtime Management: Strategy, Distribution & Cost Control","url":"https://shift-work.com/resources/overtime-management-guide/","datePublished":"2026-04-02","dateModified":"2026-04-28","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
-
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
@@ -119,7 +81,6 @@
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
     .eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:6px}
     hr.divider{border:none;border-top:1px solid var(--border-light);margin:32px 0}
-    /* ── VIZ SECTION (20/60/20 bar) ── */
     .viz-section{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad) 32px}
     .viz-box{background:#F8FAFB;border-radius:10px;padding:28px 28px 20px;border:1px solid var(--border-med)}
     .viz-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:20px}
@@ -129,7 +90,6 @@
     .ot-seg-sub{font-size:9px;font-weight:400;opacity:.8}
     .ot-labels{display:flex;font-size:11px;color:var(--muted)}
     .ot-labels span{text-align:center}
-    /* ── THREE-COL INSIGHT CARDS ── */
     .three-col{max-width:var(--max-width);margin:0 auto 32px;padding:0 var(--page-pad);display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .insight-card{background:var(--white);border:1px solid var(--border-med);border-radius:8px;padding:20px;border-top:4px solid var(--navy)}
     .insight-card.accent-orange{border-top-color:var(--orange)}
@@ -139,18 +99,15 @@
     .insight-card.accent-green .insight-num{color:var(--green)}
     .insight-label{font-size:14px;font-weight:700;color:var(--body-text);margin-bottom:6px}
     .insight-text{font-size:13px;color:var(--muted);line-height:1.55}
-    /* ── PULL QUOTE (site-wide standard 2026-04-22) ── */
     .pull-quote{margin:0 auto 40px;padding:0 var(--page-pad);max-width:var(--max-width);display:flex;align-items:center;gap:16px}
     .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
     .pull-quote-content p{font-size:15px;font-weight:400;line-height:1.75;color:var(--body-text);margin:0;font-style:normal}
     .pull-quote-content .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
-    /* ── CALLOUT ── */
     .callout{max-width:var(--max-width);margin:0 auto 32px;padding:0 var(--page-pad)}
     .callout-inner{background:var(--light-grey);border-radius:6px;padding:20px 24px;border:1px solid var(--border-med)}
     .callout-label{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--orange);margin-bottom:6px;letter-spacing:.06em}
     .callout-text{font-size:24px;color:var(--body-text);line-height:1.6}
-    /* ── FAQ SECTION (margin top 40px, flush to bridge stripe) ── */
     .faq-section{position:relative;overflow:hidden;margin:40px 0 0 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
@@ -168,11 +125,9 @@
     .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease}
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
-    /* ── BRIDGE STRIPE ── */
     .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
     .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
     .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
-    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -206,7 +161,7 @@
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-    /* ── THOMAS FLOATING WIDGET ── */
+    .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none}
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
@@ -216,7 +171,6 @@
     .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
     .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
     @media(max-width:768px){.thomas-float{display:none}}
-    /* ── RESPONSIVE ── */
     @media(max-width:760px){
       .three-col{grid-template-columns:1fr}
       .footer-content-row{grid-template-columns:1fr}
@@ -232,8 +186,8 @@
       .nav-logo-text{font-size:16px}
       .hero{padding:32px 20px 36px}.hero h1{font-size:22px}.hero-stats{flex-direction:column;gap:10px}
       .article-wrap{padding:32px 20px 24px}
-      .viz-section,.three-col,.pull-quote,.callout,
-      .footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}
+      .viz-section,.three-col,.pull-quote,.callout,.footer-prefooter{padding:32px 20px}
+      .footer-bottom{padding:14px 20px}
       .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
       .footer-bottom-left{justify-content:center}
       .faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}
@@ -242,24 +196,14 @@
   </style>
 </head>
 <body>
-
 <nav class="site-nav"><div class="nav-inner">
-  <a href="/" class="nav-logo">
-    <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36">
-    <span class="nav-logo-text">SHIFTWORK SOLUTIONS</span>
-  </a>
+  <a href="/" class="nav-logo"><img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36"><span class="nav-logo-text">SHIFTWORK SOLUTIONS</span></a>
   <button class="mobile-toggle" id="mobileToggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul class="nav-links" id="navLinks">
-    <li><a href="/">Home</a></li>
-    <li><a href="/services/">Our Services</a></li>
-    <li><a href="/resources/">Resources</a></li>
-    <li><a href="/industries/">Industries</a></li>
-    <li><a href="/why-us/">Why Us</a></li>
-    <li><a href="/contact/">Contact</a></li>
+    <li><a href="/">Home</a></li><li><a href="/services/">Our Services</a></li><li><a href="/resources/">Resources</a></li><li><a href="/industries/">Industries</a></li><li><a href="/why-us/">Why Us</a></li><li><a href="/contact/">Contact</a></li>
   </ul>
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
 </div></nav>
-
 <section class="hero"><div class="hero-inner">
   <div class="hero-eyebrow">Resources &middot; Overtime Management</div>
   <h1>Overtime Management: Strategy, Distribution &amp; Cost Control</h1>
@@ -271,22 +215,17 @@
     <div class="hero-stat"><div class="hero-stat-num">50%+</div><div class="hero-stat-label">Turnover reduction after<br>OT restructuring (case study)</div></div>
   </div>
 </div></section>
-
 <div class="breadcrumb-bar"><div class="breadcrumb-inner"><a href="/">Home</a><span>›</span><a href="/resources/">Resources</a><span>›</span>Overtime Management Guide</div></div>
-
 <div class="article-wrap">
   <div class="article-meta"><span class="meta-tag">Complete Guide</span><span class="meta-read">20 min read</span></div>
-
   <div class="eyebrow">Introduction</div>
   <h2>Overtime Is a Tool, Not a Problem</h2>
   <p>Ask a production manager about overtime and you'll hear about flexibility, responsiveness, and getting the job done. Ask an HR manager the same question and you'll hear about turnover, fatigue, and declining morale. Both perspectives contain truth — and that tension reveals why overtime management deserves strategic attention rather than reactive acceptance.</p>
   <p>Overtime represents one of the most misunderstood elements of workforce operations. When used strategically, it provides flexibility that no staffing model can match: immediate access to skilled labor, the ability to respond to demand fluctuations, and supplemental income that employees genuinely value. When mismanaged, it drives your best workers to competitors, creates safety risks, and costs far more than the financial statements reveal.</p>
   <p>The difference between these outcomes rarely lies in how much overtime an operation uses. It lies in how that overtime is managed — who works it, how it's distributed, and whether employees experience it as opportunity or burden. Operations with higher total overtime often have happier workforces than those with less, simply because they've mastered the strategy behind the hours.</p>
   <p>Understanding overtime requires moving beyond the instinct to minimize it. The goal isn't eliminating overtime — it's transforming it from a chronic problem into a strategic tool that serves both operational and workforce objectives.</p>
-
   <hr class="divider">
 </div>
-
 <div class="viz-section">
   <div class="viz-box">
     <div class="viz-title">The 20/60/20 Rule — Workforce Overtime Preferences</div>
@@ -295,24 +234,17 @@
       <div class="ot-seg" style="width:60%;background:#5A9BD5;">60%<span class="ot-seg-sub">Fair share</span></div>
       <div class="ot-seg" style="width:20%;background:#9DC3E6;color:#1F4E79;">20%<span class="ot-seg-sub">Want none</span></div>
     </div>
-    <div class="ot-labels">
-      <span style="width:20%;">Actively seek overtime</span>
-      <span style="width:60%;text-align:center;">Will work reasonable amounts</span>
-      <span style="width:20%;text-align:right;">Prefer no overtime</span>
-    </div>
+    <div class="ot-labels"><span style="width:20%;">Actively seek overtime</span><span style="width:60%;text-align:center;">Will work reasonable amounts</span><span style="width:20%;text-align:right;">Prefer no overtime</span></div>
     <div class="viz-caption">Distribution is consistent across industries and demographics. Channeling overtime to the 20% who want it produces higher satisfaction than distributing it equally. Source: Shiftwork Solutions analysis across hundreds of client facilities.</div>
   </div>
 </div>
-
 <div class="three-col">
   <div class="insight-card"><div class="insight-num">~14%</div><div class="insight-label">True OT cost premium</div><div class="insight-text">When fully loaded costs are included — benefits, PTO, training — overtime costs only about 14% more than straight time, not the 50% "time-and-a-half" implies.</div></div>
-  <div class="insight-card accent-orange"><div class="insight-num">10×</div><div class="insight-label">Overstaffing penalty</div><div class="insight-text">The adverse cost of maintaining excess headcount is typically ten times higher than the cost of moderate understaffing covered by overtime.</div></div>
+  <div class="insight-card accent-orange"><div class="insight-num">10&times;</div><div class="insight-label">Overstaffing penalty</div><div class="insight-text">The adverse cost of maintaining excess headcount is typically ten times higher than the cost of moderate understaffing covered by overtime.</div></div>
   <div class="insight-card accent-green"><div class="insight-num">7.5%</div><div class="insight-label">Pay increase, 1% cost rise</div><div class="insight-text">One facility increased guaranteed employee compensation by 7.5% while payroll costs rose only 1% — by building overtime into a continuous schedule.</div></div>
 </div>
-
 <div class="article-wrap" style="padding-top:0;">
   <hr class="divider">
-
   <div class="eyebrow">The Real Cost</div>
   <h2>Why Overtime Costs Less Than You Think</h2>
   <p>Most managers dramatically overestimate the cost difference between overtime and straight time. The phrase "time and a half" creates an intuitive sense that overtime costs 50% more than regular hours. The actual difference is far smaller.</p>
@@ -320,9 +252,7 @@
   <p>Run the math for a typical operation. An employee earning $15 per hour with a 32% benefit loading costs the company approximately $19.80 per hour in fully loaded straight time. That same employee working overtime costs $22.50 per hour — time and a half on wages, but nothing additional on benefits. The actual incremental cost of overtime? About $2.70 per hour, or roughly 14% more than straight time. Not 50%.</p>
   <p>This calculation changes everything about how operations should think about staffing decisions. Overtime provides something straight time cannot: flexibility. You can add overtime when needed and remove it when not. Straight time hours come attached to permanent positions, ongoing benefit obligations, and the risks of overstaffing when demand declines.</p>
   <p>The expensive scenario isn't using overtime — it's maintaining headcount you don't need. The adverse cost of overstaffing typically runs ten times higher than the adverse cost of moderate understaffing covered by overtime. You're paying full wages and benefits for labor that provides zero operational value. This asymmetry explains why lean operations often favor running slightly short with controlled overtime rather than carrying excess permanent headcount. None of this means overtime is costless or that more is always better. Fatigue affects quality and safety. Prolonged high overtime creates workforce dependency that becomes its own problem. But decisions about overtime levels should be based on comprehensive cost analysis, not the misleading simplicity of "time and a half."</p>
-
   <hr class="divider">
-
   <div class="eyebrow">The Distribution Paradox</div>
   <h2>Why More Overtime Can Mean Happier Employees</h2>
   <p>Here's a counterintuitive finding from decades of workforce research: facilities with higher total overtime often have more satisfied employees than those with less. The explanation lies not in the amount of overtime but in how it's distributed.</p>
@@ -332,7 +262,6 @@
   <p>The 20% who want overtime view it as supplemental income, not burden. Giving them priority creates mutual benefit: they earn more, and you gain reliable coverage from workers who actually want to be there. The 20% who avoid overtime aren't lazy or uncommitted — they're often your most stable performers during regular hours. Forcing mandatory overtime on this group drives turnover among employees you can't afford to lose.</p>
   <p>The practical implication: tracking overtime preferences and channeling hours accordingly matters more than reducing total hours. This requires systems most operations don't have — preference surveys, distribution tracking, and policies that honor individual differences rather than treating overtime as one-size-fits-all.</p>
 </div>
-
 <div class="pull-quote">
   <div class="pull-quote-mark">&ldquo;</div>
   <div class="pull-quote-content">
@@ -340,10 +269,8 @@
     <div class="pq-attr">— Dan Capshaw, Shiftwork Solutions</div>
   </div>
 </div>
-
 <div class="article-wrap" style="padding-top:0;">
   <hr class="divider">
-
   <div class="eyebrow">Predictability</div>
   <h2>Why Advance Notice Changes Everything</h2>
   <p>One principle commands near-universal agreement across the workforce: predictable overtime is dramatically more acceptable than surprise overtime.</p>
@@ -352,7 +279,6 @@
   <p>The underlying psychology matters here. Employees build intricate routines around their work schedules — childcare arrangements, transportation logistics, family commitments, personal obligations. Unexpected overtime doesn't just cost them time; it forces them to break commitments and scramble to reconstruct arrangements. The resentment isn't about working extra hours. It's about feeling that management doesn't respect their lives outside work.</p>
   <p>Building systems that maximize advance notice represents one of the highest-return investments in workforce satisfaction. The overtime remains necessary. The negative impact diminishes substantially.</p>
 </div>
-
 <div class="pull-quote">
   <div class="pull-quote-mark">&ldquo;</div>
   <div class="pull-quote-content">
@@ -360,10 +286,8 @@
     <div class="pq-attr">— Jim Dillingham, Shiftwork Solutions</div>
   </div>
 </div>
-
 <div class="article-wrap" style="padding-top:0;">
   <hr class="divider">
-
   <div class="eyebrow">Diagnosis</div>
   <h2>When Overtime Signals Deeper Problems</h2>
   <p>Chronic overtime often masks underlying issues that scheduling alone cannot solve. Understanding the source of overtime determines whether the solution involves distribution strategies, staffing changes, schedule redesign, or operational improvements.</p>
@@ -373,80 +297,56 @@
   <p>Schedule design itself can be an overtime source. Operations that shut down unnecessarily — for lunches, breaks, shift changes, or weekends — then struggle to meet demand often use overtime to recover lost capacity. The same output might be achievable with schedule patterns that maintain continuity rather than creating gaps that require overtime to fill.</p>
   <p>Diagnosing the actual driver matters because the solutions differ. Distribution problems require policy changes. Staffing problems require hiring strategies. Workload variation problems may require schedule flexibility or multiple schedule patterns. Design problems require rethinking the fundamental coverage approach.</p>
 </div>
-
 <div class="callout">
   <div class="callout-inner">
     <div class="callout-label">Important</div>
     <div class="callout-text">Prolonged high overtime creates a dangerous dependency. When employees rely on overtime income to meet their financial obligations, reducing overtime — even when operationally appropriate — becomes financially devastating for your workforce. You've essentially created a compensation structure that can't flex downward without causing hardship. Design your baseline compensation and staffing to avoid creating this trap.</div>
   </div>
 </div>
-
 <div class="article-wrap" style="padding-top:0;">
   <hr class="divider">
-
   <div class="eyebrow">Schedule Integration</div>
   <h2>Building Overtime Into the Schedule</h2>
   <p>Some operations need sustained high coverage that traditional schedules can't provide without chronic overtime. Rather than fighting this reality, sophisticated operations build predictable overtime directly into the schedule pattern.</p>
   <p>A four-on, two-off twelve-hour schedule illustrates this approach. Three crews rotate through a six-week cycle, with each crew working four consecutive twelve-hour shifts followed by two days off. The pattern delivers 56 scheduled hours weekly — 16 hours of overtime built into every week. Employees know exactly what to expect. The overtime is predictable, distributed evenly, and reflected in guaranteed compensation rather than uncertain extra hours.</p>
   <p>This built-in overtime approach works when several conditions hold. The high coverage requirement must be genuinely sustained, not temporary. Employee preferences must align — some workforces embrace the higher income and extended time off that these patterns provide. The alternative of hiring additional workers must be impractical, whether due to labor market constraints, skill requirements, or the permanence of adding headcount versus the flexibility of overtime.</p>
   <p>One manufacturing facility transitioned from chaotic unscheduled overtime to a continuous schedule with built-in overtime. Employees increased their guaranteed compensation by 7.5% while payroll costs rose only 1%. Days off increased from 104 to 182 annually. Unscheduled overtime dropped to minimal levels, restored to its proper role as a relief valve for unusual circumstances rather than a chronic condition. The comparison reveals what sustainable overtime looks like: built into the schedule, it becomes predictable income employees can count on. Distributed to those who want it, the extra hours feel like opportunity rather than burden. Announced in advance, even unwanted overtime becomes manageable.</p>
-
   <hr class="divider">
-
   <div class="eyebrow">Employee Experience</div>
   <h2>The Impact on Retention and Engagement</h2>
   <p>Overtime management directly impacts employee experience metrics that operations leaders increasingly recognize as performance drivers. The connection is straightforward: poor overtime practices drive turnover, absenteeism, and disengagement that cost far more than the overtime itself.</p>
   <p>The pretzel manufacturer that restructured its schedule achieved measurable improvements across multiple dimensions. After implementing a two-schedule approach — traditional five-day for some employees, seven-day twelve-hour for others — post-implementation surveys showed dramatic shifts. Schedule predictability improved 40%. Schedule flexibility improved 47%. Employees' perception of the general work environment improved 21%. The facility's rating relative to other employers in the area improved 21%.</p>
   <p>Most significantly, employee turnover dropped by more than 50%. These improvements didn't come from reducing overtime. They came from restructuring how overtime was experienced — making it predictable, giving employees choice, protecting workers from mandatory overtime on their scheduled weekends. The seven-day schedule actually built overtime into the pattern. But employees chose it voluntarily, attracted by higher income and more days off.</p>
   <p>The lesson extends beyond this single example. Overtime satisfaction correlates more strongly with control and predictability than with total hours. Workers who choose overtime respond differently than workers who have it forced upon them. Workers who know the schedule in advance respond differently than those surprised by last-minute requirements.</p>
-
   <hr class="divider">
-
   <div class="eyebrow">Conclusion</div>
   <h2>Manage It Deliberately or Let It Manage You</h2>
   <p>Overtime isn't inherently problematic. Poorly managed overtime is problematic. The distinction matters because it shifts focus from minimization — which often isn't achievable or even desirable — to optimization of how overtime operates within your workforce.</p>
   <p>The operations that manage overtime most effectively share common characteristics. They understand the real cost comparison between overtime and straight time. They recognize that distribution matters more than total volume. They build systems that maximize predictability. They diagnose whether overtime signals underlying problems or represents appropriate capacity flexibility.</p>
   <p>Most importantly, they treat overtime as a strategic element of workforce management rather than an accounting variance to be minimized. The workforce contains employees who want more hours and employees who want fewer. The operation needs flexibility that permanent headcount can't provide. The intersection of these realities isn't a problem to solve — it's an opportunity to design systems that serve everyone better. The question isn't whether to use overtime. It's whether to manage it deliberately or let it manage you.</p>
 </div>
-
 <div class="faq-section">
-  <div class="faq-bg"></div>
-  <div class="faq-overlay"></div>
+  <div class="faq-bg"></div><div class="faq-overlay"></div>
   <div class="faq-inner">
     <h2>Frequently Asked Questions</h2>
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How much does overtime really cost compared to straight time?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">About 14% more when you account for fully loaded costs — benefits, PTO, training, and overhead. The "time-and-a-half" perception overstates the true cost difference because overtime wages carry no additional benefit loading.</div></div></div>
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What is the 20/60/20 rule in overtime?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">In any workforce, roughly 20% want maximum overtime, 60% will work a fair share, and 20% want none. Distribution strategy — channeling overtime to those who want it — matters more than total volume for workforce satisfaction.</div></div></div>
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Why do facilities with more overtime sometimes have happier employees?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Because they channel overtime to employees who want it rather than distributing it equally or forcing it on those who don't. A facility with 1,500 hours of voluntary overtime often has happier workers than one with 1,000 hours of mandatory overtime.</div></div></div>
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What is the biggest mistake in overtime management?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Announcing overtime at the last minute. Predictable overtime is dramatically more acceptable than surprise overtime, even in the same amounts. Extending the notification window is one of the most cost-effective improvements available.</div></div></div>
-    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">When does overtime signal a deeper problem?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">When it's chronic and self-reinforcing — high hours driving turnover, creating more vacancies, requiring more overtime from remaining workers. This spiral typically indicates a staffing or schedule design problem, not just a distribution issue.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">When does overtime signal a deeper problem?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">When it is chronic and self-reinforcing — high hours driving turnover, creating more vacancies, requiring more overtime from remaining workers. This spiral typically indicates a staffing or schedule design problem, not just a distribution issue.</div></div></div>
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Can you build overtime directly into a schedule?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Yes — patterns like four-on/two-off twelve-hour schedules build predictable overtime into every week, converting uncertain extra hours into guaranteed compensation. One facility increased employee pay by 7.5% while payroll costs rose only 1%.</div></div></div>
   </div>
-</div><!-- /.faq-section -->
-
-<!-- ── BRIDGE STRIPE ── -->
+</div>
 <div class="bridge-stripe">
   <div class="bridge-stripe-text">Ready to take the next step?</div>
   <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
 </div>
-
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
-      <div class="footer-col footer-col-1">
-        <div class="engage-label">FREE ASSESSMENT</div>
-        <div class="engage-col-title">Shiftwork Operations Reality Check</div>
-        <p class="engage-col-desc">A structured assessment of where your shiftwork operation stands — and where the gaps are costing you most.</p>
-      </div>
-      <div class="footer-col footer-col-2">
-        <div class="engage-label">DIAGNOSTIC ARTICLE</div>
-        <div class="engage-col-title">The 26 Warning Signs</div>
-        <p class="engage-col-desc">The operational symptoms that signal when your shiftwork system needs attention — from retention to absenteeism to morale.</p>
-      </div>
-      <div class="footer-col footer-col-3">
-        <div class="engage-label">NEWSLETTER</div>
-        <div class="engage-col-title">Stay Sharp on Shift Operations</div>
-        <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
-      </div>
+      <div class="footer-col footer-col-1"><div class="engage-label">FREE ASSESSMENT</div><div class="engage-col-title">Shiftwork Operations Reality Check</div><p class="engage-col-desc">A structured assessment of where your shiftwork operation stands — and where the gaps are costing you most.</p></div>
+      <div class="footer-col footer-col-2"><div class="engage-label">DIAGNOSTIC ARTICLE</div><div class="engage-col-title">The 26 Warning Signs</div><p class="engage-col-desc">The operational symptoms that signal when your shiftwork system needs attention — from retention to absenteeism to morale.</p></div>
+      <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
     </div>
     <div class="footer-cta-row">
       <div class="footer-cta-1"><a href="https://www.shift-work.com/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Reality Check &#x2192;</a></div>
@@ -455,26 +355,26 @@
     </div>
   </div></div>
   <div class="footer-bottom"><div class="footer-bottom-inner">
-    <div class="footer-bottom-left"><span class="footer-bottom-brand">Shiftwork Solutions LLC</span><a href="tel:+14152651621">(415) 265-1621</a><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
+    <div class="footer-bottom-left">
+      <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="tel:+14152651621">(415) 265-1621</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/resources/case-studies/">Case Studies</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/terms-of-use/">Terms of Use</a>
+    </div>
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
-
-<!-- ── THOMAS FLOATING WIDGET ── -->
-<a class="thomas-float"
-   href="https://shift-work-diagnostic.onrender.com/"
-   target="_blank"
-   rel="noopener"
-   aria-label="Meet Thomas, your AI Shift Advisor">
+<a class="thomas-float" href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener" aria-label="Meet Thomas, your AI Shift Advisor">
   <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
-  <div class="thomas-float-body">
-    <span class="thomas-float-name">Meet Thomas</span>
-    <span class="thomas-float-sub">Your AI Shift Advisor</span>
-    <span class="thomas-float-cta">Chat Now &rarr;</span>
-  </div>
+  <div class="thomas-float-body"><span class="thomas-float-name">Meet Thomas</span><span class="thomas-float-sub">Your AI Shift Advisor</span><span class="thomas-float-cta">Chat Now &rarr;</span></div>
 </a>
-<!-- ── END THOMAS FLOATING WIDGET ── -->
-
 <script>
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
