@@ -5,7 +5,7 @@
   URL: /resources/
 
   Created:      2026-04-03
-  Last Updated: 2026-04-27
+  Last Updated: 2026-04-28
 
   CHANGE LOG:
     2026-04-24 — SPOTLIGHT ARTICLES: Added Deming article as 8th card.
@@ -13,16 +13,13 @@
     2026-04-21 — REALITY CHECK TILE RENAMED.
     2026-04-22 — PAGE BOTTOM STANDARD applied.
     2026-04-18 — (v8) 13 CHANGE GROUPS.
-    2026-04-26 — AI DISCOVERABILITY SCHEMAS added:
-                 Organization schema (entity signal for AI lists),
-                 CollectionPage schema (signals authoritative resource hub),
-                 meta keywords tag.
-                 All existing content, layout, CSS, and JS preserved exactly.
+    2026-04-26 — AI DISCOVERABILITY SCHEMAS added.
     2026-04-27 — DIRECTORY RENAME: /support/ → /focused/ across all card
-                 hrefs (8 cards in focused grid) and JS DATA object
-                 (15 total URL references updated).
-                 Section heading: "Spotlight Articles" → "Focused Articles".
-                 No layout, CSS, or functionality changes.
+                 hrefs and JS DATA object. Section heading: "Spotlight
+                 Articles" → "Focused Articles".
+    2026-04-28 — PLAUSIBLE ANALYTICS added to <head>.
+                 FOOTER BOTTOM BAR: added Case Studies, Privacy Policy,
+                 Terms of Use links with mid-dot separators.
 
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   HERO IMAGE: /images/second.png
@@ -48,10 +45,19 @@
   <meta name="twitter:description" content="Scheduling guides, industry insights, and diagnostic tools built for 24/7 manufacturing and distribution operations.">
 
   <!-- ══════════════════════════════════════════════════════════════════
+       PLAUSIBLE ANALYTICS (added 2026-04-28)
+       Privacy-friendly, cookieless, GDPR/CCPA compliant.
+       Loads async — does not block page render.
+       Script URL is unique to shift-work.com — do not change.
+       ══════════════════════════════════════════════════════════════════ -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════════════
        AI DISCOVERABILITY SCHEMAS — added 2026-04-26
-       Organization: consistent entity signal for AI-generated lists.
-       CollectionPage: signals this as an authoritative resource hub.
-       Update sameAs URLs as directory listings are claimed.
        ══════════════════════════════════════════════════════════════════ -->
   <script type="application/ld+json">
   {
@@ -314,6 +320,7 @@
     .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
 
     /* ── THOMAS FLOATING WIDGET ── */
@@ -570,7 +577,19 @@
     </div>
   </div></div>
   <div class="footer-bottom"><div class="footer-bottom-inner">
-    <div class="footer-bottom-left"><span class="footer-bottom-brand">Shiftwork Solutions LLC</span><a href="tel:+14152651621">(415) 265-1621</a><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
+    <div class="footer-bottom-left">
+      <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="tel:+14152651621">(415) 265-1621</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/resources/case-studies/">Case Studies</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/terms-of-use/">Terms of Use</a>
+    </div>
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
