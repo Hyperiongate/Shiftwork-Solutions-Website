@@ -5,13 +5,15 @@
   URL: /resources/case-studies/
 
   Created:      2026-04-27
-  Last Updated: 2026-04-27
+  Last Updated: 2026-04-28
 
   CHANGE LOG:
+    2026-04-28 — Plausible analytics added. Footer bottom bar updated:
+                 mid-dot separators + Case Studies / Privacy Policy /
+                 Terms of Use links.
     2026-04-27 — Initial build. Eight-tile grid index for all published
                  case studies. Quiet index page — not in main nav, exists
-                 for SEO crawl path and direct visitor access. Footer link
-                 to be added in a subsequent update.
+                 for SEO crawl path and direct visitor access.
                  Full SEO/AI optimization: CollectionPage schema,
                  Organization schema, BreadcrumbList schema, og/twitter
                  meta, keywords meta. Tile grid uses existing /images/
@@ -64,7 +66,7 @@
     "@type": "CollectionPage",
     "name": "Shift Schedule Consulting Case Studies",
     "url": "https://shift-work.com/resources/case-studies/",
-    "dateModified": "2026-04-27",
+    "dateModified": "2026-04-28",
     "description": "Eight anonymized case studies from Shiftwork Solutions LLC engagements across food manufacturing, distribution, pharmaceutical, automotive, chemical processing, pulp and paper, mining, and general manufacturing. Each is reported against the client's stated objective.",
     "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"},
     "about": {"@type": "Thing", "name": "Shift Schedule Redesign and Workforce Management Consulting"},
@@ -92,6 +94,13 @@
       {"@type": "ListItem", "position": 3, "name": "Case Studies", "item": "https://shift-work.com/resources/case-studies/"}
     ]
   }
+  </script>
+
+  <!-- ── PLAUSIBLE ANALYTICS ── -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
   </script>
 
   <style>
@@ -179,7 +188,6 @@
     /* ── ENGAGE BAND ── */
     .engage-band{background:var(--navy-dark);padding:48px var(--page-pad) 52px}
     .engage-band-inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
-    .engage-band-col{}
     .engage-band-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
     .engage-band-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.3}
     .engage-band-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;margin-bottom:16px}
@@ -218,8 +226,9 @@
     .footer-bottom-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.45)}
     .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
     .footer-bottom-inner a:hover{color:var(--orange)}
-    .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-bottom-left{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
+    .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none;margin:0 2px}
 
     /* ── THOMAS FLOATING WIDGET ── */
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
@@ -310,7 +319,6 @@
   </div>
   <div class="casestudy-grid">
 
-    <!-- Card 1: Food Manufacturing -->
     <a href="/resources/case-studies/food-manufacturer-didnt-need-seven-days/" class="cs-tile">
       <img src="/images/food.jpg" alt="" class="cs-tile-img">
       <div class="cs-tile-body">
@@ -324,7 +332,6 @@
       </div>
     </a>
 
-    <!-- Card 2: Distribution -->
     <a href="/resources/case-studies/distribution-center-seven-day-rotation-coverage/" class="cs-tile">
       <img src="/images/distribution.jpg" alt="" class="cs-tile-img">
       <div class="cs-tile-body">
@@ -338,7 +345,6 @@
       </div>
     </a>
 
-    <!-- Card 3: Pharmaceutical -->
     <a href="/resources/case-studies/pharmaceutical-packaging-seven-day-with-sanitation-windows/" class="cs-tile">
       <img src="/images/Pharma.jpg" alt="" class="cs-tile-img">
       <div class="cs-tile-body">
@@ -352,7 +358,6 @@
       </div>
     </a>
 
-    <!-- Card 4: Automotive -->
     <a href="/resources/case-studies/automotive-parts-six-day-not-seven-saved-union-renegotiation/" class="cs-tile">
       <img src="/images/manufacturing.jpg" alt="" class="cs-tile-img">
       <div class="cs-tile-body">
@@ -366,7 +371,6 @@
       </div>
     </a>
 
-    <!-- Card 5: Chemical Processing -->
     <a href="/resources/case-studies/chemical-processing-seven-day-continuous-run/" class="cs-tile">
       <img src="/images/Refining.jpg" alt="" class="cs-tile-img">
       <div class="cs-tile-body">
@@ -380,7 +384,6 @@
       </div>
     </a>
 
-    <!-- Card 6: Pulp & Paper -->
     <a href="/resources/case-studies/paper-mill-overtime-root-causes-redesigned/" class="cs-tile">
       <img src="/images/paper.jpg" alt="" class="cs-tile-img">
       <div class="cs-tile-body">
@@ -394,7 +397,6 @@
       </div>
     </a>
 
-    <!-- Card 7: Mining -->
     <a href="/resources/case-studies/mining-operation-retention-schedule-redesign/" class="cs-tile">
       <img src="/images/mining.jpg" alt="" class="cs-tile-img">
       <div class="cs-tile-body">
@@ -408,7 +410,6 @@
       </div>
     </a>
 
-    <!-- Card 8: Manufacturing / Work-Life Balance -->
     <a href="/resources/case-studies/manufacturer-work-life-balance-redesign/" class="cs-tile">
       <img src="/images/balancing.jpg" alt="" class="cs-tile-img">
       <div class="cs-tile-body">
@@ -504,8 +505,16 @@
   <div class="footer-bottom"><div class="footer-bottom-inner">
     <div class="footer-bottom-left">
       <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+      <span class="footer-bottom-sep">&middot;</span>
       <a href="tel:+14152651621">(415) 265-1621</a>
+      <span class="footer-bottom-sep">&middot;</span>
       <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/resources/case-studies/">Case Studies</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/terms-of-use/">Terms of Use</a>
     </div>
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
@@ -522,7 +531,6 @@
 </a>
 
 <script>
-/* Mobile nav */
 document.getElementById('mobileToggle').addEventListener('click', function() {
   var n = document.getElementById('navLinks');
   var open = n.style.display === 'flex';
@@ -543,7 +551,6 @@ document.getElementById('mobileToggle').addEventListener('click', function() {
   }
 });
 
-/* Newsletter */
 (function() {
   var SWARM = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
   window.engageNLSubmit = function(e) {
