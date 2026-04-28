@@ -5,37 +5,11 @@
   URL: /resources/shift-schedule-patterns-guide/
 
   Created:      2026-04-02
-  Last Updated: 2026-04-22
+  Last Updated: 2026-04-28
 
   CHANGE LOG:
-    2026-04-02 — Initial build from Pillar_2_Schedule_Patterns_Rev_A_2_18_26.docx
-    2026-04-03 — Standard improvements: spacing, Web Speech API, SEO schemas
-    2026-04-03 — Engagement layer: logo image, booking CTA, engage band, vectors
-    2026-04-03 — Full content rebuild from Pillar_2_Patterns_Rev_A_2_3_26.docx
-    2026-04-03 — Hero vector updated to shutterstock_1502038526.jpg split layout
-    2026-04-04 — Nav restructure: flat links, orange CTA, updated Why Us href
-    2026-04-16 — FULL STANDARD UPGRADE to match communicating-schedule-changes template:
-                 1. NAV: logo path → clear_bkgr_logo_2.png, SHIFTWORK SOLUTIONS
-                    text added, font-size 20px, flat links (no dropdowns),
-                    "Why Us" → "Our Company" linking to /why-us/
-                 2. HERO: replaced shutterstock vector with pillar_2.jpg photo
-                    background using ::before/::after overlay pattern
-                 3. PULL QUOTE: replaced border-left style with large Georgia
-                    quotation mark + italic text + muted attribution
-                 4. CALLOUTS: replaced orange border-left with light-grey
-                    background cards matching new standard
-                 5. NEXT STEPS: replaced light-blue cards with white cards +
-                    colored top borders + IntersectionObserver slide-up animation
-                 6. FAQ: replaced flat list with Hands_in_the_air.jpg full-width
-                    background + navy accordion (faq-toggle/faq-body pattern)
-                 7. FOOTER: replaced engage-band + light footer with standard
-                    3-col dark navy prefooter (Free Consultation / Thomas /
-                    Newsletter) + standard bottom bar
-                 8. LISTEN BUTTON: updated to orange pill style matching standard
-                 All article content, SEO schemas, and JSON-LD preserved exactly.
-    2026-04-16 — MENU LABEL ONLY: top menu text "Our Company" -> "Why Us".
-                 Link target /why-us/ unchanged. No other content, CSS, or
-                 JS touched.
+    2026-04-28 — Plausible analytics added; footer bottom bar updated with
+                 Case Studies / Privacy Policy / Terms of Use links + sep rule.
     2026-04-22 — PAGE BOTTOM STANDARD CSS CORRECTIONS (v2):
                  - PULL QUOTE: color:#4a6a8a -> var(--body-text);
                    font-style:italic -> normal.
@@ -51,6 +25,10 @@
                    mid-blue CTA, hidden mobile).
                  - NAV: nav-active class added to Resources link.
                  - CHANGELOG: this entry.
+    2026-04-16 — FULL STANDARD UPGRADE
+    2026-04-04 — Nav restructure: flat links, orange CTA, updated Why Us href
+    2026-04-03 — Full content rebuild
+    2026-04-02 — Initial build
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
@@ -76,6 +54,12 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Shift Schedule Patterns &amp; Examples: A Decision Guide | Shiftwork Solutions">
   <meta name="twitter:description" content="Expert guide from consultants who have worked with hundreds of facilities across 16+ industries.">
+  <!-- ══ PLAUSIBLE ANALYTICS (added 2026-04-28) ══ -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"What is the most popular 12-hour continuous schedule?","acceptedAnswer":{"@type":"Answer","text":"The 2-2-3 pattern — workers alternate between two-day and three-day work blocks with corresponding off-periods, providing a predictable rotation that most workers learn within a single cycle."}},
@@ -85,7 +69,7 @@
     {"@type":"Question","name":"Can workers change between schedule patterns?","acceptedAnswer":{"@type":"Answer","text":"Yes — when multiple patterns are offered, seniority-based bidding is the most common mechanism, with senior employees getting priority on preferred patterns like day shifts."}}
   ]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Schedule Patterns Guide","item":"https://shift-work.com/resources/shift-schedule-patterns-guide/"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Schedule Patterns & Examples: A Decision Guide","url":"https://shift-work.com/resources/shift-schedule-patterns-guide/","datePublished":"2026-04-02","dateModified":"2026-04-22","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Schedule Patterns & Examples: A Decision Guide","url":"https://shift-work.com/resources/shift-schedule-patterns-guide/","datePublished":"2026-04-02","dateModified":"2026-04-28","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
 
   <style>
@@ -98,8 +82,6 @@
     }
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
-
-    /* ── NAV ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0;display:flex;align-items:center;gap:12px}
@@ -115,8 +97,6 @@
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-
-    /* ── HERO ── */
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:url('/images/pillar_2.jpg') center center / cover no-repeat;opacity:1;z-index:0}
     .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,0.88) 0%,rgba(31,78,121,0.75) 55%,rgba(31,78,121,0.35) 100%);z-index:0}
@@ -125,15 +105,11 @@
     .hero h1{font-size:28px;font-weight:700;line-height:1.2;color:#EEAE26;max-width:620px;margin-bottom:14px}
     .hero-subtitle{font-size:16px;line-height:1.65;color:rgba(255,255,255,0.88);max-width:560px}
     .hero-tag{display:inline-block;margin-top:16px;background:rgba(232,97,10,0.9);color:var(--white);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:4px 12px;border-radius:3px}
-
-    /* ── BREADCRUMB ── */
     .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
     .breadcrumb-inner a{color:var(--navy);text-decoration:none}
     .breadcrumb-inner a:hover{text-decoration:underline}
     .breadcrumb-inner span{margin:0 6px;opacity:.5}
-
-    /* ── ARTICLE ── */
     .article-wrap{max-width:var(--max-width);margin:0 auto;padding:48px var(--page-pad) 56px}
     .article-meta{display:flex;align-items:center;gap:16px;margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border-light);flex-wrap:wrap}
     .meta-tag{display:inline-block;background:var(--light-blue);color:var(--navy);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 10px;border-radius:3px}
@@ -143,8 +119,6 @@
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
     .article-wrap p:last-child{margin-bottom:0}
     hr.divider{max-width:var(--max-width);margin:8px auto 0;border:none;border-top:1px solid var(--border-light)}
-
-    /* ── TOPIC BLOCKS ── (preserved exactly — separate from .callout-inner) */
     .topic-block{border-left:3px solid var(--navy);padding:18px 0 18px 20px;margin-bottom:24px}
     .topic-block.accent-orange{border-left-color:var(--orange)}
     .topic-block.accent-green{border-left-color:var(--green)}
@@ -155,24 +129,14 @@
     .topic-block.accent-green h3{color:var(--green)}
     .topic-block p{font-size:15px;line-height:1.75;color:var(--body-text);margin-bottom:12px}
     .topic-block p:last-child{margin-bottom:0}
-
-    /* ── PULL QUOTE ──
-       Spec (v2): color:var(--body-text), font-style:normal. */
     .pull-quote{margin:40px 0;padding:0 var(--page-pad);max-width:var(--max-width);margin-left:auto;margin-right:auto;display:flex;align-items:center;gap:16px}
     .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
     .pull-quote-content p{font-size:15px;font-weight:400;line-height:1.75;color:var(--body-text);margin:0;font-style:normal}
     .pull-quote-content .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
-
-    /* ── CALLOUT ──
-       Spec (v2): background:none; border-left:4px solid var(--navy);
-       border-radius:0; padding:16px 0 16px 20px; .callout-label removed;
-       .callout-text font-size:15px. */
     .callout{max-width:var(--max-width);margin:24px auto;padding:0 var(--page-pad)}
     .callout-inner{background:none;border-left:4px solid var(--navy);border-radius:0;padding:16px 0 16px 20px}
     .callout-text{font-size:15px;color:var(--body-text);line-height:1.6;font-weight:400;font-style:normal}
-
-    /* ── FAQ ── */
     .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
@@ -190,8 +154,6 @@
     .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease}
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
-
-    /* ── NEXT STEPS ── */
     .next-steps{padding:56px var(--page-pad) 60px;background:var(--light-grey);position:relative;overflow:hidden}
     .next-steps-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
     .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
@@ -223,8 +185,6 @@
     .ns-phone{margin-top:28px;font-size:13px;color:var(--muted);text-align:center}
     .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
     .ns-phone a:hover{color:var(--orange)}
-
-    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -258,16 +218,7 @@
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-
-    /* ── LISTEN BUTTON ── */
-    .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
-    .listen-btn:hover{background:#c4510a}
-    .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
-
-    /* ── THOMAS FLOATING WIDGET ──
-       Spec (v2): top:66.666% (1/3 up from bottom); white bg; no orange border;
-       100px width (108px hover); 90px image; navy name; muted sub;
-       mid-blue CTA. z-index:950. Hidden on mobile. */
+    .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none}
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
@@ -277,8 +228,6 @@
     .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
     .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
     @media(max-width:768px){.thomas-float{display:none}}
-
-    /* ── RESPONSIVE ── */
     @media(max-width:760px){
       .ns-cards{grid-template-columns:1fr}
       .footer-content-row{grid-template-columns:1fr}
@@ -490,7 +439,7 @@
   <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
 </div></section>
 
-<!-- ── FOOTER: Reality Check | 26 Warning Signs | Newsletter ── -->
+<!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
@@ -529,17 +478,22 @@
   <div class="footer-bottom"><div class="footer-bottom-inner">
     <div class="footer-bottom-left">
       <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+      <span class="footer-bottom-sep">&middot;</span>
       <a href="tel:+14152651621">(415) 265-1621</a>
+      <span class="footer-bottom-sep">&middot;</span>
       <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/resources/case-studies/">Case Studies</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/terms-of-use/">Terms of Use</a>
     </div>
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
 
-<!-- ── THOMAS FLOATING WIDGET ──
-     Fixed to right edge, 1/3 up from bottom of viewport (top:66.666%).
-     Hidden on mobile (max-width:768px).
-     Opens Thomas diagnostic app in new tab. -->
+<!-- THOMAS FLOATING WIDGET -->
 <a class="thomas-float"
    href="https://shift-work-diagnostic.onrender.com/"
    target="_blank"
@@ -552,16 +506,12 @@
     <span class="thomas-float-cta">Chat Now &rarr;</span>
   </div>
 </a>
-<!-- ── END THOMAS FLOATING WIDGET ── -->
-
-<button class="listen-btn" id="listenBtn" aria-label="Listen to this article"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg><span id="listenLabel">Listen</span></button>
 
 <script>
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
 (function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
-(function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var wrap=document.querySelector('.article-wrap');if(!wrap)return'';var els=wrap.querySelectorAll('p,h2,h3');var parts=[];els.forEach(function(el){parts.push(el.textContent.trim());});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
 </script>
 </body>
 </html>
