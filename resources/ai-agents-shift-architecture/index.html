@@ -12,6 +12,11 @@
     2026-04-28 — Added Plausible Analytics snippet. Updated footer bottom bar:
                  mid-dot separators + Case Studies / Privacy Policy / Terms of Use links.
                  dateModified updated to 2026-04-28.
+    2026-04-28 — ALL-PAGES CYCLE pass 1:
+                 Added Microsoft Clarity snippet (ID: wiyn7e4d73).
+                 Added custom event tracker script (/js/event-tracker.js).
+                 Removed redundant plausible.init() block — pa- script auto-initializes.
+                 Added canonical Organization schema (JSON-LD).
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/ai.jpg
@@ -35,6 +40,67 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"From Talkers to Agents: What the Next Phase of AI Means for Shift Scheduling","description":"AI is shifting from tools that answer questions to agents that pursue goals autonomously. Why that makes shift architecture, employee buy-in, and governance more important, not less.","url":"https://shift-work.com/resources/ai-agents-shift-architecture/","datePublished":"2026-04-23","dateModified":"2026-04-28","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"From Talkers to Agents","item":"https://shift-work.com/resources/ai-agents-shift-architecture/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is an AI agent?","acceptedAnswer":{"@type":"Answer","text":"An AI agent is a system that is given a goal and allowed to pursue it over time, rather than simply answering one question at a time. It can use other software, pull data from multiple systems, test options, make decisions, and adjust its plans as conditions change \u2014 all without someone typing a new prompt each step. This is different from ChatGPT-style tools, which respond when asked and do nothing between prompts."}},{"@type":"Question","name":"Can AI schedule a 24/7 operation without human oversight?","acceptedAnswer":{"@type":"Answer","text":"AI can generate and adjust schedules autonomously, but it cannot carry accountability for the human consequences. Fatigue limits, compliance rules, fairness principles, and approval thresholds must be set by people and enforced as hard boundaries the system cannot optimize away. The new generation of agent-based tools operates with less human oversight per decision, which makes strong upstream governance more important, not less."}},{"@type":"Question","name":"What has to be in place before AI scheduling tools can actually work?","acceptedAnswer":{"@type":"Answer","text":"The fundamentals of the workforce system need to be sound: scheduling rules documented, fatigue and compliance guardrails explicit, labor cost structures understood, change processes capable of handling faster iteration, and employee preferences known rather than assumed. Technology amplifies whatever structure already exists. If the architecture is weak, AI will surface the problems faster \u2014 and then keep running on them."}},{"@type":"Question","name":"How is an AI agent different from ChatGPT?","acceptedAnswer":{"@type":"Answer","text":"ChatGPT is a \u201Ctalker\u201D \u2014 a user types a question, it gives an answer, and the interaction ends. An AI agent is given a goal and allowed to pursue it over time, using other software, monitoring data, making decisions, and adjusting plans without being prompted at each step. In a scheduling context, that means a system that continuously monitors absenteeism, demand shifts, and overtime, and revises staffing plans on its own."}},{"@type":"Question","name":"Does AI replace the need for shift scheduling consultants?","acceptedAnswer":{"@type":"Answer","text":"No. AI operates inside an architecture \u2014 the crew structure, shift lengths, rotation rules, relief strategy, overtime distribution, and policy framework that define what the system is allowed to do. Designing that architecture, building employee buy-in, and managing the change through implementation sits outside what any algorithm is built to do. Scheduling software assigns people to shifts. Consultants design the shift system that makes software worth using."}}]}</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Shiftwork Solutions LLC",
+  "url": "https://shift-work.com",
+  "logo": "https://shift-work.com/images/clear_bkgr_logo_2.png",
+  "telephone": "+1-415-265-1621",
+  "email": "Contact@shift-work.com",
+  "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
+  "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.",
+  "foundingDate": "1993",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Rafael",
+    "addressRegion": "CA",
+    "postalCode": "94901",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-415-265-1621",
+    "contactType": "customer service",
+    "email": "Contact@shift-work.com",
+    "areaServed": "US"
+  },
+  "knowsAbout": [
+    "shift schedule design",
+    "shift work consulting",
+    "24/7 operations management",
+    "continuous operations staffing",
+    "change management",
+    "workforce surveys",
+    "overtime management",
+    "overtime cost reduction",
+    "employee engagement",
+    "manufacturing workforce planning",
+    "distribution center scheduling",
+    "pharmaceutical shift scheduling",
+    "chemical plant operations",
+    "food and beverage manufacturing",
+    "mining shift scheduling",
+    "paper and packaging operations",
+    "union workforce consulting",
+    "rotating shift schedules",
+    "fixed shift schedules",
+    "12-hour shift schedules",
+    "staffing and workforce planning",
+    "labor cost analysis",
+    "fatigue risk management",
+    "post-implementation workforce surveys"
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/company/shiftwork-solutions-llc"
+  ]
+}
+</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=swap" rel="stylesheet">
@@ -185,12 +251,18 @@
       .bridge-stripe-text{font-size:17px}
     }
   </style>
+  <!-- ── MICROSOFT CLARITY ── -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wiyn7e4d73");
+  </script>
+  <!-- ── CUSTOM EVENT TRACKER ── -->
+  <script src="/js/event-tracker.js"></script>
   <!-- ── PLAUSIBLE ANALYTICS ── -->
   <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
-  <script>
-    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-    plausible.init()
-  </script>
 </head>
 <body>
 
