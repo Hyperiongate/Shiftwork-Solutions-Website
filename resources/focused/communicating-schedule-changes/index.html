@@ -3,31 +3,20 @@
     resources/focused/communicating-schedule-changes/index.html
   Shiftwork Solutions LLC — Focused Article
   URL: /resources/focused/communicating-schedule-changes/
-  Created: 2026-04-04 | Last Updated: 2026-04-22
+  Created: 2026-04-04 | Last Updated: 2026-04-27
 
   CHANGE LOG:
     2026-04-04 — Initial build from source Word doc.
-    2026-04-05 — NAV + BUTTON + SEO AUDIT.
-    2026-04-05 — FAQ section + FAQPage JSON-LD added.
-    2026-04-14 — Nav: "Why Us" → "Our Company". FAQ: accordion with Hands_in_the_air.jpg
-                 background. Next Steps: dark navy animated cards. Footer: standard
-                 3-col dark-navy prefooter replacing CTA + engage-band + old footer.
-    2026-04-15 — Logo corrected (clear_bkgr_logo_2.png), SHIFTWORK SOLUTIONS
-                 text added next to logo (both link /), nav font-size 20px,
-                 hero image /images/communicating.jpg.
-    2026-04-15 — Next Steps section: background changed navy → light grey
-                 (#F4F6F8), card borders solid, text colors updated to
-                 --muted/--navy, blue card accent changed to --navy.
-    2026-04-16 — NAV LABEL: "Our Company" → "Why Us" on /why-us/ link.
-    2026-04-22 — Page Bottom Standard applied:
-                 - Removed: next-steps section (HTML + CSS + IntersectionObserver JS)
-                 - Removed: listen-btn (HTML + CSS + SpeechSynthesis JS)
-                 - Added: Thomas floating widget (HTML + CSS)
-                 - Added: bridge stripe (HTML + CSS) after FAQ section
-                 - Fixed: FAQ section margin → 40px 0 0 0 (eliminates white gap before bridge stripe)
-                 - Updated: Footer columns to standard (FREE ASSESSMENT / DIAGNOSTIC ARTICLE / NEWSLETTER)
-                 - Fixed: Pull quote color #4a6a8a → var(--body-text), font-style:italic → normal
-                 - Updated: dateModified in Article JSON-LD → 2026-04-22
+    2026-04-05 — NAV + BUTTON + SEO AUDIT. FAQ section + FAQPage JSON-LD added.
+    2026-04-14 — Nav, FAQ accordion, Next Steps, Footer updates.
+    2026-04-15 — Logo corrected, nav font-size 20px, hero /images/communicating.jpg.
+    2026-04-15 — Next Steps: background navy → light grey.
+    2026-04-16 — NAV LABEL: "Our Company" → "Why Us".
+    2026-04-22 — Page Bottom Standard applied. dateModified → 2026-04-22.
+    2026-04-27 — URL SURGERY: /support/ → /focused/ throughout.
+                 Updated: canonical, og:url, Article JSON-LD url,
+                 BreadcrumbList JSON-LD items 3 & 4, breadcrumb HTML href.
+                 Also updated FAQPage JSON-LD (no /support/ refs there).
 
   NAV SYSTEM: B (.site-nav / .nav-links / .nav-cta-btn — sticky 56px)
   HERO IMAGE: /images/communicating.jpg
@@ -42,10 +31,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How to Communicate Schedule Changes to Shift Workers | Shiftwork Solutions LLC</title>
   <meta name="description" content="Seven principles for communicating schedule changes in 24/7 operations. How timing, framing, and channel choice determine whether a schedule change succeeds or fails.">
-  <link rel="canonical" href="https://shift-work.com/resources/support/communicating-schedule-changes/">
+  <link rel="canonical" href="https://shift-work.com/resources/focused/communicating-schedule-changes/">
   <meta property="og:title" content="How to Communicate Schedule Changes to Shift Workers | Shiftwork Solutions LLC">
   <meta property="og:description" content="Seven principles for communicating schedule changes in 24/7 operations. How timing, framing, and channel choice determine whether a schedule change succeeds or fails.">
-  <meta property="og:url" content="https://shift-work.com/resources/support/communicating-schedule-changes/">
+  <meta property="og:url" content="https://shift-work.com/resources/focused/communicating-schedule-changes/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
   <meta name="twitter:card" content="summary">
@@ -94,13 +83,11 @@
     .article-wrap h3{font-size:17px;font-weight:700;color:var(--navy);line-height:1.3;margin:28px 0 10px}
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
     .article-wrap p:last-child{margin-bottom:0}
-    /* ── PULL QUOTE (site-wide standard 2026-04-22) ── */
     .pull-quote{margin:40px 0;padding:0;max-width:var(--max-width);display:flex;align-items:center;gap:16px}
     .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
     .pull-quote p{font-size:15px;font-weight:400;line-height:1.75;color:var(--body-text);margin:0;font-style:normal}
     .pull-quote .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
-    /* ── PRINCIPLE ACCORDION ── */
     .principle-accordion{margin:24px 0}
     .pa-item{margin-bottom:6px}
     .pa-toggle{display:flex;align-items:center;gap:16px;width:100%;background:var(--light-grey);border:1px solid var(--border-med);border-radius:6px;cursor:pointer;padding:16px 20px;text-align:left;transition:background .18s ease;font-family:Arial,Helvetica,sans-serif}
@@ -115,7 +102,6 @@
     .pa-body{overflow:hidden;max-height:0;transition:max-height .35s ease}
     .pa-item.pa-open .pa-body{max-height:600px}
     .pa-text{font-size:14px;line-height:1.75;color:var(--body-text);padding:18px 20px 20px;background:#fff;border:1px solid var(--border-med);border-top:none;border-radius:0 0 6px 6px}
-    /* ── FAQ SECTION (margin bottom 0 — no white gap before bridge stripe) ── */
     .faq-section{position:relative;overflow:hidden;margin:40px 0 0 0;left:50%;right:50%;margin-left:calc(-50vw);margin-right:calc(-50vw);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
@@ -133,11 +119,9 @@
     .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease}
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
-    /* ── BRIDGE STRIPE ── */
     .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
     .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
     .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
-    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -171,12 +155,6 @@
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-    /* ── THOMAS FLOATING WIDGET ──
-       Fixed right-side card, positioned 1/3 up from the bottom of the viewport.
-       Visible on desktop only (hidden below 768px).
-       z-index 950: above content, below nav (1000).
-       No JS required — plain anchor tag.
-       White background. Button: mid-blue (not orange). */
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
@@ -186,12 +164,11 @@
     .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
     .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
     @media(max-width:768px){.thomas-float{display:none}}
-    /* ── RESPONSIVE ── */
     @media(max-width:760px){.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
     @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.bridge-stripe{padding:28px 20px}.bridge-stripe-text{font-size:17px}}
   </style>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Communicate Schedule Changes to Shift Workers","description":"Seven principles for communicating schedule changes in 24/7 operations.","url":"https://shift-work.com/resources/support/communicating-schedule-changes/","datePublished":"2026-04-04","dateModified":"2026-04-22","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Focused Articles","item":"https://shift-work.com/resources/support/"},{"@type":"ListItem","position":4,"name":"Communicating Schedule Changes","item":"https://shift-work.com/resources/support/communicating-schedule-changes/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Communicate Schedule Changes to Shift Workers","description":"Seven principles for communicating schedule changes in 24/7 operations.","url":"https://shift-work.com/resources/focused/communicating-schedule-changes/","datePublished":"2026-04-04","dateModified":"2026-04-22","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Focused Articles","item":"https://shift-work.com/resources/focused/"},{"@type":"ListItem","position":4,"name":"Communicating Schedule Changes","item":"https://shift-work.com/resources/focused/communicating-schedule-changes/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why do well-designed schedule changes still fail?","acceptedAnswer":{"@type":"Answer","text":"Most schedule change failures are communication failures, not design failures."}}]}</script>
 </head>
 <body>
@@ -216,7 +193,7 @@
   <span class="hero-tag">Change Management</span>
 </div></section>
 
-<div class="breadcrumb-bar"><div class="breadcrumb-inner"><a href="/">Home</a><span>›</span><a href="/resources/">Resources</a><span>›</span><a href="/resources/support/">Focused Articles</a><span>›</span>Communicating Schedule Changes</div></div>
+<div class="breadcrumb-bar"><div class="breadcrumb-inner"><a href="/">Home</a><span>›</span><a href="/resources/">Resources</a><span>›</span><a href="/resources/focused/">Focused Articles</a><span>›</span>Communicating Schedule Changes</div></div>
 
 <div class="article-wrap">
   <div class="article-meta"><span class="meta-tag">Focused Article</span><span class="meta-read">7 min read</span></div>
@@ -315,9 +292,6 @@
   </div>
 </div><!-- /.faq-section -->
 
-<!-- ── BRIDGE STRIPE ──
-     Gray breathing room between FAQ and footer.
-     Soft directional prompt toward footer CTAs — no button needed. -->
 <div class="bridge-stripe">
   <div class="bridge-stripe-text">Ready to take the next step?</div>
   <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
@@ -354,15 +328,7 @@
   </div></div>
 </footer>
 
-<!-- ── THOMAS FLOATING WIDGET ──
-     Fixed to right edge, ~40% from top of viewport.
-     Hidden on mobile (max-width:768px).
-     Opens Thomas diagnostic app in new tab. -->
-<a class="thomas-float"
-   href="https://shift-work-diagnostic.onrender.com/"
-   target="_blank"
-   rel="noopener"
-   aria-label="Meet Thomas, your AI Shift Advisor">
+<a class="thomas-float" href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener" aria-label="Meet Thomas, your AI Shift Advisor">
   <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
   <div class="thomas-float-body">
     <span class="thomas-float-name">Meet Thomas</span>
@@ -370,7 +336,6 @@
     <span class="thomas-float-cta">Chat Now &rarr;</span>
   </div>
 </a>
-<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
 (function(){
