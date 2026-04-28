@@ -6,55 +6,24 @@
   URL: /testimonials/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-22
+  Last Updated: 2026-04-28
 
   CHANGE LOG:
     2026-04-04 — Initial build.
     2026-04-05 — NAV + BUTTON AUDIT.
     2026-04-16 — STANDARD VISUAL UPGRADE.
-    2026-04-17 — CLIENT STRIPS REDESIGN: Replaced 6 stacked marquee
-                 strips with a single elegant "depth statement" section.
-                 Headline: "Hundreds of engagements across 16 industries
-                 over three decades." One unified scrolling marquee of
-                 all client names. Light blue gradient background —
-                 picks up the site's mid-blue palette without going dark.
-    2026-04-17 — MAJOR CONTENT & STRUCTURE REVISION:
-                 1. HERO: New subtitle — performance, alignment, retention focus.
-                 2. INTRO: New eyebrow/h2/body text — results that hold framing.
-                 3. QUOTE GROUPS: Restructured from 5 old groups to 3 new:
-                    - Performance & Cost Control (Crane, Halpin, Bartman partial)
-                    - Retention & Workforce Stability (Bartman, Amrhein, Olsson)
-                    - Guided Change & Confident Execution (Vanhoy, Rinard, Lilly, Hill)
-                 4. QUOTE TEXT: color → #1a1a1a (black).
-                 5. TAGS: Removed arrow prefixes and pipe separators from CSS.
-                    Plain gray italic, pipe separator via ::before only between tags.
-                 6. DOT CONNECTORS: Removed .tl-dot CSS and all HTML instances.
-    2026-04-17 — NARROW TESTIMONIAL BACKGROUND:
-                 Added .tl-section-wrap div (max-width:1060px, centered, padded)
-                 around the dark photo cascade section so the background no longer
-                 bleeds full page width. border-radius:12px added to .tl-section.
-                 No other sections affected.
-    2026-04-17 — THREE TARGETED UPDATES:
-                 1. tl-inner max-width narrowed to 860px (tighter quote cascade).
-                 2. Mel Olsson solo card shifted right 192px (≈2 inches).
-                 3. "Representative Clients" eyebrow changed to "Trusted By".
-    2026-04-22 — PAGE BOTTOM STANDARD applied:
-                 REMOVED: <section class="next-steps"> and all contents.
-                 REMOVED: All .next-steps / .ns-card / .ns-card-label /
-                   .ns-card-link CSS rules.
-                 UPDATED: Footer replaced with standard 3-col structure
-                   (FREE ASSESSMENT / 26 Warning Signs / Newsletter)
-                   per Page Bottom Standard 2D. footerNLSubmit renamed to
-                   engageNLSubmit; IDs updated accordingly; source tag
-                   website-testimonials-footer-nl preserved.
-                 ADDED: Bridge stripe between client depth section and footer.
-                 ADDED: Thomas floating widget (fixed right edge, desktop only).
+    2026-04-17 — CLIENT STRIPS REDESIGN.
+    2026-04-17 — MAJOR CONTENT & STRUCTURE REVISION.
+    2026-04-17 — NARROW TESTIMONIAL BACKGROUND.
+    2026-04-17 — THREE TARGETED UPDATES.
+    2026-04-22 — PAGE BOTTOM STANDARD applied.
+    2026-04-28 — PLAUSIBLE ANALYTICS added to <head>.
+                 FOOTER BOTTOM BAR: added Case Studies, Privacy Policy,
+                 Terms of Use links with mid-dot separators.
+                 .footer-bottom-sep CSS rule added.
 
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   HERO IMAGE: /images/second.png
-  DESIGN CONSTANTS:
-    Navy: #1F4E79 | Navy-dark: #0D1F3C | Mid-blue: #85B7EB | Orange: #E8610A
-    Logo: /images/clear_bkgr_logo_2.png | Hero: /images/second.png
 
   I did no harm and this file is not truncated
 -->
@@ -74,6 +43,18 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Client Testimonials | Shiftwork Solutions LLC">
   <meta name="twitter:description" content="What plant managers, HR leaders, and union presidents say about working with Shiftwork Solutions.">
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       PLAUSIBLE ANALYTICS (added 2026-04-28)
+       Privacy-friendly, cookieless, GDPR/CCPA compliant.
+       Loads async — does not block page render.
+       Script URL is unique to shift-work.com — do not change.
+       ══════════════════════════════════════════════════════════════════ -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Testimonials","item":"https://shift-work.com/testimonials/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
@@ -263,8 +244,6 @@
     @media(max-width:768px){
       .tl-section-wrap{padding:0 12px}
       .tl-section{border-radius:8px}
-    }
-    @media(max-width:768px){
       .tl-spine{display:none}
       .tl-row{grid-template-columns:1fr}
       .tl-row .tl-card:first-child,.tl-row .tl-card:last-child{margin-top:0}
@@ -349,7 +328,7 @@
     .cn-15{font-family:'Lora',serif;                font-weight:700;color:#003333}
     .cn-16{font-family:'Libre Baskerville',serif;   font-weight:700;color:#4a0d00}
 
-    /* ── BRIDGE STRIPE — sits after client depth section ── */
+    /* ── BRIDGE STRIPE ── */
     .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
     .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
     .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
@@ -391,12 +370,10 @@
     .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
 
-    /* ── THOMAS FLOATING WIDGET ──
-       Fixed right-side card, positioned 1/3 up from the bottom of the viewport.
-       Visible on desktop only (hidden below 768px).
-       z-index 950: above content, below nav (1000). */
+    /* ── THOMAS FLOATING WIDGET ── */
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
@@ -412,10 +389,8 @@
       .nav-links,.nav-cta-wrap{display:none}.mobile-toggle{display:block}
       .nav-logo-text{font-size:16px}
       .hero{padding:36px 20px 40px}.hero h1{font-size:24px}.hero-stats{flex-direction:column;gap:10px}
-      .content-section,.testimonials,.theme-label{padding-left:20px;padding-right:20px}
-      .tcard,.tcard-featured{padding:20px 16px}
+      .content-section{padding-left:20px;padding-right:20px}
       .client-depth{padding:28px 0}
-      .hero-logo{display:none!important}
       .footer-prefooter{padding:32px 20px}
       .footer-content-row{grid-template-columns:1fr}
       .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
@@ -430,7 +405,6 @@
 </head>
 <body>
 
-<!-- ── NAV ── -->
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo">
     <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;">
@@ -448,7 +422,6 @@
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
 </div></nav>
 
-<!-- ── HERO ── -->
 <section class="hero"><div class="hero-inner">
     <div class="hero-eyebrow">Client Testimonials</div>
     <h1>What Our Clients Say</h1>
@@ -460,7 +433,6 @@
     </div>
 </div></section>
 
-<!-- ── BREADCRUMB ── -->
 <div class="breadcrumb-bar"><div class="breadcrumb-inner">
   <a href="/">Home</a> &rsaquo; <a href="/why-us/">Our Company</a> &rsaquo; <span class="bc-current">Client Testimonials</span>
 </div></div>
@@ -471,7 +443,6 @@
   <p>The measure of a schedule change isn't the launch&mdash;it's whether the results hold six months later, for the leaders running the operation and the people working it. These are the words of leaders who worked through the change with us&mdash;and saw the results hold.</p>
 </section>
 
-<!-- ── TESTIMONIAL CASCADE ── -->
 <div class="tl-section-wrap">
 <section class="tl-section">
   <div class="tl-inner">
@@ -520,7 +491,6 @@
       </div>
     </div>
 
-    <!-- Mel Olsson solo card shifted right ~2 inches (192px) -->
     <div class="tl-row tl-solo" style="margin-left:192px;">
       <div class="tl-card">
         <div class="tl-quote">Trying to balance a company&rsquo;s needs with the needs of its members is not an easy task. Dan Capshaw was instrumental in helping the company find fair alternatives that met our members&rsquo; needs.</div>
@@ -564,12 +534,10 @@
 
   </div>
 </section>
-</div><!-- /.tl-section-wrap -->
+</div>
 
-<!-- ── WHITE SPACE BETWEEN QUOTES AND CLIENT SECTION ── -->
 <div style="height:96px;background:#fff;"></div>
 
-<!-- ── CLIENT DEPTH ── -->
 <section class="client-depth">
   <div class="client-depth-inner">
     <div class="client-depth-eyebrow">Trusted By</div>
@@ -580,9 +548,6 @@
   </div>
 </section>
 
-<!-- ── BRIDGE STRIPE ──
-     Gray breathing room between client depth and footer.
-     Soft directional prompt toward footer CTAs — no button needed. -->
 <div class="bridge-stripe">
   <div class="bridge-stripe-text">Ready to take the next step?</div>
   <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
@@ -622,17 +587,21 @@
   <div class="footer-bottom"><div class="footer-bottom-inner">
     <div class="footer-bottom-left">
       <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+      <span class="footer-bottom-sep">&middot;</span>
       <a href="tel:+14152651621">(415) 265-1621</a>
+      <span class="footer-bottom-sep">&middot;</span>
       <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/resources/case-studies/">Case Studies</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/terms-of-use/">Terms of Use</a>
     </div>
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
 
-<!-- ── THOMAS FLOATING WIDGET ──
-     Fixed to right edge, ~40% from top of viewport.
-     Hidden on mobile (max-width:768px).
-     Opens Thomas diagnostic app in new tab. -->
 <a class="thomas-float"
    href="https://shift-work-diagnostic.onrender.com/"
    target="_blank"
@@ -645,7 +614,6 @@
     <span class="thomas-float-cta">Chat Now &rarr;</span>
   </div>
 </a>
-<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
 document.getElementById('mobileToggle').addEventListener('click', function () {
