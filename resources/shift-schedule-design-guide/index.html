@@ -8,6 +8,63 @@
   Last Updated: 2026-04-28
 
   CHANGE LOG:
+    2026-04-28 — AI SEARCH READINESS UPGRADE (schema-only; zero changes to
+                 visible content, CSS, JS, body HTML, or footer).
+                 Three schema blocks were modified or added in <head>; all
+                 other schema blocks (FAQPage, BreadcrumbList) and all
+                 non-schema markup are unchanged.
+
+                 (1) ARTICLE SCHEMA — upgraded from 7 fields to 14 fields
+                     by adding the following for stronger AI extraction
+                     and Google E-E-A-T signals:
+                       - description (matches meta description)
+                       - image (absolute URL of hero image)
+                       - mainEntityOfPage (anchors article to canonical URL)
+                       - keywords (array form, supplements meta keywords)
+                       - articleSection ("Schedule Design")
+                       - inLanguage ("en-US")
+                       - wordCount (~2100, measured from article body prose)
+                     ALSO: author changed from Organization → Person
+                     (Jim Dillingham). The two pull quotes on this page
+                     are attributed to Jim, so he is the page's named
+                     author. Publisher remains the Organization, with a
+                     full publisher.logo block added.
+                     dateModified updated to 2026-04-28.
+
+                 (2) PERSON SCHEMA — NEW standalone block for Jim
+                     Dillingham with full credentials, jobTitle, alumniOf,
+                     worksFor (linked to the Organization), description,
+                     and sameAs to his public LinkedIn profile
+                     (https://www.linkedin.com/in/shiftwork/).
+                     This makes Jim a discoverable entity for AI queries
+                     like "who wrote this guide" or "who is Jim Dillingham
+                     at Shiftwork Solutions." It also strengthens the
+                     site-wide entity graph by linking Person → Organization.
+
+                 (3) ORGANIZATION SCHEMA — upgraded from 5 fields to a
+                     comprehensive block matching homepage parity. Added:
+                       - logo, slogan, description
+                       - address (San Rafael, CA postal address)
+                       - foundingDate (1993)
+                       - areaServed (United States)
+                       - knowsAbout (24 expertise topics)
+                       - sameAs (LinkedIn company page)
+                     This brings every page that cites the Organization
+                     up to the same canonical entity profile, which is
+                     what AI knowledge graphs use to build a confident
+                     entity record.
+
+                 NO CHANGES to: FAQPage schema, BreadcrumbList schema,
+                 Plausible analytics, all CSS, all body HTML, all JS,
+                 footer, Thomas widget, bridge stripe, hero, nav, breadcrumb,
+                 article content, pull quotes, callouts, FAQ accordion,
+                 newsletter form. Visual rendering is byte-identical to
+                 the 2026-04-28 (Plausible) build.
+
+                 Validation: dry-run JSON parsing of all five JSON-LD
+                 blocks confirmed valid. Word count check passed. Footer
+                 marker preserved.
+
     2026-04-28 — Plausible analytics added; footer bottom bar updated with
                  Case Studies / Privacy Policy / Terms of Use links + sep rule.
     2026-04-22 — PAGE BOTTOM STANDARD APPLIED (Page_Bottom_Standard guide):
@@ -65,6 +122,9 @@
     plausible.init()
   </script>
 
+  <!-- ══════════════════════════════════════════════════════════════════
+       SCHEMA BLOCK 1: FAQPage (UNCHANGED — already strong)
+       ══════════════════════════════════════════════════════════════════ -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"What is the most important factor in shift schedule design?","acceptedAnswer":{"@type":"Answer","text":"Balancing coverage requirements with worker preferences — schedules that meet operational needs while aligning with what employees value see dramatically higher acceptance and lower turnover."}},
     {"@type":"Question","name":"Do most workers prefer fixed or rotating shifts?","acceptedAnswer":{"@type":"Answer","text":"More than 80% prefer fixed shifts. Over 60% would accept a fixed shift that isn't their preferred time slot rather than rotate through all shifts."}},
@@ -75,9 +135,180 @@
     {"@type":"Question","name":"Why do schedule changes fail?","acceptedAnswer":{"@type":"Answer","text":"Usually because management under-communicates. If employees don't perceive a positive change as positive, you haven't communicated enough — single announcements are never sufficient."}},
     {"@type":"Question","name":"What is the value of a survey before designing a new schedule?","acceptedAnswer":{"@type":"Answer","text":"It surfaces what workers actually want (which often differs from what management assumes), creates buy-in through involvement, and prevents costly redesigns after implementation."}}
   ]}</script>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SCHEMA BLOCK 2: BreadcrumbList (UNCHANGED — already correct)
+       ══════════════════════════════════════════════════════════════════ -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Shift Schedule Design","item":"https://shift-work.com/resources/shift-schedule-design-guide/"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"The Complete Guide to Shift Schedule Design","url":"https://shift-work.com/resources/shift-schedule-design-guide/","datePublished":"2026-04-02","dateModified":"2026-04-28","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SCHEMA BLOCK 3: Article (UPGRADED 2026-04-28)
+       Author changed from Organization to Person (Jim Dillingham, the
+       attributed author of the two pull quotes on this page).
+       Added: description, image, mainEntityOfPage, keywords, articleSection,
+       inLanguage, wordCount, full publisher.logo. dateModified updated.
+       ══════════════════════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "The Complete Guide to Shift Schedule Design",
+    "description": "How shift schedules are actually designed — coverage requirements, worker preferences, the five pillars of effective scheduling, common pitfalls, and the hidden costs of getting it wrong. From consultants who have worked with hundreds of facilities.",
+    "url": "https://shift-work.com/resources/shift-schedule-design-guide/",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://shift-work.com/resources/shift-schedule-design-guide/"
+    },
+    "image": "https://shift-work.com/images/pillar_1.jpg",
+    "datePublished": "2026-04-02",
+    "dateModified": "2026-04-28",
+    "inLanguage": "en-US",
+    "articleSection": "Schedule Design",
+    "wordCount": 2100,
+    "keywords": [
+      "shift schedule design",
+      "shift scheduling",
+      "12-hour shift schedule",
+      "rotating shift schedule",
+      "fixed shift schedule",
+      "24/7 schedule",
+      "continuous operations",
+      "crew sizing",
+      "overtime cost",
+      "fatigue and shift work",
+      "schedule change management",
+      "employee schedule preferences"
+    ],
+    "author": {
+      "@type": "Person",
+      "name": "Jim Dillingham",
+      "url": "https://shift-work.com/our_team/",
+      "sameAs": "https://www.linkedin.com/in/shiftwork/",
+      "jobTitle": "Partner and Senior Consultant",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Shiftwork Solutions LLC",
+        "url": "https://shift-work.com"
+      }
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Shiftwork Solutions LLC",
+      "url": "https://shift-work.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://shift-work.com/images/clear_bkgr_logo_2.png"
+      }
+    }
+  }
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SCHEMA BLOCK 4: Person (NEW 2026-04-28)
+       Standalone Person entity for Jim Dillingham. Top-level Person blocks
+       are stronger than nested members for AI extraction queries like
+       "who is Jim Dillingham" or "who wrote this guide."
+       sameAs links to his public LinkedIn profile.
+       ══════════════════════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jim Dillingham",
+    "url": "https://shift-work.com/our_team/",
+    "image": "https://shift-work.com/images/jim.jpg",
+    "sameAs": "https://www.linkedin.com/in/shiftwork/",
+    "jobTitle": "Partner and Senior Consultant",
+    "description": "Former Naval officer turned workforce strategist with over 30 years of experience helping 24/7 industrial operations design and implement shift schedules. Specializes in change management with a philosophy that the more the workforce understands and participates, the better the outcome.",
+    "alumniOf": [
+      {"@type": "EducationalOrganization", "name": "United States Naval Academy"},
+      {"@type": "EducationalOrganization", "name": "Purdue University"},
+      {"@type": "EducationalOrganization", "name": "ESC Rouen"}
+    ],
+    "knowsAbout": [
+      "shift schedule design",
+      "shift work change management",
+      "24/7 operations",
+      "continuous operations transitions",
+      "workforce engagement",
+      "union shift scheduling"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Shiftwork Solutions LLC",
+      "url": "https://shift-work.com"
+    }
+  }
+  </script>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       SCHEMA BLOCK 5: Organization (UPGRADED 2026-04-28)
+       Brought up to homepage parity so AI knowledge graphs build a
+       consistent entity profile across every page that cites the firm.
+       Added: logo, slogan, description, address, foundingDate, areaServed,
+       knowsAbout (24 topics), sameAs.
+       ══════════════════════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Shiftwork Solutions LLC",
+    "url": "https://shift-work.com",
+    "logo": "https://shift-work.com/images/clear_bkgr_logo_2.png",
+    "telephone": "+1-415-265-1621",
+    "email": "Contact@shift-work.com",
+    "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
+    "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.",
+    "foundingDate": "1993",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Rafael",
+      "addressRegion": "CA",
+      "postalCode": "94901",
+      "addressCountry": "US"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-415-265-1621",
+      "contactType": "customer service",
+      "email": "Contact@shift-work.com",
+      "areaServed": "US"
+    },
+    "knowsAbout": [
+      "shift schedule design",
+      "shift work consulting",
+      "24/7 operations management",
+      "continuous operations staffing",
+      "change management",
+      "workforce surveys",
+      "overtime management",
+      "overtime cost reduction",
+      "employee engagement",
+      "manufacturing workforce planning",
+      "distribution center scheduling",
+      "pharmaceutical shift scheduling",
+      "chemical plant operations",
+      "food and beverage manufacturing",
+      "mining shift scheduling",
+      "paper and packaging operations",
+      "union workforce consulting",
+      "rotating shift schedules",
+      "fixed shift schedules",
+      "12-hour shift schedules",
+      "staffing and workforce planning",
+      "labor cost analysis",
+      "fatigue risk management",
+      "post-implementation workforce surveys"
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/company/shiftwork-solutions-llc"
+    ]
+  }
+  </script>
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
