@@ -6,47 +6,25 @@
   URL: /about/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-23
+  Last Updated: 2026-04-28
 
   CHANGE LOG:
     2026-04-04 — Initial build.
     2026-04-04 — NAV + BUTTON + SEO + URL AUDIT.
     2026-04-13 — Nav rename + hero background (second.png).
     2026-04-16 — FAQ section upgrade: Hands_in_the_air.jpg accordion.
-    2026-04-16 — NAV: "Our Company" -> "Why Us" (href /why-us/ unchanged).
+    2026-04-16 — NAV: "Our Company" -> "Why Us".
                  NEXT STEPS: added standard light-grey 3-card section after FAQ.
                  FOOTER: replaced 2-col engage-band + light-grey footer with
-                 standard 3-col dark-navy prefooter (Free Consultation / Thomas /
-                 Newsletter) + standard bottom bar. CSS updated to match.
-    2026-04-17 — CRITICAL FIX: Closed unterminated window.engageNLSubmit function
-                 in newsletter IIFE (was missing "};" before "})();"). Prior to
-                 this fix the page contained a JavaScript syntax error that broke
-                 all inline script execution from that block onward — newsletter
-                 form was non-functional. No HTML, CSS, content, or schema
-                 changed. Only the closing of the function expression was added.
-    2026-04-17 — PULL QUOTE STYLE: Both pull quotes updated to match Our Team
-                 page treatment — 128px Georgia quotation mark, italic blue text
-                 (#4a6a8a), flex-row layout. Replaced border-left orange style.
-                 CSS updated: .pull-quote-inner/.pull-quote-text/.pull-quote-attr
-                 removed; .pull-quote-mark/.pull-quote-content/.pq-attr added.
-    2026-04-22 — PAGE BOTTOM STANDARD applied:
-                 REMOVED: <section class="next-steps"> and all contents.
-                 REMOVED: All .next-steps / .ns-card / .ns-accent-* CSS rules.
-                 REMOVED: IntersectionObserver JS block that animated ns-cards.
-                 UPDATED: Footer replaced with standard 3-col (FREE ASSESSMENT /
-                   26 Warning Signs / Newsletter) per Page Bottom Standard 2D.
-                 UPDATED: .faq-section margin changed from 40px 0 to 40px 0 0 0
-                   to eliminate white gap before bridge stripe.
-                 UPDATED: Pull quote text color changed from #4a6a8a italic to
-                   var(--body-text) non-italic per Page Bottom Standard Section 6A.
-                 ADDED: Bridge stripe between FAQ and footer.
-                 ADDED: Thomas floating widget (fixed right edge, desktop only).
-    2026-04-23 — CONTENT FIXES:
-                 1. Team section H2 → "Every Engagement, Led by a Senior Partner."
-                 2. Team section intro → "Every engagement is led by a senior
-                    partner." (removed "not a junior analyst" clause).
-                 3. Differentiators: removed "You are not handed off to junior
-                    staff after the pitch." from Senior partners diff-item.
+                 standard 3-col dark-navy prefooter.
+    2026-04-17 — CRITICAL FIX: Closed unterminated window.engageNLSubmit function.
+    2026-04-17 — PULL QUOTE STYLE: Both pull quotes updated to 128px Georgia mark.
+    2026-04-22 — PAGE BOTTOM STANDARD applied. Bridge stripe + Thomas float added.
+    2026-04-23 — CONTENT FIXES: Team section H2 and intro updated.
+    2026-04-28 — PLAUSIBLE ANALYTICS added to <head>.
+                 FOOTER BOTTOM BAR: added Case Studies, Privacy Policy,
+                 Terms of Use links with mid-dot separators.
+                 .footer-bottom-sep CSS rule added.
 
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   HERO IMAGE: /images/second.png
@@ -72,6 +50,18 @@
   <meta name="twitter:title" content="About Shiftwork Solutions LLC">
   <meta name="twitter:description" content="Three decades helping hundreds of 24/7 operations improve schedules, reduce costs, and build engaged workforces.">
 
+  <!-- ══════════════════════════════════════════════════════════════════
+       PLAUSIBLE ANALYTICS (added 2026-04-28)
+       Privacy-friendly, cookieless, GDPR/CCPA compliant.
+       Loads async — does not block page render.
+       Script URL is unique to shift-work.com — do not change.
+       ══════════════════════════════════════════════════════════════════ -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"About Shiftwork Solutions LLC","url":"https://shift-work.com/about/","description":"Shiftwork Solutions LLC is a leading U.S.-based consulting firm specializing in workforce scheduling and operational optimization for shift-intensive industries.","mainEntity":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","foundingDate":"1992","numberOfEmployees":{"@type":"QuantitativeValue","value":3},"areaServed":"United States","knowsAbout":["shift schedule design","workforce engagement","24/7 operations","change management","labor cost optimization","shiftwork policies"]}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"About Us","item":"https://shift-work.com/about/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
@@ -87,8 +77,6 @@
     }
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
-
-    /* ── NAV ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo{text-decoration:none;margin-right:28px;flex-shrink:0;display:flex;align-items:center;gap:12px}
@@ -103,8 +91,6 @@
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-
-    /* ── HERO ── */
     .hero{background:#0D1F3C url('/images/second.png') center center/cover no-repeat;padding:52px 36px 56px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.82) 0%,rgba(13,31,60,.60) 55%,rgba(13,31,60,.30) 100%);z-index:0;pointer-events:none}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
@@ -115,22 +101,16 @@
     .hero-stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:16px 20px;min-width:160px}
     .hero-stat-num{font-size:26px;font-weight:700;color:var(--white);line-height:1.1}
     .hero-stat-label{font-size:12px;color:rgba(255,255,255,.70);margin-top:4px;line-height:1.35}
-
-    /* ── BREADCRUMB ── */
     .breadcrumb-bar{border-bottom:1px solid var(--border-light);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:11px;color:#888}
     .breadcrumb-inner a{color:#888;text-decoration:none}
     .breadcrumb-inner a:hover{color:var(--navy)}
     .breadcrumb-inner .bc-current{color:var(--navy);font-weight:700}
-
-    /* ── CONTENT ── */
     .content-section{max-width:var(--max-width);margin:0 auto;padding:20px var(--page-pad) 0}
     .eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:6px}
     .content-section h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:16px}
     .content-section p{font-size:15px;line-height:1.75;color:var(--body-text);margin-bottom:16px;max-width:680px}
     hr.divider{max-width:var(--max-width);margin:20px auto;border:none;border-top:1px solid var(--border-light)}
-
-    /* ── THREE COL CARDS ── */
     .three-col{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad);display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .insight-card{background:var(--white);border:1px solid var(--border-med);border-radius:6px;padding:20px;border-top:3px solid var(--navy)}
     .insight-card.accent-orange{border-top-color:var(--orange)}
@@ -140,8 +120,6 @@
     .insight-card.accent-green .insight-num{color:var(--green)}
     .insight-label{font-size:14px;font-weight:700;color:var(--body-text);margin-bottom:6px}
     .insight-text{font-size:13px;color:var(--muted);line-height:1.55}
-
-    /* ── PROCESS GRID ── */
     .process-grid{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad);display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .process-step{background:#F8FAFB;border-radius:8px;padding:24px 20px;border-top:3px solid var(--navy)}
     .process-step.step-design{border-top-color:var(--orange)}
@@ -153,27 +131,19 @@
     .process-items{list-style:none;padding:0}
     .process-items li{font-size:13px;color:var(--body-text);line-height:1.6;padding:4px 0;padding-left:14px;position:relative}
     .process-items li::before{content:'→';position:absolute;left:0;color:var(--mid-blue);font-size:11px;top:6px}
-
-    /* ── INDUSTRY GRID ── */
     .industry-grid{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad);display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
     .industry-tile{background:var(--light-blue);border-radius:6px;padding:12px 14px;font-size:13px;font-weight:700;color:var(--navy);line-height:1.3;text-align:center}
-
-    /* ── DIFFERENTIATORS ── */
     .diff-list{max-width:var(--max-width);margin:16px auto;padding:0 var(--page-pad)}
     .diff-item{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--border-light)}
     .diff-item:first-child{border-top:1px solid var(--border-light)}
     .diff-icon{flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--navy);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:14px;margin-top:2px}
     .diff-title{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:4px}
     .diff-text{font-size:14px;color:var(--body-text);line-height:1.65;max-width:640px}
-
-    /* ── PULL QUOTE — 128px Georgia mark, body-text color, non-italic (Page Bottom Standard 6A) ── */
     .pull-quote{max-width:var(--max-width);margin:32px auto;padding:0 var(--page-pad);display:flex;align-items:center;gap:16px}
     .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
     .pull-quote-content p{font-size:15px;font-weight:400;line-height:1.75;color:var(--body-text);margin:0;font-style:normal}
     .pull-quote-content .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
-
-    /* ── TEAM LIST ── */
     .team-list{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad)}
     .team-row{display:flex;align-items:baseline;gap:0;padding:16px 0;border-bottom:1px solid var(--border-light)}
     .team-row:first-child{border-top:1px solid var(--border-light)}
@@ -183,8 +153,6 @@
     .team-cred{font-size:13px;color:var(--body-text);margin-left:auto;padding-left:20px;text-align:right}
     .team-link{display:inline-block;margin-left:20px;font-size:13px;font-weight:700;color:var(--navy);text-decoration:none;white-space:nowrap;flex-shrink:0}
     .team-link:hover{text-decoration:underline}
-
-    /* ── FAQ — bottom margin 0 to sit flush against bridge stripe ── */
     .faq-section{position:relative;overflow:hidden;margin:40px 0 0 0;left:50%;right:50%;margin-left:calc(-50vw);margin-right:calc(-50vw);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
@@ -202,13 +170,9 @@
     .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease}
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
-
-    /* ── BRIDGE STRIPE ── */
     .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
     .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
     .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
-
-    /* ── CTA BOX ── */
     .cta-section{max-width:var(--max-width);margin:40px auto;padding:0 var(--page-pad)}
     .cta-box{background:var(--navy);border-radius:10px;padding:36px 32px;text-align:center;position:relative;overflow:hidden}
     .cta-box h2{font-size:20px;font-weight:700;color:var(--white);margin-bottom:10px}
@@ -218,9 +182,6 @@
     .cta-btn-primary:hover{background:#c4510a}
     .cta-link{font-size:13px;color:var(--mid-blue);text-decoration:none;font-weight:500}
     .cta-link:hover{text-decoration:underline;color:var(--white)}
-    .cta-vector{position:absolute;right:-20px;bottom:-20px;width:200px;height:200px;background:url('/images/shutterstock_1502038526.jpg') center / cover;opacity:.2;pointer-events:none}
-
-    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -253,9 +214,8 @@
     .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-
-    /* ── THOMAS FLOATING WIDGET ── */
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
@@ -265,8 +225,6 @@
     .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
     .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
     @media(max-width:768px){.thomas-float{display:none}}
-
-    /* ── RESPONSIVE ── */
     @media(max-width:768px){
       .nav-links,.nav-cta-wrap{display:none}
       .mobile-toggle{display:block}
@@ -427,8 +385,6 @@
 
 <section class="content-section">
   <div class="eyebrow">Our Team</div>
-  <!-- ── 2026-04-23: "A Century of Combined Experience." removed from heading;
-       "not a junior analyst" clause removed; H2 changed to "Every Engagement, Led by a Senior Partner."; paragraph opening changed to "Every engagement is led by a senior partner." ── -->
   <h2>Every Engagement, Led by a Senior Partner.</h2>
   <p>Every engagement is led by a senior partner. Jim Dillingham, Dan Capshaw, and Ethan Franklin bring deep expertise in schedule design, engineering rigor, change management, legal compliance, and workforce engagement.</p>
 </section>
@@ -453,7 +409,6 @@
   </div>
 </div>
 
-<!-- ── BRIDGE STRIPE ── -->
 <div class="bridge-stripe">
   <div class="bridge-stripe-text">Ready to take the next step?</div>
   <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
@@ -485,7 +440,19 @@
     </div>
   </div></div>
   <div class="footer-bottom"><div class="footer-bottom-inner">
-    <div class="footer-bottom-left"><span class="footer-bottom-brand">Shiftwork Solutions LLC</span><a href="tel:+14152651621">(415) 265-1621</a><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
+    <div class="footer-bottom-left">
+      <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="tel:+14152651621">(415) 265-1621</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/resources/case-studies/">Case Studies</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/terms-of-use/">Terms of Use</a>
+    </div>
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
