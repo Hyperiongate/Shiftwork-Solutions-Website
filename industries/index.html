@@ -5,7 +5,7 @@
   URL: /industries/
 
   Created:      2026-04-05
-  Last Updated: 2026-04-22
+  Last Updated: 2026-04-28
 
   CHANGE LOG:
     2026-04-05 — Initial build.
@@ -19,21 +19,18 @@
     2026-04-18 — ROW 3: Action tiles removed. Paper & Packaging centered alone.
                  Empty placeholder divs keep grid alignment. Action tile CSS
                  retained in case needed elsewhere.
-    2026-04-22 — HERO SUBTITLE COLOR:
-                 .hero-subtitle color changed from var(--mid-blue) (#85B7EB)
-                 to rgba(255,255,255,0.88) to match the white-subtitle
-                 treatment used on Our Team, Mixed Signals Economy, and
-                 other dark-hero pages. Slightly softened white (0.88 alpha)
-                 avoids competing visually with the gold #EEAE26 H1 above it.
-                 No other changes — H1 stays gold, eyebrow stays mid-blue,
-                 all tiles, nav, footer, JSON-LD, and JS untouched.
-    2026-04-22 — STANDARD UPDATE (Page Bottom Standard v1):
-                 - FOOTER: rebuilt to 3-column standard — (1) Reality Check,
-                   (2) 26 Warning Signs, (3) Newsletter. Removed FREE
-                   CONSULTATION and AI ADVISOR columns and all related CSS.
-                 - THOMAS FLOAT: added (fixed right side, top:66.666%,
-                   hidden mobile). CSS + HTML per current spec.
-                 - SENTINEL: added as final line of file.
+    2026-04-22 — HERO SUBTITLE COLOR: rgba(255,255,255,0.88).
+    2026-04-22 — STANDARD UPDATE: Footer rebuilt to 3-column standard.
+                 Thomas float added.
+    2026-04-28 — PLAUSIBLE ANALYTICS added to <head>.
+                 FOOTER BOTTOM BAR: added Case Studies, Privacy Policy,
+                 Terms of Use links with mid-dot separators.
+                 .footer-bottom-sep CSS rule added.
+
+  NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
+  HERO IMAGE: /images/second.png
+
+  I did no harm and this file is not truncated
 -->
 <html lang="en">
 <head>
@@ -50,6 +47,18 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Industries We Serve | Shiftwork Solutions">
   <meta name="twitter:description" content="Custom shift schedule consulting for seven core industries running 24/7 operations.">
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       PLAUSIBLE ANALYTICS (added 2026-04-28)
+       Privacy-friendly, cookieless, GDPR/CCPA compliant.
+       Loads async — does not block page render.
+       Script URL is unique to shift-work.com — do not change.
+       ══════════════════════════════════════════════════════════════════ -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://shift-work.com/industries/"}]}</script>
@@ -80,7 +89,6 @@
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
     .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
     .hero h1{font-size:32px;font-weight:700;line-height:1.2;color:#EEAE26;max-width:620px;margin-bottom:14px}
-    /* Hero subtitle: white (softened to 0.88 alpha) — updated 2026-04-22 */
     .hero-subtitle{font-size:16px;line-height:1.65;color:rgba(255,255,255,0.88);max-width:620px}
     .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
@@ -102,7 +110,6 @@
     .industry-link{font-size:12px;font-weight:700;color:var(--navy);text-decoration:none}
     .industry-link::after{content:' →'}
     .industry-tile:hover .industry-link{color:var(--orange)}
-    /* Action tile CSS retained for potential future use */
     .action-tile{background:var(--navy-dark);border-radius:6px;padding:24px 20px;display:flex;flex-direction:column;justify-content:center}
     .action-tile-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
     .action-tile-title{font-size:16px;font-weight:700;color:var(--white);line-height:1.35;margin-bottom:8px}
@@ -110,8 +117,6 @@
     .action-tile-btn{display:inline-block;width:100%;padding:10px 16px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;text-align:center;transition:background .15s;margin-bottom:8px}
     .action-tile-btn:hover{background:#c4510a}
     .action-tile-btn:last-child{margin-bottom:0}
-
-    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -144,12 +149,8 @@
     .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-
-    /* ── THOMAS FLOATING WIDGET ──
-       Spec (v2): top:66.666% (1/3 up from bottom); white bg; no orange border;
-       100px width (108px hover); 90px image; navy name; muted sub;
-       mid-blue CTA. z-index:950. Hidden on mobile. */
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
@@ -159,7 +160,6 @@
     .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
     .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
     @media(max-width:768px){.thomas-float{display:none}}
-
     @media(max-width:900px){.industries-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:640px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
@@ -255,7 +255,6 @@
   </div>
 </div></section>
 
-<!-- ── FOOTER: Reality Check | 26 Warning Signs | Newsletter ── -->
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
@@ -294,17 +293,21 @@
   <div class="footer-bottom"><div class="footer-bottom-inner">
     <div class="footer-bottom-left">
       <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+      <span class="footer-bottom-sep">&middot;</span>
       <a href="tel:+14152651621">(415) 265-1621</a>
+      <span class="footer-bottom-sep">&middot;</span>
       <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/resources/case-studies/">Case Studies</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/terms-of-use/">Terms of Use</a>
     </div>
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
 
-<!-- ── THOMAS FLOATING WIDGET ──
-     Fixed to right edge, 1/3 up from bottom of viewport (top:66.666%).
-     Hidden on mobile (max-width:768px).
-     Opens Thomas diagnostic app in new tab. -->
 <a class="thomas-float"
    href="https://shift-work-diagnostic.onrender.com/"
    target="_blank"
@@ -317,7 +320,6 @@
     <span class="thomas-float-cta">Chat Now &rarr;</span>
   </div>
 </a>
-<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
 document.getElementById('mobileToggle').addEventListener('click', function () {
