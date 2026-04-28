@@ -6,7 +6,7 @@
   URL: /our_team/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-22
+  Last Updated: 2026-04-28
 
   CHANGE LOG:
     2026-04-04 — Initial build. Three partner bio sections.
@@ -15,33 +15,12 @@
     2026-04-13 — Bio text v2. Nav "Why Us" -> "Our Company".
     2026-04-16 — STANDARD UPGRADE to Chemical/Pharma template.
     2026-04-17 — BREADCRUMB SCHEMA + FAQ ACCORDION UPGRADE.
-    2026-04-22 — BOTTOM SECTION REWRITE:
-                 The "How We Work / What Makes Our Team Different" section
-                 near the bottom was replaced. Prior version opened with
-                 "Most consulting firms staff projects with junior analysts
-                 supervised by a distant partner..." which framed the pitch
-                 by knocking competitors. Jim flagged this as off-brand —
-                 "a bit low blow, below our level, not elegant."
-                 - Eyebrow: "How We Work" → "On Every Engagement"
-                 - H2: "What Makes Our Team Different" → "Working With Our Team"
-                 - Three body paragraphs replaced with approved positive-framing copy.
-                 No other changes — nav, hero, breadcrumb, three insight cards,
-                 three bios, three pull quotes, FAQ section, Next Steps, footer,
-                 and all JS preserved exactly. JSON-LD schemas unchanged. CSS unchanged.
-    2026-04-22 — PAGE BOTTOM STANDARD applied (second pass, same date):
-                 REMOVED: <section class="next-steps"> and all contents.
-                 REMOVED: All .next-steps / .ns-card / .ns-accent-* CSS rules.
-                 REMOVED: IntersectionObserver JS block that animated ns-cards.
-                 UPDATED: Footer replaced with standard 3-col structure
-                   (FREE ASSESSMENT / 26 Warning Signs / Newsletter)
-                   per Page Bottom Standard 2D.
-                 UPDATED: .faq-section margin changed from margin:40px 0 to
-                   margin:40px 0 0 0 to eliminate white gap before bridge stripe.
-                 UPDATED: Pull quote text color changed from #4a6a8a italic to
-                   var(--body-text) non-italic per Page Bottom Standard Section 6A.
-                   Applied to all three pull quotes on this page.
-                 ADDED: Bridge stripe between FAQ and footer.
-                 ADDED: Thomas floating widget (fixed right edge, desktop only).
+    2026-04-22 — BOTTOM SECTION REWRITE: positive framing copy.
+    2026-04-22 — PAGE BOTTOM STANDARD applied. Bridge stripe + Thomas float added.
+    2026-04-28 — PLAUSIBLE ANALYTICS added to <head>.
+                 FOOTER BOTTOM BAR: added Case Studies, Privacy Policy,
+                 Terms of Use links with mid-dot separators.
+                 .footer-bottom-sep CSS rule added.
 
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   HERO IMAGE: /images/second.png
@@ -66,6 +45,19 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Meet Our Team | Shiftwork Solutions">
   <meta name="twitter:description" content="Three senior partners. Over 90 years of combined experience. Hundreds of facilities across 16+ industries.">
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       PLAUSIBLE ANALYTICS (added 2026-04-28)
+       Privacy-friendly, cookieless, GDPR/CCPA compliant.
+       Loads async — does not block page render.
+       Script URL is unique to shift-work.com — do not change.
+       ══════════════════════════════════════════════════════════════════ -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"Meet Our Team","url":"https://shift-work.com/our_team/","description":"Meet the partners of Shiftwork Solutions LLC — senior consultants with over 90 years of combined experience.","mainEntity":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","member":[{"@type":"Person","name":"Jim Dillingham","jobTitle":"Partner & Senior Consultant","description":"Over 30 years helping companies design and implement shift schedules. Naval Academy graduate. Specializes in change management and employee involvement.","alumniOf":[{"@type":"CollegeOrUniversity","name":"United States Naval Academy"},{"@type":"CollegeOrUniversity","name":"Purdue University"},{"@type":"CollegeOrUniversity","name":"ESC Rouen"}]},{"@type":"Person","name":"Dan Capshaw","jobTitle":"Partner & Senior Consultant","description":"Over 32 years developing shift schedules and work systems. Chemical engineer, Lean Six Sigma Black Belt, former submarine officer.","alumniOf":[{"@type":"CollegeOrUniversity","name":"Johns Hopkins University"},{"@type":"CollegeOrUniversity","name":"UC Berkeley Haas School of Business"}]},{"@type":"Person","name":"Ethan Franklin","jobTitle":"Partner & Senior Consultant","description":"Over 28 years helping companies evaluate, design, and implement improved shift schedules. Data-driven approach balancing business needs with employee well-being.","alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Illinois at Urbana-Champaign"},{"@type":"CollegeOrUniversity","name":"Loyola University Chicago School of Law"}]}]}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Why Us","item":"https://shift-work.com/why-us/"},{"@type":"ListItem","position":3,"name":"Our Team","item":"https://shift-work.com/our_team/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
@@ -75,8 +67,6 @@
     :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--max-width:860px;--page-pad:24px}
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
-
-    /* ── NAV (System B — sticky 56px) ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0;display:flex;align-items:center;gap:12px}
@@ -90,8 +80,6 @@
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-
-    /* ── HERO ── */
     .hero{background:var(--navy-dark);padding:44px 36px 48px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:url('/images/second.png') center center/cover no-repeat;z-index:0}
     .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,0.88) 0%,rgba(31,78,121,0.75) 55%,rgba(31,78,121,0.35) 100%);z-index:0}
@@ -104,23 +92,17 @@
     .hero-stat{background:rgba(255,255,255,.08);border-radius:8px;padding:16px 20px;min-width:160px}
     .hero-stat-num{font-size:26px;font-weight:700;color:var(--white);line-height:1.1}
     .hero-stat-label{font-size:12px;color:var(--mid-blue);margin-top:4px;line-height:1.35}
-
-    /* ── BREADCRUMB ── */
     .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
     .breadcrumb-inner a{color:var(--navy);text-decoration:none}
     .breadcrumb-inner a:hover{text-decoration:underline}
     .breadcrumb-inner span{margin:0 6px;opacity:.5}
     .breadcrumb-inner .bc-current{color:var(--navy);font-weight:700;opacity:1}
-
-    /* ── CONTENT ── */
     .content-section{max-width:var(--max-width);margin:0 auto;padding:20px var(--page-pad) 0}
     .eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:6px}
     .content-section h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:16px}
     .content-section p{font-size:15px;line-height:1.75;color:var(--body-text);margin-bottom:16px;max-width:680px}
     hr.divider{max-width:var(--max-width);margin:24px auto;border:none;border-top:1px solid var(--border-light)}
-
-    /* ── BIO ── */
     .bio-section{max-width:var(--max-width);margin:0 auto;padding:28px var(--page-pad) 0}
     .bio-card{display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:start}
     .bio-photo{width:200px;height:200px;border-radius:8px;overflow:hidden;background:var(--light-blue);flex-shrink:0}
@@ -130,8 +112,6 @@
     .bio-content p{font-size:15px;line-height:1.75;color:var(--body-text);margin-bottom:14px;max-width:none}
     .bio-credentials{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
     .bio-cred-tag{background:var(--light-blue);color:var(--navy);padding:5px 12px;border-radius:16px;font-size:12px;font-weight:600;white-space:nowrap}
-
-    /* ── INSIGHT CARDS ── */
     .three-col{max-width:var(--max-width);margin:20px auto;padding:0 var(--page-pad);display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .insight-card{background:var(--white);border:1px solid var(--border-med);border-radius:6px;padding:20px;border-top:3px solid var(--navy)}
     .insight-card.accent-orange{border-top-color:var(--orange)}
@@ -141,15 +121,11 @@
     .insight-card.accent-green .insight-num{color:var(--green)}
     .insight-label{font-size:14px;font-weight:700;color:var(--body-text);margin-bottom:6px}
     .insight-text{font-size:13px;color:var(--muted);line-height:1.55}
-
-    /* ── PULL QUOTE — 128px Georgia mark, body-text color, non-italic (Page Bottom Standard 6A) ── */
     .pull-quote{max-width:var(--max-width);margin:32px auto;padding:0 var(--page-pad);display:flex;align-items:center;gap:16px}
     .pull-quote-mark{flex-shrink:0;font-size:128px;line-height:1;font-family:Georgia,'Times New Roman',serif;color:#999999;user-select:none}
     .pull-quote-content{flex:1}
     .pull-quote-content p{font-size:15px;font-weight:400;line-height:1.75;color:var(--body-text);margin:0;font-style:normal}
     .pull-quote-content .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
-
-    /* ── FAQ — bottom margin 0 to sit flush against bridge stripe ── */
     .faq-section{position:relative;overflow:hidden;margin:40px 0 0 0;left:50%;right:50%;margin-left:calc(-50vw);margin-right:calc(-50vw);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
@@ -167,13 +143,9 @@
     .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease}
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px;font-family:Arial,Helvetica,sans-serif}
-
-    /* ── BRIDGE STRIPE — sits flush below FAQ ── */
     .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
     .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
     .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
-
-    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -206,12 +178,8 @@
     .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-
-    /* ── THOMAS FLOATING WIDGET ──
-       Fixed right-side card, positioned 1/3 up from the bottom of the viewport.
-       Visible on desktop only (hidden below 768px).
-       z-index 950: above content, below nav (1000). */
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
@@ -221,8 +189,6 @@
     .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
     .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
     @media(max-width:768px){.thomas-float{display:none}}
-
-    /* ── RESPONSIVE ── */
     @media(max-width:768px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
       .nav-logo-text{font-size:16px}
@@ -388,12 +354,6 @@
 
 <hr class="divider">
 
-<!-- ══════════════════════════════════════════════════════════════
-     SECTION REWRITTEN 2026-04-22:
-     Previous version opened with a "most consulting firms staff with
-     junior analysts..." critique of competitors. Replaced with positive
-     framing per Jim's instruction.
-════════════════════════════════════════════════════════════════ -->
 <section class="content-section">
   <div class="eyebrow">On Every Engagement</div>
   <h2>Working With Our Team</h2>
@@ -402,9 +362,6 @@
   <p>Our team brings complementary strengths across operations, engineering, and workforce strategy&#x2014;covering the full system, so solutions hold under real operating conditions.</p>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════════
-     FAQ SECTION — Full-bleed Hands_in_the_air.jpg accordion
-════════════════════════════════════════════════════════════════ -->
 <div class="faq-section" id="faq">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
@@ -462,9 +419,6 @@
   </div>
 </div>
 
-<!-- ── BRIDGE STRIPE ──
-     Gray breathing room between FAQ and footer.
-     Soft directional prompt toward footer CTAs — no button needed. -->
 <div class="bridge-stripe">
   <div class="bridge-stripe-text">Ready to take the next step?</div>
   <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
@@ -496,15 +450,23 @@
     </div>
   </div></div>
   <div class="footer-bottom"><div class="footer-bottom-inner">
-    <div class="footer-bottom-left"><span class="footer-bottom-brand">Shiftwork Solutions LLC</span><a href="tel:+14152651621">(415) 265-1621</a><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
+    <div class="footer-bottom-left">
+      <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="tel:+14152651621">(415) 265-1621</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/resources/case-studies/">Case Studies</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/terms-of-use/">Terms of Use</a>
+    </div>
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
 
-<!-- ── THOMAS FLOATING WIDGET ──
-     Fixed to right edge, ~40% from top of viewport.
-     Hidden on mobile (max-width:768px).
-     Opens Thomas diagnostic app in new tab. -->
 <a class="thomas-float"
    href="https://shift-work-diagnostic.onrender.com/"
    target="_blank"
@@ -517,7 +479,6 @@
     <span class="thomas-float-cta">Chat Now &rarr;</span>
   </div>
 </a>
-<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
 document.getElementById('mobileToggle').addEventListener('click',function(){
@@ -532,7 +493,6 @@ document.getElementById('mobileToggle').addEventListener('click',function(){
   }
 });
 
-// FAQ accordion
 (function(){
   var items=document.querySelectorAll('.faq-item');
   items.forEach(function(item){
@@ -553,7 +513,6 @@ document.getElementById('mobileToggle').addEventListener('click',function(){
   });
 })();
 
-// Newsletter submit
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn'),msg=document.getElementById('engageNLMsg'),email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-our-team'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
 </script>
 </body>
