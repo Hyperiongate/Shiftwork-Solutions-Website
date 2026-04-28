@@ -3,7 +3,7 @@
   Shiftwork Solutions LLC — Homepage
   File: index.html
   Created: March 31, 2026
-  Last updated: April 26, 2026
+  Last updated: April 28, 2026
   Author: Claude for Jim @ Shiftwork Solutions LLC
 
   CHANGE LOG:
@@ -45,6 +45,18 @@
                   - Added new ConsultingService schemas for each of the 5 services
                   - Added meta keywords tag
                   - All existing functionality preserved exactly
+      2026-04-28  (v19) PLAUSIBLE ANALYTICS INSTALLED:
+                  - Added Plausible analytics snippet to <head>
+                    (privacy-friendly, cookieless, GDPR/CCPA compliant)
+                  - Script loads async, does not block page render
+                  - Optional measurements enabled in Plausible dashboard:
+                    Outbound links, File downloads, Form submissions
+                  - Site identified by unique script URL: pa-sH0BT-KFFBE-QL0g-zuyZ.js
+                  - Placement: after meta tags, before Google Fonts preconnect
+                  - All existing functionality preserved exactly
+                  - This is the FIRST page in the Plausible rollout —
+                    deploy and verify in Plausible dashboard before
+                    rolling out to remaining pages.
 
   NAV: .site-header / .main-nav / .nav-cta (fixed 64px)
   HERO BG: /images/second.png | HERO RIGHT: /images/pillar_6.jpg
@@ -56,6 +68,14 @@
   Key additions: sameAs (update with real LinkedIn/Clutch URLs when available),
   hasOfferCatalog, makesOffer, expanded knowsAbout, slogan.
   Update sameAs URLs as you claim each directory listing.
+
+  ANALYTICS NOTE (2026-04-28):
+  Plausible Analytics is installed on this page. After deploying to
+  shift-work.com, click "Verify Script installation" in the Plausible
+  dashboard to confirm the script is detected. Data will start flowing
+  within minutes of the first real visitor. The same snippet will be
+  rolled out to all other pages on the site, one at a time, after
+  this homepage is verified working.
 -->
 <html lang="en">
 <head>
@@ -74,6 +94,22 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Shiftwork Solutions LLC — Shift Schedule Design &amp; Change Management" />
   <meta name="twitter:description" content="Over 30 years helping hundreds of 24/7 operations optimize shift schedules, reduce overtime, and improve workforce engagement." />
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       PLAUSIBLE ANALYTICS (added 2026-04-28)
+       Privacy-friendly, cookieless, GDPR/CCPA compliant.
+       Optional measurements enabled in dashboard:
+         - Outbound links (tracks Book-a-Meeting, Thomas, all external links)
+         - File downloads (tracks any future PDF/DOCX downloads)
+         - Form submissions (tracks newsletter + contact form submits)
+       Loads async — does not block page render.
+       Script URL is unique to shift-work.com — do not change.
+       ══════════════════════════════════════════════════════════════════ -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
