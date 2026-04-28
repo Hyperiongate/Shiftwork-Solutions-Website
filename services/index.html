@@ -3,7 +3,7 @@
   Shiftwork Solutions LLC — Services
   File: services/index.html
   Created: April 2, 2026
-  Last updated: 2026-04-27
+  Last updated: 2026-04-28
   Author: Claude for Jim @ Shiftwork Solutions LLC
 
   PURPOSE:
@@ -36,6 +36,9 @@
                   Background unchanged (light grey + faint gears image).
                   Three stats separated by light vertical rules on desktop;
                   horizontal rules on mobile.
+      2026-04-28  (v17) PLAUSIBLE ANALYTICS added to <head>.
+                  FOOTER BOTTOM BAR: added Case Studies, Privacy Policy,
+                  Terms of Use links with mid-dot separators.
 
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   HERO IMAGE: /images/second.png
@@ -59,6 +62,19 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Our Services — Shiftwork Solutions LLC" />
   <meta name="twitter:description" content="Custom shift schedule design, change management, workforce surveys, cost analysis, and policy development for 24/7 operations." />
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       PLAUSIBLE ANALYTICS (added 2026-04-28)
+       Privacy-friendly, cookieless, GDPR/CCPA compliant.
+       Loads async — does not block page render.
+       Script URL is unique to shift-work.com — do not change.
+       ══════════════════════════════════════════════════════════════════ -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=swap" rel="stylesheet">
@@ -435,6 +451,7 @@
     .footer-bottom-inner a:hover { color: var(--orange); }
     .footer-bottom-left { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
     .footer-bottom-brand { font-weight: 700; color: rgba(255,255,255,.7); }
+    .footer-bottom-sep { color: rgba(255,255,255,.2); user-select: none; }
     @media (max-width: 760px) {
       .footer-content-row { grid-template-columns: 1fr; }
       .footer-col { padding: 0 0 24px 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 4px; }
@@ -688,7 +705,19 @@
     </div>
   </div></div>
   <div class="footer-bottom"><div class="footer-bottom-inner">
-    <div class="footer-bottom-left"><span class="footer-bottom-brand">Shiftwork Solutions LLC</span><a href="tel:+14152651621">(415) 265-1621</a><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
+    <div class="footer-bottom-left">
+      <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="tel:+14152651621">(415) 265-1621</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/resources/case-studies/">Case Studies</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/terms-of-use/">Terms of Use</a>
+    </div>
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
