@@ -5,7 +5,7 @@
   URL: /newsletter/
 
   Created: April 2, 2026
-  Last updated: 2026-04-22
+  Last updated: 2026-04-28
 
   FORM BACKEND:
       POST https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe
@@ -13,35 +13,16 @@
   CHANGE LOG:
       2026-04-02  Initial build
       2026-04-02  Rebuild to new design system
-      2026-04-05  NAV + BUTTON + SEO AUDIT:
-                  1. NAV: Logo → image (was text)
-                     Services → direct link (no dropdown)
-                     Resources → direct link (no dropdown)
-                     Why Us dropdown fixed
-                  2. BUTTONS: Nav CTA → "Book a Free Meeting" ORANGE (#E8610A)
-                  3. SEO: Added OG tags, Twitter Card tags, JSON-LD
-                  4. URLs: Booking URLs → added ?ismsaljsauthenabled=true
-      2026-04-05  NAV — ALL DROPDOWNS REMOVED:
-                  - Industries: removed dropdown, direct link to /industries/
-                  - Why Us: removed dropdown, direct link to /why-us/
-                  - Footer "Why Us" link updated to /why-us/
-                  - Mobile dropdown JS handler removed (no longer needed)
-                  - All newsletter form functionality preserved exactly
+      2026-04-05  NAV + BUTTON + SEO AUDIT
+      2026-04-05  NAV — ALL DROPDOWNS REMOVED
       2026-04-22  PAGE BOTTOM STANDARD applied:
-                  REMOVED: Old light-grey 4-column link footer and all its CSS
-                    (.site-footer/.footer-inner/.footer-grid/.footer-col-brand/
-                    .footer-contact-line/.footer-col h4/.footer-col ul/
-                    .footer-bottom and --footer-bg variable).
-                  UPDATED: Logo path corrected from URL-encoded spaces
-                    (clear%20bkgr%20logo%202.png) to underscores
-                    (clear_bkgr_logo_2.png) per site standard.
-                  UPDATED: Added SHIFTWORK SOLUTIONS logo text span and
-                    .site-logo-text CSS to match Nav System A standard.
-                  ADDED: Bridge stripe between newsletter section and footer.
-                  ADDED: Standard dark-navy 3-column footer
-                    (FREE ASSESSMENT / 26 Warning Signs / Newsletter).
-                  ADDED: Thomas floating widget (fixed right edge, desktop only).
-                  ADDED: engageNLSubmit JS function for footer newsletter form.
+                  REMOVED: Old light-grey 4-column link footer and all its CSS.
+                  UPDATED: Logo path corrected to underscores.
+                  ADDED: Bridge stripe, standard 3-col dark-navy footer,
+                    Thomas floating widget, engageNLSubmit JS function.
+      2026-04-28  PLAUSIBLE ANALYTICS added to <head>.
+                  FOOTER BOTTOM BAR: added Case Studies, Privacy Policy,
+                  Terms of Use links with mid-dot separators.
 
   NAV SYSTEM: A — .site-header / .main-nav / .nav-cta (fixed 64px)
   HERO IMAGE: n/a — navy background section
@@ -65,6 +46,18 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Newsletter — Shiftwork Solutions LLC">
   <meta name="twitter:description" content="Practical insights on shift schedule design, overtime management, employee engagement, and 24/7 operations.">
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       PLAUSIBLE ANALYTICS (added 2026-04-28)
+       Privacy-friendly, cookieless, GDPR/CCPA compliant.
+       Loads async — does not block page render.
+       Script URL is unique to shift-work.com — do not change.
+       ══════════════════════════════════════════════════════════════════ -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Newsletter","item":"https://shift-work.com/newsletter/"}]}</script>
@@ -182,6 +175,7 @@
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
+    .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none}
     @media(max-width:640px){
       .footer-prefooter{padding:32px 20px}
       .footer-content-row{grid-template-columns:1fr}
@@ -194,10 +188,7 @@
       .footer-bottom-left{justify-content:center}
     }
 
-    /* ── THOMAS FLOATING WIDGET ──
-       Fixed right-side card, positioned 1/3 up from the bottom of the viewport.
-       Visible on desktop only (hidden below 768px).
-       z-index 950: above content, below nav (200 on this page — still fine). */
+    /* ── THOMAS FLOATING WIDGET ── */
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
@@ -269,9 +260,6 @@
   </div>
 </section>
 
-<!-- ── BRIDGE STRIPE ──
-     Gray breathing room between newsletter section and footer.
-     Soft directional prompt toward footer CTAs — no button needed. -->
 <div class="bridge-stripe">
   <div class="bridge-stripe-text">Ready to take the next step?</div>
   <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
@@ -303,15 +291,23 @@
     </div>
   </div></div>
   <div class="footer-bottom"><div class="footer-bottom-inner">
-    <div class="footer-bottom-left"><span class="footer-bottom-brand">Shiftwork Solutions LLC</span><a href="tel:+14152651621">(415) 265-1621</a><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
+    <div class="footer-bottom-left">
+      <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="tel:+14152651621">(415) 265-1621</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/resources/case-studies/">Case Studies</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/terms-of-use/">Terms of Use</a>
+    </div>
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
 
-<!-- ── THOMAS FLOATING WIDGET ──
-     Fixed to right edge, ~40% from top of viewport.
-     Hidden on mobile (max-width:768px).
-     Opens Thomas diagnostic app in new tab. -->
 <a class="thomas-float"
    href="https://shift-work-diagnostic.onrender.com/"
    target="_blank"
@@ -324,15 +320,12 @@
     <span class="thomas-float-cta">Chat Now &rarr;</span>
   </div>
 </a>
-<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
-// Stamp load time for bot-speed check
 document.getElementById('_loaded').value = Date.now().toString();
 
 var NEWSLETTER_API = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
 
-// Mobile nav toggle
 document.getElementById('mobile-toggle').addEventListener('click', function(){
   document.getElementById('main-nav').classList.toggle('open');
 });
@@ -343,7 +336,6 @@ document.addEventListener('click', function(e){
   }
 });
 
-// Page newsletter form submit
 document.getElementById('newsletter-form').addEventListener('submit', function(e){
   e.preventDefault();
   var btn    = document.getElementById('submit-btn');
@@ -403,7 +395,6 @@ document.getElementById('newsletter-form').addEventListener('submit', function(e
   });
 });
 
-// Footer newsletter form submit
 (function(){
   var SWARM = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
   window.engageNLSubmit = function(e){
