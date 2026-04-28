@@ -4,7 +4,7 @@
   File: contact/index.html
   URL: /contact/
   Created: April 2, 2026
-  Last updated: 2026-04-22
+  Last updated: 2026-04-28
 
   CHANGE LOG:
     2026-04-07  SECURITY HARDENING (form backends, honeypot, timestamp)
@@ -35,6 +35,9 @@
                 ADDED: Bridge stripe between contact section and footer.
                 ADDED: Thomas floating widget (fixed right edge,
                   desktop only).
+    2026-04-28  PLAUSIBLE ANALYTICS added to <head>.
+                FOOTER BOTTOM BAR: added Case Studies, Privacy Policy,
+                Terms of Use links with mid-dot separators.
 
   NAV SYSTEM: A — .site-header / .main-nav / .nav-cta (fixed 64px)
   HERO IMAGE: /images/second.png
@@ -56,6 +59,19 @@
   <meta property="og:url" content="https://shift-work.com/contact/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       PLAUSIBLE ANALYTICS (added 2026-04-28)
+       Privacy-friendly, cookieless, GDPR/CCPA compliant.
+       Loads async — does not block page render.
+       Script URL is unique to shift-work.com — do not change.
+       ══════════════════════════════════════════════════════════════════ -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
+
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://shift-work.com/contact/"}]}</script>
   <style>
@@ -141,7 +157,7 @@
     .thankyou-wrap a{display:inline-block;padding:13px 32px;background:var(--orange);color:#fff;font-size:15px;font-weight:700;text-decoration:none;border-radius:6px;transition:background .2s}
     .thankyou-wrap a:hover{background:#c4510a}
 
-    /* ── BRIDGE STRIPE — sits flush below contact section ── */
+    /* ── BRIDGE STRIPE ── */
     .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
     .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
     .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
@@ -184,6 +200,7 @@
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
+    .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none}
     @media(max-width:640px){
       .footer-prefooter{padding:32px 20px}
       .footer-content-row{grid-template-columns:1fr}
@@ -196,10 +213,7 @@
       .footer-bottom-left{justify-content:center}
     }
 
-    /* ── THOMAS FLOATING WIDGET ──
-       Fixed right-side card, positioned 1/3 up from the bottom of the viewport.
-       Visible on desktop only (hidden below 768px).
-       z-index 950: above content, below nav (z-index 200 on this page — still below fixed nav). */
+    /* ── THOMAS FLOATING WIDGET ── */
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
@@ -308,9 +322,6 @@
   </div>
 </section>
 
-<!-- ── BRIDGE STRIPE ──
-     Gray breathing room between contact section and footer.
-     Soft directional prompt toward footer CTAs — no button needed. -->
 <div class="bridge-stripe">
   <div class="bridge-stripe-text">Ready to take the next step?</div>
   <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
@@ -342,15 +353,23 @@
     </div>
   </div></div>
   <div class="footer-bottom"><div class="footer-bottom-inner">
-    <div class="footer-bottom-left"><span class="footer-bottom-brand">Shiftwork Solutions LLC</span><a href="tel:+14152651621">(415) 265-1621</a><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
+    <div class="footer-bottom-left">
+      <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="tel:+14152651621">(415) 265-1621</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/resources/case-studies/">Case Studies</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/terms-of-use/">Terms of Use</a>
+    </div>
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
 
-<!-- ── THOMAS FLOATING WIDGET ──
-     Fixed to right edge, ~40% from top of viewport.
-     Hidden on mobile (max-width:768px).
-     Opens Thomas diagnostic app in new tab. -->
 <a class="thomas-float"
    href="https://shift-work-diagnostic.onrender.com/"
    target="_blank"
@@ -363,17 +382,14 @@
     <span class="thomas-float-cta">Chat Now &rarr;</span>
   </div>
 </a>
-<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
 (function(){
   var CONTACT_API   = 'https://ai-swarm-orchestrator.onrender.com/api/contact/submit';
   var FORMSPREE     = 'https://formspree.io/f/xwvwnwea';
 
-  // Stamp load time for bot-speed check
   document.getElementById('_loaded').value = Date.now().toString();
 
-  // Mobile nav toggle
   document.getElementById('mobile-toggle').addEventListener('click', function(){
     document.getElementById('main-nav').classList.toggle('open');
   });
@@ -382,7 +398,6 @@
     if(h && !h.contains(e.target)) document.getElementById('main-nav').classList.remove('open');
   });
 
-  // Show thank-you — replaces the form area
   function showThankYou() {
     document.getElementById('contact-form-wrap').innerHTML =
       '<div class="thankyou-wrap">' +
@@ -393,7 +408,6 @@
       '</div>';
   }
 
-  // Show error — re-enables button so user can retry
   function showError(msg) {
     var status = document.getElementById('form-status');
     var btn    = document.getElementById('submit-btn');
@@ -402,7 +416,6 @@
     if(btn){ btn.disabled = false; btn.textContent = 'Send Message \u2192'; }
   }
 
-  // Formspree fallback — called only if Swarm fails
   function tryFormspree(name, email, company, message) {
     var fd = new FormData();
     fd.append('name',    name);
@@ -425,24 +438,20 @@
     var status = document.getElementById('form-status');
     var btn    = document.getElementById('submit-btn');
 
-    // Hide any previous status
     status.className  = 'form-status';
     status.textContent = '';
 
-    // Honeypot check
     if(document.getElementById('_gotcha').value !== ''){
-      showThankYou(); // silently discard bot submission
+      showThankYou();
       return;
     }
 
-    // Timestamp check — reject if submitted in under 3 seconds
     var loadedAt = parseInt(document.getElementById('_loaded').value, 10);
     if(Date.now() - loadedAt < 3000){
       showError('Please take a moment to fill out the form completely.');
       return;
     }
 
-    // Required field validation
     var name    = document.getElementById('name').value.trim();
     var email   = document.getElementById('email').value.trim();
     var company = document.getElementById('company').value.trim();
@@ -457,11 +466,9 @@
       return;
     }
 
-    // Disable button and show sending state
     btn.disabled    = true;
     btn.textContent = 'Sending\u2026';
 
-    // Collect full payload
     var payload = {
       name:      name,
       email:     email,
@@ -474,7 +481,6 @@
       timestamp: document.getElementById('_loaded').value
     };
 
-    // Try Swarm first
     fetch(CONTACT_API, {
       method:  'POST',
       headers: {'Content-Type':'application/json','Accept':'application/json'},
@@ -484,13 +490,11 @@
     .then(function(d){
       if(d.success){ showThankYou(); }
       else {
-        // Swarm returned a non-success response — fall back to Formspree
         console.warn('Swarm returned non-success, trying Formspree:', d);
         tryFormspree(name, email, company, message);
       }
     })
     .catch(function(err){
-      // Swarm network failure — fall back to Formspree
       console.warn('Swarm unreachable, trying Formspree:', err.message);
       tryFormspree(name, email, company, message);
     });
@@ -498,7 +502,6 @@
 
 })();
 
-// Footer newsletter
 (function(){
   var SWARM = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
   window.footerNLSubmit = function(e){
