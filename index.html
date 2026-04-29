@@ -3,7 +3,7 @@
   Shiftwork Solutions LLC — Homepage
   File: index.html
   Created: March 31, 2026
-  Last updated: April 28, 2026
+  Last updated: April 29, 2026
   Author: Claude for Jim @ Shiftwork Solutions LLC
 
   CHANGE LOG:
@@ -60,6 +60,11 @@
       2026-04-28  (v20) FOOTER BOTTOM BAR — added Case Studies, Privacy Policy,
                   and Terms of Use links to footer-bottom-left. Mid-dot separators
                   added between all items for visual clarity. No other changes.
+      2026-04-29  (v21) MICROSOFT CLARITY INSTALLED:
+                  - Added Clarity snippet (project ID: wiyn7e4d73) to <head>
+                  - Added custom event tracker script (/js/event-tracker.js)
+                  - Placement: immediately before Plausible block, after meta tags
+                  - All existing functionality preserved exactly
 
   NAV: .site-header / .main-nav / .nav-cta (fixed 64px)
   HERO BG: /images/second.png | HERO RIGHT: /images/pillar_6.jpg
@@ -79,6 +84,13 @@
   within minutes of the first real visitor. The same snippet will be
   rolled out to all other pages on the site, one at a time, after
   this homepage is verified working.
+
+  CLARITY NOTE (2026-04-29):
+  Microsoft Clarity is installed on this page (project ID: wiyn7e4d73).
+  After deploying, go to clarity.microsoft.com → your project → Settings →
+  Setup → "Verify installation", then visit the live site to trigger the
+  first session. The "Almost there" prompt will clear once Clarity detects
+  the script firing.
 -->
 <html lang="en">
 <head>
@@ -97,6 +109,23 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Shiftwork Solutions LLC — Shift Schedule Design &amp; Change Management" />
   <meta name="twitter:description" content="Over 30 years helping hundreds of 24/7 operations optimize shift schedules, reduce overtime, and improve workforce engagement." />
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       MICROSOFT CLARITY (added 2026-04-29)
+       Project ID: wiyn7e4d73
+       Heatmaps, session recordings, and user behavior analytics.
+       To verify: clarity.microsoft.com → project → Settings → Setup →
+       "Verify installation". Visit the live site to trigger first session.
+       ══════════════════════════════════════════════════════════════════ -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wiyn7e4d73");
+  </script>
+  <!-- ── CUSTOM EVENT TRACKER ── -->
+  <script src="/js/event-tracker.js"></script>
 
   <!-- ══════════════════════════════════════════════════════════════════
        PLAUSIBLE ANALYTICS (added 2026-04-28)
