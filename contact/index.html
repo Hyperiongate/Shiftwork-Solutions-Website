@@ -4,7 +4,7 @@
   File: contact/index.html
   URL: /contact/
   Created: April 2, 2026
-  Last updated: 2026-04-28
+  Last updated: 2026-04-29
 
   CHANGE LOG:
     2026-04-07  SECURITY HARDENING (form backends, honeypot, timestamp)
@@ -41,6 +41,15 @@
     2026-04-28  ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
                 removed plausible.init(), replaced canonical Org schema,
                 removed meta keywords (none were present).
+    2026-04-29  MOBILE OPTIMIZATION:
+                Additive mobile CSS block only — zero desktop rules altered.
+                This page already has nav collapse at 960px (with logo-text
+                shrink to 16px) and form-row 1-col at 540px — both GOOD.
+                @media(max-width:640px): page-hero padding tightened,
+                  contact-section padding reduced, footer-bottom-left
+                  column stack + separators hidden.
+                @media(max-width:480px): site-logo-text hidden,
+                  newsletter form column stack.
 
   NAV SYSTEM: A — .site-header / .main-nav / .nav-cta (fixed 64px)
   HERO IMAGE: /images/second.png
@@ -278,6 +287,42 @@
     .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
     .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
     @media(max-width:768px){.thomas-float{display:none}}
+
+    /* ══════════════════════════════════════════════════════════════════
+       MOBILE OPTIMIZATION BLOCK (added 2026-04-29)
+       Strategy: Additive overrides only — no desktop rules altered.
+       This page already has nav collapse at 960px (with logo-text shrink
+       to 16px) and form-row 1-col at 540px — both GOOD, no changes needed.
+
+       Fixes:
+         1. page-hero padding tightened at 640px
+         2. contact-section padding reduced at 640px
+         3. footer-bottom-left column stack + separators hidden at 640px
+         4. site-logo-text hidden at 480px
+         5. Newsletter form column stack at 480px
+       ══════════════════════════════════════════════════════════════════ */
+
+    @media(max-width:640px){
+      /* 1. Hero padding */
+      .page-hero{padding:36px 20px 40px;}
+
+      /* 2. Contact section padding */
+      .contact-section{padding:32px 20px 40px;}
+
+      /* 3. Footer bottom — column stack, hide separators */
+      .footer-bottom-left{flex-direction:column;align-items:center;gap:6px;}
+      .footer-bottom-sep{display:none;}
+    }
+
+    @media(max-width:480px){
+      /* 4. Hide logo text on very small screens */
+      .site-logo-text{display:none;}
+
+      /* 5. Newsletter form — stack */
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+    }
   </style>
 </head>
 <body>
