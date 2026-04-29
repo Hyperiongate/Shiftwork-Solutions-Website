@@ -5,7 +5,7 @@
   Deploy to: resources/26-warning-signs-schedule-problems/index.html
 
   Created:      2026-04-05
-  Last Updated: 2026-04-28
+  Last Updated: 2026-04-29
 
   CHANGE LOG:
     2026-04-28 — ALL-PAGES CYCLE pass 1:
@@ -23,6 +23,16 @@
     2026-04-16 — STANDARDIZE BOTTOM OF PAGE: FAQ rebuilt, Next Steps rebuilt.
     2026-04-17 — HERO IMAGE: Changed to /images/26.jpg.
     2026-04-22 — PAGE BOTTOM STANDARD APPLIED.
+    2026-04-29 — MOBILE OPTIMIZATION:
+                 Additive mobile CSS block only — zero desktop rules altered.
+                 Page already well optimized at 768px: hero, stats, three-col,
+                 footer stacking, FAQ, and bridge-stripe all handled.
+                 @media(max-width:768px): nav-logo-text font-size:16px added
+                   (existing 768px block handled nav collapse but omitted this).
+                 @media(max-width:640px): footer-bottom-left column stack +
+                   separators hidden.
+                 @media(max-width:480px): nav-logo-text hidden,
+                   newsletter form column stack.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/26.jpg
@@ -257,6 +267,41 @@
     .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none;margin:0 2px}
     @media(max-width:768px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.hero{padding:32px 20px 36px}.hero h1{font-size:24px}.hero-stats{flex-direction:column;gap:10px}.three-col{grid-template-columns:1fr;padding:0 20px}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}}
     @media(max-width:640px){.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}}
+
+    /* ══════════════════════════════════════════════════════════════════
+       MOBILE OPTIMIZATION BLOCK (added 2026-04-29)
+       Strategy: Additive overrides only — no desktop rules altered.
+       This page is already well optimized at 768px: hero, stats,
+       three-col, footer stacking, FAQ, and bridge-stripe all handled.
+
+       Fixes:
+         1. nav-logo-text font-size:16px at 768px (missing from existing
+            768px block which handles nav collapse but omits logo text size)
+         2. footer-bottom-left column stack + separators hidden at 640px
+         3. nav-logo-text hidden at 480px
+         4. Newsletter form column stack at 480px
+       ══════════════════════════════════════════════════════════════════ */
+
+    @media(max-width:768px){
+      /* 1. Nav logo text size (existing 768px block omits this) */
+      .nav-logo-text{font-size:16px;}
+    }
+
+    @media(max-width:640px){
+      /* 2. Footer bottom — column stack, hide separators */
+      .footer-bottom-left{flex-direction:column;align-items:center;gap:6px;}
+      .footer-bottom-sep{display:none;}
+    }
+
+    @media(max-width:480px){
+      /* 3. Hide logo text on very small screens */
+      .nav-logo-text{display:none;}
+
+      /* 4. Newsletter form — stack */
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+    }
   </style>
 </head>
 <body>
