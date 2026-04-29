@@ -26,6 +26,10 @@
                  FOOTER BOTTOM BAR: added Case Studies, Privacy Policy,
                  Terms of Use links with mid-dot separators.
                  .footer-bottom-sep CSS rule added.
+    2026-04-28 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
+                 removed plausible.init(), replaced canonical Org schema
+                 (removed self-referential sameAs, upgraded to full canonical),
+                 removed meta keywords.
 
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   HERO IMAGE: /images/second.png
@@ -39,7 +43,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Why Shiftwork Solutions | Experience, Results &amp; Trust</title>
   <meta name="description" content="Senior-led engagements, neutral third-party facilitation, and 30 years of knowing which schedule changes fail in practice — for manufacturing and distribution.">
-  <meta name="keywords" content="shift work consultants, shift schedule consulting firm, why shiftwork solutions, shift work consulting experience, 24/7 operations consultants, change management consultants, workforce engagement consulting, manufacturing scheduling consultants">
   <link rel="canonical" href="https://shift-work.com/why-us/">
   <meta property="og:title" content="Why Shiftwork Solutions | Experience, Results &amp; Trust">
   <meta property="og:description" content="Senior-led engagements, neutral third-party facilitation, and 30 years of knowing which schedule changes fail in practice — for manufacturing and distribution.">
@@ -50,20 +53,31 @@
   <meta name="twitter:title" content="Why Shiftwork Solutions | Experience, Results &amp; Trust">
   <meta name="twitter:description" content="Senior-led engagements, neutral third-party facilitation, and 30 years of knowing which schedule changes fail in practice.">
 
+  <!-- ── MICROSOFT CLARITY ── -->
+  <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "wiyn7e4d73");
+  </script>
+
+  <!-- ── CUSTOM EVENT TRACKER ── -->
+  <script src="/js/event-tracker.js"></script>
+
   <!-- ══════════════════════════════════════════════════════════════════
-       PLAUSIBLE ANALYTICS (added 2026-04-28)
+       PLAUSIBLE ANALYTICS
        Privacy-friendly, cookieless, GDPR/CCPA compliant.
        Loads async — does not block page render.
        Script URL is unique to shift-work.com — do not change.
        ══════════════════════════════════════════════════════════════════ -->
   <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
-  <script>
-    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-    plausible.init()
-  </script>
 
   <!-- ══════════════════════════════════════════════════════════════════
        AI DISCOVERABILITY SCHEMAS — added 2026-04-26
+       Org schema upgraded to canonical version 2026-04-28 (ALL-PAGES CYCLE).
+       Self-referential sameAs removed. Full canonical fields applied.
+       AboutPage, WebPage, BreadcrumbList, FAQPage schemas preserved exactly.
        ══════════════════════════════════════════════════════════════════ -->
   <script type="application/ld+json">
   {
@@ -72,14 +86,41 @@
     "name": "Shiftwork Solutions LLC",
     "url": "https://shift-work.com",
     "logo": "https://shift-work.com/images/clear_bkgr_logo_2.png",
-    "telephone": "+14152651621",
+    "telephone": "+1-415-265-1621",
     "email": "Contact@shift-work.com",
     "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
-    "address": {"@type": "PostalAddress", "addressLocality": "San Rafael", "addressRegion": "CA", "postalCode": "94901", "addressCountry": "US"},
     "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.",
     "foundingDate": "1993",
-    "areaServed": {"@type": "Country", "name": "United States"},
-    "knowsAbout": ["shift schedule design","shift work consulting","24/7 operations management","continuous operations staffing","change management","workforce surveys","overtime management","overtime cost reduction","employee engagement","manufacturing workforce planning","distribution center scheduling","pharmaceutical shift scheduling","chemical plant operations","food and beverage manufacturing","mining shift scheduling","paper and packaging operations","union workforce consulting","rotating shift schedules","fixed shift schedules","12-hour shift schedules","staffing and workforce planning","labor cost analysis","fatigue risk management","post-implementation workforce surveys"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Rafael",
+      "addressRegion": "CA",
+      "postalCode": "94901",
+      "addressCountry": "US"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-415-265-1621",
+      "contactType": "customer service",
+      "email": "Contact@shift-work.com",
+      "areaServed": "US"
+    },
+    "knowsAbout": [
+      "shift schedule design","shift work consulting","24/7 operations management",
+      "continuous operations staffing","change management","workforce surveys",
+      "overtime management","overtime cost reduction","employee engagement",
+      "manufacturing workforce planning","distribution center scheduling",
+      "pharmaceutical shift scheduling","chemical plant operations",
+      "food and beverage manufacturing","mining shift scheduling",
+      "paper and packaging operations","union workforce consulting",
+      "rotating shift schedules","fixed shift schedules","12-hour shift schedules",
+      "staffing and workforce planning","labor cost analysis",
+      "fatigue risk management","post-implementation workforce surveys"
+    ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Shift Work Consulting Services",
@@ -96,7 +137,9 @@
       {"@type": "Person", "name": "Dan Capshaw", "jobTitle": "Partner and Senior Consultant", "description": "Chemical engineer and Lean Six Sigma Black Belt specializing in operations-driven schedule design."},
       {"@type": "Person", "name": "Ethan Franklin", "jobTitle": "Partner and Senior Consultant", "description": "Data-driven workforce analyst with over 25 years across manufacturing, distribution, and chemical operations."}
     ],
-    "sameAs": ["https://www.linkedin.com/company/shiftwork-solutions-llc","https://shift-work.com"]
+    "sameAs": [
+      "https://www.linkedin.com/company/shiftwork-solutions-llc"
+    ]
   }
   </script>
 
