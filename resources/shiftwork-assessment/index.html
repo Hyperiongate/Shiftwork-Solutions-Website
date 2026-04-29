@@ -5,9 +5,13 @@
   URL: /resources/shiftwork-assessment/  (URL preserved)
 
   Created:      2026-04-03
-  Last Updated: 2026-04-22
+  Last Updated: 2026-04-28
 
   CHANGE LOG:
+    2026-04-28 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
+                 added canonical Org schema. No plausible.init() present (none existed).
+                 No meta keywords present (none existed).
+
     2026-04-22 — Page Bottom Standard applied:
                  - Fixed: Nav label "Our Company" → "Why Us"
                  - Added: Thomas floating widget (HTML + CSS)
@@ -22,28 +26,13 @@
                  - All JS (Tier 1 + Tier 2 engines, PDF download, PDF preview
                    animation, newsletter, mobile nav) preserved exactly.
 
-    2026-04-21 — REPORTLAB PDF + ANIMATED PREVIEW + FREE BUMP:
-                 PDF generation replaced window.print() with server-side
-                 ReportLab PDF via /api/assessment/generate-pdf. Animated
-                 5-page PDF preview on Tier 2 intro. FREE prominence bumped.
-
+    2026-04-21 — REPORTLAB PDF + ANIMATED PREVIEW + FREE BUMP.
     2026-04-21 — "FREE" LABEL ADDED TO DEEPER ANALYSIS CTA.
-
-    2026-04-03 — Initial rebuild. AI evaluation via Claude API. PDF via
-                 window.print(). Lead capture via Swarm backend. 35 questions,
-                 8 dimensions.
-
+    2026-04-03 — Initial rebuild. AI evaluation via Claude API. 35 questions, 8 dimensions.
     2026-04-05 — NAV + BUTTON + SEO audit.
-
     2026-04-16 — Visual overhaul to match resources page standards.
-
-    2026-04-17 — Hero image changed to /images/assessment.jpg, overlay
-                 strengthened for legibility.
-
+    2026-04-17 — Hero image changed to /images/assessment.jpg.
     2026-04-21 — MAJOR RESTRUCTURE: Two-tier experience.
-                 Tier 1: Reality Check (8 questions, scripted benchmark reveals,
-                 no email required). Tier 2: Detailed Operations Analysis
-                 (35 questions, 8 dimensions, Claude API, PDF, lead capture).
 
   NAV SYSTEM:      .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
@@ -68,6 +57,67 @@
   <meta name="twitter:title" content="The Shiftwork Operations Reality Check | Shiftwork Solutions">
   <meta name="twitter:description" content="Compare your instincts to patterns from 20,000+ shift worker responses. Four minutes. No form required.">
 
+  <!-- ── MICROSOFT CLARITY ── -->
+  <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "wiyn7e4d73");
+  </script>
+
+  <!-- ── CUSTOM EVENT TRACKER ── -->
+  <script src="/js/event-tracker.js"></script>
+
+  <!-- ══ PLAUSIBLE ANALYTICS ══ -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
+
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Shiftwork Solutions LLC",
+  "url": "https://shift-work.com",
+  "logo": "https://shift-work.com/images/clear_bkgr_logo_2.png",
+  "telephone": "+1-415-265-1621",
+  "email": "Contact@shift-work.com",
+  "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
+  "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.",
+  "foundingDate": "1993",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Rafael",
+    "addressRegion": "CA",
+    "postalCode": "94901",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-415-265-1621",
+    "contactType": "customer service",
+    "email": "Contact@shift-work.com",
+    "areaServed": "US"
+  },
+  "knowsAbout": [
+    "shift schedule design","shift work consulting","24/7 operations management",
+    "continuous operations staffing","change management","workforce surveys",
+    "overtime management","overtime cost reduction","employee engagement",
+    "manufacturing workforce planning","distribution center scheduling",
+    "pharmaceutical shift scheduling","chemical plant operations",
+    "food and beverage manufacturing","mining shift scheduling",
+    "paper and packaging operations","union workforce consulting",
+    "rotating shift schedules","fixed shift schedules","12-hour shift schedules",
+    "staffing and workforce planning","labor cost analysis",
+    "fatigue risk management","post-implementation workforce surveys"
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/company/shiftwork-solutions-llc"
+  ]
+}</script>
+
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
@@ -79,8 +129,6 @@
     }
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
-
-    /* ── NAV ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0;display:flex;align-items:center;gap:12px}
@@ -96,8 +144,6 @@
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-
-    /* ── HERO ── */
     .hero{background:#0D1F3C url('/images/assessment.jpg') center center/cover no-repeat;padding:64px 36px 72px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.92) 0%,rgba(13,31,60,.80) 50%,rgba(13,31,60,.58) 100%);z-index:0;pointer-events:none}
     .hero-circle-tr{position:absolute;top:-60px;right:-80px;width:320px;height:320px;border-radius:50%;border:2px solid rgba(232,97,10,.25);z-index:0}
@@ -112,22 +158,14 @@
     .hero-stat-num{font-size:26px;font-weight:700;color:var(--white);line-height:1.1}
     .hero-stat-label{font-size:12px;color:rgba(255,255,255,.72);margin-top:6px;line-height:1.45}
     @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-
-    /* ── BREADCRUMB ── */
     .breadcrumb-bar{border-bottom:1px solid var(--border-light);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:#888}
     .breadcrumb-inner a{color:#888;text-decoration:none;transition:color .15s}
     .breadcrumb-inner a:hover{color:var(--navy)}
     .breadcrumb-inner .bc-current{color:var(--navy);font-weight:700}
-
-    /* ── ASSESSMENT WRAPPER ── */
     .assessment-wrap{max-width:var(--max-width);margin:0 auto;padding:40px var(--page-pad) 60px}
-
-    /* ── SHARED ACCENT HEADING ── */
     .accent-h{font-size:22px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:10px;padding-left:14px;border-left:4px solid var(--orange)}
     .section-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
-
-    /* ── TIER 1 INTRO ── */
     .t1-intro-para{font-size:16px;line-height:1.85;color:var(--body-text);margin-bottom:18px;max-width:740px}
     .t1-intro-para strong{color:var(--navy)}
     .t1-meta-card{background:var(--light-blue);border-left:4px solid var(--navy);border-radius:0 8px 8px 0;padding:22px 26px;margin:28px 0 32px;max-width:740px}
@@ -140,14 +178,10 @@
     .t1-start-btn{display:inline-block;padding:15px 44px;background:var(--orange);color:var(--white);font-family:Arial,sans-serif;font-size:16px;font-weight:700;border:none;border-radius:5px;cursor:pointer;transition:background .15s;text-decoration:none}
     .t1-start-btn:hover{background:#c4510a}
     .t1-start-sub{font-size:13px;color:var(--muted);margin-top:14px;font-style:italic}
-
-    /* ── PROGRESS (shared) ── */
     .progress-wrap{margin-bottom:28px}
     .progress-track{background:var(--border-med);height:7px;border-radius:4px;margin-bottom:8px;overflow:hidden}
     .progress-fill{background:var(--navy);height:100%;border-radius:4px;transition:width .3s ease}
     .progress-label{font-size:13px;color:var(--muted)}
-
-    /* ── QUESTION SCREEN (shared for T1 and T2) ── */
     .question-screen{display:none}
     .q-number{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:8px}
     .q-category{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;background:var(--light-blue);color:var(--navy);padding:4px 11px;border-radius:3px;margin-bottom:18px}
@@ -162,23 +196,18 @@
     .btn-prev{padding:11px 26px;background:var(--white);border:1.5px solid var(--border-med);border-radius:4px;font-family:Arial,sans-serif;font-size:14px;font-weight:700;color:var(--muted);cursor:pointer;transition:border-color .15s,color .15s}
     .btn-prev:hover{border-color:var(--navy);color:var(--navy)}
     .btn-prev:disabled{opacity:.4;cursor:not-allowed}
-
-    /* ── LOADING (shared) ── */
     .ai-loading{display:none;text-align:center;padding:64px 20px}
     .ai-loading-icon{font-size:42px;margin-bottom:20px;animation:spin 1.2s linear infinite;display:inline-block}
     @keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
     .ai-loading h3{font-size:22px;font-weight:700;color:var(--body-text);margin-bottom:10px}
     .ai-loading p{font-size:15px;color:var(--muted);max-width:460px;margin:0 auto}
     .ai-loading-steps{margin-top:20px;font-size:14px;color:var(--navy);font-weight:600}
-
-    /* ── TIER 1 RESULTS ── */
     .t1-results{display:none}
     .t1-results-header{background:var(--navy);border-radius:10px;padding:34px 32px;margin-bottom:36px;color:var(--white);position:relative;overflow:hidden}
     .t1-results-header::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;border-radius:50%;border:2px solid rgba(232,97,10,.25);pointer-events:none}
     .t1-results-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:12px;position:relative;z-index:1}
     .t1-results-header h2{font-size:24px;font-weight:700;line-height:1.3;color:#EEAE26;margin-bottom:10px;position:relative;z-index:1}
     .t1-results-header p{font-size:15px;line-height:1.7;color:rgba(255,255,255,.85);max-width:620px;position:relative;z-index:1}
-
     .reveal-card{background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:8px;padding:26px 28px;margin-bottom:22px;box-shadow:0 2px 10px rgba(0,0,0,.04);transition:box-shadow .2s ease}
     .reveal-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.08)}
     .reveal-card-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);margin-bottom:10px}
@@ -191,24 +220,19 @@
     .reveal-compare-value{font-size:16px;font-weight:700;color:var(--body-text);line-height:1.35}
     .reveal-compare-cell.pattern .reveal-compare-value{color:var(--navy)}
     .reveal-narrative{font-size:15px;line-height:1.78;color:var(--body-text)}
-
     .db-callout{background:var(--navy-dark);border-radius:10px;padding:30px 34px;margin:40px 0;color:var(--white);position:relative;overflow:hidden}
     .db-callout::before{content:'';position:absolute;top:-30px;left:-40px;width:140px;height:140px;border-radius:50%;border:2px solid rgba(133,183,235,.15);pointer-events:none}
     .db-callout-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--mid-blue);margin-bottom:10px;position:relative;z-index:1}
     .db-callout h3{font-size:19px;font-weight:700;color:#EEAE26;margin-bottom:14px;line-height:1.3;position:relative;z-index:1}
     .db-callout p{font-size:15px;line-height:1.78;color:rgba(255,255,255,.85);max-width:680px;position:relative;z-index:1}
-
     .commentary-block{background:var(--light-grey);border-left:4px solid var(--orange);border-radius:0 8px 8px 0;padding:26px 30px;margin:36px 0}
     .commentary-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);margin-bottom:10px}
     .commentary-block h3{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:14px;line-height:1.3}
     .commentary-block p{font-size:15px;line-height:1.78;color:var(--body-text);margin-bottom:12px}
     .commentary-block p:last-child{margin-bottom:0}
-
     .closing-argument{background:var(--white);border:2px solid var(--navy);border-radius:10px;padding:32px;margin:40px 0 32px;text-align:center}
     .closing-argument h3{font-size:19px;font-weight:700;color:var(--navy);margin-bottom:14px;line-height:1.35}
     .closing-argument p{font-size:15px;line-height:1.78;color:var(--body-text);max-width:640px;margin:0 auto}
-
-    /* ── TIER 1 CTAs ── */
     .t1-cta-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:30px 0}
     .t1-cta-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--navy);border-radius:8px;padding:24px 26px;text-decoration:none;transition:all .2s ease;cursor:pointer}
     .t1-cta-card:hover{border-top-color:var(--orange);box-shadow:0 6px 20px rgba(0,0,0,.10);transform:translateY(-2px)}
@@ -222,8 +246,6 @@
     .t1-cta-tertiary{text-align:center;padding:14px 0;margin-bottom:20px}
     .t1-cta-tertiary a{font-size:14px;color:var(--muted);text-decoration:none;transition:color .15s}
     .t1-cta-tertiary a:hover{color:var(--navy);text-decoration:underline}
-
-    /* ── TIER 2 FORM ── */
     .t2-form-screen{display:none}
     .t2-intro-row{display:grid;grid-template-columns:1fr 320px;gap:36px;align-items:flex-start;margin-bottom:24px}
     .t2-intro-copy{min-width:0}
@@ -233,8 +255,6 @@
     .t2-form-intro{background:var(--light-blue);border-left:4px solid var(--navy);border-radius:0 8px 8px 0;padding:22px 26px;margin-bottom:0}
     .t2-form-intro h3{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px}
     .t2-form-intro p{font-size:14px;color:var(--body-text);line-height:1.7}
-
-    /* ── ANIMATED PDF PREVIEW ── */
     .pdf-preview-wrap{position:sticky;top:80px;display:flex;flex-direction:column;align-items:center;gap:10px}
     .pdf-preview-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
     .pdf-preview{position:relative;width:260px;height:336px;background:var(--white);border-radius:4px;box-shadow:0 12px 36px rgba(13,31,60,.18),0 3px 10px rgba(13,31,60,.10);overflow:hidden}
@@ -292,7 +312,6 @@
     .pdf-preview-dots{display:flex;gap:5px;margin-top:2px}
     .pp-dot{width:6px;height:6px;border-radius:50%;background:var(--border-med);transition:background .4s,width .4s}
     .pp-dot.pp-dot-active{background:var(--orange);width:18px;border-radius:3px}
-
     .form-card{background:var(--white);border:1px solid var(--border-med);border-top:4px solid var(--orange);border-radius:8px;padding:32px;margin-bottom:24px;box-shadow:0 4px 20px rgba(0,0,0,.06)}
     .form-card h3{font-size:19px;font-weight:700;color:var(--body-text);margin-bottom:6px}
     .form-card .form-sub{font-size:14px;color:var(--muted);margin-bottom:26px;line-height:1.6}
@@ -321,8 +340,6 @@
     .form-msg.info{background:#EEF3F8;color:var(--navy);border:1px solid var(--mid-blue);display:block}
     .form-msg.success{background:#e8f5e9;color:#1b5e20;border:1px solid #a5d6a7;display:block}
     .form-msg.error{background:#fce4ec;color:#880e4f;border:1px solid #f48fb1;display:block}
-
-    /* ── TIER 2 RESULTS ── */
     .t2-results{display:none}
     .results-overall{background:var(--navy);border-radius:10px;padding:36px;text-align:center;margin-bottom:32px;color:var(--white)}
     .results-overall h2{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
@@ -349,7 +366,6 @@
     .rec-item.action{border-left-color:var(--orange);background:#fef6f0}
     .rec-item.action strong{color:var(--orange)}
     .ss-note{margin-top:12px;padding:12px 14px;background:var(--light-blue);border-radius:5px;font-size:13px;color:var(--navy);font-style:italic;line-height:1.6}
-
     .cta-section{margin:44px 0 0}
     .cta-box{background:var(--navy);border-radius:10px;padding:36px;text-align:center}
     .cta-box h2{font-size:22px;font-weight:700;color:var(--white);margin-bottom:12px}
@@ -366,8 +382,6 @@
     .btn-pdf:hover{background:#174067}
     .btn-restart{display:block;margin:18px auto 0;padding:11px 26px;background:var(--white);border:1.5px solid var(--border-med);border-radius:4px;font-family:Arial,sans-serif;font-size:14px;font-weight:700;color:var(--muted);cursor:pointer;transition:border-color .15s,color .15s}
     .btn-restart:hover{border-color:var(--navy);color:var(--navy)}
-
-    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -402,8 +416,7 @@
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-
-    /* ── THOMAS FLOATING WIDGET (2026-04-22) ── */
+    .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none}
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
@@ -413,8 +426,6 @@
     .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
     .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
     @media(max-width:768px){.thomas-float{display:none}}
-
-    /* ── RESPONSIVE ── */
     @media(max-width:768px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
       .nav-logo-text{font-size:16px}
@@ -497,16 +508,13 @@
 <!-- ── ASSESSMENT CONTENT ── -->
 <div class="assessment-wrap">
 
-  <!-- ============================================================ -->
-  <!-- TIER 1: INTRO SCREEN                                          -->
-  <!-- ============================================================ -->
+  <!-- TIER 1: INTRO SCREEN -->
   <div id="screen-t1-intro">
     <div class="section-eyebrow">How It Works</div>
     <div class="accent-h">A short exercise in what&rsquo;s knowable &mdash; and what isn&rsquo;t.</div>
     <p class="t1-intro-para" style="margin-top:18px;">Every shift operations leader makes daily decisions based on what they believe about their workforce &mdash; who wants overtime, who doesn&rsquo;t, what employees value, how they feel about the schedule they&rsquo;re working.</p>
     <p class="t1-intro-para">Some of those beliefs are accurate. Some aren&rsquo;t. The tricky part is knowing which is which.</p>
     <p class="t1-intro-para">This short exercise lets you compare your instincts to patterns drawn from our benchmark database &mdash; more than <strong>20,000 shift worker responses across hundreds of 24/7 operations</strong>. You&rsquo;ll see where your thinking aligns with what shift workers across North America actually say, and, just as importantly, where the honest answer for your specific facility remains an open question.</p>
-
     <div class="t1-meta-card">
       <div class="t1-meta-card-row">
         <div class="t1-meta-icon">1</div>
@@ -521,16 +529,13 @@
         <div class="t1-meta-text"><strong>Optional deeper dive.</strong> If the Reality Check sparks interest, you can follow with a more detailed analysis of your own operation.</div>
       </div>
     </div>
-
     <div class="t1-start-wrap">
       <button type="button" class="t1-start-btn" onclick="startT1()">Start the Reality Check &#x2192;</button>
       <p class="t1-start-sub">Takes about four minutes. Free. No contact information required.</p>
     </div>
   </div>
 
-  <!-- ============================================================ -->
-  <!-- TIER 1: QUESTION SCREEN                                       -->
-  <!-- ============================================================ -->
+  <!-- TIER 1: QUESTION SCREEN -->
   <div id="screen-t1-questions" class="question-screen">
     <div class="progress-wrap">
       <div class="progress-track"><div class="progress-fill" id="t1ProgressFill"></div></div>
@@ -547,9 +552,7 @@
     </div>
   </div>
 
-  <!-- ============================================================ -->
-  <!-- TIER 1: LOADING SCREEN                                        -->
-  <!-- ============================================================ -->
+  <!-- TIER 1: LOADING -->
   <div id="screen-t1-loading" class="ai-loading">
     <div class="ai-loading-icon">&#x2699;</div>
     <h3>Preparing Your Reality Check</h3>
@@ -557,27 +560,21 @@
     <div class="ai-loading-steps" id="t1LoadingSteps">Reviewing your answers&#x2026;</div>
   </div>
 
-  <!-- ============================================================ -->
-  <!-- TIER 1: RESULTS SCREEN                                        -->
-  <!-- ============================================================ -->
+  <!-- TIER 1: RESULTS -->
   <div id="screen-t1-results" class="t1-results">
     <div class="t1-results-header">
       <div class="t1-results-eyebrow">Your Reality Check</div>
       <h2>Here&rsquo;s what you thought. Here&rsquo;s what the benchmark shows.</h2>
       <p>Each section below shows your answer alongside the pattern we see across hundreds of 24/7 operations. The honest answer for your specific facility remains an open question &mdash; and that&rsquo;s the point.</p>
     </div>
-
     <div id="t1RevealsContainer"></div>
     <div id="t1CommentaryContainer"></div>
-
     <div class="closing-argument">
       <h3>The best decisions about a workforce come from knowing what that workforce actually thinks.</h3>
       <p>Not from assumptions, and not from general patterns. Our workforce surveys apply this same benchmark data to your specific facility &mdash; calibrated to your industry, your shift structure, and your specific concerns. That&rsquo;s how you stop guessing and start knowing.</p>
     </div>
-
     <div class="section-eyebrow" style="margin-top:40px;">Where to Go From Here</div>
     <div class="accent-h" style="margin-bottom:22px;">Three ways to take this further.</div>
-
     <div class="t1-cta-row">
       <a href="#" onclick="goToT2(); return false;" class="t1-cta-card primary">
         <span class="t1-cta-free-pill">FREE</span>
@@ -594,17 +591,13 @@
         <span class="t1-cta-action">Book a Meeting &#x2192;</span>
       </a>
     </div>
-
     <div class="t1-cta-tertiary">
       <a href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener">Or talk to Thomas, our AI shift advisor &rsaquo;</a>
     </div>
-
     <button class="btn-restart" onclick="restartAll()">Take the Reality Check Again</button>
   </div>
 
-  <!-- ============================================================ -->
-  <!-- TIER 2: FORM SCREEN                                           -->
-  <!-- ============================================================ -->
+  <!-- TIER 2: FORM SCREEN -->
   <div id="screen-t2-form" class="t2-form-screen">
     <div class="t2-intro-row">
       <div class="t2-intro-copy">
@@ -619,12 +612,9 @@
           <p>The Reality Check compared your thinking to general patterns. This next part asks about your actual operation across eight dimensions &mdash; work-life balance, employee health, alertness, overtime, operations, quality, communication, and workforce stability. You&rsquo;ll get a personalized PDF report with your scores, strengths, and priority areas for improvement.</p>
         </div>
       </div>
-
       <div class="pdf-preview-wrap" aria-label="Sample PDF preview">
         <div class="pdf-preview-label">YOUR REPORT PREVIEW</div>
         <div class="pdf-preview" id="pdfPreview">
-
-          <!-- Page 1: Cover -->
           <div class="pdf-page pdf-page-active" data-page="0">
             <div class="pp-cover-band">
               <div class="pp-cover-logo"><span>S</span></div>
@@ -646,8 +636,6 @@
             </div>
             <div class="pp-page-label">Cover</div>
           </div>
-
-          <!-- Page 2: Reality Check recap -->
           <div class="pdf-page" data-page="1">
             <div class="pp-sect-tag">PART 1</div>
             <div class="pp-sect-title">The Reality Check</div>
@@ -656,26 +644,18 @@
             <div class="pp-reveal-card">
               <div class="pp-reveal-eyebrow">REVEAL 1 &middot; OVERTIME</div>
               <div class="pp-text-bar dark" style="width:88%"></div>
-              <div class="pp-compare-row">
-                <div class="pp-compare-cell grey"></div>
-                <div class="pp-compare-cell blue"></div>
-              </div>
+              <div class="pp-compare-row"><div class="pp-compare-cell grey"></div><div class="pp-compare-cell blue"></div></div>
               <div class="pp-text-bar" style="width:95%"></div>
               <div class="pp-text-bar" style="width:78%"></div>
             </div>
             <div class="pp-reveal-card">
               <div class="pp-reveal-eyebrow">REVEAL 2 &middot; FIXED VS. ROTATING</div>
               <div class="pp-text-bar dark" style="width:80%"></div>
-              <div class="pp-compare-row">
-                <div class="pp-compare-cell grey"></div>
-                <div class="pp-compare-cell blue"></div>
-              </div>
+              <div class="pp-compare-row"><div class="pp-compare-cell grey"></div><div class="pp-compare-cell blue"></div></div>
               <div class="pp-text-bar" style="width:90%"></div>
             </div>
             <div class="pp-page-label">Reality Check</div>
           </div>
-
-          <!-- Page 3: Executive Summary -->
           <div class="pdf-page" data-page="2">
             <div class="pp-sect-tag">PART 2</div>
             <div class="pp-sect-title">Executive Summary</div>
@@ -696,8 +676,6 @@
             </div>
             <div class="pp-page-label">Executive Summary</div>
           </div>
-
-          <!-- Page 4: Dimensional Scorecard -->
           <div class="pdf-page" data-page="3">
             <div class="pp-sect-tag">PART 3</div>
             <div class="pp-sect-title">Dimensional Scorecard</div>
@@ -710,8 +688,6 @@
             <div class="pp-bar-row"><div class="pp-bar-label"></div><div class="pp-bar-track"><div class="pp-bar-fill red" style="width:38%"></div></div></div>
             <div class="pp-page-label">Scorecard</div>
           </div>
-
-          <!-- Page 5: About Shiftwork Solutions -->
           <div class="pdf-page" data-page="4">
             <div class="pp-sect-tag">PART 4</div>
             <div class="pp-sect-title">About Shiftwork Solutions</div>
@@ -730,7 +706,6 @@
             </div>
             <div class="pp-page-label">About SS</div>
           </div>
-
         </div>
         <div class="pdf-preview-dots" id="pdfPreviewDots">
           <span class="pp-dot pp-dot-active"></span>
@@ -811,9 +786,7 @@
     </div>
   </div>
 
-  <!-- ============================================================ -->
-  <!-- TIER 2: QUESTION SCREEN                                       -->
-  <!-- ============================================================ -->
+  <!-- TIER 2: QUESTION SCREEN -->
   <div id="screen-t2-questions" class="question-screen">
     <div class="progress-wrap">
       <div class="progress-track"><div class="progress-fill" id="t2ProgressFill"></div></div>
@@ -829,9 +802,7 @@
     </div>
   </div>
 
-  <!-- ============================================================ -->
-  <!-- TIER 2: LOADING SCREEN                                        -->
-  <!-- ============================================================ -->
+  <!-- TIER 2: LOADING -->
   <div id="screen-t2-loading" class="ai-loading">
     <div class="ai-loading-icon">&#x2699;</div>
     <h3>Analyzing Your Responses</h3>
@@ -839,9 +810,7 @@
     <div class="ai-loading-steps" id="t2LoadingSteps">Preparing evaluation&#x2026;</div>
   </div>
 
-  <!-- ============================================================ -->
-  <!-- TIER 2: RESULTS SCREEN                                        -->
-  <!-- ============================================================ -->
+  <!-- TIER 2: RESULTS -->
   <div id="screen-t2-results" class="t2-results">
     <div class="results-overall">
       <h2>Overall Shift Operations Health Score</h2>
@@ -865,13 +834,11 @@
       <h3>&#x1F3AF; Recommended Actions</h3>
       <div id="actionsList"></div>
     </div>
-
     <div class="db-callout">
       <div class="db-callout-eyebrow">About the Benchmark</div>
       <h3>The Shiftwork Solutions Normative Database</h3>
       <p>The comparisons and analysis you&rsquo;ve seen are drawn from the Shiftwork Solutions normative database &mdash; responses from more than 20,000 shift workers across hundreds of 24/7 operations in 16 industries. It&rsquo;s the largest benchmark dataset of its kind, built over three decades of client engagements. The full dataset isn&rsquo;t publicly available; it&rsquo;s used in our workforce surveys and schedule design engagements, where it becomes the foundation for understanding how a specific workforce compares to the industry as a whole.</p>
     </div>
-
     <div class="cta-section">
       <div class="cta-box">
         <h2>Ready to Take Action?</h2>
@@ -882,7 +849,6 @@
         </div>
       </div>
     </div>
-
     <div class="pdf-section">
       <h3>&#x1F4C4; Download Your Complete Report</h3>
       <p>Your full Reality Check results plus the detailed operations analysis &mdash; formatted for printing or sharing as a PDF.</p>
@@ -929,18 +895,22 @@
   <div class="footer-bottom"><div class="footer-bottom-inner">
     <div class="footer-bottom-left">
       <span class="footer-bottom-brand">Shiftwork Solutions LLC</span>
+      <span class="footer-bottom-sep">&middot;</span>
       <a href="tel:+14152651621">(415) 265-1621</a>
+      <span class="footer-bottom-sep">&middot;</span>
       <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/resources/case-studies/">Case Studies</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="footer-bottom-sep">&middot;</span>
+      <a href="/terms-of-use/">Terms of Use</a>
     </div>
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
 
-<!-- ── THOMAS FLOATING WIDGET ──
-     Fixed to right edge, ~40% from top of viewport.
-     Hidden on mobile (max-width:768px).
-     Opens Thomas diagnostic app in new tab.
-     z-index 950: above content, below nav (1000). -->
+<!-- ── THOMAS FLOATING WIDGET ── -->
 <a class="thomas-float"
    href="https://shift-work-diagnostic.onrender.com/"
    target="_blank"
@@ -953,7 +923,275 @@
     <span class="thomas-float-cta">Chat Now &rarr;</span>
   </div>
 </a>
-<!-- ── END THOMAS FLOATING WIDGET ── -->
+
+<script>
+/* ============================================================ */
+/* THE REALITY CHECK — Tier 1 + Tier 2 logic                   */
+/* ============================================================ */
+(function () {
+  'use strict';
+
+  var SWARM_API = 'https://ai-swarm-orchestrator.onrender.com';
+
+  var t1Answers = {};
+  var t1CurrentQ = 0;
+  var t1IsTransitioning = false;
+  var t1AdvanceTimer = null;
+  var t1AICommentary = null;
+
+  var t2Answers = {};
+  var t2CurrentQ = 0;
+  var t2IsTransitioning = false;
+  var t2AdvanceTimer = null;
+  var t2ContactData = null;
+  var t2AssessmentId = null;
+
+  var t1Questions = [
+    {id:1,category:'Overtime Preferences',text:'Of your shift workforce, what percentage would you estimate actively wants all the overtime they can get?',opts:['Less than 10%','About 20%','About 35%','About 50%','More than 50%'],benchmarkLabel:'What the benchmark shows',benchmarkText:'Roughly 20% actively seek overtime, 60% will work a fair share, 20% want none.',revealCopy:function(a){return'You estimated <strong>'+a+'</strong>. Across hundreds of 24/7 operations we\u2019ve surveyed, the pattern sits closer to 20% actively seeking maximum overtime, 60% willing to work a fair share, and 20% who\u2019d prefer none at all. Most operations leaders land somewhere in a wide range on this question \u2014 which is itself telling. Whether your own workforce matches the general 20/60/20 pattern, or leans differently, is something only a structured conversation with your workforce can actually answer.';}},
+    {id:2,category:'Fixed vs. Rotating',text:'If your shift workers could choose, what percentage do you think would prefer fixed shifts over rotating?',opts:['Less than 40%','About 50%','About 65%','About 80%','More than 90%'],benchmarkLabel:'What the benchmark shows',benchmarkText:'More than 80% prefer fixed shifts; about 60% would accept a non-preferred fixed shift over rotating.',revealCopy:function(a){return'You estimated <strong>'+a+'</strong>. In shift worker surveys spanning hundreds of 24/7 operations, more than 80% say they\u2019d prefer a fixed shift. Roughly 60% say they\u2019d accept a fixed shift that wasn\u2019t their first choice rather than stay on any rotating schedule. The preference holds across industries, tenure, and shift length. It\u2019s one of the most consistent findings in the data \u2014 and one that\u2019s rarely reflected in the schedules workforces are actually running.';}},
+    {id:3,category:'Communication',text:'How would you rate the quality of communication between your management team and your shift workers about schedules and work conditions?',opts:['Excellent','Good','Average','Below average','Poor'],benchmarkLabel:'What the benchmark shows',benchmarkText:'About 70% of managers rate communication as good or better; about 70% of their workers rate it below that.',revealCopy:function(a){return'You rated it <strong>'+a+'</strong>. About 70% of managers across operations we\u2019ve surveyed rate their own communication as good or excellent. About 70% of their shift workers, asked the same question about the same managers, rate it below that mark. The gap is one of the most consistently observed patterns in shift operations research. It doesn\u2019t mean managers are out of touch \u2014 it means informal observation isn\u2019t a reliable way to detect how communication is actually landing. Without a structured way to measure it at your facility, the size of any gap is genuinely unknown.';}},
+    {id:4,category:'True Cost of Overtime',text:'When fully loaded \u2014 including benefits, PTO, training, and administrative costs \u2014 how much more does an overtime hour actually cost your operation than a straight-time hour?',opts:['About 10% more','About 25% more','About 50% more (time-and-a-half)','About 75% more','More than 100% more'],benchmarkLabel:'What the benchmark shows',benchmarkText:'The true fully loaded premium typically falls in the 5\u201310% range, not the 50% time-and-a-half implies.',revealCopy:function(a){return'You estimated <strong>'+a+'</strong>. The \u201ctime-and-a-half\u201d framing creates an intuitive sense that overtime costs 50% more than regular hours \u2014 and most managers, quite reasonably, carry that figure in their heads. When the calculation is done on a fully loaded basis (including benefits, PTO accrual, training, and the alternative cost of carrying additional headcount), the true premium typically falls in the 5\u201310% range. This doesn\u2019t mean overtime is always the right answer, but it does mean the cost conversation is usually built on a number that\u2019s significantly too high. What your actual fully loaded premium works out to depends on your specific cost structure.';}},
+    {id:5,category:'Schedule Change Resistance',text:'If you proposed a significant schedule change tomorrow \u2014 say, moving from rotating to fixed shifts, or from 8s to 12s \u2014 what percentage of your workforce do you think would resist?',opts:['Less than 10%','About 25%','About 50%','About 75%','More than 90%'],benchmarkLabel:'What the benchmark shows',benchmarkText:'In employee-centered change processes, most workers support the new schedule; about 5% will express dissatisfaction regardless.',revealCopy:function(a){return'You estimated <strong>'+a+'</strong>. In operations where a schedule change is announced without structured workforce input, resistance rates are often high enough to derail the change \u2014 or to damage morale for years, even when the change technically succeeds. In engagements where workers are genuinely involved in evaluating options, most end up supporting the new schedule, and a meaningful percentage report preferring it over the old one. There\u2019s also a baseline: about 5% of any workforce will express dissatisfaction regardless of what\u2019s offered. How your workforce would respond depends far more on <em>how</em> a change is run than on what the change itself is.';}},
+    {id:6,category:'Absenteeism Attitudes',text:'What percentage of your shift workers do you think believe other employees\u2019 unplanned absences negatively affect their own work life?',opts:['Less than 25%','About 40%','About 55%','About 65%','More than 75%'],benchmarkLabel:'What the benchmark shows',benchmarkText:'Roughly two-thirds of shift workers say others\u2019 absenteeism adversely affects them \u2014 and would support tighter policies.',revealCopy:function(a){return'You estimated <strong>'+a+'</strong>. When we ask shift workers directly, about two-thirds say that other employees\u2019 unplanned absences adversely affect their own lifestyle \u2014 and a similar majority say they\u2019d support tighter absentee policies. This often runs counter to the assumption that tighter absence policies would be seen as management overreach. The workforce often wants the problem addressed more than management does. Whether that\u2019s true at your facility is a measurable question.';}},
+    {id:7,category:'Night-Shift Sleep',text:'On a typical workday, how many hours of sleep would you estimate your night-shift employees get?',opts:['Less than 5 hours','About 5.5 hours','About 6.5 hours','About 7 hours','More than 7 hours'],benchmarkLabel:'What the benchmark shows',benchmarkText:'Shift workers average about 6.5 hours of sleep on workdays \u2014 below the adult population average and well below recommended levels.',revealCopy:function(a){return'You estimated <strong>'+a+'</strong>. Shift workers across the operations we\u2019ve surveyed average about 6.5 hours of sleep on workdays \u2014 roughly 25 minutes less than the general adult population, which itself is below what the National Sleep Foundation recommends. About one in five shift workers reports a safety or performance problem from sleepiness in any given week. This is a population-level figure; individual facilities vary considerably depending on schedule design, shift rotation pattern, and the local culture around rest.';}},
+    {id:8,category:'What\u2019s On Your Mind',text:'Of these, which is the single biggest challenge in your operation right now?',subText:'We\u2019ll use this to tailor the closing commentary to what\u2019s most relevant to you.',opts:['Recruiting / Staffing','Retaining experienced workers','Managing overtime','Work-life balance complaints','Coverage / absenteeism','Communication with the workforce','Planning an upcoming schedule change','Other'],isContext:true}
+  ];
+
+  var ALL_SCREENS = ['screen-t1-intro','screen-t1-questions','screen-t1-loading','screen-t1-results','screen-t2-form','screen-t2-questions','screen-t2-loading','screen-t2-results'];
+
+  function show(id) {
+    ALL_SCREENS.forEach(function(s){var el=document.getElementById(s);if(!el)return;el.style.display=(s===id)?'block':'none';});
+  }
+
+  window.startT1 = function(){t1CurrentQ=0;t1Answers={};show('screen-t1-questions');window.scrollTo(0,0);renderT1Question();};
+
+  function renderT1Question(){
+    if(t1IsTransitioning)return;
+    var q=t1Questions[t1CurrentQ],total=t1Questions.length,pct=Math.round(((t1CurrentQ+1)/total)*100);
+    document.getElementById('t1ProgressFill').style.width=pct+'%';
+    document.getElementById('t1ProgressLabel').textContent='Question '+(t1CurrentQ+1)+' of '+total;
+    document.getElementById('t1QNumber').textContent='Question '+(t1CurrentQ+1)+' of '+total;
+    document.getElementById('t1QCategory').textContent=q.category;
+    document.getElementById('t1QText').innerHTML=q.text;
+    var subEl=document.getElementById('t1QSub');
+    if(q.subText){subEl.textContent=q.subText;subEl.style.display='block';}else{subEl.style.display='none';}
+    var grid=document.getElementById('t1AnswerGrid');grid.innerHTML='';
+    q.opts.forEach(function(opt,idx){var btn=document.createElement('button');btn.type='button';btn.className='answer-btn'+(t1Answers[q.id]===idx?' selected':'');btn.textContent=opt;btn.onclick=function(){t1SelectAnswer(idx);};grid.appendChild(btn);});
+    document.getElementById('t1BtnPrev').disabled=(t1CurrentQ===0);
+  }
+
+  function t1SelectAnswer(idx){
+    if(t1IsTransitioning)return;
+    var q=t1Questions[t1CurrentQ];
+    if(t1Answers[q.id]===idx)return;
+    if(t1AdvanceTimer){clearTimeout(t1AdvanceTimer);t1AdvanceTimer=null;}
+    t1IsTransitioning=true;t1Answers[q.id]=idx;
+    var btns=document.querySelectorAll('#t1AnswerGrid .answer-btn');
+    btns.forEach(function(b,i){b.classList.toggle('selected',i===idx);b.disabled=true;});
+    t1AdvanceTimer=setTimeout(function(){t1AdvanceTimer=null;t1IsTransitioning=false;if(t1CurrentQ<t1Questions.length-1){t1CurrentQ++;renderT1Question();window.scrollTo(0,0);}else{startT1Evaluation();}},380);
+  }
+
+  window.t1PrevQuestion=function(){if(t1AdvanceTimer){clearTimeout(t1AdvanceTimer);t1AdvanceTimer=null;}t1IsTransitioning=false;if(t1CurrentQ>0){t1CurrentQ--;renderT1Question();window.scrollTo(0,0);}};
+
+  var t1LoadingMessages=['Reviewing your answers\u2026','Comparing to the benchmark\u2026','Writing your closing commentary\u2026','Preparing your results\u2026'];
+  var t1LoadingInterval=null,t1LoadingStep=0;
+  function startT1LoadingAnim(){t1LoadingStep=0;document.getElementById('t1LoadingSteps').textContent=t1LoadingMessages[0];t1LoadingInterval=setInterval(function(){t1LoadingStep=(t1LoadingStep+1)%t1LoadingMessages.length;document.getElementById('t1LoadingSteps').textContent=t1LoadingMessages[t1LoadingStep];},1800);}
+  function stopT1LoadingAnim(){if(t1LoadingInterval){clearInterval(t1LoadingInterval);t1LoadingInterval=null;}}
+
+  function startT1Evaluation(){show('screen-t1-loading');window.scrollTo(0,0);startT1LoadingAnim();callT1ClaudeAPI();}
+
+  function buildT1Prompt(){
+    var challengeIdx=t1Answers[8];
+    var challenge=(challengeIdx!==undefined)?t1Questions[7].opts[challengeIdx]:'not specified';
+    var predictionSummary=[];
+    for(var i=0;i<7;i++){var q=t1Questions[i];var aIdx=t1Answers[q.id];var aText=(aIdx!==undefined)?q.opts[aIdx]:'(no answer)';predictionSummary.push('- '+q.category+': they predicted "'+aText+'"');}
+    return 'You are writing a short closing commentary for a manager who just completed the Shiftwork Solutions Reality Check \u2014 an eight-question exercise that compared their intuitions about their workforce to general benchmark patterns from 20,000+ shift worker responses.\n\nThe manager\u2019s stated biggest current challenge: '+challenge+'\n\nTheir predictions across the seven benchmark questions:\n'+predictionSummary.join('\n')+'\n\n=== YOUR TASK ===\nWrite a closing commentary of exactly 2-3 short paragraphs that ties their stated challenge together with the patterns they just saw, and ends pointing at what remains genuinely unknown about their specific facility.\n\nReturn ONLY a valid JSON object \u2014 no markdown, no explanation outside the JSON:\n{\n  "heading": <string, under 80 chars, a warm accent heading for the commentary>,\n  "paragraphs": [<string>, <string>, <optional third string>]\n}\n\n=== HARD CONSTRAINTS \u2014 these are non-negotiable ===\n1. DO NOT give industry-specific benchmark numbers of any kind.\n2. DO NOT give numeric targets or thresholds that would let them self-diagnose without help.\n3. DO NOT explain methodology.\n4. DO NOT give prescriptive implementation steps.\n5. DO NOT invent new statistics or benchmark figures.\n6. DO frame the manager\u2019s predictions as reasonable.\n7. DO tie the commentary to their stated biggest challenge.\n8. DO end on what remains unknown about THEIR facility specifically.\n9. DO NOT use the word "Shiftwork Solutions" more than once.\n10. Keep each paragraph to 3-5 sentences. Total commentary under 250 words.\n11. Return ONLY the JSON object.';
+  }
+
+  function callT1ClaudeAPI(){
+    fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,messages:[{role:'user',content:buildT1Prompt()}]})}).then(function(r){if(!r.ok)throw new Error('API error '+r.status);return r.json();}).then(function(data){var text='';if(data.content&&data.content.length>0){data.content.forEach(function(block){if(block.type==='text')text+=block.text;});}text=text.replace(/```json|```/g,'').trim();try{t1AICommentary=JSON.parse(text);}catch(e){t1AICommentary=null;}stopT1LoadingAnim();renderT1Results();}).catch(function(err){console.warn('T1 commentary skipped:',err);t1AICommentary=null;stopT1LoadingAnim();renderT1Results();});
+  }
+
+  function renderT1Results(){
+    var revealsHtml='';
+    for(var i=0;i<7;i++){
+      var q=t1Questions[i],aIdx=t1Answers[q.id],yourAnswer=(aIdx!==undefined)?q.opts[aIdx]:'(no answer)',narrative=q.revealCopy(yourAnswer);
+      revealsHtml+='<div class="reveal-card"><div class="reveal-card-eyebrow">Reveal '+(i+1)+' of 7 &middot; '+q.category+'</div><h3>'+q.text+'</h3><div class="reveal-compare"><div class="reveal-compare-cell"><div class="reveal-compare-label">Your Prediction</div><div class="reveal-compare-value">'+yourAnswer+'</div></div><div class="reveal-compare-cell pattern"><div class="reveal-compare-label">The Benchmark Pattern</div><div class="reveal-compare-value">'+q.benchmarkText+'</div></div></div><div class="reveal-narrative">'+narrative+'</div></div>';
+      if(i===3){revealsHtml+='<div class="db-callout"><div class="db-callout-eyebrow">About the Benchmark</div><h3>The Shiftwork Solutions Normative Database</h3><p>The comparisons you\u2019re seeing are drawn from the Shiftwork Solutions normative database \u2014 responses from more than 20,000 shift workers across hundreds of 24/7 operations in 16 industries. It\u2019s the largest benchmark dataset of its kind, built over three decades of client engagements. The full dataset isn\u2019t publicly available; it\u2019s used in our workforce surveys and schedule design engagements, where it becomes the foundation for understanding how a specific workforce compares to the industry as a whole.</p></div>';}
+    }
+    document.getElementById('t1RevealsContainer').innerHTML=revealsHtml;
+    var cHtml='';
+    if(t1AICommentary&&t1AICommentary.paragraphs&&t1AICommentary.paragraphs.length>0){cHtml='<div class="commentary-block"><div class="commentary-eyebrow">What this means for you</div><h3>'+(t1AICommentary.heading||'Reading the pattern in context')+'</h3>';t1AICommentary.paragraphs.forEach(function(p){if(p&&p.trim().length>0)cHtml+='<p>'+p+'</p>';});cHtml+='</div>';}else{cHtml='<div class="commentary-block"><div class="commentary-eyebrow">What this means for you</div><h3>Reading the pattern in context</h3><p>The seven reveals above show where general industry patterns sit. What they can\u2019t tell you is where your specific workforce sits relative to those patterns \u2014 whether your operation is more or less typical on any given dimension.</p><p>That\u2019s the gap a proper workforce survey closes. Instead of general benchmarks, you get your actual workforce\u2019s actual answers, compared against the same dataset you just saw summarized.</p></div>';}
+    document.getElementById('t1CommentaryContainer').innerHTML=cHtml;
+    show('screen-t1-results');window.scrollTo(0,0);
+  }
+
+  window.goToT2=function(){show('screen-t2-form');window.scrollTo(0,0);};
+  window.backToT1Results=function(){show('screen-t1-results');window.scrollTo(0,0);};
+
+  var T2_CATEGORY_NAMES={worklife:'Work-Life Balance',health:'Employee Health',alertness:'Alertness Management',overtime:'Overtime Management',operations:'Operational Efficiency',quality:'Quality & Safety',communication:'Communication',workforce:'Workforce Stability'};
+
+  var t2Questions=[
+    {id:1,cat:'worklife',text:'Do employees complain about work-life balance issues related to their schedules?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
+    {id:2,cat:'worklife',text:'Do employees struggle to attend family events, appointments, or personal commitments due to their work schedules?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
+    {id:3,cat:'worklife',text:'From a management perspective, do you feel your scheduling practices adequately consider employee personal needs?',opts:['Yes','Somewhat','No'],scoring:[0,1,2]},
+    {id:4,cat:'worklife',text:'Do your employees feel their schedule lacks flexibility to accommodate requests for time off?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
+    {id:5,cat:'worklife',text:'Are employees indicating that work is negatively impacting their family relationships or personal health?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
+    {id:6,cat:'worklife',text:'Is there a disconnect between what employees say they need for work-life balance and what management believes they need?',opts:['Yes','Somewhat','No'],scoring:[2,1,0]},
+    {id:7,cat:'health',text:'Does your facility use rotating shifts (where employees change shifts on a regular basis)?',opts:['Yes','No'],scoring:[2,0]},
+    {id:8,cat:'health',text:'Do employees typically work more than 5\u20136 consecutive days without a break?',opts:['Yes','No'],scoring:[2,0]},
+    {id:9,cat:'health',text:'Have you experienced safety incidents or accidents that may be related to employee fatigue or sleepiness?',opts:['Frequently','Rarely','Never'],scoring:[2,1,0]},
+    {id:10,cat:'health',text:'Do employees report health issues they attribute to their work schedule (sleep problems, digestive issues, stress)?',opts:['Frequently','Rarely','Never'],scoring:[2,1,0]},
+    {id:11,cat:'health',text:'Do your shift start times begin earlier than 6:00 AM?',opts:['Yes','No'],scoring:[2,0]},
+    {id:12,cat:'alertness',text:'Do you notice decreased alertness or performance during certain shifts or times of day?',opts:['Frequently','Rarely','Never'],scoring:[2,1,0]},
+    {id:13,cat:'alertness',text:'Have employees mentioned feeling excessively tired or struggling to stay awake during their shifts?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
+    {id:14,cat:'alertness',text:'Are quality issues or errors more common during specific shifts (especially night shifts or extended shifts)?',opts:['Yes, more on Day shifts','Yes, more on Night shifts','No difference between shifts'],scoring:[1,2,0]},
+    {id:15,cat:'alertness',text:'Do you have formal strategies for managing fatigue and maintaining alertness on night shifts?',opts:['Yes','No'],scoring:[0,2]},
+    {id:16,cat:'overtime',text:'Are you running overtime levels consistently above 10\u201315%?',opts:['Always','Sometimes','Rarely or Never'],scoring:[2,1,0]},
+    {id:17,cat:'overtime',text:'Do employees complain about unfair overtime distribution?',opts:['Always','Sometimes','Rarely or Never'],scoring:[2,1,0]},
+    {id:18,cat:'overtime',text:'Do employees usually get at least 24 hours of notice before being assigned to work overtime?',opts:['All the time','Occasionally','Never'],scoring:[0,1,2]},
+    {id:19,cat:'overtime',text:'Are your overtime costs consistently higher than you would like?',opts:['Always','Sometimes','Rarely or Never'],scoring:[2,1,0]},
+    {id:20,cat:'operations',text:'Do you struggle to balance production demands with equipment maintenance needs?',opts:['Always','Sometimes','Rarely or Never'],scoring:[2,1,0]},
+    {id:21,cat:'operations',text:'Are you operating with schedules that were designed for different production levels or business conditions?',opts:['Yes','No'],scoring:[2,0]},
+    {id:22,cat:'operations',text:'Do you experience frequent coverage gaps due to unplanned absences?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
+    {id:23,cat:'operations',text:'Is your current schedule making it difficult to meet customer demand or service requirements?',opts:['Yes','Somewhat','No'],scoring:[2,1,0]},
+    {id:24,cat:'quality',text:'Are you seeing quality issues or safety incidents increase during certain shifts or time periods?',opts:['Always','Sometimes','Rarely or Never'],scoring:[2,1,0]},
+    {id:25,cat:'quality',text:'Do employees report fatigue, sleepiness, or alertness issues affecting their work?',opts:['Always','Sometimes','Rarely or Never'],scoring:[2,1,0]},
+    {id:26,cat:'quality',text:'Are productivity levels noticeably different between shifts?',opts:['Yes','No'],scoring:[2,0]},
+    {id:27,cat:'communication',text:'Do different shifts struggle with communication and coordination?',opts:['Yes','No'],scoring:[2,0]},
+    {id:28,cat:'communication',text:'Have employees expressed that they do not feel heard or valued by management?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
+    {id:29,cat:'communication',text:'Do you have effective systems for gathering employee feedback about schedules and work conditions?',opts:['Yes','No'],scoring:[0,2]},
+    {id:30,cat:'communication',text:'Is low maintenance accomplishment becoming a chronic issue?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
+    {id:31,cat:'workforce',text:'Are you experiencing high employee turnover, especially on non-day shifts?',opts:['Yes','No'],scoring:[2,0]},
+    {id:32,cat:'workforce',text:'Is your company having difficulty recruiting or retaining new employees, particularly for night shifts and weekends?',opts:['Yes','No'],scoring:[2,0]},
+    {id:33,cat:'workforce',text:'Are you noticing increased absenteeism or call-offs, especially on certain shifts?',opts:['Yes','No'],scoring:[2,0]},
+    {id:34,cat:'workforce',text:'Do you have difficulty balancing skills across different shifts?',opts:['Yes','Somewhat','No'],scoring:[2,1,0]},
+    {id:35,cat:'workforce',text:'Are employees leaving for competitors who offer more desirable schedules?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]}
+  ];
+
+  window.submitT2Form=function(e){
+    e.preventDefault();
+    var btn=document.getElementById('t2SubmitBtn'),msg=document.getElementById('t2FormMsg');
+    var challengeIdx=t1Answers[8],carriedChallenge=(challengeIdx!==undefined)?t1Questions[7].opts[challengeIdx]:'';
+    t2ContactData={name:document.getElementById('t2_name').value.trim(),email:document.getElementById('t2_email').value.trim(),company:document.getElementById('t2_company').value.trim(),industry:document.getElementById('t2_industry').value,shift_workers:document.getElementById('t2_shift_workers').value,shift_length:'',primary_challenge:carriedChallenge,newsletter_signup:document.getElementById('t2_newsletter').checked};
+    btn.disabled=true;btn.textContent='Saving\u2026';msg.className='form-msg info';msg.textContent='Saving your information\u2026';
+    fetch(SWARM_API+'/api/assessment/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(t2ContactData)}).then(function(r){return r.ok?r.json():Promise.reject('HTTP '+r.status);}).then(function(d){if(d&&d.id)t2AssessmentId=d.id;}).catch(function(err){console.warn('Lead capture skipped:',err);});
+    setTimeout(function(){msg.textContent='Starting your analysis\u2026';setTimeout(startT2Questions,600);},500);
+  };
+
+  function startT2Questions(){t2CurrentQ=0;t2Answers={};show('screen-t2-questions');window.scrollTo(0,0);renderT2Question();}
+
+  function renderT2Question(){
+    if(t2IsTransitioning)return;
+    var q=t2Questions[t2CurrentQ],total=t2Questions.length,pct=Math.round(((t2CurrentQ+1)/total)*100);
+    document.getElementById('t2ProgressFill').style.width=pct+'%';
+    document.getElementById('t2ProgressLabel').textContent='Question '+(t2CurrentQ+1)+' of '+total;
+    document.getElementById('t2QNumber').textContent='Question '+(t2CurrentQ+1)+' of '+total;
+    document.getElementById('t2QCategory').textContent=T2_CATEGORY_NAMES[q.cat]||q.cat;
+    document.getElementById('t2QText').textContent=q.text;
+    var grid=document.getElementById('t2AnswerGrid');grid.innerHTML='';
+    q.opts.forEach(function(opt,idx){var btn=document.createElement('button');btn.type='button';btn.className='answer-btn'+(t2Answers[q.id]===idx?' selected':'');btn.textContent=opt;btn.onclick=function(){t2SelectAnswer(idx);};grid.appendChild(btn);});
+    document.getElementById('t2BtnPrev').disabled=(t2CurrentQ===0);
+  }
+
+  function t2SelectAnswer(idx){
+    if(t2IsTransitioning)return;var q=t2Questions[t2CurrentQ];if(t2Answers[q.id]===idx)return;
+    if(t2AdvanceTimer){clearTimeout(t2AdvanceTimer);t2AdvanceTimer=null;}
+    t2IsTransitioning=true;t2Answers[q.id]=idx;
+    var btns=document.querySelectorAll('#t2AnswerGrid .answer-btn');btns.forEach(function(b,i){b.classList.toggle('selected',i===idx);b.disabled=true;});
+    t2AdvanceTimer=setTimeout(function(){t2AdvanceTimer=null;t2IsTransitioning=false;if(t2CurrentQ<t2Questions.length-1){t2CurrentQ++;renderT2Question();window.scrollTo(0,0);}else{startT2Evaluation();}},380);
+  }
+
+  window.t2PrevQuestion=function(){if(t2AdvanceTimer){clearTimeout(t2AdvanceTimer);t2AdvanceTimer=null;}t2IsTransitioning=false;if(t2CurrentQ>0){t2CurrentQ--;renderT2Question();window.scrollTo(0,0);}};
+
+  var t2LoadingMessages=['Reading your 35 answers\u2026','Scoring all 8 dimensions\u2026','Identifying patterns across categories\u2026','Writing your personalized recommendations\u2026','Finalizing your report\u2026'];
+  var t2LoadingStep=0,t2LoadingInterval=null;
+  function startT2LoadingAnim(){t2LoadingStep=0;document.getElementById('t2LoadingSteps').textContent=t2LoadingMessages[0];t2LoadingInterval=setInterval(function(){t2LoadingStep=(t2LoadingStep+1)%t2LoadingMessages.length;document.getElementById('t2LoadingSteps').textContent=t2LoadingMessages[t2LoadingStep];},2200);}
+  function stopT2LoadingAnim(){if(t2LoadingInterval){clearInterval(t2LoadingInterval);t2LoadingInterval=null;}}
+
+  function startT2Evaluation(){show('screen-t2-loading');window.scrollTo(0,0);startT2LoadingAnim();callT2ClaudeAPI();}
+
+  function buildT2AnswerSummary(){var lines=[];t2Questions.forEach(function(q){var idx=t2Answers[q.id];var answerText=(idx!==undefined)?q.opts[idx]:'(unanswered)';lines.push('Q'+q.id+' ['+T2_CATEGORY_NAMES[q.cat]+'] '+q.text+'\n    Answer: '+answerText);});return lines.join('\n\n');}
+
+  function buildT2Prompt(){
+    var profile=t2ContactData?'Company: '+(t2ContactData.company||'(not provided)')+'\nIndustry: '+t2ContactData.industry+'\nShift workers: '+t2ContactData.shift_workers+'\nSelf-identified biggest challenge: '+(t2ContactData.primary_challenge||'(not specified)'):'(No contact profile available)';
+    return 'You are an expert shift operations consultant at Shiftwork Solutions LLC.\n\nFacility profile:\n'+profile+'\n\nAll 35 answers:\n'+buildT2AnswerSummary()+'\n\nReturn ONLY a valid JSON object:\n{\n  "overall_score": <integer 0-100>,\n  "overall_label": <"Critical \u2014 Immediate Action Required"|"Fair \u2014 Several Areas Need Attention"|"Good \u2014 Some Opportunities for Improvement"|"Excellent \u2014 Operation Is Performing Well">,\n  "narrative": <2-3 sentence summary>,\n  "dimensions": {"worklife":{"score":<0-100>,"label":"Work-Life Balance","low_label":"Critical Issues","high_label":"Excellent Balance"},"health":{"score":<0-100>,"label":"Employee Health","low_label":"High Risk","high_label":"Very Healthy"},"alertness":{"score":<0-100>,"label":"Alertness Management","low_label":"Significant Fatigue","high_label":"Highly Alert"},"overtime":{"score":<0-100>,"label":"Overtime Management","low_label":"Out of Control","high_label":"Well Managed"},"operations":{"score":<0-100>,"label":"Operational Efficiency","low_label":"Major Issues","high_label":"Highly Efficient"},"quality":{"score":<0-100>,"label":"Quality & Safety","low_label":"Critical","high_label":"Excellent"},"communication":{"score":<0-100>,"label":"Communication","low_label":"Breakdown","high_label":"Effective"},"workforce":{"score":<0-100>,"label":"Workforce Stability","low_label":"High Turnover","high_label":"Stable & Strong"}},\n  "strengths": [{"title":<string>,"detail":<1-2 sentence>}],\n  "opportunities": [{"title":<string>,"detail":<2-3 sentence>,"shiftwork_note":<1-2 sentence mentioning Shiftwork Solutions>}],\n  "actions": [<string, 1 sentence each>]\n}\nRules: overall_score genuine reflection. strengths: only dims 70+. opportunities: only dims below 50. actions: 3-6 items. Return ONLY the JSON.';
+  }
+
+  function callT2ClaudeAPI(){
+    fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1800,messages:[{role:'user',content:buildT2Prompt()}]})}).then(function(r){if(!r.ok)throw new Error('API error '+r.status);return r.json();}).then(function(data){var text='';if(data.content&&data.content.length>0){data.content.forEach(function(block){if(block.type==='text')text+=block.text;});}text=text.replace(/```json|```/g,'').trim();var evaluation=JSON.parse(text);stopT2LoadingAnim();renderT2Results(evaluation);}).catch(function(err){console.error('Claude API error:',err);stopT2LoadingAnim();renderT2FallbackResults();});
+  }
+
+  function renderT2Results(ev){
+    t2LastEvaluation=ev;
+    document.getElementById('overallScore').textContent=ev.overall_score+'%';
+    document.getElementById('overallLabel').textContent=ev.overall_label||'';
+    document.getElementById('resultsNarrative').textContent=ev.narrative||'';
+    var barOrder=['worklife','health','alertness','overtime','operations','quality','communication','workforce'];
+    var barsDiv=document.getElementById('dimBars');barsDiv.innerHTML='';
+    barOrder.forEach(function(key){var d=ev.dimensions[key];if(!d)return;barsDiv.innerHTML+='<div class="dim-row"><div class="dim-row-header"><h3>'+d.label+'</h3><span class="dim-score">'+d.score+'%</span></div><div class="dim-track"><div class="dim-pointer" style="left:'+d.score+'%"></div></div><div class="dim-scale"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div><div class="dim-extremes"><span class="dim-low">'+(d.low_label||'')+'</span><span class="dim-high">'+(d.high_label||'')+'</span></div></div>';});
+    var sDiv=document.getElementById('strengthsList');if(ev.strengths&&ev.strengths.length>0){sDiv.innerHTML=ev.strengths.map(function(s){return'<div class="rec-item strength"><strong>'+s.title+':</strong> '+s.detail+'</div>';}).join('');}else{sDiv.innerHTML='<div class="rec-item">Your analysis indicates several areas need attention across multiple categories.</div>';}
+    var oDiv=document.getElementById('opportunitiesList');if(ev.opportunities&&ev.opportunities.length>0){oDiv.innerHTML=ev.opportunities.map(function(o){return'<div class="rec-item"><strong>'+o.title+':</strong> '+o.detail+(o.shiftwork_note?'<div class="ss-note"><strong>How Shiftwork Solutions Can Help:</strong> '+o.shiftwork_note+'</div>':'')+'</div>';}).join('');}else{oDiv.innerHTML='<div class="rec-item strength">Your operation is performing well across all major categories.</div>';}
+    var aDiv=document.getElementById('actionsList');if(ev.actions&&ev.actions.length>0){aDiv.innerHTML=ev.actions.map(function(a){return'<div class="rec-item action">\u2022 '+a+'</div>';}).join('');}else{aDiv.innerHTML='<div class="rec-item">Continue with your current approach and focus on continuous improvement.</div>';}
+    if(t2AssessmentId){var scorePayload={assessment_id:t2AssessmentId,overall_score:ev.overall_score,answers:t2Answers};barOrder.forEach(function(k){if(ev.dimensions[k])scorePayload[k+'_score']=ev.dimensions[k].score;});fetch(SWARM_API+'/api/assessment/update-scores',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(scorePayload)}).catch(function(e){console.warn('Score update skipped:',e);});}
+    show('screen-t2-results');window.scrollTo(0,0);
+  }
+
+  function renderT2FallbackResults(){
+    var cats={};var dimOrder=['worklife','health','alertness','overtime','operations','quality','communication','workforce'];
+    dimOrder.forEach(function(k){cats[k]={concern:0,max:0};});
+    t2Questions.forEach(function(q){var idx=t2Answers[q.id];if(idx===undefined)return;cats[q.cat].concern+=q.scoring[idx];cats[q.cat].max+=Math.max.apply(null,q.scoring);});
+    var totalConcern=0,totalMax=0;dimOrder.forEach(function(k){totalConcern+=cats[k].concern;totalMax+=cats[k].max;});
+    var overall=totalMax>0?Math.round(100-(totalConcern/totalMax*100)):0;
+    var dimLabels={worklife:{label:'Work-Life Balance',low:'Critical Issues',high:'Excellent Balance'},health:{label:'Employee Health',low:'High Risk',high:'Very Healthy'},alertness:{label:'Alertness Management',low:'Significant Fatigue',high:'Highly Alert'},overtime:{label:'Overtime Management',low:'Out of Control',high:'Well Managed'},operations:{label:'Operational Efficiency',low:'Major Issues',high:'Highly Efficient'},quality:{label:'Quality & Safety',low:'Critical',high:'Excellent'},communication:{label:'Communication',low:'Breakdown',high:'Effective'},workforce:{label:'Workforce Stability',low:'High Turnover',high:'Stable & Strong'}};
+    var dims={};dimOrder.forEach(function(k){var score=cats[k].max>0?Math.round(100-(cats[k].concern/cats[k].max*100)):100;dims[k]={score:score,label:dimLabels[k].label,low_label:dimLabels[k].low,high_label:dimLabels[k].high};});
+    var label=overall>=80?'Excellent \u2014 Operation Is Performing Well':overall>=60?'Good \u2014 Some Opportunities for Improvement':overall>=40?'Fair \u2014 Several Areas Need Attention':'Critical \u2014 Immediate Action Required';
+    var strengths=dimOrder.filter(function(k){return dims[k].score>=70;}).map(function(k){return{title:dims[k].label,detail:'Performing well in this dimension.'};});
+    var opportunities=dimOrder.filter(function(k){return dims[k].score<50;}).map(function(k){return{title:dims[k].label,detail:'This dimension shows significant concern based on your responses.',shiftwork_note:'Shiftwork Solutions has addressed this dimension across hundreds of facilities. Contact us for a consultation.'};});
+    renderT2Results({overall_score:overall,overall_label:label,narrative:'Your results are displayed below. Note: AI narrative analysis was temporarily unavailable \u2014 scores reflect your answers directly. Contact Shiftwork Solutions at (415) 265-1621 for a personal consultation.',dimensions:dims,strengths:strengths,opportunities:opportunities,actions:['Contact Shiftwork Solutions to discuss your analysis results and develop a customized improvement plan.']});
+  }
+
+  var t2LastEvaluation=null;
+
+  window.downloadPDF=function(){
+    var btn=document.querySelector('.btn-pdf'),msg=document.getElementById('pdfMsg');
+    if(!btn||!msg)return;
+    var originalLabel=btn.textContent;btn.disabled=true;btn.textContent='Generating PDF\u2026';msg.className='form-msg info';msg.textContent='Building your PDF \u2014 this usually takes about 5 seconds.';
+    var reveals=[];
+    for(var qi=0;qi<7;qi++){var q=t1Questions[qi];var aIdx=t1Answers[q.id];var yourAnswer=(aIdx!==undefined)?q.opts[aIdx]:'(no answer)';reveals.push({category:q.category,question:q.text,prediction:yourAnswer,pattern:q.benchmarkText,narrative:q.revealCopy(yourAnswer).replace(/<[^>]+>/g,'')});}
+    var challengeIdx=t1Answers[8],challengeText=(challengeIdx!==undefined)?t1Questions[7].opts[challengeIdx]:'';
+    var contact=t2ContactData||{};
+    var payload={contact:{name:contact.name||'',email:contact.email||'',company:contact.company||'',industry:contact.industry||'',shift_workers:contact.shift_workers||'',biggest_challenge:challengeText},tier1:{reveals:reveals},tier2:t2LastEvaluation||{}};
+    fetch(SWARM_API+'/api/assessment/generate-pdf',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(function(resp){if(!resp.ok)throw new Error('PDF generation failed (status '+resp.status+')');return resp.blob();}).then(function(blob){var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;var today=new Date().toISOString().slice(0,10);a.download='Shiftwork-Assessment-'+today+'.pdf';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url);msg.className='form-msg success';msg.textContent='\u2713 PDF downloaded. A copy has been emailed for our records.';btn.disabled=false;btn.textContent=originalLabel;}).catch(function(err){console.error('PDF download error:',err);msg.className='form-msg error';msg.textContent='Sorry \u2014 PDF generation failed. Please try again, or contact us at (415) 265-1621.';btn.disabled=false;btn.textContent=originalLabel;});
+  };
+
+  window.restartAll=function(){
+    if(t1AdvanceTimer){clearTimeout(t1AdvanceTimer);t1AdvanceTimer=null;}if(t2AdvanceTimer){clearTimeout(t2AdvanceTimer);t2AdvanceTimer=null;}stopT1LoadingAnim();stopT2LoadingAnim();
+    t1Answers={};t1CurrentQ=0;t1IsTransitioning=false;t1AICommentary=null;t2Answers={};t2CurrentQ=0;t2IsTransitioning=false;t2ContactData=null;t2AssessmentId=null;t2LastEvaluation=null;
+    var form=document.getElementById('t2ContactForm');if(form){form.reset();document.getElementById('t2_newsletter').checked=true;}
+    var fmsg=document.getElementById('t2FormMsg');if(fmsg){fmsg.style.display='none';fmsg.className='form-msg';fmsg.textContent='';}
+    var pmsg=document.getElementById('pdfMsg');if(pmsg){pmsg.style.display='none';pmsg.className='form-msg';pmsg.textContent='';}
+    var sbtn=document.getElementById('t2SubmitBtn');if(sbtn){sbtn.disabled=false;sbtn.textContent='Continue to the Analysis \u2192';}
+    show('screen-t1-intro');window.scrollTo(0,0);
+  };
+
+  show('screen-t1-intro');
+})();
+
+/* =========================================================
+   ANIMATED PDF PREVIEW DRIVER
+========================================================= */
+(function(){
+  var PAGE_COUNT=5,HOLD_MS=2600,TRANSITION_MS=800;
+  var preview=document.getElementById('pdfPreview'),dotsWrap=document.getElementById('pdfPreviewDots');
+  if(!preview||!dotsWrap)return;
+  var pages=preview.querySelectorAll('.pdf-page'),dots=dotsWrap.querySelectorAll('.pp-dot');
+  if(pages.length!==PAGE_COUNT||dots.length!==PAGE_COUNT)return;
+  var current=0;
+  function advance(){var next=(current+1)%PAGE_COUNT;pages[next].classList.add('pdf-page-active');dots[next].classList.add('pp-dot-active');setTimeout(function(){pages[current].classList.remove('pdf-page-active');dots[current].classList.remove('pp-dot-active');current=next;},TRANSITION_MS);}
+  setInterval(advance,HOLD_MS);
+})();
+</script>
 
 <script>
 /* ============================================================ */
@@ -1009,907 +1247,6 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
       btn.textContent = 'Subscribe \u2192';
     });
   };
-})();
-
-/* ============================================================ */
-/* THE REALITY CHECK — Tier 1 logic                             */
-/* ============================================================ */
-(function () {
-  'use strict';
-
-  var SWARM_API = 'https://ai-swarm-orchestrator.onrender.com';
-
-  var t1Answers = {};
-  var t1CurrentQ = 0;
-  var t1IsTransitioning = false;
-  var t1AdvanceTimer = null;
-  var t1AICommentary = null;
-
-  var t2Answers = {};
-  var t2CurrentQ = 0;
-  var t2IsTransitioning = false;
-  var t2AdvanceTimer = null;
-  var t2ContactData = null;
-  var t2AssessmentId = null;
-
-  var t1Questions = [
-    {
-      id: 1,
-      category: 'Overtime Preferences',
-      text: 'Of your shift workforce, what percentage would you estimate actively wants all the overtime they can get?',
-      opts: ['Less than 10%', 'About 20%', 'About 35%', 'About 50%', 'More than 50%'],
-      benchmarkLabel: 'What the benchmark shows',
-      benchmarkText: 'Roughly 20% actively seek overtime, 60% will work a fair share, 20% want none.',
-      revealCopy: function (yourAnswer) {
-        return 'You estimated <strong>' + yourAnswer + '</strong>. Across hundreds of 24/7 operations we\u2019ve surveyed, the pattern sits closer to 20% actively seeking maximum overtime, 60% willing to work a fair share, and 20% who\u2019d prefer none at all. Most operations leaders land somewhere in a wide range on this question \u2014 which is itself telling. Whether your own workforce matches the general 20/60/20 pattern, or leans differently, is something only a structured conversation with your workforce can actually answer.';
-      }
-    },
-    {
-      id: 2,
-      category: 'Fixed vs. Rotating',
-      text: 'If your shift workers could choose, what percentage do you think would prefer fixed shifts over rotating?',
-      opts: ['Less than 40%', 'About 50%', 'About 65%', 'About 80%', 'More than 90%'],
-      benchmarkLabel: 'What the benchmark shows',
-      benchmarkText: 'More than 80% prefer fixed shifts; about 60% would accept a non-preferred fixed shift over rotating.',
-      revealCopy: function (yourAnswer) {
-        return 'You estimated <strong>' + yourAnswer + '</strong>. In shift worker surveys spanning hundreds of 24/7 operations, more than 80% say they\u2019d prefer a fixed shift. Roughly 60% say they\u2019d accept a fixed shift that wasn\u2019t their first choice rather than stay on any rotating schedule. The preference holds across industries, tenure, and shift length. It\u2019s one of the most consistent findings in the data \u2014 and one that\u2019s rarely reflected in the schedules workforces are actually running.';
-      }
-    },
-    {
-      id: 3,
-      category: 'Communication',
-      text: 'How would you rate the quality of communication between your management team and your shift workers about schedules and work conditions?',
-      opts: ['Excellent', 'Good', 'Average', 'Below average', 'Poor'],
-      benchmarkLabel: 'What the benchmark shows',
-      benchmarkText: 'About 70% of managers rate communication as good or better; about 70% of their workers rate it below that.',
-      revealCopy: function (yourAnswer) {
-        return 'You rated it <strong>' + yourAnswer + '</strong>. About 70% of managers across operations we\u2019ve surveyed rate their own communication as good or excellent. About 70% of their shift workers, asked the same question about the same managers, rate it below that mark. The gap is one of the most consistently observed patterns in shift operations research. It doesn\u2019t mean managers are out of touch \u2014 it means informal observation isn\u2019t a reliable way to detect how communication is actually landing. Without a structured way to measure it at your facility, the size of any gap is genuinely unknown.';
-      }
-    },
-    {
-      id: 4,
-      category: 'True Cost of Overtime',
-      text: 'When fully loaded \u2014 including benefits, PTO, training, and administrative costs \u2014 how much more does an overtime hour actually cost your operation than a straight-time hour?',
-      opts: ['About 10% more', 'About 25% more', 'About 50% more (time-and-a-half)', 'About 75% more', 'More than 100% more'],
-      benchmarkLabel: 'What the benchmark shows',
-      benchmarkText: 'The true fully loaded premium typically falls in the 5\u201310% range, not the 50% time-and-a-half implies.',
-      revealCopy: function (yourAnswer) {
-        return 'You estimated <strong>' + yourAnswer + '</strong>. The \u201ctime-and-a-half\u201d framing creates an intuitive sense that overtime costs 50% more than regular hours \u2014 and most managers, quite reasonably, carry that figure in their heads. When the calculation is done on a fully loaded basis (including benefits, PTO accrual, training, and the alternative cost of carrying additional headcount), the true premium typically falls in the 5\u201310% range. This doesn\u2019t mean overtime is always the right answer, but it does mean the cost conversation is usually built on a number that\u2019s significantly too high. What your actual fully loaded premium works out to depends on your specific cost structure.';
-      }
-    },
-    {
-      id: 5,
-      category: 'Schedule Change Resistance',
-      text: 'If you proposed a significant schedule change tomorrow \u2014 say, moving from rotating to fixed shifts, or from 8s to 12s \u2014 what percentage of your workforce do you think would resist?',
-      opts: ['Less than 10%', 'About 25%', 'About 50%', 'About 75%', 'More than 90%'],
-      benchmarkLabel: 'What the benchmark shows',
-      benchmarkText: 'In employee-centered change processes, most workers support the new schedule; about 5% will express dissatisfaction regardless.',
-      revealCopy: function (yourAnswer) {
-        return 'You estimated <strong>' + yourAnswer + '</strong>. In operations where a schedule change is announced without structured workforce input, resistance rates are often high enough to derail the change \u2014 or to damage morale for years, even when the change technically succeeds. In engagements where workers are genuinely involved in evaluating options, most end up supporting the new schedule, and a meaningful percentage report preferring it over the old one. There\u2019s also a baseline: about 5% of any workforce will express dissatisfaction regardless of what\u2019s offered. How your workforce would respond depends far more on <em>how</em> a change is run than on what the change itself is.';
-      }
-    },
-    {
-      id: 6,
-      category: 'Absenteeism Attitudes',
-      text: 'What percentage of your shift workers do you think believe other employees\u2019 unplanned absences negatively affect their own work life?',
-      opts: ['Less than 25%', 'About 40%', 'About 55%', 'About 65%', 'More than 75%'],
-      benchmarkLabel: 'What the benchmark shows',
-      benchmarkText: 'Roughly two-thirds of shift workers say others\u2019 absenteeism adversely affects them \u2014 and would support tighter policies.',
-      revealCopy: function (yourAnswer) {
-        return 'You estimated <strong>' + yourAnswer + '</strong>. When we ask shift workers directly, about two-thirds say that other employees\u2019 unplanned absences adversely affect their own lifestyle \u2014 and a similar majority say they\u2019d support tighter absentee policies. This often runs counter to the assumption that tighter absence policies would be seen as management overreach. The workforce often wants the problem addressed more than management does. Whether that\u2019s true at your facility is a measurable question.';
-      }
-    },
-    {
-      id: 7,
-      category: 'Night-Shift Sleep',
-      text: 'On a typical workday, how many hours of sleep would you estimate your night-shift employees get?',
-      opts: ['Less than 5 hours', 'About 5.5 hours', 'About 6.5 hours', 'About 7 hours', 'More than 7 hours'],
-      benchmarkLabel: 'What the benchmark shows',
-      benchmarkText: 'Shift workers average about 6.5 hours of sleep on workdays \u2014 below the adult population average and well below recommended levels.',
-      revealCopy: function (yourAnswer) {
-        return 'You estimated <strong>' + yourAnswer + '</strong>. Shift workers across the operations we\u2019ve surveyed average about 6.5 hours of sleep on workdays \u2014 roughly 25 minutes less than the general adult population, which itself is below what the National Sleep Foundation recommends. About one in five shift workers reports a safety or performance problem from sleepiness in any given week. This is a population-level figure; individual facilities vary considerably depending on schedule design, shift rotation pattern, and the local culture around rest.';
-      }
-    },
-    {
-      id: 8,
-      category: 'What\u2019s On Your Mind',
-      text: 'Of these, which is the single biggest challenge in your operation right now?',
-      subText: 'We\u2019ll use this to tailor the closing commentary to what\u2019s most relevant to you.',
-      opts: [
-        'Recruiting / Staffing',
-        'Retaining experienced workers',
-        'Managing overtime',
-        'Work-life balance complaints',
-        'Coverage / absenteeism',
-        'Communication with the workforce',
-        'Planning an upcoming schedule change',
-        'Other'
-      ],
-      isContext: true
-    }
-  ];
-
-  var ALL_SCREENS = [
-    'screen-t1-intro',
-    'screen-t1-questions',
-    'screen-t1-loading',
-    'screen-t1-results',
-    'screen-t2-form',
-    'screen-t2-questions',
-    'screen-t2-loading',
-    'screen-t2-results'
-  ];
-
-  function show(id) {
-    ALL_SCREENS.forEach(function (s) {
-      var el = document.getElementById(s);
-      if (!el) return;
-      el.style.display = (s === id) ? 'block' : 'none';
-    });
-  }
-
-  window.startT1 = function () {
-    t1CurrentQ = 0;
-    t1Answers = {};
-    show('screen-t1-questions');
-    window.scrollTo(0, 0);
-    renderT1Question();
-  };
-
-  function renderT1Question() {
-    if (t1IsTransitioning) return;
-    var q = t1Questions[t1CurrentQ];
-    var total = t1Questions.length;
-    var pct = Math.round(((t1CurrentQ + 1) / total) * 100);
-    document.getElementById('t1ProgressFill').style.width = pct + '%';
-    document.getElementById('t1ProgressLabel').textContent = 'Question ' + (t1CurrentQ + 1) + ' of ' + total;
-    document.getElementById('t1QNumber').textContent = 'Question ' + (t1CurrentQ + 1) + ' of ' + total;
-    document.getElementById('t1QCategory').textContent = q.category;
-    document.getElementById('t1QText').innerHTML = q.text;
-    var subEl = document.getElementById('t1QSub');
-    if (q.subText) {
-      subEl.textContent = q.subText;
-      subEl.style.display = 'block';
-    } else {
-      subEl.style.display = 'none';
-    }
-    var grid = document.getElementById('t1AnswerGrid');
-    grid.innerHTML = '';
-    q.opts.forEach(function (opt, idx) {
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'answer-btn' + (t1Answers[q.id] === idx ? ' selected' : '');
-      btn.textContent = opt;
-      btn.onclick = function () { t1SelectAnswer(idx); };
-      grid.appendChild(btn);
-    });
-    document.getElementById('t1BtnPrev').disabled = (t1CurrentQ === 0);
-  }
-
-  function t1SelectAnswer(idx) {
-    if (t1IsTransitioning) return;
-    var q = t1Questions[t1CurrentQ];
-    if (t1Answers[q.id] === idx) return;
-    if (t1AdvanceTimer) { clearTimeout(t1AdvanceTimer); t1AdvanceTimer = null; }
-    t1IsTransitioning = true;
-    t1Answers[q.id] = idx;
-    var btns = document.querySelectorAll('#t1AnswerGrid .answer-btn');
-    btns.forEach(function (b, i) {
-      b.classList.toggle('selected', i === idx);
-      b.disabled = true;
-    });
-    t1AdvanceTimer = setTimeout(function () {
-      t1AdvanceTimer = null;
-      t1IsTransitioning = false;
-      if (t1CurrentQ < t1Questions.length - 1) {
-        t1CurrentQ++;
-        renderT1Question();
-        window.scrollTo(0, 0);
-      } else {
-        startT1Evaluation();
-      }
-    }, 380);
-  }
-
-  window.t1PrevQuestion = function () {
-    if (t1AdvanceTimer) { clearTimeout(t1AdvanceTimer); t1AdvanceTimer = null; }
-    t1IsTransitioning = false;
-    if (t1CurrentQ > 0) { t1CurrentQ--; renderT1Question(); window.scrollTo(0, 0); }
-  };
-
-  var t1LoadingMessages = [
-    'Reviewing your answers\u2026',
-    'Comparing to the benchmark\u2026',
-    'Writing your closing commentary\u2026',
-    'Preparing your results\u2026'
-  ];
-  var t1LoadingInterval = null;
-  var t1LoadingStep = 0;
-
-  function startT1LoadingAnim() {
-    t1LoadingStep = 0;
-    document.getElementById('t1LoadingSteps').textContent = t1LoadingMessages[0];
-    t1LoadingInterval = setInterval(function () {
-      t1LoadingStep = (t1LoadingStep + 1) % t1LoadingMessages.length;
-      document.getElementById('t1LoadingSteps').textContent = t1LoadingMessages[t1LoadingStep];
-    }, 1800);
-  }
-  function stopT1LoadingAnim() {
-    if (t1LoadingInterval) { clearInterval(t1LoadingInterval); t1LoadingInterval = null; }
-  }
-
-  function startT1Evaluation() {
-    show('screen-t1-loading');
-    window.scrollTo(0, 0);
-    startT1LoadingAnim();
-    callT1ClaudeAPI();
-  }
-
-  function buildT1Prompt() {
-    var challengeIdx = t1Answers[8];
-    var challenge = (challengeIdx !== undefined) ? t1Questions[7].opts[challengeIdx] : 'not specified';
-
-    var predictionSummary = [];
-    for (var i = 0; i < 7; i++) {
-      var q = t1Questions[i];
-      var aIdx = t1Answers[q.id];
-      var aText = (aIdx !== undefined) ? q.opts[aIdx] : '(no answer)';
-      predictionSummary.push('- ' + q.category + ': they predicted "' + aText + '"');
-    }
-
-    return 'You are writing a short closing commentary for a manager who just completed the Shiftwork Solutions Reality Check \u2014 an eight-question exercise that compared their intuitions about their workforce to general benchmark patterns from 20,000+ shift worker responses.\n\n' +
-      'The manager\u2019s stated biggest current challenge: ' + challenge + '\n\n' +
-      'Their predictions across the seven benchmark questions:\n' + predictionSummary.join('\n') + '\n\n' +
-      '=== YOUR TASK ===\n' +
-      'Write a closing commentary of exactly 2-3 short paragraphs that ties their stated challenge together with the patterns they just saw, and ends pointing at what remains genuinely unknown about their specific facility.\n\n' +
-      'Return ONLY a valid JSON object \u2014 no markdown, no explanation outside the JSON:\n' +
-      '{\n' +
-      '  "heading": <string, under 80 chars, a warm accent heading for the commentary>,\n' +
-      '  "paragraphs": [<string>, <string>, <optional third string>]\n' +
-      '}\n\n' +
-      '=== HARD CONSTRAINTS \u2014 these are non-negotiable ===\n' +
-      '1. DO NOT give industry-specific benchmark numbers of any kind. No "in food and beverage, the number is X%". No industry-specific percentages. Keep all references to benchmark data at the "across hundreds of operations" level.\n' +
-      '2. DO NOT give numeric targets or thresholds that would let them self-diagnose without help (e.g., never say "if your overtime is above 15%, that indicates X").\n' +
-      '3. DO NOT explain methodology \u2014 never describe HOW the database was built, how comparisons are calculated, or how a workforce survey is designed.\n' +
-      '4. DO NOT give prescriptive implementation steps. Commentary is observational, not a to-do list. No "implement a three-tier overtime distribution system" type advice.\n' +
-      '5. DO NOT invent new statistics or benchmark figures. Only reference what\u2019s already been shown in the seven reveals.\n' +
-      '6. DO frame the manager\u2019s predictions as reasonable. Never say they\u2019re wrong. The tone is "both of us facing an unknown" \u2014 the benchmark is a general pattern, and their specific facility is a genuinely open question that only a proper workforce survey can answer.\n' +
-      '7. DO tie the commentary to their stated biggest challenge. Reference it naturally.\n' +
-      '8. DO end on what remains unknown about THEIR facility specifically \u2014 what a proper workforce conversation would reveal.\n' +
-      '9. DO NOT use the word "Shiftwork Solutions" more than once across the commentary. Don\u2019t sound like a sales pitch.\n' +
-      '10. Keep each paragraph to 3-5 sentences. Total commentary under 250 words.\n' +
-      '11. Return ONLY the JSON object \u2014 no preamble, no markdown fences, no trailing commentary.';
-  }
-
-  function callT1ClaudeAPI() {
-    fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 800,
-        messages: [{ role: 'user', content: buildT1Prompt() }]
-      })
-    }).then(function (r) {
-      if (!r.ok) throw new Error('API error ' + r.status);
-      return r.json();
-    }).then(function (data) {
-      var text = '';
-      if (data.content && data.content.length > 0) {
-        data.content.forEach(function (block) {
-          if (block.type === 'text') text += block.text;
-        });
-      }
-      text = text.replace(/```json|```/g, '').trim();
-      try {
-        t1AICommentary = JSON.parse(text);
-      } catch (e) {
-        t1AICommentary = null;
-      }
-      stopT1LoadingAnim();
-      renderT1Results();
-    }).catch(function (err) {
-      console.warn('T1 commentary skipped:', err);
-      t1AICommentary = null;
-      stopT1LoadingAnim();
-      renderT1Results();
-    });
-  }
-
-  function renderT1Results() {
-    var revealsHtml = '';
-    for (var i = 0; i < 7; i++) {
-      var q = t1Questions[i];
-      var aIdx = t1Answers[q.id];
-      var yourAnswer = (aIdx !== undefined) ? q.opts[aIdx] : '(no answer)';
-      var narrative = q.revealCopy(yourAnswer);
-
-      revealsHtml += '<div class="reveal-card">' +
-        '<div class="reveal-card-eyebrow">Reveal ' + (i + 1) + ' of 7 &middot; ' + q.category + '</div>' +
-        '<h3>' + q.text + '</h3>' +
-        '<div class="reveal-compare">' +
-          '<div class="reveal-compare-cell">' +
-            '<div class="reveal-compare-label">Your Prediction</div>' +
-            '<div class="reveal-compare-value">' + yourAnswer + '</div>' +
-          '</div>' +
-          '<div class="reveal-compare-cell pattern">' +
-            '<div class="reveal-compare-label">The Benchmark Pattern</div>' +
-            '<div class="reveal-compare-value">' + q.benchmarkText + '</div>' +
-          '</div>' +
-        '</div>' +
-        '<div class="reveal-narrative">' + narrative + '</div>' +
-      '</div>';
-
-      if (i === 3) {
-        revealsHtml += '<div class="db-callout">' +
-          '<div class="db-callout-eyebrow">About the Benchmark</div>' +
-          '<h3>The Shiftwork Solutions Normative Database</h3>' +
-          '<p>The comparisons you\u2019re seeing are drawn from the Shiftwork Solutions normative database \u2014 responses from more than 20,000 shift workers across hundreds of 24/7 operations in 16 industries. It\u2019s the largest benchmark dataset of its kind, built over three decades of client engagements. The full dataset isn\u2019t publicly available; it\u2019s used in our workforce surveys and schedule design engagements, where it becomes the foundation for understanding how a specific workforce compares to the industry as a whole.</p>' +
-        '</div>';
-      }
-    }
-    document.getElementById('t1RevealsContainer').innerHTML = revealsHtml;
-
-    var cHtml = '';
-    if (t1AICommentary && t1AICommentary.paragraphs && t1AICommentary.paragraphs.length > 0) {
-      cHtml = '<div class="commentary-block">' +
-        '<div class="commentary-eyebrow">What this means for you</div>' +
-        '<h3>' + (t1AICommentary.heading || 'Reading the pattern in context') + '</h3>';
-      t1AICommentary.paragraphs.forEach(function (p) {
-        if (p && p.trim().length > 0) {
-          cHtml += '<p>' + p + '</p>';
-        }
-      });
-      cHtml += '</div>';
-    } else {
-      cHtml = '<div class="commentary-block">' +
-        '<div class="commentary-eyebrow">What this means for you</div>' +
-        '<h3>Reading the pattern in context</h3>' +
-        '<p>The seven reveals above show where general industry patterns sit. What they can\u2019t tell you is where your specific workforce sits relative to those patterns \u2014 whether your operation is more or less typical on any given dimension.</p>' +
-        '<p>That\u2019s the gap a proper workforce survey closes. Instead of general benchmarks, you get your actual workforce\u2019s actual answers, compared against the same dataset you just saw summarized.</p>' +
-      '</div>';
-    }
-    document.getElementById('t1CommentaryContainer').innerHTML = cHtml;
-
-    show('screen-t1-results');
-    window.scrollTo(0, 0);
-  }
-
-  window.goToT2 = function () {
-    show('screen-t2-form');
-    window.scrollTo(0, 0);
-  };
-  window.backToT1Results = function () {
-    show('screen-t1-results');
-    window.scrollTo(0, 0);
-  };
-
-  var T2_CATEGORY_NAMES = {
-    worklife: 'Work-Life Balance', health: 'Employee Health',
-    alertness: 'Alertness Management', overtime: 'Overtime Management',
-    operations: 'Operational Efficiency', quality: 'Quality & Safety',
-    communication: 'Communication', workforce: 'Workforce Stability'
-  };
-
-  var t2Questions = [
-    {id:1,cat:'worklife',text:'Do employees complain about work-life balance issues related to their schedules?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
-    {id:2,cat:'worklife',text:'Do employees struggle to attend family events, appointments, or personal commitments due to their work schedules?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
-    {id:3,cat:'worklife',text:'From a management perspective, do you feel your scheduling practices adequately consider employee personal needs?',opts:['Yes','Somewhat','No'],scoring:[0,1,2]},
-    {id:4,cat:'worklife',text:'Do your employees feel their schedule lacks flexibility to accommodate requests for time off?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
-    {id:5,cat:'worklife',text:'Are employees indicating that work is negatively impacting their family relationships or personal health?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
-    {id:6,cat:'worklife',text:'Is there a disconnect between what employees say they need for work-life balance and what management believes they need?',opts:['Yes','Somewhat','No'],scoring:[2,1,0]},
-    {id:7,cat:'health',text:'Does your facility use rotating shifts (where employees change shifts on a regular basis)?',opts:['Yes','No'],scoring:[2,0]},
-    {id:8,cat:'health',text:'Do employees typically work more than 5\u20136 consecutive days without a break?',opts:['Yes','No'],scoring:[2,0]},
-    {id:9,cat:'health',text:'Have you experienced safety incidents or accidents that may be related to employee fatigue or sleepiness?',opts:['Frequently','Rarely','Never'],scoring:[2,1,0]},
-    {id:10,cat:'health',text:'Do employees report health issues they attribute to their work schedule (sleep problems, digestive issues, stress)?',opts:['Frequently','Rarely','Never'],scoring:[2,1,0]},
-    {id:11,cat:'health',text:'Do your shift start times begin earlier than 6:00 AM?',opts:['Yes','No'],scoring:[2,0]},
-    {id:12,cat:'alertness',text:'Do you notice decreased alertness or performance during certain shifts or times of day?',opts:['Frequently','Rarely','Never'],scoring:[2,1,0]},
-    {id:13,cat:'alertness',text:'Have employees mentioned feeling excessively tired or struggling to stay awake during their shifts?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
-    {id:14,cat:'alertness',text:'Are quality issues or errors more common during specific shifts (especially night shifts or extended shifts)?',opts:['Yes, more on Day shifts','Yes, more on Night shifts','No difference between shifts'],scoring:[1,2,0]},
-    {id:15,cat:'alertness',text:'Do you have formal strategies for managing fatigue and maintaining alertness on night shifts?',opts:['Yes','No'],scoring:[0,2]},
-    {id:16,cat:'overtime',text:'Are you running overtime levels consistently above 10\u201315%?',opts:['Always','Sometimes','Rarely or Never'],scoring:[2,1,0]},
-    {id:17,cat:'overtime',text:'Do employees complain about unfair overtime distribution?',opts:['Always','Sometimes','Rarely or Never'],scoring:[2,1,0]},
-    {id:18,cat:'overtime',text:'Do employees usually get at least 24 hours of notice before being assigned to work overtime?',opts:['All the time','Occasionally','Never'],scoring:[0,1,2]},
-    {id:19,cat:'overtime',text:'Are your overtime costs consistently higher than you would like?',opts:['Always','Sometimes','Rarely or Never'],scoring:[2,1,0]},
-    {id:20,cat:'operations',text:'Do you struggle to balance production demands with equipment maintenance needs?',opts:['Always','Sometimes','Rarely or Never'],scoring:[2,1,0]},
-    {id:21,cat:'operations',text:'Are you operating with schedules that were designed for different production levels or business conditions?',opts:['Yes','No'],scoring:[2,0]},
-    {id:22,cat:'operations',text:'Do you experience frequent coverage gaps due to unplanned absences?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
-    {id:23,cat:'operations',text:'Is your current schedule making it difficult to meet customer demand or service requirements?',opts:['Yes','Somewhat','No'],scoring:[2,1,0]},
-    {id:24,cat:'quality',text:'Are you seeing quality issues or safety incidents increase during certain shifts or time periods?',opts:['Always','Sometimes','Rarely or Never'],scoring:[2,1,0]},
-    {id:25,cat:'quality',text:'Do employees report fatigue, sleepiness, or alertness issues affecting their work?',opts:['Always','Sometimes','Rarely or Never'],scoring:[2,1,0]},
-    {id:26,cat:'quality',text:'Are productivity levels noticeably different between shifts?',opts:['Yes','No'],scoring:[2,0]},
-    {id:27,cat:'communication',text:'Do different shifts struggle with communication and coordination?',opts:['Yes','No'],scoring:[2,0]},
-    {id:28,cat:'communication',text:'Have employees expressed that they do not feel heard or valued by management?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
-    {id:29,cat:'communication',text:'Do you have effective systems for gathering employee feedback about schedules and work conditions?',opts:['Yes','No'],scoring:[0,2]},
-    {id:30,cat:'communication',text:'Is low maintenance accomplishment becoming a chronic issue?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]},
-    {id:31,cat:'workforce',text:'Are you experiencing high employee turnover, especially on non-day shifts?',opts:['Yes','No'],scoring:[2,0]},
-    {id:32,cat:'workforce',text:'Is your company having difficulty recruiting or retaining new employees, particularly for night shifts and weekends?',opts:['Yes','No'],scoring:[2,0]},
-    {id:33,cat:'workforce',text:'Are you noticing increased absenteeism or call-offs, especially on certain shifts?',opts:['Yes','No'],scoring:[2,0]},
-    {id:34,cat:'workforce',text:'Do you have difficulty balancing skills across different shifts?',opts:['Yes','Somewhat','No'],scoring:[2,1,0]},
-    {id:35,cat:'workforce',text:'Are employees leaving for competitors who offer more desirable schedules?',opts:['All the time','Occasionally','Never'],scoring:[2,1,0]}
-  ];
-
-  window.submitT2Form = function (e) {
-    e.preventDefault();
-    var btn = document.getElementById('t2SubmitBtn');
-    var msg = document.getElementById('t2FormMsg');
-
-    var challengeIdx = t1Answers[8];
-    var carriedChallenge = (challengeIdx !== undefined) ? t1Questions[7].opts[challengeIdx] : '';
-
-    t2ContactData = {
-      name: document.getElementById('t2_name').value.trim(),
-      email: document.getElementById('t2_email').value.trim(),
-      company: document.getElementById('t2_company').value.trim(),
-      industry: document.getElementById('t2_industry').value,
-      shift_workers: document.getElementById('t2_shift_workers').value,
-      shift_length: '',
-      primary_challenge: carriedChallenge,
-      newsletter_signup: document.getElementById('t2_newsletter').checked
-    };
-
-    btn.disabled = true;
-    btn.textContent = 'Saving\u2026';
-    msg.className = 'form-msg info';
-    msg.textContent = 'Saving your information\u2026';
-
-    fetch(SWARM_API + '/api/assessment/lead', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(t2ContactData)
-    }).then(function (r) {
-      return r.ok ? r.json() : Promise.reject('HTTP ' + r.status);
-    }).then(function (d) {
-      if (d && d.id) t2AssessmentId = d.id;
-    }).catch(function (err) {
-      console.warn('Lead capture skipped:', err);
-    });
-
-    setTimeout(function () {
-      msg.textContent = 'Starting your analysis\u2026';
-      setTimeout(startT2Questions, 600);
-    }, 500);
-  };
-
-  function startT2Questions() {
-    t2CurrentQ = 0;
-    t2Answers = {};
-    show('screen-t2-questions');
-    window.scrollTo(0, 0);
-    renderT2Question();
-  }
-
-  function renderT2Question() {
-    if (t2IsTransitioning) return;
-    var q = t2Questions[t2CurrentQ];
-    var total = t2Questions.length;
-    var pct = Math.round(((t2CurrentQ + 1) / total) * 100);
-    document.getElementById('t2ProgressFill').style.width = pct + '%';
-    document.getElementById('t2ProgressLabel').textContent = 'Question ' + (t2CurrentQ + 1) + ' of ' + total;
-    document.getElementById('t2QNumber').textContent = 'Question ' + (t2CurrentQ + 1) + ' of ' + total;
-    document.getElementById('t2QCategory').textContent = T2_CATEGORY_NAMES[q.cat] || q.cat;
-    document.getElementById('t2QText').textContent = q.text;
-    var grid = document.getElementById('t2AnswerGrid');
-    grid.innerHTML = '';
-    q.opts.forEach(function (opt, idx) {
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'answer-btn' + (t2Answers[q.id] === idx ? ' selected' : '');
-      btn.textContent = opt;
-      btn.onclick = function () { t2SelectAnswer(idx); };
-      grid.appendChild(btn);
-    });
-    document.getElementById('t2BtnPrev').disabled = (t2CurrentQ === 0);
-  }
-
-  function t2SelectAnswer(idx) {
-    if (t2IsTransitioning) return;
-    var q = t2Questions[t2CurrentQ];
-    if (t2Answers[q.id] === idx) return;
-    if (t2AdvanceTimer) { clearTimeout(t2AdvanceTimer); t2AdvanceTimer = null; }
-    t2IsTransitioning = true;
-    t2Answers[q.id] = idx;
-    var btns = document.querySelectorAll('#t2AnswerGrid .answer-btn');
-    btns.forEach(function (b, i) {
-      b.classList.toggle('selected', i === idx);
-      b.disabled = true;
-    });
-    t2AdvanceTimer = setTimeout(function () {
-      t2AdvanceTimer = null;
-      t2IsTransitioning = false;
-      if (t2CurrentQ < t2Questions.length - 1) {
-        t2CurrentQ++;
-        renderT2Question();
-        window.scrollTo(0, 0);
-      } else {
-        startT2Evaluation();
-      }
-    }, 380);
-  }
-
-  window.t2PrevQuestion = function () {
-    if (t2AdvanceTimer) { clearTimeout(t2AdvanceTimer); t2AdvanceTimer = null; }
-    t2IsTransitioning = false;
-    if (t2CurrentQ > 0) { t2CurrentQ--; renderT2Question(); window.scrollTo(0, 0); }
-  };
-
-  var t2LoadingMessages = [
-    'Reading your 35 answers\u2026',
-    'Scoring all 8 dimensions\u2026',
-    'Identifying patterns across categories\u2026',
-    'Writing your personalized recommendations\u2026',
-    'Finalizing your report\u2026'
-  ];
-  var t2LoadingStep = 0;
-  var t2LoadingInterval = null;
-
-  function startT2LoadingAnim() {
-    t2LoadingStep = 0;
-    document.getElementById('t2LoadingSteps').textContent = t2LoadingMessages[0];
-    t2LoadingInterval = setInterval(function () {
-      t2LoadingStep = (t2LoadingStep + 1) % t2LoadingMessages.length;
-      document.getElementById('t2LoadingSteps').textContent = t2LoadingMessages[t2LoadingStep];
-    }, 2200);
-  }
-  function stopT2LoadingAnim() {
-    if (t2LoadingInterval) { clearInterval(t2LoadingInterval); t2LoadingInterval = null; }
-  }
-
-  function startT2Evaluation() {
-    show('screen-t2-loading');
-    window.scrollTo(0, 0);
-    startT2LoadingAnim();
-    callT2ClaudeAPI();
-  }
-
-  function buildT2AnswerSummary() {
-    var lines = [];
-    t2Questions.forEach(function (q) {
-      var idx = t2Answers[q.id];
-      var answerText = (idx !== undefined) ? q.opts[idx] : '(unanswered)';
-      lines.push('Q' + q.id + ' [' + T2_CATEGORY_NAMES[q.cat] + '] ' + q.text + '\n    Answer: ' + answerText);
-    });
-    return lines.join('\n\n');
-  }
-
-  function buildT2Prompt() {
-    var profile = t2ContactData
-      ? 'Company: ' + (t2ContactData.company || '(not provided)') +
-        '\nIndustry: ' + t2ContactData.industry +
-        '\nShift workers: ' + t2ContactData.shift_workers +
-        '\nSelf-identified biggest challenge: ' + (t2ContactData.primary_challenge || '(not specified)')
-      : '(No contact profile available)';
-
-    return 'You are an expert shift operations consultant at Shiftwork Solutions LLC, a firm with hundreds of client engagements across manufacturing, distribution, pharmaceutical, food processing, mining, energy, and related industries.\n\n' +
-      'A facility manager has completed a 35-question Shift Operations Analysis. Below is their facility profile and every question with their answer.\n\n' +
-      '=== FACILITY PROFILE ===\n' + profile + '\n\n' +
-      '=== ALL 35 ANSWERS ===\n' + buildT2AnswerSummary() + '\n\n' +
-      '=== YOUR TASK ===\n' +
-      'Analyze these responses and return ONLY a valid JSON object \u2014 no markdown, no explanation outside the JSON. The object must match this exact schema:\n\n' +
-      '{\n' +
-      '  "overall_score": <integer 0-100>,\n' +
-      '  "overall_label": <string \u2014 one of: "Critical \u2014 Immediate Action Required", "Fair \u2014 Several Areas Need Attention", "Good \u2014 Some Opportunities for Improvement", "Excellent \u2014 Operation Is Performing Well">,\n' +
-      '  "narrative": <2-3 sentence plain-language summary of their specific situation, referencing their industry/size where relevant>,\n' +
-      '  "dimensions": {\n' +
-      '    "worklife": { "score": <0-100>, "label": "Work-Life Balance", "low_label": "Critical Issues", "high_label": "Excellent Balance" },\n' +
-      '    "health": { "score": <0-100>, "label": "Employee Health", "low_label": "High Risk", "high_label": "Very Healthy" },\n' +
-      '    "alertness": { "score": <0-100>, "label": "Alertness Management", "low_label": "Significant Fatigue", "high_label": "Highly Alert" },\n' +
-      '    "overtime": { "score": <0-100>, "label": "Overtime Management", "low_label": "Out of Control", "high_label": "Well Managed" },\n' +
-      '    "operations": { "score": <0-100>, "label": "Operational Efficiency", "low_label": "Major Issues", "high_label": "Highly Efficient" },\n' +
-      '    "quality": { "score": <0-100>, "label": "Quality & Safety", "low_label": "Critical", "high_label": "Excellent" },\n' +
-      '    "communication": { "score": <0-100>, "label": "Communication", "low_label": "Breakdown", "high_label": "Effective" },\n' +
-      '    "workforce": { "score": <0-100>, "label": "Workforce Stability", "low_label": "High Turnover", "high_label": "Stable & Strong" }\n' +
-      '  },\n' +
-      '  "strengths": [ { "title": <string>, "detail": <1-2 sentence explanation> } ],\n' +
-      '  "opportunities": [ { "title": <string>, "detail": <2-3 sentence explanation>, "shiftwork_note": <1-2 sentence on how Shiftwork Solutions addresses this> } ],\n' +
-      '  "actions": [ <string \u2014 one concrete recommended action, 1 sentence each> ]\n' +
-      '}\n\n' +
-      'Rules:\n' +
-      '- overall_score should be a genuine reflection of all 35 answers\n' +
-      '- Dimension scores: 100 = no concerns, 0 = maximum concern\n' +
-      '- strengths: only dimensions scoring 70+\n' +
-      '- opportunities: only dimensions scoring below 50\n' +
-      '- actions: 3-6 items, ordered by priority\n' +
-      '- shiftwork_note: always mention Shiftwork Solutions by name\n' +
-      '- narrative: be direct and honest\n' +
-      '- DO NOT give industry-specific benchmark percentages. Keep language at "across hundreds of operations" level.\n' +
-      '- Recommendations are observational and directional, not prescriptive implementation plans.\n' +
-      '- Return ONLY the JSON object.';
-  }
-
-  function callT2ClaudeAPI() {
-    fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 1800,
-        messages: [{ role: 'user', content: buildT2Prompt() }]
-      })
-    }).then(function (r) {
-      if (!r.ok) throw new Error('API error ' + r.status);
-      return r.json();
-    }).then(function (data) {
-      var text = '';
-      if (data.content && data.content.length > 0) {
-        data.content.forEach(function (block) { if (block.type === 'text') text += block.text; });
-      }
-      text = text.replace(/```json|```/g, '').trim();
-      var evaluation = JSON.parse(text);
-      stopT2LoadingAnim();
-      renderT2Results(evaluation);
-    }).catch(function (err) {
-      console.error('Claude API error:', err);
-      stopT2LoadingAnim();
-      renderT2FallbackResults();
-    });
-  }
-
-  function renderT2Results(ev) {
-    t2LastEvaluation = ev;
-
-    document.getElementById('overallScore').textContent = ev.overall_score + '%';
-    document.getElementById('overallLabel').textContent = ev.overall_label || '';
-    document.getElementById('resultsNarrative').textContent = ev.narrative || '';
-
-    var barOrder = ['worklife','health','alertness','overtime','operations','quality','communication','workforce'];
-    var barsDiv = document.getElementById('dimBars');
-    barsDiv.innerHTML = '';
-    barOrder.forEach(function (key) {
-      var d = ev.dimensions[key];
-      if (!d) return;
-      barsDiv.innerHTML += '<div class="dim-row">' +
-        '<div class="dim-row-header"><h3>' + d.label + '</h3><span class="dim-score">' + d.score + '%</span></div>' +
-        '<div class="dim-track"><div class="dim-pointer" style="left:' + d.score + '%"></div></div>' +
-        '<div class="dim-scale"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>' +
-        '<div class="dim-extremes"><span class="dim-low">' + (d.low_label || '') + '</span><span class="dim-high">' + (d.high_label || '') + '</span></div>' +
-      '</div>';
-    });
-
-    var sDiv = document.getElementById('strengthsList');
-    if (ev.strengths && ev.strengths.length > 0) {
-      sDiv.innerHTML = ev.strengths.map(function (s) {
-        return '<div class="rec-item strength"><strong>' + s.title + ':</strong> ' + s.detail + '</div>';
-      }).join('');
-    } else {
-      sDiv.innerHTML = '<div class="rec-item">Your analysis indicates several areas need attention across multiple categories.</div>';
-    }
-
-    var oDiv = document.getElementById('opportunitiesList');
-    if (ev.opportunities && ev.opportunities.length > 0) {
-      oDiv.innerHTML = ev.opportunities.map(function (o) {
-        return '<div class="rec-item"><strong>' + o.title + ':</strong> ' + o.detail +
-          (o.shiftwork_note ? '<div class="ss-note"><strong>How Shiftwork Solutions Can Help:</strong> ' + o.shiftwork_note + '</div>' : '') + '</div>';
-      }).join('');
-    } else {
-      oDiv.innerHTML = '<div class="rec-item strength">Your operation is performing well across all major categories.</div>';
-    }
-
-    var aDiv = document.getElementById('actionsList');
-    if (ev.actions && ev.actions.length > 0) {
-      aDiv.innerHTML = ev.actions.map(function (a) {
-        return '<div class="rec-item action">\u2022 ' + a + '</div>';
-      }).join('');
-    } else {
-      aDiv.innerHTML = '<div class="rec-item">Continue with your current approach and focus on continuous improvement.</div>';
-    }
-
-    if (t2AssessmentId) {
-      var scorePayload = {
-        assessment_id: t2AssessmentId,
-        overall_score: ev.overall_score,
-        answers: t2Answers
-      };
-      barOrder.forEach(function (k) {
-        if (ev.dimensions[k]) scorePayload[k + '_score'] = ev.dimensions[k].score;
-      });
-      fetch(SWARM_API + '/api/assessment/update-scores', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(scorePayload)
-      }).catch(function (e) { console.warn('Score update skipped:', e); });
-    }
-
-    show('screen-t2-results');
-    window.scrollTo(0, 0);
-  }
-
-  function renderT2FallbackResults() {
-    var cats = {};
-    var dimOrder = ['worklife','health','alertness','overtime','operations','quality','communication','workforce'];
-    dimOrder.forEach(function (k) { cats[k] = { concern: 0, max: 0 }; });
-    t2Questions.forEach(function (q) {
-      var idx = t2Answers[q.id];
-      if (idx === undefined) return;
-      cats[q.cat].concern += q.scoring[idx];
-      cats[q.cat].max += Math.max.apply(null, q.scoring);
-    });
-    var totalConcern = 0, totalMax = 0;
-    dimOrder.forEach(function (k) { totalConcern += cats[k].concern; totalMax += cats[k].max; });
-    var overall = totalMax > 0 ? Math.round(100 - (totalConcern / totalMax * 100)) : 0;
-
-    var dimLabels = {
-      worklife:  { label: 'Work-Life Balance',      low: 'Critical Issues',     high: 'Excellent Balance' },
-      health:    { label: 'Employee Health',         low: 'High Risk',           high: 'Very Healthy' },
-      alertness: { label: 'Alertness Management',    low: 'Significant Fatigue', high: 'Highly Alert' },
-      overtime:  { label: 'Overtime Management',     low: 'Out of Control',      high: 'Well Managed' },
-      operations:{ label: 'Operational Efficiency',  low: 'Major Issues',        high: 'Highly Efficient' },
-      quality:   { label: 'Quality & Safety',        low: 'Critical',            high: 'Excellent' },
-      communication:{ label: 'Communication',        low: 'Breakdown',           high: 'Effective' },
-      workforce: { label: 'Workforce Stability',     low: 'High Turnover',       high: 'Stable & Strong' }
-    };
-    var dims = {};
-    dimOrder.forEach(function (k) {
-      var score = cats[k].max > 0 ? Math.round(100 - (cats[k].concern / cats[k].max * 100)) : 100;
-      dims[k] = { score: score, label: dimLabels[k].label, low_label: dimLabels[k].low, high_label: dimLabels[k].high };
-    });
-
-    var label = overall >= 80 ? 'Excellent \u2014 Operation Is Performing Well'
-              : overall >= 60 ? 'Good \u2014 Some Opportunities for Improvement'
-              : overall >= 40 ? 'Fair \u2014 Several Areas Need Attention'
-              :                 'Critical \u2014 Immediate Action Required';
-
-    var strengths = dimOrder.filter(function (k) { return dims[k].score >= 70; })
-                            .map(function (k) { return { title: dims[k].label, detail: 'Performing well in this dimension.' }; });
-    var opportunities = dimOrder.filter(function (k) { return dims[k].score < 50; })
-                                .map(function (k) { return { title: dims[k].label, detail: 'This dimension shows significant concern based on your responses.', shiftwork_note: 'Shiftwork Solutions has addressed this dimension across hundreds of facilities. Contact us for a consultation.' }; });
-
-    renderT2Results({
-      overall_score: overall,
-      overall_label: label,
-      narrative: 'Your results are displayed below. Note: AI narrative analysis was temporarily unavailable \u2014 scores reflect your answers directly. Contact Shiftwork Solutions at (415) 265-1621 for a personal consultation.',
-      dimensions: dims,
-      strengths: strengths,
-      opportunities: opportunities,
-      actions: ['Contact Shiftwork Solutions to discuss your analysis results and develop a customized improvement plan.']
-    });
-  }
-
-  var t2LastEvaluation = null;
-
-  window.downloadPDF = function () {
-    var btn = document.querySelector('.btn-pdf');
-    var msg = document.getElementById('pdfMsg');
-
-    if (!btn || !msg) return;
-
-    var originalLabel = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = 'Generating PDF\u2026';
-    msg.className = 'form-msg info';
-    msg.textContent = 'Building your PDF \u2014 this usually takes about 5 seconds.';
-
-    var reveals = [];
-    for (var qi = 0; qi < 7; qi++) {
-      var q = t1Questions[qi];
-      var aIdx = t1Answers[q.id];
-      var yourAnswer = (aIdx !== undefined) ? q.opts[aIdx] : '(no answer)';
-      reveals.push({
-        category:   q.category,
-        question:   q.text,
-        prediction: yourAnswer,
-        pattern:    q.benchmarkText,
-        narrative:  q.revealCopy(yourAnswer).replace(/<[^>]+>/g, '')
-      });
-    }
-
-    var challengeIdx  = t1Answers[8];
-    var challengeText = (challengeIdx !== undefined)
-      ? t1Questions[7].opts[challengeIdx]
-      : '';
-
-    var contact = t2ContactData || {};
-    var payload = {
-      contact: {
-        name:              contact.name              || '',
-        email:             contact.email             || '',
-        company:           contact.company           || '',
-        industry:          contact.industry          || '',
-        shift_workers:     contact.shift_workers     || '',
-        biggest_challenge: challengeText
-      },
-      tier1: { reveals: reveals },
-      tier2: t2LastEvaluation || {}
-    };
-
-    fetch(SWARM_API + '/api/assessment/generate-pdf', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    }).then(function (resp) {
-      if (!resp.ok) throw new Error('PDF generation failed (status ' + resp.status + ')');
-      return resp.blob();
-    }).then(function (blob) {
-      var url = URL.createObjectURL(blob);
-      var a = document.createElement('a');
-      a.href = url;
-      var today = new Date().toISOString().slice(0, 10);
-      a.download = 'Shiftwork-Assessment-' + today + '.pdf';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-
-      msg.className = 'form-msg success';
-      msg.textContent = '\u2713 PDF downloaded. A copy has been emailed for our records.';
-      btn.disabled = false;
-      btn.textContent = originalLabel;
-    }).catch(function (err) {
-      console.error('PDF download error:', err);
-      msg.className = 'form-msg error';
-      msg.textContent = 'Sorry \u2014 PDF generation failed. Please try again, or contact us at (415) 265-1621.';
-      btn.disabled = false;
-      btn.textContent = originalLabel;
-    });
-  };
-
-  window.restartAll = function () {
-    if (t1AdvanceTimer) { clearTimeout(t1AdvanceTimer); t1AdvanceTimer = null; }
-    if (t2AdvanceTimer) { clearTimeout(t2AdvanceTimer); t2AdvanceTimer = null; }
-    stopT1LoadingAnim();
-    stopT2LoadingAnim();
-
-    t1Answers = {};
-    t1CurrentQ = 0;
-    t1IsTransitioning = false;
-    t1AICommentary = null;
-
-    t2Answers = {};
-    t2CurrentQ = 0;
-    t2IsTransitioning = false;
-    t2ContactData = null;
-    t2AssessmentId = null;
-    t2LastEvaluation = null;
-
-    var form = document.getElementById('t2ContactForm');
-    if (form) {
-      form.reset();
-      document.getElementById('t2_newsletter').checked = true;
-    }
-    var fmsg = document.getElementById('t2FormMsg');
-    if (fmsg) { fmsg.style.display = 'none'; fmsg.className = 'form-msg'; fmsg.textContent = ''; }
-    var pmsg = document.getElementById('pdfMsg');
-    if (pmsg) { pmsg.style.display = 'none'; pmsg.className = 'form-msg'; pmsg.textContent = ''; }
-    var sbtn = document.getElementById('t2SubmitBtn');
-    if (sbtn) { sbtn.disabled = false; sbtn.textContent = 'Continue to the Analysis \u2192'; }
-
-    show('screen-t1-intro');
-    window.scrollTo(0, 0);
-  };
-
-  show('screen-t1-intro');
-})();
-
-/* =========================================================
-   ANIMATED PDF PREVIEW DRIVER
-========================================================= */
-(function () {
-  var PAGE_COUNT    = 5;
-  var HOLD_MS       = 2600;
-  var TRANSITION_MS = 800;
-
-  var preview = document.getElementById('pdfPreview');
-  var dotsWrap = document.getElementById('pdfPreviewDots');
-  if (!preview || !dotsWrap) return;
-
-  var pages = preview.querySelectorAll('.pdf-page');
-  var dots  = dotsWrap.querySelectorAll('.pp-dot');
-  if (pages.length !== PAGE_COUNT || dots.length !== PAGE_COUNT) return;
-
-  var current = 0;
-
-  function advance() {
-    var next = (current + 1) % PAGE_COUNT;
-    pages[next].classList.add('pdf-page-active');
-    dots[next].classList.add('pp-dot-active');
-    setTimeout(function () {
-      pages[current].classList.remove('pdf-page-active');
-      dots[current].classList.remove('pp-dot-active');
-      current = next;
-    }, TRANSITION_MS);
-  }
-
-  setInterval(advance, HOLD_MS);
 })();
 </script>
 </body>
