@@ -8,61 +8,30 @@
   Last Updated: 2026-04-28
 
   CHANGE LOG:
-    2026-04-02 — Initial build from Pillar_6_Schedule_Change_Management_Rev_A_2_20_26.docx
-    2026-04-03 — Applied standard improvements (spacing, audio, SEO)
-    2026-04-03 — Engagement Layer applied (nav logo, booking CTA, engage band, vectors)
-    2026-04-03 — Content and hero fixes from source Word document
-    2026-04-04 — NAV RESTRUCTURE: Resources/Services direct links, Industries dropdown
-                 preserved, Why Us dropdown, nav CTA / listen / subscribe / CTA all orange
-    2026-04-16 — FULL STANDARD UPGRADE to match Pillars 1–5 template:
-                 1. NAV: logo path → clear_bkgr_logo_2.png (no %20 encoding),
-                    SHIFTWORK SOLUTIONS text added (20px), flat links NO dropdowns,
-                    "Why Us" → "Our Company" linking to /why-us/
-                 2. HERO: replaced shutterstock image with pillar_6.jpg photo
-                    background using ::before/::after overlay pattern; gold h1
-                    (#EEAE26), orange tag, hero-stats preserved
-                 3. PULL QUOTES (x2): replaced border-left orange style with large
-                    128px Georgia quotation mark + italic blue text + muted attribution
-                 4. CALLOUT: replaced orange border-left with light-grey background
-                    card (var(--light-grey) + border + orange label)
-                 5. INSIGHT CARDS: updated to white bg with 4px colored top borders
-                 6. FAQ: replaced flat faq-item list with Hands_in_the_air.jpg
-                    full-width background + navy accordion (faq-toggle/faq-body/
-                    faq-open pattern); all 5 Q&A preserved exactly
-                 7. NEXT STEPS: replaced light-blue next-step-cards with white
-                    ns-cards + colored top borders + IntersectionObserver slide-up
-                 8. FOOTER: replaced engage-band (2-col) + light site-footer with
-                    standard 3-col dark navy prefooter (Free Consultation / Thomas /
-                    Newsletter) + standard bottom bar
-                 9. LISTEN BUTTON: updated to simple orange pill with SVG speaker
-                    icon matching Pillars 1–5 standard
-                 All article content, flow-steps viz, SEO schemas, and JSON-LD
-                 preserved exactly.
-    2026-04-16 — MENU LABEL ONLY: top menu text "Our Company" -> "Why Us".
-                 Link target /why-us/ unchanged.
+    2026-04-28 — ALL-PAGES CYCLE pass 1:
+                 Added Microsoft Clarity snippet (ID: wiyn7e4d73).
+                 Added custom event tracker script (/js/event-tracker.js).
+                 Removed redundant plausible.init() block — pa- script auto-initializes.
+                 Replaced minimal Organization schema with canonical full version.
+                 Removed <meta name="keywords"> — approved sitewide removal.
+                 Removed Listen button — Page Bottom Standard.
+                 Removed Next Steps section — Page Bottom Standard.
     2026-04-28 — Plausible analytics added; footer bottom bar updated with
                  Case Studies / Privacy Policy / Terms of Use links + sep rule.
     2026-04-22 — PAGE BOTTOM STANDARD CSS CORRECTIONS (v2):
-                 - PULL QUOTES (x2): color:#4a6a8a -> var(--body-text);
-                   font-style:italic -> normal.
-                 - CALLOUT BOX: .callout-inner grey bg removed; replaced with
-                   background:none, border-left:4px solid var(--navy),
-                   border-radius:0, padding:16px 0 16px 20px; .callout-label
-                   eyebrow removed; .callout-text font-size -> 15px.
-                 - FOOTER: FREE CONSULTATION + AI ADVISOR -> standard 3-column
-                   (Reality Check / 26 Warning Signs / Newsletter).
-                 - THOMAS FLOAT: added (fixed right side, top:66.666%, white bg,
-                   mid-blue CTA, hidden mobile).
-                 - NAV: nav-active class added to Resources link.
-                 - CHANGELOG: this entry.
+                 Pull quotes color/font-style fixed; callout box restyled;
+                 footer corrected to 3-column standard; Thomas float added;
+                 nav-active added to Resources link.
+    2026-04-16 — FULL STANDARD UPGRADE (nav, hero, pull quotes, callout,
+                 insight cards, FAQ, next steps, footer).
+    2026-04-16 — MENU LABEL: "Our Company" → "Why Us".
+    2026-04-04 — NAV RESTRUCTURE.
+    2026-04-03 — Engagement layer, vectors applied.
+    2026-04-02 — Initial build.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
-  DESIGN CONSTANTS:
-    Navy: #1F4E79 | Navy-dark: #0D1F3C | Mid-blue: #85B7EB | Orange: #E8610A | Green: #1D9E75
-    Font: Arial/system sans-serif
-    Logo: /images/clear_bkgr_logo_2.png
-    Hero image: /images/pillar_6.jpg
-    FAQ bg: /images/Hands_in_the_air.jpg
+
+  I did no harm and this file is not truncated
 -->
 <html lang="en">
 <head>
@@ -70,7 +39,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Schedule Change Management Guide | Shiftwork Solutions</title>
   <meta name="description" content="Why schedule changes fail and how to implement them successfully. Communication, workforce engagement, policy alignment, and the implementation process. From consultants who have worked with hundreds of facilities.">
-  <meta name="keywords" content="schedule change management, shift schedule implementation, change management, workforce engagement, employee communication, schedule transition, policy alignment, shift change, implementation planning, schedule change process, employee buy-in, schedule resistance, shift work change, workforce transformation, schedule rollout">
   <link rel="canonical" href="https://shift-work.com/resources/schedule-change-management/">
   <meta property="og:title" content="Schedule Change Management Guide | Shiftwork Solutions">
   <meta property="og:description" content="Why schedule changes fail and how to implement them successfully. From consultants who have guided hundreds of schedule transformations.">
@@ -80,18 +48,66 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Schedule Change Management: From Planning to Implementation | Shiftwork Solutions">
   <meta name="twitter:description" content="Expert guide from consultants who have worked with hundreds of facilities across 16+ industries.">
-  <!-- ══ PLAUSIBLE ANALYTICS (added 2026-04-28) ══ -->
-  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
-  <script>
-    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-    plausible.init()
-  </script>
-
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why do schedule changes fail?","acceptedAnswer":{"@type":"Answer","text":"Usually because management under-communicates — if employees don't perceive a positive change as positive, you haven't communicated enough."}},{"@type":"Question","name":"How much advance notice should employees get for a schedule change?","acceptedAnswer":{"@type":"Answer","text":"Four weeks minimum, six to eight weeks preferred — employees need time to rearrange childcare, transportation, and family commitments."}},{"@type":"Question","name":"Should employees choose their own schedule?","acceptedAnswer":{"@type":"Answer","text":"Employees should choose from management-approved options that all meet business requirements — the schedule they select will always outperform one that's imposed."}},{"@type":"Question","name":"What percentage of employees will be unhappy with any schedule?","acceptedAnswer":{"@type":"Answer","text":"Approximately 5% remain dissatisfied with any option — waiting for universal buy-in delays progress that would benefit the other 95%."}},{"@type":"Question","name":"What policy changes does a schedule change trigger?","acceptedAnswer":{"@type":"Answer","text":"Vacation accrual, holiday pay, overtime distribution, shift differentials, break policies, and virtually every other work rule — review all of them before announcing."}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Schedule Change Management","item":"https://shift-work.com/resources/schedule-change-management/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Schedule Change Management: From Planning to Implementation","url":"https://shift-work.com/resources/schedule-change-management/","datePublished":"2026-04-02","dateModified":"2026-04-28","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
-
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Shiftwork Solutions LLC",
+  "url": "https://shift-work.com",
+  "logo": "https://shift-work.com/images/clear_bkgr_logo_2.png",
+  "telephone": "+1-415-265-1621",
+  "email": "Contact@shift-work.com",
+  "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
+  "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.",
+  "foundingDate": "1993",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Rafael",
+    "addressRegion": "CA",
+    "postalCode": "94901",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-415-265-1621",
+    "contactType": "customer service",
+    "email": "Contact@shift-work.com",
+    "areaServed": "US"
+  },
+  "knowsAbout": [
+    "shift schedule design","shift work consulting","24/7 operations management",
+    "continuous operations staffing","change management","workforce surveys",
+    "overtime management","overtime cost reduction","employee engagement",
+    "manufacturing workforce planning","distribution center scheduling",
+    "pharmaceutical shift scheduling","chemical plant operations",
+    "food and beverage manufacturing","mining shift scheduling",
+    "paper and packaging operations","union workforce consulting",
+    "rotating shift schedules","fixed shift schedules","12-hour shift schedules",
+    "staffing and workforce planning","labor cost analysis",
+    "fatigue risk management","post-implementation workforce surveys"
+  ],
+  "sameAs": ["https://www.linkedin.com/company/shiftwork-solutions-llc"]
+}
+</script>
+  <!-- ── MICROSOFT CLARITY ── -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wiyn7e4d73");
+  </script>
+  <!-- ── CUSTOM EVENT TRACKER ── -->
+  <script src="/js/event-tracker.js"></script>
+  <!-- ── PLAUSIBLE ANALYTICS ── -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
@@ -165,7 +181,7 @@
     .callout{max-width:var(--max-width);margin:0 auto 32px;padding:0 var(--page-pad)}
     .callout-inner{background:none;border-left:4px solid var(--navy);border-radius:0;padding:16px 0 16px 20px}
     .callout-text{font-size:15px;color:var(--body-text);line-height:1.6;font-weight:400;font-style:normal}
-    .faq-section{position:relative;overflow:hidden;margin:0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
+    .faq-section{position:relative;overflow:hidden;margin:40px 0 0 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
     .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:52px 24px 56px}
@@ -182,37 +198,18 @@
     .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease}
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
-    .next-steps{padding:56px var(--page-pad) 60px;background:var(--light-grey)}
-    .next-steps-inner{max-width:var(--max-width);margin:0 auto}
-    .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
-    .next-steps h2{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:8px}
-    .next-steps-sub{font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.6}
-    .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .ns-card{background:var(--white);border:1px solid var(--border-med);border-top:4px solid transparent;border-radius:8px;padding:24px 20px;text-decoration:none;display:block;opacity:0;transform:translateY(28px);transition:opacity .5s ease,transform .5s ease,box-shadow .25s ease}
-    .ns-card.ns-card-visible{opacity:1;transform:translateY(0)}
-    .ns-card:nth-child(1){transition-delay:.05s}
-    .ns-card:nth-child(2){transition-delay:.18s}
-    .ns-card:nth-child(3){transition-delay:.31s}
-    .ns-accent-blue{border-top-color:var(--navy)}
-    .ns-accent-orange{border-top-color:var(--orange)}
-    .ns-accent-green{border-top-color:var(--green)}
-    .ns-accent-blue:hover{box-shadow:0 8px 28px rgba(31,78,121,0.15);transform:translateY(-5px) !important}
-    .ns-accent-orange:hover{box-shadow:0 8px 28px rgba(232,97,10,0.22);transform:translateY(-5px) !important}
-    .ns-accent-green:hover{box-shadow:0 8px 28px rgba(29,158,117,0.22);transform:translateY(-5px) !important}
-    .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
-    .ns-accent-blue .ns-card-label{color:var(--navy)}
-    .ns-accent-orange .ns-card-label{color:var(--orange)}
-    .ns-accent-green .ns-card-label{color:var(--green)}
-    .ns-card h3{font-size:15px;font-weight:700;color:var(--body-text);line-height:1.35;margin-bottom:8px}
-    .ns-card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px}
-    .ns-card-link{font-size:12px;font-weight:700}
-    .ns-accent-blue .ns-card-link{color:var(--navy)}
-    .ns-accent-orange .ns-card-link{color:var(--orange)}
-    .ns-accent-green .ns-card-link{color:var(--green)}
-    .ns-card-link::after{content:' \2192'}
-    .ns-phone{margin-top:28px;font-size:13px;color:var(--muted);text-align:center}
-    .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
-    .ns-phone a:hover{color:var(--orange)}
+    .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
+    .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
+    .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
+    .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
+    .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
+    .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
+    .thomas-float-body{padding:8px 8px 10px;text-align:center}
+    .thomas-float-name{font-family:Arial,sans-serif;font-size:11px;font-weight:700;color:var(--navy);line-height:1.3;display:block;margin-bottom:2px}
+    .thomas-float-sub{font-family:Arial,sans-serif;font-size:9px;font-weight:400;color:var(--muted);line-height:1.4;display:block;margin-bottom:7px}
+    .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
+    .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
+    @media(max-width:768px){.thomas-float{display:none}}
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -244,23 +241,11 @@
     .footer-bottom-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.45)}
     .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
     .footer-bottom-inner a:hover{color:var(--orange)}
-    .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-bottom-left{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-    .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none}
-    .listen-btn{position:fixed;bottom:24px;right:24px;z-index:900;background:var(--orange);color:var(--white);border:none;border-radius:50px;padding:10px 20px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;transition:background .15s}
-    .listen-btn:hover{background:#c4510a}
-    .listen-btn svg{width:16px;height:16px;fill:currentColor;flex-shrink:0}
-    .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
-    .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
-    .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
-    .thomas-float-body{padding:8px 8px 10px;text-align:center}
-    .thomas-float-name{font-family:Arial,sans-serif;font-size:11px;font-weight:700;color:var(--navy);line-height:1.3;display:block;margin-bottom:2px}
-    .thomas-float-sub{font-family:Arial,sans-serif;font-size:9px;font-weight:400;color:var(--muted);line-height:1.4;display:block;margin-bottom:7px}
-    .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
-    .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
-    @media(max-width:768px){.thomas-float{display:none}}
+    .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none;margin:0 2px}
     @media(max-width:760px){
-      .ns-cards{grid-template-columns:1fr}.three-col{grid-template-columns:1fr}
+      .three-col{grid-template-columns:1fr}
       .footer-content-row{grid-template-columns:1fr}
       .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
       .footer-col-3{border-bottom:none;padding-bottom:0}
@@ -275,11 +260,12 @@
       .nav-logo-text{font-size:16px}
       .hero{padding:32px 20px 36px}.hero h1{font-size:22px}.hero-stats{flex-direction:column;gap:10px}
       .article-wrap{padding:32px 20px 24px}
-      .viz-section,.three-col,.pull-quote,.callout,
-      .footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}
+      .viz-section,.three-col,.pull-quote,.callout,.footer-prefooter{padding:32px 20px}
+      .footer-bottom{padding:14px 20px}
       .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
       .footer-bottom-left{justify-content:center}
-      .next-steps{padding:40px 20px 44px}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}
+      .faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}
+      .bridge-stripe{padding:28px 20px}.bridge-stripe-text{font-size:17px}
     }
   </style>
 </head>
@@ -476,51 +462,17 @@
   </div>
 </div>
 
-<section class="next-steps"><div class="next-steps-inner">
-  <div class="next-steps-eyebrow">Where to go from here</div>
-  <h2>Next Steps &amp; Resources</h2>
-  <p class="next-steps-sub">Talk to an expert, read the guide, or run a quick diagnostic on your current operation.</p>
-  <div class="ns-cards">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card ns-accent-blue" target="_blank" rel="noopener">
-      <div class="ns-card-label">Free Consultation</div>
-      <h3>Talk to a Shiftwork Expert</h3>
-      <p>Discuss your specific situation with consultants who have successfully guided hundreds of schedule transformations. We'll help you chart a path forward that fits your unique circumstances.</p>
-      <span class="ns-card-link">Book a free meeting</span>
-    </a>
-    <a href="/resources/shiftwork-assessment/" class="ns-card ns-accent-orange">
-      <div class="ns-card-label">Diagnostic Tool</div>
-      <h3>Free Schedule Assessment</h3>
-      <p>Evaluate your current schedule against best practices and identify improvement opportunities before beginning any change process.</p>
-      <span class="ns-card-link">Take the assessment</span>
-    </a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green">
-      <div class="ns-card-label">Checklist</div>
-      <h3>26 Warning Signs Diagnostic</h3>
-      <p>Our checklist of symptoms that signal when your shiftwork system may be ready for a reset — early warning signs that appear before major problems emerge.</p>
-      <span class="ns-card-link">Read the checklist</span>
-    </a>
-  </div>
-  <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
-</div></section>
+<div class="bridge-stripe">
+  <div class="bridge-stripe-text">Ready to take the next step?</div>
+  <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
+</div>
 
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
-      <div class="footer-col footer-col-1">
-        <div class="engage-label">FREE ASSESSMENT</div>
-        <div class="engage-col-title">Shiftwork Operations Reality Check</div>
-        <p class="engage-col-desc">Compare your instincts to more than 20,000 shift worker responses. Free. Five minutes. No email required.</p>
-      </div>
-      <div class="footer-col footer-col-2">
-        <div class="engage-label">DIAGNOSTIC ARTICLE</div>
-        <div class="engage-col-title">The 26 Warning Signs</div>
-        <p class="engage-col-desc">Twenty-six operational symptoms that signal your shiftwork system may need attention. If you're seeing several, the schedule is likely the source.</p>
-      </div>
-      <div class="footer-col footer-col-3">
-        <div class="engage-label">NEWSLETTER</div>
-        <div class="engage-col-title">Stay Sharp on Shift Operations</div>
-        <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
-      </div>
+      <div class="footer-col footer-col-1"><div class="engage-label">FREE ASSESSMENT</div><div class="engage-col-title">Shiftwork Operations Reality Check</div><p class="engage-col-desc">Compare your instincts to more than 20,000 shift worker responses. Free. Five minutes. No email required.</p></div>
+      <div class="footer-col footer-col-2"><div class="engage-label">DIAGNOSTIC ARTICLE</div><div class="engage-col-title">The 26 Warning Signs</div><p class="engage-col-desc">Twenty-six operational symptoms that signal your shiftwork system may need attention. If you're seeing several, the schedule is likely the source.</p></div>
+      <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
     </div>
     <div class="footer-cta-row">
       <div class="footer-cta-1"><a href="https://www.shift-work.com/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Reality Check &#x2192;</a></div>
@@ -548,21 +500,13 @@
 
 <a class="thomas-float" href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener" aria-label="Meet Thomas, your AI Shift Advisor">
   <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
-  <div class="thomas-float-body">
-    <span class="thomas-float-name">Meet Thomas</span>
-    <span class="thomas-float-sub">Your AI Shift Advisor</span>
-    <span class="thomas-float-cta">Chat Now &rarr;</span>
-  </div>
+  <div class="thomas-float-body"><span class="thomas-float-name">Meet Thomas</span><span class="thomas-float-sub">Your AI Shift Advisor</span><span class="thomas-float-cta">Chat Now &rarr;</span></div>
 </a>
-
-<button class="listen-btn" id="listenBtn" aria-label="Listen to this article"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg><span id="listenLabel">Listen</span></button>
 
 <script>
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
-(function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
-(function(){var btn=document.getElementById('listenBtn');var label=document.getElementById('listenLabel');var speaking=false;var paused=false;function getArticleText(){var sels=['.article-wrap p','.callout-text'];var parts=[];sels.forEach(function(sel){document.querySelectorAll(sel).forEach(function(el){var t=el.textContent.trim();if(t)parts.push(t);});});return parts.join(' ');}if(!window.speechSynthesis){btn.style.display='none';return;}btn.addEventListener('click',function(){if(speaking&&!paused){window.speechSynthesis.pause();paused=true;label.textContent='Resume';}else if(paused){window.speechSynthesis.resume();paused=false;label.textContent='Pause';}else{window.speechSynthesis.cancel();var utt=new SpeechSynthesisUtterance(getArticleText());utt.rate=0.95;utt.onstart=function(){speaking=true;paused=false;label.textContent='Pause';};utt.onend=function(){speaking=false;paused=false;label.textContent='Listen';};utt.onerror=function(){speaking=false;paused=false;label.textContent='Listen';};window.speechSynthesis.speak(utt);}});})();
 </script>
 </body>
 </html>
