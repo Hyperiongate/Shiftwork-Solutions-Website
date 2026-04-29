@@ -5,28 +5,33 @@
   URL: /resources/absenteeism-relief-coverage-management/
 
   Created:      2026-04-02
-  Last Updated: 2026-04-28
+  Last Updated: 2026-04-29
 
   CHANGE LOG:
-    2026-04-28 — ALL-PAGES CYCLE pass 1:
-                 Added Microsoft Clarity snippet (ID: wiyn7e4d73).
-                 Added custom event tracker script (/js/event-tracker.js).
-                 Removed redundant plausible.init() block — pa- script auto-initializes.
-                 Replaced minimal Organization schema with canonical full version.
-                 Removed <meta name="keywords"> — approved sitewide removal.
-                 Added end marker (was missing).
-    2026-04-28 — Plausible analytics added; footer bottom bar updated with
-                 Case Studies / Privacy Policy / Terms of Use links + sep rule.
     2026-04-02 — Initial build from Pillar_9_Absenteeism_Coverage_Rev_A_2_20_26.docx
     2026-04-22 — PAGE BOTTOM STANDARD APPLIED; Footer 3-column standard;
                  Bridge stripe; Thomas floating widget; Pull quotes updated.
+    2026-04-28 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
+                 removed plausible.init(), replaced minimal Org schema with canonical
+                 full version, removed meta keywords, added end marker.
+    2026-04-28 — Plausible analytics added; footer bottom bar updated with
+                 Case Studies / Privacy Policy / Terms of Use links + sep rule.
+    2026-04-29 — MOBILE OPTIMIZATION: Additive-only media queries appended before
+                 </style>. No desktop rules altered. Two new blocks:
+                 640px: nav link font-size 16px (mobile menu open state).
+                        Pull-quote-mark already reduced to 72px by existing 760px
+                        block — no additional override needed at 640px.
+                 480px: nav-logo-text hidden, newsletter form stacked,
+                        pull-quote-mark further reduced to 56px.
+                 NOTE: No client strip — .cn rule omitted.
+                       Hero stats already stack at 640px via existing block.
+                       Three-col already 1-col at 760px via existing block.
+                       Viz bar labels already tightened at 760px.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
     Navy: #1F4E79 | Navy-dark: #0D1F3C | Mid-blue: #85B7EB | Orange: #E8610A | Green: #1D9E75
     Logo: /images/clear_bkgr_logo_2.png | Hero: /images/pillar_9.jpg | FAQ: /images/Hands_in_the_air.jpg
-
-  I did no harm and this file is not truncated
 -->
 <html lang="en">
 <head>
@@ -269,6 +274,30 @@
       .footer-bottom-left{justify-content:center}
       .faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}
       .bridge-stripe{padding:28px 20px}.bridge-stripe-text{font-size:17px}
+    }
+
+    /* ══ MOBILE OPTIMIZATION (added 2026-04-29) ══
+       Additive only — no desktop rules altered.
+       640px: nav link font-size 16px (mobile menu open state).
+              Pull-quote-mark already handled by existing 760px block (72px).
+       480px: nav-logo-text hidden, newsletter form stacked,
+              pull-quote-mark further reduced to 56px.
+       NOTE: No client strip — .cn rule omitted.
+             Hero stats already stack at 640px via existing block.
+             Three-col already 1-col at 760px via existing block.
+             Viz bar labels already tightened at 760px.
+    */
+
+    @media(max-width:640px){
+      .nav-links>li>a{font-size:16px;padding:12px 20px;}
+    }
+
+    @media(max-width:480px){
+      .nav-logo-text{display:none;}
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+      .pull-quote-mark{font-size:56px;}
     }
   </style>
 </head>
