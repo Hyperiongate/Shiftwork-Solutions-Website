@@ -8,32 +8,33 @@
   Last Updated: 2026-04-29
 
   CHANGE LOG:
-    2026-04-29 — ALL-PAGES CYCLE pass 2:
-                 Added Microsoft Clarity snippet (ID: wiyn7e4d73).
-                 Added custom event tracker script (/js/event-tracker.js).
-                 Removed redundant plausible.init() block — pa- script auto-initializes.
-                 Removed <meta name="keywords"> — approved sitewide removal.
-                 Corrected Service schema and Article schema which erroneously
-                 referenced Chemical/Pharma industry (copy-paste artifact from template).
-                 Replaced minimal Organization schema with canonical full version.
-                 Updated FAQPage schema to match actual page FAQs.
+    2026-04-04 — Initial build.
+    2026-04-08 — Hero bg -> Refining.jpg.
+    2026-04-12 — TEMPLATE REBUILD.
+    2026-04-13 — TEMPLATE v2.
+    2026-04-14 — FAQ: full-bleed Hands_in_the_air.jpg background.
+    2026-04-16 — NAV FIXES.
+    2026-04-22 — FULL STANDARD UPDATE (Page Bottom Standard v1).
+    2026-04-22 — PAGE BOTTOM STANDARD CSS CORRECTIONS (v2).
+    2026-04-26 — AI DISCOVERABILITY SCHEMAS upgraded.
     2026-04-28 — Plausible analytics added; footer bottom bar updated with
                  Case Studies / Privacy Policy / Terms of Use links + sep rule.
-    2026-04-26 — AI DISCOVERABILITY SCHEMAS upgraded.
-    2026-04-22 — PAGE BOTTOM STANDARD CSS CORRECTIONS (v2).
-    2026-04-22 — FULL STANDARD UPDATE (Page Bottom Standard v1).
-    2026-04-16 — NAV FIXES.
-    2026-04-14 — FAQ: full-bleed Hands_in_the_air.jpg background.
-    2026-04-13 — TEMPLATE v2.
-    2026-04-12 — TEMPLATE REBUILD.
-    2026-04-08 — Hero bg -> Refining.jpg.
-    2026-04-04 — Initial build.
+    2026-04-29 — ALL-PAGES CYCLE pass 2: Added Clarity (wiyn7e4d73), event-tracker,
+                 removed plausible.init(), replaced canonical Org schema,
+                 removed meta keywords. Corrected Service schema and Article schema
+                 which erroneously referenced Chemical/Pharma industry.
+                 Updated FAQPage schema to match actual page FAQs.
+    2026-04-29 — MOBILE OPTIMIZATION: Additive-only media queries appended before
+                 </style>. No desktop rules altered. Two new blocks:
+                 640px: nav link font-size 16px (mobile menu open state),
+                        pull-quote-mark reduced 128px→80px.
+                 480px: nav-logo-text hidden, newsletter form stacked,
+                        pull-quote-mark 56px, pull-quote gap tightened,
+                        client strip font-size 18px.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/Refining.jpg
   FAQ IMAGE:  /images/Hands_in_the_air.jpg
-
-  I did no harm and this file is not truncated
 -->
 <html lang="en">
 <head>
@@ -248,6 +249,30 @@
       .bridge-stripe{padding:28px 20px}
       .bridge-stripe-text{font-size:17px}
     }
+
+    /* ══ MOBILE OPTIMIZATION (added 2026-04-29) ══
+       Additive only — no desktop rules altered.
+       640px: nav link font-size 16px (mobile menu open state),
+              pull-quote-mark reduced 128px → 80px.
+       480px: nav-logo-text hidden, newsletter form stacked full-width,
+              pull-quote-mark 56px, pull-quote gap tightened,
+              client strip font-size 18px.
+    */
+
+    @media(max-width:640px){
+      .nav-links>li>a{font-size:16px;padding:12px 20px;}
+      .pull-quote-mark{font-size:80px;}
+    }
+
+    @media(max-width:480px){
+      .nav-logo-text{display:none;}
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+      .pull-quote-mark{font-size:56px;}
+      .pull-quote{gap:8px;}
+      .cn{font-size:18px;}
+    }
   </style>
 </head>
 <body>
@@ -280,7 +305,7 @@
 </div></div>
 
 <div class="article-wrap">
-    <div class="article-meta">
+  <div class="article-meta">
     <span class="meta-tag">Industry Guide</span>
     <span class="meta-read">8 min read</span>
   </div>
@@ -366,7 +391,7 @@
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How do outdated union contract provisions affect schedule design in these industries?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Collective bargaining agreements in refining and utilities often codify specific scheduling provisions that were written to formalize a schedule already in place. That makes the contract and the schedule deeply interdependent. Changing the schedule without addressing the contract creates conflict. Changing the contract requires building a case that demonstrates genuine value to both sides. The contractual negotiation and the workforce engagement are the same problem, not separate ones.</div></div></div>
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How do you change a schedule at a facility that cannot shut down?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The implementation has to be designed so coverage is never at risk — which means the existing schedule remains fully intact until the new one is ready to take over completely. The sequencing, the transition staffing model, the communication approach, and the policy alignment all have to be worked out before the change goes live, not discovered as problems during it.</div></div></div>
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What triggers a schedule review at a long-running facility?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Rarely a single event — more often a slow accumulation of signals: overtime that has drifted above plan, turnover on specific shifts that was not a problem a decade ago, difficulty recruiting candidates who find the current schedule incompatible with the life they want, or union negotiations that surface workforce dissatisfaction. By the time those signals are clear enough to prompt action, the underlying mismatch has typically been building for years.</div></div></div>
-    </div>
+  </div>
 </div>
 
 <div class="bridge-stripe">
