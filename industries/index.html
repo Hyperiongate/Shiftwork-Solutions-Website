@@ -5,27 +5,29 @@
   URL: /industries/
 
   Created:      2026-04-05
-  Last Updated: 2026-04-28
+  Last Updated: 2026-04-29
 
   CHANGE LOG:
-    2026-04-05 — Initial build.
-    2026-04-06 — Added Paper & Packaging tile (7th industry).
-    2026-04-06 — LAYOUT REDESIGN: industry images, row layout, action tiles.
-    2026-04-13 — Nav: "Why Us" → "Our Company". Hero: second.png background.
-    2026-04-15 — Footer: replaced old engage-band + #F4F4F4 footer with standard
-                 3-col dark-navy prefooter. Hero H1 color → #EEAE26.
-    2026-04-16 — NAV STANDARD UPGRADE.
-    2026-04-17 — SEO STRUCTURED DATA + VISIBLE BREADCRUMB.
-    2026-04-18 — ROW 3: Action tiles removed. Paper & Packaging centered alone.
-                 Empty placeholder divs keep grid alignment. Action tile CSS
-                 retained in case needed elsewhere.
-    2026-04-22 — HERO SUBTITLE COLOR: rgba(255,255,255,0.88).
-    2026-04-22 — STANDARD UPDATE: Footer rebuilt to 3-column standard.
-                 Thomas float added.
+    2026-04-29 — ALL-PAGES CYCLE pass 2: Added Clarity (wiyn7e4d73), event-tracker,
+                 removed redundant plausible.init() block — pa- script auto-initializes.
     2026-04-28 — PLAUSIBLE ANALYTICS added to <head>.
                  FOOTER BOTTOM BAR: added Case Studies, Privacy Policy,
                  Terms of Use links with mid-dot separators.
                  .footer-bottom-sep CSS rule added.
+    2026-04-22 — HERO SUBTITLE COLOR: rgba(255,255,255,0.88).
+    2026-04-22 — STANDARD UPDATE: Footer rebuilt to 3-column standard.
+                 Thomas float added.
+    2026-04-18 — ROW 3: Action tiles removed. Paper & Packaging centered alone.
+                 Empty placeholder divs keep grid alignment. Action tile CSS
+                 retained in case needed elsewhere.
+    2026-04-17 — SEO STRUCTURED DATA + VISIBLE BREADCRUMB.
+    2026-04-16 — NAV STANDARD UPGRADE.
+    2026-04-15 — Footer: replaced old engage-band + #F4F4F4 footer with standard
+                 3-col dark-navy prefooter. Hero H1 color → #EEAE26.
+    2026-04-13 — Nav: "Why Us" → "Our Company". Hero: second.png background.
+    2026-04-06 — LAYOUT REDESIGN: industry images, row layout, action tiles.
+    2026-04-06 — Added Paper & Packaging tile (7th industry).
+    2026-04-05 — Initial build.
 
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   HERO IMAGE: /images/second.png
@@ -48,17 +50,20 @@
   <meta name="twitter:title" content="Industries We Serve | Shiftwork Solutions">
   <meta name="twitter:description" content="Custom shift schedule consulting for seven core industries running 24/7 operations.">
 
-  <!-- ══════════════════════════════════════════════════════════════════
-       PLAUSIBLE ANALYTICS (added 2026-04-28)
-       Privacy-friendly, cookieless, GDPR/CCPA compliant.
-       Loads async — does not block page render.
-       Script URL is unique to shift-work.com — do not change.
-       ══════════════════════════════════════════════════════════════════ -->
-  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
-  <script>
-    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-    plausible.init()
+  <!-- ── MICROSOFT CLARITY ── -->
+  <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "wiyn7e4d73");
   </script>
+
+  <!-- ── CUSTOM EVENT TRACKER ── -->
+  <script src="/js/event-tracker.js"></script>
+
+  <!-- ══ PLAUSIBLE ANALYTICS ══ -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Industries","item":"https://shift-work.com/industries/"}]}</script>
