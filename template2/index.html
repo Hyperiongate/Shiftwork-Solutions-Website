@@ -5,7 +5,7 @@
   URL: /resources/overtime-management-guide/
 
   Created:      2026-04-02
-  Last Updated: 2026-04-22
+  Last Updated: 2026-04-29
 
   CHANGE LOG:
     2026-04-02 — Initial build from Pillar_5_Overtime_Management_Rev_A_2_18_26.docx
@@ -15,38 +15,26 @@
     2026-04-03 — Hero updated to split layout with shutterstock image
     2026-04-04 — Nav restructure: flat links, orange CTA
     2026-04-05 — Hero background deepened to #163B5C
-    2026-04-16 — FULL STANDARD UPGRADE to match communicating-schedule-changes template:
-                 1. NAV: logo path → clear_bkgr_logo_2.png, SHIFTWORK SOLUTIONS
-                    text added, font-size 20px, flat links (no dropdowns),
-                    "Why Us" → "Our Company" linking to /why-us/
-                 2. HERO: pillar_5.jpg photo background + overlay pattern
-                 3. PULL QUOTES (x2): large Georgia quotation mark + italic text
-                 4. CALLOUT: light-grey background card
-                 5. INSIGHT CARDS: white bg with colored top borders
-                 6. FAQ: Hands_in_the_air.jpg full-width background + navy accordion
-                 7. NEXT STEPS: white cards + colored borders + IntersectionObserver
-                 8. FOOTER: standard 3-col dark navy prefooter
-                 9. LISTEN BUTTON: orange pill matching standard
-    2026-04-22 — Page Bottom Standard applied:
-                 - Removed: next-steps section (HTML + CSS + IntersectionObserver JS)
-                 - Removed: listen-btn (HTML + CSS + SpeechSynthesis JS)
-                 - Added: Thomas floating widget (HTML + CSS)
-                 - Added: bridge stripe (HTML + CSS) after FAQ section
-                 - Fixed: FAQ section margin → 40px 0 0 0
-                 - Updated: Footer col-1 → FREE ASSESSMENT, col-2 → DIAGNOSTIC ARTICLE
-                 - Fixed: Both pull quotes color #4a6a8a → var(--body-text),
-                   font-style:italic → font-style:normal
-                 - Updated: dateModified in Article JSON-LD → 2026-04-22
-    2026-04-23 — FIXES:
-                 - Fixed: .callout-text font-size restored to 14px (was incorrectly
-                   set to 24px in previous session — that spec applies to .callout-box p
-                   on article pages, not to .callout-text on this page)
-                 - Added: PDF download tab (fixed right edge, above Thomas widget)
-                   linking to /pdfs/overtime-management-guide.pdf
+    2026-04-16 — FULL STANDARD UPGRADE to match communicating-schedule-changes template
+    2026-04-22 — Page Bottom Standard applied
+    2026-04-23 — PDF download tab added (fixed right edge, above Thomas widget)
+    2026-04-29 — Multiple improvements:
+                 1. PDF float moved to upper-left corner, navy/blue color (not orange),
+                    label updated to "Overtime Management Guide"; stacking JS removed
+                 2. Eyebrow spacing fixed site-wide: added .eyebrow + h2 { margin-top:8px }
+                    so eyebrow-preceded headings are visually tight (not 36px gap)
+                 3. Insight card accent-green → accent-grey (#607D8B) — green implies
+                    "go/correct" which is misleading against orange card
+                 4. Callout box upgraded to Page Bottom Standard §6B:
+                    navy left-bar, no background, left-aligned
+                 5. Thomas float position updated to top:66.666%/translateY(-50%)
+                    per Page Bottom Standard §1 (was bottom:24px)
+                 6. Article JSON-LD dateModified updated to 2026-04-29
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
     Navy: #1F4E79 | Navy-dark: #0D1F3C | Mid-blue: #85B7EB | Orange: #E8610A | Green: #1D9E75
+    Grey accent: #607D8B (replaces green on insight cards)
     Font: Arial/system sans-serif
     Logo: /images/clear_bkgr_logo_2.png
     Hero image: /images/pillar_5.jpg
@@ -78,12 +66,12 @@
     {"@type":"Question","name":"Can you build overtime directly into a schedule?","acceptedAnswer":{"@type":"Answer","text":"Yes — patterns like four-on/two-off twelve-hour schedules build predictable overtime into every week, converting uncertain extra hours into guaranteed compensation."}}
   ]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Overtime Management Guide","item":"https://shift-work.com/resources/overtime-management-guide/"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Overtime Management: Strategy, Distribution & Cost Control","url":"https://shift-work.com/resources/overtime-management-guide/","datePublished":"2026-04-02","dateModified":"2026-04-22","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Overtime Management: Strategy, Distribution & Cost Control","url":"https://shift-work.com/resources/overtime-management-guide/","datePublished":"2026-04-02","dateModified":"2026-04-29","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
+    :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--grey-accent:#607D8B;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
@@ -122,6 +110,8 @@
     .meta-read{font-size:13px;color:var(--muted)}
     .article-wrap h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin:36px 0 14px}
     .article-wrap h2:first-of-type{margin-top:0}
+    /* When eyebrow immediately precedes h2, close the gap */
+    .eyebrow + h2{margin-top:8px}
     .article-wrap p{margin-bottom:18px;font-size:15px;line-height:1.75}
     .eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:6px}
     hr.divider{border:none;border-top:1px solid var(--border-light);margin:32px 0}
@@ -139,10 +129,10 @@
     .three-col{max-width:var(--max-width);margin:0 auto 32px;padding:0 var(--page-pad);display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .insight-card{background:var(--white);border:1px solid var(--border-med);border-radius:8px;padding:20px;border-top:4px solid var(--navy)}
     .insight-card.accent-orange{border-top-color:var(--orange)}
-    .insight-card.accent-green{border-top-color:var(--green)}
+    .insight-card.accent-grey{border-top-color:var(--grey-accent)}
     .insight-num{font-size:28px;font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:4px}
     .insight-card.accent-orange .insight-num{color:var(--orange)}
-    .insight-card.accent-green .insight-num{color:var(--green)}
+    .insight-card.accent-grey .insight-num{color:var(--grey-accent)}
     .insight-label{font-size:14px;font-weight:700;color:var(--body-text);margin-bottom:6px}
     .insight-text{font-size:13px;color:var(--muted);line-height:1.55}
     /* ── PULL QUOTE (site-wide standard 2026-04-22) ── */
@@ -151,21 +141,21 @@
     .pull-quote-content{flex:1}
     .pull-quote-content p{font-size:15px;font-weight:400;line-height:1.75;color:var(--body-text);margin:0;font-style:normal}
     .pull-quote-content .pq-attr{font-size:12px;font-weight:400;color:var(--muted);margin-top:8px;font-style:normal}
-    /* ── CALLOUT ── */
+    /* ── CALLOUT BOX (Page Bottom Standard §6B — 2026-04-29) ── */
     .callout{max-width:var(--max-width);margin:0 auto 32px;padding:0 var(--page-pad)}
-    .callout-inner{background:var(--light-grey);border-radius:6px;padding:20px 24px;border:1px solid var(--border-med)}
-    .callout-label{font-size:10px;font-weight:700;text-transform:uppercase;color:var(--orange);margin-bottom:6px;letter-spacing:.06em}
-    .callout-text{font-size:14px;color:var(--body-text);line-height:1.6}
-    /* ── PDF DOWNLOAD TAB ── */
-    /* PDF tab position set by JS at runtime based on Thomas's actual rendered height.
-       Fallback bottom:220px keeps it above Thomas even if JS hasn't run yet. */
-    .pdf-float{position:fixed;right:0;bottom:220px;z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
-    .pdf-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
-    .pdf-float-body{padding:10px 8px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px}
+    .callout-box{background:none;border-left:4px solid var(--navy);border-radius:0;padding:16px 0 16px 20px;margin:0;text-align:left}
+    .callout-box p{font-size:15px;line-height:1.6;color:var(--body-text);font-weight:400;margin:0;font-style:normal}
+    .callout-box strong{font-weight:700;color:var(--navy)}
+    /* ── PDF DOWNLOAD TAB — upper-left fixed ── */
+    /* Navy/blue color scheme; noticeable but not orange.
+       Top offset clears the sticky nav (56px) plus a small gap. */
+    .pdf-float{position:fixed;left:0;top:72px;z-index:950;width:110px;background:#ffffff;border-radius:0 8px 8px 0;overflow:hidden;text-decoration:none;box-shadow:3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block;border-left:4px solid var(--navy)}
+    .pdf-float:hover{width:120px;box-shadow:5px 5px 22px rgba(0,0,0,0.26)}
+    .pdf-float-body{padding:10px 10px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px}
     .pdf-float-icon{font-size:20px;line-height:1}
     .pdf-float-title{font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:var(--navy);line-height:1.35;display:block;text-align:center}
-    .pdf-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s;margin-top:2px}
-    .pdf-float:hover .pdf-float-cta{background:#5a9fd4}
+    .pdf-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--navy);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s;margin-top:2px}
+    .pdf-float:hover .pdf-float-cta{background:var(--mid-blue)}
     @media(max-width:768px){.pdf-float{display:none}}
     /* ── FAQ SECTION (margin top 40px, flush to bridge stripe) ── */
     .faq-section{position:relative;overflow:hidden;margin:40px 0 0 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
@@ -223,8 +213,8 @@
     .footer-bottom-inner a:hover{color:var(--orange)}
     .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-    /* ── THOMAS FLOATING WIDGET ── */
-    .thomas-float{position:fixed;right:0;bottom:24px;z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
+    /* ── THOMAS FLOATING WIDGET (Page Bottom Standard §1 — 2026-04-22) ── */
+    .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
     .thomas-float-body{padding:8px 8px 10px;text-align:center}
@@ -324,7 +314,7 @@
 <div class="three-col">
   <div class="insight-card"><div class="insight-num">~14%</div><div class="insight-label">True OT cost premium</div><div class="insight-text">When fully loaded costs are included — benefits, PTO, training — overtime costs only about 14% more than straight time, not the 50% "time-and-a-half" implies.</div></div>
   <div class="insight-card accent-orange"><div class="insight-num">10×</div><div class="insight-label">Overstaffing penalty</div><div class="insight-text">The adverse cost of maintaining excess headcount is typically ten times higher than the cost of moderate understaffing covered by overtime.</div></div>
-  <div class="insight-card accent-green"><div class="insight-num">7.5%</div><div class="insight-label">Pay increase, 1% cost rise</div><div class="insight-text">One facility increased guaranteed employee compensation by 7.5% while payroll costs rose only 1% — by building overtime into a continuous schedule.</div></div>
+  <div class="insight-card accent-grey"><div class="insight-num">7.5%</div><div class="insight-label">Pay increase, 1% cost rise</div><div class="insight-text">One facility increased guaranteed employee compensation by 7.5% while payroll costs rose only 1% — by building overtime into a continuous schedule.</div></div>
 </div>
 
 <div class="article-wrap" style="padding-top:0;">
@@ -392,9 +382,8 @@
 </div>
 
 <div class="callout">
-  <div class="callout-inner">
-    <div class="callout-label">Important</div>
-    <div class="callout-text">Prolonged high overtime creates a dangerous dependency. When employees rely on overtime income to meet their financial obligations, reducing overtime — even when operationally appropriate — becomes financially devastating for your workforce. You've essentially created a compensation structure that can't flex downward without causing hardship. Design your baseline compensation and staffing to avoid creating this trap.</div>
+  <div class="callout-box">
+    <p><strong>Important:</strong> Prolonged high overtime creates a dangerous dependency. When employees rely on overtime income to meet their financial obligations, reducing overtime — even when operationally appropriate — becomes financially devastating for your workforce. You've essentially created a compensation structure that can't flex downward without causing hardship. Design your baseline compensation and staffing to avoid creating this trap.</p>
   </div>
 </div>
 
@@ -477,7 +466,7 @@
   </div></div>
 </footer>
 
-<!-- ── PDF DOWNLOAD TAB ── -->
+<!-- ── PDF DOWNLOAD TAB — upper-left, navy/blue, below sticky nav ── -->
 <a class="pdf-float"
    href="/pdfs/overtime-management-guide.pdf"
    target="_blank"
@@ -510,7 +499,6 @@
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
-(function(){function stackTabs(){var thomas=document.querySelector('.thomas-float');var pdf=document.querySelector('.pdf-float');if(!thomas||!pdf)return;var thomasH=thomas.getBoundingClientRect().height;var thomasBottom=24;pdf.style.bottom=(thomasBottom+thomasH+16)+'px';}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',stackTabs);}else{stackTabs();}window.addEventListener('resize',stackTabs);})();
 </script>
 </body>
 </html>
