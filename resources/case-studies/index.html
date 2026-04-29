@@ -8,6 +8,10 @@
   Last Updated: 2026-04-28
 
   CHANGE LOG:
+    2026-04-28 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
+                 removed plausible.init(), upgraded Org schema to canonical full version
+                 (foundingDate, knowsAbout, contactPoint, LinkedIn-only sameAs),
+                 removed meta keywords.
     2026-04-28 — Plausible analytics added. Footer bottom bar updated:
                  mid-dot separators + Case Studies / Privacy Policy /
                  Terms of Use links.
@@ -22,8 +26,6 @@
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   DESIGN CONSTANTS: navy #1F4E79, orange #E8610A, max-width 1060px
   NOT IN MAIN NAV — quiet index, SEO crawl path only
-
-  I did no harm and this file is not truncated
 -->
 <html lang="en">
 <head>
@@ -31,7 +33,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shift Schedule Consulting Case Studies | Shiftwork Solutions LLC</title>
   <meta name="description" content="Real engagements, real outcomes. Eight case studies across food manufacturing, distribution, pharma, automotive, chemical, mining, and more — each anonymized and reported against the client's stated objective.">
-  <meta name="keywords" content="shift schedule case studies, schedule redesign results, 24/7 operations consulting, workforce scheduling outcomes, shiftwork solutions engagements">
   <link rel="canonical" href="https://shift-work.com/resources/case-studies/">
   <meta property="og:title" content="Shift Schedule Consulting Case Studies | Shiftwork Solutions LLC">
   <meta property="og:description" content="Real engagements, real outcomes. Eight case studies across food manufacturing, distribution, pharma, automotive, chemical, mining, and more.">
@@ -44,64 +45,29 @@
   <meta name="twitter:description" content="Real engagements, real outcomes across manufacturing, distribution, pharma, automotive, chemical, mining, and more.">
   <meta name="twitter:image" content="https://shift-work.com/images/manufacturing.jpg">
 
-  <!-- ── ORGANIZATION SCHEMA ── -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Shiftwork Solutions LLC",
-    "url": "https://shift-work.com",
-    "logo": "https://shift-work.com/images/clear_bkgr_logo_2.png",
-    "telephone": "+14152651621",
-    "email": "Contact@shift-work.com",
-    "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations.",
-    "address": {"@type": "PostalAddress", "addressLocality": "San Rafael", "addressRegion": "CA", "postalCode": "94901", "addressCountry": "US"}
-  }
+  <!-- ── MICROSOFT CLARITY ── -->
+  <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "wiyn7e4d73");
   </script>
+
+  <!-- ── CUSTOM EVENT TRACKER ── -->
+  <script src="/js/event-tracker.js"></script>
+
+  <!-- ══ PLAUSIBLE ANALYTICS ══ -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
+
+  <!-- ── ORGANIZATION SCHEMA (canonical) ── -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","logo":"https://shift-work.com/images/clear_bkgr_logo_2.png","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","slogan":"Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.","description":"Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.","foundingDate":"1993","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","postalCode":"94901","addressCountry":"US"},"areaServed":{"@type":"Country","name":"United States"},"contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service","email":"Contact@shift-work.com","areaServed":"US"},"knowsAbout":["shift schedule design","shift work consulting","24/7 operations management","continuous operations staffing","change management","workforce surveys","overtime management","overtime cost reduction","employee engagement","manufacturing workforce planning","distribution center scheduling","pharmaceutical shift scheduling","chemical plant operations","food and beverage manufacturing","mining shift scheduling","paper and packaging operations","union workforce consulting","rotating shift schedules","fixed shift schedules","12-hour shift schedules","staffing and workforce planning","labor cost analysis","fatigue risk management","post-implementation workforce surveys"],"sameAs":["https://www.linkedin.com/company/shiftwork-solutions-llc"]}</script>
 
   <!-- ── COLLECTIONPAGE SCHEMA ── -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": "Shift Schedule Consulting Case Studies",
-    "url": "https://shift-work.com/resources/case-studies/",
-    "dateModified": "2026-04-28",
-    "description": "Eight anonymized case studies from Shiftwork Solutions LLC engagements across food manufacturing, distribution, pharmaceutical, automotive, chemical processing, pulp and paper, mining, and general manufacturing. Each is reported against the client's stated objective.",
-    "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"},
-    "about": {"@type": "Thing", "name": "Shift Schedule Redesign and Workforce Management Consulting"},
-    "hasPart": [
-      {"@type": "Article", "name": "Food Manufacturer Didn't Need a 7-Day Schedule", "url": "https://shift-work.com/resources/case-studies/food-manufacturer-didnt-need-seven-days/"},
-      {"@type": "Article", "name": "7-Day Distribution Coverage Without a Weekend-Only Crew", "url": "https://shift-work.com/resources/case-studies/distribution-center-seven-day-rotation-coverage/"},
-      {"@type": "Article", "name": "Pharma Packaging to 7 Days With Cleaning Validation Intact", "url": "https://shift-work.com/resources/case-studies/pharmaceutical-packaging-seven-day-with-sanitation-windows/"},
-      {"@type": "Article", "name": "6-Day Schedule Solved Capacity and Avoided Union Renegotiation", "url": "https://shift-work.com/resources/case-studies/automotive-parts-six-day-not-seven-saved-union-renegotiation/"},
-      {"@type": "Article", "name": "Specialty Chemical Plant Moved to 7-Day Continuous Operation", "url": "https://shift-work.com/resources/case-studies/chemical-processing-seven-day-continuous-run/"},
-      {"@type": "Article", "name": "Paper Mill Cut Overtime by Diagnosing Real Root Causes", "url": "https://shift-work.com/resources/case-studies/paper-mill-overtime-root-causes-redesigned/"},
-      {"@type": "Article", "name": "Mining Operation Cut Voluntary Turnover by Redesigning the Schedule", "url": "https://shift-work.com/resources/case-studies/mining-operation-retention-schedule-redesign/"},
-      {"@type": "Article", "name": "Manufacturer Improved Work-Life Balance Without Compromising Output", "url": "https://shift-work.com/resources/case-studies/manufacturer-work-life-balance-redesign/"}
-    ]
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Shift Schedule Consulting Case Studies","url":"https://shift-work.com/resources/case-studies/","dateModified":"2026-04-28","description":"Eight anonymized case studies from Shiftwork Solutions LLC engagements across food manufacturing, distribution, pharmaceutical, automotive, chemical processing, pulp and paper, mining, and general manufacturing. Each is reported against the client's stated objective.","publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"about":{"@type":"Thing","name":"Shift Schedule Redesign and Workforce Management Consulting"},"hasPart":[{"@type":"Article","name":"Food Manufacturer Didn't Need a 7-Day Schedule","url":"https://shift-work.com/resources/case-studies/food-manufacturer-didnt-need-seven-days/"},{"@type":"Article","name":"7-Day Distribution Coverage Without a Weekend-Only Crew","url":"https://shift-work.com/resources/case-studies/distribution-center-seven-day-rotation-coverage/"},{"@type":"Article","name":"Pharma Packaging to 7 Days With Cleaning Validation Intact","url":"https://shift-work.com/resources/case-studies/pharmaceutical-packaging-seven-day-with-sanitation-windows/"},{"@type":"Article","name":"6-Day Schedule Solved Capacity and Avoided Union Renegotiation","url":"https://shift-work.com/resources/case-studies/automotive-parts-six-day-not-seven-saved-union-renegotiation/"},{"@type":"Article","name":"Specialty Chemical Plant Moved to 7-Day Continuous Operation","url":"https://shift-work.com/resources/case-studies/chemical-processing-seven-day-continuous-run/"},{"@type":"Article","name":"Paper Mill Cut Overtime by Diagnosing Real Root Causes","url":"https://shift-work.com/resources/case-studies/paper-mill-overtime-root-causes-redesigned/"},{"@type":"Article","name":"Mining Operation Cut Voluntary Turnover by Redesigning the Schedule","url":"https://shift-work.com/resources/case-studies/mining-operation-retention-schedule-redesign/"},{"@type":"Article","name":"Manufacturer Improved Work-Life Balance Without Compromising Output","url":"https://shift-work.com/resources/case-studies/manufacturer-work-life-balance-redesign/"}]}</script>
 
   <!-- ── BREADCRUMB SCHEMA ── -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://shift-work.com/"},
-      {"@type": "ListItem", "position": 2, "name": "Resources", "item": "https://shift-work.com/resources/"},
-      {"@type": "ListItem", "position": 3, "name": "Case Studies", "item": "https://shift-work.com/resources/case-studies/"}
-    ]
-  }
-  </script>
-
-  <!-- ── PLAUSIBLE ANALYTICS ── -->
-  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
-  <script>
-    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-    plausible.init()
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Case Studies","item":"https://shift-work.com/resources/case-studies/"}]}</script>
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -113,8 +79,6 @@
     }
     html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.75;color:var(--body-text);background:var(--white)}
-
-    /* ── NAV ── */
     .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
     .nav-inner{max-width:1100px;margin:0 auto;padding:0 var(--page-pad);display:flex;align-items:center;height:56px}
     .nav-logo{text-decoration:none;white-space:nowrap;margin-right:28px;flex-shrink:0;display:flex;align-items:center;gap:12px}
@@ -129,8 +93,6 @@
     .nav-cta-btn:hover{background:#c4510a}
     .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
     .mobile-toggle span{display:block;width:20px;height:2px;background:var(--navy);margin:4px 0;border-radius:1px}
-
-    /* ── HERO ── */
     .hero{background:var(--navy-dark);padding:52px 36px 60px;position:relative;overflow:hidden}
     .hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(31,78,121,0.95) 0%,rgba(13,31,60,0.98) 100%);z-index:0}
     .hero-circle-tr{position:absolute;top:-60px;right:-80px;width:360px;height:360px;border-radius:50%;border:2px solid rgba(232,97,10,.18);z-index:0}
@@ -142,25 +104,18 @@
     .hero-meta{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
     .hero-meta-item{display:flex;align-items:center;gap:7px;font-size:13px;color:rgba(255,255,255,.55)}
     .hero-meta-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0}
-
-    /* ── BREADCRUMB ── */
     .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
     .breadcrumb-inner{max-width:var(--max-width);margin:0 auto;font-size:12px;color:var(--muted)}
     .breadcrumb-inner a{color:var(--navy);text-decoration:none}
     .breadcrumb-inner a:hover{text-decoration:underline}
     .breadcrumb-inner span{margin:0 6px;opacity:.5}
-
-    /* ── SHARED SECTION LABELS ── */
     .section-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
     .accent-heading{font-size:22px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:10px;padding-left:14px;border-left:4px solid var(--orange)}
     .section-sub{font-size:14px;color:var(--muted);line-height:1.65;max-width:680px}
-
-    /* ── CASE STUDY TILES ── */
     .casestudy-grid-section{padding:56px var(--page-pad) 64px;background:var(--light-grey)}
     .casestudy-grid-inner{max-width:var(--max-width);margin:0 auto}
     .casestudy-grid-header{margin-bottom:36px}
     .casestudy-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-
     .cs-tile{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border-med);border-top:3px solid var(--border-med);border-radius:8px;overflow:hidden;text-decoration:none;transition:border-top-color .2s,box-shadow .2s,transform .2s}
     .cs-tile:hover{border-top-color:var(--orange);box-shadow:0 8px 28px rgba(0,0,0,.10);transform:translateY(-4px)}
     .cs-tile-img{width:100%;height:150px;object-fit:cover;display:block;background:var(--light-blue)}
@@ -173,8 +128,6 @@
     .cs-tile-author{font-size:11px;color:var(--muted)}
     .cs-tile-read{font-size:13px;font-weight:700;color:var(--orange);display:flex;align-items:center;gap:3px;transition:color .15s}
     .cs-tile:hover .cs-tile-read{color:var(--navy)}
-
-    /* ── ABOUT THIS COLLECTION ── */
     .about-section{padding:52px var(--page-pad) 56px;background:var(--white)}
     .about-inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
     .about-col h2{font-size:21px;font-weight:700;color:var(--body-text);line-height:1.3;margin-bottom:14px}
@@ -184,8 +137,6 @@
     .about-stat{background:var(--light-grey);border-left:4px solid var(--orange);border-radius:4px;padding:16px 18px}
     .about-stat-num{font-size:28px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:4px}
     .about-stat-label{font-size:12px;color:var(--muted);line-height:1.4}
-
-    /* ── ENGAGE BAND ── */
     .engage-band{background:var(--navy-dark);padding:48px var(--page-pad) 52px}
     .engage-band-inner{max-width:var(--max-width);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
     .engage-band-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
@@ -202,8 +153,6 @@
     .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
     .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
     .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
-
-    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -229,8 +178,6 @@
     .footer-bottom-left{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
     .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
     .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none;margin:0 2px}
-
-    /* ── THOMAS FLOATING WIDGET ── */
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
@@ -240,8 +187,6 @@
     .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
     .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
     @media(max-width:768px){.thomas-float{display:none}}
-
-    /* ── RESPONSIVE ── */
     @media(max-width:960px){
       .casestudy-grid{grid-template-columns:repeat(2,1fr);gap:20px}
       .about-inner{grid-template-columns:1fr;gap:32px}
@@ -271,7 +216,6 @@
 </head>
 <body>
 
-<!-- ── NAV ── -->
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo">
     <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36">
@@ -289,7 +233,6 @@
   <div class="nav-cta-wrap"><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
 </div></nav>
 
-<!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-circle-tr"></div>
   <div class="hero-circle-bl"></div>
@@ -305,12 +248,10 @@
   </div>
 </section>
 
-<!-- ── BREADCRUMB ── -->
 <div class="breadcrumb-bar"><div class="breadcrumb-inner">
   <a href="/">Home</a><span>&#x203A;</span><a href="/resources/">Resources</a><span>&#x203A;</span>Case Studies
 </div></div>
 
-<!-- ── TILE GRID ── -->
 <section class="casestudy-grid-section"><div class="casestudy-grid-inner">
   <div class="casestudy-grid-header">
     <div class="section-eyebrow">Published Engagements</div>
@@ -426,7 +367,6 @@
   </div><!-- /casestudy-grid -->
 </div></section>
 
-<!-- ── ABOUT THIS COLLECTION ── -->
 <section class="about-section"><div class="about-inner">
   <div class="about-col">
     <h2>How These Engagements Are Reported</h2>
@@ -456,7 +396,6 @@
   </div>
 </div></section>
 
-<!-- ── ENGAGE BAND ── -->
 <div class="engage-band"><div class="engage-band-inner">
   <div class="engage-band-col">
     <div class="engage-band-label">Talk to an Expert</div>
@@ -476,25 +415,12 @@
   </div>
 </div></div>
 
-<!-- ── FOOTER ── -->
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
-      <div class="footer-col footer-col-1">
-        <div class="engage-label">FREE ASSESSMENT</div>
-        <div class="engage-col-title">Shiftwork Operations Reality Check</div>
-        <p class="engage-col-desc">Compare your instincts to more than 20,000 shift worker responses. Free. Five minutes. No email required.</p>
-      </div>
-      <div class="footer-col footer-col-2">
-        <div class="engage-label">DIAGNOSTIC ARTICLE</div>
-        <div class="engage-col-title">The 26 Warning Signs</div>
-        <p class="engage-col-desc">Twenty-six operational symptoms that signal your shiftwork system may need attention. If you&rsquo;re seeing several, the schedule is likely the source.</p>
-      </div>
-      <div class="footer-col footer-col-3">
-        <div class="engage-label">AI SHIFT ADVISOR</div>
-        <div class="engage-col-title">Talk to Thomas</div>
-        <p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift advisor &mdash; available now, no appointment needed.</p>
-      </div>
+      <div class="footer-col footer-col-1"><div class="engage-label">FREE ASSESSMENT</div><div class="engage-col-title">Shiftwork Operations Reality Check</div><p class="engage-col-desc">Compare your instincts to more than 20,000 shift worker responses. Free. Five minutes. No email required.</p></div>
+      <div class="footer-col footer-col-2"><div class="engage-label">DIAGNOSTIC ARTICLE</div><div class="engage-col-title">The 26 Warning Signs</div><p class="engage-col-desc">Twenty-six operational symptoms that signal your shiftwork system may need attention. If you&rsquo;re seeing several, the schedule is likely the source.</p></div>
+      <div class="footer-col footer-col-3"><div class="engage-label">AI SHIFT ADVISOR</div><div class="engage-col-title">Talk to Thomas</div><p class="engage-col-desc">Got a question about your operation? Thomas is our AI shift advisor &mdash; available now, no appointment needed.</p></div>
     </div>
     <div class="footer-cta-row">
       <div class="footer-cta-1"><a href="https://www.shift-work.com/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Reality Check &#x2192;</a></div>
@@ -520,7 +446,6 @@
   </div></div>
 </footer>
 
-<!-- ── THOMAS FLOATING WIDGET ── -->
 <a class="thomas-float" href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener" aria-label="Meet Thomas, your AI Shift Advisor">
   <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
   <div class="thomas-float-body">
@@ -550,7 +475,6 @@ document.getElementById('mobileToggle').addEventListener('click', function() {
     n.style.zIndex = '99';
   }
 });
-
 (function() {
   var SWARM = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
   window.engageNLSubmit = function(e) {
