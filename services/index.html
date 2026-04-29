@@ -32,6 +32,15 @@
                   Added custom event tracker script (/js/event-tracker.js).
                   Placement: immediately before Plausible block, after meta tags.
                   All existing functionality preserved exactly.
+      2026-04-29  (v19) MOBILE OPTIMIZATION:
+                  Additive mobile CSS block only — zero desktop rules altered.
+                  This page already had good grid breakpoints on most sections.
+                  @media(max-width:640px): nav-logo-text 16px, page-hero padding
+                    tightened, section padding reduced, footer-bottom-left
+                    column stack + separators hidden.
+                  @media(max-width:480px): nav-logo-text hidden, section padding
+                    tighter, pull-quote column stack, newsletter form stacks,
+                    hero-stat padding tightened.
 
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   HERO IMAGE: /images/second.png
@@ -328,6 +337,57 @@
     @media (max-width: 768px) { .thomas-float { display: none; } }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
     .anim { animation: fadeUp 0.5s ease-out both; }
+
+    /* ══════════════════════════════════════════════════════════════════
+       MOBILE OPTIMIZATION BLOCK (added 2026-04-29)
+       Strategy: Additive overrides only — no desktop rules altered.
+       This page already had good grid breakpoints on most sections.
+
+       Fixes:
+         1. nav-logo-text: 20px → 16px at 640px; hidden at 480px
+         2. page-hero padding tightened at 640px
+         3. .section padding reduced at 640px and 480px
+         4. footer-bottom-left column stack + separators hidden at 640px
+         5. pull-quote: column stack at 480px
+         6. Newsletter form: column stack at 480px
+         7. hero-stat padding tightened at 480px
+       ══════════════════════════════════════════════════════════════════ */
+
+    @media(max-width:640px){
+      /* 1. Nav logo text */
+      .nav-logo-text{font-size:16px;}
+
+      /* 2. Hero padding */
+      .page-hero{padding:36px 20px 40px;}
+
+      /* 3. Section padding */
+      .section{padding:40px 20px;}
+
+      /* 4. Footer bottom — column stack, hide separators */
+      .footer-bottom-left{flex-direction:column;align-items:center;gap:6px;}
+      .footer-bottom-sep{display:none;}
+    }
+
+    @media(max-width:480px){
+      /* 1. Hide logo text on very small screens */
+      .nav-logo-text{display:none;}
+
+      /* 3. Section padding even tighter */
+      .section{padding:32px 16px;}
+
+      /* 5. Pull quote — stack vertically */
+      .pull-quote{flex-direction:column;gap:8px;}
+      .pull-quote-mark{font-size:64px;margin-top:0;line-height:1;}
+
+      /* 6. Newsletter form — stack */
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+
+      /* 7. Hero stats — tighter padding */
+      .hero-stat{padding:12px 16px;min-width:100px;}
+      .hero-stat-num{font-size:24px;}
+    }
   </style>
 </head>
 <body>
