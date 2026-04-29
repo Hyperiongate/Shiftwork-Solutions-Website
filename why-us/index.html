@@ -5,7 +5,7 @@
   URL: /why-us/
 
   Created:      2026-04-05
-  Last Updated: 2026-04-28
+  Last Updated: 2026-04-29
 
   CHANGE LOG:
     2026-04-05 — Initial build.
@@ -30,6 +30,16 @@
                  removed plausible.init(), replaced canonical Org schema
                  (removed self-referential sameAs, upgraded to full canonical),
                  removed meta keywords.
+    2026-04-29 — MOBILE OPTIMIZATION:
+                 Additive mobile CSS block only — zero desktop rules altered.
+                 This page was already well-optimized: hero, nav, whyus-section,
+                 gains-header-section, gains-section, gains-row, whyus-grid,
+                 faq, and footer stacking all had correct 640px rules.
+                 @media(max-width:640px): footer-bottom-left column stack +
+                   separators hidden (the one gap in existing 640px coverage).
+                 @media(max-width:480px): nav-logo-text hidden, pull-quote
+                   column stack (128px mark too wide on phone), newsletter
+                   form stack, gains-process-image height reduced.
 
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   HERO IMAGE: /images/second.png
@@ -336,6 +346,44 @@
       .footer-bottom{padding:14px 20px}
       .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
       .footer-bottom-left{justify-content:center}
+    }
+
+    /* ══════════════════════════════════════════════════════════════════
+       MOBILE OPTIMIZATION BLOCK (added 2026-04-29)
+       Strategy: Additive overrides only — no desktop rules altered.
+       This page was already well-optimized: hero, nav, whyus-section,
+       gains-header-section, gains-section, gains-row, whyus-grid,
+       faq, and footer stacking all had correct 640px rules.
+
+       Fixes:
+         1. footer-bottom-left column stack + separators hidden at 640px
+         2. nav-logo-text hidden at 480px
+         3. pull-quote column stack at 480px (128px mark too wide)
+         4. Newsletter form column stack at 480px
+         5. gains-process-image height reduced at 480px
+       ══════════════════════════════════════════════════════════════════ */
+
+    @media(max-width:640px){
+      /* 1. Footer bottom — column stack, hide separators */
+      .footer-bottom-left{flex-direction:column;align-items:center;gap:6px;}
+      .footer-bottom-sep{display:none;}
+    }
+
+    @media(max-width:480px){
+      /* 2. Hide logo text on very small screens */
+      .nav-logo-text{display:none;}
+
+      /* 3. Pull quote — stack vertically (128px mark too wide on phone) */
+      .pull-quote{flex-direction:column;gap:8px;}
+      .pull-quote-mark{font-size:72px;line-height:1;}
+
+      /* 4. Newsletter form — stack */
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+
+      /* 5. Process image — shorter on small phones */
+      .gains-process-image img{min-height:200px;height:200px;}
     }
   </style>
 </head>
