@@ -21,6 +21,9 @@
                  FOOTER BOTTOM BAR: added Case Studies, Privacy Policy,
                  Terms of Use links with mid-dot separators.
                  .footer-bottom-sep CSS rule added.
+    2026-04-28 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
+                 removed plausible.init(), replaced canonical Org schema,
+                 removed meta keywords.
 
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   HERO IMAGE: /images/second.png
@@ -35,7 +38,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meet Our Team | Shiftwork Solutions &#x2014; Jim Dillingham, Dan Capshaw, Ethan Franklin</title>
   <meta name="description" content="Meet the partners of Shiftwork Solutions LLC &#x2014; Jim Dillingham, Dan Capshaw, and Ethan Franklin. Three senior consultants with over 90 years of combined experience helping hundreds of 24/7 operations optimize shift schedules.">
-  <meta name="keywords" content="shiftwork consultants, shift schedule experts, Jim Dillingham, Dan Capshaw, Ethan Franklin, Shiftwork Solutions team, shift work consulting, 24/7 operations consultants, schedule change management experts, workforce optimization consultants">
   <link rel="canonical" href="https://shift-work.com/our_team/">
   <meta property="og:title" content="Meet Our Team | Shiftwork Solutions">
   <meta property="og:description" content="Three senior partners with over 90 years of combined experience helping hundreds of facilities optimize shift schedules and build engaged workforces.">
@@ -46,21 +48,73 @@
   <meta name="twitter:title" content="Meet Our Team | Shiftwork Solutions">
   <meta name="twitter:description" content="Three senior partners. Over 90 years of combined experience. Hundreds of facilities across 16+ industries.">
 
+  <!-- ── MICROSOFT CLARITY ── -->
+  <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "wiyn7e4d73");
+  </script>
+
+  <!-- ── CUSTOM EVENT TRACKER ── -->
+  <script src="/js/event-tracker.js"></script>
+
   <!-- ══════════════════════════════════════════════════════════════════
-       PLAUSIBLE ANALYTICS (added 2026-04-28)
+       PLAUSIBLE ANALYTICS
        Privacy-friendly, cookieless, GDPR/CCPA compliant.
        Loads async — does not block page render.
        Script URL is unique to shift-work.com — do not change.
        ══════════════════════════════════════════════════════════════════ -->
   <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
-  <script>
-    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-    plausible.init()
-  </script>
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"Meet Our Team","url":"https://shift-work.com/our_team/","description":"Meet the partners of Shiftwork Solutions LLC — senior consultants with over 90 years of combined experience.","mainEntity":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","member":[{"@type":"Person","name":"Jim Dillingham","jobTitle":"Partner & Senior Consultant","description":"Over 30 years helping companies design and implement shift schedules. Naval Academy graduate. Specializes in change management and employee involvement.","alumniOf":[{"@type":"CollegeOrUniversity","name":"United States Naval Academy"},{"@type":"CollegeOrUniversity","name":"Purdue University"},{"@type":"CollegeOrUniversity","name":"ESC Rouen"}]},{"@type":"Person","name":"Dan Capshaw","jobTitle":"Partner & Senior Consultant","description":"Over 32 years developing shift schedules and work systems. Chemical engineer, Lean Six Sigma Black Belt, former submarine officer.","alumniOf":[{"@type":"CollegeOrUniversity","name":"Johns Hopkins University"},{"@type":"CollegeOrUniversity","name":"UC Berkeley Haas School of Business"}]},{"@type":"Person","name":"Ethan Franklin","jobTitle":"Partner & Senior Consultant","description":"Over 28 years helping companies evaluate, design, and implement improved shift schedules. Data-driven approach balancing business needs with employee well-being.","alumniOf":[{"@type":"CollegeOrUniversity","name":"University of Illinois at Urbana-Champaign"},{"@type":"CollegeOrUniversity","name":"Loyola University Chicago School of Law"}]}]}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Why Us","item":"https://shift-work.com/why-us/"},{"@type":"ListItem","position":3,"name":"Our Team","item":"https://shift-work.com/our_team/"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Shiftwork Solutions LLC",
+  "url": "https://shift-work.com",
+  "logo": "https://shift-work.com/images/clear_bkgr_logo_2.png",
+  "telephone": "+1-415-265-1621",
+  "email": "Contact@shift-work.com",
+  "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
+  "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.",
+  "foundingDate": "1993",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Rafael",
+    "addressRegion": "CA",
+    "postalCode": "94901",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-415-265-1621",
+    "contactType": "customer service",
+    "email": "Contact@shift-work.com",
+    "areaServed": "US"
+  },
+  "knowsAbout": [
+    "shift schedule design","shift work consulting","24/7 operations management",
+    "continuous operations staffing","change management","workforce surveys",
+    "overtime management","overtime cost reduction","employee engagement",
+    "manufacturing workforce planning","distribution center scheduling",
+    "pharmaceutical shift scheduling","chemical plant operations",
+    "food and beverage manufacturing","mining shift scheduling",
+    "paper and packaging operations","union workforce consulting",
+    "rotating shift schedules","fixed shift schedules","12-hour shift schedules",
+    "staffing and workforce planning","labor cost analysis",
+    "fatigue risk management","post-implementation workforce surveys"
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/company/shiftwork-solutions-llc"
+  ]
+}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Who leads my project?","acceptedAnswer":{"@type":"Answer","text":"A senior partner — Jim, Dan, or Ethan — leads every engagement from start to finish. There are no handoffs to junior staff."}},{"@type":"Question","name":"How much experience does your team have?","acceptedAnswer":{"@type":"Answer","text":"Collectively, our three partners have over 90 years of dedicated shiftwork consulting experience across hundreds of facilities in 16+ industries."}},{"@type":"Question","name":"What industries do you serve?","acceptedAnswer":{"@type":"Answer","text":"Manufacturing, pharmaceuticals, food processing, mining, distribution, chemicals, refining, utilities, automotive, semiconductors, call centers, healthcare, packaging, paper, port operations, telecommunications, and government operations."}},{"@type":"Question","name":"Do you work with union and non-union facilities?","acceptedAnswer":{"@type":"Answer","text":"Both. Our partners have extensive experience working with union leadership, navigating collective bargaining agreements, and building consensus in both organized and non-organized workplaces."}},{"@type":"Question","name":"Where are you located?","acceptedAnswer":{"@type":"Answer","text":"Jim is based in San Rafael, California; Dan in Ivins, Utah; and Ethan in Indiana. We work with facilities nationwide and internationally."}},{"@type":"Question","name":"What does a typical engagement look like?","acceptedAnswer":{"@type":"Answer","text":"Most projects run five to ten weeks with six being the average. The process includes discovery and business analysis, an employee survey, schedule design and cost modeling, and implementation support. Every project is fixed-fee."}}]}</script>
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
