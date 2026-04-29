@@ -65,6 +65,19 @@
                   - Added custom event tracker script (/js/event-tracker.js)
                   - Placement: immediately before Plausible block, after meta tags
                   - All existing functionality preserved exactly
+      2026-04-29  (v22) MOBILE OPTIMIZATION:
+                  - Additive mobile CSS block only — zero desktop rules altered
+                  - @media(max-width:640px): nav font-size 20px→16px, section
+                    padding 88px→48px, services inset box-shadow removed,
+                    quote-band padding-left reduced, footer-bottom stacking
+                    improved, section-heading/sub sizes tightened, card
+                    inner padding tightened, hero-stats tightened
+                  - @media(max-width:480px): logo text hidden on very small
+                    screens, hero stats full-width vertical stack, hero CTAs
+                    stack full-width, newsletter form stacks, process image
+                    shorter, client strip font smaller
+                  - HTML fix: removed white-space:nowrap inline style from
+                    resources section-sub (caused horizontal overflow on mobile)
 
   NAV: .site-header / .main-nav / .nav-cta (fixed 64px)
   HERO BG: /images/second.png | HERO RIGHT: /images/pillar_6.jpg
@@ -91,6 +104,11 @@
   Setup → "Verify installation", then visit the live site to trigger the
   first session. The "Almost there" prompt will clear once Clarity detects
   the script firing.
+
+  MOBILE NOTE (2026-04-29):
+  All mobile fixes are purely additive — appended at the end of <style>.
+  Desktop rendering is unchanged. Two breakpoints added: 640px and 480px.
+  The one HTML change: resources section-sub no longer has white-space:nowrap.
 -->
 <html lang="en">
 <head>
@@ -663,6 +681,118 @@
     @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
     .anim{animation:fadeUp 0.6s ease-out both;}
     .d1{animation-delay:0.1s;}.d2{animation-delay:0.2s;}.d3{animation-delay:0.3s;}.d4{animation-delay:0.4s;}
+
+    /* ══════════════════════════════════════════════════════════════════
+       MOBILE OPTIMIZATION BLOCK (added 2026-04-29)
+       Strategy: Additive overrides only — no desktop rules altered.
+
+       Fixes:
+         1. Nav link font-size 20px → 16px on mobile
+         2. Logo text guarded/hidden on very small screens
+         3. .section padding 88px → 48px at 640px, 40px at 480px
+         4. Services inset box-shadow removed on mobile
+         5. Quote band padding-left reduced; quote-mark repositioned
+         6. Resources section-sub overflow bug — nowrap removed in HTML
+         7. Hero stats vertical stack on narrow phones
+         8. Hero CTAs stack full-width on narrow phones
+         9. Footer bottom links improved stacking
+        10. Section heading/sub sizes tightened
+        11. Card padding tightened
+        12. Newsletter form stacks on small phones
+        13. Process image shorter on small phones
+        14. Client strip font smaller on small phones
+       ══════════════════════════════════════════════════════════════════ */
+
+    /* ── 640px breakpoint ── */
+    @media(max-width:640px){
+      /* 1. Nav links — desktop is 20px, way too large in open mobile menu */
+      .main-nav>ul>li>a{font-size:16px;padding:12px 20px;}
+
+      /* 2. Logo text */
+      .site-logo-text{font-size:16px;}
+      .site-logo{gap:8px;}
+
+      /* 3. Section padding — 88px is desktop-sized, too tall on phones */
+      .section{padding:48px clamp(16px,4vw,24px);}
+
+      /* 4. Services inset left-side navy box-shadow looks broken on full-width mobile */
+      .services{box-shadow:none;}
+
+      /* 5. Quote band — 72px left padding eats too much of a 375px screen */
+      .quote-band{padding:40px 20px;}
+      .quote-band-inner{padding-left:0;padding-top:48px;}
+      .quote-mark{font-size:4rem;top:-4px;left:0;}
+      .quote-text{font-size:clamp(1.1rem,4.5vw,1.4rem);}
+
+      /* 8. Footer bottom link row */
+      .footer-bottom-inner{flex-direction:column;align-items:center;text-align:center;gap:8px;}
+      .footer-bottom-left{flex-direction:column;align-items:center;gap:6px;}
+      /* Hide mid-dot separators when stacking vertically */
+      .footer-bottom-sep{display:none;}
+
+      /* 9. Section heading and sub */
+      .section-heading{font-size:clamp(1.4rem,5vw,1.9rem);}
+      .section-sub{font-size:0.95rem;}
+
+      /* 10. Card inner padding — tighten on narrow screens */
+      .problem-card{padding:24px 20px;}
+      .service-card{padding:22px 16px;}
+      .resource-card-body{padding:16px 14px 16px;}
+
+      /* Hero stats — tighter at 640px */
+      .hero-stats{gap:16px;}
+      .hero-stat-item{flex:1 1 40%;}
+      .hero-stat-num{font-size:1.6rem;}
+
+      /* Process steps */
+      .process-step{gap:14px;}
+      .process-num{width:38px;height:38px;font-size:1rem;flex-shrink:0;}
+    }
+
+    /* ── 480px breakpoint (narrow phones: iPhone SE, small Androids) ── */
+    @media(max-width:480px){
+      /* 2. Hide logo text on very small screens to prevent header overflow */
+      .site-logo-text{display:none;}
+
+      /* Hero copy */
+      .hero h1{font-size:1.7rem;}
+      .hero-subhead{font-size:1rem;}
+      .hero-desc{font-size:1rem;}
+
+      /* 7. Hero stats — vertical stack, full-width, with divider lines */
+      .hero-stats{flex-direction:column;gap:0;}
+      .hero-stat-item{flex:none;width:100%;padding:14px 0;border-right:none !important;border-bottom:1px solid rgba(255,255,255,0.12);}
+      .hero-stat-item:last-child{border-bottom:none;}
+      .hero-stat-item+.hero-stat-item{padding-left:0;}
+
+      /* 8. Hero CTAs — stack full-width */
+      .hero-ctas{flex-direction:column;gap:10px;}
+      .hero-ctas .btn-primary,
+      .hero-ctas .btn-outline{width:100%;justify-content:center;text-align:center;box-sizing:border-box;}
+
+      /* 3. Section padding even tighter */
+      .section{padding:40px 16px;}
+
+      /* 14. Client strip font smaller on small phones */
+      .cn{font-size:18px;padding:0 20px;}
+
+      /* Team card */
+      .team-grid{max-width:340px;}
+
+      /* 12. Newsletter form stacks vertically */
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+
+      /* 13. Process image shorter */
+      .process-image img{height:220px;}
+
+      /* Quote mark smaller */
+      .quote-mark{font-size:3rem;}
+
+      /* Section label */
+      .section-label{font-size:0.68rem;}
+    }
   </style>
 </head>
 <body>
@@ -866,11 +996,12 @@
   </div>
 </section>
 
+<!-- NOTE: white-space:nowrap removed from section-sub inline style below (v22 mobile fix) -->
 <section class="section resources" id="resources">
   <div class="section-inner" style="text-align:center;">
     <div class="section-label">Resources</div>
     <div class="section-heading">Start Here</div>
-    <p class="section-sub" style="margin:0 auto 40px;max-width:none;white-space:nowrap;">Free tools, articles, and assessments to help you understand your shiftwork challenges.</p>
+    <p class="section-sub" style="margin:0 auto 40px;max-width:none;">Free tools, articles, and assessments to help you understand your shiftwork challenges.</p>
     <div class="resources-grid">
       <a href="/resources/shift-schedule-design-guide/" class="resource-card"><img src="/images/pillar_1.jpg" alt="Schedule Design Guide" class="resource-card-img"><div class="resource-card-body"><h3>Schedule Design Guide</h3><p>The complete guide to shift schedule design &mdash; patterns, trade-offs, and what actually works.</p></div></a>
       <a href="/resources/employee-engagement-shift-work/" class="resource-card"><img src="/images/pillar_7.jpg" alt="Employee Engagement" class="resource-card-img"><div class="resource-card-body"><h3>Employee Engagement</h3><p>How to build workforce buy-in and reduce turnover through employee-centered scheduling.</p></div></a>
