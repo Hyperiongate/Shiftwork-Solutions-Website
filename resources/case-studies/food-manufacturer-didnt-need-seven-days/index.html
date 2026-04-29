@@ -2,9 +2,13 @@
 <!--
   resources/case-studies/food-manufacturer-didnt-need-seven-days/index.html
   Shiftwork Solutions LLC — Case Study
-  Last Updated: 2026-04-28
+  Last Updated: 2026-04-29
 
   CHANGE LOG:
+    2026-04-29 — MOBILE OPTIMIZATION: Added @media(max-width:480px) block (additive only).
+                 Fixes: nav-logo-text hidden, article-wrap tighter padding, pull-quote-mark
+                 smaller font-size, newsletter form stacks to column, hero/faq/bridge-stripe
+                 padding tightened. No desktop rules altered.
     2026-04-28 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
                  removed plausible.init(), added canonical Org schema, removed meta keywords.
     2026-04-28 — Plausible analytics added. Footer bottom bar updated.
@@ -13,6 +17,7 @@
     2026-04-26 (v1) — Initial build.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
+  MOBILE: 640px block was pre-existing; 480px block added 2026-04-29 (additive only)
   Author: Jim Dillingham | Image: /images/food.jpg
   I did no harm and this file is not truncated
 -->
@@ -32,13 +37,13 @@
   <meta property="og:image" content="https://shift-work.com/images/food.jpg">
   <meta property="article:author" content="Jim Dillingham">
   <meta property="article:published_time" content="2026-04-26">
-  <meta property="article:modified_time" content="2026-04-28">
+  <meta property="article:modified_time" content="2026-04-29">
   <meta property="article:section" content="Case Studies">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Case Study: Food Manufacturer Didn't Actually Need a 7-Day Schedule">
   <meta name="twitter:description" content="The capacity gap was on afternoon shift, not weekends. The schedule redesign saved a $4.2M expansion.">
   <meta name="twitter:image" content="https://shift-work.com/images/food.jpg">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Case Study: Food Manufacturer Didn't Actually Need a 7-Day Schedule","url":"https://shift-work.com/resources/case-studies/food-manufacturer-didnt-need-seven-days/","datePublished":"2026-04-26","dateModified":"2026-04-28","image":"https://shift-work.com/images/food.jpg","author":{"@type":"Person","name":"Jim Dillingham","jobTitle":"Senior Partner","worksFor":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","logo":{"@type":"ImageObject","url":"https://shift-work.com/images/clear_bkgr_logo_2.png"}},"about":"Schedule expansion analysis, food manufacturing, afternoon shift utilization, capacity assessment","keywords":"shift schedule, 7-day expansion, food manufacturing, capacity assessment, afternoon shift"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Case Study: Food Manufacturer Didn't Actually Need a 7-Day Schedule","url":"https://shift-work.com/resources/case-studies/food-manufacturer-didnt-need-seven-days/","datePublished":"2026-04-26","dateModified":"2026-04-29","image":"https://shift-work.com/images/food.jpg","author":{"@type":"Person","name":"Jim Dillingham","jobTitle":"Senior Partner","worksFor":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","logo":{"@type":"ImageObject","url":"https://shift-work.com/images/clear_bkgr_logo_2.png"}},"about":"Schedule expansion analysis, food manufacturing, afternoon shift utilization, capacity assessment","keywords":"shift schedule, 7-day expansion, food manufacturing, capacity assessment, afternoon shift"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Case Studies","item":"https://shift-work.com/resources/case-studies/"},{"@type":"ListItem","position":4,"name":"Food Manufacturer Didn't Need 7 Days","item":"https://shift-work.com/resources/case-studies/food-manufacturer-didnt-need-seven-days/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How do you know whether you actually need to expand to 7 days?","acceptedAnswer":{"@type":"Answer","text":"The verification question is whether the existing schedule is genuinely fully utilized. That means looking at line-by-line throughput on every shift, identifying utilization gaps, and testing whether closing those gaps would meet the demand projection."}},{"@type":"Question","name":"Why is afternoon-shift utilization often lower than day-shift utilization in 2-shift operations?","acceptedAnswer":{"@type":"Answer","text":"Several reasons compound. Afternoon-shift staffing density is often built around the assumption that the second shift runs lighter, which becomes self-reinforcing. Recruitment friction means afternoon positions sit vacant longer, so crews run smaller than designed. None of these are fixed conditions."}},{"@type":"Question","name":"What does marginal cost of weekend production actually mean?","acceptedAnswer":{"@type":"Answer","text":"Marginal cost is the additional cost of producing one more unit. For weekend operations, that includes weekend premium pay, additional supervision, sanitation cycle changes, raw material handling on weekend receiving schedules, and the fixed cost of running utilities through additional days."}},{"@type":"Question","name":"How long does this kind of business assessment typically take?","acceptedAnswer":{"@type":"Answer","text":"The business assessment phase generally runs two to three weeks. Workforce assessment adds another two to three weeks. The full engagement typically runs six to eight weeks end-to-end."}},{"@type":"Question","name":"What happens if the business assessment confirms 7 days is needed?","acceptedAnswer":{"@type":"Answer","text":"The methodology is the same regardless of which way the assessment points. If seven days is required, the next questions are which areas need weekend coverage, what minimum crew size each weekend day actually requires, how the operational ripple is managed, and how the workforce is engaged in the design."}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"The Shiftwork Solutions Four-Phase Schedule Redesign Methodology","description":"A rigorous four-phase methodology applied across hundreds of engagements over more than three decades.","totalTime":"P6W","step":[{"@type":"HowToStep","position":1,"name":"Phase 1 — Business Assessment","text":"Verify the business need by analyzing throughput, utilization, marginal cost, and operational ripple."},{"@type":"HowToStep","position":2,"name":"Phase 2 — Workforce Assessment","text":"Engage employees after Phase 1 defines what is operationally possible."},{"@type":"HowToStep","position":3,"name":"Phase 3 — Solution Design","text":"Design schedule options that meet business requirements while incorporating workforce input."},{"@type":"HowToStep","position":4,"name":"Phase 4 — Implementation Preparation and Rollout","text":"Develop the implementation manual and roll out with structured workforce engagement."}]}</script>
@@ -212,6 +217,21 @@
       .bridge-stripe-text{font-size:17px}
       .outcomes-table th,.outcomes-table td{padding:10px 12px;font-size:12px}
       .byline-inner{font-size:12px;gap:8px}
+    }
+    /* ══ MOBILE OPTIMIZATION (added 2026-04-29) ══
+       Additive only — no desktop rules altered.    */
+    @media(max-width:480px){
+      .nav-logo-text{display:none;}
+      .article-wrap{padding:24px 16px 32px;}
+      .pull-quote-mark{font-size:72px;}
+      .pull-quote{gap:8px;}
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+      .hero{padding:24px 16px 28px;}
+      .hero h1{font-size:20px;}
+      .faq-inner{padding:28px 14px 32px;}
+      .bridge-stripe{padding:22px 16px;}
     }
     .hero::before{content:'';position:absolute;inset:0;background:url('/images/food.jpg') center center / cover no-repeat;opacity:1;z-index:0}
   </style>
