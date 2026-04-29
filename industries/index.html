@@ -28,6 +28,17 @@
     2026-04-06 — LAYOUT REDESIGN: industry images, row layout, action tiles.
     2026-04-06 — Added Paper & Packaging tile (7th industry).
     2026-04-05 — Initial build.
+    2026-04-29 — MOBILE OPTIMIZATION:
+                 Additive mobile CSS block only — zero desktop rules altered.
+                 This page already had good coverage at 640px and 900px.
+                 HTML change: class="industry-placeholder" added to the two
+                   empty row-3 grid spacer divs (previously bare <div></div>).
+                   Without this, 1-col mobile layout shows dead whitespace
+                   above and below Paper & Packaging.
+                 @media(max-width:640px): industry-placeholder hidden,
+                   footer-bottom-left column stack + separators hidden.
+                 @media(max-width:480px): nav-logo-text hidden,
+                   newsletter form column stack.
 
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   HERO IMAGE: /images/second.png
@@ -182,6 +193,40 @@
       .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
       .footer-bottom-left{justify-content:center}
     }
+
+    /* ══════════════════════════════════════════════════════════════════
+       MOBILE OPTIMIZATION BLOCK (added 2026-04-29)
+       Strategy: Additive overrides only — no desktop rules altered.
+       This page already has good 640px coverage for nav, hero,
+       industries-section, grid stacking, and footer.
+
+       Fixes:
+         1. industry-placeholder divs hidden at 640px — on 1-col layout
+            the two empty row-3 grid spacers create dead whitespace above
+            and below Paper & Packaging. Class added in HTML (v22).
+         2. footer-bottom-left column stack + separators hidden at 640px
+         3. nav-logo-text hidden at 480px
+         4. Newsletter form column stack at 480px
+       ══════════════════════════════════════════════════════════════════ */
+
+    @media(max-width:640px){
+      /* 1. Hide empty grid placeholder divs (row 3 spacers) */
+      .industry-placeholder{display:none;}
+
+      /* 2. Footer bottom — column stack, hide separators */
+      .footer-bottom-left{flex-direction:column;align-items:center;gap:6px;}
+      .footer-bottom-sep{display:none;}
+    }
+
+    @media(max-width:480px){
+      /* 3. Hide logo text on very small screens */
+      .nav-logo-text{display:none;}
+
+      /* 4. Newsletter form — stack */
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+    }
   </style>
 </head>
 <body>
@@ -249,13 +294,15 @@
       <div class="industry-body"><div class="industry-title">Chemical &amp; Pharmaceutical</div><span class="industry-link">Learn more</span></div>
     </a>
 
-    <!-- ── ROW 3: Paper & Packaging centered, placeholders keep grid alignment ── -->
-    <div></div>
+    <!-- ── ROW 3: Paper & Packaging centered, placeholders keep grid alignment ──
+         class="industry-placeholder" added 2026-04-29 so CSS can hide them
+         on 1-col mobile layout where they cause dead whitespace. ── -->
+    <div class="industry-placeholder"></div>
     <a href="/industries/paper-packaging-operations/" class="industry-tile">
       <img src="/images/paper.jpg" alt="Paper and packaging shift operations" class="industry-img">
       <div class="industry-body"><div class="industry-title">Paper &amp; Packaging</div><span class="industry-link">Learn more</span></div>
     </a>
-    <div></div>
+    <div class="industry-placeholder"></div>
 
   </div>
 </div></section>
