@@ -8,31 +8,32 @@
   Last Updated: 2026-04-29
 
   CHANGE LOG:
-    2026-04-29 — ALL-PAGES CYCLE pass 2:
-                 Added Microsoft Clarity snippet (ID: wiyn7e4d73).
-                 Added custom event tracker script (/js/event-tracker.js).
-                 Removed redundant plausible.init() block — pa- script auto-initializes.
-                 Removed <meta name="keywords"> — approved sitewide removal.
-                 Corrected Service schema and Article schema which erroneously
-                 referenced Chemical/Pharma industry (copy-paste artifact from template).
-                 Replaced minimal Organization schema with canonical full version.
+    2026-04-04 — Initial build.
+    2026-04-08 — Hero eyebrow removed, hero bg -> mining.jpg.
+    2026-04-12 — TEMPLATE REBUILD.
+    2026-04-13 — TEMPLATE v2.
+    2026-04-14 — FAQ: full-bleed Hands_in_the_air.jpg background.
+    2026-04-16 — NAV FIXES.
+    2026-04-22 — FULL STANDARD UPDATE (Page Bottom Standard v1).
+    2026-04-22 — PAGE BOTTOM STANDARD CSS CORRECTIONS (v2).
+    2026-04-26 — AI DISCOVERABILITY SCHEMAS upgraded.
     2026-04-28 — Plausible analytics added; footer bottom bar updated with
                  Case Studies / Privacy Policy / Terms of Use links + sep rule.
-    2026-04-26 — AI DISCOVERABILITY SCHEMAS upgraded.
-    2026-04-22 — PAGE BOTTOM STANDARD CSS CORRECTIONS (v2).
-    2026-04-22 — FULL STANDARD UPDATE (Page Bottom Standard v1).
-    2026-04-16 — NAV FIXES.
-    2026-04-14 — FAQ: full-bleed Hands_in_the_air.jpg background.
-    2026-04-13 — TEMPLATE v2.
-    2026-04-12 — TEMPLATE REBUILD.
-    2026-04-08 — Hero eyebrow removed, hero bg -> mining.jpg.
-    2026-04-04 — Initial build.
+    2026-04-29 — ALL-PAGES CYCLE pass 2: Added Clarity (wiyn7e4d73), event-tracker,
+                 removed plausible.init(), replaced canonical Org schema,
+                 removed meta keywords. Corrected Service schema and Article schema
+                 which erroneously referenced Chemical/Pharma industry.
+    2026-04-29 — MOBILE OPTIMIZATION: Additive-only media queries appended before
+                 </style>. No desktop rules altered. Two new blocks:
+                 640px: nav link font-size 16px (mobile menu open state),
+                        pull-quote-mark reduced 128px→80px.
+                 480px: nav-logo-text hidden, newsletter form stacked,
+                        pull-quote-mark 56px, pull-quote gap tightened,
+                        client strip font-size 18px.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/mining.jpg
   FAQ IMAGE:  /images/Hands_in_the_air.jpg
-
-  I did no harm and this file is not truncated
 -->
 <html lang="en">
 <head>
@@ -247,6 +248,30 @@
       .bridge-stripe{padding:28px 20px}
       .bridge-stripe-text{font-size:17px}
     }
+
+    /* ══ MOBILE OPTIMIZATION (added 2026-04-29) ══
+       Additive only — no desktop rules altered.
+       640px: nav link font-size 16px (mobile menu open state),
+              pull-quote-mark reduced 128px → 80px.
+       480px: nav-logo-text hidden, newsletter form stacked full-width,
+              pull-quote-mark 56px, pull-quote gap tightened,
+              client strip font-size 18px.
+    */
+
+    @media(max-width:640px){
+      .nav-links>li>a{font-size:16px;padding:12px 20px;}
+      .pull-quote-mark{font-size:80px;}
+    }
+
+    @media(max-width:480px){
+      .nav-logo-text{display:none;}
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+      .pull-quote-mark{font-size:56px;}
+      .pull-quote{gap:8px;}
+      .cn{font-size:18px;}
+    }
   </style>
 </head>
 <body>
@@ -279,7 +304,7 @@
 </div></div>
 
 <div class="article-wrap">
-    <div class="article-meta">
+  <div class="article-meta">
     <span class="meta-tag">Industry Guide</span>
     <span class="meta-read">9 min read</span>
   </div>
@@ -369,7 +394,7 @@
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Do FIFO workers actually sleep better on-site than at home?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Consistently, yes. Workers on well-managed FIFO operations report better sleep quality during their rotation than at home. The camp environment removes competing demands — family obligations, household responsibilities, social commitments — that fragment rest in the home environment. This has real implications for how fatigue should be modeled across a rotation.</div></div></div>
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What does turnover actually cost a mining operation?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Far more than the recruiting cost alone. Training a new equipment operator to full site-specific competency takes six months to a year. The safety risk during that period is real and measurable. And the scheduling conditions that produced the departure will produce the next one unless addressed. Every replacement cycle carries the full cost again.</div></div></div>
     <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How do you survey a workforce that is geographically distributed during its off rotation?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">It requires deliberate process design that works for workers dispersed across a wide geography during their off period. More important than the logistics is the trust question — in operations where previous schedule changes were imposed without genuine consultation, rebuilding workforce credibility is the necessary first step.</div></div></div>
-    </div>
+  </div>
 </div>
 
 <div class="bridge-stripe">
