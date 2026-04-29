@@ -2,9 +2,13 @@
 <!--
   resources/case-studies/paper-mill-overtime-root-causes-redesigned/index.html
   Shiftwork Solutions LLC — Case Study
-  Last Updated: 2026-04-28
+  Last Updated: 2026-04-29
 
   CHANGE LOG:
+    2026-04-29 — MOBILE OPTIMIZATION: Added @media(max-width:480px) block (additive only).
+                 Fixes: nav-logo-text hidden, article-wrap tighter padding, pull-quote-mark
+                 smaller font-size, newsletter form stacks to column, hero/faq/bridge-stripe
+                 padding tightened. No desktop rules altered.
     2026-04-28 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
                  removed plausible.init(), added canonical Org schema, removed meta keywords.
     2026-04-28 — Plausible analytics added. Footer bottom bar updated.
@@ -12,6 +16,7 @@
     2026-04-26 (v1) — Initial build.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
+  MOBILE: 640px block was pre-existing; 480px block added 2026-04-29 (additive only)
   Author: Ethan Franklin | Image: /images/paper.jpg
   I did no harm and this file is not truncated
 -->
@@ -20,7 +25,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Case Study: How a Paper Mill Cut Overtime by Diagnosing the Real Root Causes | Shiftwork Solutions LLC</title>
-  <meta name="description" content="A kraft pulp & paper mill was running 22% overtime and treating it as fixed cost. The diagnostic revealed three distinct overtime drivers — only one of which was structural. The redesign addressed each driver separately.">
+  <meta name="description" content="A kraft pulp &amp; paper mill was running 22% overtime and treating it as fixed cost. The diagnostic revealed three distinct overtime drivers — only one of which was structural. The redesign addressed each driver separately.">
   <meta name="author" content="Ethan Franklin, Shiftwork Solutions LLC">
   <link rel="canonical" href="https://shift-work.com/resources/case-studies/paper-mill-overtime-root-causes-redesigned/">
   <meta property="og:type" content="article">
@@ -31,13 +36,13 @@
   <meta property="og:image" content="https://shift-work.com/images/paper.jpg">
   <meta property="article:author" content="Ethan Franklin">
   <meta property="article:published_time" content="2026-04-26">
-  <meta property="article:modified_time" content="2026-04-28">
+  <meta property="article:modified_time" content="2026-04-29">
   <meta property="article:section" content="Case Studies">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Case Study: How a Paper Mill Cut Overtime by Diagnosing the Real Root Causes">
-  <meta name="twitter:description" content="A pulp & paper mill cut overtime by 56% by diagnosing the actual root causes — not just adding headcount.">
+  <meta name="twitter:description" content="A pulp &amp; paper mill cut overtime by 56% by diagnosing the actual root causes — not just adding headcount.">
   <meta name="twitter:image" content="https://shift-work.com/images/paper.jpg">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Case Study: How a Paper Mill Cut Overtime by Diagnosing the Real Root Causes","url":"https://shift-work.com/resources/case-studies/paper-mill-overtime-root-causes-redesigned/","datePublished":"2026-04-26","dateModified":"2026-04-28","image":"https://shift-work.com/images/paper.jpg","author":{"@type":"Person","name":"Ethan Franklin","jobTitle":"Senior Partner","worksFor":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","logo":{"@type":"ImageObject","url":"https://shift-work.com/images/clear_bkgr_logo_2.png"}},"about":"Overtime root cause analysis, pulp and paper manufacturing, 24/7 continuous operations, schedule redesign","keywords":"paper mill, pulp mill, overtime, four-crew schedule, continuous operations, root cause"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Case Study: How a Paper Mill Cut Overtime by Diagnosing the Real Root Causes","url":"https://shift-work.com/resources/case-studies/paper-mill-overtime-root-causes-redesigned/","datePublished":"2026-04-26","dateModified":"2026-04-29","image":"https://shift-work.com/images/paper.jpg","author":{"@type":"Person","name":"Ethan Franklin","jobTitle":"Senior Partner","worksFor":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","logo":{"@type":"ImageObject","url":"https://shift-work.com/images/clear_bkgr_logo_2.png"}},"about":"Overtime root cause analysis, pulp and paper manufacturing, 24/7 continuous operations, schedule redesign","keywords":"paper mill, pulp mill, overtime, four-crew schedule, continuous operations, root cause"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Case Studies","item":"https://shift-work.com/resources/case-studies/"},{"@type":"ListItem","position":4,"name":"Paper Mill Overtime Root Causes","item":"https://shift-work.com/resources/case-studies/paper-mill-overtime-root-causes-redesigned/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What are the typical root causes of high overtime in 24/7 continuous operations?","acceptedAnswer":{"@type":"Answer","text":"There are usually three to five distinct drivers operating at once: chronic vacancy on specific positions or crews, absence-coverage rules that trigger overtime more aggressively than necessary, structural understaffing in specific operations, scheduled training or maintenance that has not been built into the crew model, and demand variability that is not absorbed by the schedule design."}},{"@type":"Question","name":"Why does adding more headcount often fail to reduce overtime?","acceptedAnswer":{"@type":"Answer","text":"Adding bodies addresses only one of the typical drivers — structural understaffing — while leaving the others intact. The new headcount gets absorbed by the same drivers that were generating overtime before, and overtime returns to roughly its prior level."}},{"@type":"Question","name":"How long does an overtime root-cause diagnostic typically take?","acceptedAnswer":{"@type":"Answer","text":"For an operation of this scale, the diagnostic phase runs four to six weeks. The work is primarily data analysis — pulling overtime records, mapping them against vacancy and absence patterns, and comparing crew-by-crew distributions."}},{"@type":"Question","name":"How do absence-coverage rules drive overtime?","acceptedAnswer":{"@type":"Answer","text":"Many operations use absence-coverage rules that trigger overtime backfill aggressively — calling in a worker on overtime within hours of an absence regardless of whether the absent worker's tasks are truly time-critical. Rewriting the rule to distinguish time-critical from non-time-critical positions often reduces absence-driven overtime by 50-70%."}},{"@type":"Question","name":"Will the workforce resist changes that reduce overtime earnings?","acceptedAnswer":{"@type":"Answer","text":"Often, yes — particularly in operations where overtime has been running high for years and workers have built financial commitments around it. Solutions include phased transitions, differential adjustments that preserve total compensation, rotation through high-overtime positions, and clear communication about why the change is being made."}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"The Shiftwork Solutions Four-Phase Schedule Redesign Methodology","description":"A rigorous four-phase methodology applied across hundreds of engagements over more than three decades.","totalTime":"P3M","step":[{"@type":"HowToStep","position":1,"name":"Phase 1 — Business Assessment","text":"Verify the business need by analyzing throughput, utilization, marginal cost, and operational ripple."},{"@type":"HowToStep","position":2,"name":"Phase 2 — Workforce Assessment","text":"Engage employees after Phase 1 defines what is operationally possible."},{"@type":"HowToStep","position":3,"name":"Phase 3 — Solution Design","text":"Design schedule options that meet business requirements while incorporating workforce input."},{"@type":"HowToStep","position":4,"name":"Phase 4 — Implementation Preparation and Rollout","text":"Develop the implementation manual and roll out with structured workforce engagement."}]}</script>
@@ -211,6 +216,21 @@
       .bridge-stripe-text{font-size:17px}
       .outcomes-table th,.outcomes-table td{padding:10px 12px;font-size:12px}
       .byline-inner{font-size:12px;gap:8px}
+    }
+    /* ══ MOBILE OPTIMIZATION (added 2026-04-29) ══
+       Additive only — no desktop rules altered.    */
+    @media(max-width:480px){
+      .nav-logo-text{display:none;}
+      .article-wrap{padding:24px 16px 32px;}
+      .pull-quote-mark{font-size:72px;}
+      .pull-quote{gap:8px;}
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+      .hero{padding:24px 16px 28px;}
+      .hero h1{font-size:20px;}
+      .faq-inner{padding:28px 14px 32px;}
+      .bridge-stripe{padding:22px 16px;}
     }
     .hero::before{content:'';position:absolute;inset:0;background:url('/images/paper.jpg') center center / cover no-repeat;opacity:1;z-index:0}
   </style>
