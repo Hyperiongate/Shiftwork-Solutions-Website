@@ -13,6 +13,9 @@
                  Bridge stripe; Thomas floating widget; Pull quotes updated.
     2026-04-28 — Plausible analytics added; footer bottom bar updated with
                  Case Studies / Privacy Policy / Terms of Use links + sep rule.
+    2026-04-28 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
+                 removed plausible.init(), replaced canonical Org schema,
+                 removed meta keywords.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
@@ -25,7 +28,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Operational Best Practices for 24/7 Shift Work | Shiftwork Solutions</title>
   <meta name="description" content="Hard-won lessons from hundreds of 24/7 operations on schedule design, equipment utilization, cross-training, communication, and the transition to continuous operations.">
-  <meta name="keywords" content="shift work best practices, 24/7 operations, continuous operations, shift schedule optimization, cross-training, equipment utilization, shift communication, workforce management, overtime management, shift transition, operational excellence">
   <link rel="canonical" href="https://shift-work.com/resources/shift-work-best-practices/">
   <meta property="og:title" content="Operational Best Practices for 24/7 Shift Work | Shiftwork Solutions">
   <meta property="og:description" content="Hard-won lessons from hundreds of 24/7 operations. Expert guide from Shiftwork Solutions.">
@@ -36,17 +38,69 @@
   <meta name="twitter:title" content="Operational Best Practices for 24/7 Shift Work | Shiftwork Solutions">
   <meta name="twitter:description" content="Expert guide from consultants who have worked with hundreds of facilities across 16+ industries.">
 
-  <!-- ══ PLAUSIBLE ANALYTICS (added 2026-04-28) ══ -->
-  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
-  <script>
-    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-    plausible.init()
+  <!-- ── MICROSOFT CLARITY ── -->
+  <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "wiyn7e4d73");
   </script>
+
+  <!-- ── CUSTOM EVENT TRACKER ── -->
+  <script src="/js/event-tracker.js"></script>
+
+  <!-- ══ PLAUSIBLE ANALYTICS ══ -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What makes 24/7 operations different from traditional five-day operations?","acceptedAnswer":{"@type":"Answer","text":"Everything multiplies — communication spans shifts that never overlap, policies designed for Monday-Friday break down, and each shift develops its own culture."}},{"@type":"Question","name":"Why do most shift workers prefer continuous schedules once they try them?","acceptedAnswer":{"@type":"Answer","text":"Because they gain 78 additional days off, 10% more income, and dramatically improved chances of reaching a fixed day shift — benefits that aren't obvious until experienced."}},{"@type":"Question","name":"How should you cross-train shift workers?","acceptedAnswer":{"@type":"Answer","text":"Train for adjacent roles in a cascade, not everyone on everything — when one person is absent, everyone shifts one position up."}},{"@type":"Question","name":"What is the biggest factor in workforce performance?","acceptedAnswer":{"@type":"Answer","text":"Communication quality and frequency — there is no such thing as over-communicating when workplace changes affect personal lives."}},{"@type":"Question","name":"How much more does it cost to recruit workers from competitors?","acceptedAnswer":{"@type":"Answer","text":"Typically 15-25% above their current compensation, because they're giving up seniority, friendships, and established routines."}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Operational Best Practices","item":"https://shift-work.com/resources/shift-work-best-practices/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Operational Best Practices for 24/7 Shift Work","url":"https://shift-work.com/resources/shift-work-best-practices/","datePublished":"2026-04-02","dateModified":"2026-04-28","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Shiftwork Solutions LLC",
+  "url": "https://shift-work.com",
+  "logo": "https://shift-work.com/images/clear_bkgr_logo_2.png",
+  "telephone": "+1-415-265-1621",
+  "email": "Contact@shift-work.com",
+  "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
+  "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.",
+  "foundingDate": "1993",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Rafael",
+    "addressRegion": "CA",
+    "postalCode": "94901",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-415-265-1621",
+    "contactType": "customer service",
+    "email": "Contact@shift-work.com",
+    "areaServed": "US"
+  },
+  "knowsAbout": [
+    "shift schedule design","shift work consulting","24/7 operations management",
+    "continuous operations staffing","change management","workforce surveys",
+    "overtime management","overtime cost reduction","employee engagement",
+    "manufacturing workforce planning","distribution center scheduling",
+    "pharmaceutical shift scheduling","chemical plant operations",
+    "food and beverage manufacturing","mining shift scheduling",
+    "paper and packaging operations","union workforce consulting",
+    "rotating shift schedules","fixed shift schedules","12-hour shift schedules",
+    "staffing and workforce planning","labor cost analysis",
+    "fatigue risk management","post-implementation workforce surveys"
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/company/shiftwork-solutions-llc"
+  ]
+}</script>
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
