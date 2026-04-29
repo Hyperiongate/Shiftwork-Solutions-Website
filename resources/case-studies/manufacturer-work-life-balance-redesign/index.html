@@ -2,9 +2,13 @@
 <!--
   resources/case-studies/manufacturer-work-life-balance-redesign/index.html
   Shiftwork Solutions LLC — Case Study
-  Last Updated: 2026-04-28
+  Last Updated: 2026-04-29
 
   CHANGE LOG:
+    2026-04-29 — MOBILE OPTIMIZATION: Added @media(max-width:480px) block (additive only).
+                 Fixes: nav-logo-text hidden, article-wrap tighter padding, pull-quote-mark
+                 smaller font-size, newsletter form stacks to column, hero/faq/bridge-stripe
+                 padding tightened. No desktop rules altered.
     2026-04-28 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
                  removed plausible.init(), added canonical Org schema, removed meta keywords.
     2026-04-28 — Plausible analytics added. Footer bottom bar updated.
@@ -12,6 +16,7 @@
     2026-04-26 (v1) — Initial build.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
+  MOBILE: 640px block was pre-existing; 480px block added 2026-04-29 (additive only)
   Author: Dan Capshaw | Image: /images/balancing.jpg
   I did no harm and this file is not truncated
 -->
@@ -31,13 +36,13 @@
   <meta property="og:image" content="https://shift-work.com/images/balancing.jpg">
   <meta property="article:author" content="Dan Capshaw">
   <meta property="article:published_time" content="2026-04-26">
-  <meta property="article:modified_time" content="2026-04-28">
+  <meta property="article:modified_time" content="2026-04-29">
   <meta property="article:section" content="Case Studies">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Case Study: How a Manufacturer Improved Work-Life Balance Without Compromising Output">
   <meta name="twitter:description" content="Sometimes the schedule problem isn't a business problem. It's a life-quality problem — and it shows up in the turnover numbers anyway.">
   <meta name="twitter:image" content="https://shift-work.com/images/balancing.jpg">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Case Study: How a Manufacturer Improved Work-Life Balance Without Compromising Output","url":"https://shift-work.com/resources/case-studies/manufacturer-work-life-balance-redesign/","datePublished":"2026-04-26","dateModified":"2026-04-28","image":"https://shift-work.com/images/balancing.jpg","author":{"@type":"Person","name":"Dan Capshaw","jobTitle":"Senior Partner","worksFor":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","logo":{"@type":"ImageObject","url":"https://shift-work.com/images/clear_bkgr_logo_2.png"}},"about":"Work-life balance, schedule design, employee satisfaction, manufacturing workforce, two-shift operations","keywords":"work-life balance, schedule redesign, manufacturing, employee engagement, two-shift"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Case Study: How a Manufacturer Improved Work-Life Balance Without Compromising Output","url":"https://shift-work.com/resources/case-studies/manufacturer-work-life-balance-redesign/","datePublished":"2026-04-26","dateModified":"2026-04-29","image":"https://shift-work.com/images/balancing.jpg","author":{"@type":"Person","name":"Dan Capshaw","jobTitle":"Senior Partner","worksFor":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","logo":{"@type":"ImageObject","url":"https://shift-work.com/images/clear_bkgr_logo_2.png"}},"about":"Work-life balance, schedule design, employee satisfaction, manufacturing workforce, two-shift operations","keywords":"work-life balance, schedule redesign, manufacturing, employee engagement, two-shift"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Case Studies","item":"https://shift-work.com/resources/case-studies/"},{"@type":"ListItem","position":4,"name":"Manufacturer Work-Life Balance Redesign","item":"https://shift-work.com/resources/case-studies/manufacturer-work-life-balance-redesign/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is a work-life balance engagement different from other schedule redesigns?","acceptedAnswer":{"@type":"Answer","text":"The diagnostic question is different. In capacity or overtime engagements, the operational problem comes first and the workforce conversation follows. In work-life balance engagements, the operation is running well and the workforce conversation comes first — the business assessment exists primarily to identify the operational constraints the redesign has to respect."}},{"@type":"Question","name":"Can a four-day 10-hour schedule work for manufacturing operations?","acceptedAnswer":{"@type":"Answer","text":"In many cases, yes — but it depends on the operational profile. Operations with consistent throughput requirements and limited equipment-availability constraints adapt to 4-day, 10-hour patterns more easily than operations with high changeover frequency or strict equipment-utilization requirements."}},{"@type":"Question","name":"Why is workforce predictability often more valued than the absence of weekend work?","acceptedAnswer":{"@type":"Answer","text":"Workers can plan around weekend work that is scheduled in advance. They cannot plan around ad-hoc weekend overtime requests that arrive on Thursday for a Saturday shift. Operations that move from ad-hoc weekend overtime to a fixed rotation consistently see workforce satisfaction improvements."}},{"@type":"Question","name":"Will a work-life balance redesign affect production output?","acceptedAnswer":{"@type":"Answer","text":"It does not have to. The Phase 1 business assessment establishes the operational floor that the redesign must respect — minimum staffing per operation, throughput requirements, quality standards. As long as the redesign holds those constraints, output should not be affected."}},{"@type":"Question","name":"How do you handle workers who do not want to change schedules?","acceptedAnswer":{"@type":"Answer","text":"Choice is the most important feature of any work-life balance redesign. Workers who are satisfied with the existing schedule should be able to keep it. The redesign creates additional options — not a forced migration to a single new pattern."}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"The Shiftwork Solutions Four-Phase Schedule Redesign Methodology","description":"A rigorous four-phase methodology applied across hundreds of engagements over more than three decades.","totalTime":"P3M","step":[{"@type":"HowToStep","position":1,"name":"Phase 1 — Business Assessment","text":"Verify the business need by analyzing throughput, utilization, marginal cost, and operational ripple."},{"@type":"HowToStep","position":2,"name":"Phase 2 — Workforce Assessment","text":"Engage employees after Phase 1 defines what is operationally possible."},{"@type":"HowToStep","position":3,"name":"Phase 3 — Solution Design","text":"Design schedule options that meet business requirements while incorporating workforce input."},{"@type":"HowToStep","position":4,"name":"Phase 4 — Implementation Preparation and Rollout","text":"Develop the implementation manual and roll out with structured workforce engagement."}]}</script>
@@ -211,6 +216,21 @@
       .bridge-stripe-text{font-size:17px}
       .outcomes-table th,.outcomes-table td{padding:10px 12px;font-size:12px}
       .byline-inner{font-size:12px;gap:8px}
+    }
+    /* ══ MOBILE OPTIMIZATION (added 2026-04-29) ══
+       Additive only — no desktop rules altered.    */
+    @media(max-width:480px){
+      .nav-logo-text{display:none;}
+      .article-wrap{padding:24px 16px 32px;}
+      .pull-quote-mark{font-size:72px;}
+      .pull-quote{gap:8px;}
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+      .hero{padding:24px 16px 28px;}
+      .hero h1{font-size:20px;}
+      .faq-inner{padding:28px 14px 32px;}
+      .bridge-stripe{padding:22px 16px;}
     }
     .hero::before{content:'';position:absolute;inset:0;background:url('/images/balancing.jpg') center center / cover no-repeat;opacity:1;z-index:0}
   </style>
