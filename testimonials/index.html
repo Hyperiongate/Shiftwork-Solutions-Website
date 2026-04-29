@@ -6,7 +6,7 @@
   URL: /testimonials/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-28
+  Last Updated: 2026-04-29
 
   CHANGE LOG:
     2026-04-04 — Initial build.
@@ -24,6 +24,15 @@
     2026-04-28 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
                  removed plausible.init(), replaced canonical Org schema,
                  removed meta keywords.
+    2026-04-29 — MOBILE OPTIMIZATION:
+                 Additive mobile CSS block only — zero desktop rules altered.
+                 This page uses 768px as its primary breakpoint. Hero, nav,
+                 testimonial grid (tl-row 1-col), and client strips already
+                 handled. Minimal additional fixes needed.
+                 @media(max-width:640px): footer-bottom-left column stack +
+                   separators hidden.
+                 @media(max-width:480px): nav-logo-text hidden, tl-inner
+                   padding reduced (32px→16px), newsletter form stacks.
 
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   HERO IMAGE: /images/second.png
@@ -454,6 +463,39 @@
       .footer-bottom{padding:14px 20px}
       .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
       .footer-bottom-left{justify-content:center}
+    }
+
+    /* ══════════════════════════════════════════════════════════════════
+       MOBILE OPTIMIZATION BLOCK (added 2026-04-29)
+       Strategy: Additive overrides only — no desktop rules altered.
+       This page uses 768px as its primary breakpoint (not 640px).
+       Hero, nav, testimonial grid (tl-row 1-col), and client strips
+       are all already handled. Minimal additional fixes needed.
+
+       Fixes:
+         1. footer-bottom-left column stack + separators hidden at 640px
+         2. nav-logo-text hidden at 480px
+         3. tl-inner padding reduced at 480px (32px → 16px each side)
+         4. Newsletter form column stack at 480px
+       ══════════════════════════════════════════════════════════════════ */
+
+    @media(max-width:640px){
+      /* 1. Footer bottom — column stack, hide separators */
+      .footer-bottom-left{flex-direction:column;align-items:center;gap:6px;}
+      .footer-bottom-sep{display:none;}
+    }
+
+    @media(max-width:480px){
+      /* 2. Hide logo text on very small screens */
+      .nav-logo-text{display:none;}
+
+      /* 3. Testimonial inner padding — tighter on narrow phones */
+      .tl-inner{padding:0 16px;}
+
+      /* 4. Newsletter form — stack */
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
     }
   </style>
 </head>
