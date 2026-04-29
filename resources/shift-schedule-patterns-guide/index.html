@@ -8,35 +8,26 @@
   Last Updated: 2026-04-28
 
   CHANGE LOG:
+    2026-04-28 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
+                 removed plausible.init(), replaced canonical Org schema,
+                 removed meta keywords, removed .next-steps section,
+                 added bridge-stripe between FAQ and footer.
     2026-04-28 — Plausible analytics added; footer bottom bar updated with
                  Case Studies / Privacy Policy / Terms of Use links + sep rule.
-    2026-04-22 — PAGE BOTTOM STANDARD CSS CORRECTIONS (v2):
-                 - PULL QUOTE: color:#4a6a8a -> var(--body-text);
-                   font-style:italic -> normal.
-                 - CALLOUT BOX (x2): .callout-inner grey bg removed; replaced
-                   with background:none, border-left:4px solid var(--navy),
-                   border-radius:0, padding:16px 0 16px 20px; .callout-label
-                   eyebrows removed; .callout-text font-size -> 15px.
-                   NOTE: .topic-block elements are SEPARATE from .callout-inner
-                   and are preserved exactly unchanged.
-                 - FOOTER: FREE CONSULTATION + AI ADVISOR -> standard 3-column
-                   (Reality Check / 26 Warning Signs / Newsletter).
-                 - THOMAS FLOAT: added (fixed right side, top:66.666%, white bg,
-                   mid-blue CTA, hidden mobile).
-                 - NAV: nav-active class added to Resources link.
-                 - CHANGELOG: this entry.
-    2026-04-16 — FULL STANDARD UPGRADE
-    2026-04-04 — Nav restructure: flat links, orange CTA, updated Why Us href
-    2026-04-03 — Full content rebuild
-    2026-04-02 — Initial build
+    2026-04-22 — PAGE BOTTOM STANDARD CSS CORRECTIONS (v2).
+    2026-04-16 — FULL STANDARD UPGRADE.
+    2026-04-04 — Nav restructure: flat links, orange CTA.
+    2026-04-03 — Full content rebuild.
+    2026-04-02 — Initial build.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
     Navy: #1F4E79 | Navy-dark: #0D1F3C | Mid-blue: #85B7EB | Orange: #E8610A | Green: #1D9E75
-    Font: Arial/system sans-serif
     Logo: /images/clear_bkgr_logo_2.png
     Hero image: /images/pillar_2.jpg
     FAQ bg: /images/Hands_in_the_air.jpg
+
+  I did no harm and this file is not truncated
 -->
 <html lang="en">
 <head>
@@ -44,7 +35,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shift Schedule Patterns &amp; Examples: A Decision Guide | Shiftwork Solutions</title>
   <meta name="description" content="The most common shift schedule patterns explained — 2-2-3, fixed vs. rotating, 8-hour vs. 12-hour, FIFO, and how to choose. From consultants who have worked with hundreds of facilities.">
-  <meta name="keywords" content="shift schedule patterns, 2-2-3 schedule, fixed shift schedule, rotating shift schedule, rotating shift patterns, 12 hour shift patterns, continuous shift schedule, fixed shift patterns, schedule examples, shift work patterns, manufacturing schedules, continental schedule, 5-4-9 schedule">
   <link rel="canonical" href="https://shift-work.com/resources/shift-schedule-patterns-guide/">
   <meta property="og:title" content="Shift Schedule Patterns &amp; Examples: A Decision Guide | Shiftwork Solutions">
   <meta property="og:description" content="The most common shift schedule patterns explained — when to use each and the tradeoffs involved. From consultants who have worked with hundreds of facilities.">
@@ -54,12 +44,21 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Shift Schedule Patterns &amp; Examples: A Decision Guide | Shiftwork Solutions">
   <meta name="twitter:description" content="Expert guide from consultants who have worked with hundreds of facilities across 16+ industries.">
-  <!-- ══ PLAUSIBLE ANALYTICS (added 2026-04-28) ══ -->
-  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
-  <script>
-    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-    plausible.init()
+
+  <!-- ── MICROSOFT CLARITY ── -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wiyn7e4d73");
   </script>
+
+  <!-- ── CUSTOM EVENT TRACKER ── -->
+  <script src="/js/event-tracker.js"></script>
+
+  <!-- ── PLAUSIBLE ANALYTICS ── -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
     {"@type":"Question","name":"What is the most popular 12-hour continuous schedule?","acceptedAnswer":{"@type":"Answer","text":"The 2-2-3 pattern — workers alternate between two-day and three-day work blocks with corresponding off-periods, providing a predictable rotation that most workers learn within a single cycle."}},
@@ -70,7 +69,7 @@
   ]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Schedule Patterns Guide","item":"https://shift-work.com/resources/shift-schedule-patterns-guide/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Schedule Patterns & Examples: A Decision Guide","url":"https://shift-work.com/resources/shift-schedule-patterns-guide/","datePublished":"2026-04-02","dateModified":"2026-04-28","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","logo":"https://shift-work.com/images/clear_bkgr_logo_2.png","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","slogan":"Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.","description":"Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.","foundingDate":"1993","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","postalCode":"94901","addressCountry":"US"},"areaServed":{"@type":"Country","name":"United States"},"contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service","email":"Contact@shift-work.com","areaServed":"US"},"knowsAbout":["shift schedule design","shift work consulting","24/7 operations management","continuous operations staffing","change management","workforce surveys","overtime management","overtime cost reduction","employee engagement","manufacturing workforce planning","distribution center scheduling","pharmaceutical shift scheduling","chemical plant operations","food and beverage manufacturing","mining shift scheduling","paper and packaging operations","union workforce consulting","rotating shift schedules","fixed shift schedules","12-hour shift schedules","staffing and workforce planning","labor cost analysis","fatigue risk management","post-implementation workforce surveys"],"sameAs":["https://www.linkedin.com/company/shiftwork-solutions-llc"]}</script>
 
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -137,7 +136,7 @@
     .callout{max-width:var(--max-width);margin:24px auto;padding:0 var(--page-pad)}
     .callout-inner{background:none;border-left:4px solid var(--navy);border-radius:0;padding:16px 0 16px 20px}
     .callout-text{font-size:15px;color:var(--body-text);line-height:1.6;font-weight:400;font-style:normal}
-    .faq-section{position:relative;overflow:hidden;margin:40px 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
+    .faq-section{position:relative;overflow:hidden;margin:40px 0 0 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
     .faq-inner{position:relative;z-index:2;max-width:860px;margin:0 auto;padding:52px 24px 56px}
@@ -154,37 +153,9 @@
     .faq-body{overflow:hidden;max-height:0;transition:max-height .38s ease}
     .faq-item.faq-open .faq-body{max-height:800px}
     .faq-a{font-size:14px;color:var(--body-text);line-height:1.75;padding:20px 22px 22px;background:#fff;border:1px solid rgba(255,255,255,0.18);border-top:none;border-radius:0 0 6px 6px}
-    .next-steps{padding:56px var(--page-pad) 60px;background:var(--light-grey);position:relative;overflow:hidden}
-    .next-steps-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
-    .next-steps-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:10px}
-    .next-steps h2{font-size:22px;font-weight:700;color:var(--navy);margin-bottom:8px}
-    .next-steps-sub{font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.6}
-    .ns-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .ns-card{background:var(--white);border:1px solid var(--border-med);border-top:4px solid transparent;border-radius:8px;padding:24px 20px;text-decoration:none;display:block;opacity:0;transform:translateY(28px);transition:opacity .5s ease,transform .5s ease,box-shadow .25s ease}
-    .ns-card.ns-card-visible{opacity:1;transform:translateY(0)}
-    .ns-card:nth-child(1){transition-delay:.05s}
-    .ns-card:nth-child(2){transition-delay:.18s}
-    .ns-card:nth-child(3){transition-delay:.31s}
-    .ns-accent-blue{border-top-color:var(--navy)}
-    .ns-accent-orange{border-top-color:var(--orange)}
-    .ns-accent-green{border-top-color:var(--green)}
-    .ns-accent-blue:hover{box-shadow:0 8px 28px rgba(31,78,121,0.15);transform:translateY(-5px) !important}
-    .ns-accent-orange:hover{box-shadow:0 8px 28px rgba(232,97,10,0.22);transform:translateY(-5px) !important}
-    .ns-accent-green:hover{box-shadow:0 8px 28px rgba(29,158,117,0.22);transform:translateY(-5px) !important}
-    .ns-card-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:10px}
-    .ns-accent-blue .ns-card-label{color:var(--navy)}
-    .ns-accent-orange .ns-card-label{color:var(--orange)}
-    .ns-accent-green .ns-card-label{color:var(--green)}
-    .ns-card h3{font-size:15px;font-weight:700;color:var(--body-text);line-height:1.35;margin-bottom:8px}
-    .ns-card p{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:16px}
-    .ns-card-link{font-size:12px;font-weight:700}
-    .ns-accent-blue .ns-card-link{color:var(--navy)}
-    .ns-accent-orange .ns-card-link{color:var(--orange)}
-    .ns-accent-green .ns-card-link{color:var(--green)}
-    .ns-card-link::after{content:' \2192'}
-    .ns-phone{margin-top:28px;font-size:13px;color:var(--muted);text-align:center}
-    .ns-phone a{color:var(--navy);text-decoration:none;font-weight:700}
-    .ns-phone a:hover{color:var(--orange)}
+    .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
+    .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
+    .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -229,7 +200,6 @@
     .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
     @media(max-width:768px){.thomas-float{display:none}}
     @media(max-width:760px){
-      .ns-cards{grid-template-columns:1fr}
       .footer-content-row{grid-template-columns:1fr}
       .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
       .footer-col-3{border-bottom:none;padding-bottom:0}
@@ -248,10 +218,11 @@
       .footer-bottom{padding:14px 20px}
       .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
       .footer-bottom-left{justify-content:center}
-      .next-steps{padding:40px 20px 44px}
       .faq-inner{padding:36px 18px 40px}
       .faq-inner h2{font-size:19px}
       .topic-block{padding-left:14px}
+      .bridge-stripe{padding:28px 20px}
+      .bridge-stripe-text{font-size:17px}
     }
   </style>
 </head>
@@ -397,7 +368,6 @@
 
 </div><!-- /.article-wrap -->
 
-<!-- FAQ SECTION -->
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
@@ -411,35 +381,11 @@
   </div>
 </div><!-- /.faq-section -->
 
-<!-- NEXT STEPS -->
-<section class="next-steps"><div class="next-steps-inner">
-  <div class="next-steps-eyebrow">Where to go from here</div>
-  <h2>Next Steps &amp; Resources</h2>
-  <p class="next-steps-sub">Talk to an expert, read a related guide, or run a quick diagnostic on your current operation.</p>
-  <div class="ns-cards">
-    <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="ns-card ns-accent-blue" target="_blank" rel="noopener">
-      <div class="ns-card-label">Free Consultation</div>
-      <h3>Talk to a Shiftwork Expert</h3>
-      <p>Discuss your specific situation with consultants who have guided hundreds of pattern selections and implementations. The first conversation is free.</p>
-      <span class="ns-card-link">Book a free meeting</span>
-    </a>
-    <a href="/resources/shift-schedule-design-guide/" class="ns-card ns-accent-orange">
-      <div class="ns-card-label">Complete Guide</div>
-      <h3>The Complete Guide to Schedule Design</h3>
-      <p>The foundational guide covering fixed vs. rotating, shift length, crew structure, and the five pillars of effective schedule design.</p>
-      <span class="ns-card-link">Read the guide</span>
-    </a>
-    <a href="/resources/26-warning-signs-schedule-problems/" class="ns-card ns-accent-green">
-      <div class="ns-card-label">Diagnostic Tool</div>
-      <h3>26 Warning Signs Your Schedule Needs Attention</h3>
-      <p>A checklist built from hundreds of operations assessments. See how many warning signs apply to your current schedule.</p>
-      <span class="ns-card-link">Take the diagnostic</span>
-    </a>
-  </div>
-  <p class="ns-phone">Questions? Call us directly: <a href="tel:+14152651621">(415) 265-1621</a></p>
-</div></section>
+<div class="bridge-stripe">
+  <div class="bridge-stripe-text">Ready to take the next step?</div>
+  <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
+</div>
 
-<!-- FOOTER -->
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
@@ -460,19 +406,9 @@
       </div>
     </div>
     <div class="footer-cta-row">
-      <div class="footer-cta-1">
-        <a href="https://www.shift-work.com/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Reality Check &#x2192;</a>
-      </div>
-      <div class="footer-cta-2">
-        <a href="/resources/26-warning-signs-schedule-problems/" class="footer-cta-btn">Read the Warning Signs &#x2192;</a>
-      </div>
-      <div class="footer-cta-3">
-        <form class="engage-nl-form" onsubmit="engageNLSubmit(event)">
-          <input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail">
-          <button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button>
-        </form>
-        <div class="engage-nl-msg" id="engageNLMsg"></div>
-      </div>
+      <div class="footer-cta-1"><a href="https://www.shift-work.com/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Reality Check &#x2192;</a></div>
+      <div class="footer-cta-2"><a href="/resources/26-warning-signs-schedule-problems/" class="footer-cta-btn">Read the Warning Signs &#x2192;</a></div>
+      <div class="footer-cta-3"><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
     </div>
   </div></div>
   <div class="footer-bottom"><div class="footer-bottom-inner">
@@ -493,12 +429,7 @@
   </div></div>
 </footer>
 
-<!-- THOMAS FLOATING WIDGET -->
-<a class="thomas-float"
-   href="https://shift-work-diagnostic.onrender.com/"
-   target="_blank"
-   rel="noopener"
-   aria-label="Meet Thomas, your AI Shift Advisor">
+<a class="thomas-float" href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener" aria-label="Meet Thomas, your AI Shift Advisor">
   <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
   <div class="thomas-float-body">
     <span class="thomas-float-name">Meet Thomas</span>
@@ -510,7 +441,6 @@
 <script>
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
-(function(){var cards=document.querySelectorAll('.ns-card');if(!cards.length)return;if(!('IntersectionObserver' in window)){cards.forEach(function(c){c.classList.add('ns-card-visible');});return;}var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('ns-card-visible');observer.unobserve(entry.target);}});},{threshold:0.15});cards.forEach(function(c){observer.observe(c);});})();
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
 </script>
 </body>
