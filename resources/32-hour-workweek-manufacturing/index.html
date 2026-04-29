@@ -3,28 +3,32 @@
   resources/32-hour-workweek-manufacturing/index.html
   Shiftwork Solutions LLC — Trending Topic Article
   URL: /resources/32-hour-workweek-manufacturing/
-  Created: 2026-04-04 | Last Updated: 2026-04-28
+  Created: 2026-04-04 | Last Updated: 2026-04-29
 
   CHANGE LOG:
-    2026-04-28 — ALL-PAGES CYCLE pass 1:
-                 Added Microsoft Clarity snippet (ID: wiyn7e4d73).
-                 Added custom event tracker script (/js/event-tracker.js).
-                 Removed redundant plausible.init() block — pa- script auto-initializes.
-                 Added canonical Organization schema (JSON-LD).
+    2026-04-04 — Initial build from source Word doc.
+    2026-04-05 — NAV + BUTTON + SEO AUDIT. FAQ section added.
+    2026-04-15 — Logo corrected, nav font-size 20px, hero /images/32.jpg, FAQ rebuilt.
+    2026-04-16 — NAV LABEL: "Our Company" → "Why Us".
+    2026-04-22 — PAGE BOTTOM STANDARD APPLIED. Pull quote attributed to Ethan Franklin.
+    2026-04-28 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
+                 removed plausible.init(), added canonical Organization schema.
     2026-04-28 — Plausible analytics added. Footer bottom bar updated:
                  mid-dot separators + Case Studies / Privacy Policy /
                  Terms of Use links.
-    2026-04-22 — PAGE BOTTOM STANDARD APPLIED. Pull quote attributed to Ethan Franklin.
-    2026-04-16 — NAV LABEL: "Our Company" → "Why Us".
-    2026-04-15 — Logo corrected, nav font-size 20px, hero /images/32.jpg, FAQ rebuilt.
-    2026-04-05 — NAV + BUTTON + SEO AUDIT. FAQ section added.
-    2026-04-04 — Initial build from source Word doc.
+    2026-04-29 — MOBILE OPTIMIZATION: Additive-only media queries appended before
+                 </style>. No desktop rules altered. Two new blocks:
+                 640px: nav link font-size 16px (mobile menu open state),
+                        pull-quote-mark reduced 128px→80px.
+                 480px: nav-logo-text hidden, newsletter form stacked,
+                        pull-quote-mark 56px, pull-quote gap tightened.
+                 NOTE: No client strip on this page — .cn rule omitted.
+                       Data table already has overflow-x:auto — no action needed.
+                       Insight cards already 1-col at 640px in existing block.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/32.jpg
   FAQ IMAGE:  /images/Hands_in_the_air.jpg
-
-  I did no harm and this file is not truncated
 -->
 <html lang="en">
 <head>
@@ -235,6 +239,31 @@
     .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none;margin:0 2px}
     @media(max-width:760px){.ns-cards{grid-template-columns:1fr}.insight-cards{grid-template-columns:1fr 1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
     @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.insight-cards{grid-template-columns:1fr}.bridge-stripe{padding:28px 20px}.bridge-stripe-text{font-size:17px}}
+
+    /* ══ MOBILE OPTIMIZATION (added 2026-04-29) ══
+       Additive only — no desktop rules altered.
+       640px: nav link font-size 16px (mobile menu open state),
+              pull-quote-mark reduced 128px → 80px.
+       480px: nav-logo-text hidden, newsletter form stacked full-width,
+              pull-quote-mark 56px, pull-quote gap tightened.
+       NOTE: No client strip on this page — .cn rule omitted.
+             Data table already has overflow-x:auto — no additional action needed.
+             Insight cards already 1-col at 640px via existing block.
+    */
+
+    @media(max-width:640px){
+      .nav-links>li>a{font-size:16px;padding:12px 20px;}
+      .pull-quote-mark{font-size:80px;}
+    }
+
+    @media(max-width:480px){
+      .nav-logo-text{display:none;}
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+      .pull-quote-mark{font-size:56px;}
+      .pull-quote{gap:8px;}
+    }
   </style>
 </head>
 <body>
