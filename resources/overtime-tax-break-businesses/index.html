@@ -6,6 +6,11 @@
   Created: 2026-04-04 | Last Updated: 2026-04-28
 
   CHANGE LOG:
+    2026-04-28 — ALL-PAGES CYCLE pass 1:
+                 Added Microsoft Clarity snippet (ID: wiyn7e4d73).
+                 Added custom event tracker script (/js/event-tracker.js).
+                 Removed redundant plausible.init() block — pa- script auto-initializes.
+                 Added canonical Organization schema (JSON-LD).
     2026-04-28 — Plausible analytics added. Footer bottom bar updated:
                  mid-dot separators + Case Studies / Privacy Policy /
                  Terms of Use links.
@@ -33,17 +38,66 @@
   <meta name="twitter:card" content="summary">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Overtime Tax Break: What It Means for Businesses", "description": "Overtime just got a tax break — but what does that really mean for employees and employers in 24/7 operations?", "url": "https://shift-work.com/resources/overtime-tax-break-businesses/", "datePublished": "2026-04-04", "dateModified": "2026-04-28", "author": {"@type": "Organization", "name": "Shiftwork Solutions LLC"}, "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Overtime Tax Break","item":"https://shift-work.com/resources/overtime-tax-break-businesses/"}]}</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Shiftwork Solutions LLC",
+  "url": "https://shift-work.com",
+  "logo": "https://shift-work.com/images/clear_bkgr_logo_2.png",
+  "telephone": "+1-415-265-1621",
+  "email": "Contact@shift-work.com",
+  "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
+  "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.",
+  "foundingDate": "1993",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "San Rafael",
+    "addressRegion": "CA",
+    "postalCode": "94901",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-415-265-1621",
+    "contactType": "customer service",
+    "email": "Contact@shift-work.com",
+    "areaServed": "US"
+  },
+  "knowsAbout": [
+    "shift schedule design","shift work consulting","24/7 operations management",
+    "continuous operations staffing","change management","workforce surveys",
+    "overtime management","overtime cost reduction","employee engagement",
+    "manufacturing workforce planning","distribution center scheduling",
+    "pharmaceutical shift scheduling","chemical plant operations",
+    "food and beverage manufacturing","mining shift scheduling",
+    "paper and packaging operations","union workforce consulting",
+    "rotating shift schedules","fixed shift schedules","12-hour shift schedules",
+    "staffing and workforce planning","labor cost analysis",
+    "fatigue risk management","post-implementation workforce surveys"
+  ],
+  "sameAs": ["https://www.linkedin.com/company/shiftwork-solutions-llc"]
+}
+</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=swap" rel="stylesheet">
-
+  <!-- ── MICROSOFT CLARITY ── -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wiyn7e4d73");
+  </script>
+  <!-- ── CUSTOM EVENT TRACKER ── -->
+  <script src="/js/event-tracker.js"></script>
   <!-- ── PLAUSIBLE ANALYTICS ── -->
   <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
-  <script>
-    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-    plausible.init()
-  </script>
-
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#666666;--border-light:#f0f0f0;--border-med:#e0e0e0;--cta-sub:#B5D4F4;--max-width:860px;--page-pad:24px}
@@ -102,22 +156,6 @@
     .insight-card .ic-label{font-size:13px;color:var(--body-text);line-height:1.5}
     .callout-box{background:none;border-left:4px solid var(--navy);border-radius:0;padding:16px 0 16px 20px;margin:32px 0;text-align:left}
     .callout-box p{font-size:15px;line-height:1.75;color:var(--body-text);font-weight:400;margin:0;font-style:normal}
-    .qualify-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:28px 0}
-    .qualify-card{border-radius:6px;padding:20px 18px}
-    .qualify-card.yes{background:#F0FDF4;border-top:3px solid var(--green)}
-    .qualify-card.no{background:#FEF2F2;border-top:3px solid #DC2626}
-    .qualify-card .qc-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
-    .qualify-card.yes .qc-label{color:var(--green)}
-    .qualify-card.no .qc-label{color:#DC2626}
-    .qualify-card h3{font-size:14px;font-weight:700;margin-bottom:10px}
-    .qualify-card.yes h3{color:#166534}
-    .qualify-card.no h3{color:#991B1B}
-    .qualify-card ul{padding-left:18px;margin:0}
-    .qualify-card ul li{font-size:13px;line-height:1.6;margin-bottom:6px;color:var(--body-text)}
-    .caution-box{background:#FFFBEB;border-left:4px solid #F59E0B;border-radius:0 6px 6px 0;padding:18px 22px;margin:28px 0}
-    .caution-box .caution-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#92400E;margin-bottom:6px}
-    .caution-box p{font-size:14px;line-height:1.6;color:var(--body-text);margin-bottom:10px}
-    .caution-box p:last-child{margin-bottom:0}
     .faq-section{position:relative;overflow:hidden;margin:40px 0 0 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
