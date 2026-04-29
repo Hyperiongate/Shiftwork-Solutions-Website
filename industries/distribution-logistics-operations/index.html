@@ -5,7 +5,7 @@
   URL: /industries/distribution-logistics-operations/
 
   Created:      2026-04-04
-  Last Updated: 2026-04-28
+  Last Updated: 2026-04-29
 
   CHANGE LOG:
     2026-04-04 — Initial build.
@@ -24,6 +24,13 @@
                  removed meta keywords. Also corrected Service schema and Article
                  schema which erroneously referenced Chemical/Pharma industry
                  (copy-paste artifact from template).
+    2026-04-29 — MOBILE OPTIMIZATION: Additive-only media queries appended before
+                 </style>. No desktop rules altered. Two new blocks:
+                 640px: nav link font-size 16px (mobile menu open state),
+                        pull-quote-mark reduced 128px→80px.
+                 480px: nav-logo-text hidden, newsletter form stacked,
+                        pull-quote-mark 56px, pull-quote gap tightened,
+                        client strip font-size 18px.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/distribution.jpg
@@ -241,6 +248,30 @@
       .faq-inner h2{font-size:19px}
       .bridge-stripe{padding:28px 20px}
       .bridge-stripe-text{font-size:17px}
+    }
+
+    /* ══ MOBILE OPTIMIZATION (added 2026-04-29) ══
+       Additive only — no desktop rules altered.
+       640px: nav link font-size 16px (mobile menu open state),
+              pull-quote-mark reduced 128px → 80px.
+       480px: nav-logo-text hidden, newsletter form stacked full-width,
+              pull-quote-mark 56px, pull-quote gap tightened,
+              client strip font-size 18px.
+    */
+
+    @media(max-width:640px){
+      .nav-links>li>a{font-size:16px;padding:12px 20px;}
+      .pull-quote-mark{font-size:80px;}
+    }
+
+    @media(max-width:480px){
+      .nav-logo-text{display:none;}
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+      .pull-quote-mark{font-size:56px;}
+      .pull-quote{gap:8px;}
+      .cn{font-size:18px;}
     }
   </style>
 </head>
