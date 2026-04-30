@@ -8,6 +8,11 @@
   Last Updated: 2026-04-29
 
   CHANGE LOG:
+    2026-04-29 — MOBILE OPTIMIZATION: Added @media(max-width:480px) block (additive only).
+                 Fixes: nav-logo-text hidden, hero padding/h1 tightened, hub-section padding
+                 tightened, newsletter form stacks to column, bridge-stripe/footer-prefooter
+                 padding tightened. Grid stacking (guides/focused) already handled by existing
+                 420px block — not duplicated here. No desktop rules altered.
     2026-04-29 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
                  removed plausible.init(), replaced canonical Org schema
                  (removed self-referential sameAs, preserved hasOfferCatalog),
@@ -26,6 +31,7 @@
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   HERO IMAGE: /images/second.png
   DESIGN CONSTANTS: navy #1F4E79, orange #E8610A, max-width 1060px
+  MOBILE: 960px + 640px + 420px blocks pre-existing; 480px added 2026-04-29 (additive only)
 
   I did no harm and this file is not truncated
 -->
@@ -339,6 +345,20 @@
     @media(max-width:960px){.interest-row{grid-template-columns:repeat(2,1fr)}.guides-grid{grid-template-columns:repeat(2,1fr)}.guides-row3{grid-template-columns:repeat(2,1fr)}.focused-grid{grid-template-columns:repeat(2,1fr)}.trending-card,.trending-card-soon{flex-basis:calc(50% - 9px)}}
     @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:40px 20px 48px}.hero h1{font-size:26px}.hub-section{padding:32px 16px 40px}.interest-row{grid-template-columns:1fr 1fr;gap:10px}.interest-btn{min-height:170px}.interest-btn-title{font-size:17px}.result-card-img{width:80px}.guides-section,.focused-section,.trending-section{padding-left:16px;padding-right:16px}.guides-grid{grid-template-columns:1fr 1fr;gap:14px}.guides-row3{grid-template-columns:1fr 1fr;gap:14px}.guide-card-img{height:110px}.focused-grid{grid-template-columns:1fr 1fr;gap:14px}.focused-card-img{height:110px}.trending-card,.trending-card-soon{flex-basis:100%}.carousel-arrow-prev{left:-14px}.carousel-arrow-next{right:-14px}.bridge-stripe{padding:28px 20px}.bridge-stripe-text{font-size:17px}.footer-prefooter{padding:32px 20px}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}}
     @media(max-width:420px){.focused-grid,.guides-grid,.guides-row3{grid-template-columns:1fr}}
+    /* ══ MOBILE OPTIMIZATION (added 2026-04-29) ══
+       Additive only — no desktop rules altered.
+       Grid stacking at 420px handled by existing 420px block — not duplicated here. */
+    @media(max-width:480px){
+      .nav-logo-text{display:none;}
+      .hero{padding:24px 16px 32px;}
+      .hero h1{font-size:20px;}
+      .hub-section{padding:24px 16px 32px;}
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+      .bridge-stripe{padding:22px 16px;}
+      .footer-prefooter{padding:24px 16px;}
+    }
   </style>
 </head>
 <body>
