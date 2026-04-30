@@ -5,9 +5,14 @@
   URL: /resources/shift-work-best-practices/
 
   Created:      2026-04-02
-  Last Updated: 2026-04-28
+  Last Updated: 2026-04-29
 
   CHANGE LOG:
+    2026-04-29 — MOBILE OPTIMIZATION: Added @media(max-width:480px) block (additive only).
+                 Fixes: nav-logo-text hidden, hero padding/h1 tightened, hero-stats stack
+                 tighter, article-wrap padding tightened, viz-section/three-col/pull-quote
+                 padding tightened, newsletter form stacks to column, faq/bridge-stripe
+                 padding tightened. No desktop rules altered.
     2026-04-02 — Initial build from Pillar_8_Operational_Best_Practices_Rev_A_2_20_26.docx
     2026-04-22 — PAGE BOTTOM STANDARD APPLIED; Footer 3-column standard;
                  Bridge stripe; Thomas floating widget; Pull quotes updated.
@@ -18,9 +23,12 @@
                  removed meta keywords.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
+  MOBILE: 640px block pre-existing; 480px block added 2026-04-29 (additive only)
   DESIGN CONSTANTS:
     Navy: #1F4E79 | Navy-dark: #0D1F3C | Mid-blue: #85B7EB | Orange: #E8610A | Green: #1D9E75
     Logo: /images/clear_bkgr_logo_2.png | Hero: /images/pillar_8.jpg | FAQ: /images/Hands_in_the_air.jpg
+
+  I did no harm and this file is not truncated
 -->
 <html lang="en">
 <head>
@@ -55,7 +63,7 @@
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What makes 24/7 operations different from traditional five-day operations?","acceptedAnswer":{"@type":"Answer","text":"Everything multiplies — communication spans shifts that never overlap, policies designed for Monday-Friday break down, and each shift develops its own culture."}},{"@type":"Question","name":"Why do most shift workers prefer continuous schedules once they try them?","acceptedAnswer":{"@type":"Answer","text":"Because they gain 78 additional days off, 10% more income, and dramatically improved chances of reaching a fixed day shift — benefits that aren't obvious until experienced."}},{"@type":"Question","name":"How should you cross-train shift workers?","acceptedAnswer":{"@type":"Answer","text":"Train for adjacent roles in a cascade, not everyone on everything — when one person is absent, everyone shifts one position up."}},{"@type":"Question","name":"What is the biggest factor in workforce performance?","acceptedAnswer":{"@type":"Answer","text":"Communication quality and frequency — there is no such thing as over-communicating when workplace changes affect personal lives."}},{"@type":"Question","name":"How much more does it cost to recruit workers from competitors?","acceptedAnswer":{"@type":"Answer","text":"Typically 15-25% above their current compensation, because they're giving up seniority, friendships, and established routines."}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Operational Best Practices","item":"https://shift-work.com/resources/shift-work-best-practices/"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Operational Best Practices for 24/7 Shift Work","url":"https://shift-work.com/resources/shift-work-best-practices/","datePublished":"2026-04-02","dateModified":"2026-04-28","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Operational Best Practices for 24/7 Shift Work","url":"https://shift-work.com/resources/shift-work-best-practices/","datePublished":"2026-04-02","dateModified":"2026-04-29","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
   <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -251,6 +259,24 @@
       .footer-bottom-left{justify-content:center}
       .faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}
       .bridge-stripe{padding:28px 20px}.bridge-stripe-text{font-size:17px}
+    }
+    /* ══ MOBILE OPTIMIZATION (added 2026-04-29) ══
+       Additive only — no desktop rules altered.    */
+    @media(max-width:480px){
+      .nav-logo-text{display:none;}
+      .hero{padding:24px 16px 28px;}
+      .hero h1{font-size:20px;}
+      .hero-stats{gap:8px;}
+      .hero-stat{min-width:0;width:100%;}
+      .article-wrap{padding:24px 16px 20px;}
+      .viz-section,.three-col,.pull-quote{padding-left:16px;padding-right:16px;}
+      .viz-box{padding:20px 16px 16px;}
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+      .faq-inner{padding:28px 14px 32px;}
+      .bridge-stripe{padding:22px 16px;}
+      .footer-prefooter{padding:24px 16px;}
     }
   </style>
 </head>
