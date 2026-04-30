@@ -5,7 +5,7 @@
   URL: /resources/equipment-utilization-shift-scheduling/
 
   Created:      2026-04-02
-  Last Updated: 2026-04-28
+  Last Updated: 2026-04-29
 
   CHANGE LOG:
     2026-04-28 — ALL-PAGES CYCLE pass 1:
@@ -23,6 +23,15 @@
     2026-04-16 — FULL STANDARD UPGRADE
     2026-04-04 — Nav restructure: flat links, orange CTA
     2026-04-02 — Initial build
+    2026-04-29 — MOBILE OPTIMIZATION:
+                 Additive mobile CSS block only — zero desktop rules altered.
+                 Page uses 760px and 640px breakpoints and is already
+                 well-optimized: hero, three-col, pull-quote, viz-bar, article
+                 sections, FAQ, and bridge-stripe all handled.
+                 @media(max-width:640px): footer-bottom-left column stack +
+                   separators hidden.
+                 @media(max-width:480px): nav-logo-text hidden,
+                   newsletter form column stack.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
@@ -296,6 +305,35 @@
       .faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}
       .bridge-stripe{padding:28px 20px}
       .bridge-stripe-text{font-size:17px}
+    }
+
+    /* ══════════════════════════════════════════════════════════════════
+       MOBILE OPTIMIZATION BLOCK (added 2026-04-29)
+       Strategy: Additive overrides only — no desktop rules altered.
+       This page uses 760px and 640px breakpoints and is already
+       well-optimized: hero, three-col, pull-quote, viz-bar, article
+       sections, FAQ, and bridge-stripe all handled.
+
+       Fixes:
+         1. footer-bottom-left column stack + separators hidden at 640px
+         2. nav-logo-text hidden at 480px
+         3. Newsletter form column stack at 480px
+       ══════════════════════════════════════════════════════════════════ */
+
+    @media(max-width:640px){
+      /* 1. Footer bottom — column stack, hide separators */
+      .footer-bottom-left{flex-direction:column;align-items:center;gap:6px;}
+      .footer-bottom-sep{display:none;}
+    }
+
+    @media(max-width:480px){
+      /* 2. Hide logo text on very small screens */
+      .nav-logo-text{display:none;}
+
+      /* 3. Newsletter form — stack */
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
     }
   </style>
 </head>
