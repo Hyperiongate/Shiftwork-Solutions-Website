@@ -3,9 +3,15 @@
   resources/ai-on-the-plant-floor/index.html
   Shiftwork Solutions LLC — Trending Topic Article
   URL: /resources/ai-on-the-plant-floor/
-  Created: 2026-04-04 | Last Updated: 2026-04-28
+  Created: 2026-04-04 | Last Updated: 2026-04-29
 
   CHANGE LOG:
+    2026-04-29 — MOBILE OPTIMIZATION: Additive @media blocks appended to <style>.
+                 Extended 640px block: pull-quote collapses to column + mark 72px
+                 (pull-quote NOT handled at 760px on this page, unlike pillar pages).
+                 New 480px block: logo text hidden, hero/article padding tightened,
+                 pull-quote mark further reduced to 48px, newsletter form stacks
+                 full-width, bridge-stripe and faq-inner tightened. No desktop rules altered.
     2026-04-28 — ALL-PAGES CYCLE pass 1:
                  Added Microsoft Clarity snippet (ID: wiyn7e4d73).
                  Added custom event tracker script (/js/event-tracker.js).
@@ -30,6 +36,14 @@
   HERO IMAGE: /images/ai.jpg
   FAQ IMAGE:  /images/Hands_in_the_air.jpg
 
+  MOBILE NOTES (2026-04-29):
+  - .ai-insight-grid (2-col) already collapses to 1-col at 760px — GOOD
+  - .insight-cards and .timeline defined in CSS but not used in HTML
+  - .pull-quote: NOT handled at 760px (unlike pillar pages) — handled at 640px here
+  - .callout-box — workable at 320px, no action needed
+  - Thomas float already display:none at 768px — no action needed
+  - 640px block extended; full 480px block added
+
   I did no harm and this file is not truncated
 -->
 <html lang="en">
@@ -41,7 +55,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
   <meta name="twitter:card" content="summary">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI on the Plant Floor: What It Actually Means for Shift Design","url":"https://shift-work.com/resources/ai-on-the-plant-floor/","datePublished":"2026-04-04","dateModified":"2026-04-28","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"AI on the Plant Floor: What It Actually Means for Shift Design","url":"https://shift-work.com/resources/ai-on-the-plant-floor/","datePublished":"2026-04-04","dateModified":"2026-04-29","author":{"@type":"Organization","name":"Shiftwork Solutions LLC"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"AI on the Plant Floor","item":"https://shift-work.com/resources/ai-on-the-plant-floor/"}]}</script>
   <script type="application/ld+json">
 {
@@ -261,6 +275,7 @@
     @media(max-width:640px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
       .nav-logo-text{font-size:16px}
+      .pull-quote{flex-direction:column;gap:8px;}.pull-quote-mark{font-size:72px;}
       .faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}
       .hero{padding:32px 20px 36px}.hero h1{font-size:22px}
       .article-wrap{padding:32px 20px 40px}
@@ -270,6 +285,26 @@
       .bridge-stripe{padding:28px 20px}
       .bridge-stripe-text{font-size:17px}
       .insight-cards{grid-template-columns:1fr}
+    }
+
+    /* ══ MOBILE OPTIMIZATION (added 2026-04-29) ══
+       Additive only — no desktop rules altered.
+       640px block extended above: pull-quote column + mark:72px
+       (pull-quote NOT handled at 760px on this page).
+       480px block is entirely new. */
+
+    @media(max-width:480px){
+      .nav-logo-text{display:none;}
+      .hero{padding:28px 16px 32px;}
+      .hero h1{font-size:20px;}
+      .article-wrap{padding:28px 16px 32px;}
+      .pull-quote-mark{font-size:48px;line-height:1;}
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+      .bridge-stripe{padding:24px 16px;}
+      .bridge-stripe-text{font-size:15px;}
+      .faq-inner{padding:28px 16px 32px;}
     }
   </style>
 </head>
