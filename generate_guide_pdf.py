@@ -7,32 +7,34 @@ Usage:  python3 generate_guide_pdf.py
 Output: pdfs/overtime-management-guide.pdf  (deploy to /pdfs/ in repo root)
 
 Created:      2026-04-23
-Last Updated: 2026-04-29
+Last Updated: 2026-04-30
 
 CHANGE LOG:
     2026-04-23 — Initial build. Overtime Management Guide.
                  Cover page + 8 content pages. Branded header/footer every page.
     2026-04-29 — Multiple fixes per design review:
-                 1. LOGO: Added Shiftwork Solutions logo image (clear_bkgr_logo_2.png)
-                    to the right half of the cover band, alongside firm name.
-                 2. LIGHT BLUE TEXT: Replaced MID_BLUE text color with white on all
-                    dark backgrounds (cover subtitle/tagline, header guide label).
-                    MID_BLUE still used for one-word caps labels only.
-                 3. GUIDE NUMBER TAG: Replaced "Guide 5 of 10" orange tag on cover
-                    with a "Download PDF" action tag (avoids hard-coded numbering
-                    that would need updating whenever guides are added).
-                 4. CALLOUT BOX (IMPORTANT): Replaced broken/multi-line callout
-                    table with a clean left-bordered navy bar layout. Text now
-                    flows properly on one visual unit.
-                 5. EYEBROW SPACING: spaceAfter on 'eyebrow' style reduced from
-                    3pt to 2pt, spaceBefore on 'h2' reduced from 18pt to 8pt so
-                    the eyebrow sits tight against its heading.
-                 6. INSIGHT CARDS: Third (green) card changed to grey (#607D8B)
-                    — green implies go/correct vs. orange warning, which is
-                    misleading visual hierarchy.
-                 7. PULL QUOTE STYLE: Changed from Helvetica-Oblique/italic to
-                    Helvetica (upright), matching site-wide standard. Color
-                    changed from NAVY to BODY_TEXT for consistency.
+                 1. LOGO: Added Shiftwork Solutions logo image to cover band.
+                 2. LIGHT BLUE TEXT: Replaced MID_BLUE text with white on dark backgrounds.
+                 3. GUIDE NUMBER TAG: Replaced "Guide 5 of 10" with "Download PDF" tag.
+                 4. CALLOUT BOX: Replaced broken multi-line callout with clean left-border layout.
+                 5. EYEBROW SPACING: Tightened eyebrow-to-heading spacing.
+                 6. INSIGHT CARDS: Third card changed to grey (#607D8B).
+                 7. PULL QUOTE STYLE: Changed to upright Helvetica, body-text color.
+    2026-04-30 — STRUCTURAL BUG FIXES (root cause of overlapping layout):
+                 1. ROOT CAUSE FIX: Added PageBreak() as the first story flowable
+                    (after NextPageTemplate). Without this, story content was flowing
+                    into the cover frame, colliding with canvas-drawn cover art.
+                    The cover frame must stay empty — canvas draws everything on page 1.
+                 2. INVALID TableStyle command removed: ROUNDEDCORNERS is not a valid
+                    ReportLab TableStyle command. It silently fails. Removed from CTA box.
+                 3. Pull quote Table cell fixed: list of Paragraphs passed correctly
+                    as a single cell value — ReportLab supports list-of-flowables in cells.
+                 4. Canvas state isolation: _draw_wrapped_text now saves/restores canvas
+                    state so color/font changes don't bleed into subsequent draw calls.
+                 5. Cover CTA box anchored from a fixed bottom reference rather than
+                    cascading y-math that could push it off the page.
+                 6. onPage lambda for Content template expanded to named function to
+                    avoid closure issues with multi-arg lambdas.
 
 DESIGN:
     Navy:   #1F4E79   Orange: #E8610A   Gold: #EEAE26
@@ -40,17 +42,21 @@ DESIGN:
     Grey-accent: #607D8B  (replaces green on insight cards)
     Fonts: Helvetica (PDF built-in, no embedding required)
     Page size: Letter (8.5 x 11 in)
-    Margins: 0.75in left/right, 1in top (below header), 0.85in bottom (above footer)
+    Margins: 0.75in left/right, 1.1in top (below header), 0.85in bottom (above footer)
 
 STRUCTURE:
-    Page 1  — Cover / Brand page (logo, firm info, process, experience)
+    Page 1  — Cover / Brand page (canvas-drawn only — no story flowables)
     Page 2+ — Guide content with running header + footer
 
 LOGO NOTE:
-    The cover page uses drawImage to place /images/clear_bkgr_logo_2.png on the
+    The cover page uses drawImage to place images/clear_bkgr_logo_2.png on the
     right side of the dark band. The logo file must be present in the repo root
-    at /images/clear_bkgr_logo_2.png when this script is run, OR the path must
-    be updated below. If the file is missing, the script draws a text fallback.
+    at images/clear_bkgr_logo_2.png when this script is run. If missing, a text
+    fallback is used.
+
+HOW TO RUN:
+    python3 generate_guide_pdf.py
+    Then commit pdfs/overtime-management-guide.pdf to the repo.
 """
 
 import os
@@ -58,21 +64,19 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.units import inch
 from reportlab.lib.colors import HexColor, white, black
 from reportlab.platypus import (
-    SimpleDocTemplate, Paragraph, Spacer, HRFlowable,
-    PageBreak, Table, TableStyle, KeepTogether
+    Paragraph, Spacer, HRFlowable,
+    PageBreak, Table, TableStyle, KeepTogether, NextPageTemplate
 )
-from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib.enums import TA_LEFT, TA_CENTER, TA_RIGHT, TA_JUSTIFY
 from reportlab.platypus import BaseDocTemplate, Frame, PageTemplate
-from reportlab.lib import colors
 
 # ── COLOR PALETTE ─────────────────────────────────────────────────────────────
 NAVY        = HexColor('#1F4E79')
 NAVY_DARK   = HexColor('#0D1F3C')
 MID_BLUE    = HexColor('#85B7EB')
 ORANGE      = HexColor('#E8610A')
-GREEN       = HexColor('#1D9E75')
-GREY_ACCENT = HexColor('#607D8B')   # replaces green on insight cards
+GREY_ACCENT = HexColor('#607D8B')
 GOLD        = HexColor('#EEAE26')
 LIGHT_GREY  = HexColor('#F4F6F8')
 BORDER      = HexColor('#E0E0E0')
@@ -92,7 +96,6 @@ FOOTER_H  = 0.40 * inch
 # ── GUIDE META ────────────────────────────────────────────────────────────────
 GUIDE_TITLE    = "Overtime Management"
 GUIDE_SUBTITLE = "Strategy, Distribution & Cost Control"
-# Note: No hard-coded "Guide X of 10" — replaced with "Download PDF" action tag
 
 FIRM_NAME  = "Shiftwork Solutions LLC"
 PHONE      = "(415) 265-1621"
@@ -109,6 +112,31 @@ OUTPUT_FILE = os.path.join(OUTPUT_DIR, "overtime-management-guide.pdf")
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 
+# ── HELPER ────────────────────────────────────────────────────────────────────
+def _draw_wrapped_text(canvas, text, x, y, max_width, font_size,
+                       line_h=0.145 * inch, font_name='Helvetica'):
+    """Word-wrap plain text onto canvas at (x, y), descending by line_h per line.
+    Saves and restores canvas state so caller's color/font settings are preserved.
+    """
+    canvas.saveState()
+    canvas.setFont(font_name, font_size)
+    words = text.split()
+    line = ''
+    current_y = y
+    for word in words:
+        test = (line + ' ' + word).strip()
+        if canvas.stringWidth(test, font_name, font_size) <= max_width:
+            line = test
+        else:
+            if line:
+                canvas.drawString(x, current_y, line)
+                current_y -= line_h
+            line = word
+    if line:
+        canvas.drawString(x, current_y, line)
+    canvas.restoreState()
+
+
 # ── HEADER / FOOTER CALLBACKS ─────────────────────────────────────────────────
 def draw_header(canvas, doc):
     """Branded header on every page after page 1."""
@@ -118,15 +146,14 @@ def draw_header(canvas, doc):
     # Navy bar
     canvas.setFillColor(NAVY)
     canvas.rect(0, PAGE_H - HEADER_H, PAGE_W, HEADER_H, fill=1, stroke=0)
-    # Firm name left — white (not MID_BLUE)
+    # Firm name — white
     canvas.setFillColor(white)
     canvas.setFont('Helvetica-Bold', 9)
-    canvas.drawString(MARGIN_L, PAGE_H - HEADER_H + 0.18*inch, FIRM_NAME.upper())
-    # Guide title right — white (was MID_BLUE — too light on dark background)
+    canvas.drawString(MARGIN_L, PAGE_H - HEADER_H + 0.18 * inch, FIRM_NAME.upper())
+    # Guide label — white
     canvas.setFont('Helvetica', 8)
-    canvas.setFillColor(white)
     label = f"{GUIDE_TITLE}: {GUIDE_SUBTITLE}"
-    canvas.drawRightString(PAGE_W - MARGIN_R, PAGE_H - HEADER_H + 0.18*inch, label)
+    canvas.drawRightString(PAGE_W - MARGIN_R, PAGE_H - HEADER_H + 0.18 * inch, label)
     canvas.restoreState()
 
 
@@ -139,30 +166,39 @@ def draw_footer(canvas, doc):
     canvas.setStrokeColor(BORDER)
     canvas.setLineWidth(0.5)
     canvas.line(MARGIN_L, FOOTER_H, PAGE_W - MARGIN_R, FOOTER_H)
-    # Contact info left
+    # Contact info
     canvas.setFillColor(MUTED)
     canvas.setFont('Helvetica', 7.5)
-    canvas.drawString(MARGIN_L, FOOTER_H - 0.18*inch,
+    canvas.drawString(MARGIN_L, FOOTER_H - 0.18 * inch,
                       f"{PHONE}  |  {EMAIL}  |  {WEBSITE}")
-    # Page number right
-    canvas.setFont('Helvetica', 7.5)
-    canvas.drawRightString(PAGE_W - MARGIN_R, FOOTER_H - 0.18*inch,
+    # Page number
+    canvas.drawRightString(PAGE_W - MARGIN_R, FOOTER_H - 0.18 * inch,
                            f"Page {doc.page}")
-    # Orange accent bar bottom
+    # Orange accent bar at very bottom
     canvas.setFillColor(ORANGE)
     canvas.rect(0, 0, PAGE_W, 3, fill=1, stroke=0)
     canvas.restoreState()
 
 
+def draw_content_page(canvas, doc):
+    """Combined header + footer for content pages."""
+    draw_header(canvas, doc)
+    draw_footer(canvas, doc)
+
+
 # ── COVER PAGE ────────────────────────────────────────────────────────────────
 def draw_cover(canvas, doc):
-    """Full custom cover — page 1 only."""
+    """Full custom cover — page 1 only.
+    This is the ONLY thing that draws on page 1. The story starts on page 2.
+    Cover frame receives no flowables (PageBreak ensures this).
+    """
     if doc.page != 1:
         return
     canvas.saveState()
 
-    # Dark navy background top band (~3.2 in)
     band_h = 3.2 * inch
+
+    # ── Dark navy background band ─────────────────────────────────────────────
     canvas.setFillColor(NAVY_DARK)
     canvas.rect(0, PAGE_H - band_h, PAGE_W, band_h, fill=1, stroke=0)
 
@@ -170,136 +206,137 @@ def draw_cover(canvas, doc):
     canvas.setFillColor(GOLD)
     canvas.rect(0, PAGE_H - band_h, PAGE_W, 4, fill=1, stroke=0)
 
-    # ── LEFT SIDE: Firm name + guide info ─────────────────────────────────────
-    # FIRM NAME in band — white (not gold; gold is for headings)
+    # ── Firm name ─────────────────────────────────────────────────────────────
     canvas.setFillColor(white)
     canvas.setFont('Helvetica-Bold', 13)
-    canvas.drawString(MARGIN_L, PAGE_H - 0.65*inch, FIRM_NAME.upper())
+    canvas.drawString(MARGIN_L, PAGE_H - 0.65 * inch, FIRM_NAME.upper())
 
-    # "Download PDF" action tag (replaced "Guide X of 10" to avoid stale numbering)
+    # ── "DOWNLOAD PDF" action tag ─────────────────────────────────────────────
+    tag_y = PAGE_H - band_h + 0.55 * inch
     canvas.setFillColor(NAVY)
-    canvas.roundRect(MARGIN_L, PAGE_H - band_h + 0.55*inch,
-                     1.10*inch, 0.22*inch, 3, fill=1, stroke=0)
+    canvas.roundRect(MARGIN_L, tag_y, 1.10 * inch, 0.22 * inch, 3, fill=1, stroke=0)
     canvas.setFillColor(white)
     canvas.setFont('Helvetica-Bold', 7)
-    canvas.drawCentredString(MARGIN_L + 0.55*inch,
-                              PAGE_H - band_h + 0.60*inch, "DOWNLOAD PDF")
+    canvas.drawCentredString(MARGIN_L + 0.55 * inch, tag_y + 0.05 * inch, "DOWNLOAD PDF")
 
-    # Guide title — gold
+    # ── Guide title — gold ────────────────────────────────────────────────────
     canvas.setFillColor(GOLD)
     canvas.setFont('Helvetica-Bold', 26)
-    canvas.drawString(MARGIN_L, PAGE_H - 1.40*inch, GUIDE_TITLE)
+    canvas.drawString(MARGIN_L, PAGE_H - 1.40 * inch, GUIDE_TITLE)
 
-    # Guide subtitle — white (was MID_BLUE — hard to read on dark)
+    # ── Guide subtitle — white ────────────────────────────────────────────────
     canvas.setFillColor(white)
     canvas.setFont('Helvetica', 14)
-    canvas.drawString(MARGIN_L, PAGE_H - 1.75*inch, GUIDE_SUBTITLE)
+    canvas.drawString(MARGIN_L, PAGE_H - 1.75 * inch, GUIDE_SUBTITLE)
 
-    # Tagline — white (was #B5D4F4 light blue — too light on dark)
+    # ── Tagline — white ───────────────────────────────────────────────────────
     canvas.setFillColor(white)
-    canvas.setFont('Helvetica', 9.5)
-    canvas.drawString(MARGIN_L, PAGE_H - 2.10*inch,
-        "Expert guidance from consultants who have worked with hundreds of 24/7 operations.")
+    _draw_wrapped_text(
+        canvas,
+        "Expert guidance from consultants who have worked with hundreds of 24/7 operations.",
+        MARGIN_L, PAGE_H - 2.10 * inch,
+        (PAGE_W - MARGIN_L - MARGIN_R) * 0.62,  # left ~62% of width
+        9.5, line_h=0.145 * inch
+    )
 
-    # ── RIGHT SIDE: Logo image ─────────────────────────────────────────────────
-    # Place the Shiftwork Solutions logo on the right side of the cover band.
-    # Centered vertically in the band, right-aligned.
-    logo_right_x = PAGE_W - MARGIN_R - 2.20*inch   # left edge of logo area
-    logo_y       = PAGE_H - band_h + 0.55*inch      # bottom of logo
-
+    # ── Logo — right side of band ─────────────────────────────────────────────
+    logo_x = PAGE_W - MARGIN_R - 2.20 * inch
+    logo_y = PAGE_H - band_h + 0.55 * inch
     if os.path.exists(LOGO_PATH):
-        # Draw logo — max width 2.1in, height auto-scaled (typically ~0.6in)
         canvas.drawImage(
             LOGO_PATH,
-            logo_right_x,
-            logo_y,
-            width=2.10*inch,
-            height=0.72*inch,
+            logo_x, logo_y,
+            width=2.10 * inch,
+            height=0.72 * inch,
             preserveAspectRatio=True,
             anchor='sw',
-            mask='auto',   # treat white/transparent as transparent
+            mask='auto',
         )
     else:
-        # Text fallback if image file not present
         canvas.setFillColor(GOLD)
         canvas.setFont('Helvetica-Bold', 11)
-        canvas.drawRightString(PAGE_W - MARGIN_R, logo_y + 0.18*inch,
+        canvas.drawRightString(PAGE_W - MARGIN_R, logo_y + 0.18 * inch,
                                FIRM_NAME.upper())
 
-    # ── WHO WE ARE section ────────────────────────────────────────────────────
-    y = PAGE_H - band_h - 0.45*inch
+    # ── WHO WE ARE ────────────────────────────────────────────────────────────
+    y = PAGE_H - band_h - 0.45 * inch
 
     canvas.setFillColor(NAVY)
     canvas.setFont('Helvetica-Bold', 7)
     canvas.drawString(MARGIN_L, y, "WHO WE ARE")
     canvas.setStrokeColor(NAVY)
     canvas.setLineWidth(0.5)
-    canvas.line(MARGIN_L + 0.72*inch, y + 0.04*inch,
-                PAGE_W - MARGIN_R, y + 0.04*inch)
+    canvas.line(MARGIN_L + 0.74 * inch, y + 0.04 * inch,
+                PAGE_W - MARGIN_R, y + 0.04 * inch)
 
-    y -= 0.22*inch
+    y -= 0.22 * inch
     canvas.setFillColor(BODY_TEXT)
-    canvas.setFont('Helvetica', 8.5)
-    who_text = (
+    _draw_wrapped_text(
+        canvas,
         "Shiftwork Solutions LLC is a leading U.S.-based management consulting firm "
         "specializing in shift schedule design, workforce engagement, and operational "
         "optimization for 24/7 industrial operations. For over 30 years we have helped "
         "hundreds of manufacturing plants, distribution centers, mines, utilities, and "
         "processing facilities across more than 16 industries build better schedules, "
-        "reduce costs, and create workforces that stay."
+        "reduce costs, and create workforces that stay.",
+        MARGIN_L, y, CONTENT_W, 8.5, line_h=0.140 * inch
     )
-    _draw_wrapped_text(canvas, who_text, MARGIN_L, y, CONTENT_W, 8.5, 0.145*inch)
 
-    # ── OUR PROCESS (4 columns) ───────────────────────────────────────────────
-    y -= 0.82*inch
+    # ── OUR PROCESS ───────────────────────────────────────────────────────────
+    y -= 0.82 * inch
 
     canvas.setFillColor(NAVY)
     canvas.setFont('Helvetica-Bold', 7)
     canvas.drawString(MARGIN_L, y, "OUR PROCESS")
     canvas.setStrokeColor(NAVY)
     canvas.setLineWidth(0.5)
-    canvas.line(MARGIN_L + 0.72*inch, y + 0.04*inch,
-                PAGE_W - MARGIN_R, y + 0.04*inch)
+    canvas.line(MARGIN_L + 0.74 * inch, y + 0.04 * inch,
+                PAGE_W - MARGIN_R, y + 0.04 * inch)
 
-    y -= 0.14*inch
+    y -= 0.16 * inch
     col_w = CONTENT_W / 4
     steps = [
-        ("1", "Assess",   "We start by understanding your operation, schedule, costs, and workforce composition."),
-        ("2", "Design",   "Schedule options built for operations AND people — with full cost and coverage clarity."),
-        ("3", "Deliver",  "Rollout support, employee education, policy development, and ongoing guidance."),
-        ("4", "Sustain",  "Post-implementation survey, results review, and adjustments to ensure it holds."),
+        ("1", "Assess",
+         "We start by understanding your operation, schedule, costs, and workforce composition."),
+        ("2", "Design",
+         "Schedule options built for operations AND people — with full cost and coverage clarity."),
+        ("3", "Deliver",
+         "Rollout support, employee education, policy development, and ongoing guidance."),
+        ("4", "Sustain",
+         "Post-implementation survey, results review, and adjustments to ensure it holds."),
     ]
     accent_colors = [NAVY, ORANGE, GREY_ACCENT, MID_BLUE]
     for i, (num, title, desc) in enumerate(steps):
         x = MARGIN_L + i * col_w
+        col_inner_w = col_w - 0.12 * inch
         # Accent top bar
         canvas.setFillColor(accent_colors[i])
-        canvas.rect(x, y + 0.02*inch, col_w - 0.10*inch, 3, fill=1, stroke=0)
+        canvas.rect(x, y + 0.02 * inch, col_inner_w, 3, fill=1, stroke=0)
         # Step number
         canvas.setFillColor(accent_colors[i])
         canvas.setFont('Helvetica-Bold', 18)
-        canvas.drawString(x, y - 0.22*inch, num)
+        canvas.drawString(x, y - 0.22 * inch, num)
         # Step title
         canvas.setFillColor(NAVY_DARK)
         canvas.setFont('Helvetica-Bold', 9)
-        canvas.drawString(x, y - 0.42*inch, title)
-        # Step desc
+        canvas.drawString(x, y - 0.40 * inch, title)
+        # Step description — wrapped
         canvas.setFillColor(MUTED)
-        canvas.setFont('Helvetica', 7.5)
-        _draw_wrapped_text(canvas, desc, x, y - 0.58*inch,
-                           col_w - 0.12*inch, 7.5, line_h=0.13*inch)
+        _draw_wrapped_text(canvas, desc, x, y - 0.56 * inch,
+                           col_inner_w, 7.5, line_h=0.128 * inch)
 
-    # ── EXPERIENCE STATS ──────────────────────────────────────────────────────
-    y -= 1.38*inch
+    # ── OUR EXPERIENCE ────────────────────────────────────────────────────────
+    y -= 1.36 * inch
 
     canvas.setFillColor(NAVY)
     canvas.setFont('Helvetica-Bold', 7)
     canvas.drawString(MARGIN_L, y, "OUR EXPERIENCE")
     canvas.setStrokeColor(NAVY)
-    canvas.line(MARGIN_L + 1.0*inch, y + 0.04*inch,
-                PAGE_W - MARGIN_R, y + 0.04*inch)
+    canvas.setLineWidth(0.5)
+    canvas.line(MARGIN_L + 1.02 * inch, y + 0.04 * inch,
+                PAGE_W - MARGIN_R, y + 0.04 * inch)
 
-    y -= 0.22*inch
+    y -= 0.22 * inch
     stats = [
         ("30+",      "Years of dedicated\nshiftwork consulting"),
         ("Hundreds", "Operations helped\nacross North America"),
@@ -311,68 +348,44 @@ def draw_cover(canvas, doc):
         x = MARGIN_L + i * s_col_w
         canvas.setFillColor(NAVY)
         canvas.setFont('Helvetica-Bold', 17)
-        canvas.drawString(x, y - 0.18*inch, num)
+        canvas.drawString(x, y - 0.18 * inch, num)
         canvas.setFillColor(MUTED)
         canvas.setFont('Helvetica', 7.5)
         for j, line in enumerate(label.split('\n')):
-            canvas.drawString(x, y - 0.38*inch - j*0.13*inch, line)
+            canvas.drawString(x, y - 0.38 * inch - j * 0.13 * inch, line)
 
-    # ── CONTACT / CTA ─────────────────────────────────────────────────────────
-    y -= 0.90*inch
-
-    # Orange CTA box
-    box_h = 0.72*inch
+    # ── CTA BOX — anchored from a fixed bottom position ───────────────────────
+    # Fixed anchor: 1.4in from page bottom ensures it never goes off-page
+    cta_bottom = 1.40 * inch
+    box_h      = 0.72 * inch
     canvas.setFillColor(ORANGE)
-    canvas.roundRect(MARGIN_L, y - box_h, CONTENT_W, box_h, 5, fill=1, stroke=0)
+    canvas.roundRect(MARGIN_L, cta_bottom, CONTENT_W, box_h, 5, fill=1, stroke=0)
     canvas.setFillColor(white)
     canvas.setFont('Helvetica-Bold', 11)
-    canvas.drawString(MARGIN_L + 0.22*inch, y - 0.28*inch,
+    canvas.drawString(MARGIN_L + 0.22 * inch, cta_bottom + box_h - 0.26 * inch,
                       "Ready to discuss your operation?  The first conversation is free.")
     canvas.setFont('Helvetica', 9)
-    canvas.drawString(MARGIN_L + 0.22*inch, y - 0.50*inch,
+    canvas.drawString(MARGIN_L + 0.22 * inch, cta_bottom + 0.16 * inch,
                       f"{PHONE}   {EMAIL}   {BOOKING}")
 
     canvas.restoreState()
 
 
-# ── HELPER ────────────────────────────────────────────────────────────────────
-def _draw_wrapped_text(canvas, text, x, y, max_width, font_size, line_h=0.145*inch):
-    """Word-wrap plain text onto canvas at (x,y), descending by line_h per line."""
-    words = text.split()
-    line = ''
-    current_y = y
-    canvas.setFont('Helvetica', font_size)
-    for word in words:
-        test = (line + ' ' + word).strip()
-        if canvas.stringWidth(test, 'Helvetica', font_size) <= max_width:
-            line = test
-        else:
-            if line:
-                canvas.drawString(x, current_y, line)
-                current_y -= line_h
-            line = word
-    if line:
-        canvas.drawString(x, current_y, line)
-
-
 # ── PARAGRAPH STYLES ─────────────────────────────────────────────────────────
 def build_styles():
-    base = getSampleStyleSheet()
-
     def S(name, **kw):
         return ParagraphStyle(name, **kw)
 
-    styles = {
+    return {
         'h2': S('h2',
             fontName='Helvetica-Bold', fontSize=14,
             textColor=NAVY_DARK, leading=18,
-            # Reduced spaceBefore so eyebrow sits tight against heading
             spaceBefore=8, spaceAfter=6),
 
         'eyebrow': S('eyebrow',
             fontName='Helvetica-Bold', fontSize=7,
             textColor=NAVY, leading=10,
-            spaceBefore=14, spaceAfter=2,   # spaceAfter reduced: 3→2
+            spaceBefore=14, spaceAfter=2,
             letterSpacing=1.2),
 
         'body': S('body',
@@ -381,24 +394,18 @@ def build_styles():
             spaceBefore=0, spaceAfter=8,
             alignment=TA_JUSTIFY),
 
-        # Pull quote: upright (not italic), body-text color — matches site standard
+        # Pull quote: upright, body-text color — matches site-wide standard
         'pull_quote': S('pull_quote',
             fontName='Helvetica', fontSize=11,
             textColor=BODY_TEXT, leading=16,
             spaceBefore=8, spaceAfter=4,
-            leftIndent=20, rightIndent=20),
+            leftIndent=0, rightIndent=0),
 
         'pull_attr': S('pull_attr',
             fontName='Helvetica', fontSize=8,
             textColor=MUTED, leading=12,
-            spaceBefore=2, spaceAfter=10,
-            leftIndent=20),
-
-        # Callout label: navy (not orange) to match new callout-box standard
-        'callout_label': S('callout_label',
-            fontName='Helvetica-Bold', fontSize=7,
-            textColor=NAVY, leading=10,
-            spaceBefore=0, spaceAfter=3),
+            spaceBefore=2, spaceAfter=0,
+            leftIndent=0),
 
         'callout_body': S('callout_body',
             fontName='Helvetica', fontSize=9.5,
@@ -410,6 +417,16 @@ def build_styles():
             textColor=NAVY, leading=26,
             spaceBefore=4, spaceAfter=2),
 
+        'stat_num_orange': S('stat_num_orange',
+            fontName='Helvetica-Bold', fontSize=22,
+            textColor=ORANGE, leading=26,
+            spaceBefore=4, spaceAfter=2),
+
+        'stat_num_grey': S('stat_num_grey',
+            fontName='Helvetica-Bold', fontSize=22,
+            textColor=GREY_ACCENT, leading=26,
+            spaceBefore=4, spaceAfter=2),
+
         'stat_label': S('stat_label',
             fontName='Helvetica-Bold', fontSize=8,
             textColor=BODY_TEXT, leading=11,
@@ -419,63 +436,64 @@ def build_styles():
             fontName='Helvetica', fontSize=7.5,
             textColor=MUTED, leading=11,
             spaceBefore=0, spaceAfter=0),
+
+        'cta': S('cta',
+            fontName='Helvetica', fontSize=9,
+            textColor=white, leading=14,
+            alignment=TA_CENTER),
     }
-    return styles
 
 
 # ── CONTENT BUILDERS ─────────────────────────────────────────────────────────
 def build_insight_cards(styles):
-    """3-column stat cards as a Table.
-    Card 3 uses GREY_ACCENT (not GREEN) — green implies 'go/correct' which is
-    misleading against the orange card.
-    """
-    data = [
-        [
-            [Paragraph('~14%', styles['stat_num']),
-             Paragraph('True OT cost premium', styles['stat_label']),
-             Paragraph('When fully loaded — OT costs only ~14% more than straight time, not 50%.',
-                       styles['stat_text'])],
-            [Paragraph('<font color="#E8610A"><b>10×</b></font>',
-                       ParagraphStyle('sn2', fontName='Helvetica-Bold', fontSize=22,
-                                      textColor=ORANGE, leading=26, spaceBefore=4, spaceAfter=2)),
-             Paragraph('Overstaffing penalty', styles['stat_label']),
-             Paragraph('The adverse cost of excess headcount is typically ten times '
-                       'higher than moderate understaffing covered by overtime.',
-                       styles['stat_text'])],
-            [Paragraph('<font color="#607D8B"><b>7.5%</b></font>',
-                       ParagraphStyle('sn3', fontName='Helvetica-Bold', fontSize=22,
-                                      textColor=GREY_ACCENT, leading=26, spaceBefore=4, spaceAfter=2)),
-             Paragraph('Pay increase, 1% cost rise', styles['stat_label']),
-             Paragraph('One facility increased guaranteed employee compensation by 7.5% '
-                       'while payroll costs rose only 1% — by building OT into the schedule.',
-                       styles['stat_text'])],
-        ]
-    ]
-
+    """3-column stat cards as a Table."""
     col_w = CONTENT_W / 3
-    t = Table(data, colWidths=[col_w]*3)
+    data = [[
+        [
+            Paragraph('~14%',                 styles['stat_num']),
+            Paragraph('True OT cost premium', styles['stat_label']),
+            Paragraph(
+                'When fully loaded — OT costs only ~14% more than straight time, not 50%.',
+                styles['stat_text']),
+        ],
+        [
+            Paragraph('10\u00d7',              styles['stat_num_orange']),
+            Paragraph('Overstaffing penalty',  styles['stat_label']),
+            Paragraph(
+                'The adverse cost of excess headcount is typically ten times higher '
+                'than moderate understaffing covered by overtime.',
+                styles['stat_text']),
+        ],
+        [
+            Paragraph('7.5%',                         styles['stat_num_grey']),
+            Paragraph('Pay increase, 1% cost rise',   styles['stat_label']),
+            Paragraph(
+                'One facility increased guaranteed employee compensation by 7.5% '
+                'while payroll costs rose only 1% — by building OT into the schedule.',
+                styles['stat_text']),
+        ],
+    ]]
+
+    t = Table(data, colWidths=[col_w] * 3)
     t.setStyle(TableStyle([
-        ('VALIGN',       (0,0), (-1,-1), 'TOP'),
-        ('TOPPADDING',   (0,0), (-1,-1), 14),
-        ('BOTTOMPADDING',(0,0), (-1,-1), 14),
-        ('LEFTPADDING',  (0,0), (-1,-1), 12),
-        ('RIGHTPADDING', (0,0), (-1,-1), 12),
-        ('BOX',          (0,0), (-1,-1), 0.5, BORDER),
-        ('INNERGRID',    (0,0), (-1,-1), 0.5, BORDER),
-        ('BACKGROUND',   (0,0), (-1,-1), white),
-        # Top border accent colors per column
-        ('LINEABOVE',    (0,0), (0,0), 3, NAVY),
-        ('LINEABOVE',    (1,0), (1,0), 3, ORANGE),
-        ('LINEABOVE',    (2,0), (2,0), 3, GREY_ACCENT),
+        ('VALIGN',        (0, 0), (-1, -1), 'TOP'),
+        ('TOPPADDING',    (0, 0), (-1, -1), 14),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 14),
+        ('LEFTPADDING',   (0, 0), (-1, -1), 12),
+        ('RIGHTPADDING',  (0, 0), (-1, -1), 12),
+        ('BOX',           (0, 0), (-1, -1), 0.5, BORDER),
+        ('INNERGRID',     (0, 0), (-1, -1), 0.5, BORDER),
+        ('BACKGROUND',    (0, 0), (-1, -1), white),
+        # Top accent bars per column
+        ('LINEABOVE',     (0, 0), (0, 0), 3, NAVY),
+        ('LINEABOVE',     (1, 0), (1, 0), 3, ORANGE),
+        ('LINEABOVE',     (2, 0), (2, 0), 3, GREY_ACCENT),
     ]))
     return t
 
 
 def build_callout(styles):
-    """IMPORTANT callout box — navy left border, clean layout.
-    Replaces the broken multi-column table approach.
-    """
-    # Single-column table with a thick left border to simulate the navy left bar
+    """IMPORTANT callout — navy left border, light-grey background, clean text flow."""
     text = (
         "Important: Prolonged high overtime creates a dangerous dependency. "
         "When employees rely on overtime income to meet their financial obligations, "
@@ -484,42 +502,37 @@ def build_callout(styles):
         "structure that can't flex downward without causing hardship. Design your "
         "baseline compensation and staffing to avoid creating this trap."
     )
-    callout_data = [[
-        Paragraph(text, styles['callout_body'])
-    ]]
-    t = Table(callout_data, colWidths=[CONTENT_W - 0.12*inch])
+    data = [[Paragraph(text, styles['callout_body'])]]
+    t = Table(data, colWidths=[CONTENT_W - 0.12 * inch])
     t.setStyle(TableStyle([
-        ('VALIGN',       (0,0), (-1,-1), 'TOP'),
-        ('TOPPADDING',   (0,0), (-1,-1), 12),
-        ('BOTTOMPADDING',(0,0), (-1,-1), 12),
-        ('LEFTPADDING',  (0,0), (-1,-1), 14),
-        ('RIGHTPADDING', (0,0), (-1,-1), 12),
-        ('BACKGROUND',   (0,0), (-1,-1), LIGHT_GREY),
-        ('LINEBEFORE',   (0,0), (0,-1), 4, NAVY),
+        ('VALIGN',        (0, 0), (-1, -1), 'TOP'),
+        ('TOPPADDING',    (0, 0), (-1, -1), 12),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 12),
+        ('LEFTPADDING',   (0, 0), (-1, -1), 14),
+        ('RIGHTPADDING',  (0, 0), (-1, -1), 12),
+        ('BACKGROUND',    (0, 0), (-1, -1), LIGHT_GREY),
+        ('LINEBEFORE',    (0, 0), (0, -1), 4, NAVY),
     ]))
     return t
 
 
 def build_pull_quote(quote_text, attribution, styles):
-    """Pull quote: upright text, navy left bar, consistent with site standard."""
-    pq_data = [[
-        Paragraph(f"\u201c{quote_text}\u201d", styles['pull_quote']),
-        Paragraph(f"\u2014 {attribution}", styles['pull_attr']),
-    ]]
-    # Stack vertically inside a single column
-    combined = [
-        Paragraph(f"\u201c{quote_text}\u201d", styles['pull_quote']),
-        Paragraph(f"\u2014 {attribution}", styles['pull_attr']),
+    """Pull quote with navy left border.
+    Cell value is a list of Paragraphs — ReportLab renders these as stacked flowables.
+    """
+    cell_content = [
+        Paragraph(f'\u201c{quote_text}\u201d', styles['pull_quote']),
+        Paragraph(f'\u2014 {attribution}',      styles['pull_attr']),
     ]
-    t = Table([[combined]], colWidths=[CONTENT_W - 0.12*inch])
+    t = Table([[cell_content]], colWidths=[CONTENT_W - 0.12 * inch])
     t.setStyle(TableStyle([
-        ('VALIGN',       (0,0), (-1,-1), 'TOP'),
-        ('TOPPADDING',   (0,0), (-1,-1), 10),
-        ('BOTTOMPADDING',(0,0), (-1,-1), 10),
-        ('LEFTPADDING',  (0,0), (-1,-1), 16),
-        ('RIGHTPADDING', (0,0), (-1,-1), 12),
-        ('BACKGROUND',   (0,0), (-1,-1), white),
-        ('LINEBEFORE',   (0,0), (0,-1), 3, NAVY),
+        ('VALIGN',        (0, 0), (-1, -1), 'TOP'),
+        ('TOPPADDING',    (0, 0), (-1, -1), 10),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 10),
+        ('LEFTPADDING',   (0, 0), (-1, -1), 16),
+        ('RIGHTPADDING',  (0, 0), (-1, -1), 12),
+        ('BACKGROUND',    (0, 0), (-1, -1), white),
+        ('LINEBEFORE',    (0, 0), (0, -1), 3, NAVY),
     ]))
     return t
 
@@ -529,15 +542,12 @@ def build_story(styles):
     story = []
 
     def H(text):
-        """Section heading."""
         return Paragraph(text, styles['h2'])
 
     def EYE(text):
-        """Eyebrow label."""
         return Paragraph(text.upper(), styles['eyebrow'])
 
     def P(text):
-        """Body paragraph."""
         return Paragraph(text, styles['body'])
 
     def HR():
@@ -575,7 +585,6 @@ def build_story(styles):
     story.append(Spacer(1, 6))
     story.append(build_insight_cards(styles))
     story.append(Spacer(1, 16))
-
     story.append(HR())
 
     # ── THE REAL COST ─────────────────────────────────────────────────────────
@@ -588,8 +597,8 @@ def build_story(styles):
     story.append(P(
         "Consider the full picture. Straight time labor includes not just wages but benefits, "
         "paid time off, training costs, and administrative overhead. These additions typically "
-        "represent 30–40% of base wages. Overtime, by contrast, pays the premium on wages alone "
-        "— no additional benefits accrue, no extra vacation days accumulate, no incremental "
+        "represent 30\u201340% of base wages. Overtime, by contrast, pays the premium on wages "
+        "alone — no additional benefits accrue, no extra vacation days accumulate, no incremental "
         "training costs apply."))
     story.append(P(
         "Run the math for a typical operation. An employee earning $15 per hour with a 32% "
@@ -603,7 +612,6 @@ def build_story(styles):
         "adverse cost of moderate understaffing covered by overtime. This asymmetry explains "
         "why lean operations often favor running slightly short with controlled overtime rather "
         "than carrying excess permanent headcount."))
-
     story.append(HR())
 
     # ── DISTRIBUTION PARADOX ──────────────────────────────────────────────────
@@ -626,7 +634,6 @@ def build_story(styles):
         "distribution tracking, and policies that honor individual differences rather than "
         "treating overtime as one-size-fits-all."))
 
-    # Pull quote 1
     story.append(Spacer(1, 8))
     story.append(build_pull_quote(
         "The key to managing overtime isn't eliminating it — it's understanding who values "
@@ -634,7 +641,6 @@ def build_story(styles):
         "Dan Capshaw, Shiftwork Solutions",
         styles))
     story.append(Spacer(1, 8))
-
     story.append(HR())
 
     # ── PREDICTABILITY ────────────────────────────────────────────────────────
@@ -655,7 +661,6 @@ def build_story(styles):
         "patterns, even when imprecise, help employees plan their lives around work rather "
         "than having work constantly disrupt their lives."))
 
-    # Pull quote 2
     story.append(Spacer(1, 8))
     story.append(build_pull_quote(
         "It's not the overtime that kills morale — it's the surprise overtime announced "
@@ -664,7 +669,6 @@ def build_story(styles):
         "Jim Dillingham, Shiftwork Solutions",
         styles))
     story.append(Spacer(1, 8))
-
     story.append(HR())
 
     # ── DIAGNOSIS ─────────────────────────────────────────────────────────────
@@ -686,11 +690,9 @@ def build_story(styles):
         "Workload variation problems may require schedule flexibility. Design problems "
         "require rethinking the fundamental coverage approach."))
 
-    # Callout box (IMPORTANT — fixed layout)
     story.append(Spacer(1, 4))
     story.append(build_callout(styles))
     story.append(Spacer(1, 8))
-
     story.append(HR())
 
     # ── SCHEDULE INTEGRATION ──────────────────────────────────────────────────
@@ -710,7 +712,6 @@ def build_story(styles):
         "continuous schedule with built-in overtime. Employees increased their guaranteed "
         "compensation by 7.5% while payroll costs rose only 1%. Days off increased from "
         "104 to 182 annually."))
-
     story.append(HR())
 
     # ── EMPLOYEE EXPERIENCE ───────────────────────────────────────────────────
@@ -725,7 +726,6 @@ def build_story(styles):
         "These improvements didn't come from reducing overtime. They came from restructuring "
         "how overtime was experienced — making it predictable, giving employees choice, "
         "protecting workers from mandatory overtime on their scheduled weekends."))
-
     story.append(HR())
 
     # ── CONCLUSION ────────────────────────────────────────────────────────────
@@ -745,21 +745,20 @@ def build_story(styles):
     story.append(Spacer(1, 20))
 
     # ── CLOSING CTA BOX ───────────────────────────────────────────────────────
-    cta_data = [[
-        Paragraph(
-            f"<font color='white'><b>Ready to improve how overtime works in your operation?</b><br/>"
-            f"Call {PHONE}  |  {EMAIL}  |  Book a free consultation: {BOOKING}</font>",
-            ParagraphStyle('cta', fontName='Helvetica', fontSize=9,
-                           textColor=white, leading=14, alignment=TA_CENTER))
-    ]]
+    # Note: ROUNDEDCORNERS removed — not a valid ReportLab TableStyle command.
+    cta_text = (
+        f"<font color='white'><b>Ready to improve how overtime works in your operation?</b>"
+        f"<br/>"
+        f"Call {PHONE}  |  {EMAIL}  |  Book a free consultation: {BOOKING}</font>"
+    )
+    cta_data = [[Paragraph(cta_text, styles['cta'])]]
     cta_t = Table(cta_data, colWidths=[CONTENT_W])
     cta_t.setStyle(TableStyle([
-        ('BACKGROUND',   (0,0), (-1,-1), ORANGE),
-        ('ROUNDEDCORNERS', [5]),
-        ('TOPPADDING',   (0,0), (-1,-1), 14),
-        ('BOTTOMPADDING',(0,0), (-1,-1), 14),
-        ('LEFTPADDING',  (0,0), (-1,-1), 16),
-        ('RIGHTPADDING', (0,0), (-1,-1), 16),
+        ('BACKGROUND',    (0, 0), (-1, -1), ORANGE),
+        ('TOPPADDING',    (0, 0), (-1, -1), 14),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 14),
+        ('LEFTPADDING',   (0, 0), (-1, -1), 16),
+        ('RIGHTPADDING',  (0, 0), (-1, -1), 16),
     ]))
     story.append(cta_t)
 
@@ -781,33 +780,35 @@ def build_pdf():
         creator=FIRM_NAME,
     )
 
-    # Cover page frame (full bleed — no margins since canvas draws everything)
-    cover_frame = Frame(0, 0, PAGE_W, PAGE_H, leftPadding=0, rightPadding=0,
-                        topPadding=0, bottomPadding=0, id='cover')
+    # Cover frame: full-bleed, zero padding — canvas draws everything, no flowables enter
+    cover_frame = Frame(0, 0, PAGE_W, PAGE_H,
+                        leftPadding=0, rightPadding=0,
+                        topPadding=0, bottomPadding=0,
+                        id='cover')
 
-    # Content frame (normal margins)
+    # Content frame: standard margins
     content_frame = Frame(MARGIN_L, MARGIN_B, CONTENT_W,
-                          PAGE_H - MARGIN_T - MARGIN_B, id='content')
-
-    def cover_page(canvas, doc):
-        draw_cover(canvas, doc)
-
-    def content_page(canvas, doc):
-        draw_header(canvas, doc)
-        draw_footer(canvas, doc)
+                          PAGE_H - MARGIN_T - MARGIN_B,
+                          id='content')
 
     doc.addPageTemplates([
-        PageTemplate(id='Cover',   frames=[cover_frame],  onPage=cover_page),
-        PageTemplate(id='Content', frames=[content_frame], onPage=content_page),
+        PageTemplate(id='Cover',   frames=[cover_frame],   onPage=draw_cover),
+        PageTemplate(id='Content', frames=[content_frame], onPage=draw_content_page),
     ])
 
     styles = build_styles()
 
-    from reportlab.platypus import NextPageTemplate
-    story = [NextPageTemplate('Content')] + build_story(styles)
+    # CRITICAL: NextPageTemplate + PageBreak must be the FIRST two flowables.
+    # This ensures the cover frame receives NO story content — canvas handles page 1 entirely.
+    # Content begins clean on page 2.
+    story = [
+        NextPageTemplate('Content'),
+        PageBreak(),
+    ] + build_story(styles)
 
     doc.build(story)
     print(f"PDF generated: {OUTPUT_FILE}")
+    print(f"File size: {os.path.getsize(OUTPUT_FILE):,} bytes")
 
 
 if __name__ == '__main__':
