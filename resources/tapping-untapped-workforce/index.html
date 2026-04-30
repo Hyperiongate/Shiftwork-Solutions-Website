@@ -6,23 +6,32 @@
   Created: 2026-04-04 | Last Updated: 2026-04-29
 
   CHANGE LOG:
-    2026-04-29 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
-                 removed plausible.init(), added canonical Org schema,
-                 meta keywords absent (none were present).
+    2026-04-04 — Initial build.
+    2026-04-05 — NAV audit, FAQ added.
+    2026-04-15 — Nav/FAQ/Next Steps standardization.
+    2026-04-16 — NAV LABEL: "Our Company" → "Why Us".
+    2026-04-22 — Page Bottom Standard applied.
     2026-04-28 — Plausible analytics added. Footer bottom bar updated:
                  mid-dot separators + Case Studies / Privacy Policy /
                  Terms of Use links.
-    2026-04-22 — Page Bottom Standard applied.
-    2026-04-16 — NAV LABEL: "Our Company" → "Why Us".
-    2026-04-15 — Nav/FAQ/Next Steps standardization.
-    2026-04-05 — NAV audit, FAQ added.
-    2026-04-04 — Initial build.
+    2026-04-29 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
+                 removed plausible.init(), added canonical Org schema.
+                 meta keywords absent (none were present).
+    2026-04-29 — MOBILE OPTIMIZATION: Additive-only media queries appended before
+                 </style>. No desktop rules altered. Two new blocks:
+                 640px: nav link font-size 16px (mobile menu open state),
+                        pull-quote-mark reduced 128px → 80px (this page has no
+                        760px pull-quote handling, so 80px step needed here).
+                 480px: nav-logo-text hidden, newsletter form stacked,
+                        pull-quote-mark 56px, pull-quote gap tightened.
+                 NOTE: No client strip — .cn rule omitted.
+                       Data table already has overflow-x:auto.
+                       Insight cards already 1-col at 640px via existing block.
+                       .strategy-cards CSS defined but element not used in HTML body.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/tapping.jpg
   FAQ IMAGE:  /images/Hands_in_the_air.jpg
-
-  I did no harm and this file is not truncated
 -->
 <html lang="en">
 <head>
@@ -228,6 +237,33 @@
     @media(max-width:768px){.thomas-float{display:none}}
     @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}}
     @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.insight-cards{grid-template-columns:1fr}.bridge-stripe{padding:28px 20px}.bridge-stripe-text{font-size:17px}}
+
+    /* ══ MOBILE OPTIMIZATION (added 2026-04-29) ══
+       Additive only — no desktop rules altered.
+       640px: nav link font-size 16px (mobile menu open state),
+              pull-quote-mark reduced 128px → 80px (this page has no 760px
+              pull-quote handling, so the 80px step is applied here).
+       480px: nav-logo-text hidden, newsletter form stacked,
+              pull-quote-mark 56px, pull-quote gap tightened.
+       NOTE: No client strip — .cn rule omitted.
+             Data table already has overflow-x:auto — handles mobile scrolling.
+             Insight cards already 1-col at 640px via existing block.
+             .strategy-cards CSS defined but element not used in HTML body.
+    */
+
+    @media(max-width:640px){
+      .nav-links>li>a{font-size:16px;padding:12px 20px;}
+      .pull-quote-mark{font-size:80px;}
+    }
+
+    @media(max-width:480px){
+      .nav-logo-text{display:none;}
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+      .pull-quote-mark{font-size:56px;}
+      .pull-quote{gap:8px;}
+    }
   </style>
 </head>
 <body>
