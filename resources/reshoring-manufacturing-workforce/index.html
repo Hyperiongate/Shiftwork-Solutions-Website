@@ -3,7 +3,7 @@
   resources/reshoring-manufacturing-workforce/index.html
   Shiftwork Solutions LLC — Trending Topic Article
   URL: /resources/reshoring-manufacturing-workforce/
-  Created: 2026-04-04 | Last Updated: 2026-04-28
+  Created: 2026-04-04 | Last Updated: 2026-04-29
 
   CHANGE LOG:
     2026-04-28 — ALL-PAGES CYCLE pass 1:
@@ -21,6 +21,16 @@
     2026-04-15 — Nav/Hero/FAQ/Next Steps standardization.
     2026-04-05 — NAV + BUTTON + SEO AUDIT. FAQ section added.
     2026-04-04 — Initial build from source Word doc.
+    2026-04-29 — MOBILE OPTIMIZATION:
+                 Additive mobile CSS block only — zero desktop rules altered.
+                 Page uses 760px + 640px breakpoints; nav, hero, insight-cards,
+                 FAQ, bridge-stripe, and footer stacking all handled.
+                 Pull-quote was missing its column-stack rule.
+                 @media(max-width:640px): pull-quote column stack + mark
+                   reduced to 72px; footer-bottom-left column stack +
+                   separators hidden.
+                 @media(max-width:480px): nav-logo-text hidden,
+                   newsletter form column stack.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn (sticky, 56px)
   HERO IMAGE: /images/reshoring.jpg
@@ -224,6 +234,40 @@
     .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none;margin:0 2px}
     @media(max-width:760px){.insight-cards{grid-template-columns:1fr 1fr}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.faq-section{margin-left:calc(-50vw);margin-right:calc(-50vw)}.insight-card .ic-num{font-size:42px}}
     @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:32px 20px 36px}.hero h1{font-size:22px}.article-wrap{padding:32px 20px 40px}.footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}.faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}.insight-cards{grid-template-columns:1fr;gap:28px}.insight-card .ic-num{font-size:44px}.bridge-stripe{padding:28px 20px}.bridge-stripe-text{font-size:17px}}
+
+    /* ══════════════════════════════════════════════════════════════════
+       MOBILE OPTIMIZATION BLOCK (added 2026-04-29)
+       Strategy: Additive overrides only — no desktop rules altered.
+       Page uses 760px + 640px breakpoints; nav, hero, insight-cards,
+       FAQ, bridge-stripe, and footer stacking all handled.
+       Pull-quote was missing its column-stack rule.
+
+       Fixes:
+         1. pull-quote column stack + mark size reduced at 640px
+         2. footer-bottom-left column stack + separators hidden at 640px
+         3. nav-logo-text hidden at 480px
+         4. Newsletter form column stack at 480px
+       ══════════════════════════════════════════════════════════════════ */
+
+    @media(max-width:640px){
+      /* 1. Pull quote — stack vertically, shrink oversized mark */
+      .pull-quote{flex-direction:column;gap:4px;}
+      .pull-quote-mark{font-size:72px;}
+
+      /* 2. Footer bottom — column stack, hide separators */
+      .footer-bottom-left{flex-direction:column;align-items:center;gap:6px;}
+      .footer-bottom-sep{display:none;}
+    }
+
+    @media(max-width:480px){
+      /* 3. Hide logo text on very small screens */
+      .nav-logo-text{display:none;}
+
+      /* 4. Newsletter form — stack */
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+    }
   </style>
 </head>
 <body>
