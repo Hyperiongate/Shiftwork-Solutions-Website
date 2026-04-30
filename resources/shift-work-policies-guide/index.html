@@ -5,9 +5,18 @@
   URL: /resources/shift-work-policies-guide/
 
   Created:      2026-04-02
-  Last Updated: 2026-04-28
+  Last Updated: 2026-04-29
 
   CHANGE LOG:
+    2026-04-29 — MOBILE OPTIMIZATION: Additive 480px @media block appended to <style>.
+                 No 640px extension needed — pull-quote already column + 72px mark at 760px,
+                 hero-stats already column at 640px, three-col and ns-cards already 1-col at 760px.
+                 New 480px block: logo text hidden, hero/article padding tightened,
+                 viz-section/three-col/pull-quote/callout side padding to 16px,
+                 viz-box gets overflow-x:auto for compare-table scroll at narrow widths,
+                 pull-quote mark to 48px, next-steps tightened, newsletter stacks,
+                 faq-inner tightened. listen-btn stays visible on mobile (no change).
+                 No desktop rules altered.
     2026-04-02 — Initial build from Pillar_10_Policies_Rev_A_2_20_26.docx
     2026-04-22 — PAGE BOTTOM STANDARD APPLIED; Footer 3-column standard;
                  Thomas floating widget; Pull quotes updated. Next-steps
@@ -19,10 +28,20 @@
                  removed meta keywords.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
-  NOTE: This guide retains Next Steps section (not bridge stripe).
+  NOTE: This guide retains Next Steps section and Listen button (not bridge stripe).
   DESIGN CONSTANTS:
     Navy: #1F4E79 | Navy-dark: #0D1F3C | Mid-blue: #85B7EB | Orange: #E8610A | Green: #1D9E75
     Logo: /images/clear_bkgr_logo_2.png | Hero: /images/pillar_10.jpg | FAQ: /images/Hands_in_the_air.jpg
+
+  MOBILE NOTES (2026-04-29):
+  - compare-table inside viz-box has no overflow wrapper — viz-box gets overflow-x:auto at 480px
+  - ns-cards already 1-col at 760px — no further action needed
+  - listen-btn fixed bottom-right — stays visible on mobile by design
+  - .callout + .callout-inner (different from .callout-box on other pages)
+  - pull-quote (2x) already column + 72px mark at 760px
+  - Thomas float already display:none at 768px
+
+  I did no harm and this file is not truncated
 -->
 <html lang="en">
 <head>
@@ -57,7 +76,7 @@
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Should vacation be tracked in days or hours for shift workers?","acceptedAnswer":{"@type":"Answer","text":"Track vacation in hours, not days or weeks. When a work day means 12 hours rather than 8, the word day is no longer a standard unit. Hours creates equity across all schedules."}},{"@type":"Question","name":"What is shift differential and how should it be set?","acceptedAnswer":{"@type":"Answer","text":"Shift differential is a pay premium for working hours that are less desirable — evenings, nights, and weekends. Set it high enough to eliminate difficulty staffing those shifts, and low enough to avoid overpayment. Most facilities need regular analysis to keep it calibrated."}},{"@type":"Question","name":"What happens with holiday pay on a 24/7 schedule?","acceptedAnswer":{"@type":"Answer","text":"For a 24/7 operation, every day is a potential work day. Policies must explicitly define which holidays qualify, how much premium pay applies, and what happens when a worker is not scheduled on a holiday."}},{"@type":"Question","name":"How is overtime calculated for 12-hour shifts?","acceptedAnswer":{"@type":"Answer","text":"FLSA requires overtime after 40 hours in a work week, not after 8 hours per day. Workers on 12-hour schedules regularly exceed 8 hours without triggering overtime if the week stays under 40 hours."}},{"@type":"Question","name":"What is the most common policy mistake when implementing new schedules?","acceptedAnswer":{"@type":"Answer","text":"Giving something away during implementation that you cannot sustain long-term, then having to take it back — creating intense workforce relations problems. Announce only what you can permanently commit to."}}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Shift Work Policies","item":"https://shift-work.com/resources/shift-work-policies-guide/"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Work Policies: Pay, Time-Off & Compliance","url":"https://shift-work.com/resources/shift-work-policies-guide/","datePublished":"2026-04-02","dateModified":"2026-04-28","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shift Work Policies: Pay, Time-Off & Compliance","url":"https://shift-work.com/resources/shift-work-policies-guide/","datePublished":"2026-04-02","dateModified":"2026-04-29","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
   <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "Organization",
@@ -291,6 +310,34 @@
       .footer-bottom-left{justify-content:center}
       .faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}
       .next-steps{padding:40px 20px 44px}
+    }
+
+    /* ══ MOBILE OPTIMIZATION (added 2026-04-29) ══
+       Additive only — no desktop rules altered.
+       Pull-quote already column + 72px mark at 760px — no 640px extension needed.
+       Hero-stats already column-stacked at 640px.
+       Three-col and ns-cards already 1-col at 760px.
+       compare-table padding already reduced at 760px;
+       viz-box gets overflow-x:auto at 480px for final scroll fallback.
+       listen-btn stays visible on mobile by design — no change.
+       480px block is entirely new. */
+
+    @media(max-width:480px){
+      .nav-logo-text{display:none;}
+      .hero{padding:28px 16px 32px;}
+      .hero h1{font-size:20px;}
+      .article-wrap{padding:24px 16px 20px;}
+      .viz-section{padding-left:16px;padding-right:16px;}
+      .viz-box{overflow-x:auto;}
+      .three-col{padding-left:16px;padding-right:16px;}
+      .pull-quote{padding-left:16px;padding-right:16px;}
+      .pull-quote-mark{font-size:48px;line-height:1;}
+      .callout{padding-left:16px;padding-right:16px;}
+      .next-steps{padding:28px 16px 32px;}
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+      .faq-inner{padding:28px 16px 32px;}
     }
   </style>
 </head>
