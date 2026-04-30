@@ -5,7 +5,7 @@
   URL: /resources/shift-schedule-design-guide/
 
   Created:      2026-04-02
-  Last Updated: 2026-04-29
+  Last Updated: 2026-04-30
 
   CHANGE LOG:
     2026-04-28 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
@@ -21,16 +21,12 @@
     2026-04-04 — Button color audit; Nav restructure.
     2026-04-03 — Full content rebuild from source Word document.
     2026-04-02 — Initial build from Pillar_1_Shift_Schedule_Design_Rev_A_2_18_26.docx
-    2026-04-29 — MOBILE OPTIMIZATION:
-                 Additive mobile CSS block only — zero desktop rules altered.
-                 Page is exceptionally well-optimized at 760px + 640px:
-                 nav, hero, hero-stats, three-col, pull-quote (stacks at 760px),
-                 viz-bar, pillar-blocks, pitfalls-section, FAQ, cta-box, and
-                 bridge-stripe all handled. Only 3 gaps remain.
-                 @media(max-width:640px): footer-bottom-left column stack +
-                   separators hidden.
-                 @media(max-width:480px): nav-logo-text hidden,
-                   newsletter form column stack.
+    2026-04-29 — MOBILE OPTIMIZATION: Additive mobile CSS block only.
+    2026-04-30 — PDF DOWNLOAD TAB ADDED:
+                 Added .pdf-float CSS (matches overtime-management-guide standard:
+                 fixed upper-left, navy left border, white background, hidden mobile).
+                 Added <a class="pdf-float"> element pointing to
+                 /pdfs/shift-schedule-design-guide.pdf, placed before Thomas widget.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
@@ -101,7 +97,7 @@
     },
     "image": "https://shift-work.com/images/pillar_1.jpg",
     "datePublished": "2026-04-02",
-    "dateModified": "2026-04-28",
+    "dateModified": "2026-04-30",
     "inLanguage": "en-US",
     "articleSection": "Schedule Design",
     "wordCount": 2100,
@@ -207,34 +203,18 @@
       "areaServed": "US"
     },
     "knowsAbout": [
-      "shift schedule design",
-      "shift work consulting",
-      "24/7 operations management",
-      "continuous operations staffing",
-      "change management",
-      "workforce surveys",
-      "overtime management",
-      "overtime cost reduction",
-      "employee engagement",
-      "manufacturing workforce planning",
-      "distribution center scheduling",
-      "pharmaceutical shift scheduling",
-      "chemical plant operations",
-      "food and beverage manufacturing",
-      "mining shift scheduling",
-      "paper and packaging operations",
-      "union workforce consulting",
-      "rotating shift schedules",
-      "fixed shift schedules",
-      "12-hour shift schedules",
-      "staffing and workforce planning",
-      "labor cost analysis",
-      "fatigue risk management",
-      "post-implementation workforce surveys"
+      "shift schedule design","shift work consulting","24/7 operations management",
+      "continuous operations staffing","change management","workforce surveys",
+      "overtime management","overtime cost reduction","employee engagement",
+      "manufacturing workforce planning","distribution center scheduling",
+      "pharmaceutical shift scheduling","chemical plant operations",
+      "food and beverage manufacturing","mining shift scheduling",
+      "paper and packaging operations","union workforce consulting",
+      "rotating shift schedules","fixed shift schedules","12-hour shift schedules",
+      "staffing and workforce planning","labor cost analysis",
+      "fatigue risk management","post-implementation workforce surveys"
     ],
-    "sameAs": [
-      "https://www.linkedin.com/company/shiftwork-solutions-llc"
-    ]
+    "sameAs": ["https://www.linkedin.com/company/shiftwork-solutions-llc"]
   }
   </script>
 
@@ -364,6 +344,7 @@
     .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
     .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
     .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
+    /* ── THOMAS FLOATING WIDGET ── */
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
@@ -373,6 +354,16 @@
     .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
     .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
     @media(max-width:768px){.thomas-float{display:none}}
+    /* ── PDF DOWNLOAD TAB — upper-left fixed (added 2026-04-30) ── */
+    .pdf-float{position:fixed;left:0;top:72px;z-index:950;width:110px;background:#ffffff;border-radius:0 8px 8px 0;overflow:hidden;text-decoration:none;box-shadow:3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block;border-left:4px solid var(--navy)}
+    .pdf-float:hover{width:120px;box-shadow:5px 5px 22px rgba(0,0,0,0.26)}
+    .pdf-float-body{padding:10px 10px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px}
+    .pdf-float-icon{font-size:20px;line-height:1}
+    .pdf-float-title{font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:var(--navy);line-height:1.35;display:block;text-align:center}
+    .pdf-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--navy);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s;margin-top:2px}
+    .pdf-float:hover .pdf-float-cta{background:var(--mid-blue)}
+    @media(max-width:768px){.pdf-float{display:none}}
+    /* ── FOOTER ── */
     .site-footer{background:var(--navy-dark)}
     .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
     .footer-wrap{max-width:1100px;margin:0 auto}
@@ -438,33 +429,11 @@
       .pillar-block{padding-left:14px}
       .bridge-stripe{padding:28px 20px}
       .bridge-stripe-text{font-size:17px}
-    }
-
-    /* ══════════════════════════════════════════════════════════════════
-       MOBILE OPTIMIZATION BLOCK (added 2026-04-29)
-       Strategy: Additive overrides only — no desktop rules altered.
-       This pillar page is exceptionally well-optimized at 760px+640px:
-       nav, hero, hero-stats, three-col, pull-quote (stacks at 760px),
-       viz-bar, pillar-blocks, pitfalls-section, FAQ, cta-box, and
-       bridge-stripe all handled. Only 3 gaps remain.
-
-       Fixes:
-         1. footer-bottom-left column stack + separators hidden at 640px
-         2. nav-logo-text hidden at 480px
-         3. Newsletter form column stack at 480px
-       ══════════════════════════════════════════════════════════════════ */
-
-    @media(max-width:640px){
-      /* 1. Footer bottom — column stack, hide separators */
       .footer-bottom-left{flex-direction:column;align-items:center;gap:6px;}
       .footer-bottom-sep{display:none;}
     }
-
     @media(max-width:480px){
-      /* 2. Hide logo text on very small screens */
       .nav-logo-text{display:none;}
-
-      /* 3. Newsletter form — stack */
       .engage-nl-form{flex-direction:column;}
       .engage-nl-input{min-width:0;width:100%;}
       .engage-nl-btn{width:100%;}
@@ -771,7 +740,26 @@
   </div></div>
 </footer>
 
-<a class="thomas-float" href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener" aria-label="Meet Thomas, your AI Shift Advisor">
+<!-- ── PDF DOWNLOAD TAB — upper-left, navy/blue, below sticky nav ── -->
+<a class="pdf-float"
+   href="/pdfs/shift-schedule-design-guide.pdf"
+   target="_blank"
+   rel="noopener"
+   aria-label="Download the Shift Schedule Design Guide PDF">
+  <div class="pdf-float-body">
+    <span class="pdf-float-icon">&#x1F4C4;</span>
+    <span class="pdf-float-title">Shift Schedule Design Guide</span>
+    <span class="pdf-float-cta">Download PDF &darr;</span>
+  </div>
+</a>
+<!-- ── END PDF DOWNLOAD TAB ── -->
+
+<!-- ── THOMAS FLOATING WIDGET ── -->
+<a class="thomas-float"
+   href="https://shift-work-diagnostic.onrender.com/"
+   target="_blank"
+   rel="noopener"
+   aria-label="Meet Thomas, your AI Shift Advisor">
   <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
   <div class="thomas-float-body">
     <span class="thomas-float-name">Meet Thomas</span>
@@ -779,6 +767,7 @@
     <span class="thomas-float-cta">Chat Now &rarr;</span>
   </div>
 </a>
+<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
 document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
