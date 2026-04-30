@@ -5,6 +5,14 @@
   Created: 2026-04-02 | Last Updated: 2026-04-29
 
   CHANGE LOG:
+    2026-04-29 — MOBILE OPTIMIZATION: Additive 480px @media block appended to <style>.
+                 No 640px extension needed — pull-quote already column at 760px,
+                 hero-stats already column at 640px, three-col already 1-col at 760px,
+                 viz-section/callout/footer already have 640px padding overrides.
+                 New 480px block: logo text hidden, hero/article padding tightened,
+                 viz-section/three-col/pull-quote/callout side padding to 16px,
+                 pull-quote mark further to 48px, newsletter stacks, bridge/faq tightened.
+                 No desktop rules altered.
     2026-04-29 — Merged 2026-04-28 live base with design fixes:
                  1. PDF float: added upper-left fixed tab, navy/blue, "Overtime
                     Management Guide" label, below sticky nav (top:72px, left:0)
@@ -30,6 +38,16 @@
     Grey-accent: #607D8B (replaces green on insight cards)
     Logo: /images/clear_bkgr_logo_2.png
     Hero: /images/pillar_5.jpg | FAQ bg: /images/Hands_in_the_air.jpg
+
+  MOBILE NOTES (2026-04-29):
+  - Pillar page — different structure from focused articles
+  - .pdf-float already display:none at 768px — no action needed
+  - .hero-stats flex row already column-stacked at 640px — no 480px action needed
+  - .pull-quote (2x) already column + 72px mark at 760px
+  - .three-col already 1-col at 760px
+  - viz-section/three-col/pull-quote/callout/footer-prefooter all get side padding
+    tightened from 20px → 16px at 480px
+  - 480px pull-quote mark further reduced to 48px
 
   I did no harm and this file is not truncated
 -->
@@ -310,6 +328,32 @@
       .footer-bottom-left{justify-content:center}
       .faq-inner{padding:36px 18px 40px}.faq-inner h2{font-size:19px}
       .bridge-stripe{padding:28px 20px}.bridge-stripe-text{font-size:17px}
+    }
+
+    /* ══ MOBILE OPTIMIZATION (added 2026-04-29) ══
+       Additive only — no desktop rules altered.
+       Pull-quote already column + 72px mark at 760px — no further action needed there.
+       Hero-stats already column-stacked at 640px.
+       Three-col already 1-col at 760px.
+       pdf-float already display:none at 768px.
+       480px block is entirely new. */
+
+    @media(max-width:480px){
+      .nav-logo-text{display:none;}
+      .hero{padding:28px 16px 32px;}
+      .hero h1{font-size:20px;}
+      .article-wrap{padding:24px 16px 20px;}
+      .viz-section{padding-left:16px;padding-right:16px;}
+      .three-col{padding-left:16px;padding-right:16px;}
+      .pull-quote{padding-left:16px;padding-right:16px;}
+      .pull-quote-mark{font-size:48px;line-height:1;}
+      .callout{padding-left:16px;padding-right:16px;}
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
+      .bridge-stripe{padding:24px 16px;}
+      .bridge-stripe-text{font-size:15px;}
+      .faq-inner{padding:28px 16px 32px;}
     }
   </style>
 </head>
