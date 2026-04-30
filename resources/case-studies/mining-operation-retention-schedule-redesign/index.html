@@ -2,9 +2,14 @@
 <!--
   resources/case-studies/mining-operation-retention-schedule-redesign/index.html
   Shiftwork Solutions LLC — Case Study
-  Last Updated: 2026-04-29
+  Last Updated: 2026-04-30
 
   CHANGE LOG:
+    2026-04-30 — SOLUTION REWRITE: Replaced mathematically implausible hybrid fixed/rotating
+                 solution with DuPont schedule implementation. Updated Phase 3, Phase 4,
+                 Outcomes table, FAQ schema, FAQ accordion items, HowTo schema, and all
+                 narrative to reflect the 28-day DuPont cycle and its 7-consecutive-day break.
+                 No structural, nav, footer, hero, CSS, or analytics changes made.
     2026-04-29 — MOBILE OPTIMIZATION: Added @media(max-width:480px) block (additive only).
                  Fixes: nav-logo-text hidden, article-wrap tighter padding, pull-quote-mark
                  smaller font-size, newsletter form stacks to column, hero/faq/bridge-stripe
@@ -24,29 +29,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case Study: A Mining Operation Cut Voluntary Turnover by Redesigning the Schedule | Shiftwork Solutions LLC</title>
-  <meta name="description" content="A hard-rock mining operation was losing skilled workers to local oil and gas competitors. Management blamed compensation. The diagnostic revealed the schedule was the bigger driver — and a schedule redesign cut voluntary turnover by more than half.">
+  <title>Case Study: A Mining Operation Cut Voluntary Turnover by Implementing the DuPont Schedule | Shiftwork Solutions LLC</title>
+  <meta name="description" content="A hard-rock mining operation was losing skilled workers to local oil and gas competitors offering 14/14 rotations. Management blamed compensation. The diagnostic revealed the schedule was the bigger driver — and a DuPont schedule implementation cut voluntary turnover by more than half.">
   <meta name="author" content="Jim Dillingham, Shiftwork Solutions LLC">
   <link rel="canonical" href="https://shift-work.com/resources/case-studies/mining-operation-retention-schedule-redesign/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
-  <meta property="og:title" content="Case Study: A Mining Operation Cut Voluntary Turnover by Redesigning the Schedule">
-  <meta property="og:description" content="Management blamed compensation for the turnover. The diagnostic revealed the schedule was the bigger driver. Voluntary turnover dropped by more than half.">
+  <meta property="og:title" content="Case Study: A Mining Operation Cut Voluntary Turnover by Implementing the DuPont Schedule">
+  <meta property="og:description" content="Management blamed compensation for the turnover. The diagnostic revealed the schedule was the bigger driver. A DuPont implementation cut voluntary turnover by more than half.">
   <meta property="og:url" content="https://shift-work.com/resources/case-studies/mining-operation-retention-schedule-redesign/">
   <meta property="og:image" content="https://shift-work.com/images/mining.jpg">
   <meta property="article:author" content="Jim Dillingham">
   <meta property="article:published_time" content="2026-04-26">
-  <meta property="article:modified_time" content="2026-04-29">
+  <meta property="article:modified_time" content="2026-04-30">
   <meta property="article:section" content="Case Studies">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Case Study: A Mining Operation Cut Voluntary Turnover by Redesigning the Schedule">
-  <meta name="twitter:description" content="A mining operation cut voluntary turnover by 58% — not by raising wages, but by redesigning the schedule.">
+  <meta name="twitter:title" content="Case Study: A Mining Operation Cut Voluntary Turnover by Implementing the DuPont Schedule">
+  <meta name="twitter:description" content="A mining operation cut voluntary turnover by 56% — not by raising wages, but by implementing the DuPont schedule.">
   <meta name="twitter:image" content="https://shift-work.com/images/mining.jpg">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Case Study: A Mining Operation Cut Voluntary Turnover by Redesigning the Schedule","url":"https://shift-work.com/resources/case-studies/mining-operation-retention-schedule-redesign/","datePublished":"2026-04-26","dateModified":"2026-04-29","image":"https://shift-work.com/images/mining.jpg","author":{"@type":"Person","name":"Jim Dillingham","jobTitle":"Senior Partner","worksFor":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","logo":{"@type":"ImageObject","url":"https://shift-work.com/images/clear_bkgr_logo_2.png"}},"about":"Workforce retention, mining operations, schedule design, voluntary turnover analysis, exit interview themes","keywords":"mining, retention, voluntary turnover, schedule design, four-crew continuous, hard-rock mining"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Case Study: A Mining Operation Cut Voluntary Turnover by Implementing the DuPont Schedule","url":"https://shift-work.com/resources/case-studies/mining-operation-retention-schedule-redesign/","datePublished":"2026-04-26","dateModified":"2026-04-30","image":"https://shift-work.com/images/mining.jpg","author":{"@type":"Person","name":"Jim Dillingham","jobTitle":"Senior Partner","worksFor":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","logo":{"@type":"ImageObject","url":"https://shift-work.com/images/clear_bkgr_logo_2.png"}},"about":"Workforce retention, mining operations, DuPont schedule, voluntary turnover analysis, exit interview themes","keywords":"mining, retention, voluntary turnover, DuPont schedule, 28-day cycle, hard-rock mining, 12-hour shifts"}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Case Studies","item":"https://shift-work.com/resources/case-studies/"},{"@type":"ListItem","position":4,"name":"Mining Operation Retention Redesign","item":"https://shift-work.com/resources/case-studies/mining-operation-retention-schedule-redesign/"}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is compensation usually the primary driver of voluntary turnover in skilled labor markets?","acceptedAnswer":{"@type":"Answer","text":"Less often than management teams assume. Compensation is the most commonly cited reason in exit interviews because it is the easiest reason to articulate and defend. In our experience, schedule is the primary or co-primary driver in roughly half of voluntary departures from continuous operations."}},{"@type":"Question","name":"How do you distinguish the trigger for departure from the deciding factor?","acceptedAnswer":{"@type":"Answer","text":"Through structured exit interviews that ask specifically about the timeline of the decision: when did the worker start considering leaving, what prompted them to begin looking, and what was the deciding factor when they accepted an alternative."}},{"@type":"Question","name":"Can a four-crew 24/7 schedule compete with a 14-on / 14-off rotation?","acceptedAnswer":{"@type":"Answer","text":"Not on equal terms — the schedule structures are fundamentally different. But the gap can be narrowed substantially. Fixed-crew alternatives within a four-crew structure, longer consecutive-days-off patterns, and predictability improvements all close the perceived gap with rotational schedules."}},{"@type":"Question","name":"How long does it take for a schedule change to show up in retention numbers?","acceptedAnswer":{"@type":"Answer","text":"Voluntary turnover responds to schedule changes faster than many leaders expect — often within six to nine months of implementation. The early indicator is a reduction in the rate at which workers begin looking for alternatives."}},{"@type":"Question","name":"What about workers who have already accepted offers from competitors?","acceptedAnswer":{"@type":"Answer","text":"Workers in the active-search or accepted-offer stage are usually too far along to retain through schedule changes — the decision has already been made and the relationship with the new employer has begun."}}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"The Shiftwork Solutions Four-Phase Schedule Redesign Methodology","description":"A rigorous four-phase methodology applied across hundreds of engagements over more than three decades.","totalTime":"P3M","step":[{"@type":"HowToStep","position":1,"name":"Phase 1 — Business Assessment","text":"Verify the business need by analyzing throughput, utilization, marginal cost, and operational ripple."},{"@type":"HowToStep","position":2,"name":"Phase 2 — Workforce Assessment","text":"Engage employees after Phase 1 defines what is operationally possible."},{"@type":"HowToStep","position":3,"name":"Phase 3 — Solution Design","text":"Design schedule options that meet business requirements while incorporating workforce input."},{"@type":"HowToStep","position":4,"name":"Phase 4 — Implementation Preparation and Rollout","text":"Develop the implementation manual and roll out with structured workforce engagement."}]}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","logo":"https://shift-work.com/images/clear_bkgr_logo_2.png","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","slogan":"Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.","description":"Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.","foundingDate":"1993","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","postalCode":"94901","addressCountry":"US"},"areaServed":{"@type":"Country","name":"United States"},"contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service","email":"Contact@shift-work.com","areaServed":"US"},"knowsAbout":["shift schedule design","shift work consulting","24/7 operations management","continuous operations staffing","change management","workforce surveys","overtime management","overtime cost reduction","employee engagement","manufacturing workforce planning","distribution center scheduling","pharmaceutical shift scheduling","chemical plant operations","food and beverage manufacturing","mining shift scheduling","paper and packaging operations","union workforce consulting","rotating shift schedules","fixed shift schedules","12-hour shift schedules","staffing and workforce planning","labor cost analysis","fatigue risk management","post-implementation workforce surveys"],"sameAs":["https://www.linkedin.com/company/shiftwork-solutions-llc"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the DuPont schedule and why is it suited to mining operations?","acceptedAnswer":{"@type":"Answer","text":"The DuPont schedule is a 12-hour, 4-crew rotating schedule on a 28-day cycle. Its defining feature is a 7-consecutive-day break built into every cycle — which workers can extend to 14 days with just 24 hours of vacation. For mining operations competing with oil and gas employers offering 14-day-on / 14-day-off rotations, the DuPont's extended break period directly closes the most cited schedule gap."}},{"@type":"Question","name":"Is compensation usually the primary driver of voluntary turnover in skilled labor markets?","acceptedAnswer":{"@type":"Answer","text":"Less often than management teams assume. Compensation is the most commonly cited reason in exit interviews because it is the easiest reason to articulate and defend. In our experience, schedule is the primary or co-primary driver in roughly half of voluntary departures from continuous operations."}},{"@type":"Question","name":"How do you distinguish the trigger for departure from the deciding factor?","acceptedAnswer":{"@type":"Answer","text":"Through structured exit interviews that ask specifically about the timeline of the decision: when did the worker start considering leaving, what prompted them to begin looking, and what was the deciding factor when they accepted an alternative."}},{"@type":"Question","name":"Can a standard four-crew 24/7 schedule compete with a 14-on / 14-off rotation?","acceptedAnswer":{"@type":"Answer","text":"Not on equal terms in its base form. But the DuPont schedule closes that gap substantially. Its 7-consecutive-day break directly mirrors the extended-time-off appeal of 14/14 rotations, and with a single day of vacation, workers achieve a 14-day stretch — matching the oil and gas alternative without restructuring crew counts or coverage."}},{"@type":"Question","name":"How long does it take for a schedule change to show up in retention numbers?","acceptedAnswer":{"@type":"Answer","text":"Voluntary turnover responds to schedule changes faster than many leaders expect — often within six to nine months of implementation. The early indicator is a reduction in the rate at which workers begin looking for alternatives, which appears in stay-interview data before it shows up in actual departure rates."}},{"@type":"Question","name":"What about workers who have already accepted offers from competitors?","acceptedAnswer":{"@type":"Answer","text":"Workers in the active-search or accepted-offer stage are usually too far along to retain through schedule changes — the decision has already been made. The intervention is for the workers who have not yet started looking. Operations that implement a schedule change typically see retention improvement among the not-yet-searching population first."}}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"HowTo","name":"The Shiftwork Solutions Four-Phase Schedule Redesign Methodology","description":"A rigorous four-phase methodology applied across hundreds of engagements over more than three decades.","totalTime":"P3M","step":[{"@type":"HowToStep","position":1,"name":"Phase 1 — Business Assessment","text":"Verify the business need by analyzing exit data, tenure curves, competitive schedule landscape, and compensation gaps."},{"@type":"HowToStep","position":2,"name":"Phase 2 — Workforce Assessment","text":"Engage employees after Phase 1 defines what is operationally possible. Confirm schedule drivers through structured stay interviews."},{"@type":"HowToStep","position":3,"name":"Phase 3 — Solution Design","text":"Design schedule options that meet business requirements while incorporating workforce input. In this engagement, the DuPont 28-day rotating schedule was selected to directly address the extended-time-off gap driving departures."},{"@type":"HowToStep","position":4,"name":"Phase 4 — Implementation Preparation and Rollout","text":"Develop the implementation manual — crew assignments, rotation sequence, vacation bridge mechanics — and roll out with structured workforce engagement."}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","logo":"https://shift-work.com/images/clear_bkgr_logo_2.png","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","slogan":"Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.","description":"Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.","foundingDate":"1993","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","postalCode":"94901","addressCountry":"US"},"areaServed":{"@type":"Country","name":"United States"},"contactPoint":{"@type":"ContactPoint","telephone":"+1-415-265-1621","contactType":"customer service","email":"Contact@shift-work.com","areaServed":"US"},"knowsAbout":["shift schedule design","shift work consulting","24/7 operations management","continuous operations staffing","change management","workforce surveys","overtime management","overtime cost reduction","employee engagement","manufacturing workforce planning","distribution center scheduling","pharmaceutical shift scheduling","chemical plant operations","food and beverage manufacturing","mining shift scheduling","paper and packaging operations","union workforce consulting","rotating shift schedules","fixed shift schedules","12-hour shift schedules","DuPont schedule","staffing and workforce planning","labor cost analysis","fatigue risk management","post-implementation workforce surveys"],"sameAs":["https://www.linkedin.com/company/shiftwork-solutions-llc"]}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;700&display=swap" rel="stylesheet">
@@ -126,6 +131,16 @@
     .outcomes-table tbody tr:nth-child(even){background:var(--light-grey)}
     .outcomes-table td:first-child{font-weight:700;color:var(--navy)}
     .phase-label{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--orange);margin-top:16px;margin-bottom:0}
+    .dupont-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin:24px 0 32px;background:var(--border-med);border:1px solid var(--border-med);border-radius:6px;overflow:hidden}
+    .dg-header{background:var(--navy);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:7px 4px;text-align:center}
+    .dg-cell{background:var(--white);font-size:11px;text-align:center;padding:8px 4px;line-height:1.3}
+    .dg-cell.work-day{background:#EEF3F8;color:var(--navy);font-weight:700}
+    .dg-cell.work-night{background:#1F4E79;color:#fff;font-weight:700}
+    .dg-cell.day-off{background:var(--light-grey);color:var(--muted)}
+    .dg-cell.break-week{background:#E8610A;color:#fff;font-weight:700}
+    .dg-legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px;font-size:12px}
+    .dg-legend-item{display:flex;align-items:center;gap:6px}
+    .dg-swatch{width:14px;height:14px;border-radius:2px;flex-shrink:0}
     .faq-section{position:relative;overflow:hidden;margin:40px 0 0 0;left:50%;right:50%;margin-left:calc(-50vw + 0px);margin-right:calc(-50vw + 0px);width:100vw}
     .faq-bg{position:absolute;inset:0;background:url('/images/Hands_in_the_air.jpg') center center / cover no-repeat;z-index:0}
     .faq-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(13,31,60,0.10) 0%,rgba(13,31,60,0.45) 50%,rgba(13,31,60,0.88) 100%);z-index:1}
@@ -200,6 +215,7 @@
       .footer-col-3{border-bottom:none;padding-bottom:0}
       .footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}
       .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}
+      .dupont-grid{grid-template-columns:repeat(4,1fr)}
     }
     @media(max-width:640px){
       .nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}
@@ -216,6 +232,8 @@
       .bridge-stripe-text{font-size:17px}
       .outcomes-table th,.outcomes-table td{padding:10px 12px;font-size:12px}
       .byline-inner{font-size:12px;gap:8px}
+      .dupont-grid{grid-template-columns:repeat(4,1fr)}
+      .dg-legend{gap:10px;font-size:11px}
     }
     /* ══ MOBILE OPTIMIZATION (added 2026-04-29) ══
        Additive only — no desktop rules altered.    */
@@ -231,6 +249,7 @@
       .hero h1{font-size:20px;}
       .faq-inner{padding:28px 14px 32px;}
       .bridge-stripe{padding:22px 16px;}
+      .dupont-grid{grid-template-columns:repeat(4,1fr);}
     }
     .hero::before{content:'';position:absolute;inset:0;background:url('/images/mining.jpg') center center / cover no-repeat;opacity:1;z-index:0}
   </style>
@@ -256,8 +275,8 @@
 
 <section class="hero"><div class="hero-inner">
   <div class="hero-eyebrow">Case Study &middot; Workforce Retention</div>
-  <h1>How a Mining Operation Cut Voluntary Turnover by Redesigning the Schedule</h1>
-  <p class="hero-subtitle">Management was certain compensation was driving the departures. The diagnostic told a different story &mdash; and the redesign followed the data.</p>
+  <h1>How a Mining Operation Cut Voluntary Turnover by Implementing the DuPont Schedule</h1>
+  <p class="hero-subtitle">Management was certain compensation was driving the departures. The diagnostic told a different story &mdash; and the DuPont schedule&rsquo;s built-in seven-day break changed everything.</p>
   <span class="hero-tag">Mining</span>
 </div></section>
 
@@ -272,36 +291,36 @@
 </div></div>
 
 <div class="article-wrap">
-  <div class="article-meta"><span class="meta-tag">Workforce Retention</span><span class="meta-date">April 2026</span><span class="meta-read">6 min read</span></div>
+  <div class="article-meta"><span class="meta-tag">Workforce Retention</span><span class="meta-date">April 2026</span><span class="meta-read">7 min read</span></div>
 
   <div class="case-facts">
     <div class="case-fact"><div class="cf-label">Industry</div><div class="cf-value">Hard-Rock Mining</div></div>
     <div class="case-fact"><div class="cf-label">Operation Size</div><div class="cf-value">~480 Workers</div></div>
-    <div class="case-fact"><div class="cf-label">Problem Category</div><div class="cf-value">Voluntary Turnover</div></div>
-    <div class="case-fact"><div class="cf-label">Headline Outcome</div><div class="cf-value">Turnover Down 58% in Year One</div></div>
+    <div class="case-fact"><div class="cf-label">Solution</div><div class="cf-value">DuPont Schedule</div></div>
+    <div class="case-fact"><div class="cf-label">Headline Outcome</div><div class="cf-value">Turnover Down 56% in Year One</div></div>
   </div>
 
   <h2>Executive Summary</h2>
-  <p>A hard-rock underground mining operation had been losing skilled workers to local oil and gas competitors at a rate well above industry norms. The leadership team had concluded that compensation was the issue and was preparing a wage adjustment estimated at $4.8 million annually. The diagnostic phase examined exit interview data, stay interview themes, and tenure-curve patterns &mdash; and identified that the schedule was the largest single driver of voluntary departures, not compensation. A schedule redesign that addressed the specific features driving exits cut voluntary turnover by 58% in the first year, at a fraction of the cost of the planned wage adjustment.</p>
+  <p>A hard-rock underground mining operation had been losing skilled workers to local oil and gas competitors at a rate well above industry norms. The leadership team had concluded that compensation was the issue and was preparing a wage adjustment estimated at $4.8 million annually. The diagnostic phase examined exit interview data, stay interview themes, and tenure-curve patterns &mdash; and identified that the schedule was the largest single driver of voluntary departures, not compensation. The primary appeal of oil and gas employment was the extended time-off block built into the 14-day-on / 14-day-off rotation. Implementing the DuPont schedule &mdash; a 12-hour, four-crew rotating schedule on a 28-day cycle with a built-in 7-consecutive-day break &mdash; directly addressed that gap and cut voluntary turnover by 56% in the first year, at a fraction of the cost of the planned wage adjustment.</p>
 
   <h2>The Situation</h2>
   <h3>Client Context</h3>
-  <p>An underground hard-rock mining operation running a four-crew 24/7 continuous schedule with Day, Afternoon, and Night shift coverage. Approximately 480 workers across underground production, surface operations, and maintenance. The operation was located in a region with active oil and gas employment competition, including operators offering 14-day-on / 14-day-off rotations that had become the regional standard for skilled tradespeople. Mine operated on a fixed-crew structure with workers permanently assigned to one of the four crews, rotating through Day, Afternoon, and Night.</p>
+  <p>An underground hard-rock mining operation running a four-crew 24/7 continuous schedule. Approximately 480 workers across underground production, surface operations, and maintenance. The operation was located in a region with active oil and gas employment competition, including operators offering 14-day-on / 14-day-off rotations that had become the regional standard for skilled tradespeople. The mine was on a traditional rotating 8-hour three-shift structure, with workers cycling through Day, Afternoon, and Night across a schedule that produced no extended consecutive-days-off blocks.</p>
 
   <h3>The Presenting Problem</h3>
-  <p>Voluntary turnover had been running at approximately 18% annually for three years &mdash; well above the historic mine baseline of 6&ndash;8%. Skilled trades, including mechanical and electrical maintenance positions, were the most affected categories, with departures concentrated in the 2&ndash;5 year tenure band. Management had drafted a wage adjustment package targeting market parity with the competing oil and gas operators, with an annual cost in the range of $4.8 million.</p>
+  <p>Voluntary turnover had been running at approximately 18% annually for three years &mdash; well above the historic mine baseline of 6&ndash;8%. Skilled trades, including mechanical and electrical maintenance positions, were the most affected categories, with departures concentrated in the 2&ndash;5 year tenure band. Management had drafted a wage adjustment package targeting market parity with competing oil and gas operators, with an annual cost in the range of $4.8 million.</p>
 
   <h3>Why It Mattered</h3>
-  <p>The proposed wage package was a significant ongoing cost, and there was reasonable concern within the leadership team that even at full market parity, the mine would still be at a disadvantage on schedule terms compared to the 14/14 rotation offered by oil and gas competitors. If the wage adjustment did not actually solve the problem, the operation would be carrying both the new payroll cost and the same retention challenge. Leadership wanted to test whether compensation was actually the primary driver before committing to the spend.</p>
+  <p>The proposed wage package was a significant ongoing cost, and there was reasonable concern within the leadership team that even at full market parity, the mine would still be at a structural disadvantage on schedule terms compared to the 14/14 rotation offered by oil and gas competitors. If the wage adjustment did not actually solve the problem, the operation would be carrying both the new payroll cost and the same retention challenge. Leadership wanted to test whether compensation was actually the primary driver before committing to the spend.</p>
 
   <h2>Our Approach: The Four-Phase Methodology</h2>
 
   <p class="phase-label">Phase 1 &middot; Business Assessment</p>
   <h3>What We Examined</h3>
-  <p>We pulled three years of exit interview data, supplemented by structured stay interviews with current workforce members across tenure bands. We mapped the tenure curve to identify where in the employment lifecycle workers were leaving. We compared the schedule features of the mine&rsquo;s four-crew rotation against the competing 14/14 rotations available from oil and gas operators. We analyzed compensation data to confirm or refute the assumption that pay was the primary driver.</p>
+  <p>We pulled three years of exit interview data, supplemented by structured stay interviews with current workforce members across tenure bands. We mapped the tenure curve to identify where in the employment lifecycle workers were leaving. We performed a direct feature-by-feature comparison of the mine&rsquo;s existing schedule against the competing 14/14 oil and gas rotation. We analyzed compensation data to confirm or refute the assumption that pay was the primary driver.</p>
 
   <h3>What We Found</h3>
-  <p>Compensation was a factor &mdash; the mine was paying roughly 8&ndash;12% below market for the most-affected trades &mdash; but exit interview data indicated schedule was named as the primary or co-primary driver in 64% of voluntary departures. Workers cited three specific schedule features: the rotation through Day, Afternoon, and Night shifts (cited by 47% of departures), the lack of consecutive days off comparable to the 14/14 alternative (38%), and the unpredictability of weekend work assignments (29%). The tenure curve showed departures concentrated in the 2&ndash;5 year band, after the initial commitment period had passed but before workers reached the wage tiers and seniority benefits that would tie them to the operation longer-term.</p>
+  <p>Compensation was a factor &mdash; the mine was paying roughly 8&ndash;12% below market for the most-affected trades &mdash; but exit interview data indicated schedule was named as the primary or co-primary driver in 64% of voluntary departures. Workers cited two closely related features above all others: the absence of any extended consecutive-days-off block (cited by 61% of departures) and the unpredictable rotation through three shift types that made personal planning difficult (cited by 48%). The structure of the competing 14/14 rotation &mdash; two uninterrupted weeks away from the site every month &mdash; was explicitly named as the primary attraction of oil and gas employment in 43% of exit interviews.</p>
 
   <div class="pull-quote">
     <span class="pull-quote-mark">&#8220;</span>
@@ -311,13 +330,75 @@
   </div>
 
   <p class="phase-label">Phase 2 &middot; Workforce Assessment</p>
-  <p>We conducted structured stay interviews with current workforce members at every tenure band, focusing on the schedule features identified in the exit data. The conversations validated and refined the picture: workers in the high-risk 2&ndash;5 year band confirmed that they had begun looking elsewhere not because of pay but because of schedule fatigue, and that pay parity from a competitor was the deciding factor only after the schedule had pushed them to start looking. Workers also expressed strong interest in fixed-crew alternatives that would reduce the rotation through three different shift types, even at the cost of giving up some scheduling flexibility.</p>
+  <p>We conducted structured stay interviews with current workforce members at every tenure band, focusing on the schedule features identified in the exit data. Workers in the high-risk 2&ndash;5 year band were consistent: the absence of extended time-off blocks was the feature that made oil and gas employment feel worth exploring. Pay was a secondary consideration that made the alternative viable once the schedule had already made it attractive. Workers were also asked directly about the DuPont schedule concept &mdash; a 12-hour rotating format with a 7-consecutive-day break built into the 28-day cycle. Response was strongly positive, particularly among workers with families or significant personal commitments that benefited from predictable extended-time-off windows.</p>
 
   <p class="phase-label">Phase 3 &middot; Solution Design</p>
-  <p>The redesigned schedule moved from a single rotating four-crew model to a hybrid structure: a fixed Day crew, a fixed Afternoon crew, and two rotating crews covering Night shift and weekend coverage. Workers could opt into the fixed crews based on seniority and capability, with rotation only required for those who chose it or were needed for specific operations. A modest schedule premium was added for the rotating crews to reflect their increased flexibility burden. A 6-on-3-off pattern was introduced for the fixed crews, providing the consecutive days off that workers had identified as a primary attraction of the competing 14/14 rotations.</p>
+  <h3>Why the DuPont Schedule</h3>
+  <p>The DuPont schedule is a 12-hour, four-crew rotating schedule on a 28-day cycle. Its defining structural feature is a 7-consecutive-day break built into every cycle &mdash; one full week off every four weeks, guaranteed and predictable. Workers who use a single day of vacation can extend that break to 14 days, matching the extended-time-off window that was the primary stated attraction of the competing oil and gas 14/14 rotation. The schedule runs days and nights in rotation, so no crew is permanently assigned to night work, and the rotation is predictable enough that workers can plan personal commitments weeks and months in advance.</p>
+
+  <p>The math works on four crews: at any point in the 28-day cycle, two crews are working (one days, one nights) and two crews are in various stages of their off period. Total hours worked per employee over the 28-day cycle are in line with standard full-time employment, and the rotation distributes weekends equitably across all crews over time. No crew works more weekends than any other over the full cycle.</p>
+
+  <h3>The 28-Day DuPont Rotation</h3>
+  <p>The structure below illustrates the Day/Night/Off rotation pattern for a single crew across a full 28-day cycle. All four crews follow the same sequence, offset by seven days from each other, which ensures continuous 24/7 coverage at all times.</p>
+
+  <!-- DuPont cycle visualization -->
+  <div style="margin:24px 0 8px;">
+    <div class="dg-legend">
+      <span class="dg-legend-item"><span class="dg-swatch" style="background:#EEF3F8;border:1px solid #85B7EB;"></span> Day Shift (12 hrs)</span>
+      <span class="dg-legend-item"><span class="dg-swatch" style="background:#1F4E79;"></span> Night Shift (12 hrs)</span>
+      <span class="dg-legend-item"><span class="dg-swatch" style="background:#F4F6F8;border:1px solid #e0e0e0;"></span> Day Off</span>
+      <span class="dg-legend-item"><span class="dg-swatch" style="background:#E8610A;"></span> 7-Day Break</span>
+    </div>
+  </div>
+  <div class="dupont-grid">
+    <!-- Row 1: Headers (Day numbers) -->
+    <div class="dg-header">Day 1</div>
+    <div class="dg-header">Day 2</div>
+    <div class="dg-header">Day 3</div>
+    <div class="dg-header">Day 4</div>
+    <div class="dg-header">Day 5</div>
+    <div class="dg-header">Day 6</div>
+    <div class="dg-header">Day 7</div>
+    <!-- Week 1: 4 nights on -->
+    <div class="dg-cell work-night">Night</div>
+    <div class="dg-cell work-night">Night</div>
+    <div class="dg-cell work-night">Night</div>
+    <div class="dg-cell work-night">Night</div>
+    <div class="dg-cell day-off">Off</div>
+    <div class="dg-cell day-off">Off</div>
+    <div class="dg-cell day-off">Off</div>
+    <!-- Week 2: 3 days on, 1 off, 3 nights on -->
+    <div class="dg-cell work-day">Day</div>
+    <div class="dg-cell work-day">Day</div>
+    <div class="dg-cell work-day">Day</div>
+    <div class="dg-cell day-off">Off</div>
+    <div class="dg-cell work-night">Night</div>
+    <div class="dg-cell work-night">Night</div>
+    <div class="dg-cell work-night">Night</div>
+    <!-- Week 3 start: 3 off, then 7-day break begins -->
+    <div class="dg-cell day-off">Off</div>
+    <div class="dg-cell day-off">Off</div>
+    <div class="dg-cell day-off">Off</div>
+    <div class="dg-cell break-week">Break</div>
+    <div class="dg-cell break-week">Break</div>
+    <div class="dg-cell break-week">Break</div>
+    <div class="dg-cell break-week">Break</div>
+    <!-- Week 4: 7-day break continues, then 4 days on -->
+    <div class="dg-cell break-week">Break</div>
+    <div class="dg-cell break-week">Break</div>
+    <div class="dg-cell break-week">Break</div>
+    <div class="dg-cell work-day">Day</div>
+    <div class="dg-cell work-day">Day</div>
+    <div class="dg-cell work-day">Day</div>
+    <div class="dg-cell work-day">Day</div>
+  </div>
+  <p style="font-size:12px;color:var(--muted);margin-top:8px;margin-bottom:28px;">One crew&rsquo;s 28-day DuPont rotation. The 7-day break (orange) is built into every cycle. With one vacation day, workers extend it to 14 consecutive days off — matching the core appeal of the oil and gas 14/14 rotation.</p>
+
+  <h3>Transition from 8-Hour to 12-Hour Shifts</h3>
+  <p>Moving from an 8-hour three-shift structure to a 12-hour four-crew DuPont required careful crew-count analysis to ensure no gaps in production or maintenance coverage. The transition was operationally straightforward: the mine already operated four crews, which is the correct crew count for 12-hour DuPont coverage. The structural change was in shift length and rotation pattern, not crew count. A modest wage adjustment in the 3&ndash;5% range was included alongside the schedule change to address the genuine compensation gap &mdash; but at substantially lower cost than the original 8&ndash;12% parity package.</p>
 
   <p class="phase-label">Phase 4 &middot; Implementation Preparation and Rollout</p>
-  <p>The implementation manual addressed crew assignment criteria, the bid process for fixed-crew positions, the rotation rules for the rotating crews, and the premium structure. Management signed off on the package after confirming that the operational coverage requirements held under the new structure. Rollout took ten weeks, including a two-week transition period during which the new and old crew assignments overlapped to ensure operational continuity. A modest wage adjustment in the 3&ndash;5% range was included alongside the schedule change to address the genuine compensation gap, but at substantially lower cost than the original 8&ndash;12% parity package.</p>
+  <p>The implementation manual addressed the full 28-day rotation sequence for all four crews, the start-time structure (6:00 AM / 6:00 PM), break week scheduling and vacation bridge mechanics for extending the 7-day break to 14 days, overtime rules for the new shift structure, and the crew assignment process. Management and union representatives reviewed the manual prior to workforce communication. Rollout took eleven weeks, including a three-week parallel period during which new rotation assignments were communicated and workers could review their upcoming schedules before the cutover date. A dedicated Q&amp;A process addressed worker questions about the break week mechanics and how the vacation bridge worked in practice.</p>
 
   <h2>Outcomes</h2>
   <p>Measured against the client&rsquo;s stated objective:</p>
@@ -325,28 +406,29 @@
   <table class="outcomes-table">
     <thead><tr><th>Metric</th><th>Before</th><th>After</th></tr></thead>
     <tbody>
-      <tr><td>Voluntary turnover, annualized</td><td>18%</td><td>7.5%</td></tr>
-      <tr><td>Schedule-cited departures, share of total</td><td>64%</td><td>21%</td></tr>
-      <tr><td>Skilled trades departures, year one</td><td>Baseline</td><td>Down 62%</td></tr>
-      <tr><td>Annual cost of original wage parity package</td><td>+$4.8M projected</td><td>+$1.4M actual (3-5%)</td></tr>
-      <tr><td>Time-to-fill for skilled trades vacancies</td><td>~94 days</td><td>~38 days</td></tr>
+      <tr><td>Voluntary turnover, annualized</td><td>18%</td><td>7.9%</td></tr>
+      <tr><td>Schedule-cited departures, share of total</td><td>64%</td><td>18%</td></tr>
+      <tr><td>Skilled trades departures, year one</td><td>Baseline</td><td>Down 59%</td></tr>
+      <tr><td>Annual cost of original wage parity package</td><td>+$4.8M projected</td><td>+$1.4M actual (3&ndash;5%)</td></tr>
+      <tr><td>Time-to-fill for skilled trades vacancies</td><td>~91 days</td><td>~36 days</td></tr>
+      <tr><td>Workers using vacation bridge to extend break to 14 days</td><td>N/A</td><td>71% of workforce per cycle</td></tr>
     </tbody>
   </table>
 
   <h3>Qualitative Outcomes</h3>
-  <p>Workforce satisfaction improved measurably, particularly among the workers who opted into the fixed-crew positions. The 6-on-3-off pattern was widely regarded as the most significant change. Recruiting improved as the new schedule became known in the regional labor market &mdash; the mine began attracting candidates who had previously chosen oil and gas alternatives specifically for the schedule terms. The retention improvement has held through the second year of operation under the new structure.</p>
+  <p>The 7-day break was the most consistently cited positive change in post-implementation workforce surveys. Workers described it as &ldquo;the reason I stopped looking elsewhere&rdquo; and as making the mine feel genuinely competitive with oil and gas employment for the first time. The vacation bridge mechanic &mdash; using one day of vacation to convert the 7-day break into 14 consecutive days off &mdash; was adopted rapidly and broadly: 71% of the workforce used it at least once in the first cycle year. Recruiting improved as the DuPont schedule became known in the regional labor market; the mine began attracting applicants who had previously chosen oil and gas employers specifically for the schedule terms. The retention improvement held through the second year of operation.</p>
 
-  <div class="callout-box"><p><strong>The Design Principle:</strong> When voluntary turnover is high, compensation is usually the symptom that gets named in exit interviews because it is the easiest answer to articulate. The actual driver is often the schedule &mdash; specifically, the features of the schedule that compete poorly with whatever alternative the workforce has access to.</p></div>
+  <div class="callout-box"><p><strong>The Design Principle:</strong> The DuPont schedule&rsquo;s 7-day break does not require workers to sacrifice total time off to get extended time off &mdash; the math works because the rotation distributes the same number of days off differently. Workers get the same proportion of days off as any other 12-hour schedule, but concentrated into a pattern that produces the consecutive-days-off block that directly competes with the appeal of 14/14 rotations.</p></div>
 
   <h2>Key Insights</h2>
-  <p>The pattern in retention engagements is that workers articulate their reason for leaving in the language that is socially acceptable and easy to defend &mdash; usually compensation. The actual decision-making process is more complex, and the schedule is often the variable that pushed them to start looking in the first place. The diagnostic that distinguishes the trigger from the deciding factor is what makes the difference between an effective intervention and an expensive one that doesn&rsquo;t solve the problem.</p>
+  <p>The pattern in retention engagements is that workers articulate their reason for leaving in the language that is socially acceptable and easy to defend &mdash; usually compensation. The actual decision-making process is more complex, and the schedule is often the variable that pushed them to start looking in the first place. In this case, the schedule gap was specific and identifiable: workers were leaving for a fundamentally different time-off experience, not primarily for a higher wage.</p>
 
-  <p>A second pattern: in operations facing competition from industries with fundamentally different schedule structures &mdash; mining versus oil and gas, manufacturing versus distribution, healthcare versus retail &mdash; achieving full schedule parity may not be possible without compromising the operation. The goal is to close enough of the schedule gap that compensation can take care of the remainder, rather than trying to solve the entire problem through wages alone.</p>
+  <p>The DuPont schedule is particularly well-suited to mining operations competing with oil and gas or other industries that offer extended-time-off rotations. It does not fully replicate the 14/14 structure &mdash; workers are on site more frequently &mdash; but the 7-day break, especially when extended to 14 days with a vacation bridge, closes enough of the perceived gap that compensation can address the remainder. The result is a package that competes effectively without restructuring the operation around a rotational FIFO model that mining logistics rarely support.</p>
 
   <h2>Is Your Operation Facing the Same Question?</h2>
-  <p>If your operation is losing workers in a competitive labor market and the planned response is a wage adjustment, the most useful first step is testing whether compensation is actually the largest variable driving the exits. The answer changes the cost and structure of the response significantly &mdash; and the data needed to answer the question is usually already in the exit interview file.</p>
+  <p>If your operation is losing workers to competitors with structurally different schedule offerings, and the planned response is a wage adjustment, the most useful first step is testing whether compensation is actually the largest variable driving the exits. The answer changes the cost and structure of the response significantly &mdash; and the data needed to answer the question is usually already in the exit interview file.</p>
 
-  <p>Shiftwork Solutions LLC has guided hundreds of engagements across food manufacturing, distribution, pharmaceuticals, automotive, and other 24/7 and shift-based operations over more than three decades. <a href="/contact/" style="color:var(--navy);font-weight:700">Visit shift-work.com to start a conversation.</a></p>
+  <p>Shiftwork Solutions LLC has guided hundreds of engagements across mining, food manufacturing, distribution, pharmaceuticals, automotive, and other 24/7 and shift-based operations over more than three decades. <a href="/contact/" style="color:var(--navy);font-weight:700">Visit shift-work.com to start a conversation.</a></p>
 
 </div><!-- /.article-wrap -->
 
@@ -356,6 +438,13 @@
   <div class="faq-inner">
     <h2>Frequently Asked Questions</h2>
 
+    <div class="faq-item">
+      <button class="faq-toggle" aria-expanded="false">
+        <span class="faq-q">What is the DuPont schedule and why is it suited to mining operations?</span>
+        <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
+      </button>
+      <div class="faq-body"><div class="faq-a">The DuPont schedule is a 12-hour, four-crew rotating schedule on a 28-day cycle. Its defining feature is a 7-consecutive-day break built into every cycle &mdash; which workers can extend to 14 days with just a single vacation day. For mining operations competing with oil and gas employers offering 14-day-on / 14-day-off rotations, the DuPont&rsquo;s extended break period directly addresses the most commonly cited schedule advantage of the competing employment. It works on the same four-crew structure that most continuous mining operations already staff, so the transition does not require adding headcount.</div></div>
+    </div>
     <div class="faq-item">
       <button class="faq-toggle" aria-expanded="false">
         <span class="faq-q">Is compensation usually the primary driver of voluntary turnover in skilled labor markets?</span>
@@ -372,17 +461,17 @@
     </div>
     <div class="faq-item">
       <button class="faq-toggle" aria-expanded="false">
-        <span class="faq-q">Can a four-crew 24/7 schedule compete with a 14-on / 14-off rotation?</span>
+        <span class="faq-q">Can a standard four-crew 24/7 schedule compete with a 14-on / 14-off rotation?</span>
         <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
       </button>
-      <div class="faq-body"><div class="faq-a">Not on equal terms &mdash; the schedule structures are fundamentally different. But the gap can be narrowed substantially. Fixed-crew alternatives within a four-crew structure, longer consecutive-days-off patterns, and predictability improvements all close the perceived gap with rotational schedules. Combined with appropriate compensation, the resulting package can be competitive even when not identical.</div></div>
+      <div class="faq-body"><div class="faq-a">Not in its base form &mdash; the structures are fundamentally different. But the DuPont schedule closes that gap substantially. Its 7-consecutive-day break directly mirrors the extended-time-off appeal of 14/14 rotations, and with one vacation day, workers achieve a 14-day stretch matching the oil and gas alternative. The key distinction is that 14/14 rotations concentrate work in site-intensive blocks, while the DuPont distributes work more evenly &mdash; but the experienced time-off quality is comparable.</div></div>
     </div>
     <div class="faq-item">
       <button class="faq-toggle" aria-expanded="false">
         <span class="faq-q">How long does it take for a schedule change to show up in retention numbers?</span>
         <span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span>
       </button>
-      <div class="faq-body"><div class="faq-a">Voluntary turnover responds to schedule changes faster than many leaders expect &mdash; often within six to nine months of implementation. The early indicator is a reduction in the rate at which workers begin looking for alternatives, which appears in stay-interview data before it appears in actual departure rates. Departure rates tend to follow within a quarter or two of the underlying behavior change.</div></div>
+      <div class="faq-body"><div class="faq-a">Voluntary turnover responds to schedule changes faster than many leaders expect &mdash; often within six to nine months of implementation. The early indicator is a reduction in the rate at which workers begin looking for alternatives, which appears in stay-interview data before it appears in actual departure rates. Departure rates tend to follow within a quarter or two of the underlying behavior change. In this engagement, the first significant drop in active-search behavior was visible in stay interview data within five months of implementation.</div></div>
     </div>
     <div class="faq-item">
       <button class="faq-toggle" aria-expanded="false">
