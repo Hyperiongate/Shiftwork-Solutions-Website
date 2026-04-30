@@ -5,7 +5,7 @@
   URL: /resources/shift-schedule-design-guide/
 
   Created:      2026-04-02
-  Last Updated: 2026-04-28
+  Last Updated: 2026-04-29
 
   CHANGE LOG:
     2026-04-28 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
@@ -21,6 +21,16 @@
     2026-04-04 — Button color audit; Nav restructure.
     2026-04-03 — Full content rebuild from source Word document.
     2026-04-02 — Initial build from Pillar_1_Shift_Schedule_Design_Rev_A_2_18_26.docx
+    2026-04-29 — MOBILE OPTIMIZATION:
+                 Additive mobile CSS block only — zero desktop rules altered.
+                 Page is exceptionally well-optimized at 760px + 640px:
+                 nav, hero, hero-stats, three-col, pull-quote (stacks at 760px),
+                 viz-bar, pillar-blocks, pitfalls-section, FAQ, cta-box, and
+                 bridge-stripe all handled. Only 3 gaps remain.
+                 @media(max-width:640px): footer-bottom-left column stack +
+                   separators hidden.
+                 @media(max-width:480px): nav-logo-text hidden,
+                   newsletter form column stack.
 
   NAV SYSTEM: .site-nav / .nav-links / .nav-cta-btn — sticky, 56px
   DESIGN CONSTANTS:
@@ -428,6 +438,36 @@
       .pillar-block{padding-left:14px}
       .bridge-stripe{padding:28px 20px}
       .bridge-stripe-text{font-size:17px}
+    }
+
+    /* ══════════════════════════════════════════════════════════════════
+       MOBILE OPTIMIZATION BLOCK (added 2026-04-29)
+       Strategy: Additive overrides only — no desktop rules altered.
+       This pillar page is exceptionally well-optimized at 760px+640px:
+       nav, hero, hero-stats, three-col, pull-quote (stacks at 760px),
+       viz-bar, pillar-blocks, pitfalls-section, FAQ, cta-box, and
+       bridge-stripe all handled. Only 3 gaps remain.
+
+       Fixes:
+         1. footer-bottom-left column stack + separators hidden at 640px
+         2. nav-logo-text hidden at 480px
+         3. Newsletter form column stack at 480px
+       ══════════════════════════════════════════════════════════════════ */
+
+    @media(max-width:640px){
+      /* 1. Footer bottom — column stack, hide separators */
+      .footer-bottom-left{flex-direction:column;align-items:center;gap:6px;}
+      .footer-bottom-sep{display:none;}
+    }
+
+    @media(max-width:480px){
+      /* 2. Hide logo text on very small screens */
+      .nav-logo-text{display:none;}
+
+      /* 3. Newsletter form — stack */
+      .engage-nl-form{flex-direction:column;}
+      .engage-nl-input{min-width:0;width:100%;}
+      .engage-nl-btn{width:100%;}
     }
   </style>
 </head>
