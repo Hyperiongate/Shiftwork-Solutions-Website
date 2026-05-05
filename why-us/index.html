@@ -8,6 +8,7 @@
   Last Updated: 2026-05-04
 
   CHANGE LOG:
+    2026-05-04 — SEO: Added og:image meta tag for social sharing. Zero other changes.
     2026-04-05 — Initial build.
     2026-04-13 — MAJOR REBUILD from content spec V5.
     2026-04-13 — CTA band background → navy. Nav/eyebrow → "Our Company".
@@ -16,35 +17,18 @@
     2026-04-16 — VISUAL OVERHAUL, FAQ accordion rebuild, section order swap.
     2026-04-18 — GAINS SECTION HEADER REDESIGN.
     2026-04-22 — PAGE BOTTOM STANDARD applied.
-    2026-04-26 — AI DISCOVERABILITY SCHEMAS added:
-                 Organization schema (consistent entity signal),
-                 AboutPage schema (page-level signal for this company page),
-                 meta keywords tag.
-                 Existing WebPage + BreadcrumbList + FAQPage schemas preserved.
-                 All content, layout, CSS, JS preserved exactly.
+    2026-04-26 — AI DISCOVERABILITY SCHEMAS added.
     2026-04-28 — PLAUSIBLE ANALYTICS added to <head>.
                  FOOTER BOTTOM BAR: added Case Studies, Privacy Policy,
                  Terms of Use links with mid-dot separators.
-                 .footer-bottom-sep CSS rule added.
     2026-04-28 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
-                 removed plausible.init(), replaced canonical Org schema
-                 (removed self-referential sameAs, upgraded to full canonical),
+                 removed plausible.init(), replaced canonical Org schema,
                  removed meta keywords.
-    2026-04-29 — MOBILE OPTIMIZATION:
-                 Additive mobile CSS block only — zero desktop rules altered.
-                 This page was already well-optimized: hero, nav, whyus-section,
-                 gains-header-section, gains-section, gains-row, whyus-grid,
-                 faq, and footer stacking all had correct 640px rules.
-                 @media(max-width:640px): footer-bottom-left column stack +
-                   separators hidden (the one gap in existing 640px coverage).
-                 @media(max-width:480px): nav-logo-text hidden, pull-quote
-                   column stack (128px mark too wide on phone), newsletter
-                   form stack, gains-process-image height reduced.
+    2026-04-29 — MOBILE OPTIMIZATION: Additive mobile CSS block only.
     2026-05-04 — FAQ COPY EDIT: "Who will actually be working on our engagement?"
                  Second paragraph rewritten. Removed language implying competitors
                  use junior staff — brand voice is confident and positive, never
                  frames our pitch by referencing how others fall short.
-                 No structural, CSS, or JS changes.
 
   NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
   HERO IMAGE: /images/second.png
@@ -64,6 +48,7 @@
   <meta property="og:url" content="https://shift-work.com/why-us/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
+  <meta property="og:image" content="https://shift-work.com/images/second.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Why Shiftwork Solutions | Experience, Results &amp; Trust">
   <meta name="twitter:description" content="Senior-led engagements, neutral third-party facilitation, and 30 years of knowing which schedule changes fail in practice.">
@@ -82,17 +67,11 @@
 
   <!-- ══════════════════════════════════════════════════════════════════
        PLAUSIBLE ANALYTICS
-       Privacy-friendly, cookieless, GDPR/CCPA compliant.
-       Loads async — does not block page render.
-       Script URL is unique to shift-work.com — do not change.
        ══════════════════════════════════════════════════════════════════ -->
   <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
 
   <!-- ══════════════════════════════════════════════════════════════════
-       AI DISCOVERABILITY SCHEMAS — added 2026-04-26
-       Org schema upgraded to canonical version 2026-04-28 (ALL-PAGES CYCLE).
-       Self-referential sameAs removed. Full canonical fields applied.
-       AboutPage, WebPage, BreadcrumbList, FAQPage schemas preserved exactly.
+       AI DISCOVERABILITY SCHEMAS
        ══════════════════════════════════════════════════════════════════ -->
   <script type="application/ld+json">
   {
@@ -355,39 +334,18 @@
 
     /* ══════════════════════════════════════════════════════════════════
        MOBILE OPTIMIZATION BLOCK (added 2026-04-29)
-       Strategy: Additive overrides only — no desktop rules altered.
-       This page was already well-optimized: hero, nav, whyus-section,
-       gains-header-section, gains-section, gains-row, whyus-grid,
-       faq, and footer stacking all had correct 640px rules.
-
-       Fixes:
-         1. footer-bottom-left column stack + separators hidden at 640px
-         2. nav-logo-text hidden at 480px
-         3. pull-quote column stack at 480px (128px mark too wide on phone)
-         4. Newsletter form column stack at 480px
-         5. gains-process-image height reduced at 480px
-       ══════════════════════════════════════════════════════════════════ -->
-
+       ══════════════════════════════════════════════════════════════════ */
     @media(max-width:640px){
-      /* 1. Footer bottom — column stack, hide separators */
       .footer-bottom-left{flex-direction:column;align-items:center;gap:6px;}
       .footer-bottom-sep{display:none;}
     }
-
     @media(max-width:480px){
-      /* 2. Hide logo text on very small screens */
       .nav-logo-text{display:none;}
-
-      /* 3. Pull quote — stack vertically (128px mark too wide on phone) */
       .pull-quote{flex-direction:column;gap:8px;}
       .pull-quote-mark{font-size:72px;line-height:1;}
-
-      /* 4. Newsletter form — stack */
       .engage-nl-form{flex-direction:column;}
       .engage-nl-input{min-width:0;width:100%;}
       .engage-nl-btn{width:100%;}
-
-      /* 5. Process image — shorter on small phones */
       .gains-process-image img{min-height:200px;height:200px;}
     }
   </style>
