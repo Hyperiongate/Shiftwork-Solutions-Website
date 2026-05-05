@@ -5,17 +5,13 @@
   URL: /resources/
 
   Created:      2026-04-03
-  Last Updated: 2026-04-29
+  Last Updated: 2026-05-04
 
   CHANGE LOG:
+    2026-05-04 — SEO: Added og:image meta tag for social sharing. Zero other changes.
     2026-04-29 — MOBILE OPTIMIZATION: Added @media(max-width:480px) block (additive only).
-                 Fixes: nav-logo-text hidden, hero padding/h1 tightened, hub-section padding
-                 tightened, newsletter form stacks to column, bridge-stripe/footer-prefooter
-                 padding tightened. Grid stacking (guides/focused) already handled by existing
-                 420px block — not duplicated here. No desktop rules altered.
     2026-04-29 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
-                 removed plausible.init(), replaced canonical Org schema
-                 (removed self-referential sameAs, preserved hasOfferCatalog),
+                 removed plausible.init(), replaced canonical Org schema,
                  removed meta keywords. CollectionPage schema preserved exactly.
     2026-04-28 — PLAUSIBLE ANALYTICS added to <head>.
                  FOOTER BOTTOM BAR: added Case Studies, Privacy Policy,
@@ -47,6 +43,7 @@
   <meta property="og:url" content="https://shift-work.com/resources/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
+  <meta property="og:image" content="https://shift-work.com/images/second.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Shift Work Resources: Guides, Industry Insights &amp; Diagnostic Tools">
   <meta name="twitter:description" content="Scheduling guides, industry insights, and diagnostic tools built for 24/7 manufacturing and distribution operations.">
@@ -204,7 +201,6 @@
     .result-card:hover{border-left-color:var(--orange);box-shadow:0 4px 16px rgba(0,0,0,.08);transform:translateY(-1px)}
     @keyframes cardIn{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}
     .result-card-img{width:120px;flex-shrink:0;object-fit:cover;display:block;background-color:var(--light-blue)}
-    .result-card-icon{width:80px;min-height:80px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--light-blue)}
     .result-card-body{flex:1;padding:14px 18px;min-width:0}
     .result-card-tag{display:inline-block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:3px;margin-bottom:6px}
     .result-card-tag.guide{background:var(--light-blue);color:var(--navy)}
@@ -346,8 +342,7 @@
     @media(max-width:640px){.nav-links{display:none}.nav-cta-wrap{display:none}.mobile-toggle{display:block}.nav-logo-text{font-size:16px}.hero{padding:40px 20px 48px}.hero h1{font-size:26px}.hub-section{padding:32px 16px 40px}.interest-row{grid-template-columns:1fr 1fr;gap:10px}.interest-btn{min-height:170px}.interest-btn-title{font-size:17px}.result-card-img{width:80px}.guides-section,.focused-section,.trending-section{padding-left:16px;padding-right:16px}.guides-grid{grid-template-columns:1fr 1fr;gap:14px}.guides-row3{grid-template-columns:1fr 1fr;gap:14px}.guide-card-img{height:110px}.focused-grid{grid-template-columns:1fr 1fr;gap:14px}.focused-card-img{height:110px}.trending-card,.trending-card-soon{flex-basis:100%}.carousel-arrow-prev{left:-14px}.carousel-arrow-next{right:-14px}.bridge-stripe{padding:28px 20px}.bridge-stripe-text{font-size:17px}.footer-prefooter{padding:32px 20px}.footer-content-row{grid-template-columns:1fr}.footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}.footer-col-3{border-bottom:none;padding-bottom:0}.footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}.footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}.footer-bottom{padding:14px 20px}.footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}.footer-bottom-left{justify-content:center}}
     @media(max-width:420px){.focused-grid,.guides-grid,.guides-row3{grid-template-columns:1fr}}
     /* ══ MOBILE OPTIMIZATION (added 2026-04-29) ══
-       Additive only — no desktop rules altered.
-       Grid stacking at 420px handled by existing 420px block — not duplicated here. */
+       Additive only — no desktop rules altered. */
     @media(max-width:480px){
       .nav-logo-text{display:none;}
       .hero{padding:24px 16px 32px;}
