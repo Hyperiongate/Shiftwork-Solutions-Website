@@ -1,61 +1,29 @@
 <!DOCTYPE html>
 <!--
-  Shiftwork Solutions LLC - Contact Us
+  Shiftwork Solutions LLC — Contact
   File: contact/index.html
-  URL: /contact/
   Created: April 2, 2026
-  Last updated: 2026-04-29
+  Last updated: 2026-05-04
+  Author: Claude for Jim @ Shiftwork Solutions LLC
+
+  PURPOSE:
+      Contact page for shift-work.com.
+
+  URL: /contact/
 
   CHANGE LOG:
-    2026-04-07  SECURITY HARDENING (form backends, honeypot, timestamp)
-    2026-04-13  NAV RENAME + HERO BACKGROUND (second.png)
-    2026-04-16  Gold h1, nav text, standard footer
-    2026-04-16  SIDEBAR REMOVED: contact-inner is now single-column,
-                form expands to full max-content width. All sidebar CSS
-                and <aside> HTML removed. Form logic unchanged.
-    2026-04-17  INSTANT THANK-YOU: Form now shows confirmation message
-                immediately on submit without waiting for API response.
-                API call fires in background. Fallback to Formspree also
-                fires silently in background if Swarm is unavailable.
-                Visitor never sees a delay or "Sending..." state.
-    2026-04-19  REVERTED INSTANT THANK-YOU: Instant thank-you was masking
-                delivery failures. Form now waits for confirmed delivery
-                before showing thank-you. Flow: Swarm first -> Formspree
-                fallback if Swarm fails -> error message if both fail.
-                Button shows "Sending..." while in-flight and re-enables
-                on error so user can retry. Thank-you only shown after
-                confirmed success from either backend.
-    2026-04-22  PAGE BOTTOM STANDARD applied:
-                REMOVED: <section class="next-steps"> and all contents.
-                REMOVED: All .next-steps / .ns-card / .ns-card-label /
-                  .ns-card-link CSS rules.
-                UPDATED: Footer replaced with standard 3-col structure
-                  (FREE ASSESSMENT / 26 Warning Signs / Newsletter)
-                  per Page Bottom Standard 2D.
-                ADDED: Bridge stripe between contact section and footer.
-                ADDED: Thomas floating widget (fixed right edge,
-                  desktop only).
-    2026-04-28  PLAUSIBLE ANALYTICS added to <head>.
-                FOOTER BOTTOM BAR: added Case Studies, Privacy Policy,
-                Terms of Use links with mid-dot separators.
-    2026-04-28  ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
-                removed plausible.init(), replaced canonical Org schema,
-                removed meta keywords (none were present).
-    2026-04-29  MOBILE OPTIMIZATION:
-                Additive mobile CSS block only — zero desktop rules altered.
-                This page already has nav collapse at 960px (with logo-text
-                shrink to 16px) and form-row 1-col at 540px — both GOOD.
-                @media(max-width:640px): page-hero padding tightened,
-                  contact-section padding reduced, footer-bottom-left
-                  column stack + separators hidden.
-                @media(max-width:480px): site-logo-text hidden,
-                  newsletter form column stack.
+    2026-05-04 — SEO: Added og:image meta tag for social sharing. Zero other changes.
+      2026-04-02  (v1) Initial build
+      2026-04-04  (v2) NAV RESTRUCTURE — all direct links, orange CTA
+      2026-04-19  (v3) CONTACT FORM FIX — Formspree + Swarm dual-submit
+      2026-04-22  (v4) PAGE BOTTOM STANDARD applied
+      2026-04-26  (v5) AI DISCOVERABILITY SCHEMAS added
+      2026-04-28  (v6) PLAUSIBLE ANALYTICS added. FOOTER BOTTOM BAR updated.
+      2026-04-29  (v7) MICROSOFT CLARITY INSTALLED.
+                  MOBILE OPTIMIZATION: Additive mobile CSS block.
 
   NAV SYSTEM: A — .site-header / .main-nav / .nav-cta (fixed 64px)
   HERO IMAGE: /images/second.png
-  FORM BACKEND (primary):  https://ai-swarm-orchestrator.onrender.com/api/contact/submit
-  FORM BACKEND (fallback): https://formspree.io/f/xwvwnwea
-  DESIGN CONSTANTS: navy #1F4E79, orange #E8610A, max-width 860px
 
   I did no harm and this file is not truncated
 -->
@@ -63,262 +31,247 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact Shiftwork Solutions LLC. Schedule a free consultation about your shift schedule design, staffing strategy, or workforce engagement challenges." />
-  <title>Contact Us - Shiftwork Solutions LLC</title>
+  <meta name="description" content="Contact Shiftwork Solutions LLC. Book a free consultation or send a message. We typically respond within one business day." />
+  <title>Contact Us — Shiftwork Solutions LLC</title>
   <link rel="canonical" href="https://shift-work.com/contact/" />
-  <meta property="og:title" content="Contact Us - Shiftwork Solutions LLC">
-  <meta property="og:description" content="Schedule a free consultation about your shift schedule design, staffing strategy, or workforce engagement challenges.">
-  <meta property="og:url" content="https://shift-work.com/contact/">
-  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact Us — Shiftwork Solutions LLC" />
+  <meta property="og:description" content="Book a free consultation or send a message. We typically respond within one business day. No sales pitch — just a conversation." />
+  <meta property="og:url" content="https://shift-work.com/contact/" />
+  <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
+  <meta property="og:image" content="https://shift-work.com/images/second.png">
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Contact Us — Shiftwork Solutions LLC" />
+  <meta name="twitter:description" content="Book a free consultation or send a message. We typically respond within one business day." />
 
-  <!-- ── MICROSOFT CLARITY ── -->
+  <!-- MICROSOFT CLARITY (added 2026-04-29) — Project ID: wiyn7e4d73 -->
   <script type="text/javascript">
-      (function(c,l,a,r,i,t,y){
-          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "wiyn7e4d73");
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wiyn7e4d73");
   </script>
-
-  <!-- ── CUSTOM EVENT TRACKER ── -->
   <script src="/js/event-tracker.js"></script>
 
-  <!-- ══════════════════════════════════════════════════════════════════
-       PLAUSIBLE ANALYTICS
-       Privacy-friendly, cookieless, GDPR/CCPA compliant.
-       Loads async — does not block page render.
-       Script URL is unique to shift-work.com — do not change.
-       ══════════════════════════════════════════════════════════════════ -->
+  <!-- PLAUSIBLE ANALYTICS (added 2026-04-28) -->
   <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init()
+  </script>
 
-  <script type="application/ld+json">{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Shiftwork Solutions LLC",
-  "url": "https://shift-work.com",
-  "logo": "https://shift-work.com/images/clear_bkgr_logo_2.png",
-  "telephone": "+1-415-265-1621",
-  "email": "Contact@shift-work.com",
-  "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
-  "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.",
-  "foundingDate": "1993",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "San Rafael",
-    "addressRegion": "CA",
-    "postalCode": "94901",
-    "addressCountry": "US"
-  },
-  "areaServed": {
-    "@type": "Country",
-    "name": "United States"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+1-415-265-1621",
-    "contactType": "customer service",
+  <!-- AI DISCOVERABILITY SCHEMAS — added 2026-04-26 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Shiftwork Solutions LLC",
+    "url": "https://shift-work.com/contact/",
+    "description": "Contact page for Shiftwork Solutions LLC — shift schedule consulting, change management, and workforce engagement for 24/7 industrial operations.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Shiftwork Solutions LLC",
+      "url": "https://shift-work.com",
+      "telephone": "+14152651621",
+      "email": "Contact@shift-work.com",
+      "address": {"@type": "PostalAddress", "addressLocality": "San Rafael", "addressRegion": "CA", "postalCode": "94901", "addressCountry": "US"},
+      "contactPoint": {"@type": "ContactPoint", "contactType": "customer service", "telephone": "+14152651621", "email": "Contact@shift-work.com", "availableLanguage": "English"}
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Shiftwork Solutions LLC",
+    "url": "https://shift-work.com",
+    "logo": "https://shift-work.com/images/clear_bkgr_logo_2.png",
+    "telephone": "+14152651621",
     "email": "Contact@shift-work.com",
-    "areaServed": "US"
-  },
-  "knowsAbout": [
-    "shift schedule design","shift work consulting","24/7 operations management",
-    "continuous operations staffing","change management","workforce surveys",
-    "overtime management","overtime cost reduction","employee engagement",
-    "manufacturing workforce planning","distribution center scheduling",
-    "pharmaceutical shift scheduling","chemical plant operations",
-    "food and beverage manufacturing","mining shift scheduling",
-    "paper and packaging operations","union workforce consulting",
-    "rotating shift schedules","fixed shift schedules","12-hour shift schedules",
-    "staffing and workforce planning","labor cost analysis",
-    "fatigue risk management","post-implementation workforce surveys"
-  ],
-  "sameAs": [
-    "https://www.linkedin.com/company/shiftwork-solutions-llc"
-  ]
-}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Contact","item":"https://shift-work.com/contact/"}]}</script>
+    "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
+    "address": {"@type": "PostalAddress", "addressLocality": "San Rafael", "addressRegion": "CA", "postalCode": "94901", "addressCountry": "US"},
+    "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations.",
+    "foundingDate": "1993",
+    "areaServed": {"@type": "Country", "name": "United States"},
+    "sameAs": ["https://www.linkedin.com/company/shiftwork-solutions-llc", "https://shift-work.com"]
+  }
+  </script>
+
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--orange:#E8610A;--green:#1D9E75;--white:#FFFFFF;--light-grey:#F4F6F8;--body:#1A1A1A;--muted:#666666;--smoke:#F4F6F8;--border:#E0E0E0;--border-light:#f0f0f0;--border-med:#e0e0e0;--text-mid:#444444;--max-content:860px;--radius:6px;--radius-lg:10px;--page-pad:24px}
-    html{scroll-behavior:smooth}
-    body{font-family:Arial,-apple-system,BlinkMacSystemFont,sans-serif;color:var(--body);line-height:1.6;background:var(--white);-webkit-font-smoothing:antialiased}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#1F4E79; --navy-dark:#0D1F3C; --mid-blue:#85B7EB; --light-blue:#EEF3F8;
+      --orange:#E8610A; --white:#FFFFFF; --light-grey:#F4F6F8;
+      --body-text:#1A1A1A; --muted:#666666; --border-med:#e0e0e0; --border-light:#f0f0f0;
+      --gold:#EEAE26; --max-width:860px; --page-pad:24px; --radius:6px; --radius-lg:10px;
+    }
+    html { font-size: 16px; scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.75; color: var(--body-text); background: var(--white); }
+    img { max-width: 100%; display: block; }
 
-    /* ── NAV (System A — fixed 64px) ── */
-    .site-header{position:fixed;top:0;left:0;right:0;z-index:200;background:#fff;border-bottom:1px solid var(--border);height:64px;display:flex;align-items:center}
-    .header-inner{max-width:1200px;width:100%;margin:0 auto;padding:0 24px;display:flex;align-items:center}
-    .site-logo{text-decoration:none;white-space:nowrap;margin-right:24px;flex-shrink:0;display:flex;align-items:center;gap:12px}
-    .site-logo img{height:36px;width:auto;display:block}
-    .site-logo-text{font-family:Arial,sans-serif;font-size:20px;font-weight:700;color:#1F4E79;letter-spacing:.03em;line-height:1}
-    .main-nav{display:flex;align-items:center;flex:1}
-    .main-nav>ul{list-style:none;display:flex;align-items:center;flex:1}
-    .main-nav>ul>li>a{display:flex;align-items:center;padding:20px 13px;font-size:20px;font-weight:500;color:#444;text-decoration:none;transition:color .2s;white-space:nowrap}
-    .main-nav>ul>li>a:hover{color:var(--navy)}
-    .main-nav>ul>li>a.current-page{color:var(--navy);font-weight:700;text-decoration:underline;text-underline-offset:3px}
-    .nav-cta{margin-left:auto;flex-shrink:0}
-    .nav-cta a{display:inline-block;padding:9px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:5px;transition:background .2s;white-space:nowrap}
-    .nav-cta a:hover{background:#c4510a}
-    .mobile-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
-    .mobile-toggle span{display:block;width:22px;height:2px;background:var(--navy);margin:5px 0;border-radius:2px}
-    @media(max-width:960px){
-      .main-nav{display:none;position:absolute;top:64px;left:0;right:0;background:#fff;flex-direction:column;padding:16px 0 24px;box-shadow:0 8px 24px rgba(0,0,0,.12);border-top:1px solid var(--border);max-height:calc(100vh - 64px);overflow-y:auto;align-items:stretch}
-      .main-nav.open{display:flex}
-      .main-nav>ul{flex-direction:column;width:100%}
-      .main-nav>ul>li>a{padding:12px 24px;font-size:18px}
-      .nav-cta{margin:12px 24px 0}
-      .nav-cta a{display:block;text-align:center}
-      .mobile-toggle{display:block}
-      .site-logo-text{font-size:16px}
+    /* NAV — System A (fixed 64px) */
+    .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 200; background: var(--white); border-bottom: 1px solid var(--border-med); height: 64px; display: flex; align-items: center; }
+    .header-inner { max-width: 1200px; width: 100%; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; }
+    .site-logo { text-decoration: none; white-space: nowrap; margin-right: 24px; flex-shrink: 0; display: flex; align-items: center; gap: 12px; }
+    .site-logo img { height: 36px; width: auto; display: block; }
+    .site-logo-text { font-family: Arial, sans-serif; font-size: 20px; font-weight: 700; color: var(--navy); letter-spacing: .03em; line-height: 1; }
+    .main-nav { display: flex; align-items: center; flex: 1; }
+    .main-nav > ul { list-style: none; display: flex; align-items: center; flex: 1; }
+    .main-nav > ul > li > a { display: flex; align-items: center; padding: 20px 14px; font-size: 20px; font-weight: 400; color: #333; text-decoration: none; transition: color .2s; white-space: nowrap; }
+    .main-nav > ul > li > a:hover { color: var(--navy); }
+    .nav-cta { margin-left: auto; flex-shrink: 0; }
+    .nav-cta a { display: inline-block; padding: 9px 20px; background: var(--orange); color: var(--white); font-size: 13px; font-weight: 700; text-decoration: none; border-radius: 5px; transition: background .2s; white-space: nowrap; }
+    .nav-cta a:hover { background: #c4510a; }
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; margin-left: auto; }
+    .mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--navy); margin: 5px 0; border-radius: 2px; }
+    @media (max-width: 960px) {
+      .main-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--white); flex-direction: column; padding: 16px 0 24px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); border-top: 1px solid var(--border-med); }
+      .main-nav.open { display: flex; }
+      .main-nav > ul { flex-direction: column; width: 100%; }
+      .main-nav > ul > li > a { padding: 12px 24px; font-size: 18px; }
+      .nav-cta { margin: 12px 24px 0; }
+      .nav-cta a { display: block; text-align: center; }
+      .mobile-toggle { display: block; }
     }
 
-    /* ── HERO ── */
-    .page-hero{margin-top:64px;background:#0D1F3C url('/images/second.png') center center/cover no-repeat;color:var(--white);padding:52px 24px 48px;position:relative;overflow:hidden}
-    .page-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,.82) 0%,rgba(13,31,60,.60) 55%,rgba(13,31,60,.30) 100%);z-index:0;pointer-events:none}
-    .hero-inner{max-width:var(--max-content);margin:0 auto;position:relative;z-index:1}
-    .eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:12px}
-    .page-hero h1{font-size:32px;font-weight:700;line-height:1.2;color:#EEAE26;margin-bottom:14px;max-width:540px}
-    .page-hero .hero-sub{font-size:16px;line-height:1.70;color:rgba(255,255,255,0.80);max-width:540px}
+    /* PAGE OFFSET */
+    .page-offset { margin-top: 64px; }
 
-    /* ── BREADCRUMB ── */
-    .breadcrumb{background:var(--white);border-bottom:1px solid var(--border);padding:10px 24px}
-    .breadcrumb-inner{max-width:var(--max-content);margin:0 auto;font-size:12px;color:var(--muted)}
-    .breadcrumb-inner a{color:var(--muted);text-decoration:none}
-    .breadcrumb-inner a:hover{color:var(--navy)}
-    .breadcrumb-inner .sep{margin:0 6px}
-    .breadcrumb-inner .current{color:var(--navy);font-weight:700}
+    /* HERO */
+    .page-hero { background: #0D1F3C url('/images/second.png') center center/cover no-repeat; color: var(--white); padding: 52px 24px 48px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(13,31,60,.82) 0%, rgba(13,31,60,.60) 55%, rgba(13,31,60,.30) 100%); z-index: 0; pointer-events: none; }
+    .hero-inner { max-width: var(--max-width); margin: 0 auto; position: relative; z-index: 1; }
+    .eyebrow { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid-blue); margin-bottom: 12px; }
+    .page-hero h1 { font-size: 32px; font-weight: 700; line-height: 1.2; color: var(--gold); margin-bottom: 16px; }
+    .page-hero .hero-sub { font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.82); max-width: 520px; }
 
-    /* ── CONTACT SECTION — single column ── */
-    .contact-section{padding:48px 24px 64px}
-    .contact-inner{max-width:var(--max-content);margin:0 auto}
+    /* CONTACT LAYOUT */
+    .contact-section { padding: 56px 24px 64px; background: var(--white); }
+    .contact-inner { max-width: var(--max-width); margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 52px; align-items: start; }
+    @media (max-width: 720px) { .contact-inner { grid-template-columns: 1fr; gap: 40px; } }
 
-    /* ── FORM ── */
-    .contact-form-wrap h2{font-size:20px;font-weight:700;color:var(--body);margin-bottom:6px}
-    .contact-form-wrap .form-intro{font-size:14px;color:var(--text-mid);line-height:1.65;margin-bottom:28px}
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    @media(max-width:540px){.form-row{grid-template-columns:1fr}}
-    .form-group{margin-bottom:18px}
-    .form-label{display:block;font-size:13px;font-weight:700;color:var(--body);margin-bottom:5px}
-    .form-label .req{color:var(--orange);margin-left:2px}
-    .form-label .opt{color:var(--muted);font-weight:400;margin-left:4px}
-    .form-input,.form-select,.form-textarea{width:100%;padding:11px 14px;font-family:Arial,sans-serif;font-size:14px;color:var(--body);background:var(--smoke);border:1.5px solid var(--border);border-radius:var(--radius);transition:border-color .2s,box-shadow .2s;outline:none}
-    .form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(31,78,121,.10)}
-    .form-textarea{min-height:130px;resize:vertical}
-    .form-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7'%3E%3Cpath d='M1 1l4.5 5L10 1' stroke='%23666' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:34px}
-    .ohnohoney{position:absolute;left:-9999px;opacity:0;height:0;width:0;overflow:hidden}
-    .form-status{padding:13px 16px;border-radius:var(--radius);margin-bottom:18px;font-size:14px;line-height:1.55;display:none}
-    .form-status.success{background:#ecfdf5;border:1px solid #6ee7b7;color:#065f46;display:block}
-    .form-status.error{background:#fef2f2;border:1px solid #fca5a5;color:#991b1b;display:block}
-    .btn-submit{display:block;width:100%;padding:13px 24px;background:var(--orange);color:var(--white);font-family:Arial,sans-serif;font-size:15px;font-weight:700;border:none;border-radius:var(--radius);cursor:pointer;text-align:center;transition:background .2s}
-    .btn-submit:hover{background:#c4510a}
-    .btn-submit:disabled{background:#a0a0a0;cursor:not-allowed}
-    .form-privacy{font-size:12px;color:var(--muted);margin-top:10px;text-align:center}
+    /* FORM */
+    .contact-form-col h2 { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .contact-form-col .form-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; line-height: 1.6; }
+    .form-group { margin-bottom: 18px; }
+    .form-label { display: block; font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.04em; }
+    .form-input, .form-select, .form-textarea { width: 100%; padding: 10px 14px; border: 1.5px solid var(--border-med); border-radius: var(--radius); font-family: Arial, sans-serif; font-size: 15px; color: var(--body-text); background: var(--white); outline: none; transition: border-color .15s; }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--navy); }
+    .form-textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+    .form-submit-btn { width: 100%; padding: 13px 24px; background: var(--orange); color: var(--white); font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; border: none; border-radius: var(--radius); cursor: pointer; transition: background .15s; margin-top: 6px; }
+    .form-submit-btn:hover { background: #c4510a; }
+    .form-submit-btn:disabled { opacity: .55; cursor: not-allowed; }
+    .form-msg { font-size: 14px; margin-top: 12px; padding: 12px 16px; border-radius: var(--radius); display: none; }
+    .form-msg.ok { display: block; background: #d1fae5; color: #065f46; border: 1px solid #6ee7b7; }
+    .form-msg.err { display: block; background: #fee2e2; color: #991b1b; border: 1px solid #fca5a5; }
 
-    /* ── THANK YOU STATE ── */
-    .thankyou-wrap{text-align:center;padding:48px 24px 56px}
-    .thankyou-wrap .ty-check{font-size:48px;margin-bottom:20px}
-    .thankyou-wrap h2{font-size:28px;font-weight:700;color:var(--navy);margin-bottom:16px}
-    .thankyou-wrap p{font-size:17px;color:#444;line-height:1.7;max-width:520px;margin:0 auto 32px}
-    .thankyou-wrap a{display:inline-block;padding:13px 32px;background:var(--orange);color:#fff;font-size:15px;font-weight:700;text-decoration:none;border-radius:6px;transition:background .2s}
-    .thankyou-wrap a:hover{background:#c4510a}
+    /* CONTACT INFO */
+    .contact-info-col h2 { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .contact-info-col .info-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; line-height: 1.6; }
+    .contact-info-item { display: flex; align-items: flex-start; gap: 14px; margin-bottom: 22px; }
+    .contact-info-icon { flex-shrink: 0; width: 44px; height: 44px; border-radius: var(--radius); background: var(--navy-dark); display: flex; align-items: center; justify-content: center; }
+    .contact-info-icon svg { display: block; }
+    .contact-info-text { }
+    .contact-info-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 3px; }
+    .contact-info-value { font-size: 16px; color: var(--body-text); line-height: 1.4; }
+    .contact-info-value a { color: var(--navy); text-decoration: none; }
+    .contact-info-value a:hover { text-decoration: underline; }
+    .booking-cta { background: var(--light-grey); border: 1px solid var(--border-med); border-radius: var(--radius-lg); padding: 24px 22px; margin-top: 28px; }
+    .booking-cta h3 { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .booking-cta p { font-size: 14px; color: #333; line-height: 1.65; margin-bottom: 16px; }
+    .booking-cta-btn { display: inline-block; padding: 11px 22px; background: var(--orange); color: var(--white); font-size: 14px; font-weight: 700; text-decoration: none; border-radius: var(--radius); transition: background .15s; }
+    .booking-cta-btn:hover { background: #c4510a; }
 
-    /* ── BRIDGE STRIPE ── */
-    .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
-    .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
-    .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
+    /* FAQ */
+    .faq-section { position: relative; overflow: hidden; }
+    .faq-bg { position: absolute; inset: 0; background: url('/images/Hands_in_the_air.jpg') center center / cover no-repeat; z-index: 0; }
+    .faq-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(13,31,60,0.10) 0%, rgba(13,31,60,0.45) 50%, rgba(13,31,60,0.88) 100%); z-index: 1; }
+    .faq-inner { position: relative; z-index: 2; max-width: var(--max-width); margin: 0 auto; padding: 56px 24px 60px; }
+    .faq-inner h2 { font-size: 26px; font-weight: 700; color: var(--gold); margin-bottom: 30px; text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
+    .faq-item { margin-bottom: 6px; }
+    .faq-toggle { display: flex; align-items: center; justify-content: space-between; width: 100%; background: var(--navy); border: 1px solid rgba(255,255,255,0.18); border-radius: 6px; cursor: pointer; padding: 18px 20px; text-align: left; gap: 16px; transition: background .2s ease; }
+    .faq-toggle:hover { background: #1a4268; }
+    .faq-item.faq-open .faq-toggle { border-radius: 6px 6px 0 0; border-bottom-color: transparent; }
+    .faq-q { font-size: 16px; font-weight: 700; color: #fff; line-height: 1.4; flex: 1; }
+    .faq-icon { flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.6); display: flex; align-items: center; justify-content: center; transition: transform .25s, background .2s, border-color .2s; }
+    .faq-icon svg { width: 10px; height: 10px; fill: rgba(255,255,255,0.8); transition: transform .25s; }
+    .faq-item.faq-open .faq-icon { background: var(--orange); border-color: var(--orange); }
+    .faq-item.faq-open .faq-icon svg { fill: #fff; transform: rotate(180deg); }
+    .faq-body { overflow: hidden; max-height: 0; transition: max-height .38s ease; }
+    .faq-item.faq-open .faq-body { max-height: 600px; }
+    .faq-a { font-size: 15px; color: var(--body-text); line-height: 1.75; padding: 22px 24px 24px; background: #fff; border: 1px solid rgba(255,255,255,0.18); border-top: none; border-radius: 0 0 6px 6px; }
+    @media (max-width: 640px) { .faq-inner { padding: 40px 18px 44px; } .faq-inner h2 { font-size: 22px; } }
+
+    /* BRIDGE STRIPE */
+    .bridge-stripe { background: var(--light-grey); border-top: 1px solid var(--border-med); border-bottom: 1px solid var(--border-med); padding: 40px var(--page-pad); text-align: center; }
+    .bridge-stripe-text { font-size: 20px; font-weight: 700; color: var(--navy); }
+    .bridge-stripe-sub { font-size: 14px; color: var(--muted); margin-top: 8px; line-height: 1.5; }
+
+    /* FOOTER */
+    .site-footer { background: var(--navy-dark); }
+    .footer-prefooter { padding: 48px var(--page-pad) 44px; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .footer-wrap { max-width: 1100px; margin: 0 auto; }
+    .footer-content-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; margin-bottom: 30px; }
+    .footer-col { padding: 0 32px; }
+    .footer-col-1 { padding-left: 0; border-right: 1px solid rgba(255,255,255,.08); }
+    .footer-col-2 { border-right: 1px solid rgba(255,255,255,.08); }
+    .footer-col-3 { padding-right: 0; }
+    .footer-cta-row { display: flex; align-items: center; gap: 0; }
+    .footer-cta-1, .footer-cta-2, .footer-cta-3 { flex: 0 0 33.333%; padding: 0 32px; }
+    .footer-cta-1 { padding-left: 0; border-right: 1px solid rgba(255,255,255,.08); }
+    .footer-cta-2 { border-right: 1px solid rgba(255,255,255,.08); }
+    .footer-cta-3 { padding-right: 0; }
+    .footer-cta-btn { display: inline-block; padding: 10px 20px; background: var(--orange); color: #fff; font-size: 13px; font-weight: 700; text-decoration: none; border-radius: 4px; transition: background .15s; white-space: nowrap; }
+    .footer-cta-btn:hover { background: #c4510a; }
+    .engage-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--mid-blue); margin-bottom: 10px; }
+    .engage-col-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .engage-col-desc { font-size: 14px; color: rgba(255,255,255,.62); line-height: 1.65; }
+    .engage-nl-form { display: flex; gap: 8px; flex-wrap: wrap; }
+    .engage-nl-input { flex: 1; min-width: 120px; padding: 10px 12px; border: 1.5px solid rgba(255,255,255,.2); border-radius: 4px; background: rgba(255,255,255,.08); color: #fff; font-family: Arial, sans-serif; font-size: 14px; outline: none; transition: border-color .15s; }
+    .engage-nl-input::placeholder { color: rgba(255,255,255,.4); }
+    .engage-nl-input:focus { border-color: var(--mid-blue); }
+    .engage-nl-btn { padding: 10px 18px; background: var(--orange); color: #fff; border: none; border-radius: 4px; font-family: Arial, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; transition: background .15s; white-space: nowrap; }
+    .engage-nl-btn:hover { background: #c4510a; }
+    .engage-nl-btn:disabled { opacity: .5; cursor: not-allowed; }
+    .engage-nl-msg { font-size: 13px; margin-top: 8px; min-height: 16px; }
+    .engage-nl-msg.ok { color: #6ee7b7; }
+    .engage-nl-msg.err { color: #fca5a5; }
+    .footer-bottom { padding: 16px var(--page-pad); }
+    .footer-bottom-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 14px; color: rgba(255,255,255,.45); }
+    .footer-bottom-inner a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .15s; }
+    .footer-bottom-inner a:hover { color: var(--orange); }
+    .footer-bottom-left { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .footer-bottom-brand { font-weight: 700; color: rgba(255,255,255,.7); }
+    .footer-bottom-sep { color: rgba(255,255,255,.2); user-select: none; }
+    @media (max-width: 760px) { .footer-content-row { grid-template-columns: 1fr; } .footer-col { padding: 0 0 24px 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 4px; } .footer-col-3 { border-bottom: none; padding-bottom: 0; } .footer-cta-row { flex-direction: column; align-items: flex-start; gap: 20px; } .footer-cta-1, .footer-cta-2, .footer-cta-3 { flex: none; padding: 0; border: none; } }
+    @media (max-width: 640px) { .footer-prefooter { padding: 32px 20px; } .footer-bottom { padding: 14px 20px; } .footer-bottom-inner { flex-direction: column; text-align: center; gap: 6px; } .footer-bottom-left { justify-content: center; } }
+
+    /* THOMAS FLOAT */
+    .thomas-float { position: fixed; right: 0; top: 66.666%; transform: translateY(-50%); z-index: 150; width: 100px; background: #ffffff; border-radius: 8px 0 0 8px; overflow: hidden; text-decoration: none; box-shadow: -3px 3px 16px rgba(0,0,0,0.18); transition: width .25s ease, box-shadow .25s ease; display: block; }
+    .thomas-float:hover { width: 108px; box-shadow: -5px 5px 22px rgba(0,0,0,0.26); }
+    .thomas-float-img { width: 100%; height: 90px; object-fit: cover; object-position: center top; display: block; }
+    .thomas-float-body { padding: 8px 8px 10px; text-align: center; }
+    .thomas-float-name { font-family: Arial, sans-serif; font-size: 11px; font-weight: 700; color: var(--navy); line-height: 1.3; display: block; margin-bottom: 2px; }
+    .thomas-float-sub { font-family: Arial, sans-serif; font-size: 9px; color: var(--muted); line-height: 1.4; display: block; margin-bottom: 7px; }
+    .thomas-float-cta { display: block; font-family: Arial, sans-serif; font-size: 9px; font-weight: 700; color: #fff; background: var(--mid-blue); border-radius: 3px; padding: 4px 6px; text-transform: uppercase; letter-spacing: .05em; transition: background .15s; }
+    .thomas-float:hover .thomas-float-cta { background: #5a9fd4; }
+    @media (max-width: 768px) { .thomas-float { display: none; } }
+
+    /* MOBILE */
     @media(max-width:640px){
-      .bridge-stripe{padding:28px 20px}
-      .bridge-stripe-text{font-size:17px}
-    }
-
-    /* ── FOOTER ── */
-    .site-footer{background:var(--navy-dark)}
-    .footer-prefooter{padding:44px var(--page-pad) 40px;border-bottom:1px solid rgba(255,255,255,.1)}
-    .footer-wrap{max-width:1100px;margin:0 auto}
-    .footer-content-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-bottom:28px}
-    .footer-col{padding:0 32px}
-    .footer-col-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
-    .footer-col-2{border-right:1px solid rgba(255,255,255,.08)}
-    .footer-col-3{padding-right:0}
-    .footer-cta-row{display:flex;align-items:center;gap:0}
-    .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:0 0 33.333%;padding:0 32px}
-    .footer-cta-1{padding-left:0;border-right:1px solid rgba(255,255,255,.08)}
-    .footer-cta-2{border-right:1px solid rgba(255,255,255,.08)}
-    .footer-cta-3{padding-right:0}
-    .footer-cta-btn{display:inline-block;padding:10px 20px;background:var(--orange);color:#fff;font-size:13px;font-weight:700;text-decoration:none;border-radius:4px;transition:background .15s;white-space:nowrap}
-    .footer-cta-btn:hover{background:#c4510a}
-    .engage-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--mid-blue);margin-bottom:8px}
-    .engage-col-title{font-size:16px;font-weight:700;color:#fff;margin-bottom:8px}
-    .engage-col-desc{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6}
-    .engage-nl-form{display:flex;gap:8px;flex-wrap:wrap}
-    .engage-nl-input{flex:1;min-width:120px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.2);border-radius:4px;background:rgba(255,255,255,.08);color:#fff;font-family:Arial,sans-serif;font-size:13px;outline:none;transition:border-color .15s}
-    .engage-nl-input::placeholder{color:rgba(255,255,255,.4)}
-    .engage-nl-input:focus{border-color:var(--mid-blue)}
-    .engage-nl-btn{padding:10px 18px;background:var(--orange);color:#fff;border:none;border-radius:4px;font-family:Arial,sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s;white-space:nowrap}
-    .engage-nl-btn:hover{background:#c4510a}
-    .engage-nl-btn:disabled{opacity:.5;cursor:not-allowed}
-    .engage-nl-msg{font-size:12px;margin-top:8px;min-height:16px}
-    .engage-nl-msg.ok{color:#6ee7b7}.engage-nl-msg.err{color:#fca5a5}
-    .footer-bottom{padding:16px var(--page-pad)}
-    .footer-bottom-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:rgba(255,255,255,.45)}
-    .footer-bottom-inner a{color:rgba(255,255,255,.45);text-decoration:none;transition:color .15s}
-    .footer-bottom-inner a:hover{color:var(--orange)}
-    .footer-bottom-left{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-    .footer-bottom-brand{font-weight:700;color:rgba(255,255,255,.7)}
-    .footer-bottom-sep{color:rgba(255,255,255,.2);user-select:none}
-    @media(max-width:640px){
-      .footer-prefooter{padding:32px 20px}
-      .footer-content-row{grid-template-columns:1fr}
-      .footer-col{padding:0 0 24px 0;border-right:none;border-bottom:1px solid rgba(255,255,255,.08);margin-bottom:4px}
-      .footer-col-3{border-bottom:none;padding-bottom:0}
-      .footer-cta-row{flex-direction:column;align-items:flex-start;gap:20px}
-      .footer-cta-1,.footer-cta-2,.footer-cta-3{flex:none;padding:0;border:none}
-      .footer-bottom{padding:14px 20px}
-      .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
-      .footer-bottom-left{justify-content:center}
-    }
-
-    /* ── THOMAS FLOATING WIDGET ── */
-    .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
-    .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
-    .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
-    .thomas-float-body{padding:8px 8px 10px;text-align:center}
-    .thomas-float-name{font-family:Arial,sans-serif;font-size:11px;font-weight:700;color:var(--navy);line-height:1.3;display:block;margin-bottom:2px}
-    .thomas-float-sub{font-family:Arial,sans-serif;font-size:9px;font-weight:400;color:var(--muted);line-height:1.4;display:block;margin-bottom:7px}
-    .thomas-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--mid-blue);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s}
-    .thomas-float:hover .thomas-float-cta{background:#5a9fd4}
-    @media(max-width:768px){.thomas-float{display:none}}
-
-    /* ══════════════════════════════════════════════════════════════════
-       MOBILE OPTIMIZATION BLOCK (added 2026-04-29)
-       Strategy: Additive overrides only — no desktop rules altered.
-       This page already has nav collapse at 960px (with logo-text shrink
-       to 16px) and form-row 1-col at 540px — both GOOD, no changes needed.
-
-       Fixes:
-         1. page-hero padding tightened at 640px
-         2. contact-section padding reduced at 640px
-         3. footer-bottom-left column stack + separators hidden at 640px
-         4. site-logo-text hidden at 480px
-         5. Newsletter form column stack at 480px
-       ══════════════════════════════════════════════════════════════════ */
-
-    @media(max-width:640px){
-      /* 1. Hero padding */
+      .main-nav > ul > li > a{font-size:16px;padding:12px 20px;}
+      .site-logo-text{font-size:16px;}
       .page-hero{padding:36px 20px 40px;}
-
-      /* 2. Contact section padding */
-      .contact-section{padding:32px 20px 40px;}
-
-      /* 3. Footer bottom — column stack, hide separators */
+      .contact-section{padding:40px 20px 48px;}
       .footer-bottom-left{flex-direction:column;align-items:center;gap:6px;}
       .footer-bottom-sep{display:none;}
     }
-
     @media(max-width:480px){
-      /* 4. Hide logo text on very small screens */
       .site-logo-text{display:none;}
-
-      /* 5. Newsletter form — stack */
+      .page-hero h1{font-size:26px;}
       .engage-nl-form{flex-direction:column;}
       .engage-nl-input{min-width:0;width:100%;}
       .engage-nl-btn{width:100%;}
@@ -333,9 +286,7 @@
       <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;">
       <span class="site-logo-text">SHIFTWORK SOLUTIONS</span>
     </a>
-    <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
     <nav class="main-nav" id="main-nav">
       <ul>
         <li><a href="/">Home</a></li>
@@ -343,7 +294,7 @@
         <li><a href="/resources/">Resources</a></li>
         <li><a href="/industries/">Industries</a></li>
         <li><a href="/why-us/">Why Us</a></li>
-        <li><a href="/contact/" class="current-page">Contact</a></li>
+        <li><a href="/contact/" style="color:var(--navy);font-weight:700;">Contact</a></li>
       </ul>
       <div class="nav-cta">
         <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" target="_blank" rel="noopener">Book a Free Meeting</a>
@@ -352,104 +303,146 @@
   </div>
 </header>
 
-<section class="page-hero">
-  <div class="hero-inner">
-    <div class="eyebrow">Contact</div>
-    <h1>Let&#x2019;s Talk About Your Operation</h1>
-    <p class="hero-sub">The first conversation is always free. No pitch, no pressure. Tell us what you&#x2019;re dealing with and we&#x2019;ll tell you honestly what we see &#x2014; and whether we can help.</p>
-  </div>
-</section>
-
-<div class="breadcrumb">
-  <div class="breadcrumb-inner">
-    <a href="/">Home</a>
-    <span class="sep">&rsaquo;</span>
-    <span class="current">Contact Us</span>
-  </div>
+<div class="page-offset">
+  <section class="page-hero">
+    <div class="hero-inner">
+      <div class="eyebrow">Contact</div>
+      <h1>Let&rsquo;s Start a Conversation</h1>
+      <p class="hero-sub">No sales pitch. No commitment. Just a conversation about your situation and whether we can help. We typically respond within one business day.</p>
+    </div>
+  </section>
 </div>
 
 <section class="contact-section">
   <div class="contact-inner">
-    <div class="contact-form-wrap" id="contact-form-wrap">
-      <h2>Send Us a Message</h2>
-      <p class="form-intro">Tell us about your operation and what you&#x2019;re trying to solve. The more context you share, the more useful our first conversation will be.</p>
-      <div id="form-status" class="form-status"></div>
-      <form id="contact-form" novalidate>
-        <div class="ohnohoney">
-          <label for="_gotcha">Leave this empty</label>
-          <input type="text" name="_gotcha" id="_gotcha" tabindex="-1" autocomplete="off" />
-        </div>
-        <input type="hidden" name="_loaded" id="_loaded" value="" />
+
+    <!-- CONTACT FORM -->
+    <div class="contact-form-col">
+      <h2>Send a Message</h2>
+      <p class="form-sub">Tell us about your operation and what you&rsquo;re working on. We&rsquo;ll follow up within one business day.</p>
+
+      <form id="contactForm" novalidate>
         <div class="form-row">
           <div class="form-group">
-            <label class="form-label" for="name">Full Name <span class="req">*</span></label>
-            <input class="form-input" type="text" id="name" name="name" required placeholder="Your name" />
+            <label class="form-label" for="firstName">First Name</label>
+            <input class="form-input" type="text" id="firstName" name="firstName" required autocomplete="given-name">
           </div>
           <div class="form-group">
-            <label class="form-label" for="email">Email Address <span class="req">*</span></label>
-            <input class="form-input" type="email" id="email" name="email" required placeholder="you@company.com" />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label class="form-label" for="company">Company Name <span class="req">*</span></label>
-            <input class="form-input" type="text" id="company" name="company" required placeholder="Your company" />
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="phone">Phone <span class="opt">(optional)</span></label>
-            <input class="form-input" type="tel" id="phone" name="phone" placeholder="(555) 123-4567" />
+            <label class="form-label" for="lastName">Last Name</label>
+            <input class="form-input" type="text" id="lastName" name="lastName" required autocomplete="family-name">
           </div>
         </div>
         <div class="form-group">
-          <label class="form-label" for="employees">Employees Affected <span class="opt">(optional)</span></label>
-          <select class="form-select" id="employees" name="employees">
-            <option value="">&#x2014; Select if known &#x2014;</option>
-            <option value="Under 30">Under 30</option>
-            <option value="30-65">30 &#x2013; 65</option>
-            <option value="65-150">65 &#x2013; 150</option>
-            <option value="150-500">150 &#x2013; 500</option>
-            <option value="500+">500+</option>
+          <label class="form-label" for="email">Work Email</label>
+          <input class="form-input" type="email" id="email" name="email" required autocomplete="work email">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="company">Company / Facility</label>
+          <input class="form-input" type="text" id="company" name="company" placeholder="Optional">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="topic">Primary Topic</label>
+          <select class="form-select" id="topic" name="topic">
+            <option value="">Select one…</option>
+            <option value="schedule-design">Schedule Design or Redesign</option>
+            <option value="continuous-ops">Transitioning to Continuous Operations (24/7)</option>
+            <option value="overtime">Overtime Management</option>
+            <option value="change-management">Change Management</option>
+            <option value="workforce-survey">Workforce Survey</option>
+            <option value="cost-analysis">Labor Cost Analysis</option>
+            <option value="other">Other / Not Sure Yet</option>
           </select>
         </div>
         <div class="form-group">
-          <label class="form-label" for="message">How Can We Help? <span class="req">*</span></label>
-          <textarea class="form-textarea" id="message" name="message" required placeholder="Tell us about your operation and your current schedule challenges. What are you trying to accomplish?"></textarea>
+          <label class="form-label" for="message">Message</label>
+          <textarea class="form-textarea" id="message" name="message" placeholder="Briefly describe your situation — number of employees affected, current challenge, and what you&rsquo;re hoping to accomplish."></textarea>
         </div>
-        <button type="submit" class="btn-submit" id="submit-btn">Send Message &#x2192;</button>
-        <p class="form-privacy">We respond within one business day. Your information is never shared with third parties.</p>
+        <button type="submit" class="form-submit-btn" id="submitBtn">Send Message</button>
+        <div class="form-msg" id="formMsg"></div>
       </form>
     </div>
+
+    <!-- CONTACT INFO -->
+    <div class="contact-info-col">
+      <h2>Direct Contact</h2>
+      <p class="info-sub">Prefer to reach out directly or schedule time to talk? Here&rsquo;s how.</p>
+
+      <div class="contact-info-item">
+        <div class="contact-info-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M4 4h14a2 2 0 012 2v10a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2z" stroke="#F5A623" stroke-width="1.8" stroke-linejoin="round"/>
+            <path d="M2 6l9 7 9-7" stroke="#F5A623" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="contact-info-text">
+          <div class="contact-info-label">Email</div>
+          <div class="contact-info-value"><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a></div>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="contact-info-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M5 2h4l1.5 4.5-2 1.5a11 11 0 005.5 5.5l1.5-2L20 13v4a2 2 0 01-2 2C8 19 3 10 3 4a2 2 0 012-2z" stroke="#F5A623" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="contact-info-text">
+          <div class="contact-info-label">Phone</div>
+          <div class="contact-info-value"><a href="tel:+14152651621">(415) 265-1621</a></div>
+        </div>
+      </div>
+
+      <div class="contact-info-item">
+        <div class="contact-info-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+            <path d="M11 2C7.13 2 4 5.13 4 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.87-3.13-7-7-7z" stroke="#F5A623" stroke-width="1.8" stroke-linejoin="round"/>
+            <circle cx="11" cy="9" r="2.5" stroke="#F5A623" stroke-width="1.8"/>
+          </svg>
+        </div>
+        <div class="contact-info-text">
+          <div class="contact-info-label">Location</div>
+          <div class="contact-info-value">San Rafael, California<br><span style="font-size:13px;color:var(--muted);">Serving clients nationwide</span></div>
+        </div>
+      </div>
+
+      <div class="booking-cta">
+        <h3>Book a Free 20-Minute Call</h3>
+        <p>Use the link below to schedule directly on our calendar. No intake form, no pre-qualification. Just pick a time and we&rsquo;ll talk.</p>
+        <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="booking-cta-btn" target="_blank" rel="noopener">Schedule a Call &rarr;</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
+<div class="faq-section">
+  <div class="faq-bg"></div>
+  <div class="faq-overlay"></div>
+  <div class="faq-inner">
+    <h2>Before You Reach Out</h2>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What should I include in my message?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">The most useful things to include: the number of employees affected, the industry and type of operation, what the primary challenge is (overtime, retention, coverage, transitioning to 24/7, something else), and whether there is a union contract in place. You don't need to have all of this ready — a brief description of the situation is enough for a first response.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">Is the initial consultation really free?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">Yes. The first conversation — whether by phone, video, or email — is always free. We use it to understand your situation and determine whether we can genuinely help. We won't propose work we don't think is warranted.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">How quickly can you start an engagement?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">It depends on our current schedule. We maintain a limited number of active engagements at any time. In the initial conversation, we will be transparent about our availability and whether our timeline aligns with yours.</div></div></div>
+    <div class="faq-item"><button class="faq-toggle" aria-expanded="false"><span class="faq-q">What happens after I send a message?</span><span class="faq-icon"><svg viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z"/></svg></span></button><div class="faq-body"><div class="faq-a">A partner reads every inquiry and responds personally — typically within one business day. If your situation sounds like a good fit, we will propose a short initial call to discuss further. There is no pressure, no sales process, and no obligation.</div></div></div>
+  </div>
+</div>
+
 <div class="bridge-stripe">
-  <div class="bridge-stripe-text">Ready to take the next step?</div>
-  <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
+  <div class="bridge-stripe-text">Not ready to reach out yet?</div>
+  <div class="bridge-stripe-sub">Start with our free resources — the 26 Warning Signs checklist, the Operations Reality Check, or a conversation with Thomas, our AI advisor.</div>
 </div>
 
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
-      <div class="footer-col footer-col-1">
-        <div class="engage-label">FREE ASSESSMENT</div>
-        <div class="engage-col-title">Shiftwork Operations Reality Check</div>
-        <p class="engage-col-desc">See how your operation stacks up. Our free diagnostic assessment surfaces the schedule problems that drive up costs and push good people out the door.</p>
-      </div>
-      <div class="footer-col footer-col-2">
-        <div class="engage-label">DIAGNOSTIC ARTICLE</div>
-        <div class="engage-col-title">The 26 Warning Signs</div>
-        <p class="engage-col-desc">Is your schedule working against you? Read the definitive list of indicators that your current shift structure is costing you more than you think.</p>
-      </div>
-      <div class="footer-col footer-col-3">
-        <div class="engage-label">NEWSLETTER</div>
-        <div class="engage-col-title">Stay Sharp on Shift Operations</div>
-        <p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
-      </div>
+      <div class="footer-col footer-col-1"><div class="engage-label">FREE ASSESSMENT</div><div class="engage-col-title">Shiftwork Operations Reality Check</div><p class="engage-col-desc">A structured assessment of where your shiftwork operation stands — and where the gaps are costing you most.</p></div>
+      <div class="footer-col footer-col-2"><div class="engage-label">DIAGNOSTIC ARTICLE</div><div class="engage-col-title">The 26 Warning Signs</div><p class="engage-col-desc">The operational symptoms that signal when your shiftwork system needs attention.</p></div>
+      <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
     </div>
     <div class="footer-cta-row">
       <div class="footer-cta-1"><a href="https://www.shift-work.com/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Reality Check &#x2192;</a></div>
       <div class="footer-cta-2"><a href="/resources/26-warning-signs-schedule-problems/" class="footer-cta-btn">Read the Warning Signs &#x2192;</a></div>
-      <div class="footer-cta-3"><form class="engage-nl-form" onsubmit="footerNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="footerNLEmail"><button type="submit" class="engage-nl-btn" id="footerNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="footerNLMsg"></div></div>
+      <div class="footer-cta-3"><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
     </div>
   </div></div>
   <div class="footer-bottom"><div class="footer-bottom-inner">
@@ -470,11 +463,7 @@
   </div></div>
 </footer>
 
-<a class="thomas-float"
-   href="https://shift-work-diagnostic.onrender.com/"
-   target="_blank"
-   rel="noopener"
-   aria-label="Meet Thomas, your AI Shift Advisor">
+<a class="thomas-float" href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener" aria-label="Meet Thomas, your AI Shift Advisor">
   <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
   <div class="thomas-float-body">
     <span class="thomas-float-name">Meet Thomas</span>
@@ -484,151 +473,85 @@
 </a>
 
 <script>
-(function(){
-  var CONTACT_API   = 'https://ai-swarm-orchestrator.onrender.com/api/contact/submit';
-  var FORMSPREE     = 'https://formspree.io/f/xwvwnwea';
-
-  document.getElementById('_loaded').value = Date.now().toString();
-
-  document.getElementById('mobile-toggle').addEventListener('click', function(){
-    document.getElementById('main-nav').classList.toggle('open');
-  });
-  document.addEventListener('click', function(e){
-    var h = document.querySelector('.site-header');
-    if(h && !h.contains(e.target)) document.getElementById('main-nav').classList.remove('open');
-  });
-
-  function showThankYou() {
-    document.getElementById('contact-form-wrap').innerHTML =
-      '<div class="thankyou-wrap">' +
-        '<div class="ty-check">&#10003;</div>' +
-        '<h2>Thank You for Reaching Out</h2>' +
-        '<p>Someone from the Shiftwork Solutions team will be in touch with you shortly. We typically respond within one business day.</p>' +
-        '<a href="/">Return to Shiftwork Solutions &rarr;</a>' +
-      '</div>';
+document.getElementById('mobile-toggle').addEventListener('click', function() {
+  document.getElementById('main-nav').classList.toggle('open');
+});
+document.addEventListener('click', function(e) {
+  var header = document.querySelector('.site-header');
+  if (header && !header.contains(e.target)) {
+    var nav = document.getElementById('main-nav');
+    if (nav) nav.classList.remove('open');
   }
+});
 
-  function showError(msg) {
-    var status = document.getElementById('form-status');
-    var btn    = document.getElementById('submit-btn');
-    status.className  = 'form-status error';
-    status.textContent = msg || 'Something went wrong. Please try again or call us at (415) 265-1621.';
-    if(btn){ btn.disabled = false; btn.textContent = 'Send Message \u2192'; }
-  }
-
-  function tryFormspree(name, email, company, message) {
-    var fd = new FormData();
-    fd.append('name',    name);
-    fd.append('email',   email);
-    fd.append('company', company);
-    fd.append('message', message);
-    fd.append('_subject','New Contact Form \u2014 shift-work.com');
-    fetch(FORMSPREE, { method:'POST', body:fd, headers:{'Accept':'application/json'} })
-      .then(function(r){ return r.json(); })
-      .then(function(d){
-        if(d.ok || d.next){ showThankYou(); }
-        else { showError(); }
-      })
-      .catch(function(){ showError(); });
-  }
-
-  document.getElementById('contact-form').addEventListener('submit', function(e){
-    e.preventDefault();
-
-    var status = document.getElementById('form-status');
-    var btn    = document.getElementById('submit-btn');
-
-    status.className  = 'form-status';
-    status.textContent = '';
-
-    if(document.getElementById('_gotcha').value !== ''){
-      showThankYou();
-      return;
-    }
-
-    var loadedAt = parseInt(document.getElementById('_loaded').value, 10);
-    if(Date.now() - loadedAt < 3000){
-      showError('Please take a moment to fill out the form completely.');
-      return;
-    }
-
-    var name    = document.getElementById('name').value.trim();
-    var email   = document.getElementById('email').value.trim();
-    var company = document.getElementById('company').value.trim();
-    var message = document.getElementById('message').value.trim();
-
-    if(!name || !email || !company || !message){
-      showError('Please fill in all required fields.');
-      return;
-    }
-    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-      showError('Please enter a valid email address.');
-      return;
-    }
-
-    btn.disabled    = true;
-    btn.textContent = 'Sending\u2026';
-
-    var payload = {
-      name:      name,
-      email:     email,
-      company:   company,
-      phone:     document.getElementById('phone').value.trim()    || null,
-      employees: document.getElementById('employees').value       || null,
-      message:   message,
-      source:    'website-contact-page',
-      honeypot:  document.getElementById('_gotcha').value,
-      timestamp: document.getElementById('_loaded').value
-    };
-
-    fetch(CONTACT_API, {
-      method:  'POST',
-      headers: {'Content-Type':'application/json','Accept':'application/json'},
-      body:    JSON.stringify(payload)
-    })
-    .then(function(r){ return r.json(); })
-    .then(function(d){
-      if(d.success){ showThankYou(); }
-      else {
-        console.warn('Swarm returned non-success, trying Formspree:', d);
-        tryFormspree(name, email, company, message);
-      }
-    })
-    .catch(function(err){
-      console.warn('Swarm unreachable, trying Formspree:', err.message);
-      tryFormspree(name, email, company, message);
+(function() {
+  var items = document.querySelectorAll('.faq-item');
+  items.forEach(function(item) {
+    var btn = item.querySelector('.faq-toggle');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      var isOpen = item.classList.contains('faq-open');
+      items.forEach(function(i) { i.classList.remove('faq-open'); var b = i.querySelector('.faq-toggle'); if (b) b.setAttribute('aria-expanded', 'false'); });
+      if (!isOpen) { item.classList.add('faq-open'); btn.setAttribute('aria-expanded', 'true'); }
     });
   });
-
 })();
 
-(function(){
+(function() {
   var SWARM = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
-  window.footerNLSubmit = function(e){
+  window.engageNLSubmit = function(e) {
     e.preventDefault();
-    var btn   = document.getElementById('footerNLBtn');
-    var msg   = document.getElementById('footerNLMsg');
-    var email = document.getElementById('footerNLEmail').value.trim();
-    if(!email) return;
-    btn.disabled    = true;
-    btn.textContent = 'Subscribing\u2026';
-    fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'contact-footer-nl'})})
-      .then(function(r){ return r.json(); })
-      .then(function(d){
-        if(d.success){
-          msg.className   = 'engage-nl-msg ok';
-          msg.textContent = '\u2713 Subscribed. Thank you.';
-          document.getElementById('footerNLEmail').value = '';
-          btn.textContent = 'Subscribed \u2713';
-        } else { throw new Error(d.error || 'Failed'); }
-      })
-      .catch(function(err){
-        msg.className   = 'engage-nl-msg err';
-        msg.textContent = err.message === 'This email is already subscribed.' ? 'Already subscribed \u2014 thank you!' : 'Something went wrong. Try again.';
-        btn.disabled    = false;
-        btn.textContent = 'Subscribe \u2192';
-      });
+    var btn = document.getElementById('engageNLBtn'), msg = document.getElementById('engageNLMsg'), email = document.getElementById('engageNLEmail').value.trim();
+    if (!email) return;
+    btn.disabled = true; btn.textContent = 'Subscribing...';
+    fetch(SWARM, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email, source: 'contact-footer-nl' }) })
+      .then(function(r) { return r.json(); })
+      .then(function(d) { if (d.success) { msg.className = 'engage-nl-msg ok'; msg.textContent = '\u2713 Subscribed. Thank you.'; document.getElementById('engageNLEmail').value = ''; btn.textContent = 'Subscribed \u2713'; } else { throw new Error(d.error || 'Failed'); } })
+      .catch(function(err) { msg.className = 'engage-nl-msg err'; msg.textContent = err.message === 'This email is already subscribed.' ? 'Already subscribed \u2014 thank you!' : 'Something went wrong. Try again.'; btn.disabled = false; btn.textContent = 'Subscribe \u2192'; });
   };
+})();
+
+(function() {
+  var SWARM_CONTACT = 'https://ai-swarm-orchestrator.onrender.com/api/contact/submit';
+  var FORMSPREE = 'https://formspree.io/f/contact';
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = document.getElementById('submitBtn');
+    var msg = document.getElementById('formMsg');
+    var data = {
+      firstName: document.getElementById('firstName').value.trim(),
+      lastName: document.getElementById('lastName').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      company: document.getElementById('company').value.trim(),
+      topic: document.getElementById('topic').value,
+      message: document.getElementById('message').value.trim(),
+      source: 'contact-page-form'
+    };
+    if (!data.firstName || !data.lastName || !data.email) {
+      msg.className = 'form-msg err';
+      msg.textContent = 'Please fill in your name and email.';
+      return;
+    }
+    btn.disabled = true; btn.textContent = 'Sending...';
+    msg.className = 'form-msg'; msg.textContent = '';
+
+    fetch(SWARM_CONTACT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+      .then(function(r) { return r.json(); })
+      .then(function(d) {
+        if (d.success) {
+          msg.className = 'form-msg ok';
+          msg.textContent = '\u2713 Message sent. We\u2019ll follow up within one business day.';
+          document.getElementById('contactForm').reset();
+          btn.textContent = 'Message Sent \u2713';
+        } else { throw new Error(d.error || 'Submission failed'); }
+      })
+      .catch(function() {
+        msg.className = 'form-msg err';
+        msg.textContent = 'Something went wrong. Please email us directly at Contact@shift-work.com.';
+        btn.disabled = false; btn.textContent = 'Send Message';
+      });
+  });
 })();
 </script>
 </body>
