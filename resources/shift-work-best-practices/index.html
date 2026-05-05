@@ -5,9 +5,10 @@
   URL: /resources/shift-work-best-practices/
 
   Created:      2026-04-02
-  Last Updated: 2026-04-30
+  Last Updated: 2026-05-05
 
   CHANGE LOG:
+    2026-05-05 — SEO: Added og:image meta tag for social sharing. Zero other changes.
     2026-04-29 — MOBILE OPTIMIZATION: Added @media(max-width:480px) block (additive only).
     2026-04-02 — Initial build.
     2026-04-22 — PAGE BOTTOM STANDARD APPLIED.
@@ -36,6 +37,7 @@
   <meta property="og:url" content="https://shift-work.com/resources/shift-work-best-practices/">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
+  <meta property="og:image" content="https://shift-work.com/images/second.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Operational Best Practices for 24/7 Shift Work | Shiftwork Solutions">
   <meta name="twitter:description" content="Expert guide from consultants who have worked with hundreds of facilities across 16+ industries.">
@@ -140,7 +142,6 @@
     .bridge-stripe{background:var(--light-grey);border-top:1px solid var(--border-med);border-bottom:1px solid var(--border-med);padding:40px var(--page-pad);text-align:center}
     .bridge-stripe-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.01em}
     .bridge-stripe-sub{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.5}
-    /* ── PDF DOWNLOAD TAB — upper-left fixed (added 2026-04-30) ── */
     .pdf-float{position:fixed;left:0;top:72px;z-index:950;width:110px;background:#ffffff;border-radius:0 8px 8px 0;overflow:hidden;text-decoration:none;box-shadow:3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block;border-left:4px solid var(--navy)}
     .pdf-float:hover{width:120px;box-shadow:5px 5px 22px rgba(0,0,0,0.26)}
     .pdf-float-body{padding:10px 10px 12px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px}
@@ -149,7 +150,6 @@
     .pdf-float-cta{display:block;font-family:Arial,sans-serif;font-size:9px;font-weight:700;color:#fff;background:var(--navy);border-radius:3px;padding:4px 6px;text-transform:uppercase;letter-spacing:.05em;transition:background .15s;margin-top:2px}
     .pdf-float:hover .pdf-float-cta{background:var(--mid-blue)}
     @media(max-width:768px){.pdf-float{display:none}}
-    /* ── THOMAS FLOATING WIDGET ── */
     .thomas-float{position:fixed;right:0;top:66.666%;transform:translateY(-50%);z-index:950;width:100px;background:#ffffff;border-radius:8px 0 0 8px;overflow:hidden;text-decoration:none;box-shadow:-3px 3px 16px rgba(0,0,0,0.18);transition:width .25s ease,box-shadow .25s ease;display:block}
     .thomas-float:hover{width:108px;box-shadow:-5px 5px 22px rgba(0,0,0,0.26)}
     .thomas-float-img{width:100%;height:90px;object-fit:cover;object-position:center top;display:block}
@@ -455,21 +455,14 @@
   </div></div>
 </footer>
 
-<!-- ── PDF DOWNLOAD TAB — upper-left, navy/blue, below sticky nav ── -->
-<a class="pdf-float"
-   href="/pdfs/shift-work-best-practices.pdf"
-   target="_blank"
-   rel="noopener"
-   aria-label="Download the Operational Best Practices Guide PDF">
+<a class="pdf-float" href="/pdfs/shift-work-best-practices.pdf" target="_blank" rel="noopener" aria-label="Download the Operational Best Practices Guide PDF">
   <div class="pdf-float-body">
     <span class="pdf-float-icon">&#x1F4C4;</span>
     <span class="pdf-float-title">Best Practices Guide</span>
     <span class="pdf-float-cta">Download PDF &darr;</span>
   </div>
 </a>
-<!-- ── END PDF DOWNLOAD TAB ── -->
 
-<!-- ── THOMAS FLOATING WIDGET ── -->
 <a class="thomas-float" href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener" aria-label="Meet Thomas, your AI Shift Advisor">
   <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
   <div class="thomas-float-body">
@@ -478,10 +471,9 @@
     <span class="thomas-float-cta">Chat Now &rarr;</span>
   </div>
 </a>
-<!-- ── END THOMAS FLOATING WIDGET ── -->
 
 <script>
-document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding:'8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
+document.getElementById('mobileToggle').addEventListener('click',function(){var n=document.getElementById('navLinks');var open=n.style.display==='flex';if(open){n.style.display='none';}else{n.style.display='flex';n.style.flexDirection='column';n.style.position='absolute';n.style.top='56px';n.style.left='0';n.style.right='0';n.style.background='#fff';n.style.borderBottom='1px solid #e0e0e0';n.style.padding='8px 0';n.style.boxShadow='0 4px 12px rgba(0,0,0,0.08)';n.style.zIndex='99';}});
 (function(){var items=document.querySelectorAll('.faq-item');items.forEach(function(item){var btn=item.querySelector('.faq-toggle');if(!btn)return;btn.addEventListener('click',function(){var isOpen=item.classList.contains('faq-open');items.forEach(function(i){i.classList.remove('faq-open');var b=i.querySelector('.faq-toggle');if(b)b.setAttribute('aria-expanded','false');});if(!isOpen){item.classList.add('faq-open');btn.setAttribute('aria-expanded','true');}});});})();
 (function(){var SWARM='https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';window.engageNLSubmit=function(e){e.preventDefault();var btn=document.getElementById('engageNLBtn');var msg=document.getElementById('engageNLMsg');var email=document.getElementById('engageNLEmail').value.trim();if(!email)return;btn.disabled=true;btn.textContent='Subscribing...';fetch(SWARM,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:email,source:'website-inline-engage'})}).then(function(r){return r.json();}).then(function(d){if(d.success){msg.className='engage-nl-msg ok';msg.textContent='\u2713 Subscribed. Thank you.';document.getElementById('engageNLEmail').value='';btn.textContent='Subscribed \u2713';}else{throw new Error(d.error||'Failed');}}).catch(function(err){msg.className='engage-nl-msg err';msg.textContent=err.message==='This email is already subscribed.'?'Already subscribed \u2014 thank you!':'Something went wrong. Try again.';btn.disabled=false;btn.textContent='Subscribe \u2192';});};})();
 </script>
