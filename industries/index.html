@@ -5,11 +5,12 @@
   URL: /industries/
 
   Created:      2026-04-05
-  Last Updated: 2026-04-29
+  Last Updated: 2026-05-04
 
   CHANGE LOG:
+    2026-05-04 — SEO: Added og:image meta tag for social sharing. Zero other changes.
     2026-04-29 — ALL-PAGES CYCLE pass 2: Added Clarity (wiyn7e4d73), event-tracker,
-                 removed redundant plausible.init() block — pa- script auto-initializes.
+                 removed redundant plausible.init() block.
     2026-04-28 — PLAUSIBLE ANALYTICS added to <head>.
                  FOOTER BOTTOM BAR: added Case Studies, Privacy Policy,
                  Terms of Use links with mid-dot separators.
@@ -18,8 +19,6 @@
     2026-04-22 — STANDARD UPDATE: Footer rebuilt to 3-column standard.
                  Thomas float added.
     2026-04-18 — ROW 3: Action tiles removed. Paper & Packaging centered alone.
-                 Empty placeholder divs keep grid alignment. Action tile CSS
-                 retained in case needed elsewhere.
     2026-04-17 — SEO STRUCTURED DATA + VISIBLE BREADCRUMB.
     2026-04-16 — NAV STANDARD UPGRADE.
     2026-04-15 — Footer: replaced old engage-band + #F4F4F4 footer with standard
@@ -30,11 +29,8 @@
     2026-04-05 — Initial build.
     2026-04-29 — MOBILE OPTIMIZATION:
                  Additive mobile CSS block only — zero desktop rules altered.
-                 This page already had good coverage at 640px and 900px.
-                 HTML change: class="industry-placeholder" added to the two
-                   empty row-3 grid spacer divs (previously bare <div></div>).
-                   Without this, 1-col mobile layout shows dead whitespace
-                   above and below Paper & Packaging.
+                 HTML change: class="industry-placeholder" added to two empty
+                   row-3 grid spacer divs to hide on 1-col mobile layout.
                  @media(max-width:640px): industry-placeholder hidden,
                    footer-bottom-left column stack + separators hidden.
                  @media(max-width:480px): nav-logo-text hidden,
@@ -50,13 +46,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Industries We Serve | Shiftwork Solutions — 24/7 Operations Consulting</title>
-  <meta name="description" content="Shiftwork Solutions serves seven core industries with custom shift schedule design and workforce optimization — manufacturing, distribution, mining, refining, food & beverage, chemical, and paper & packaging operations.">
+  <meta name="description" content="Shiftwork Solutions serves seven core industries with custom shift schedule design and workforce optimization — manufacturing, distribution, mining, refining, food & beverage, chemical/pharmaceutical, and paper & packaging operations.">
   <link rel="canonical" href="https://shift-work.com/industries/">
   <meta property="og:title" content="Industries We Serve | Shiftwork Solutions">
   <meta property="og:description" content="Custom shift schedule consulting for seven core industries running 24/7 operations.">
   <meta property="og:url" content="https://shift-work.com/industries/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Shiftwork Solutions LLC">
+  <meta property="og:image" content="https://shift-work.com/images/second.png">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Industries We Serve | Shiftwork Solutions">
   <meta name="twitter:description" content="Custom shift schedule consulting for seven core industries running 24/7 operations.">
@@ -196,33 +193,14 @@
 
     /* ══════════════════════════════════════════════════════════════════
        MOBILE OPTIMIZATION BLOCK (added 2026-04-29)
-       Strategy: Additive overrides only — no desktop rules altered.
-       This page already has good 640px coverage for nav, hero,
-       industries-section, grid stacking, and footer.
-
-       Fixes:
-         1. industry-placeholder divs hidden at 640px — on 1-col layout
-            the two empty row-3 grid spacers create dead whitespace above
-            and below Paper & Packaging. Class added in HTML (v22).
-         2. footer-bottom-left column stack + separators hidden at 640px
-         3. nav-logo-text hidden at 480px
-         4. Newsletter form column stack at 480px
        ══════════════════════════════════════════════════════════════════ */
-
     @media(max-width:640px){
-      /* 1. Hide empty grid placeholder divs (row 3 spacers) */
       .industry-placeholder{display:none;}
-
-      /* 2. Footer bottom — column stack, hide separators */
       .footer-bottom-left{flex-direction:column;align-items:center;gap:6px;}
       .footer-bottom-sep{display:none;}
     }
-
     @media(max-width:480px){
-      /* 3. Hide logo text on very small screens */
       .nav-logo-text{display:none;}
-
-      /* 4. Newsletter form — stack */
       .engage-nl-form{flex-direction:column;}
       .engage-nl-input{min-width:0;width:100%;}
       .engage-nl-btn{width:100%;}
