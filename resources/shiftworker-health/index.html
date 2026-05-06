@@ -8,6 +8,11 @@
   Last Updated: 2026-05-06
 
   CHANGE LOG:
+    2026-05-06 — Fixed circadian trough bar label overflow: moved label outside
+                 the 15%-wide bar fill div into a sibling .viz-bar-outside-label
+                 span. Changed .viz-bar-track overflow from hidden to visible
+                 and added display:flex so the outside label sits inline.
+                 Added meta keywords tag (was missing from initial build).
     2026-05-06 — Initial build. Content sourced from Health Education
                  Presentation (30-slide deck). Four major sections:
                  Biological Clock & Circadian Rhythms, Sleep & Sleep
@@ -26,6 +31,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shiftworker Health: Sleep, Circadian Rhythms &amp; Lifestyle | Shiftwork Solutions</title>
   <meta name="description" content="Shiftworkers face real health challenges — disrupted sleep, circadian misalignment, and lifestyle pressures that day workers never encounter. Learn what the research shows and what actually helps.">
+  <meta name="keywords" content="shiftworker health, shift work sleep, circadian rhythms shift work, sleep debt, biological clock, night shift health, rotating shift fatigue, anchor sleep, sleep strategies shift work, caffeine shift work, napping shift work, lifestyle shift work, 12-hour shift sleep, fixed night shift health, shiftwork wellness">
   <link rel="canonical" href="https://shift-work.com/resources/shiftworker-health/">
   <meta property="og:title" content="Shiftworker Health: Sleep, Circadian Rhythms &amp; Lifestyle | Shiftwork Solutions">
   <meta property="og:description" content="The biological clock, sleep debt, lifestyle choices, and schedule-specific sleep strategies for shiftworkers. From Shiftwork Solutions.">
@@ -118,8 +124,11 @@
     .viz-caption{margin-top:16px;font-size:11px;color:var(--muted);line-height:1.5}
     .viz-bar-row{display:flex;align-items:center;margin-bottom:12px}
     .viz-bar-label{width:220px;flex-shrink:0;font-size:13px;color:var(--body-text);line-height:1.3;padding-right:12px}
-    .viz-bar-track{flex:1;height:28px;background:#E6EFF6;border-radius:4px;position:relative;overflow:hidden}
-    .viz-bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;font-size:12px;font-weight:700;color:var(--white)}
+    /* overflow:visible so the outside label on the narrow bar is not clipped */
+    .viz-bar-track{flex:1;height:28px;background:#E6EFF6;border-radius:4px;position:relative;overflow:visible;display:flex;align-items:center}
+    .viz-bar-fill{height:100%;border-radius:4px;display:flex;align-items:center;justify-content:flex-end;padding-right:10px;font-size:12px;font-weight:700;color:var(--white);flex-shrink:0}
+    /* Label placed outside the bar for very narrow fills */
+    .viz-bar-outside-label{margin-left:8px;font-size:12px;font-weight:700;white-space:nowrap;color:#C0392B}
 
     /* ── LIFESTYLE GRID ── */
     .lifestyle-grid{max-width:var(--max-width);margin:0 auto 32px;padding:0 var(--page-pad);display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
@@ -375,7 +384,7 @@
     <div class="viz-bar-row"><div class="viz-bar-label">2 PM – 6 PM (recovery)</div><div class="viz-bar-track"><div class="viz-bar-fill" style="width:78%;background:#1F4E79;">Strong alertness</div></div></div>
     <div class="viz-bar-row"><div class="viz-bar-label">6 PM – 10 PM (declining)</div><div class="viz-bar-track"><div class="viz-bar-fill" style="width:50%;background:#2E75B6;">Declining</div></div></div>
     <div class="viz-bar-row"><div class="viz-bar-label">10 PM – 2 AM (low)</div><div class="viz-bar-track"><div class="viz-bar-fill" style="width:30%;background:#E8610A;">Low</div></div></div>
-    <div class="viz-bar-row"><div class="viz-bar-label">2 AM – 6 AM (lowest)</div><div class="viz-bar-track"><div class="viz-bar-fill" style="width:15%;background:#C0392B;">Circadian trough</div></div></div>
+    <div class="viz-bar-row"><div class="viz-bar-label">2 AM – 6 AM (lowest)</div><div class="viz-bar-track"><div class="viz-bar-fill" style="width:15%;background:#C0392B;"></div><span class="viz-bar-outside-label">Circadian trough</span></div></div>
     <div class="viz-caption">Approximate relative alertness for a person on a normal day schedule. Night shift workers are asked to be productive during the circadian trough — the hours the body is least prepared to perform. Source: Shiftwork Solutions analysis based on circadian rhythm research.</div>
   </div>
 </div>
