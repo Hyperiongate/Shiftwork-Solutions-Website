@@ -5,9 +5,11 @@
   URL: /resources/shiftworker-health/
 
   Created:      2026-05-06
-  Last Updated: 2026-05-06
+  Last Updated: 2026-05-07
 
   CHANGE LOG:
+    2026-05-07 — Hero stat labels changed from --mid-blue to white.
+                 Closing summary paragraph added above FAQ section.
     2026-05-06 — Fixed circadian trough bar label overflow: moved label outside
                  the 15%-wide bar fill div into a sibling .viz-bar-outside-label
                  span. Changed .viz-bar-track overflow from hidden to visible
@@ -47,7 +49,7 @@
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://shift-work.com/resources/"},{"@type":"ListItem","position":3,"name":"Shiftworker Health","item":"https://shift-work.com/resources/shiftworker-health/"}]}</script>
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shiftworker Health: Sleep, Circadian Rhythms &amp; Lifestyle","url":"https://shift-work.com/resources/shiftworker-health/","datePublished":"2026-05-06","dateModified":"2026-05-06","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Shiftworker Health: Sleep, Circadian Rhythms &amp; Lifestyle","url":"https://shift-work.com/resources/shiftworker-health/","datePublished":"2026-05-06","dateModified":"2026-05-07","author":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"publisher":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"}}</script>
 
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","logo":"https://shift-work.com/images/clear_bkgr_logo_2.png","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","slogan":"Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.","description":"Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.","foundingDate":"1993","address":{"@type":"PostalAddress","addressLocality":"San Rafael","addressRegion":"CA","postalCode":"94901","addressCountry":"US"}}</script>
 
@@ -97,7 +99,8 @@
     .hero-stats{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
     .hero-stat{background:rgba(255,255,255,.08);border-radius:8px;padding:16px 20px;min-width:160px}
     .hero-stat-num{font-size:26px;font-weight:700;color:var(--white);line-height:1.1}
-    .hero-stat-label{font-size:12px;color:var(--mid-blue);margin-top:4px;line-height:1.35}
+    /* CHANGE 1: stat labels now white instead of --mid-blue */
+    .hero-stat-label{font-size:12px;color:var(--white);margin-top:4px;line-height:1.35}
 
     /* ── BREADCRUMB ── */
     .breadcrumb-bar{background:var(--light-blue);border-bottom:1px solid var(--border-med);padding:10px var(--page-pad)}
@@ -194,6 +197,11 @@
     .anchor-legend{display:flex;gap:20px;margin-top:12px;flex-wrap:wrap}
     .anchor-legend-item{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--muted)}
     .anchor-dot{width:12px;height:12px;border-radius:2px;flex-shrink:0}
+
+    /* ── CLOSING SUMMARY ── */
+    .closing-summary{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad) 40px}
+    .closing-summary p{font-size:15px;line-height:1.75;margin-bottom:18px}
+    .closing-summary p:last-child{margin-bottom:0}
 
     /* ── FAQ ── */
     .faq-section{position:relative;overflow:hidden;margin-top:40px;margin-bottom:0;left:50%;right:50%;margin-left:calc(-50vw);margin-right:calc(-50vw);width:100vw}
@@ -293,7 +301,7 @@
       .nav-logo-text{font-size:16px}
       .hero{padding:32px 20px 36px}.hero h1{font-size:22px}.hero-stats{flex-direction:column;gap:10px}
       .article-wrap{padding:32px 20px 24px}
-      .viz-section,.three-col,.lifestyle-grid,.strategy-section,.table-section,.pull-quote{padding-left:20px;padding-right:20px}
+      .viz-section,.three-col,.lifestyle-grid,.strategy-section,.table-section,.pull-quote,.closing-summary{padding-left:20px;padding-right:20px}
       .footer-prefooter{padding:32px 20px}.footer-bottom{padding:14px 20px}
       .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
       .footer-bottom-left{justify-content:center;flex-direction:column;align-items:center;gap:6px}
@@ -601,6 +609,14 @@
     </ul>
   </div>
 
+</div>
+
+<!-- ── CLOSING SUMMARY ── -->
+<!-- CHANGE 2: New closing summary paragraph added above FAQ -->
+<div class="closing-summary">
+  <hr class="divider">
+  <p>Shiftworkers carry a real biological burden — one that no amount of willpower or caffeine fully offsets. But the research is clear: the workers who manage best are not the ones who try hardest to ignore the challenge. They are the ones who understand what their body is doing, work with it where they can, and work for organizations that design schedules with recovery in mind.</p>
+  <p>Individual habits matter. Sleep environment matters. Meal timing and light exposure and strategic napping all make a measurable difference. And yet the single most powerful variable remains outside the individual worker's control: the schedule itself. How shifts rotate, how much recovery time sits between them, how predictable the pattern is — these are employer decisions. When those decisions are made well, the lifestyle strategies in this guide work better. When they are made poorly, no amount of individual effort fully compensates.</p>
 </div>
 
 <!-- ── FAQ ── -->
