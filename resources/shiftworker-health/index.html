@@ -5,9 +5,25 @@
   URL: /resources/shiftworker-health/
 
   Created:      2026-05-06
-  Last Updated: 2026-05-07
+  Last Updated: 2026-05-11
 
   CHANGE LOG:
+    2026-05-11 — STRATEGY CARDS: All colored left borders and grey backgrounds
+                 removed. Uniform navy top line across all five cards. Four cards
+                 converted from bullet lists to bold-lead + prose format. 8-Hour
+                 Fixed Night Shift card rewritten as prose with anchor diagram
+                 embedded inside it (no longer a separate floating element).
+                 Anchor diagram updated: day-off bar color changed from orange to
+                 mid-blue, anchor row added as third bar (white/navy border).
+                 CAFFEINE TABLE: category headers now black ink; caffeine-low
+                 class changed from green to black; caffeine-med changed from
+                 orange variable to #E8610A.
+    2026-05-11 — LIFESTYLE CARD REDESIGN: Option B applied.
+                 black titles, gold #EEAE26 SVG icons, no grey card border.
+                 Icons placed inline left of title. All 11 emoji icons replaced
+                 with custom inline SVGs: coffee cup, wine glass, pill capsule,
+                 cigarette, spoon (45deg), T-pose figure, sun, crescent moon,
+                 bed, three-figure family, heart.
     2026-05-07 — Hero stat labels changed from --mid-blue to white.
                  Closing summary paragraph added above FAQ section.
     2026-05-06 — Fixed circadian trough bar label overflow: moved label outside
@@ -89,7 +105,7 @@
 
     /* ── HERO ── */
     .hero{background:var(--navy);padding:44px 36px 48px;position:relative;overflow:hidden}
-    .hero::before{content:'';position:absolute;inset:0;background:url('/images/second.png') center center / cover no-repeat;opacity:1;z-index:0}
+    .hero::before{content:'';position:absolute;inset:0;background:url('/images/night_shift_worker.jpg') center center / cover no-repeat;opacity:1;z-index:0}
     .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(13,31,60,0.88) 0%,rgba(31,78,121,0.75) 55%,rgba(31,78,121,0.35) 100%);z-index:0}
     .hero-inner{max-width:var(--max-width);margin:0 auto;position:relative;z-index:1}
     .hero-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mid-blue);margin-bottom:14px}
@@ -122,7 +138,7 @@
 
     /* ── VIZ BOX ── */
     .viz-section{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad) 32px}
-    .viz-box{background:#F8FAFB;border-radius:10px;padding:28px 28px 20px;border:1px solid var(--border-med)}
+    .viz-box{border-radius:10px;padding:28px 28px 20px}
     .viz-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:20px}
     .viz-caption{margin-top:16px;font-size:11px;color:var(--muted);line-height:1.5}
     .viz-bar-row{display:flex;align-items:center;margin-bottom:12px}
@@ -135,36 +151,35 @@
 
     /* ── LIFESTYLE GRID ── */
     .lifestyle-grid{max-width:var(--max-width);margin:0 auto 32px;padding:0 var(--page-pad);display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .lifestyle-card{background:var(--white);border:1px solid var(--border-med);border-radius:8px;padding:18px 16px;border-top:4px solid var(--navy)}
-    .lifestyle-card.accent-orange{border-top-color:var(--orange)}
-    .lifestyle-card.accent-green{border-top-color:var(--green)}
-    .lifestyle-card.accent-mid{border-top-color:var(--mid-blue)}
-    .lifestyle-icon{font-size:22px;margin-bottom:8px;line-height:1}
-    .lifestyle-label{font-size:13px;font-weight:700;color:var(--body-text);margin-bottom:6px}
+    /* Option B: navy top line, black titles, gold SVG icons, no grey border */
+    .lifestyle-card{background:var(--white);border-radius:8px;padding:18px 16px;border-top:4px solid var(--navy)}
+    .lifestyle-card-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+    .lifestyle-icon{flex-shrink:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center}
+    .lifestyle-icon svg{width:32px;height:32px}
+    .lifestyle-label{font-size:13px;font-weight:700;color:var(--body-text);margin:0}
     .lifestyle-text{font-size:12.5px;color:var(--muted);line-height:1.55}
 
     /* ── THREE COL ── */
     .three-col{max-width:var(--max-width);margin:0 auto 32px;padding:0 var(--page-pad);display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .insight-card{background:var(--white);border:1px solid var(--border-med);border-radius:8px;padding:20px;border-top:4px solid var(--navy)}
-    .insight-card.accent-orange{border-top-color:var(--orange)}
-    .insight-card.accent-green{border-top-color:var(--green)}
+    .insight-card.accent-steel{border-top-color:#2E75B6}
+    .insight-card.accent-teal{border-top-color:#0D7E8A}
     .insight-num{font-size:28px;font-weight:700;color:var(--navy);line-height:1.1;margin-bottom:4px}
-    .insight-card.accent-orange .insight-num{color:var(--orange)}
-    .insight-card.accent-green .insight-num{color:var(--green)}
+    .insight-card.accent-steel .insight-num{color:#2E75B6}
+    .insight-card.accent-teal .insight-num{color:#0D7E8A}
     .insight-label{font-size:14px;font-weight:700;color:var(--body-text);margin-bottom:6px}
     .insight-text{font-size:13px;color:var(--muted);line-height:1.55}
 
-    /* ── SCHEDULE STRATEGY CARDS ── */
     .strategy-section{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad) 32px}
-    .strategy-card{background:#F8FAFB;border:1px solid var(--border-med);border-radius:10px;padding:24px 24px 20px;margin-bottom:16px;border-left:5px solid var(--navy)}
-    .strategy-card.orange-left{border-left-color:var(--orange)}
-    .strategy-card.green-left{border-left-color:var(--green)}
-    .strategy-card.mid-left{border-left-color:var(--mid-blue)}
-    .strategy-card.dark-left{border-left-color:var(--navy-dark)}
+    .strategy-card{background:var(--white);border-radius:8px;padding:22px 22px 12px;margin-bottom:14px}
     .strategy-card h3{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.3}
-    .strategy-card.orange-left h3{color:var(--orange)}
-    .strategy-card ul{padding-left:18px;margin:0}
-    .strategy-card li{font-size:14px;line-height:1.7;color:var(--body-text);margin-bottom:4px}
+    .strategy-card p{font-size:14px;line-height:1.7;color:var(--body-text);margin-bottom:10px;padding-left:16px}
+    .strategy-card p:last-child{margin-bottom:0}
+    .strategy-card .lead{font-weight:700;color:var(--body-text)}
+    .strategy-card ul{padding-left:32px;margin:0}
+    .strategy-card li{font-size:14px;line-height:1.7;color:var(--body-text);margin-bottom:8px}
+    .strategy-card li:last-child{margin-bottom:0}
+    .strategy-card li .lead{font-weight:700;color:var(--body-text)}
 
     /* ── PULL QUOTE ── */
     .pull-quote{margin:0 auto 40px;padding:0 var(--page-pad);max-width:var(--max-width);display:flex;align-items:center;gap:16px}
@@ -181,13 +196,14 @@
     .caffeine-table td{padding:9px 14px;border-bottom:1px solid var(--border-light);vertical-align:top;line-height:1.5}
     .caffeine-table tr:nth-child(even) td{background:#F8FAFB}
     .caffeine-table tr:last-child td{border-bottom:none}
-    .caffeine-table .category-row td{font-weight:700;color:var(--navy);background:var(--light-blue);font-size:12px;text-transform:uppercase;letter-spacing:.04em;padding:7px 14px}
+    .caffeine-table .category-row td{font-weight:700;color:#1A1A1A;background:var(--light-blue);font-size:12px;text-transform:uppercase;letter-spacing:.04em;padding:7px 14px}
     .caffeine-high{color:#C0392B;font-weight:700}
-    .caffeine-med{color:var(--orange);font-weight:600}
-    .caffeine-low{color:var(--green)}
+    .caffeine-med{color:#E8610A;font-weight:600}
+    .caffeine-low{color:#1A1A1A}
 
-    /* ── ANCHOR SLEEP VISUAL ── */
-    .anchor-visual{background:#F8FAFB;border:1px solid var(--border-med);border-radius:10px;padding:24px;margin-bottom:24px}
+    /* ── ANCHOR SLEEP VISUAL — no background, no frame ── */
+    .anchor-visual{padding:20px 0 8px;margin-bottom:16px;margin-left:32px}
+    .strategy-card .lead{font-weight:700;color:var(--body-text)}
     .anchor-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--navy);margin-bottom:16px}
     .anchor-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
     .anchor-label{width:160px;flex-shrink:0;font-size:12.5px;color:var(--body-text);font-weight:600}
@@ -199,7 +215,7 @@
     .anchor-dot{width:12px;height:12px;border-radius:2px;flex-shrink:0}
 
     /* ── CLOSING SUMMARY ── */
-    .closing-summary{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad) 40px}
+    .closing-summary{max-width:var(--max-width);margin:0 auto;padding:8px var(--page-pad) 40px}
     .closing-summary p{font-size:15px;line-height:1.75;margin-bottom:18px}
     .closing-summary p:last-child{margin-bottom:0}
 
@@ -362,7 +378,7 @@
   <div class="article-meta"><span class="meta-tag">Complete Guide</span><span class="meta-read">18 min read</span></div>
 
   <div class="eyebrow">Introduction</div>
-  <h2>Why Shift Work and the Human Body Disagree</h2>
+  <h2>Why Shift Work Disrupts the Human Body</h2>
   <p>Human beings evolved to be awake during the day and asleep at night. Every system in the body — temperature regulation, hormone secretion, digestion, cardiovascular function, immune response — operates on a roughly 24-hour cycle calibrated to that pattern. Shift work asks people to override that cycle regularly, and the body does not simply comply.</p>
   <p>This is not a character flaw or a weakness. It is biology. Night shift workers are not tired because they are lazy. Rotating shift workers are not irritable because they cannot cope. They are dealing with a genuine physiological conflict between what their schedule demands and what their biology expects. Understanding this conflict is the foundation for managing it.</p>
   <p>The good news is that it is manageable. Not fully erased — the body never completely adapts to night work — but manageable with the right combination of schedule design, sleep strategy, and lifestyle awareness. This guide covers what the research shows and what actually helps.</p>
@@ -412,8 +428,8 @@
 <!-- ── SLEEP STATS ── -->
 <div class="three-col">
   <div class="insight-card"><div class="insight-num">7–9 hrs</div><div class="insight-label">Individual sleep requirement</div><div class="insight-text">The amount most adults need per 24-hour period. Consistently sleeping less builds cumulative sleep debt that impairs performance even when you feel alert.</div></div>
-  <div class="insight-card accent-orange"><div class="insight-num">1.5–2 hrs</div><div class="insight-label">Average daytime sleep shortfall</div><div class="insight-text">Even in ideal conditions, daytime sleep averages 1.5–2 hours less than nighttime sleep for the same person — because the biological clock is fighting the process.</div></div>
-  <div class="insight-card accent-green"><div class="insight-num">3–4 days</div><div class="insight-label">To recover major sleep debt</div><div class="insight-text">A large sleep debt cannot be erased in one long sleep. Full recovery typically requires multiple nights of extended sleep, making strategic rest periods especially valuable.</div></div>
+  <div class="insight-card accent-steel"><div class="insight-num">1.5–2 hrs</div><div class="insight-label">Average daytime sleep shortfall</div><div class="insight-text">Even in ideal conditions, daytime sleep averages 1.5–2 hours less than nighttime sleep for the same person — because the biological clock is fighting the process.</div></div>
+  <div class="insight-card accent-teal"><div class="insight-num">3–4 days</div><div class="insight-label">To recover major sleep debt</div><div class="insight-text">A large sleep debt cannot be erased in one long sleep. Full recovery typically requires multiple nights of extended sleep, making strategic rest periods especially valuable.</div></div>
 </div>
 
 <!-- ── PULL QUOTE ── -->
@@ -429,66 +445,166 @@
 <div class="article-wrap" style="padding-top:0;">
   <hr class="divider">
   <div class="eyebrow">Part 3 of 4</div>
-  <h2>Lifestyle Choices That Make a Difference</h2>
+  <h2>Lifestyle Choices That Affect Shiftworker Health</h2>
   <p>Six health habits have been consistently linked to longevity and health outcomes in research going back decades: maintaining appropriate weight, eating breakfast regularly, sleeping 7–8 hours per day, not smoking, drinking alcohol moderately if at all, and maintaining a regular exercise program. Studies benchmarking these habits show that day workers follow an average of 4.1 of these habits, while shiftworkers average 3.4 — a meaningful gap that reflects the structural pressures of shift work on lifestyle.</p>
-  <p>The lifestyle choices below are not a checklist — they interact with each other and with schedule type. A rotating shift worker has different constraints and opportunities than a fixed night worker. But all shiftworkers benefit from understanding how each of these factors affects sleep quality, alertness, and long-term health.</p>
+  <p>The lifestyle choices below are not a checklist — they interact with each other and with schedule type. A rotating shift worker has different constraints and opportunities than a fixed night worker. But all shiftworkers benefit from understanding how each of these factors affects sleep quality, alertness, and long-term health. For an overview of how schedule type shapes these tradeoffs, see our <a href="/resources/shift-schedule-patterns-guide/" style="color:var(--navy);">Shift Schedule Patterns guide</a>.</p>
 </div>
 
 <!-- ── LIFESTYLE GRID ── -->
 <div class="lifestyle-grid">
+  <!-- 1. Caffeine -->
   <div class="lifestyle-card">
-    <div class="lifestyle-icon">&#x2615;</div>
-    <div class="lifestyle-label">Caffeine</div>
+    <div class="lifestyle-card-header">
+      <div class="lifestyle-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 12 h18 l-2 16 H10 Z" stroke="#EEAE26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M26 17 q7 0 7 6 q0 6 -7 6" stroke="#EEAE26" stroke-width="2" stroke-linecap="round"/>
+        <line x1="5" y1="29" x2="29" y2="29" stroke="#EEAE26" stroke-width="2" stroke-linecap="round"/>
+        <path d="M13 9 q2-3 0-5" stroke="#EEAE26" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M19 9 q2-3 0-5" stroke="#EEAE26" stroke-width="1.5" stroke-linecap="round"/>
+      </svg></div>
+      <div class="lifestyle-label">Caffeine</div>
+    </div>
     <div class="lifestyle-text">A useful alertness tool when timed correctly. Consumed within 4–6 hours of intended sleep, it delays onset and reduces quality. Habitual high intake to offset sleep debt is not a sustainable strategy.</div>
   </div>
-  <div class="lifestyle-card accent-orange">
-    <div class="lifestyle-icon">&#x1F37A;</div>
-    <div class="lifestyle-label">Alcohol</div>
+
+  <!-- 2. Alcohol -->
+  <div class="lifestyle-card">
+    <div class="lifestyle-card-header">
+      <div class="lifestyle-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 4 L34 4 L24 24 L24 28 L16 28 L16 24 Z" fill="#EEAE26"/>
+        <rect x="8" y="5" width="24" height="7" fill="white" opacity="0.25" rx="1"/>
+        <rect x="18" y="28" width="5" height="9" fill="#EEAE26"/>
+        <rect x="12" y="37" width="17" height="4" rx="2" fill="#EEAE26"/>
+      </svg></div>
+      <div class="lifestyle-label">Alcohol</div>
+    </div>
     <div class="lifestyle-text">Alcohol may help with sleep onset but it fragments sleep architecture — reducing REM sleep and causing earlier waking. It is counterproductive as a sleep aid for shiftworkers who need to maximize every sleep window.</div>
   </div>
-  <div class="lifestyle-card accent-green">
-    <div class="lifestyle-icon">&#x1F48A;</div>
-    <div class="lifestyle-label">Sleep Aids</div>
+
+  <!-- 3. Sleep Aids -->
+  <div class="lifestyle-card">
+    <div class="lifestyle-card-header">
+      <div class="lifestyle-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="14" width="32" height="12" rx="6" stroke="#EEAE26" stroke-width="2"/>
+        <line x1="20" y1="14" x2="20" y2="26" stroke="#EEAE26" stroke-width="2"/>
+      </svg></div>
+      <div class="lifestyle-label">Sleep Aids</div>
+    </div>
     <div class="lifestyle-text">Short-term pharmacological aids may help during schedule transitions. Long-term reliance is problematic and often signals an underlying schedule design problem that medication cannot solve.</div>
   </div>
-  <div class="lifestyle-card accent-mid">
-    <div class="lifestyle-icon">&#x1F6AC;</div>
-    <div class="lifestyle-label">Nicotine</div>
+
+  <!-- 4. Nicotine -->
+  <div class="lifestyle-card">
+    <div class="lifestyle-card-header">
+      <div class="lifestyle-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="17" width="24" height="6" rx="3" fill="#EEAE26"/>
+        <rect x="28" y="17" width="8" height="6" rx="1" fill="#c4710f"/>
+        <path d="M32 14 q2-3 0-6" stroke="#EEAE26" stroke-width="1.5" stroke-linecap="round"/>
+      </svg></div>
+      <div class="lifestyle-label">Nicotine</div>
+    </div>
     <div class="lifestyle-text">A stimulant that disrupts sleep onset and reduces sleep quality. Shiftworkers who smoke report shorter and less restorative sleep compared to non-smoking colleagues on identical schedules.</div>
   </div>
+
+  <!-- 5. Diet & Meal Timing — spoon at 45deg -->
   <div class="lifestyle-card">
-    <div class="lifestyle-icon">&#x1F957;</div>
-    <div class="lifestyle-label">Diet &amp; Meal Timing</div>
+    <div class="lifestyle-card-header">
+      <div class="lifestyle-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="rotate(45,20,20)">
+          <ellipse cx="20" cy="9" rx="9" ry="10" fill="#EEAE26"/>
+          <path d="M16 18 Q15 22 15 26 Q15 30 20 30 Q25 30 25 26 Q25 22 24 18 Z" fill="#EEAE26"/>
+          <ellipse cx="20" cy="29" rx="5" ry="3" fill="#EEAE26"/>
+        </g>
+      </svg></div>
+      <div class="lifestyle-label">Diet &amp; Meal Timing</div>
+    </div>
     <div class="lifestyle-text">The digestive system has its own circadian rhythm. Night shift workers who eat heavy meals during the biological night report higher rates of gastrointestinal discomfort. Lighter meals during night shifts and keeping regular eating windows helps.</div>
   </div>
-  <div class="lifestyle-card accent-orange">
-    <div class="lifestyle-icon">&#x1F3C3;</div>
-    <div class="lifestyle-label">Exercise</div>
+
+  <!-- 6. Exercise — T-pose figure -->
+  <div class="lifestyle-card">
+    <div class="lifestyle-card-header">
+      <div class="lifestyle-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="6" r="5" fill="#EEAE26"/>
+        <rect x="20" y="10" width="0" height="0" fill="#EEAE26"/>
+        <rect x="17" y="11" width="6" height="12" fill="#EEAE26"/>
+        <rect x="2" y="14" width="36" height="7" rx="3.5" fill="#EEAE26"/>
+        <g transform="rotate(-26,17,23)"><rect x="14" y="23" width="7" height="16" rx="3.5" fill="#EEAE26"/></g>
+        <g transform="rotate(26,23,23)"><rect x="19" y="23" width="7" height="16" rx="3.5" fill="#EEAE26"/></g>
+      </svg></div>
+      <div class="lifestyle-label">Exercise</div>
+    </div>
     <div class="lifestyle-text">Regular exercise improves sleep quality and supports circadian rhythm regulation. Intense exercise immediately before sleep can delay onset for some people — timing matters. Even moderate daily activity has measurable benefits.</div>
   </div>
-  <div class="lifestyle-card accent-green">
-    <div class="lifestyle-icon">&#x1F506;</div>
-    <div class="lifestyle-label">Light Exposure</div>
+
+  <!-- 7. Light Exposure — sun -->
+  <div class="lifestyle-card">
+    <div class="lifestyle-card-header">
+      <div class="lifestyle-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="7" stroke="#EEAE26" stroke-width="2"/>
+        <line x1="20" y1="4" x2="20" y2="9" stroke="#EEAE26" stroke-width="2" stroke-linecap="round"/>
+        <line x1="20" y1="31" x2="20" y2="36" stroke="#EEAE26" stroke-width="2" stroke-linecap="round"/>
+        <line x1="4" y1="20" x2="9" y2="20" stroke="#EEAE26" stroke-width="2" stroke-linecap="round"/>
+        <line x1="31" y1="20" x2="36" y2="20" stroke="#EEAE26" stroke-width="2" stroke-linecap="round"/>
+        <line x1="8" y1="8" x2="12" y2="12" stroke="#EEAE26" stroke-width="2" stroke-linecap="round"/>
+        <line x1="28" y1="28" x2="32" y2="32" stroke="#EEAE26" stroke-width="2" stroke-linecap="round"/>
+        <line x1="32" y1="8" x2="28" y2="12" stroke="#EEAE26" stroke-width="2" stroke-linecap="round"/>
+        <line x1="8" y1="32" x2="12" y2="28" stroke="#EEAE26" stroke-width="2" stroke-linecap="round"/>
+      </svg></div>
+      <div class="lifestyle-label">Light Exposure</div>
+    </div>
     <div class="lifestyle-text">Light is the primary zeitgeber — the signal that sets the biological clock. Bright light during a night shift helps suppress melatonin and improve alertness. Dark conditions during sleep (blackout curtains, eye masks) meaningfully improve daytime sleep duration.</div>
   </div>
-  <div class="lifestyle-card accent-mid">
-    <div class="lifestyle-icon">&#x1F634;</div>
-    <div class="lifestyle-label">Napping</div>
+
+  <!-- 8. Napping — crescent moon -->
+  <div class="lifestyle-card">
+    <div class="lifestyle-card-header">
+      <div class="lifestyle-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M28 8 a14 14 0 1 0 0 24 a10 10 0 1 1 0-24 Z" stroke="#EEAE26" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg></div>
+      <div class="lifestyle-label">Napping</div>
+    </div>
     <div class="lifestyle-text">Strategic napping is one of the most effective tools shiftworkers have. A 20-minute nap before a night shift can significantly reduce fatigue during the shift. Longer naps of 90 minutes allow a full sleep cycle and provide more sustained recovery.</div>
   </div>
+
+  <!-- 9. Sleep Environment — bed -->
   <div class="lifestyle-card">
-    <div class="lifestyle-icon">&#x1F6CF;</div>
-    <div class="lifestyle-label">Sleep Environment</div>
+    <div class="lifestyle-card-header">
+      <div class="lifestyle-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="6" width="7" height="24" rx="2" fill="#EEAE26"/>
+        <rect x="1" y="20" width="38" height="12" rx="2" fill="#EEAE26"/>
+        <rect x="8" y="15" width="31" height="7" rx="2" fill="#EEAE26"/>
+        <circle cx="15" cy="15" r="5" fill="#EEAE26"/>
+        <rect x="28" y="32" width="4" height="5" rx="2" fill="#EEAE26"/>
+        <rect x="35" y="32" width="4" height="5" rx="2" fill="#EEAE26"/>
+        <rect x="1" y="32" width="4" height="5" rx="2" fill="#EEAE26"/>
+      </svg></div>
+      <div class="lifestyle-label">Sleep Environment</div>
+    </div>
     <div class="lifestyle-text">Dark, quiet, and cool are the three essentials. Blackout curtains are the single most impactful investment a day-sleeping shiftworker can make. White noise machines and communication with household members about sleep schedules are the other two high-value steps.</div>
   </div>
-  <div class="lifestyle-card accent-orange">
-    <div class="lifestyle-icon">&#x1F46A;</div>
-    <div class="lifestyle-label">Family &amp; Social Life</div>
+
+  <!-- 10. Family & Social Life — three figures -->
+  <div class="lifestyle-card">
+    <div class="lifestyle-card-header">
+      <div class="lifestyle-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 3 a6 6 0 0 1 0 12 C3 15 0 19 0 25 l18 0 C18 19 15 15 9 15 a6 6 0 0 1 0-12 Z" fill="#EEAE26"/>
+        <path d="M31 3 a6 6 0 0 1 0 12 C25 15 22 19 22 25 l18 0 C40 19 37 15 31 15 a6 6 0 0 1 0-12 Z" fill="#EEAE26"/>
+        <path d="M20 9 a4.5 4.5 0 0 1 0 9 C15.5 18 13 22 13 27 l14 0 C27 22 24.5 18 20 18 a4.5 4.5 0 0 1 0-9 Z" fill="#EEAE26"/>
+      </svg></div>
+      <div class="lifestyle-label">Family &amp; Social Life</div>
+    </div>
     <div class="lifestyle-text">Social isolation is a real hazard of shift work. Workers on nights or rotating schedules miss family events, social occasions, and community participation in ways that accumulate over years. Schedule design that gives predictable family time helps — this is one reason the 7-day break in the DuPont schedule is so valued.</div>
   </div>
-  <div class="lifestyle-card accent-green">
-    <div class="lifestyle-icon">&#x2764;</div>
-    <div class="lifestyle-label">Personal Health Habits</div>
+
+  <!-- 11. Personal Health Habits — heart -->
+  <div class="lifestyle-card">
+    <div class="lifestyle-card-header">
+      <div class="lifestyle-icon"><svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 34 C8 24 2 19 2 12 a9 9 0 0 1 18-2 a9 9 0 0 1 18 2 C38 19 32 24 20 34 Z" fill="#EEAE26"/>
+      </svg></div>
+      <div class="lifestyle-label">Personal Health Habits</div>
+    </div>
     <div class="lifestyle-text">The six longevity-linked habits — weight management, eating breakfast, adequate sleep, not smoking, moderate alcohol, and regular exercise — average 3.4 for shiftworkers vs. 4.1 for day workers. Each additional habit followed is associated with meaningfully better long-term health outcomes.</div>
   </div>
 </div>
@@ -528,7 +644,7 @@
   <hr class="divider">
   <div class="eyebrow">Part 4 of 4</div>
   <h2>Sleep Strategies by Schedule Type</h2>
-  <p>Not all shiftworkers face identical challenges. The right sleep strategy depends on the schedule — specifically whether shifts rotate or are fixed, and how long those shifts are. A one-size-fits-all approach misses the point. What helps a rotating 8-hour worker hurts a fixed night worker. The strategies below are matched to the five most common schedule configurations.</p>
+  <p>Not all shiftworkers face identical challenges. The right sleep strategy depends on the schedule — specifically whether shifts rotate or are fixed, and how long those shifts are. A one-size-fits-all approach misses the point. What helps a rotating 8-hour worker hurts a fixed night worker. The strategies below are matched to the five most common schedule configurations. They are starting points, not prescriptions — individual biology, household circumstances, and schedule specifics all affect which approaches hold best in practice.</p>
 </div>
 
 <!-- ── STRATEGY CARDS ── -->
@@ -537,75 +653,74 @@
   <div class="strategy-card">
     <h3>8-Hour Rotating Schedules</h3>
     <ul>
-      <li>Anticipate your first night shift. Sleep in late the day before and stay up late the night before to begin shifting your rhythm toward the night schedule.</li>
-      <li>On the day of your first night shift, sleep in late and take a nap before going to work — even 60–90 minutes provides measurable benefit.</li>
-      <li>After any shift, go straight to bed and aim for 8 consecutive hours rather than fragmenting sleep across multiple shorter periods.</li>
-      <li>Make your sleep environment as dark, quiet, and cool as possible — blackout curtains are the highest-return investment you can make.</li>
+      <li><span class="lead">Anticipate your first night shift.</span> Sleep in late the day before and stay up late the night before to begin shifting your rhythm toward the night schedule.</li>
+      <li><span class="lead">Nap before you go in.</span> On the day of your first night shift, take a pre-shift nap — even 60–90 minutes provides measurable benefit.</li>
+      <li><span class="lead">Go straight to bed after any shift.</span> Aim for 8 consecutive hours rather than fragmenting sleep across multiple shorter periods.</li>
+      <li><span class="lead">Protect your sleep environment.</span> Dark, quiet, and cool — blackout curtains are the highest-return investment you can make.</li>
     </ul>
   </div>
 
-  <div class="strategy-card orange-left">
+  <div class="strategy-card">
     <h3>8-Hour Fixed Night Shift</h3>
+    <p>Fixed night shift is a lifestyle, not just a schedule. The body rewards consistency above almost everything else — the healthiest approach is maintaining the same sleep schedule on days off as on work days.</p>
     <ul>
-      <li>Fixed night shift is a lifestyle, not just a schedule. The healthiest approach is maintaining the same sleep schedule on days off as on work days.</li>
-      <li>If you want to participate in daytime life on days off, use the anchor sleep strategy rather than fully flipping your schedule — see the diagram below.</li>
-      <li>Anchor sleep: if you normally sleep 8 AM–4 PM, sleep 2 AM–10 AM on days off instead. The 2-hour overlap with your normal window preserves enough circadian consistency to avoid full re-alignment each week.</li>
+      <li><span class="lead">If you want daytime access on days off, use anchor sleep.</span> Instead of sleeping your full window at the normal time (8 AM–4 PM), shift it earlier on days off (2 AM–10 AM). The 2-hour overlap — 8 AM to 10 AM — is the anchor. It prevents the biological clock from fully shifting while still allowing meaningful afternoon and evening participation.</li>
     </ul>
-  </div>
-
-  <!-- Anchor Sleep Visual -->
-  <div class="anchor-visual">
-    <div class="anchor-title">Anchor Sleep Strategy — Fixed Night Shift</div>
-    <div class="anchor-row">
-      <div class="anchor-label">Work night sleep</div>
-      <div class="anchor-track">
-        <!-- 8 AM to 4 PM = 33% to 67% of 24h bar -->
-        <div class="anchor-sleep-block" style="left:33%;width:34%;background:#1F4E79;">8 AM – 4 PM</div>
+    <div class="anchor-visual">
+      <div class="anchor-title">Anchor Sleep Strategy — Fixed Night Shift</div>
+      <div class="anchor-row">
+        <div class="anchor-label">Work night sleep</div>
+        <div class="anchor-track">
+          <div class="anchor-sleep-block" style="left:33%;width:34%;background:#1F4E79;">8 AM – 4 PM</div>
+        </div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-label">Day-off sleep</div>
+        <div class="anchor-track">
+          <div class="anchor-sleep-block" style="left:8%;width:34%;background:#85B7EB;">2 AM – 10 AM</div>
+        </div>
+      </div>
+      <div class="anchor-row">
+        <div class="anchor-label">Anchor</div>
+        <div class="anchor-track">
+          <div class="anchor-sleep-block" style="left:33%;width:8%;background:white;border:2px solid #1F4E79;color:#1F4E79;font-size:10px;">8–10 AM</div>
+        </div>
+      </div>
+      <div class="anchor-legend">
+        <div class="anchor-legend-item"><div class="anchor-dot" style="background:#1F4E79;"></div>Night-shift sleep (8 AM–4 PM)</div>
+        <div class="anchor-legend-item"><div class="anchor-dot" style="background:#85B7EB;"></div>Day-off sleep (2 AM–10 AM)</div>
+        <div class="anchor-legend-item"><div class="anchor-dot" style="background:white;border:2px solid #1F4E79;"></div>Anchor overlap (8–10 AM)</div>
       </div>
     </div>
-    <div class="anchor-row">
-      <div class="anchor-label">Day-off sleep</div>
-      <div class="anchor-track">
-        <!-- 2 AM to 10 AM = 8% to 42% -->
-        <div class="anchor-sleep-block" style="left:8%;width:34%;background:#E8610A;">2 AM – 10 AM</div>
-      </div>
-    </div>
-    <div class="anchor-legend">
-      <div class="anchor-legend-item"><div class="anchor-dot" style="background:#1F4E79;"></div>Normal night-shift sleep window (8 AM–4 PM)</div>
-      <div class="anchor-legend-item"><div class="anchor-dot" style="background:#E8610A;"></div>Anchor sleep on days off (2 AM–10 AM)</div>
-      <div class="anchor-legend-item"><div class="anchor-dot" style="background:#1D9E75;"></div>2-hour overlap = the "anchor"</div>
-    </div>
-    <div class="anchor-caption">The overlap between the two sleep windows (approximately 8 AM–10 AM) is the anchor. It prevents the biological clock from fully shifting to a daytime schedule while allowing meaningful daytime participation on days off.</div>
   </div>
 
-  <div class="strategy-card green-left">
+  <div class="strategy-card">
     <h3>12-Hour Rotating Schedules</h3>
+    <p>Many workers on 12s live a day-shift lifestyle and manage night shifts as a periodic challenge rather than a sustained adaptation. Prepare for each night block rather than trying to fully adapt.</p>
     <ul>
-      <li>12-hour schedules provide significantly more days off than 8-hour schedules — many workers on 12s live a day-shift lifestyle and manage night shifts as a periodic challenge rather than a sustained adaptation.</li>
-      <li>Preparing for night shifts helps: sleep in late the day before, stay up late the night before, and take a pre-shift nap on the day of your first night.</li>
-      <li>After each night shift, go straight to bed and aim for 8 consecutive hours. Avoid the temptation to stay up to participate in family activities — the sleep debt accumulates quickly on consecutive nights.</li>
-      <li>After your last night shift, sleep 3–4 hours in the morning, then return to your normal sleep pattern that night. This avoids sleeping the full day and misses less family time than a full recovery sleep.</li>
-      <li>Maintain a dark, quiet sleep environment at all times, including during the day-off periods.</li>
+      <li><span class="lead">Prepare the night before your first night shift.</span> Sleep in late, stay up late, and take a pre-shift nap on the day of your first night.</li>
+      <li><span class="lead">Protect consecutive nights aggressively.</span> Go straight to bed after each shift and aim for 8 consecutive hours — sleep debt accumulates quickly when you trade rest for family time mid-block.</li>
+      <li><span class="lead">After your last night shift, take a partial recovery sleep.</span> Sleep 3–4 hours in the morning, then return to your normal pattern that night — you avoid losing the full day while still recovering enough to sleep normally.</li>
     </ul>
   </div>
 
-  <div class="strategy-card mid-left">
+  <div class="strategy-card">
     <h3>12-Hour Fixed Night Shift</h3>
+    <p>As with 8-hour fixed nights, consistency is the primary goal. Even imperfect consistency beats random adaptation attempts.</p>
     <ul>
-      <li>As with 8-hour fixed nights, maintaining consistent sleep patterns on days off is the healthiest approach. The body prefers consistency above all else.</li>
-      <li>The anchor sleep strategy applies here as well — shift your days-off sleep earlier by about 6 hours rather than fully reversing to a daytime schedule.</li>
-      <li>A third alternative is Rapid Adjustment to Days: after your last night shift, sleep only 4 hours (e.g., 8 AM–noon). Get up and spend 20+ minutes in bright sunlight or strong indoor light. The result: you will have a 4-hour sleep debt that helps you fall asleep at a normal evening time, and you will not lose the entire day to sleep.</li>
-      <li>Having any sleep strategy is substantially better than having none — even imperfect consistency beats random adaptation attempts.</li>
+      <li><span class="lead">Maintain the same sleep window on days off where possible.</span> The body prefers the same schedule every day regardless of work status.</li>
+      <li><span class="lead">Use the anchor strategy if you need daytime access.</span> Shift your days-off sleep earlier by about 6 hours rather than fully reversing to a daytime schedule.</li>
+      <li><span class="lead">Rapid adjustment is a third option.</span> After your last night shift, sleep only 4 hours (8 AM–noon), then get 20+ minutes of bright light. The resulting sleep debt helps you fall asleep at a normal evening time without losing the entire day to recovery.</li>
     </ul>
   </div>
 
-  <div class="strategy-card dark-left">
+  <div class="strategy-card">
     <h3>12-Hour Fixed Day Shift</h3>
+    <p>Consistency is the primary tool for day-shift workers — the biological clock responds best to predictability, and day-shift schedules can reliably offer it.</p>
     <ul>
-      <li>Go to bed earlier the night before your first day shift — even 30–60 minutes earlier than usual helps reduce the early-morning wake-up burden.</li>
-      <li>On days off, resist the temptation to stay up late and sleep in. The later your days-off sleep window, the more misaligned you will be when you return to early mornings — and the more fatigued your first shifts back will be.</li>
-      <li>When you need to catch up on sleep, go to bed earlier rather than staying in bed longer. This preserves your morning anchor and prevents the progressive drift toward later sleep times that erodes day-shift performance.</li>
-      <li>Consistency is the primary tool for day-shift workers: the biological clock responds best to predictability, and predictability is the one thing day-shift schedules can reliably offer.</li>
+      <li><span class="lead">Go to bed earlier the night before your first day shift.</span> Even 30–60 minutes earlier than usual meaningfully reduces the early-morning burden on the first shift back.</li>
+      <li><span class="lead">Resist sleeping in on days off.</span> The later your sleep window drifts, the more misaligned you will be on return and the more fatigued your first shifts back will feel.</li>
+      <li><span class="lead">Catch up by going to bed earlier, not by sleeping longer.</span> This preserves your morning anchor and prevents the progressive drift toward later sleep times that erodes day-shift performance.</li>
     </ul>
   </div>
 
@@ -614,7 +729,6 @@
 <!-- ── CLOSING SUMMARY ── -->
 <!-- CHANGE 2: New closing summary paragraph added above FAQ -->
 <div class="closing-summary">
-  <hr class="divider">
   <p>Shiftworkers carry a real biological burden — one that no amount of willpower or caffeine fully offsets. But the research is clear: the workers who manage best are not the ones who try hardest to ignore the challenge. They are the ones who understand what their body is doing, work with it where they can, and work for organizations that design schedules with recovery in mind.</p>
   <p>Individual habits matter. Sleep environment matters. Meal timing and light exposure and strategic napping all make a measurable difference. And yet the single most powerful variable remains outside the individual worker's control: the schedule itself. How shifts rotate, how much recovery time sits between them, how predictable the pattern is — these are employer decisions. When those decisions are made well, the lifestyle strategies in this guide work better. When they are made poorly, no amount of individual effort fully compensates.</p>
 </div>
@@ -635,8 +749,9 @@
 
 <!-- ── BRIDGE STRIPE ── -->
 <div class="bridge-stripe">
-  <div class="bridge-stripe-text">Schedule design is the first health intervention.</div>
+  <div class="bridge-stripe-text">The right schedule is the first health intervention.</div>
   <div class="bridge-stripe-sub">A schedule that gives workers adequate recovery time, predictable days off, and minimal rapid rotation reduces health burden at the source — before lifestyle choices even come into play.</div>
+  <div style="margin-top:20px;font-size:14px;color:var(--muted);">If your operation's schedules aren't built with recovery in mind, the tools below are a good place to start.</div>
 </div>
 
 <!-- ── FOOTER ── -->
