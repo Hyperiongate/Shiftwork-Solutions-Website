@@ -3,7 +3,7 @@
   Shiftwork Solutions LLC — Contact
   File: contact/index.html
   Created: April 2, 2026
-  Last updated: 2026-05-22
+  Last updated: 2026-05-28
   Author: Claude for Jim @ Shiftwork Solutions LLC
 
   PURPOSE:
@@ -12,6 +12,15 @@
   URL: /contact/
 
   CHANGE LOG:
+    2026-05-28 — Added two CTAs to the Direct Contact column (right side):
+                 1) "Book a Free Consultation" orange button (links to booking URL).
+                 2) "Sign Up for Our Newsletter" inline form (email + Subscribe button)
+                    posting to the existing Swarm newsletter API.
+                 Removed the third footer column (newsletter signup) and its matching
+                 CTA button. Footer engagement row now uses a 2-column layout
+                 (Reality Check + 26 Warning Signs), centered, max-width 760px.
+                 No other changes. Nav, hero, contact form, FAQ, bridge stripe,
+                 Thomas float, schemas, analytics, and all JS handlers preserved.
     2026-05-22 — Removed "Location" contact info item (San Rafael, California block).
                  Removed "Book a Free 20-Minute Call" booking-cta box from the Direct Contact column.
                  No other changes. Nav, footer, schema, analytics, JS, form handlers untouched.
@@ -183,6 +192,31 @@
     .contact-info-value a { color: var(--navy); text-decoration: none; }
     .contact-info-value a:hover { text-decoration: underline; }
 
+    /* SIDEBAR CTA STACK (added 2026-05-28) */
+    .sidebar-cta-stack { margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--border-med); }
+    .sidebar-cta-block { margin-bottom: 24px; }
+    .sidebar-cta-block:last-child { margin-bottom: 0; }
+    .sidebar-cta-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 6px; }
+    .sidebar-cta-title { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4px; line-height: 1.3; }
+    .sidebar-cta-desc { font-size: 13px; color: var(--muted); line-height: 1.55; margin-bottom: 12px; }
+    .sidebar-cta-btn { display: block; width: 100%; padding: 12px 18px; background: var(--orange); color: #fff; font-family: Arial, sans-serif; font-size: 14px; font-weight: 700; text-align: center; text-decoration: none; border: none; border-radius: var(--radius); cursor: pointer; transition: background .15s; }
+    .sidebar-cta-btn:hover { background: #c4510a; }
+    .sidebar-cta-btn:disabled { opacity: .55; cursor: not-allowed; }
+    .sidebar-nl-form { display: flex; gap: 8px; flex-wrap: wrap; }
+    .sidebar-nl-input { flex: 1; min-width: 140px; padding: 11px 12px; border: 1.5px solid var(--border-med); border-radius: var(--radius); background: #fff; color: var(--body-text); font-family: Arial, sans-serif; font-size: 14px; outline: none; transition: border-color .15s; }
+    .sidebar-nl-input:focus { border-color: var(--navy); }
+    .sidebar-nl-btn { padding: 11px 18px; background: var(--orange); color: #fff; border: none; border-radius: var(--radius); font-family: Arial, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; transition: background .15s; white-space: nowrap; }
+    .sidebar-nl-btn:hover { background: #c4510a; }
+    .sidebar-nl-btn:disabled { opacity: .55; cursor: not-allowed; }
+    .sidebar-nl-msg { font-size: 13px; margin-top: 8px; min-height: 16px; }
+    .sidebar-nl-msg.ok { color: #065f46; }
+    .sidebar-nl-msg.err { color: #991b1b; }
+    @media (max-width: 480px) {
+      .sidebar-nl-form { flex-direction: column; }
+      .sidebar-nl-input { min-width: 0; width: 100%; }
+      .sidebar-nl-btn { width: 100%; }
+    }
+
     /* FAQ */
     .faq-section { position: relative; overflow: hidden; }
     .faq-bg { position: absolute; inset: 0; background: url('/images/Hands_in_the_air.jpg') center center / cover no-repeat; z-index: 0; }
@@ -212,31 +246,20 @@
     .site-footer { background: var(--navy-dark); }
     .footer-prefooter { padding: 48px var(--page-pad) 44px; border-bottom: 1px solid rgba(255,255,255,.1); }
     .footer-wrap { max-width: 1100px; margin: 0 auto; }
-    .footer-content-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; margin-bottom: 30px; }
+    /* 2-column engagement row (updated 2026-05-28: newsletter column removed) */
+    .footer-content-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 30px; max-width: 760px; margin-left: auto; margin-right: auto; }
     .footer-col { padding: 0 32px; }
     .footer-col-1 { padding-left: 0; border-right: 1px solid rgba(255,255,255,.08); }
-    .footer-col-2 { border-right: 1px solid rgba(255,255,255,.08); }
-    .footer-col-3 { padding-right: 0; }
-    .footer-cta-row { display: flex; align-items: center; gap: 0; }
-    .footer-cta-1, .footer-cta-2, .footer-cta-3 { flex: 0 0 33.333%; padding: 0 32px; }
+    .footer-col-2 { padding-right: 0; }
+    .footer-cta-row { display: flex; align-items: center; gap: 0; max-width: 760px; margin: 0 auto; }
+    .footer-cta-1, .footer-cta-2 { flex: 0 0 50%; padding: 0 32px; }
     .footer-cta-1 { padding-left: 0; border-right: 1px solid rgba(255,255,255,.08); }
-    .footer-cta-2 { border-right: 1px solid rgba(255,255,255,.08); }
-    .footer-cta-3 { padding-right: 0; }
+    .footer-cta-2 { padding-right: 0; }
     .footer-cta-btn { display: inline-block; padding: 10px 20px; background: var(--orange); color: #fff; font-size: 13px; font-weight: 700; text-decoration: none; border-radius: 4px; transition: background .15s; white-space: nowrap; }
     .footer-cta-btn:hover { background: #c4510a; }
     .engage-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--mid-blue); margin-bottom: 10px; }
     .engage-col-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 10px; }
     .engage-col-desc { font-size: 14px; color: rgba(255,255,255,.62); line-height: 1.65; }
-    .engage-nl-form { display: flex; gap: 8px; flex-wrap: wrap; }
-    .engage-nl-input { flex: 1; min-width: 120px; padding: 10px 12px; border: 1.5px solid rgba(255,255,255,.2); border-radius: 4px; background: rgba(255,255,255,.08); color: #fff; font-family: Arial, sans-serif; font-size: 14px; outline: none; transition: border-color .15s; }
-    .engage-nl-input::placeholder { color: rgba(255,255,255,.4); }
-    .engage-nl-input:focus { border-color: var(--mid-blue); }
-    .engage-nl-btn { padding: 10px 18px; background: var(--orange); color: #fff; border: none; border-radius: 4px; font-family: Arial, sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; transition: background .15s; white-space: nowrap; }
-    .engage-nl-btn:hover { background: #c4510a; }
-    .engage-nl-btn:disabled { opacity: .5; cursor: not-allowed; }
-    .engage-nl-msg { font-size: 13px; margin-top: 8px; min-height: 16px; }
-    .engage-nl-msg.ok { color: #6ee7b7; }
-    .engage-nl-msg.err { color: #fca5a5; }
     .footer-bottom { padding: 16px var(--page-pad); }
     .footer-bottom-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 14px; color: rgba(255,255,255,.45); }
     .footer-bottom-inner a { color: rgba(255,255,255,.45); text-decoration: none; transition: color .15s; }
@@ -244,7 +267,7 @@
     .footer-bottom-left { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
     .footer-bottom-brand { font-weight: 700; color: rgba(255,255,255,.7); }
     .footer-bottom-sep { color: rgba(255,255,255,.2); user-select: none; }
-    @media (max-width: 760px) { .footer-content-row { grid-template-columns: 1fr; } .footer-col { padding: 0 0 24px 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 4px; } .footer-col-3 { border-bottom: none; padding-bottom: 0; } .footer-cta-row { flex-direction: column; align-items: flex-start; gap: 20px; } .footer-cta-1, .footer-cta-2, .footer-cta-3 { flex: none; padding: 0; border: none; } }
+    @media (max-width: 760px) { .footer-content-row { grid-template-columns: 1fr; } .footer-col { padding: 0 0 24px 0; border-right: none; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 4px; } .footer-col-2 { border-bottom: none; padding-bottom: 0; } .footer-cta-row { flex-direction: column; align-items: flex-start; gap: 20px; } .footer-cta-1, .footer-cta-2 { flex: none; padding: 0; border: none; } }
     @media (max-width: 640px) { .footer-prefooter { padding: 32px 20px; } .footer-bottom { padding: 14px 20px; } .footer-bottom-inner { flex-direction: column; text-align: center; gap: 6px; } .footer-bottom-left { justify-content: center; } }
 
     /* THOMAS FLOAT */
@@ -270,9 +293,6 @@
     @media(max-width:480px){
       .site-logo-text{display:none;}
       .page-hero h1{font-size:26px;}
-      .engage-nl-form{flex-direction:column;}
-      .engage-nl-input{min-width:0;width:100%;}
-      .engage-nl-btn{width:100%;}
     }
   </style>
 </head>
@@ -390,6 +410,29 @@
         </div>
       </div>
 
+      <!-- SIDEBAR CTA STACK (added 2026-05-28) -->
+      <div class="sidebar-cta-stack">
+
+        <div class="sidebar-cta-block">
+          <div class="sidebar-cta-label">Schedule a Call</div>
+          <div class="sidebar-cta-title">Book a Free Consultation</div>
+          <p class="sidebar-cta-desc">Pick a time that works for you. The conversation is free.</p>
+          <a class="sidebar-cta-btn" href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" target="_blank" rel="noopener">Book a Free Consultation &rarr;</a>
+        </div>
+
+        <div class="sidebar-cta-block">
+          <div class="sidebar-cta-label">Newsletter</div>
+          <div class="sidebar-cta-title">Sign Up for Our Newsletter</div>
+          <p class="sidebar-cta-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p>
+          <form class="sidebar-nl-form" onsubmit="sidebarNLSubmit(event)">
+            <input type="email" class="sidebar-nl-input" placeholder="your@company.com" required id="sidebarNLEmail">
+            <button type="submit" class="sidebar-nl-btn" id="sidebarNLBtn">Subscribe &rarr;</button>
+          </form>
+          <div class="sidebar-nl-msg" id="sidebarNLMsg"></div>
+        </div>
+
+      </div>
+
     </div>
 
   </div>
@@ -417,12 +460,10 @@
     <div class="footer-content-row">
       <div class="footer-col footer-col-1"><div class="engage-label">FREE ASSESSMENT</div><div class="engage-col-title">Shiftwork Operations Reality Check</div><p class="engage-col-desc">A structured assessment of where your shiftwork operation stands — and where the gaps are costing you most.</p></div>
       <div class="footer-col footer-col-2"><div class="engage-label">DIAGNOSTIC ARTICLE</div><div class="engage-col-title">The 26 Warning Signs</div><p class="engage-col-desc">The operational symptoms that signal when your shiftwork system needs attention.</p></div>
-      <div class="footer-col footer-col-3"><div class="engage-label">NEWSLETTER</div><div class="engage-col-title">Stay Sharp on Shift Operations</div><p class="engage-col-desc">Practical insights from decades of work across hundreds of 24/7 operations. No fluff.</p></div>
     </div>
     <div class="footer-cta-row">
       <div class="footer-cta-1"><a href="https://www.shift-work.com/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Reality Check &#x2192;</a></div>
       <div class="footer-cta-2"><a href="/resources/26-warning-signs-schedule-problems/" class="footer-cta-btn">Read the Warning Signs &#x2192;</a></div>
-      <div class="footer-cta-3"><form class="engage-nl-form" onsubmit="engageNLSubmit(event)"><input type="email" class="engage-nl-input" placeholder="your@company.com" required id="engageNLEmail"><button type="submit" class="engage-nl-btn" id="engageNLBtn">Subscribe &#x2192;</button></form><div class="engage-nl-msg" id="engageNLMsg"></div></div>
     </div>
   </div></div>
   <div class="footer-bottom"><div class="footer-bottom-inner">
@@ -477,17 +518,18 @@ document.addEventListener('click', function(e) {
   });
 })();
 
+/* SIDEBAR NEWSLETTER SUBMIT (added 2026-05-28 — replaces removed footer newsletter form) */
 (function() {
   var SWARM = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
-  window.engageNLSubmit = function(e) {
+  window.sidebarNLSubmit = function(e) {
     e.preventDefault();
-    var btn = document.getElementById('engageNLBtn'), msg = document.getElementById('engageNLMsg'), email = document.getElementById('engageNLEmail').value.trim();
+    var btn = document.getElementById('sidebarNLBtn'), msg = document.getElementById('sidebarNLMsg'), email = document.getElementById('sidebarNLEmail').value.trim();
     if (!email) return;
     btn.disabled = true; btn.textContent = 'Subscribing...';
-    fetch(SWARM, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email, source: 'contact-footer-nl' }) })
+    fetch(SWARM, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email: email, source: 'contact-sidebar-nl' }) })
       .then(function(r) { return r.json(); })
-      .then(function(d) { if (d.success) { msg.className = 'engage-nl-msg ok'; msg.textContent = '\u2713 Subscribed. Thank you.'; document.getElementById('engageNLEmail').value = ''; btn.textContent = 'Subscribed \u2713'; } else { throw new Error(d.error || 'Failed'); } })
-      .catch(function(err) { msg.className = 'engage-nl-msg err'; msg.textContent = err.message === 'This email is already subscribed.' ? 'Already subscribed \u2014 thank you!' : 'Something went wrong. Try again.'; btn.disabled = false; btn.textContent = 'Subscribe \u2192'; });
+      .then(function(d) { if (d.success) { msg.className = 'sidebar-nl-msg ok'; msg.textContent = '\u2713 Subscribed. Thank you.'; document.getElementById('sidebarNLEmail').value = ''; btn.textContent = 'Subscribed \u2713'; } else { throw new Error(d.error || 'Failed'); } })
+      .catch(function(err) { msg.className = 'sidebar-nl-msg err'; msg.textContent = err.message === 'This email is already subscribed.' ? 'Already subscribed \u2014 thank you!' : 'Something went wrong. Try again.'; btn.disabled = false; btn.textContent = 'Subscribe \u2192'; });
   };
 })();
 
