@@ -1,331 +1,196 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Shiftwork Solutions LLC — sitemap.xml
-  File: sitemap.xml (root of repo)
-  Created: April 5, 2026
-  Last Updated: April 19, 2026
-  Author: Claude Opus 4.6 for Jim @ Shiftwork Solutions LLC
+# ─────────────────────────────────────────────────────────────
+# Shiftwork Solutions LLC — _redirects
+# File: _redirects (root of repo)
+# Created: 2026-06-11 (full rebuild)
+# Last Updated: 2026-06-11
+# Author: Claude Fable 5 for Jim @ Shiftwork Solutions LLC
+#
+# PURPOSE:
+#     301 redirect map for shift-work.com on Render.
+#     Maps legacy WordPress-era URLs (pre-April-2026 site) to their
+#     closest equivalents on the current static site. This recovers
+#     link equity from old URLs still in Google's index and clears
+#     stale search results (which carried the old phone number).
+#
+# FORMAT (Render static site redirect rules):
+#     /source-path  /destination-path  301
+#     - One rule per line, whitespace separated.
+#     - Rules are evaluated top to bottom; FIRST MATCH WINS.
+#     - A trailing /* wildcard matches everything under a directory.
+#     - Specific rules MUST appear before their section's wildcard
+#       catch-all. Do not reorder.
+#     - Each exact page has two rules (with and without trailing
+#       slash) so matching works regardless of how the old URL was
+#       indexed.
+#
+# DEPLOYMENT:
+#     Place in the ROOT of the Shiftwork-Solutions-Website GitHub
+#     repo. Render reads it automatically on deploy.
+#
+# MAINTENANCE:
+#     If Google Search Console later reveals additional indexed
+#     legacy URLs that 404, add specific rules for them ABOVE the
+#     relevant catch-all.
+#
+# CHANGE LOG:
+#     2026-06-11 — FULL REBUILD. Previous file contained a stale
+#                  copy of sitemap.xml (April 19 version) and zero
+#                  redirect rules — it was doing nothing. Replaced
+#                  with a complete 301 map covering all legacy
+#                  WordPress URLs captured from the old site's
+#                  navigation: /shift-issues/, /news/, /about/
+#                  children, /how-we-work/, /home/, quiz,
+#                  calculators, and project-manager pages, plus
+#                  wildcard catch-alls for old blog/category paths.
+#                  NOTE: same-day host flip in Render — bare domain
+#                  (shift-work.com) is now primary; www redirects
+#                  to it. These rules are path-based and host-
+#                  independent.
+# ─────────────────────────────────────────────────────────────
 
-  PURPOSE:
-      XML sitemap for shift-work.com. Lists all deployed pages with
-      lastmod dates and priority values. Referenced by robots.txt.
-      Ensures all pages are discoverable by search engines and AI
-      retrieval bots.
+# ═══════════════════════════════════════════════════════════════
+# TOP-LEVEL LEGACY PAGES
+# ═══════════════════════════════════════════════════════════════
+/why-shiftwork-solutions                                        /why-us/                                              301
+/why-shiftwork-solutions/                                       /why-us/                                              301
+/our-project-managers                                           /our_team/                                            301
+/our-project-managers/                                          /our_team/                                            301
+/shiftwork-quiz                                                 /resources/shiftwork-assessment/                      301
+/shiftwork-quiz/                                                /resources/shiftwork-assessment/                      301
+/calculators                                                    /resources/                                           301
+/calculators/                                                   /resources/                                           301
+/calculators/*                                                  /resources/                                           301
+/news-3                                                         /resources/                                           301
+/news-3/                                                        /resources/                                           301
 
-  DEPLOYMENT:
-      Place in the ROOT of the Shiftwork-Solutions-Website GitHub repo.
-      Render serves it at https://shift-work.com/sitemap.xml
+# ═══════════════════════════════════════════════════════════════
+# OLD /home/ SECTION
+# ═══════════════════════════════════════════════════════════════
+/home/services-offered                                          /services/                                            301
+/home/services-offered/                                         /services/                                            301
+/home                                                           /                                                     301
+/home/                                                          /                                                     301
+/home/*                                                         /                                                     301
 
-  MAINTENANCE:
-      Update this file whenever a new page is added or an existing
-      page receives a significant content update. Update the <lastmod>
-      date to match the deployment date.
+# ═══════════════════════════════════════════════════════════════
+# OLD /about/ CHILDREN
+# (the new /about/ page itself is LIVE — no catch-all on /about/*)
+# Specific article rule comes before the shiftwork-articles splat.
+# ═══════════════════════════════════════════════════════════════
+/about/our-commitment                                           /about/                                               301
+/about/our-commitment/                                          /about/                                               301
+/about/testimonials                                             /testimonials/                                        301
+/about/testimonials/                                            /testimonials/                                        301
+/about/speaking-engagements                                     /about/                                               301
+/about/speaking-engagements/                                    /about/                                               301
+/about/faq                                                      /about/                                               301
+/about/faq/                                                     /about/                                               301
+/about/changing-schedules                                       /resources/schedule-change-management/                301
+/about/changing-schedules/                                      /resources/schedule-change-management/                301
+/about/characteristics-of-effective-shift-schedules             /resources/shift-schedule-design-guide/               301
+/about/characteristics-of-effective-shift-schedules/            /resources/shift-schedule-design-guide/               301
+/about/maintenance-workers                                      /resources/focused/maintenance-worker-scheduling/     301
+/about/maintenance-workers/                                     /resources/focused/maintenance-worker-scheduling/     301
+/about/shiftwork-articles/making-the-change-to-a-24x7-shift-operation   /resources/schedule-change-management/        301
+/about/shiftwork-articles/making-the-change-to-a-24x7-shift-operation/  /resources/schedule-change-management/        301
+/about/shiftwork-articles                                       /resources/                                           301
+/about/shiftwork-articles/                                      /resources/                                           301
+/about/shiftwork-articles/*                                     /resources/                                           301
 
-  CHANGE LOG:
-      2026-04-05 — Initial build. 39 URLs.
-      2026-04-06 — Added /about/, /our_team/, /testimonials/,
-                   /industries/paper-packaging-operations/. 43 URLs total.
-      2026-04-19 — DOMAIN GO-LIVE: site launched at shift-work.com.
-                   All lastmod dates updated to reflect live deployment.
-                   Fixed two incorrect pillar guide slugs:
-                     absenteeism-relief-coverage-management
-                       → staffing-strategy-guide
-                     shift-work-policies-guide
-                       → shift-work-health-safety-compliance
-                   Updated contact page lastmod (form fix deployed today).
+# ═══════════════════════════════════════════════════════════════
+# OLD /how-we-work/ SECTION
+# Specific rules first, then catch-all.
+# ═══════════════════════════════════════════════════════════════
+/how-we-work/shiftwork-solutions-change-model                   /resources/schedule-change-management/                301
+/how-we-work/shiftwork-solutions-change-model/                  /resources/schedule-change-management/                301
+/how-we-work/service-examples                                   /resources/case-studies/                              301
+/how-we-work/service-examples/                                  /resources/case-studies/                              301
+/how-we-work/how-to-work-with-us                                /services/                                            301
+/how-we-work/how-to-work-with-us/                               /services/                                            301
+/how-we-work                                                    /services/                                            301
+/how-we-work/                                                   /services/                                            301
+/how-we-work/*                                                  /services/                                            301
 
-  I did no harm and this file is not truncated
--->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+# ═══════════════════════════════════════════════════════════════
+# OLD /shift-issues/ SECTION
+# Specific rules first, then catch-all.
+# ═══════════════════════════════════════════════════════════════
+/shift-issues/employee-involvement                              /resources/employee-engagement-shift-work/            301
+/shift-issues/employee-involvement/                             /resources/employee-engagement-shift-work/            301
+/shift-issues/lean-manufacturing                                /resources/shift-work-best-practices/                 301
+/shift-issues/lean-manufacturing/                               /resources/shift-work-best-practices/                 301
+/shift-issues/improving-productivity                            /resources/equipment-utilization-shift-scheduling/    301
+/shift-issues/improving-productivity/                           /resources/equipment-utilization-shift-scheduling/    301
+/shift-issues/relieving-bottlenecks                             /resources/equipment-utilization-shift-scheduling/    301
+/shift-issues/relieving-bottlenecks/                            /resources/equipment-utilization-shift-scheduling/    301
+/shift-issues/asset-utilization                                 /resources/equipment-utilization-shift-scheduling/    301
+/shift-issues/asset-utilization/                                /resources/equipment-utilization-shift-scheduling/    301
+/shift-issues/business-analysis                                 /services/                                            301
+/shift-issues/business-analysis/                                /services/                                            301
+/shift-issues/managing-growth                                   /resources/focused/scaling-production-quickly/        301
+/shift-issues/managing-growth/                                  /resources/focused/scaling-production-quickly/        301
+/shift-issues/managing-absenteeism                              /resources/absenteeism-relief-coverage-management/    301
+/shift-issues/managing-absenteeism/                             /resources/absenteeism-relief-coverage-management/    301
+/shift-issues/relief-crews                                      /resources/absenteeism-relief-coverage-management/    301
+/shift-issues/relief-crews/                                     /resources/absenteeism-relief-coverage-management/    301
+/shift-issues/skill-balance                                     /resources/absenteeism-relief-coverage-management/    301
+/shift-issues/skill-balance/                                    /resources/absenteeism-relief-coverage-management/    301
+/shift-issues/increase-alertness                                /resources/focused/sleep-alertness-safety-shift-work/ 301
+/shift-issues/increase-alertness/                               /resources/focused/sleep-alertness-safety-shift-work/ 301
+/shift-issues/variable-workloads                                /resources/managing-variable-workloads/               301
+/shift-issues/variable-workloads/                               /resources/managing-variable-workloads/               301
+/shift-issues/common-concerns-about-12-hour-shifts              /resources/shift-schedule-patterns-guide/             301
+/shift-issues/common-concerns-about-12-hour-shifts/             /resources/shift-schedule-patterns-guide/             301
+/shift-issues                                                   /services/                                            301
+/shift-issues/                                                  /services/                                            301
+/shift-issues/*                                                 /services/                                            301
 
-  <!-- ═══════════════════════════════════════════════════════════
-       HOMEPAGE
-  ════════════════════════════════════════════════════════════ -->
-  <url>
-    <loc>https://shift-work.com/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
+# ═══════════════════════════════════════════════════════════════
+# OLD /news/ BLOG
+# Specific posts first, then category rules, then catch-alls.
+# ═══════════════════════════════════════════════════════════════
+/news/characteristics-of-effective-shift-schedules              /resources/shift-schedule-design-guide/               301
+/news/characteristics-of-effective-shift-schedules/             /resources/shift-schedule-design-guide/               301
+/news/things-to-consider-when-changing-shift-schedules          /resources/schedule-change-management/                301
+/news/things-to-consider-when-changing-shift-schedules/         /resources/schedule-change-management/                301
+/news/is-it-possible-to-implement-multiple-schedules-at-one-site    /resources/shift-schedule-patterns-guide/         301
+/news/is-it-possible-to-implement-multiple-schedules-at-one-site/   /resources/shift-schedule-patterns-guide/         301
+/news/make-flexible-scheduling-part-of-your-shiftwork-operation     /resources/shift-schedule-patterns-guide/         301
+/news/make-flexible-scheduling-part-of-your-shiftwork-operation/    /resources/shift-schedule-patterns-guide/         301
+/news/practices-to-manage-variable-workloads                    /resources/managing-variable-workloads/               301
+/news/practices-to-manage-variable-workloads/                   /resources/managing-variable-workloads/               301
+/news/best-practices-in-shift-work-operations-part-3-of-10      /resources/shift-work-best-practices/                 301
+/news/best-practices-in-shift-work-operations-part-3-of-10/     /resources/shift-work-best-practices/                 301
+/news/best-practices-in-shift-work-operations-part-4-of-10      /resources/shift-work-best-practices/                 301
+/news/best-practices-in-shift-work-operations-part-4-of-10/     /resources/shift-work-best-practices/                 301
+/news/category/overtime                                         /resources/overtime-management-guide/                 301
+/news/category/overtime/                                        /resources/overtime-management-guide/                 301
+/news/category/change-management                                /resources/schedule-change-management/                301
+/news/category/change-management/                               /resources/schedule-change-management/                301
+/news/category/shift-schedules                                  /resources/shift-schedule-patterns-guide/             301
+/news/category/shift-schedules/                                 /resources/shift-schedule-patterns-guide/             301
+/news/category/schedule-design                                  /resources/shift-schedule-design-guide/               301
+/news/category/schedule-design/                                 /resources/shift-schedule-design-guide/               301
+/news/category/schedule-evaluations                             /resources/shift-schedule-design-guide/               301
+/news/category/schedule-evaluations/                            /resources/shift-schedule-design-guide/               301
+/news/category/schedule-management                              /resources/shift-work-best-practices/                 301
+/news/category/schedule-management/                             /resources/shift-work-best-practices/                 301
+/news/category/human-resource-management                        /resources/employee-engagement-shift-work/            301
+/news/category/human-resource-management/                       /resources/employee-engagement-shift-work/            301
+/news/category/*                                                /resources/                                           301
+/news                                                           /resources/                                           301
+/news/                                                          /resources/                                           301
+/news/*                                                         /resources/                                           301
 
-  <!-- ═══════════════════════════════════════════════════════════
-       TOP-LEVEL PAGES
-  ════════════════════════════════════════════════════════════ -->
-  <url>
-    <loc>https://shift-work.com/services/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/industries/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/why-us/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/contact/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/about/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/our_team/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/testimonials/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+# ═══════════════════════════════════════════════════════════════
+# GENERIC WORDPRESS LEFTOVERS
+# Standard WP URL structures that may still be indexed.
+# ═══════════════════════════════════════════════════════════════
+/blog                                                           /resources/                                           301
+/blog/                                                          /resources/                                           301
+/blog/*                                                         /resources/                                           301
+/category/*                                                     /resources/                                           301
+/tag/*                                                          /resources/                                           301
+/author/*                                                       /our_team/                                            301
 
-  <!-- ═══════════════════════════════════════════════════════════
-       PILLAR GUIDES (10 pages)
-  ════════════════════════════════════════════════════════════ -->
-  <url>
-    <loc>https://shift-work.com/resources/shift-schedule-design-guide/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/shift-schedule-patterns-guide/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/equipment-utilization-shift-scheduling/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/managing-variable-workloads/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/overtime-management-guide/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/schedule-change-management/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/employee-engagement-shift-work/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/shift-work-best-practices/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/staffing-strategy-guide/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/shift-work-health-safety-compliance/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       SUPPORT ARTICLES (7 pages)
-  ════════════════════════════════════════════════════════════ -->
-  <url>
-    <loc>https://shift-work.com/resources/support/scaling-production-quickly/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/support/sleep-alertness-safety-shift-work/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/support/maintenance-worker-scheduling/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/support/communicating-schedule-changes/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/support/workforce-survey-analysis/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/support/balancing-business-employee-needs/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/support/schedule-change-pitfalls/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       TRENDING TOPIC ARTICLES (8 pages)
-  ════════════════════════════════════════════════════════════ -->
-  <url>
-    <loc>https://shift-work.com/resources/32-hour-workweek-manufacturing/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/tapping-untapped-workforce/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/management-by-walking-around/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/overtime-tax-break-businesses/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/reshoring-manufacturing-workforce/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/mixed-signals-economy/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/schedule-looks-fine-on-paper/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/ai-on-the-plant-floor/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       INDUSTRY PAGES (7 pages)
-  ════════════════════════════════════════════════════════════ -->
-  <url>
-    <loc>https://shift-work.com/industries/manufacturing-assembly-operations/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/industries/distribution-logistics-operations/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/industries/mining-extraction-industries/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/industries/refining-utilities-operations/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/industries/food-beverage-manufacturing/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/industries/chemical-pharmaceutical-operations/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/industries/paper-packaging-operations/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- ═══════════════════════════════════════════════════════════
-       TOOLS & ASSESSMENT
-  ════════════════════════════════════════════════════════════ -->
-  <url>
-    <loc>https://shift-work.com/resources/26-warning-signs-schedule-problems/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://shift-work.com/resources/shiftwork-assessment/</loc>
-    <lastmod>2026-04-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-</urlset>
-<!-- I did no harm and this file is not truncated -->
+# I did no harm and this file is not truncated
