@@ -2,15 +2,21 @@
 # Shiftwork Solutions LLC — robots.txt
 # File: robots.txt (root of repo)
 # Created: April 5, 2026
-# Last Updated: April 5, 2026
-# Author: Claude Opus 4.6 for Jim @ Shiftwork Solutions LLC
+# Last Updated: June 11, 2026
+# Author: Claude Fable 5 for Jim @ Shiftwork Solutions LLC
+#     (original build: Claude Opus 4.6, April 5, 2026)
 #
 # PURPOSE:
 #     Crawler governance for shift-work.com.
 #     - Allows all search engine crawlers full access
-#     - Allows AI retrieval bots (for real-time search answers)
+#     - Allows AI retrieval/search bots (real-time answers + citations)
 #     - Blocks AI training bots (content scraping for model training)
 #     - Points to sitemap.xml
+#
+# POLICY RULE OF THUMB:
+#     If a bot puts shift-work.com in front of a prospect (search
+#     results, AI answers, citations) → ALLOW.
+#     If a bot only harvests content to train models → BLOCK.
 #
 # DEPLOYMENT:
 #     Place in the ROOT of the Shiftwork-Solutions-Website GitHub repo.
@@ -19,6 +25,22 @@
 # CHANGE LOG:
 #     2026-04-05 — Initial build. Full access for search engines,
 #                  AI retrieval bots allowed, AI training bots blocked.
+#     2026-06-11 — AI CRAWLER REFRESH:
+#                  Added retrieval/search bots: OAI-SearchBot,
+#                  Perplexity-User, Claude-User, Claude-SearchBot,
+#                  DuckAssistBot, MistralAI-User, meta-externalfetcher,
+#                  Amazonbot, Google-CloudVertexBot, Applebot.
+#                  Added training bots to block list:
+#                  meta-externalagent, cohere-training-data-crawler.
+#                  CORRECTED two misclassifications:
+#                  (1) Applebot-Extended moved Allow → Disallow. It is
+#                      Apple's TRAINING opt-out signal, not a retrieval
+#                      bot. Applebot (Siri/Spotlight search) added as
+#                      Allow instead.
+#                  (2) ClaudeBot moved Allow → Disallow. It is
+#                      Anthropic's training crawler. Claude answer
+#                      visibility comes from Claude-SearchBot and
+#                      Claude-User, both now explicitly allowed.
 #
 # I did no harm and this file is not truncated
 # ─────────────────────────────────────────────────────────────
@@ -44,31 +66,70 @@ Allow: /
 User-agent: YandexBot
 Allow: /
 
+User-agent: Applebot
+Allow: /
+
 # ═══════════════════════════════════════════════════════════════
-# AI RETRIEVAL BOTS — Allowed
-# These bots fetch content to answer real-time user questions.
-# We WANT to appear in AI-generated answers and citations.
+# AI RETRIEVAL & AI SEARCH BOTS — Allowed
+# These bots index or fetch content to answer user questions in
+# AI products, with citations. We WANT to appear in AI-generated
+# answers. This is where prospects increasingly find consultants.
 # ═══════════════════════════════════════════════════════════════
+
+# OpenAI — ChatGPT search index
+User-agent: OAI-SearchBot
+Allow: /
+
+# OpenAI — user-initiated page fetches inside ChatGPT
 User-agent: ChatGPT-User
 Allow: /
 
+# Anthropic — Claude search index
+User-agent: Claude-SearchBot
+Allow: /
+
+# Anthropic — user-initiated page fetches inside Claude
+User-agent: Claude-User
+Allow: /
+
+# Perplexity — search index
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: ClaudeBot
+# Perplexity — user-initiated page fetches
+User-agent: Perplexity-User
 Allow: /
 
-User-agent: Applebot-Extended
+# DuckDuckGo — DuckAssist AI answers
+User-agent: DuckAssistBot
 Allow: /
 
+# Mistral — user-initiated fetches with citations
+User-agent: MistralAI-User
+Allow: /
+
+# Meta — user-initiated link fetches in Meta AI
+User-agent: meta-externalfetcher
+Allow: /
+
+# Amazon — Alexa / Rufus answers
+User-agent: Amazonbot
+Allow: /
+
+# Google — Vertex AI site grounding (customer-directed retrieval)
+User-agent: Google-CloudVertexBot
+Allow: /
+
+# Cohere — retrieval
 User-agent: cohere-ai
 Allow: /
 
 # ═══════════════════════════════════════════════════════════════
 # AI TRAINING BOTS — Blocked
-# These bots scrape content to train AI models.
-# We do not consent to our proprietary content being used
-# for model training purposes.
+# These bots scrape content to train AI models. We do not consent
+# to our proprietary content being used for model training.
+# (Note: blocking Google-Extended does NOT affect Google Search
+# rankings or AI Overviews — those use Googlebot.)
 # ═══════════════════════════════════════════════════════════════
 User-agent: GPTBot
 Disallow: /
@@ -82,13 +143,25 @@ Disallow: /
 User-agent: anthropic-ai
 Disallow: /
 
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
 User-agent: FacebookBot
+Disallow: /
+
+User-agent: meta-externalagent
 Disallow: /
 
 User-agent: Bytespider
 Disallow: /
 
 User-agent: Omgilibot
+Disallow: /
+
+User-agent: cohere-training-data-crawler
 Disallow: /
 
 # ═══════════════════════════════════════════════════════════════
