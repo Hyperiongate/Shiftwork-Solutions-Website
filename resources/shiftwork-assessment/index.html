@@ -5,9 +5,32 @@
   URL: /resources/shiftwork-assessment/  (URL preserved)
 
   Created:      2026-04-03
-  Last Updated: 2026-04-29
+  Last Updated: 2026-06-12
 
   CHANGE LOG:
+    2026-06-12 — ASSESSMENT AI PROXY MIGRATION + LINK FIXES (3 changes):
+                 1. AI CALLS: callT1ClaudeAPI and callT2ClaudeAPI now POST
+                    structured answer data to the Swarm Orchestrator endpoints
+                    /api/assessment/t1-commentary and /api/assessment/t2-evaluate
+                    instead of calling api.anthropic.com directly from the
+                    visitor's browser. The direct browser calls had no API key
+                    and failed for every visitor since launch — both tiers
+                    silently fell back (Tier 1: canned commentary; Tier 2:
+                    local scoring with "AI narrative analysis was temporarily
+                    unavailable"). Prompts are now built server-side, so
+                    buildT1Prompt and buildT2Prompt were REMOVED from this page
+                    and the prompt strategy is no longer visible in page source.
+                    All existing graceful fallbacks preserved exactly.
+                 2. PRIVACY LINK: Tier 2 form privacy link fixed from the dead
+                    WordPress URL /shiftwork-solutions-llc-privacy-policy to
+                    the live /privacy-policy/ page.
+                 3. FOOTER CTA: "Take the Free Assessment" link changed from
+                    absolute https://www.shift-work.com/... to relative
+                    /resources/shiftwork-assessment/ (www is no longer the
+                    primary host as of the 2026-06-11 Render domain flip).
+                 All questions, reveal copy, scoring, PDF flow, newsletter,
+                 nav, Thomas widget, and fallback logic preserved exactly.
+
     2026-04-29 — MOBILE OPTIMIZATION: Additive CSS block appended before </style>.
                  footer-bottom-left column stack + seps hidden at 640px.
                  nav-logo-text hidden + footer form stack at 480px.
@@ -809,7 +832,7 @@
           <input type="checkbox" id="t2_newsletter" name="t2_newsletter" checked>
           <label for="t2_newsletter">Yes, I&rsquo;d like the Shiftwork Solutions newsletter &mdash; practical insights on 24/7 operations, sent monthly.</label>
         </div>
-        <div class="privacy-note">By continuing, you agree to our <a href="https://shift-work.com/shiftwork-solutions-llc-privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>. We never share your information with third parties.</div>
+        <div class="privacy-note">By continuing, you agree to our <a href="/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>. We never share your information with third parties.</div>
         <button type="submit" class="btn-primary btn-center" id="t2SubmitBtn">Continue to the Analysis &#x2192;</button>
         <div class="form-msg" id="t2FormMsg"></div>
       </form>
@@ -915,7 +938,7 @@
       </div>
     </div>
     <div class="footer-cta-row">
-      <div class="footer-cta-1"><a href="https://www.shift-work.com/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Free Assessment &#x2192;</a></div>
+      <div class="footer-cta-1"><a href="/resources/shiftwork-assessment/" class="footer-cta-btn">Take the Free Assessment &#x2192;</a></div>
       <div class="footer-cta-2"><a href="/resources/26-warning-signs-schedule-problems/" class="footer-cta-btn">Read the Warning Signs &#x2192;</a></div>
       <div class="footer-cta-3">
         <form class="engage-nl-form" onsubmit="footerNLSubmit(event)">
@@ -1034,16 +1057,16 @@
 
   function startT1Evaluation(){show('screen-t1-loading');window.scrollTo(0,0);startT1LoadingAnim();callT1ClaudeAPI();}
 
-  function buildT1Prompt(){
+  /* AI commentary via the Swarm Orchestrator (server-side Anthropic call).
+     Changed 2026-06-12: previously this called the Anthropic API directly
+     from the browser with no API key, which failed for every visitor.
+     The prompt is now built server-side in routes/assessment_ai.py. */
+  function callT1ClaudeAPI(){
     var challengeIdx=t1Answers[8];
     var challenge=(challengeIdx!==undefined)?t1Questions[7].opts[challengeIdx]:'not specified';
-    var predictionSummary=[];
-    for(var i=0;i<7;i++){var q=t1Questions[i];var aIdx=t1Answers[q.id];var aText=(aIdx!==undefined)?q.opts[aIdx]:'(no answer)';predictionSummary.push('- '+q.category+': they predicted "'+aText+'"');}
-    return 'You are writing a short closing commentary for a manager who just completed the Shiftwork Solutions Reality Check \u2014 an eight-question exercise that compared their intuitions about their workforce to general benchmark patterns from 20,000+ shift worker responses.\n\nThe manager\u2019s stated biggest current challenge: '+challenge+'\n\nTheir predictions across the seven benchmark questions:\n'+predictionSummary.join('\n')+'\n\n=== YOUR TASK ===\nWrite a closing commentary of exactly 2-3 short paragraphs that ties their stated challenge together with the patterns they just saw, and ends pointing at what remains genuinely unknown about their specific facility.\n\nReturn ONLY a valid JSON object \u2014 no markdown, no explanation outside the JSON:\n{\n  "heading": <string, under 80 chars, a warm accent heading for the commentary>,\n  "paragraphs": [<string>, <string>, <optional third string>]\n}\n\n=== HARD CONSTRAINTS \u2014 these are non-negotiable ===\n1. DO NOT give industry-specific benchmark numbers of any kind.\n2. DO NOT give numeric targets or thresholds that would let them self-diagnose without help.\n3. DO NOT explain methodology.\n4. DO NOT give prescriptive implementation steps.\n5. DO NOT invent new statistics or benchmark figures.\n6. DO frame the manager\u2019s predictions as reasonable.\n7. DO tie the commentary to their stated biggest challenge.\n8. DO end on what remains unknown about THEIR facility specifically.\n9. DO NOT use the word "Shiftwork Solutions" more than once.\n10. Keep each paragraph to 3-5 sentences. Total commentary under 250 words.\n11. Return ONLY the JSON object.';
-  }
-
-  function callT1ClaudeAPI(){
-    fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,messages:[{role:'user',content:buildT1Prompt()}]})}).then(function(r){if(!r.ok)throw new Error('API error '+r.status);return r.json();}).then(function(data){var text='';if(data.content&&data.content.length>0){data.content.forEach(function(block){if(block.type==='text')text+=block.text;});}text=text.replace(/```json|```/g,'').trim();try{t1AICommentary=JSON.parse(text);}catch(e){t1AICommentary=null;}stopT1LoadingAnim();renderT1Results();}).catch(function(err){console.warn('T1 commentary skipped:',err);t1AICommentary=null;stopT1LoadingAnim();renderT1Results();});
+    var predictions=[];
+    for(var i=0;i<7;i++){var q=t1Questions[i];var aIdx=t1Answers[q.id];var aText=(aIdx!==undefined)?q.opts[aIdx]:'(no answer)';predictions.push({category:q.category,answer:aText});}
+    fetch(SWARM_API+'/api/assessment/t1-commentary',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({challenge:challenge,predictions:predictions})}).then(function(r){if(!r.ok)throw new Error('API error '+r.status);return r.json();}).then(function(data){t1AICommentary=(data&&data.success&&data.commentary&&data.commentary.paragraphs&&data.commentary.paragraphs.length>0)?data.commentary:null;stopT1LoadingAnim();renderT1Results();}).catch(function(err){console.warn('T1 commentary skipped:',err);t1AICommentary=null;stopT1LoadingAnim();renderT1Results();});
   }
 
   function renderT1Results(){
@@ -1145,15 +1168,18 @@
 
   function startT2Evaluation(){show('screen-t2-loading');window.scrollTo(0,0);startT2LoadingAnim();callT2ClaudeAPI();}
 
-  function buildT2AnswerSummary(){var lines=[];t2Questions.forEach(function(q){var idx=t2Answers[q.id];var answerText=(idx!==undefined)?q.opts[idx]:'(unanswered)';lines.push('Q'+q.id+' ['+T2_CATEGORY_NAMES[q.cat]+'] '+q.text+'\n    Answer: '+answerText);});return lines.join('\n\n');}
-
-  function buildT2Prompt(){
-    var profile=t2ContactData?'Company: '+(t2ContactData.company||'(not provided)')+'\nIndustry: '+t2ContactData.industry+'\nShift workers: '+t2ContactData.shift_workers+'\nSelf-identified biggest challenge: '+(t2ContactData.primary_challenge||'(not specified)'):'(No contact profile available)';
-    return 'You are an expert shift operations consultant at Shiftwork Solutions LLC.\n\nFacility profile:\n'+profile+'\n\nAll 35 answers:\n'+buildT2AnswerSummary()+'\n\nReturn ONLY a valid JSON object:\n{\n  "overall_score": <integer 0-100>,\n  "overall_label": <"Critical \u2014 Immediate Action Required"|"Fair \u2014 Several Areas Need Attention"|"Good \u2014 Some Opportunities for Improvement"|"Excellent \u2014 Operation Is Performing Well">,\n  "narrative": <2-3 sentence summary>,\n  "dimensions": {"worklife":{"score":<0-100>,"label":"Work-Life Balance","low_label":"Critical Issues","high_label":"Excellent Balance"},"health":{"score":<0-100>,"label":"Employee Health","low_label":"High Risk","high_label":"Very Healthy"},"alertness":{"score":<0-100>,"label":"Alertness Management","low_label":"Significant Fatigue","high_label":"Highly Alert"},"overtime":{"score":<0-100>,"label":"Overtime Management","low_label":"Out of Control","high_label":"Well Managed"},"operations":{"score":<0-100>,"label":"Operational Efficiency","low_label":"Major Issues","high_label":"Highly Efficient"},"quality":{"score":<0-100>,"label":"Quality & Safety","low_label":"Critical","high_label":"Excellent"},"communication":{"score":<0-100>,"label":"Communication","low_label":"Breakdown","high_label":"Effective"},"workforce":{"score":<0-100>,"label":"Workforce Stability","low_label":"High Turnover","high_label":"Stable & Strong"}},\n  "strengths": [{"title":<string>,"detail":<1-2 sentence>}],\n  "opportunities": [{"title":<string>,"detail":<2-3 sentence>,"shiftwork_note":<1-2 sentence mentioning Shiftwork Solutions>}],\n  "actions": [<string, 1 sentence each>]\n}\nRules: overall_score genuine reflection. strengths: only dims 70+. opportunities: only dims below 50. actions: 3-6 items. Return ONLY the JSON.';
-  }
-
+  /* AI evaluation via the Swarm Orchestrator (server-side Anthropic call).
+     Changed 2026-06-12: previously this called the Anthropic API directly
+     from the browser with no API key, which failed for every visitor and
+     always triggered the local fallback. The prompt is now built
+     server-side in routes/assessment_ai.py. The local fallback
+     (renderT2FallbackResults) is preserved exactly. */
   function callT2ClaudeAPI(){
-    fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1800,messages:[{role:'user',content:buildT2Prompt()}]})}).then(function(r){if(!r.ok)throw new Error('API error '+r.status);return r.json();}).then(function(data){var text='';if(data.content&&data.content.length>0){data.content.forEach(function(block){if(block.type==='text')text+=block.text;});}text=text.replace(/```json|```/g,'').trim();var evaluation=JSON.parse(text);stopT2LoadingAnim();renderT2Results(evaluation);}).catch(function(err){console.error('Claude API error:',err);stopT2LoadingAnim();renderT2FallbackResults();});
+    var answers=[];
+    t2Questions.forEach(function(q){var idx=t2Answers[q.id];var answerText=(idx!==undefined)?q.opts[idx]:'(unanswered)';answers.push({id:q.id,category:T2_CATEGORY_NAMES[q.cat]||q.cat,question:q.text,answer:answerText});});
+    var c=t2ContactData||{};
+    var payload={profile:{company:c.company||'',industry:c.industry||'',shift_workers:c.shift_workers||'',primary_challenge:c.primary_challenge||''},answers:answers};
+    fetch(SWARM_API+'/api/assessment/t2-evaluate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)}).then(function(r){if(!r.ok)throw new Error('API error '+r.status);return r.json();}).then(function(data){if(!data||!data.success||!data.evaluation)throw new Error('Invalid evaluation response');stopT2LoadingAnim();renderT2Results(data.evaluation);}).catch(function(err){console.error('Assessment AI error:',err);stopT2LoadingAnim();renderT2FallbackResults();});
   }
 
   function renderT2Results(ev){
