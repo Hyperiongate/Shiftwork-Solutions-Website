@@ -10,13 +10,21 @@
 #     Crawler governance for shift-work.com.
 #     - Allows all search engine crawlers full access
 #     - Allows AI retrieval/search bots (real-time answers + citations)
-#     - Blocks AI training bots (content scraping for model training)
+#     - Allows major-lab AI training crawlers (brand presence inside
+#       model knowledge — prospects increasingly get answers from
+#       model memory, not just live search)
+#     - Blocks data brokers and resale scrapers (no brand benefit)
 #     - Points to sitemap.xml
 #
-# POLICY RULE OF THUMB:
-#     If a bot puts shift-work.com in front of a prospect (search
-#     results, AI answers, citations) → ALLOW.
-#     If a bot only harvests content to train models → BLOCK.
+# POLICY (two-tier, adopted 2026-06-11):
+#     If a bot can put Shiftwork Solutions in front of a prospect —
+#     via search results, AI citations, or the model's own learned
+#     knowledge → ALLOW.
+#     If a bot only harvests content for third-party data resale
+#     → BLOCK.
+#     Rationale: the site is marketing content engineered to be
+#     distributed; the firm's real IP (methodology, benchmark data,
+#     diagnostic logic) is deliberately not published.
 #
 # DEPLOYMENT:
 #     Place in the ROOT of the Shiftwork-Solutions-Website GitHub repo.
@@ -25,22 +33,19 @@
 # CHANGE LOG:
 #     2026-04-05 — Initial build. Full access for search engines,
 #                  AI retrieval bots allowed, AI training bots blocked.
-#     2026-06-11 — AI CRAWLER REFRESH:
+#     2026-06-11 — AI CRAWLER REFRESH + POLICY CHANGE (per Jim):
 #                  Added retrieval/search bots: OAI-SearchBot,
-#                  Perplexity-User, Claude-User, Claude-SearchBot,
+#                  Perplexity-User, Claude-SearchBot, Claude-User,
 #                  DuckAssistBot, MistralAI-User, meta-externalfetcher,
 #                  Amazonbot, Google-CloudVertexBot, Applebot.
-#                  Added training bots to block list:
-#                  meta-externalagent, cohere-training-data-crawler.
-#                  CORRECTED two misclassifications:
-#                  (1) Applebot-Extended moved Allow → Disallow. It is
-#                      Apple's TRAINING opt-out signal, not a retrieval
-#                      bot. Applebot (Siri/Spotlight search) added as
-#                      Allow instead.
-#                  (2) ClaudeBot moved Allow → Disallow. It is
-#                      Anthropic's training crawler. Claude answer
-#                      visibility comes from Claude-SearchBot and
-#                      Claude-User, both now explicitly allowed.
+#                  POLICY: switched from "block all AI training" to
+#                  two-tier — major-lab training crawlers (GPTBot,
+#                  ClaudeBot, Google-Extended, Applebot-Extended,
+#                  meta-externalagent, FacebookBot, anthropic-ai) now
+#                  ALLOWED for in-model brand presence; data brokers
+#                  and resale scrapers (CCBot, Bytespider, Omgilibot,
+#                  Webzio-Extended, Diffbot,
+#                  cohere-training-data-crawler) remain BLOCKED.
 #
 # I did no harm and this file is not truncated
 # ─────────────────────────────────────────────────────────────
@@ -72,8 +77,8 @@ Allow: /
 # ═══════════════════════════════════════════════════════════════
 # AI RETRIEVAL & AI SEARCH BOTS — Allowed
 # These bots index or fetch content to answer user questions in
-# AI products, with citations. We WANT to appear in AI-generated
-# answers. This is where prospects increasingly find consultants.
+# AI products, with citations. This is where prospects
+# increasingly find consultants.
 # ═══════════════════════════════════════════════════════════════
 
 # OpenAI — ChatGPT search index
@@ -125,40 +130,58 @@ User-agent: cohere-ai
 Allow: /
 
 # ═══════════════════════════════════════════════════════════════
-# AI TRAINING BOTS — Blocked
-# These bots scrape content to train AI models. We do not consent
-# to our proprietary content being used for model training.
-# (Note: blocking Google-Extended does NOT affect Google Search
-# rankings or AI Overviews — those use Googlebot.)
+# MAJOR-LAB AI TRAINING CRAWLERS — Allowed (policy: 2026-06-11)
+# Training inclusion builds brand presence inside the models that
+# prospects use. Site content is marketing material designed for
+# distribution; the firm's real IP is not published here.
 # ═══════════════════════════════════════════════════════════════
+
+# OpenAI — training
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
-User-agent: Google-Extended
-Disallow: /
-
-User-agent: CCBot
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
+# Anthropic — training
 User-agent: ClaudeBot
-Disallow: /
+Allow: /
 
+# Anthropic — legacy training agent string
+User-agent: anthropic-ai
+Allow: /
+
+# Google — Gemini training (does not affect Search or AI Overviews)
+User-agent: Google-Extended
+Allow: /
+
+# Apple — Apple Intelligence training
 User-agent: Applebot-Extended
-Disallow: /
+Allow: /
 
-User-agent: FacebookBot
-Disallow: /
-
+# Meta — training
 User-agent: meta-externalagent
+Allow: /
+
+# Meta — legacy crawler
+User-agent: FacebookBot
+Allow: /
+
+# ═══════════════════════════════════════════════════════════════
+# DATA BROKERS & RESALE SCRAPERS — Blocked
+# These harvest content for third-party datasets and resale.
+# No path to a prospect; no brand benefit.
+# ═══════════════════════════════════════════════════════════════
+User-agent: CCBot
 Disallow: /
 
 User-agent: Bytespider
 Disallow: /
 
 User-agent: Omgilibot
+Disallow: /
+
+User-agent: Webzio-Extended
+Disallow: /
+
+User-agent: Diffbot
 Disallow: /
 
 User-agent: cohere-training-data-crawler
@@ -173,6 +196,4 @@ Allow: /
 # ═══════════════════════════════════════════════════════════════
 # SITEMAP
 # ═══════════════════════════════════════════════════════════════
-Sitemap: https://shift-work.com/sitemap.xml
-
-# I did no harm and this file is not truncated
+Sitemap: https://shift-work.com/robots.txt
