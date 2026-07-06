@@ -5,7 +5,7 @@
   Deploy as: /andersen-dubuque/index.html  →  https://shift-work.com/andersen-dubuque/
 
   Created:      2026-07-05
-  Last Updated: 2026-07-05
+  Last Updated: 2026-07-06
 
   WHAT THIS IS:
     A per-client, employee-facing project portal. Employees visit one link and see
@@ -43,6 +43,13 @@
     an employee audience — no sales CTAs, no newsletter, no "Book a Meeting".
 
   CHANGE LOG:
+    2026-07-06 — FIX (download links): timelinePdf/highlightsPdf now use ROOT-ABSOLUTE
+                 paths ("/andersen-dubuque/downloads/...") instead of page-relative
+                 paths ("downloads/..."). Page-relative links broke when the portal was
+                 opened without a trailing slash (…/andersen-dubuque): the browser
+                 resolved them to /downloads/… at the SITE ROOT and 404'd. Root-absolute
+                 paths resolve correctly regardless of trailing slash. Only the two CONFIG
+                 path strings changed; no other logic touched.
     2026-07-05 — Initial build (demo shell). Six-phase stepper, config-driven lock
                  state, accordion panels, Implementation/Thomas panel, HR-contact
                  band, simplified employee header/footer, noindex.
@@ -340,8 +347,14 @@
 var PORTAL = {
   client:      "Andersen Corporation",
   location:    "Andersen Corporation \u00B7 Dubuque, IA",
-  timelinePdf: "downloads/andersen-dubuque-project-timeline.pdf",
-  highlightsPdf: "downloads/andersen-dubuque-survey-highlights.pdf",
+  /* Download paths are ROOT-ABSOLUTE (leading "/") on purpose: they must resolve to
+     the same URL whether the portal is opened as /andersen-dubuque/ or as
+     /andersen-dubuque (no trailing slash). A page-relative path like "downloads/..."
+     breaks in the no-trailing-slash case by resolving to /downloads/... at the site
+     root. When cloning this template for a new client, change "andersen-dubuque" to the
+     new client's folder name in BOTH lines below. */
+  timelinePdf: "/andersen-dubuque/downloads/andersen-dubuque-project-timeline.pdf",
+  highlightsPdf: "/andersen-dubuque/downloads/andersen-dubuque-survey-highlights.pdf",
   thomasUrl:   ""   /* <-- paste this client's implementation Thomas URL when ready */
 };
 
