@@ -1,0 +1,33 @@
+GTM AUDIT RESULTS - Website Vault
+================================
+
+COMPLETED: 2026 GTM Audit across all 75 HTML files
+
+RESULT: 74/75 files already have both GTM snippets correctly installed.
+
+THE 1 FILE MISSING GTM:
+  andersen-dubuque/index.html
+  - Missing: GTM head script (should be first in head)
+  - Missing: GTM noscript (should be first after body tag)
+  - Reason: This was built as a client employee portal template
+    and was not included in the standard GTM rollout cycle.
+
+ACTION REQUIRED:
+  Add both GTM snippets to andersen-dubuque/index.html:
+
+  1. In head (as first script):
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PTWM3WM');</script>
+  <!-- End Google Tag Manager -->
+
+  2. After opening body tag:
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTWM3WM"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+ALL OTHER 74 FILES: GTM already correctly installed.
