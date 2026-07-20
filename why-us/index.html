@@ -3,48 +3,57 @@
   why-us/index.html
   Shiftwork Solutions LLC — Why Shiftwork Solutions
   URL: /why-us/
-
   Created:      2026-04-05
-  Last Updated: 2026-05-04
+  Last Updated: 2026-07-20
 
   CHANGE LOG:
+    2026-07-20 — BUG FIX (display leak): The header change-log comment had a
+                 nested "Google Tag Manager" HTML comment plus a live script
+                 block pasted inside it. HTML comments cannot be nested, so the
+                 inner close-marker ended this comment early and dumped the rest
+                 of the change log as visible gray text across the top of the
+                 page (and ran the GTM script from an invalid spot before the
+                 html tag). Fixed by rebuilding the header as a single clean
+                 comment with no nested markers or script, and installing the
+                 Google Tag Manager snippet properly at the top of head, paired
+                 with the GTM noscript already present in body. No visible page
+                 content or styling changed.
     2026-05-04 — SEO: Added og:image meta tag for social sharing. Zero other changes.
-    2026-04-05 — Initial build.
-    2026-04-13 — MAJOR REBUILD from content spec V5.
-    2026-04-13 — CTA band background → navy. Nav/eyebrow → "Our Company".
-    2026-04-13 — Hero background → second.png + gradient overlay.
-    2026-04-16 — CTA BAND REPLACED: three-card Next Steps section.
-    2026-04-16 — VISUAL OVERHAUL, FAQ accordion rebuild, section order swap.
-    2026-04-18 — GAINS SECTION HEADER REDESIGN.
-    2026-04-22 — PAGE BOTTOM STANDARD applied.
+    2026-05-04 — FAQ COPY EDIT: "Who will actually be working on our engagement?"
+                 Second paragraph rewritten. Removed language implying competitors
+                 use junior staff — brand voice is confident and positive, never
+                 frames our pitch by referencing how others fall short.
+    2026-04-29 — MOBILE OPTIMIZATION: Additive mobile CSS block only.
+    2026-04-28 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
+                 removed plausible.init(), replaced canonical Org schema,
+                 removed meta keywords.
+    2026-04-28 — FOOTER BOTTOM BAR: added Case Studies, Privacy Policy,
+                 Terms of Use links with mid-dot separators.
+    2026-04-28 — PLAUSIBLE ANALYTICS added to head.
     2026-04-26 — AI DISCOVERABILITY SCHEMAS added.
-    2026-04-28 — PLAUSIBLE ANALYTICS added to <head>
+    2026-04-22 — PAGE BOTTOM STANDARD applied.
+    2026-04-18 — GAINS SECTION HEADER REDESIGN.
+    2026-04-16 — VISUAL OVERHAUL, FAQ accordion rebuild, section order swap.
+    2026-04-16 — CTA BAND REPLACED: three-card Next Steps section.
+    2026-04-13 — Hero background → second.png + gradient overlay.
+    2026-04-13 — CTA band background → navy. Nav/eyebrow → "Our Company".
+    2026-04-13 — MAJOR REBUILD from content spec V5.
+    2026-04-05 — Initial build.
+
+  NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
+  HERO IMAGE: /images/second.png
+  FAQ IMAGE: /images/Hands_in_the_air.jpg
+  I did no harm and this file is not truncated
+-->
+<html lang="en">
+<head>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
   j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
   })(window,document,'script','dataLayer','GTM-PTWM3WM');</script>
-  <!-- End Google Tag Manager -->.
-                 FOOTER BOTTOM BAR: added Case Studies, Privacy Policy,
-                 Terms of Use links with mid-dot separators.
-    2026-04-28 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
-                 removed plausible.init(), replaced canonical Org schema,
-                 removed meta keywords.
-    2026-04-29 — MOBILE OPTIMIZATION: Additive mobile CSS block only.
-    2026-05-04 — FAQ COPY EDIT: "Who will actually be working on our engagement?"
-                 Second paragraph rewritten. Removed language implying competitors
-                 use junior staff — brand voice is confident and positive, never
-                 frames our pitch by referencing how others fall short.
-
-  NAV SYSTEM: B — .site-nav / .nav-links / .nav-cta-btn (sticky 56px)
-  HERO IMAGE: /images/second.png
-  FAQ IMAGE: /images/Hands_in_the_air.jpg
-
-  I did no harm and this file is not truncated
--->
-<html lang="en">
-<head>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Why Shiftwork Solutions | Experience, Results &amp; Trust</title>
@@ -59,7 +68,6 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Why Shiftwork Solutions | Experience, Results &amp; Trust">
   <meta name="twitter:description" content="Senior-led engagements, neutral third-party facilitation, and 30 years of knowing which schedule changes fail in practice.">
-
   <!-- ── MICROSOFT CLARITY ── -->
   <script type="text/javascript">
       (function(c,l,a,r,i,t,y){
@@ -68,15 +76,12 @@
           y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
       })(window, document, "clarity", "script", "wiyn7e4d73");
   </script>
-
   <!-- ── CUSTOM EVENT TRACKER ── -->
   <script src="/js/event-tracker.js"></script>
-
   <!-- ══════════════════════════════════════════════════════════════════
        PLAUSIBLE ANALYTICS
        ══════════════════════════════════════════════════════════════════ -->
   <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
-
   <!-- ══════════════════════════════════════════════════════════════════
        AI DISCOVERABILITY SCHEMAS
        ══════════════════════════════════════════════════════════════════ -->
@@ -143,7 +148,6 @@
     ]
   }
   </script>
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -161,11 +165,9 @@
     }
   }
   </script>
-
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Why Shiftwork Solutions","url":"https://shift-work.com/why-us/","description":"Senior-led engagements, neutral third-party facilitation, and 30 years of knowing which schedule changes fail in practice — for manufacturing and distribution.","mainEntity":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"Our Company","item":"https://shift-work.com/why-us/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Why hire a consultant instead of handling schedule design internally?","acceptedAnswer":{"@type":"Answer","text":"Internal teams are too close to the problem. They know the history, the politics, and the personalities — and that knowledge, while valuable, also limits what they can see and say. An experienced outside firm brings neutral credibility, pattern recognition across hundreds of similar situations, and the ability to have conversations that internal teams cannot."}},{"@type":"Question","name":"What does a typical engagement look like?","acceptedAnswer":{"@type":"Answer","text":"Every engagement begins with a diagnostic phase — an honest assessment of where the operation stands, what the workforce actually needs, and what the financial levers are. From there we develop schedule options, model costs, engage the workforce, and manage implementation. Most engagements run 3–6 months depending on complexity and scope."}},{"@type":"Question","name":"How do you handle workforce resistance to schedule changes?","acceptedAnswer":{"@type":"Answer","text":"By anticipating it and designing around it. Resistance is almost always a function of poor communication, inadequate notice, or a schedule that doesn't reflect what the workforce actually said it needed. We conduct workforce surveys, hold facilitated sessions, and build the communication plan before implementation begins — not after resistance appears."}}]}</script>
-
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
@@ -338,7 +340,6 @@
       .footer-bottom-inner{flex-direction:column;text-align:center;gap:6px}
       .footer-bottom-left{justify-content:center}
     }
-
     /* ══════════════════════════════════════════════════════════════════
        MOBILE OPTIMIZATION BLOCK (added 2026-04-29)
        ══════════════════════════════════════════════════════════════════ */
@@ -362,7 +363,6 @@
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTWM3WM"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
-
 <nav class="site-nav"><div class="nav-inner">
   <a href="/" class="nav-logo">
     <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36" style="display:block;height:36px;width:auto;">
@@ -381,13 +381,11 @@
     <a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a>
   </div>
 </div></nav>
-
 <section class="hero"><div class="hero-inner">
   <div class="hero-eyebrow">Our Company</div>
   <h1>Cost Efficiency, Workforce Engagement, and Operational Reliability &mdash; Delivered Simultaneously.</h1>
   <p class="hero-subtitle">Shift scheduling that balances business needs with employee preferences &mdash; built on 30 years of 24/7 experience.</p>
 </div></section>
-
 <section class="whyus-section"><div class="section-wrap">
   <div class="section-eyebrow">Get to Know Us</div>
   <div class="section-heading">The people, the track record, and the results</div>
@@ -410,7 +408,6 @@
     </a>
   </div>
 </div></section>
-
 <div class="pull-quote-section">
   <div class="pull-quote">
     <span class="pull-quote-mark">&#8220;</span>
@@ -420,7 +417,6 @@
     </div>
   </div>
 </div>
-
 <section class="gains-header-section">
   <div class="gains-header-inner">
     <div class="gains-section-label">Results We Deliver</div>
@@ -440,7 +436,6 @@
     </div>
   </div>
 </section>
-
 <section class="gains-section"><div class="gains-inner">
   <div class="gains-cards">
     <div class="gains-row">
@@ -510,7 +505,6 @@
     </div>
   </div>
 </div></section>
-
 <div class="faq-section">
   <div class="faq-bg"></div>
   <div class="faq-overlay"></div>
@@ -532,12 +526,10 @@
     </div>
   </div>
 </div>
-
 <div class="bridge-stripe">
   <div class="bridge-stripe-text">Ready to take the next step?</div>
   <div class="bridge-stripe-sub">Explore our diagnostic tools or stay current with insights from the field.</div>
 </div>
-
 <footer class="site-footer">
   <div class="footer-prefooter"><div class="footer-wrap">
     <div class="footer-content-row">
@@ -580,7 +572,6 @@
     <span>&copy; 2026 Shiftwork Solutions LLC</span>
   </div></div>
 </footer>
-
 <a class="thomas-float" href="https://shift-work-diagnostic.onrender.com/" target="_blank" rel="noopener" aria-label="Meet Thomas, your AI Shift Advisor">
   <img class="thomas-float-img" src="/images/thomas.jpg" alt="Thomas AI Advisor">
   <div class="thomas-float-body">
@@ -589,7 +580,6 @@
     <span class="thomas-float-cta">Chat Now &rarr;</span>
   </div>
 </a>
-
 <script>
 document.getElementById('mobileToggle').addEventListener('click', function () {
   var n = document.getElementById('navLinks');
@@ -603,7 +593,6 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
     n.style.zIndex = '99';
   }
 });
-
 (function () {
   var items = document.querySelectorAll('.faq-item');
   items.forEach(function (item) {
@@ -623,7 +612,6 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
     });
   });
 })();
-
 (function () {
   var SWARM = 'https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe';
   window.engageNLSubmit = function (e) {
@@ -641,15 +629,15 @@ document.getElementById('mobileToggle').addEventListener('click', function () {
       .then(function (d) {
         if (d.success) {
           msg.className = 'engage-nl-msg ok';
-          msg.textContent = '\u2713 Subscribed. Thank you.';
+          msg.textContent = '✓ Subscribed. Thank you.';
           document.getElementById('engageNLEmail').value = '';
-          btn.textContent = 'Subscribed \u2713';
+          btn.textContent = 'Subscribed ✓';
         } else { throw new Error(d.error || 'Failed'); }
       })
       .catch(function (err) {
         msg.className = 'engage-nl-msg err';
-        msg.textContent = err.message === 'This email is already subscribed.' ? 'Already subscribed \u2014 thank you!' : 'Something went wrong. Try again.';
-        btn.disabled = false; btn.textContent = 'Subscribe \u2192';
+        msg.textContent = err.message === 'This email is already subscribed.' ? 'Already subscribed — thank you!' : 'Something went wrong. Try again.';
+        btn.disabled = false; btn.textContent = 'Subscribe →';
       });
   };
 })();
