@@ -3,7 +3,7 @@
   Shiftwork Solutions LLC — Contact
   File: contact/index.html
   Created: April 2, 2026
-  Last updated: 2026-05-28
+  Last updated: 2026-07-23
   Author: Claude for Jim @ Shiftwork Solutions LLC
 
   PURPOSE:
@@ -12,6 +12,21 @@
   URL: /contact/
 
   CHANGE LOG:
+    2026-07-23 — CONTACT FORM 400 FIX. The form was sending firstName/lastName
+                 but the Swarm API (/api/contact/submit) expected a combined
+                 'name' field, so every submission returned 400. Changes:
+                 1) Submit JS now also sends name = firstName + lastName
+                    (firstName/lastName/topic still sent for future use).
+                 2) Added hidden honeypot field (_gotcha) + page-load
+                    timestamp so the backend's anti-spam layers 2 and 3
+                    are now active for this form.
+                 3) Error handler now shows the server's actual error
+                    message when one is returned (e.g. rate limiting)
+                    instead of always the generic fallback.
+                 Backend updated the same day (contact_api.py v2) to accept
+                 firstName/lastName and treat company/message as optional.
+                 No other changes — layout, nav, footer, FAQ, newsletter
+                 sidebar, schemas, analytics all untouched.
     2026-05-28 — Added two CTAs to the Direct Contact column (right side):
                  1) "Book a Free Consultation" orange button (links to booking URL).
                  2) "Sign Up for Our Newsletter" inline form (email + Subscribe button)
@@ -351,6 +366,8 @@
       <p class="form-sub">Tell us about your operation and what you&rsquo;re working on. We&rsquo;ll follow up within one business day.</p>
 
       <form id="contactForm" novalidate>
+        <!-- Honeypot: invisible to humans; bots that fill it are silently dropped server-side -->
+        <input type="text" id="hpField" name="_gotcha" value="" style="position:absolute;left:-9999px;top:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="form-row">
           <div class="form-group">
             <label class="form-label" for="firstName">First Name</label>
@@ -546,22 +563,29 @@ document.addEventListener('click', function(e) {
 
 (function() {
   var SWARM_CONTACT = 'https://ai-swarm-orchestrator.onrender.com/api/contact/submit';
-  var FORMSPREE = 'https://formspree.io/f/contact';
+  // Anti-spam: page-load timestamp \u2014 backend rejects submissions made
+  // in under 3 seconds (bots), so real visitors are never affected.
+  var PAGE_LOADED_AT = Date.now();
 
   document.getElementById('contactForm').addEventListener('submit', function(e) {
     e.preventDefault();
     var btn = document.getElementById('submitBtn');
     var msg = document.getElementById('formMsg');
+    var firstName = document.getElementById('firstName').value.trim();
+    var lastName = document.getElementById('lastName').value.trim();
     var data = {
-      firstName: document.getElementById('firstName').value.trim(),
-      lastName: document.getElementById('lastName').value.trim(),
+      name: (firstName + ' ' + lastName).trim(),
+      firstName: firstName,
+      lastName: lastName,
       email: document.getElementById('email').value.trim(),
       company: document.getElementById('company').value.trim(),
       topic: document.getElementById('topic').value,
       message: document.getElementById('message').value.trim(),
-      source: 'contact-page-form'
+      source: 'contact-page-form',
+      honeypot: document.getElementById('hpField').value,
+      timestamp: PAGE_LOADED_AT
     };
-    if (!data.firstName || !data.lastName || !data.email) {
+    if (!firstName || !lastName || !data.email) {
       msg.className = 'form-msg err';
       msg.textContent = 'Please fill in your name and email.';
       return;
@@ -579,9 +603,11 @@ document.addEventListener('click', function(e) {
           btn.textContent = 'Message Sent \u2713';
         } else { throw new Error(d.error || 'Submission failed'); }
       })
-      .catch(function() {
+      .catch(function(err) {
         msg.className = 'form-msg err';
-        msg.textContent = 'Something went wrong. Please email us directly at Contact@shift-work.com.';
+        msg.textContent = (err && err.message && err.message !== 'Submission failed' && err.message.indexOf('fetch') === -1 && err.message.indexOf('JSON') === -1)
+          ? err.message
+          : 'Something went wrong. Please email us directly at Contact@shift-work.com.';
         btn.disabled = false; btn.textContent = 'Send Message';
       });
   });
