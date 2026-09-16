@@ -3,10 +3,28 @@
   Shiftwork Solutions LLC — Homepage
   File: index.html
   Created: March 31, 2026
-  Last updated: September 2, 2026
+  Last updated: September 16, 2026
   Author: Claude for Jim @ Shiftwork Solutions LLC
 
   CHANGE LOG:
+    2026-09-16 — THIRD BLOCK (#challenges / .problems) LIGHT-GROUND RESTYLE. FORMAT ONLY:
+                 no copy, markup, heading levels, links, tracking or schema were touched.
+                 Background --navy -> --white (#FFFFFF). Light grey was tried first and
+                 rejected: .services below is already --light-grey and .impact-band above
+                 is --smoke, so the three sections lost every boundary. Eyebrow (.section-label)
+                 --amber -> --orange. Heading and the run-in h3 lead-ins -> --body-text
+                 (#1A1A1A). .section-sub and item body copy -> --text-mid (#475569).
+                 Square bullets --amber -> --orange. Section CTA: white fill, orange text,
+                 1px orange outline, normal weight, padding +1px per side to hold its outer
+                 size; hover fills orange. Every rule is scoped under .problems except
+                 .problem-item::before / h3 / p, which exist nowhere else in this file.
+                 No other section is affected.
+                 REVIEWED AND REJECTED: staggering the bullet starts (staircase right,
+                 staircase left, alternating zig-zag, two-column offset cards). The flush
+                 left edge is load-bearing for scanning — do not reintroduce a stagger.
+                 DEFERRED: swapping the eyebrow and the H2 ("What You May Be Seeing" <->
+                 "A Pattern We Recognize"). The H2 is an SEO/meta surface — revisit it with
+                 those layers, not inside a format pass.
     2026-09-03 — (v23) HOMEPAGE CONTENT REWRITE. Implements the approved V3 homepage copy
                  (V3 Homepage full draft 9.2.26) plus the visual recommendations in that document.
                  Design system, header, nav, footer, FAQ, trust/industry band, Thomas floating
@@ -747,24 +765,37 @@
        horizontal rules would only put lines back into a page we just cleared them out of.
        The .problems-grid / .problem-card / .problem-icon rules from the original icon-card
        treatment were removed here; git history has them if that layout is ever wanted back. ══ */
-    .problems{background:var(--navy);color:var(--white);}
-    .problems .section-label{color:var(--amber);}
-    .problems .section-heading{color:var(--white);}
-    .problems .section-sub{color:rgba(255,255,255,0.72);}
+    /* ══ 2026-09-16 LIGHT-GROUND RESTYLE — FORMAT ONLY, copy and markup untouched ══
+       The navy ground made this block read as an abrupt dark wall between two light
+       sections. GROUND IS WHITE, not --light-grey: .services directly below is already
+       --light-grey (#F4F6F8) and .impact-band above is --smoke (#f1f4f8), so a light-grey
+       ground here erased both section boundaries and the three read as one flat run.
+       White alternates cleanly — smoke, white, light grey — and needs no divider rules.
+       Type inverts to dark and the eyebrow takes --orange.
+       NO STAGGER: staircase (left and right), alternating zig-zag indent and two-column
+       offset cards were all mocked up and rejected. The flush left edge is what lets a
+       visitor scan the six bold lead-ins in one pass. Do not reintroduce a stagger. */
+    .problems{background:var(--white);color:var(--body-text);}
+    .problems .section-label{color:var(--orange);}
+    .problems .section-heading{color:var(--body-text);}
+    .problems .section-sub{color:var(--text-mid);}
     /* Capped well under the 1140px content width: at full width a line runs ~130 characters,
        roughly double a comfortable measure, and a list stops scanning. */
     .problems-list{max-width:820px;margin-top:44px;}
     .problem-item{position:relative;padding:0 0 26px 28px;}
     .problem-item:last-child{padding-bottom:0;}
-    .problem-item::before{content:'';position:absolute;left:0;top:11px;width:9px;height:9px;background:var(--amber);}
+    .problem-item::before{content:'';position:absolute;left:0;top:11px;width:9px;height:9px;background:var(--orange);}
     /* Run-in header: h3 and p both inline, so the bold lead-in and the body form one flowing line.
-       The colour difference (white vs 72% white) does the separating, not a line break. */
-    .problem-item h3{display:inline;font-family:Arial,Helvetica,sans-serif;font-size:1.02rem;font-weight:700;color:var(--white);line-height:1.7;}
-    .problem-item p{display:inline;font-size:1.02rem;color:rgba(255,255,255,0.72);line-height:1.7;}
+       The colour difference (--body-text vs --text-mid) does the separating, not a line break. */
+    .problem-item h3{display:inline;font-family:Arial,Helvetica,sans-serif;font-size:1.02rem;font-weight:700;color:var(--body-text);line-height:1.7;}
+    .problem-item p{display:inline;font-size:1.02rem;color:var(--text-mid);line-height:1.7;}
     .section-cta{margin-top:44px;}
-    /* Section CTA inverted for the dark ground — transparent until hover, then white fill. */
-    .problems .btn-section{background:transparent;color:var(--white);border-color:rgba(255,255,255,0.45);}
-    .problems .btn-section:hover{background:var(--white);color:var(--navy);border-color:var(--white);}
+    /* 2026-09-16: CTA restyled for the light ground — white fill, orange text, 1px orange
+       outline, NORMAL weight (the .btn-section base is a 2px navy outline at weight 700).
+       Padding is +1px per side to compensate for the thinner border, so the button's outer
+       size is unchanged — same approach as the 2026-09-02 nav button restyle. */
+    .problems .btn-section{background:var(--white);color:var(--orange);border:1px solid var(--orange);font-weight:400;padding:13px 27px;}
+    .problems .btn-section:hover{background:var(--orange);color:var(--white);border-color:var(--orange);}
     @media(max-width:800px){.problems-list{margin-top:36px;}.problem-item{padding-bottom:22px;}.section-cta{margin-top:36px;}}
     /* v23.1: inset 24px navy left bar removed at request. */
     .services{background:var(--light-grey);color:var(--body-text);}
@@ -1044,6 +1075,9 @@
       .solution-item h3{font-size:1.1rem;}
       .impact-heading{font-size:clamp(1.3rem,5vw,1.7rem);}
       .btn-section{font-size:0.9rem;padding:11px 22px;}
+      /* 2026-09-16: the .problems CTA carries a 1px border instead of 2px, so it needs
+         +1px per side here too to match the other section buttons' outer size. */
+      .problems .btn-section{padding:12px 23px;}
 
       /* Hero stats — tighter at 640px */
       .hero-stats{gap:16px;}
