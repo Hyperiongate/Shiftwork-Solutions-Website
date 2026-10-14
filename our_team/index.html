@@ -12,6 +12,9 @@
   URL: /our_team/
 
   CHANGE LOG:
+    2026-10-14 — ANCHORS: added id="jim", id="dan", id="ethan" to the three team cards so links to
+                 /our_team/#jim (homepage, About, and the new article bylines) land on the right card.
+                 scroll-margin keeps the card clear of the sticky nav. Nothing else changed.
     2026-10-14 — SCHEMA ONLY: added LinkedIn sameAs to 3 partner Person entries (Jim:
                  linkedin.com/in/shiftwork, Dan: /in/dan-capshaw-20108520, Ethan: /in/ethanfranklin)
                  so search engines and AI can confirm each partner's identity. Nothing visible changed.
@@ -250,6 +253,7 @@
     .team-section-heading { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 40px; text-align: center; }
     .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
     .team-card { background: var(--white); border: 1px solid var(--border-med); border-radius: var(--radius-lg); overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.team-card[id] { scroll-margin-top: 72px; }
     .team-card-photo { width: 100%; height: 280px; object-fit: cover; object-position: center top; display: block; background: var(--light-grey); }
     .team-card-body { padding: 24px 24px 28px; flex: 1; display: flex; flex-direction: column; }
     .team-card-name { font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
@@ -415,7 +419,7 @@
     <h2 class="team-section-heading">The Partners</h2>
     <div class="team-grid">
 
-      <div class="team-card">
+      <div class="team-card" id="jim">
         <img class="team-card-photo" src="/images/jim.jpg" alt="Jim Dillingham, Partner at Shiftwork Solutions LLC" onerror="this.style.background='#1F4E79';this.style.height='200px';">
         <div class="team-card-body">
           <div class="team-card-name">Jim Dillingham</div>
@@ -430,7 +434,7 @@
         </div>
       </div>
 
-      <div class="team-card">
+      <div class="team-card" id="dan">
         <img class="team-card-photo" src="/images/dan.jpg" alt="Dan Capshaw, Partner at Shiftwork Solutions LLC" onerror="this.style.background='#1F4E79';this.style.height='200px';">
         <div class="team-card-body">
           <div class="team-card-name">Dan Capshaw</div>
@@ -443,7 +447,7 @@
         </div>
       </div>
 
-      <div class="team-card">
+      <div class="team-card" id="ethan">
         <img class="team-card-photo" src="/images/ethan.jpg" alt="Ethan Franklin, Partner at Shiftwork Solutions LLC" onerror="this.style.background='#1F4E79';this.style.height='200px';">
         <div class="team-card-body">
           <div class="team-card-name">Ethan Franklin</div>
