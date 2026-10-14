@@ -5,9 +5,15 @@
   URL: /resources/case-studies/
 
   Created:      2026-04-27
-  Last Updated: 2026-09-02
+  Last Updated: 2026-10-13
 
   CHANGE LOG:
+    2026-10-13 — GEO/ENTITY CLEANUP (Phase 1 of the SEO+GEO audit). Changed: schema.
+                 Firm schema nodes now share @id https://shift-work.com/#organization and partner
+                 Person nodes share @id /our_team/#jim|#dan|#ethan so engines read one entity each.
+                 Facts aligned per Jim (2026-10-13): founded 1992; Jim = Founder & Senior Consultant;
+                 Dan and Ethan = Senior Consultant; MBA school = NEOMA Business School, Rouen.
+                 No layout, styling, links, tracking or other copy changed.
     2026-09-02 — NAV BUTTON RESTYLE: "Book a Free Meeting" nav button changed to a white background with orange (#E8610A) text and a 2px solid orange outline (previously solid orange fill with white text). Padding reduced 2px per side so the button's outer size is unchanged. Hover now fills solid orange (#E8610A) with white text. CSS-only inside the inline <style>; markup unchanged.
     2026-07-23 — SEO/accessibility: added alt text to card images
     2026-05-26 — Added 11 new case study tiles (10th through 20th), bringing
@@ -128,6 +134,7 @@
   <!-- ── ORGANIZATION SCHEMA ── -->
   <script type="application/ld+json">
   {
+    "@id": "https://shift-work.com/#organization",
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Shiftwork Solutions LLC",
@@ -149,7 +156,7 @@
     "url": "https://shift-work.com/resources/case-studies/",
     "dateModified": "2026-05-26",
     "description": "Twenty anonymized case studies from Shiftwork Solutions LLC engagements across food manufacturing, distribution, pharmaceutical, automotive, chemical processing, pulp and paper, mining, refining, and general manufacturing. Each is reported against the client's stated objective.",
-    "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"},
+    "publisher": {"@id":"https://shift-work.com/#organization","@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"},
     "about": {"@type": "Thing", "name": "Shift Schedule Redesign and Workforce Management Consulting"},
     "hasPart": [
       {"@type": "Article", "name": "Food Manufacturer Didn't Need a 7-Day Schedule", "url": "https://shift-work.com/resources/case-studies/food-manufacturer-didnt-need-seven-days/"},

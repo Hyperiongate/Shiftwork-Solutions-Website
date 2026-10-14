@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<!--
+  afpa-2026/index.html
+  Shiftwork Solutions LLC — AF&PA 2026 Session Materials (attendee page)
+  Deploy as: /afpa-2026/index.html  →  https://shift-work.com/afpa-2026/
+
+  Created: 2026-09-01
+
+  WHAT THIS IS:
+    The page Jim points the room to at the end of the AF&PA session on Sept 26, 2026
+    ("go to shift-work.com — there's a page for AF&PA attendees"). Holds the slides,
+    the crew cost model, and the three articles the talk was built on.
+
+  THE ONLY EDIT YOU NEED TO MAKE — the CONFIG block in the <script> at the bottom:
+        slidesPdf   — path to the session slides once exported
+        costModel   — path to Crew_vs_Robot_Model.xlsx once cleared for release
+        thomasUrl   — Thomas's URL for this session, when he is built
+    Leave any of them as an empty string ('') and that button renders DISABLED with a
+    friendly "available after the session" note instead of a dead 404. So this page is
+    safe to deploy TODAY, before any file exists.
+
+  DROP FILES INTO: /afpa-2026/downloads/
+    afpa-2026-slides.pdf
+    Crew_vs_Robot_Model.xlsx
+  Then point the CONFIG paths at them. Use ROOT-ABSOLUTE paths ("/afpa-2026/downloads/…")
+  — page-relative paths break when the URL is opened without a trailing slash.
+
+  NOT IN sitemap.xml. If you want it indexed and listed, add a <url> block for
+  https://shift-work.com/afpa-2026/ — one line, no other changes needed.
+
+  DESIGN: matches the main site (navy #0c1f3f, blue #1a6fb5, amber #e8940a,
+  DM Sans body / Playfair Display headings, 1140px max width). Fully self-contained.
+-->
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PTWM3WM');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AF&amp;PA 2026 Session Materials — AI and the Future of Shift Work Operations | Shiftwork Solutions LLC</title>
+<meta name="description" content="Slides, the crew cost model, and the articles behind Jim Dillingham's AF&amp;PA 2026 session on AI and the future of shift work operations.">
+<link rel="canonical" href="https://shift-work.com/afpa-2026/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Shiftwork Solutions LLC">
+<meta property="og:title" content="AF&amp;PA 2026 Session Materials — AI and the Future of Shift Work Operations">
+<meta property="og:description" content="Slides, the crew cost model, and the articles behind the session.">
+<meta name="twitter:card" content="summary">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0c1f3f;--navy-mid:#163057;--blue:#1a6fb5;--blue-pale:#e4f0fa;--amber:#e8940a;--amber-pale:#fff8eb;--smoke:#f1f4f8;--white:#fff;--text:#1e293b;--text-mid:#475569;--text-light:#94a3b8;--border:#cbd5e1;--radius:8px;--radius-lg:16px;--shadow:0 4px 24px rgba(12,31,63,.08);--max-width:1140px;
+--font-display:'Playfair Display',Georgia,serif;--font-body:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);color:var(--text);line-height:1.6;background:var(--white);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--blue)}
+.wrap{max-width:var(--max-width);margin:0 auto;padding:0 24px}
+
+/* nav */
+.site-nav{border-bottom:1px solid #e6ebf1;background:#fff;position:sticky;top:0;z-index:50}
+.nav-inner{max-width:var(--max-width);margin:0 auto;padding:14px 24px;display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy)}
+.nav-logo-text{font-weight:700;letter-spacing:.06em;font-size:13px}
+.nav-links{list-style:none;display:flex;gap:22px;margin-left:auto;flex-wrap:wrap}
+.nav-links a{text-decoration:none;color:var(--text-mid);font-size:14px;font-weight:500}
+.nav-links a:hover{color:var(--blue)}
+.nav-cta-btn{background:var(--amber);color:#fff;text-decoration:none;font-weight:700;font-size:13px;padding:10px 16px;border-radius:var(--radius);white-space:nowrap}
+
+/* hero */
+.hero{background:var(--navy);color:#fff;padding:56px 0 48px}
+.hero-eyebrow{color:var(--amber);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.hero h1{font-family:var(--font-display);font-size:clamp(28px,4.4vw,44px);line-height:1.15;margin-bottom:16px}
+.hero p{color:#b9c8dc;font-size:17px;max-width:760px}
+.hero-meta{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+.chip{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);color:#dce6f2;font-size:12.5px;font-weight:500;padding:6px 12px;border-radius:999px}
+
+/* sections */
+.sec{padding:52px 0}
+.sec-alt{background:var(--smoke)}
+.sec h2{font-family:var(--font-display);font-size:27px;color:var(--navy);margin-bottom:8px}
+.sec .lede{color:var(--text-mid);font-size:15.5px;max-width:760px;margin-bottom:26px}
+
+/* thesis */
+.thesis{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.thesis>div{padding:26px;border-radius:var(--radius-lg)}
+.thesis-a{background:var(--navy);color:#fff}
+.thesis-b{background:var(--blue-pale);border:1px solid #c9e0f4}
+.thesis .k{font-size:11.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;margin-bottom:12px}
+.thesis-a .k{color:var(--amber)}
+.thesis-b .k{color:var(--blue)}
+.thesis p{font-family:var(--font-display);font-size:20px;line-height:1.35}
+.thesis-b p{color:var(--navy)}
+
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(288px,1fr));gap:18px}
+.card{background:#fff;border:1px solid #e2e8f0;border-radius:var(--radius-lg);padding:24px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.card .k{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.card h3{font-family:var(--font-display);font-size:19px;color:var(--navy);line-height:1.3;margin-bottom:10px}
+.card p{font-size:14px;color:var(--text-mid);margin-bottom:16px}
+.card .meta{font-size:12.5px;color:var(--text-light);margin-bottom:14px}
+.card .spacer{flex:1}
+.btn{display:inline-block;background:var(--navy);color:#fff!important;text-decoration:none;font-weight:700;font-size:14px;padding:11px 18px;border-radius:var(--radius);text-align:center}
+.btn:hover{background:var(--navy-mid)}
+.btn-amber{background:var(--amber)}
+.btn-amber:hover{background:#cf8209}
+.btn.is-disabled{background:#e6ebf1;color:var(--text-light)!important;cursor:default;pointer-events:none}
+.pending{font-size:12.5px;color:var(--text-light);margin-top:9px;text-align:center}
+
+/* quote */
+.quote{background:var(--navy);color:#fff;border-radius:var(--radius-lg);padding:34px 34px 28px;margin-top:8px}
+.quote p{font-family:var(--font-display);font-size:22px;line-height:1.4;color:#fff}
+.quote .attr{margin-top:16px;font-size:13.5px;color:var(--amber)}
+.quote .attr a{color:var(--amber)}
+
+/* contact band */
+.band{background:var(--amber-pale);border:1px solid #f2dfb8;border-radius:var(--radius-lg);padding:30px;display:flex;gap:26px;align-items:center;flex-wrap:wrap;justify-content:space-between}
+.band h3{font-family:var(--font-display);font-size:22px;color:var(--navy);margin-bottom:6px}
+.band p{font-size:14.5px;color:var(--text-mid);max-width:560px}
+
+/* footer */
+.site-footer{background:var(--navy);color:#9fb2c9;margin-top:8px}
+.footer-bottom-inner{max-width:var(--max-width);margin:0 auto;padding:26px 24px;font-size:13px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.site-footer a{color:#c6d4e4;text-decoration:none}
+.site-footer a:hover{color:#fff}
+.fb-brand{color:#fff;font-weight:700}
+.sep{opacity:.4}
+@media(max-width:720px){.thesis{grid-template-columns:1fr}.nav-links{display:none}}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTWM3WM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<nav class="site-nav"><div class="nav-inner">
+  <a href="/" class="nav-logo">
+    <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36">
+    <span class="nav-logo-text">SHIFTWORK SOLUTIONS</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services/">Our Services</a></li>
+    <li><a href="/resources/">Resources</a></li>
+    <li><a href="/industries/">Industries</a></li>
+    <li><a href="/why-us/">Why Us</a></li>
+    <li><a href="/contact/">Contact</a></li>
+  </ul>
+  <div><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="nav-cta-btn" target="_blank" rel="noopener">Book a Free Meeting</a></div>
+</div></nav>
+
+<section class="hero"><div class="wrap">
+  <div class="hero-eyebrow">AF&amp;PA &middot; September 26, 2026</div>
+  <h1>AI and the Future of Shift Work Operations</h1>
+  <p>Everything from the session — the slides, the crew cost model you watched me build on screen, and the three pieces this talk came out of. Thanks for a good hour.</p>
+  <div class="hero-meta">
+    <span class="chip">Jim Dillingham</span>
+    <span class="chip">Shiftwork Solutions LLC</span>
+    <span class="chip">60-minute session</span>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <h2>The talk in two sentences</h2>
+  <p class="lede">If you remember nothing else from the hour, remember these. They are one idea: the machine handles the part of the problem that is the same in every plant, and you handle the part that is only true in yours.</p>
+  <div class="thesis">
+    <div class="thesis-a">
+      <div class="k">The thesis</div>
+      <p>AI does not replace the job. It replaces the part of the job nobody went to school to do.</p>
+    </div>
+    <div class="thesis-b">
+      <div class="k">Its counterweight</div>
+      <p>AI knows what's common. It doesn't know what's right for you.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec sec-alt"><div class="wrap">
+  <h2>Take these with you</h2>
+  <p class="lede">The cost model is the one people ask for. Every input is a yellow cell — put your own wage rate in and the whole thing re-solves, including the fifth-crew case.</p>
+  <div class="grid">
+    <div class="card">
+      <div class="k">Session slides</div>
+      <h3>AI and the Future of Shift Work Operations</h3>
+      <p>The full deck as presented, including the crew math build and the robot cost comparison.</p>
+      <div class="spacer"></div>
+      <a href="#" class="btn" id="btnSlides">Download the slides &#x2192;</a>
+      <div class="pending" id="pendSlides"></div>
+    </div>
+    <div class="card">
+      <div class="k">Working model</div>
+      <h3>Crew vs. Robot Cost Model</h3>
+      <p>What four crews of a hundred actually cost, what a position covered by a machine costs, and what the fifth crew costs once the machines pay for it. Change the assumptions and watch it move.</p>
+      <div class="spacer"></div>
+      <a href="#" class="btn btn-amber" id="btnModel">Download the model &#x2192;</a>
+      <div class="pending" id="pendModel"></div>
+    </div>
+    <div class="card">
+      <div class="k">Ask questions</div>
+      <h3>Thomas</h3>
+      <p>Ask anything from the session and get an answer grounded in our actual work — schedule patterns, coverage math, change management, or anything I ran past too quickly.</p>
+      <div class="spacer"></div>
+      <a href="#" class="btn" id="btnThomas">Ask Thomas &#x2192;</a>
+      <div class="pending" id="pendThomas"></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+  <h2>The three pieces this talk came out of</h2>
+  <p class="lede">I didn't start writing this session in September. These are the articles it grew from — the first one is why AF&amp;PA called.</p>
+  <div class="grid">
+    <div class="card">
+      <div class="k">Technology &amp; Workforce</div>
+      <h3>AI on the Plant Floor: What It Actually Means for Shift Design</h3>
+      <div class="meta">April 2026 &middot; 6 min read</div>
+      <p>Why the displacement question is the wrong one. Cognitive fatigue behaves differently from physical fatigue, a 4-crew schedule has no structural room for training, and retention through an automation transition is a schedule design problem before it is a communication problem.</p>
+      <div class="spacer"></div>
+      <a href="/resources/ai-on-the-plant-floor/" class="btn">Read it &#x2192;</a>
+    </div>
+    <div class="card">
+      <div class="k">Operations</div>
+      <h3>From Talkers to Agents: What the Next Phase of AI Means for Shift Scheduling</h3>
+      <div class="meta">April 2026 &middot; 5 min read</div>
+      <p>The difference between a tool that answers and a system that acts — and what has to be true about your rules, your guardrails and your change process <em>before</em> you hand any of it to an agent. Includes the pre-adoption checklist I mentioned.</p>
+      <div class="spacer"></div>
+      <a href="/resources/ai-agents-shift-architecture/" class="btn">Read it &#x2192;</a>
+    </div>
+    <div class="card">
+      <div class="k">Change Management</div>
+      <h3>AI Will Tell You the Most Common Schedule. That Isn't the Same as the Right One.</h3>
+      <div class="meta">Newsletter</div>
+      <p>The long version of the argument I closed on: what AI can't diagnose about your operation, why the reaction to a schedule change runs so far ahead of the information, and the three things that decide whether a change takes.</p>
+      <div class="spacer"></div>
+      <a href="/newsletter/" class="btn">Read it &#x2192;</a>
+    </div>
+  </div>
+  <div class="quote">
+    <p>&ldquo;A weak input doesn't just produce one weak output anymore &mdash; it gets operationalized at scale, without asking.&rdquo;</p>
+    <div class="attr">Jim Dillingham &middot; <a href="/resources/ai-agents-shift-architecture/">From Talkers to Agents</a>, April 2026</div>
+  </div>
+</div></section>
+
+<section class="sec sec-alt"><div class="wrap">
+  <h2>If you want to run your own numbers</h2>
+  <p class="lede">The model works with your wage rate, your crew count and your turnover. Most of the value is in the conversation about what the output actually means for your operation.</p>
+  <div class="band">
+    <div>
+      <h3>Start with a conversation. Ours are free.</h3>
+      <p>Thirty-five years and several hundred 24/7 operations. If you're weighing a schedule change, an automation transition, or both at once, we can tell you quickly whether there's something here worth pursuing.</p>
+    </div>
+    <div><a href="https://outlook.office365.com/book/ShiftworkSolutionsLLC2@shift-work.com/?ismsaljsauthenabled=true" class="btn btn-amber" target="_blank" rel="noopener">Book a free meeting &#x2192;</a></div>
+  </div>
+</div></section>
+
+<footer class="site-footer"><div class="footer-bottom-inner">
+  <div>
+    <span class="fb-brand">Shiftwork Solutions LLC</span>
+    <span class="sep">&middot;</span> <a href="tel:+14152651621">(415) 265-1621</a>
+    <span class="sep">&middot;</span> <a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+    <span class="sep">&middot;</span> <a href="/resources/">Resources</a>
+    <span class="sep">&middot;</span> <a href="/privacy-policy/">Privacy Policy</a>
+    <span class="sep">&middot;</span> <a href="/terms-of-use/">Terms of Use</a>
+  </div>
+  <div>&copy; 2026 Shiftwork Solutions LLC</div>
+</div></footer>
+
+<script>
+/* ============================================================
+   CONFIG — the only block you need to edit.
+   Fill a path in and its button goes live. Leave it as ''
+   and the button renders disabled with a friendly note.
+   Use ROOT-ABSOLUTE paths, e.g. '/afpa-2026/downloads/file.pdf'
+   ============================================================ */
+var CONFIG = {
+  slidesPdf: '',   // e.g. '/afpa-2026/downloads/afpa-2026-slides.pdf'
+  costModel: '',   // e.g. '/afpa-2026/downloads/Crew_vs_Robot_Model.xlsx'
+  thomasUrl: ''    // e.g. 'https://…' — Thomas scoped to this session
+};
+
+(function () {
+  function wire(btnId, pendId, url, pendingMsg) {
+    var b = document.getElementById(btnId), p = document.getElementById(pendId);
+    if (!b) return;
+    if (url) { b.setAttribute('href', url); }
+    else { b.classList.add('is-disabled'); b.removeAttribute('href');
+           if (p) { p.textContent = pendingMsg; } }
+  }
+  wire('btnSlides', 'pendSlides', CONFIG.slidesPdf, 'Posting within 24 hours of the session.');
+  wire('btnModel',  'pendModel',  CONFIG.costModel, 'Posting within 24 hours of the session.');
+  wire('btnThomas', 'pendThomas', CONFIG.thomasUrl, 'Coming shortly after the session.');
+})();
+</script>
+</body>
+</html>
+<!-- I did no harm and this file is not truncated -->

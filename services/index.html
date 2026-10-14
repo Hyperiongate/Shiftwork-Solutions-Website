@@ -3,7 +3,7 @@
   Shiftwork Solutions LLC — Services
   File: services/index.html
   Created: April 2, 2026
-  Last updated: 2026-09-02
+  Last updated: 2026-10-13
   Author: Claude for Jim @ Shiftwork Solutions LLC
 
   PURPOSE:
@@ -12,6 +12,12 @@
   URL: /services/
 
   CHANGE LOG:
+    2026-10-13 — GEO/ENTITY CLEANUP (Phase 1 of the SEO+GEO audit). Changed: schema.
+                 Firm schema nodes now share @id https://shift-work.com/#organization and partner
+                 Person nodes share @id /our_team/#jim|#dan|#ethan so engines read one entity each.
+                 Facts aligned per Jim (2026-10-13): founded 1992; Jim = Founder & Senior Consultant;
+                 Dan and Ethan = Senior Consultant; MBA school = NEOMA Business School, Rouen.
+                 No layout, styling, links, tracking or other copy changed.
     2026-09-02 — NAV BUTTON RESTYLE: "Book a Free Meeting" nav button changed to a white background with orange (#E8610A) text and a 2px solid orange outline (previously solid orange fill with white text). Padding reduced 2px per side so the button's outer size is unchanged. Hover now fills solid orange (#E8610A) with white text. CSS-only inside the inline <style>; markup unchanged.
     2026-05-04 — SEO: Added og:image meta tag for social sharing. Zero other changes.
       2026-04-02  (v1) Initial build
@@ -105,6 +111,7 @@
   <!-- AI DISCOVERABILITY SCHEMAS — added 2026-04-26 -->
   <script type="application/ld+json">
   {
+    "@id": "https://shift-work.com/#organization",
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Shiftwork Solutions LLC",
@@ -115,18 +122,18 @@
     "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
     "address": {"@type": "PostalAddress", "addressLocality": "San Rafael", "addressRegion": "CA", "postalCode": "94901", "addressCountry": "US"},
     "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.",
-    "foundingDate": "1993",
+    "foundingDate": "1992",
     "areaServed": {"@type": "Country", "name": "United States"},
     "knowsAbout": ["shift schedule design","shift work consulting","24/7 operations management","continuous operations staffing","change management","workforce surveys","overtime management","overtime cost reduction","employee engagement","manufacturing workforce planning","distribution center scheduling","pharmaceutical shift scheduling","chemical plant operations","food and beverage manufacturing","mining shift scheduling","paper and packaging operations","union workforce consulting","rotating shift schedules","fixed shift schedules","12-hour shift schedules","staffing and workforce planning","labor cost analysis","fatigue risk management","post-implementation workforce surveys"],
     "sameAs": ["https://www.linkedin.com/company/shiftwork-solutions-llc","https://shift-work.com"]
   }
   </script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Shift Schedule Design and Analysis","provider":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"serviceType":"Shift Work Consulting","description":"Custom shift patterns built from hundreds of proven configurations. Balances coverage, cost, fatigue, and employee preferences for any 24/7 operation including 8-hour, 12-hour, fixed, rotating, hybrid, semi-continuous, and fly-in/fly-out schedules.","areaServed":{"@type":"Country","name":"United States"},"url":"https://shift-work.com/services/"}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Staffing Strategy and Workforce Planning","provider":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"serviceType":"Staffing Strategy","description":"Right-size your workforce for the schedule with scenario modeling for hiring, attrition, and growth. Includes headcount modeling, relief crew sizing, skill-balance analysis, and vacancy planning for 24/7 operations.","areaServed":{"@type":"Country","name":"United States"},"url":"https://shift-work.com/services/"}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Change Management for Shift Schedule Transitions","provider":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"serviceType":"Change Management Consulting","description":"Employee-centered change management for shift schedule transitions. Communication plans, on-shift meetings, employee choice facilitation, and leadership coaching.","areaServed":{"@type":"Country","name":"United States"},"url":"https://shift-work.com/services/"}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Workforce Surveys and Diagnostics for Shift Operations","provider":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"serviceType":"Workforce Survey and Analysis","description":"Proprietary Work-Life Balance Survey built specifically for shift workers. Benchmarked against a normative database from hundreds of 24/7 operations across 16+ industries.","areaServed":{"@type":"Country","name":"United States"},"url":"https://shift-work.com/services/"}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Labor Cost and Overtime Analysis","provider":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"serviceType":"Labor Cost Modeling","description":"Fully loaded cost analysis of every schedule option including wages, benefits, paid time off, training, and administrative overhead. Scenario-Based Cost Modeling with overtime projections and ROI modeling.","areaServed":{"@type":"Country","name":"United States"},"url":"https://shift-work.com/services/"}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Shift Work Policy Development","provider":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"serviceType":"Policy Development","description":"Work and pay policies aligned with the new shift schedule — including vacation accrual, holiday pay, overtime distribution, shift differentials, and call-off procedures.","areaServed":{"@type":"Country","name":"United States"},"url":"https://shift-work.com/services/"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Shift Schedule Design and Analysis","provider":{"@id":"https://shift-work.com/#organization","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"serviceType":"Shift Work Consulting","description":"Custom shift patterns built from hundreds of proven configurations. Balances coverage, cost, fatigue, and employee preferences for any 24/7 operation including 8-hour, 12-hour, fixed, rotating, hybrid, semi-continuous, and fly-in/fly-out schedules.","areaServed":{"@type":"Country","name":"United States"},"url":"https://shift-work.com/services/"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Staffing Strategy and Workforce Planning","provider":{"@id":"https://shift-work.com/#organization","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"serviceType":"Staffing Strategy","description":"Right-size your workforce for the schedule with scenario modeling for hiring, attrition, and growth. Includes headcount modeling, relief crew sizing, skill-balance analysis, and vacancy planning for 24/7 operations.","areaServed":{"@type":"Country","name":"United States"},"url":"https://shift-work.com/services/"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Change Management for Shift Schedule Transitions","provider":{"@id":"https://shift-work.com/#organization","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"serviceType":"Change Management Consulting","description":"Employee-centered change management for shift schedule transitions. Communication plans, on-shift meetings, employee choice facilitation, and leadership coaching.","areaServed":{"@type":"Country","name":"United States"},"url":"https://shift-work.com/services/"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Workforce Surveys and Diagnostics for Shift Operations","provider":{"@id":"https://shift-work.com/#organization","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"serviceType":"Workforce Survey and Analysis","description":"Proprietary Work-Life Balance Survey built specifically for shift workers. Benchmarked against a normative database from hundreds of 24/7 operations across 16+ industries.","areaServed":{"@type":"Country","name":"United States"},"url":"https://shift-work.com/services/"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Labor Cost and Overtime Analysis","provider":{"@id":"https://shift-work.com/#organization","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"serviceType":"Labor Cost Modeling","description":"Fully loaded cost analysis of every schedule option including wages, benefits, paid time off, training, and administrative overhead. Scenario-Based Cost Modeling with overtime projections and ROI modeling.","areaServed":{"@type":"Country","name":"United States"},"url":"https://shift-work.com/services/"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"Shift Work Policy Development","provider":{"@id":"https://shift-work.com/#organization","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com"},"serviceType":"Policy Development","description":"Work and pay policies aligned with the new shift schedule — including vacation accrual, holiday pay, overtime distribution, shift differentials, and call-off procedures.","areaServed":{"@type":"Country","name":"United States"},"url":"https://shift-work.com/services/"}</script>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

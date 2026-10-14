@@ -3,7 +3,7 @@
   Shiftwork Solutions LLC — Our Team
   File: our_team/index.html
   Created: April 6, 2026
-  Last updated: 2026-09-07
+  Last updated: 2026-10-13
   Author: Claude for Jim @ Shiftwork Solutions LLC
 
   PURPOSE:
@@ -12,6 +12,12 @@
   URL: /our_team/
 
   CHANGE LOG:
+    2026-10-13 — GEO/ENTITY CLEANUP (Phase 1 of the SEO+GEO audit). Changed: schema, team card, school.
+                 Firm schema nodes now share @id https://shift-work.com/#organization and partner
+                 Person nodes share @id /our_team/#jim|#dan|#ethan so engines read one entity each.
+                 Facts aligned per Jim (2026-10-13): founded 1992; Jim = Founder & Senior Consultant;
+                 Dan and Ethan = Senior Consultant; MBA school = NEOMA Business School, Rouen.
+                 No layout, styling, links, tracking or other copy changed.
     2026-09-07 — FAQ ANSWER, "Will I be working directly with a partner, or will junior staff
                  handle my engagement?" The QUESTION is kept — it is the prospect's own words, and
                  answering it is not the same as volunteering the comparison. The middle sentence
@@ -161,6 +167,7 @@
   <!-- AI DISCOVERABILITY SCHEMAS — added 2026-04-26 -->
   <script type="application/ld+json">
   {
+    "@id": "https://shift-work.com/#organization",
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Shiftwork Solutions LLC",
@@ -171,12 +178,12 @@
     "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
     "address": {"@type": "PostalAddress", "addressLocality": "San Rafael", "addressRegion": "CA", "postalCode": "94901", "addressCountry": "US"},
     "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations.",
-    "foundingDate": "1993",
+    "foundingDate": "1992",
     "areaServed": {"@type": "Country", "name": "United States"},
     "member": [
-      {"@type": "Person", "name": "Jim Dillingham", "jobTitle": "Founder and Senior Consultant", "description": "Founder of Shiftwork Solutions LLC. Former Naval officer turned workforce strategist, with three decades of experience in shift schedule change management. Built the firm's analytical tools with Dan Capshaw and develops its AI tools.", "alumniOf": [{"@type": "EducationalOrganization", "name": "United States Naval Academy"}, {"@type": "EducationalOrganization", "name": "Purdue University"}, {"@type": "EducationalOrganization", "name": "ESC Rouen"}]},
-      {"@type": "Person", "name": "Dan Capshaw", "jobTitle": "Partner and Senior Consultant", "description": "Chemical engineer and Lean Six Sigma Black Belt specializing in operations-driven schedule design and cost modeling for technically complex operations.", "alumniOf": [{"@type": "EducationalOrganization", "name": "Johns Hopkins University"}, {"@type": "EducationalOrganization", "name": "UC Berkeley Haas School of Business"}]},
-      {"@type": "Person", "name": "Ethan Franklin", "jobTitle": "Partner and Senior Consultant", "description": "Workforce analyst and engineer with legal training, covering the policy and compliance dimensions of schedule change. 25 years across manufacturing, distribution, and chemical operations before joining the practice.", "alumniOf": [{"@type": "EducationalOrganization", "name": "University of Illinois at Urbana-Champaign"}, {"@type": "EducationalOrganization", "name": "Loyola University Chicago School of Law"}]}
+      {"@id":"https://shift-work.com/our_team/#jim","@type": "Person", "name": "Jim Dillingham", "jobTitle": "Founder and Senior Consultant", "description": "Founder of Shiftwork Solutions LLC. Former Naval officer turned workforce strategist, with three decades of experience in shift schedule change management. Built the firm's analytical tools with Dan Capshaw and develops its AI tools.", "alumniOf": [{"@type": "EducationalOrganization", "name": "United States Naval Academy"}, {"@type": "EducationalOrganization", "name": "Purdue University"}, {"@type": "EducationalOrganization", "name": "NEOMA Business School, Rouen"}]},
+      {"@id":"https://shift-work.com/our_team/#dan","@type": "Person", "name": "Dan Capshaw", "jobTitle": "Senior Consultant", "description": "Chemical engineer and Lean Six Sigma Black Belt specializing in operations-driven schedule design and cost modeling for technically complex operations.", "alumniOf": [{"@type": "EducationalOrganization", "name": "Johns Hopkins University"}, {"@type": "EducationalOrganization", "name": "UC Berkeley Haas School of Business"}]},
+      {"@id":"https://shift-work.com/our_team/#ethan","@type": "Person", "name": "Ethan Franklin", "jobTitle": "Senior Consultant", "description": "Workforce analyst and engineer with legal training, covering the policy and compliance dimensions of schedule change. 25 years across manufacturing, distribution, and chemical operations before joining the practice.", "alumniOf": [{"@type": "EducationalOrganization", "name": "University of Illinois at Urbana-Champaign"}, {"@type": "EducationalOrganization", "name": "Loyola University Chicago School of Law"}]}
     ],
     "sameAs": ["https://www.linkedin.com/company/shiftwork-solutions-llc", "https://shift-work.com"]
   }
@@ -416,7 +423,7 @@
             <p>The analysis and benchmarking tools he and Dan built, along with the AI tools he develops, ensure that every client sees schedule options costed using their own numbers and benchmarked against comparable operations — not generic solutions drawn from a template.</p>
             <p>Over three decades, Jim has guided schedule transitions at operations ranging from greenfield startups to facilities making their first major schedule change in 20 years.</p>
           </div>
-          <div class="team-card-cred">B.S. Mathematics, United States Naval Academy &middot; M.S. Management, Purdue University &middot; MBA, ESC Rouen (France)</div>
+          <div class="team-card-cred">B.S. Mathematics, United States Naval Academy &middot; M.S. Management, Purdue University &middot; MBA, NEOMA Business School, Rouen (France)</div>
         </div>
       </div>
 
@@ -424,7 +431,7 @@
         <img class="team-card-photo" src="/images/dan.jpg" alt="Dan Capshaw, Partner at Shiftwork Solutions LLC" onerror="this.style.background='#1F4E79';this.style.height='200px';">
         <div class="team-card-body">
           <div class="team-card-name">Dan Capshaw</div>
-          <div class="team-card-role">Partner &amp; Senior Consultant</div>
+          <div class="team-card-role">Senior Consultant</div>
           <div class="team-card-bio">
             <p>Dan combines the analytical discipline of a chemical engineer with the process improvement rigor of a Lean Six Sigma Black Belt. He leads schedule design and cost modeling for technically complex operations — chemical plants, pharmaceutical facilities, continuous process manufacturing — where coverage requirements, safety constraints, and labor economics intersect in ways that generic scheduling approaches cannot address.</p>
             <p>Dan's background includes work in submarine engineering, which gave him an early grounding in the human factors consequences of poor schedule design. That experience shapes how he approaches every analysis and crew structure decision. His cost modeling produces the figures CFOs need to evaluate the business case with confidence.</p>
@@ -437,7 +444,7 @@
         <img class="team-card-photo" src="/images/ethan.jpg" alt="Ethan Franklin, Partner at Shiftwork Solutions LLC" onerror="this.style.background='#1F4E79';this.style.height='200px';">
         <div class="team-card-body">
           <div class="team-card-name">Ethan Franklin</div>
-          <div class="team-card-role">Partner &amp; Senior Consultant</div>
+          <div class="team-card-role">Senior Consultant</div>
           <div class="team-card-bio">
             <p>Ethan brings a distinctive combination of engineering analysis, legal training, and workforce survey expertise to the practice. He arrived with 25 years across manufacturing, distribution and chemical operations. He models coverage and staffing against demand, costs each schedule alternative, and finds the savings sitting inside a schedule pattern — so clients choose between options they can compare on numbers rather than impressions.</p>
             <p>His legal background gives him a practitioner's understanding of the labor and employment dimensions of schedule change — particularly in unionized environments, where the sequencing of decisions and documentation can determine whether a well-designed change succeeds or gets reversed.</p>

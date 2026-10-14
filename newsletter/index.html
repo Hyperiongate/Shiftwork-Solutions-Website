@@ -5,12 +5,18 @@
   URL: /newsletter/
 
   Created: April 2, 2026
-  Last updated: 2026-09-02
+  Last updated: 2026-10-13
 
   FORM BACKEND:
       POST https://ai-swarm-orchestrator.onrender.com/api/newsletter/subscribe
 
   CHANGE LOG:
+    2026-10-13 — GEO/ENTITY CLEANUP (Phase 1 of the SEO+GEO audit). Changed: schema.
+                 Firm schema nodes now share @id https://shift-work.com/#organization and partner
+                 Person nodes share @id /our_team/#jim|#dan|#ethan so engines read one entity each.
+                 Facts aligned per Jim (2026-10-13): founded 1992; Jim = Founder & Senior Consultant;
+                 Dan and Ethan = Senior Consultant; MBA school = NEOMA Business School, Rouen.
+                 No layout, styling, links, tracking or other copy changed.
       2026-09-02 — NAV BUTTON RESTYLE: "Book a Free Meeting" nav button changed to a white background with orange (#E8610A) text and a 2px solid orange outline (previously solid orange fill with white text). Padding reduced 2px per side so the button's outer size is unchanged. Hover now fills solid orange (#E8610A) with white text. CSS-only inside the inline <style>; markup unchanged.
       2026-04-02  Initial build
       2026-04-02  Rebuild to new design system
@@ -91,6 +97,7 @@
   <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
 
   <script type="application/ld+json">{
+  "@id": "https://shift-work.com/#organization",
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Shiftwork Solutions LLC",
@@ -100,7 +107,7 @@
   "email": "Contact@shift-work.com",
   "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
   "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.",
-  "foundingDate": "1993",
+  "foundingDate": "1992",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "San Rafael",

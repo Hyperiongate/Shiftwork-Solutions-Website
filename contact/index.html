@@ -3,7 +3,7 @@
   Shiftwork Solutions LLC — Contact
   File: contact/index.html
   Created: April 2, 2026
-  Last updated: 2026-09-02
+  Last updated: 2026-10-13
   Author: Claude for Jim @ Shiftwork Solutions LLC
 
   PURPOSE:
@@ -12,6 +12,12 @@
   URL: /contact/
 
   CHANGE LOG:
+    2026-10-13 — GEO/ENTITY CLEANUP (Phase 1 of the SEO+GEO audit). Changed: schema.
+                 Firm schema nodes now share @id https://shift-work.com/#organization and partner
+                 Person nodes share @id /our_team/#jim|#dan|#ethan so engines read one entity each.
+                 Facts aligned per Jim (2026-10-13): founded 1992; Jim = Founder & Senior Consultant;
+                 Dan and Ethan = Senior Consultant; MBA school = NEOMA Business School, Rouen.
+                 No layout, styling, links, tracking or other copy changed.
     2026-09-02 — NAV BUTTON RESTYLE: "Book a Free Meeting" nav button changed to a white background with orange (#E8610A) text and a 2px solid orange outline (previously solid orange fill with white text). Padding reduced 2px per side so the button's outer size is unchanged. Hover now fills solid orange (#E8610A) with white text. CSS-only inside the inline <style>; markup unchanged.
     2026-07-23 — CONTACT FORM 400 FIX. The form was sending firstName/lastName
                  but the Swarm API (/api/contact/submit) expected a combined
@@ -105,6 +111,7 @@
     "url": "https://shift-work.com/contact/",
     "description": "Contact page for Shiftwork Solutions LLC — shift schedule consulting, change management, and workforce engagement for 24/7 industrial operations.",
     "mainEntity": {
+      "@id": "https://shift-work.com/#organization",
       "@type": "Organization",
       "name": "Shiftwork Solutions LLC",
       "url": "https://shift-work.com",
@@ -117,6 +124,7 @@
   </script>
   <script type="application/ld+json">
   {
+    "@id": "https://shift-work.com/#organization",
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Shiftwork Solutions LLC",
@@ -127,7 +135,7 @@
     "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
     "address": {"@type": "PostalAddress", "addressLocality": "San Rafael", "addressRegion": "CA", "postalCode": "94901", "addressCountry": "US"},
     "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations.",
-    "foundingDate": "1993",
+    "foundingDate": "1992",
     "areaServed": {"@type": "Country", "name": "United States"},
     "sameAs": ["https://www.linkedin.com/company/shiftwork-solutions-llc", "https://shift-work.com"]
   }

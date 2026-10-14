@@ -5,9 +5,15 @@
   URL: /resources/
 
   Created:      2026-04-03
-  Last Updated: 2026-09-02
+  Last Updated: 2026-10-13
 
   CHANGE LOG:
+    2026-10-13 — GEO/ENTITY CLEANUP (Phase 1 of the SEO+GEO audit). Changed: schema.
+                 Firm schema nodes now share @id https://shift-work.com/#organization and partner
+                 Person nodes share @id /our_team/#jim|#dan|#ethan so engines read one entity each.
+                 Facts aligned per Jim (2026-10-13): founded 1992; Jim = Founder & Senior Consultant;
+                 Dan and Ethan = Senior Consultant; MBA school = NEOMA Business School, Rouen.
+                 No layout, styling, links, tracking or other copy changed.
     2026-09-02 — NAV BUTTON RESTYLE: "Book a Free Meeting" nav button changed to a white background with orange (#E8610A) text and a 2px solid orange outline (previously solid orange fill with white text). Padding reduced 2px per side so the button's outer size is unchanged. Hover now fills solid orange (#E8610A) with white text. CSS-only inside the inline <style>; markup unchanged.
     2026-07-23 — SEO/accessibility: added alt text to card images
     2026-05-12 — GUIDES ROW 3 RESTRUCTURED: Removed Talk to Thomas tile. Moved
@@ -93,6 +99,7 @@
   <!-- AI DISCOVERABILITY SCHEMAS -->
   <script type="application/ld+json">
   {
+    "@id": "https://shift-work.com/#organization",
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Shiftwork Solutions LLC",
@@ -102,7 +109,7 @@
     "email": "Contact@shift-work.com",
     "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
     "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities.",
-    "foundingDate": "1993",
+    "foundingDate": "1992",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "San Rafael",
@@ -157,7 +164,7 @@
     "name": "Shift Work Resources: Guides, Industry Insights & Diagnostic Tools",
     "url": "https://shift-work.com/resources/",
     "description": "Eleven comprehensive guides, focused articles, and diagnostic tools for 24/7 manufacturing and distribution operations — built from decades of shift work consulting experience.",
-    "publisher": {"@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"},
+    "publisher": {"@id":"https://shift-work.com/#organization","@type": "Organization", "name": "Shiftwork Solutions LLC", "url": "https://shift-work.com"},
     "about": {"@type": "Thing", "name": "Shift Schedule Design and Workforce Management"},
     "hasPart": [
       {"@type": "Article", "name": "The Complete Guide to Shift Schedule Design", "url": "https://shift-work.com/resources/shift-schedule-design-guide/"},

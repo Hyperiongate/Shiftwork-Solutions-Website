@@ -3,10 +3,16 @@
   Shiftwork Solutions LLC — Homepage
   File: index.html
   Created: March 31, 2026
-  Last updated: September 16, 2026
+  Last updated: October 13, 2026
   Author: Claude for Jim @ Shiftwork Solutions LLC
 
   CHANGE LOG:
+    2026-10-13 — GEO/ENTITY CLEANUP (Phase 1 of the SEO+GEO audit). Changed: sameAs, schema, team card.
+                 Firm schema nodes now share @id https://shift-work.com/#organization and partner
+                 Person nodes share @id /our_team/#jim|#dan|#ethan so engines read one entity each.
+                 Facts aligned per Jim (2026-10-13): founded 1992; Jim = Founder & Senior Consultant;
+                 Dan and Ethan = Senior Consultant; MBA school = NEOMA Business School, Rouen.
+                 No layout, styling, links, tracking or other copy changed.
     2026-09-16 — THIRD BLOCK (#challenges / .problems) LIGHT-GROUND RESTYLE. FORMAT ONLY:
                  no copy, markup, heading levels, links, tracking or schema were touched.
                  Background --navy -> --white (#FFFFFF). Light grey was tried first and
@@ -387,6 +393,7 @@
        ══════════════════════════════════════════════════════════════════ -->
   <script type="application/ld+json">
   {
+    "@id": "https://shift-work.com/#organization",
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Shiftwork Solutions LLC",
@@ -403,7 +410,7 @@
       "addressCountry": "US"
     },
     "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Decades of experience across hundreds of 24/7 operations in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.",
-    "foundingDate": "1993",
+    "foundingDate": "1992",
     "numberOfEmployees": {
       "@type": "QuantitativeValue",
       "value": 3
@@ -475,6 +482,7 @@
     },
     "member": [
       {
+        "@id": "https://shift-work.com/our_team/#jim",
         "@type": "Person",
         "name": "Jim Dillingham",
         "jobTitle": "Founder and Senior Consultant",
@@ -482,13 +490,14 @@
         "alumniOf": [
           {"@type": "EducationalOrganization", "name": "United States Naval Academy"},
           {"@type": "EducationalOrganization", "name": "Purdue University"},
-          {"@type": "EducationalOrganization", "name": "ESC Rouen"}
+          {"@type": "EducationalOrganization", "name": "NEOMA Business School, Rouen"}
         ]
       },
       {
+        "@id": "https://shift-work.com/our_team/#dan",
         "@type": "Person",
         "name": "Dan Capshaw",
-        "jobTitle": "Partner and Senior Consultant",
+        "jobTitle": "Senior Consultant",
         "description": "Chemical engineer and Lean Six Sigma Black Belt. Brings operational rigor to every engagement, with experience spanning submarine engineering, pharmaceutical manufacturing, and complex 24/7 operations.",
         "alumniOf": [
           {"@type": "EducationalOrganization", "name": "Johns Hopkins University"},
@@ -496,9 +505,10 @@
         ]
       },
       {
+        "@id": "https://shift-work.com/our_team/#ethan",
         "@type": "Person",
         "name": "Ethan Franklin",
-        "jobTitle": "Partner and Senior Consultant",
+        "jobTitle": "Senior Consultant",
         "description": "Brings together operational understanding and workforce analysis, with a legal perspective on the policy and compliance dimensions of schedule change. Helps facilities optimize operations and strengthen financial performance.",
         "alumniOf": [
           {"@type": "EducationalOrganization", "name": "University of Illinois at Urbana-Champaign"},
@@ -508,10 +518,14 @@
     ],
     "sameAs": [
       "https://www.linkedin.com/company/shiftwork-solutions-llc",
-      "https://shift-work.com",
-      "https://github.com/Hyperiongate/shiftwork-solutions-expertise",
-      "https://github.com/Hyperiongate"
-    ]
+      "https://shift-work.com"
+    ],
+    "subjectOf": {
+      "@type": "CreativeWork",
+      "name": "Shiftwork Solutions Expertise Library",
+      "url": "https://github.com/Hyperiongate/shiftwork-solutions-expertise",
+      "publisher": {"@id": "https://shift-work.com/#organization"}
+    }
   }
   </script>
 
@@ -526,6 +540,7 @@
     "url": "https://shift-work.com",
     "description": "Shift schedule design, change management, and workforce consulting for 24/7 industrial operations. Resources, guides, and diagnostic tools for operations professionals.",
     "publisher": {
+      "@id": "https://shift-work.com/#organization",
       "@type": "Organization",
       "name": "Shiftwork Solutions LLC"
     },
@@ -543,6 +558,7 @@
        ══════════════════════════════════════════════════════════════════ -->
   <script type="application/ld+json">
   {
+    "@id": "https://shift-work.com/#organization",
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Shiftwork Solutions LLC",
@@ -1343,7 +1359,7 @@
         <div class="team-card-top"><a href="/our_team/" aria-label="Meet our team"><div class="team-avatar"><img src="/images/dan.jpg" alt="Dan Capshaw, Partner at Shiftwork Solutions" onerror="var p=this.parentElement; this.remove(); p.textContent='DC';"></div></a></div>
         <div class="team-card-bottom">
           <h3>Dan Capshaw</h3>
-          <div class="team-role">Partner &amp; Senior Consultant</div>
+          <div class="team-role">Senior Consultant</div>
           <p class="team-bio">Chemical engineer and Lean Six Sigma Black Belt. Dan brings operational rigor to every engagement &mdash; with experience spanning submarine engineering, pharmaceutical manufacturing, and complex 24/7 operations.</p>
         </div>
       </div>
@@ -1351,7 +1367,7 @@
         <div class="team-card-top"><a href="/our_team/" aria-label="Meet our team"><div class="team-avatar"><img src="/images/ethan.jpg" alt="Ethan Franklin, Partner at Shiftwork Solutions" onerror="var p=this.parentElement; this.remove(); p.textContent='EF';"></div></a></div>
         <div class="team-card-bottom">
           <h3>Ethan Franklin</h3>
-          <div class="team-role">Partner &amp; Senior Consultant</div>
+          <div class="team-role">Senior Consultant</div>
           <p class="team-bio">Ethan brings together operational understanding and workforce analysis &mdash; with a legal perspective on the policy and compliance dimensions of schedule change. He helps facilities optimize operations and strengthen financial performance.</p>
         </div>
       </div>

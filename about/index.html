@@ -6,9 +6,15 @@
   URL: /about/
 
   Created:      2026-04-04
-  Last Updated: 2026-09-02
+  Last Updated: 2026-10-13
 
   CHANGE LOG:
+    2026-10-13 — GEO/ENTITY CLEANUP (Phase 1 of the SEO+GEO audit). Changed: schema, team card, school.
+                 Firm schema nodes now share @id https://shift-work.com/#organization and partner
+                 Person nodes share @id /our_team/#jim|#dan|#ethan so engines read one entity each.
+                 Facts aligned per Jim (2026-10-13): founded 1992; Jim = Founder & Senior Consultant;
+                 Dan and Ethan = Senior Consultant; MBA school = NEOMA Business School, Rouen.
+                 No layout, styling, links, tracking or other copy changed.
     2026-09-02 — NAV BUTTON RESTYLE: "Book a Free Meeting" nav button changed to a white background with orange (#E8610A) text and a 2px solid orange outline (previously solid orange fill with white text). Padding reduced 2px per side so the button's outer size is unchanged. Hover now fills solid orange (#E8610A) with white text. CSS-only inside the inline <style>; markup unchanged.
     2026-04-04 — Initial build.
     2026-04-04 — NAV + BUTTON + SEO + URL AUDIT.
@@ -84,9 +90,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
        ══════════════════════════════════════════════════════════════════ -->
   <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
 
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"About Shiftwork Solutions LLC","url":"https://shift-work.com/about/","description":"Shiftwork Solutions LLC is a leading U.S.-based consulting firm specializing in workforce scheduling and operational optimization for shift-intensive industries.","mainEntity":{"@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","foundingDate":"1992","numberOfEmployees":{"@type":"QuantitativeValue","value":3},"areaServed":"United States","knowsAbout":["shift schedule design","workforce engagement","24/7 operations","change management","labor cost optimization","shiftwork policies"]}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","name":"About Shiftwork Solutions LLC","url":"https://shift-work.com/about/","description":"Shiftwork Solutions LLC is a leading U.S.-based consulting firm specializing in workforce scheduling and operational optimization for shift-intensive industries.","mainEntity":{"@id":"https://shift-work.com/#organization","@type":"Organization","name":"Shiftwork Solutions LLC","url":"https://shift-work.com","telephone":"+1-415-265-1621","email":"Contact@shift-work.com","foundingDate":"1992","numberOfEmployees":{"@type":"QuantitativeValue","value":3},"areaServed":"United States","knowsAbout":["shift schedule design","workforce engagement","24/7 operations","change management","labor cost optimization","shiftwork policies"]}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://shift-work.com/"},{"@type":"ListItem","position":2,"name":"About Us","item":"https://shift-work.com/about/"}]}</script>
   <script type="application/ld+json">{
+  "@id": "https://shift-work.com/#organization",
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Shiftwork Solutions LLC",
@@ -96,7 +103,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "email": "Contact@shift-work.com",
   "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
   "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.",
-  "foundingDate": "1993",
+  "foundingDate": "1992",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "San Rafael",
@@ -459,9 +466,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </section>
 
 <div class="team-list">
-  <div class="team-row"><div class="team-name">Jim Dillingham</div><div class="team-divider"></div><div class="team-role">Partner &amp; Senior Consultant</div><div class="team-cred">Naval Academy &middot; Purdue &middot; ESC Rouen MBA</div><a href="/our_team/#jim" class="team-link">Full bio &rarr;</a></div>
-  <div class="team-row"><div class="team-name">Dan Capshaw</div><div class="team-divider"></div><div class="team-role">Partner &amp; Senior Consultant</div><div class="team-cred">Johns Hopkins &middot; UC Berkeley Haas &middot; Lean Six Sigma Black Belt</div><a href="/our_team/#dan" class="team-link">Full bio &rarr;</a></div>
-  <div class="team-row"><div class="team-name">Ethan Franklin</div><div class="team-divider"></div><div class="team-role">Partner &amp; Senior Consultant</div><div class="team-cred">U of Illinois BS/MS/MBA &middot; Loyola Chicago JD &middot; Licensed Attorney</div><a href="/our_team/#ethan" class="team-link">Full bio &rarr;</a></div>
+  <div class="team-row"><div class="team-name">Jim Dillingham</div><div class="team-divider"></div><div class="team-role">Founder &amp; Senior Consultant</div><div class="team-cred">Naval Academy &middot; Purdue &middot; NEOMA Rouen MBA</div><a href="/our_team/#jim" class="team-link">Full bio &rarr;</a></div>
+  <div class="team-row"><div class="team-name">Dan Capshaw</div><div class="team-divider"></div><div class="team-role">Senior Consultant</div><div class="team-cred">Johns Hopkins &middot; UC Berkeley Haas &middot; Lean Six Sigma Black Belt</div><a href="/our_team/#dan" class="team-link">Full bio &rarr;</a></div>
+  <div class="team-row"><div class="team-name">Ethan Franklin</div><div class="team-divider"></div><div class="team-role">Senior Consultant</div><div class="team-cred">U of Illinois BS/MS/MBA &middot; Loyola Chicago JD &middot; Licensed Attorney</div><a href="/our_team/#ethan" class="team-link">Full bio &rarr;</a></div>
 </div>
 
 <div class="faq-section" id="faq">

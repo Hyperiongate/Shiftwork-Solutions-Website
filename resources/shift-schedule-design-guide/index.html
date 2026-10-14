@@ -5,9 +5,15 @@
   URL: /resources/shift-schedule-design-guide/
 
   Created:      2026-04-02
-  Last Updated: 2026-09-02
+  Last Updated: 2026-10-13
 
   CHANGE LOG:
+    2026-10-13 — GEO/ENTITY CLEANUP (Phase 1 of the SEO+GEO audit). Changed: schema.
+                 Firm schema nodes now share @id https://shift-work.com/#organization and partner
+                 Person nodes share @id /our_team/#jim|#dan|#ethan so engines read one entity each.
+                 Facts aligned per Jim (2026-10-13): founded 1992; Jim = Founder & Senior Consultant;
+                 Dan and Ethan = Senior Consultant; MBA school = NEOMA Business School, Rouen.
+                 No layout, styling, links, tracking or other copy changed.
     2026-09-02 — NAV BUTTON RESTYLE: "Book a Free Meeting" nav button changed to a white background with orange (#E8610A) text and a 2px solid orange outline (previously solid orange fill with white text). Padding reduced 2px per side so the button's outer size is unchanged. Hover now fills solid orange (#E8610A) with white text. CSS-only inside the inline <style>; markup unchanged.
     2026-05-05 — SEO: Added og:image meta tag for social sharing. Zero other changes.
     2026-04-28 — ALL-PAGES CYCLE pass 1: Added Clarity (wiyn7e4d73), event-tracker,
@@ -128,18 +134,21 @@
       "employee schedule preferences"
     ],
     "author": {
+      "@id": "https://shift-work.com/our_team/#jim",
       "@type": "Person",
       "name": "Jim Dillingham",
       "url": "https://shift-work.com/our_team/",
       "sameAs": "https://www.linkedin.com/in/shiftwork/",
-      "jobTitle": "Partner and Senior Consultant",
+      "jobTitle": "Founder and Senior Consultant",
       "worksFor": {
+        "@id": "https://shift-work.com/#organization",
         "@type": "Organization",
         "name": "Shiftwork Solutions LLC",
         "url": "https://shift-work.com"
       }
     },
     "publisher": {
+      "@id": "https://shift-work.com/#organization",
       "@type": "Organization",
       "name": "Shiftwork Solutions LLC",
       "url": "https://shift-work.com",
@@ -154,18 +163,19 @@
   <!-- ══ SCHEMA BLOCK 4: Person (UNCHANGED from 2026-04-28 upgrade) ══ -->
   <script type="application/ld+json">
   {
+    "@id": "https://shift-work.com/our_team/#jim",
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Jim Dillingham",
     "url": "https://shift-work.com/our_team/",
     "image": "https://shift-work.com/images/jim.jpg",
     "sameAs": "https://www.linkedin.com/in/shiftwork/",
-    "jobTitle": "Partner and Senior Consultant",
+    "jobTitle": "Founder and Senior Consultant",
     "description": "Former Naval officer turned workforce strategist with over 30 years of experience helping 24/7 industrial operations design and implement shift schedules. Specializes in change management with a philosophy that the more the workforce understands and participates, the better the outcome.",
     "alumniOf": [
       {"@type": "EducationalOrganization", "name": "United States Naval Academy"},
       {"@type": "EducationalOrganization", "name": "Purdue University"},
-      {"@type": "EducationalOrganization", "name": "ESC Rouen"}
+      {"@type": "EducationalOrganization", "name": "NEOMA Business School, Rouen"}
     ],
     "knowsAbout": [
       "shift schedule design",
@@ -176,6 +186,7 @@
       "union shift scheduling"
     ],
     "worksFor": {
+      "@id": "https://shift-work.com/#organization",
       "@type": "Organization",
       "name": "Shiftwork Solutions LLC",
       "url": "https://shift-work.com"
@@ -186,6 +197,7 @@
   <!-- ══ SCHEMA BLOCK 5: Organization (UNCHANGED — already full canonical) ══ -->
   <script type="application/ld+json">
   {
+    "@id": "https://shift-work.com/#organization",
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Shiftwork Solutions LLC",
@@ -195,7 +207,7 @@
     "email": "Contact@shift-work.com",
     "slogan": "Cost efficiency, workforce engagement, and operational reliability — delivered simultaneously.",
     "description": "Fixed-fee management consulting firm specializing in shift schedule optimization, workforce engagement, and change management for 24/7 industrial operations. Over 30 years of experience across hundreds of facilities in manufacturing, distribution, pharmaceutical, chemical, food and beverage, mining, refining, and paper and packaging industries.",
-    "foundingDate": "1993",
+    "foundingDate": "1992",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "San Rafael",
