@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<!--
+  5m-schedule-savings/index.html
+  Shiftwork Solutions LLC — LinkedIn ad landing page ($5M distribution center case study)
+  Deploy as: /5m-schedule-savings/index.html  →  https://shift-work.com/5m-schedule-savings/
+  Created:      2026-11-11
+  Last Updated: 2026-11-11
+
+  CHANGE LOG:
+    2026-11-11 — Revision 3: added motion. Hero fades up on load; section headings, text and
+                 cards fade up as they scroll into view (cards side by side are staggered).
+    2026-11-11 — Revision 2: headline changed to "How a Schedule Redesign Recovered $5M+ and Improved
+                 Retention". Card shapes restored to the supplied mockup: 2 x 2 impact cards with icon
+                 tiles, bordered rounded problem cards with icons, white shadowed quote card, corner
+                 tabs on the cost cards, bordered insight card. No box uses a coloured side line.
+                 More orange and warm yellow in accents. Buttons: solid orange on white or light
+                 backgrounds, white with orange text and outline on navy backgrounds.
+    2026-11-11 — Revision: call to action changed to "Start a Conversation" throughout (header,
+                 hero, mid-page band, form heading and button); form label changed to "Email address";
+                 hero picture replaced with a copy that has the vest wordmark removed.
+    2026-11-11 — Page created. Layout follows the supplied landing page mockup; colors, type,
+                 header, footer and tracking follow the live site.
+
+  NOTES FOR FUTURE EDITS:
+    PURPOSE: single-action landing page for the LinkedIn campaign. The one action is the
+      request form at #contact-form. There is deliberately no site navigation in the header.
+    SOURCE OF FACTS: /resources/case-studies/distribution-center-schedule-standardization/
+      Every figure and the Ethan Franklin quote come from that page. If the case study
+      changes, change this page to match (visible copy, meta description, JSON-LD).
+    INDEXING: noindex,follow and NOT in sitemap.xml, so it does not compete with the case
+      study in search. Remove the robots meta tag only if that decision changes.
+    FORM: posts JSON to the same endpoint and in the same shape as /contact/ (#contactForm):
+      name, firstName, lastName, email, company, topic, message, source, honeypot, timestamp.
+      source = 'landing-5m-schedule-savings'. Employee count and any utm_* values from the
+      page URL are appended to the message text so they arrive in the same inbox.
+      On success a dataLayer event 'lp_conversation_request' is pushed for GTM / ad conversions.
+    IMAGE: /images/5m-schedule-savings-hero.jpg (1200px wide, web-optimized copy of
+      Gemini_Generated_Image_11.09.26.jpg, with the made-up company wordmark on the vest
+      removed). The only logo on the page is the site logo, /images/clear_bkgr_logo_2.png.
+    BRAND: navy #1F4E79, navy-dark #0D1F3C, mid-blue #85B7EB, light blue #EEF3F8,
+      orange #E8610A (CTAs, icons, accents), orange tint #FDEEE3 (icon and number tiles),
+      gold #EEAE26 (accent text on dark navy only), Arial.
+    BUTTON RULE: .btn (solid orange) on white or light sections; .btn.btn-on-navy (white with
+      orange text and outline) on navy sections. Do not put a solid orange button on navy.
+    SHAPE RULE: rounded 16px cards with a full 1px border; never a box with a coloured line
+      down one side.
+    WORDING RULES: describe experience as "hundreds" of operations; no pricing signals; titles are
+      "Senior Consultant".
+    MOTION: .reveal / .is-visible, driven by the SCROLL REVEAL script at the bottom and the
+      js-reveal switch in the head. To animate a new block, add its selector to the list in
+      that script. Disabled automatically for reduced-motion visitors and for print.
+    MOBILE: 900px and 560px breakpoints.
+    Keep this change log neutral: HTML comments are publicly viewable in page source.
+  I did no harm, and this file is not truncated
+-->
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PTWM3WM');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The $5 Million Hiding in a Distribution Center's Schedule | Shiftwork Solutions LLC</title>
+  <meta name="description" content="A 2,000-employee distribution center recovered over $5 million a year by standardizing its schedule, with no cuts to headcount or operating hours.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://shift-work.com/5m-schedule-savings/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Shiftwork Solutions LLC">
+  <meta property="og:title" content="The $5 Million Hiding in a Distribution Center's Schedule">
+  <meta property="og:description" content="A 2,000-employee distribution center recovered over $5 million a year by standardizing its schedule, with no cuts to headcount or operating hours.">
+  <meta property="og:url" content="https://shift-work.com/5m-schedule-savings/">
+  <meta property="og:image" content="https://shift-work.com/images/5m-schedule-savings-hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The $5 Million Hiding in a Distribution Center's Schedule">
+  <meta name="twitter:description" content="A 2,000-employee distribution center recovered over $5 million a year by standardizing its schedule, with no cuts to headcount or operating hours.">
+  <meta name="twitter:image" content="https://shift-work.com/images/5m-schedule-savings-hero.jpg">
+
+  <!-- WEBPAGE SCHEMA -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://shift-work.com/5m-schedule-savings/#webpage","url":"https://shift-work.com/5m-schedule-savings/","name":"The $5 Million Hiding in a Distribution Center's Schedule","description":"A 2,000-employee distribution center recovered over $5 million a year by standardizing its schedule, with no cuts to headcount or operating hours.","isBasedOn":"https://shift-work.com/resources/case-studies/distribution-center-schedule-standardization/","primaryImageOfPage":"https://shift-work.com/images/5m-schedule-savings-hero.jpg","publisher":{"@id":"https://shift-work.com/#organization"},"dateModified":"2026-11-11"}</script>
+
+  <!-- MICROSOFT CLARITY -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wiyn7e4d73");
+  </script>
+
+  <!-- CUSTOM EVENT TRACKER -->
+  <script src="/js/event-tracker.js"></script>
+
+  <!-- PLAUSIBLE ANALYTICS -->
+  <script async src="https://plausible.io/js/pa-sH0BT-KFFBE-QL0g-zuyZ.js"></script>
+
+  <!-- Scroll-reveal switch: sections are only hidden-until-scrolled when this runs. -->
+  <script>if('IntersectionObserver' in window){document.documentElement.className+=' js-reveal';}</script>
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--navy:#1F4E79;--navy-dark:#0D1F3C;--mid-blue:#85B7EB;--light-blue:#EEF3F8;--orange:#E8610A;--orange-dark:#C9530A;--orange-tint:#FDEEE3;--teal:#0D7E8A;--gold:#EEAE26;--white:#FFFFFF;--light-grey:#F4F6F8;--body-text:#1A1A1A;--muted:#5A6472;--border-med:#DDE3EA;--on-dark:#C9D8EA;--max-width:1140px;--page-pad:24px;--radius:8px;--radius-lg:16px}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.7;color:var(--body-text);background:var(--white);-webkit-font-smoothing:antialiased}
+    img{max-width:100%;display:block}
+    .wrap{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad)}
+    .narrow{max-width:960px}
+
+    /* header: logo plus the single page action, no site navigation */
+    .site-nav{position:sticky;top:0;z-index:1000;background:var(--white);border-bottom:1px solid var(--border-med)}
+    .nav-inner{max-width:var(--max-width);margin:0 auto;padding:0 var(--page-pad);min-height:60px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .nav-logo{text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:12px}
+    .nav-logo img{height:36px;width:auto}
+    .nav-logo-text{font-size:20px;font-weight:700;color:var(--navy);letter-spacing:.03em;line-height:1}
+    .nav-cta-btn{display:inline-block;padding:8px 18px;background:var(--orange);color:var(--white);font-size:13px;font-weight:700;text-decoration:none;border:2px solid var(--orange);border-radius:6px;transition:background .15s,border-color .15s;white-space:nowrap}
+    .nav-cta-btn:hover,.nav-cta-btn:focus-visible{background:var(--orange-dark);border-color:var(--orange-dark)}
+
+    /* buttons */
+    .btn{display:inline-block;background:var(--orange);color:var(--white);font-family:inherit;font-size:16px;font-weight:700;line-height:1.3;text-decoration:none;text-align:center;padding:13px 28px;border:2px solid var(--orange);border-radius:var(--radius);cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+    .btn:hover,.btn:focus-visible{background:var(--orange-dark);border-color:var(--orange-dark)}
+    .btn-on-navy{background:var(--white);color:var(--orange)}
+    .btn-on-navy:hover,.btn-on-navy:focus-visible{background:var(--orange);border-color:var(--orange);color:var(--white)}
+    .btn:disabled{opacity:.7;cursor:default}
+    a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--mid-blue);outline-offset:2px}
+
+    /* eyebrow + headings */
+    .eyebrow{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--orange-dark);margin-bottom:10px}
+    .on-dark .eyebrow{color:var(--gold)}
+    h2{font-size:clamp(26px,3.4vw,36px);line-height:1.2;color:var(--navy-dark);margin-bottom:16px;text-wrap:balance}
+    .on-dark h2{color:var(--white)}
+    .center{text-align:center}
+    .lede{font-size:17px;color:var(--muted);max-width:760px}
+    .center .lede{margin-left:auto;margin-right:auto}
+    .sec{padding:72px 0}
+    .sec-tint{background:var(--light-blue)}
+    .sec p+p{margin-top:14px}
+
+    /* hero */
+    .hero{background-color:var(--navy-dark);background-image:radial-gradient(rgba(255,255,255,.055) 1px,transparent 1px);background-size:22px 22px;color:var(--white);padding:64px 0 72px}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:52px;align-items:center}
+    .hero-tag{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);background:rgba(238,174,38,.08);border:1px solid rgba(238,174,38,.45);border-radius:999px;padding:6px 14px;margin-bottom:22px}
+    .hero-tag::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0}
+    .hero h1{font-size:clamp(32px,4.6vw,52px);line-height:1.1;font-weight:700;margin-bottom:20px;text-wrap:balance}
+    .hero h1 .num{color:var(--gold)}
+    .hero-sub{font-size:18px;line-height:1.6;color:var(--on-dark);max-width:600px;margin-bottom:30px}
+    .hero-note{margin-top:14px;font-size:13.5px;color:var(--on-dark)}
+    .hero-visual{position:relative}
+    .hero-visual img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius-lg);border:1px solid rgba(255,255,255,.14)}
+    .hero-stat{position:relative;margin:-40px 24px 0;background:var(--navy);border:1px solid rgba(255,255,255,.16);border-radius:var(--radius-lg);padding:22px 24px;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+    .hero-stat-label{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark)}
+    .hero-stat-num{font-size:48px;font-weight:700;line-height:1.05;color:var(--gold);margin:4px 0 6px}
+    .hero-stat-desc{font-size:14px;line-height:1.5;color:var(--on-dark)}
+    .hero-stat-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px;border-top:1px solid rgba(255,255,255,.16);margin-top:16px;padding-top:16px;font-size:14px;font-weight:700;color:var(--white)}
+    .hero-stat-meta span{background:var(--navy-dark);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 12px}
+    .hero-stat-meta span b{display:block;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark);font-weight:700;margin-bottom:2px}
+
+    /* impact cards */
+    .impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px}
+    .impact-card{background:var(--white);border:1px solid var(--border-med);border-radius:var(--radius-lg);padding:30px 32px}
+    .impact-card.total{border-color:#F3C9A8;box-shadow:0 8px 24px rgba(232,97,10,.10)}
+    .ico-tile{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:12px;background:var(--orange-tint);color:var(--orange);margin-bottom:18px}
+    .impact-k{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+    .impact-v{font-size:32px;font-weight:700;line-height:1.2;color:var(--navy-dark);margin:6px 0 8px;white-space:nowrap}
+    .impact-card p{font-size:15px;line-height:1.55;color:var(--muted)}
+
+    /* background: three problems */
+    .lead-in{font-weight:700;color:var(--navy-dark);margin-top:26px}
+    .issue-list{list-style:none;margin-top:16px;display:grid;gap:12px}
+    .issue-list li{display:flex;gap:14px;align-items:flex-start;background:var(--white);border:1px solid var(--border-med);border-radius:var(--radius-lg);padding:20px 24px;font-size:15px;line-height:1.55;color:var(--muted);box-shadow:0 1px 3px rgba(13,31,60,.05)}
+    .issue-list .ico{color:var(--orange);flex-shrink:0;margin-top:1px}
+    .issue-list b{display:block;color:var(--navy-dark);font-size:16px;margin-bottom:2px}
+
+    /* quote */
+    .quote{position:relative;margin-top:44px;background:var(--white);border:1px solid var(--border-med);border-radius:var(--radius-lg);padding:36px 40px 30px;box-shadow:0 16px 40px rgba(13,31,60,.10)}
+    .quote::before{content:"\201D";position:absolute;top:6px;right:28px;font-family:Georgia,'Times New Roman',serif;font-size:110px;line-height:1;color:var(--orange-tint);pointer-events:none}
+    .quote blockquote{position:relative;padding-right:56px;font-size:19px;font-style:italic;line-height:1.65;color:var(--navy-dark)}
+    .quote-attr{display:flex;align-items:center;gap:14px;margin-top:20px;padding-top:18px;border-top:1px solid var(--border-med)}
+    .quote-attr img{width:52px;height:52px;flex-shrink:0;border-radius:50%;object-fit:cover}
+    .quote-name{font-weight:700;color:var(--navy-dark);line-height:1.3}
+    .quote-title{font-size:13.5px;color:var(--muted);line-height:1.4}
+
+    /* two hidden costs */
+    .cost-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:32px}
+    .cost-card{position:relative;overflow:hidden;background:var(--white);border:1px solid var(--border-med);border-radius:var(--radius-lg);padding:36px 32px 30px}
+    .cost-tag{position:absolute;top:0;right:0;font-size:13px;font-weight:700;color:var(--white);background:var(--navy);border-radius:0 0 0 14px;padding:7px 18px}
+    .cost-tag.warm{background:var(--orange)}
+    .cost-card h3{font-size:21px;color:var(--navy-dark);line-height:1.3}
+    .cost-num{font-size:38px;font-weight:700;color:var(--navy);line-height:1.2;margin:6px 0 10px}
+    .cost-num small{font-size:14px;font-weight:400;color:var(--muted);margin-left:6px}
+    .cost-card p{font-size:15.5px;color:var(--muted)}
+    .cost-foot{margin-top:18px;background:var(--white);border:1px solid var(--border-med);border-radius:10px;padding:13px 16px;font-size:14px;line-height:1.5;color:var(--muted)}
+    .cost-foot b{color:var(--navy-dark)}
+
+    /* three fixes */
+    .fix-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px;text-align:left}
+    .fix-card{background:var(--white);border:1px solid var(--border-med);border-radius:var(--radius-lg);padding:34px 32px;box-shadow:0 1px 3px rgba(13,31,60,.05)}
+    .fix-n{display:inline-flex;align-items:center;justify-content:center;width:52px;height:52px;border-radius:12px;background:var(--orange-tint);color:var(--orange-dark);font-weight:700;font-size:19px;margin-bottom:20px}
+    .fix-card h3{font-size:19px;color:var(--navy-dark);line-height:1.3;margin-bottom:8px}
+    .fix-card p{font-size:15px;line-height:1.6;color:var(--muted)}
+
+    /* results band */
+    .results{background:var(--navy-dark);color:var(--white);padding:72px 0}
+    .results .lede{color:var(--on-dark)}
+    .results .lede b{color:var(--white)}
+    .results-box{max-width:860px;margin:40px auto 0;background:var(--navy);border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-lg);padding:40px 32px;text-align:center}
+    .results-box h3{font-size:clamp(22px,2.8vw,28px);line-height:1.3;color:var(--white);margin-bottom:12px;text-wrap:balance}
+    .results-box p{color:var(--on-dark);max-width:560px;margin:0 auto 24px}
+
+    /* insight */
+    .insight{margin-top:36px;background:var(--light-grey);border:1px solid var(--border-med);border-radius:var(--radius-lg);padding:30px 34px}
+    .insight h3{display:flex;align-items:center;gap:10px;font-size:18px;color:var(--navy-dark);margin-bottom:8px}
+    .insight .ico{color:var(--orange);flex-shrink:0}
+    .insight p{font-size:15.5px;color:var(--muted)}
+    .strong-line{font-weight:700;color:var(--navy-dark)}
+
+    /* form section */
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+    .checks{list-style:none;margin-top:24px;display:grid;gap:12px}
+    .checks li{position:relative;padding-left:34px;font-size:16px;line-height:1.5;color:var(--body-text)}
+    .checks li::before{content:"";position:absolute;left:0;top:1px;width:22px;height:22px;border-radius:50%;background:var(--orange-tint)}
+    .checks li::after{content:"";position:absolute;left:8px;top:6px;width:5px;height:9px;border:solid var(--orange-dark);border-width:0 2px 2px 0;transform:rotate(45deg)}
+    .trust-line{margin-top:26px;padding-top:20px;border-top:1px solid #D3DEEA;font-size:14.5px;color:var(--muted)}
+    .form-card{background:var(--white);border:1px solid var(--border-med);border-radius:var(--radius-lg);padding:38px 36px;box-shadow:0 10px 30px rgba(13,31,60,.08)}
+    .form-card h3{font-size:24px;color:var(--navy-dark);line-height:1.25}
+    .form-sub{font-size:14.5px;color:var(--muted);margin:6px 0 22px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .form-group{margin-bottom:16px}
+    .form-label{display:block;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--navy-dark);margin-bottom:6px}
+    .form-input,.form-select{width:100%;padding:12px 14px;border:1.5px solid #C5CFDB;border-radius:6px;font-family:inherit;font-size:16px;color:var(--body-text);background:var(--white)}
+    .form-input:focus,.form-select:focus{border-color:var(--navy)}
+    .form-card .btn{width:100%;margin-top:4px}
+    .form-msg{font-size:14.5px;line-height:1.5;margin-top:12px;min-height:22px}
+    .form-msg.ok{color:#0B6B3A;font-weight:700}
+    .form-msg.err{color:#B3261E;font-weight:700}
+    .form-fine{font-size:12.5px;color:var(--muted);margin-top:10px;line-height:1.5}
+    .form-fine a{color:var(--navy)}
+
+    /* footer */
+    .site-footer{background:var(--navy-dark);color:#9FB2C9}
+    .footer-inner{max-width:var(--max-width);margin:0 auto;padding:26px var(--page-pad);font-size:13px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+    .site-footer a{color:#C6D4E4;text-decoration:none}
+    .site-footer a:hover{color:var(--white)}
+    .fb-brand{color:var(--white);font-weight:700}
+    .sep{opacity:.4;margin:0 4px}
+
+    @media(max-width:900px){
+      .hero{padding:44px 0 52px}
+      .hero-grid,.form-grid,.cost-grid{grid-template-columns:1fr;gap:36px}
+      .impact-grid{grid-template-columns:1fr 1fr}
+      .fix-grid{grid-template-columns:1fr}
+      .sec,.results{padding:52px 0}
+    }
+    @media(max-width:560px){
+      .nav-logo-text{display:none}
+      .nav-cta-btn{font-size:12px;padding:6px 10px}
+      .impact-v{white-space:normal}
+      .impact-grid{grid-template-columns:1fr}
+      .form-row{grid-template-columns:1fr;gap:0}
+      .hero-stat{margin:-28px 12px 0;padding:18px}
+      .hero-stat-num{font-size:42px}
+      .btn{width:100%}
+      .quote{padding:28px 22px 24px}
+      .quote blockquote{font-size:17px;padding-right:0}
+      .quote::before{font-size:72px;right:16px;top:2px}
+      .form-card,.fix-card,.impact-card{padding:24px 22px}
+      .cost-card{padding:44px 22px 24px}
+      .hero-stat-meta{grid-template-columns:1fr}
+      .results-box{padding:30px 20px}
+    }
+    /* motion: hero fades up on load; sections and cards fade up as they scroll into view.
+       Same movement as the homepage (20px rise, 0.6s ease-out). */
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+    .hero-grid>div{animation:fadeUp .6s ease-out both}
+    .hero-grid>div:nth-child(2){animation-delay:.15s}
+    .js-reveal .reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease-out,transform .6s ease-out;transition-delay:var(--reveal-delay,0ms)}
+    .js-reveal .reveal.is-visible{opacity:1;transform:none}
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      .hero-grid>div{animation:none}
+      .js-reveal .reveal{opacity:1;transform:none;transition:none}
+    }
+    @media print{.js-reveal .reveal{opacity:1;transform:none}.hero-grid>div{animation:none}}
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PTWM3WM"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="site-nav"><div class="nav-inner">
+  <a href="/" class="nav-logo">
+    <img src="/images/clear_bkgr_logo_2.png" alt="Shiftwork Solutions" height="36">
+    <span class="nav-logo-text">SHIFTWORK SOLUTIONS</span>
+  </a>
+  <a href="#contact-form" class="nav-cta-btn">Start a Conversation</a>
+</div></header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="hero-tag">Case Study &middot; Distribution Operations</span>
+    <h1>How a Schedule Redesign Recovered <span class="num">$5M+</span> and Improved Retention</h1>
+    <p class="hero-sub">Learn how realigning shift patterns, eliminating accidental overlap, and simplifying start-time complexity cut over $5M in annual labor waste in a 2,000-employee facility &mdash; without reducing headcount or operating hours.</p>
+    <a href="#contact-form" class="btn btn-on-navy">Start a Conversation</a>
+    <p class="hero-note">No software to buy. The fix was in the schedule itself.</p>
+  </div>
+  <div class="hero-visual">
+    <img src="/images/5m-schedule-savings-hero.jpg" alt="A supervisor and an associate talking on the floor of a distribution center" width="1200" height="900">
+    <div class="hero-stat">
+      <div class="hero-stat-label">Annual labor cost recovered</div>
+      <div class="hero-stat-num">$5M+</div>
+      <div class="hero-stat-desc">Labor waste removed through schedule restructuring across five departments.</div>
+      <div class="hero-stat-meta">
+        <span><b>Facility size</b>~2,000 employees</span>
+        <span><b>Headcount or hours cut</b>None</span>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- IMPACT AT A GLANCE -->
+<section class="sec sec-tint"><div class="wrap center">
+  <div class="eyebrow">Executive Summary</div>
+  <h2>The Impact at a Glance</h2>
+  <div class="impact-grid" style="text-align:left">
+    <div class="impact-card">
+      <div class="ico-tile"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+      <div class="impact-k">Shift overlaps</div>
+      <div class="impact-v">$3.4M &ndash; $4.2M</div>
+      <p>Annual cost found across five departments. Overlap was cut to deliberate, minimum handoffs.</p>
+    </div>
+    <div class="impact-card">
+      <div class="ico-tile"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg></div>
+      <div class="impact-k">Start-time complexity</div>
+      <div class="impact-v">$1.6M</div>
+      <p>Annual cost of running 2&ndash;5 start times per department. Now one start time per shift.</p>
+    </div>
+    <div class="impact-card total">
+      <div class="ico-tile"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M16.5 7.5c0-1.7-2-3-4.5-3s-4.5 1.3-4.5 3 2 2.6 4.5 3 4.5 1.3 4.5 3-2 3-4.5 3-4.5-1.3-4.5-3"/></svg></div>
+      <div class="impact-k">Total annual value</div>
+      <div class="impact-v">$5.0M &ndash; $5.8M</div>
+      <p>Identified opportunity, addressed without cutting headcount or operating hours.</p>
+    </div>
+    <div class="impact-card">
+      <div class="ico-tile"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c2.9.3 5 2.7 5 5.8"/></svg></div>
+      <div class="impact-k">Weekend retention</div>
+      <div class="impact-v">Improved</div>
+      <p>Coverage rebuilt around a dedicated weekend crew that employees preferred.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- BACKGROUND -->
+<section class="sec"><div class="wrap narrow">
+  <div class="eyebrow">The Background</div>
+  <h2>When Incremental Decisions Become an Invisible Tax</h2>
+  <p>The distribution center ran around the clock &mdash; roughly 2,000 employees across Replenishment, Processing, Maintenance, and support functions, on a mix of 8- and 12-hour shifts.</p>
+  <p>Like most large facilities, the schedule had grown by accretion: one scheduling decision layered on top of the last, year after year. No single manager had designed the whole thing or fully understood it.</p>
+  <p class="lead-in">Leadership came to us with what looked like three separate problems:</p>
+  <ul class="issue-list">
+    <li><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5.5M12 16.5v.01"/></svg><div><b>Overtime</b>Running persistently above benchmark.</div></li>
+    <li><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h10M7 21h10M8 3v3.5c0 2 4 3.5 4 5.5s-4 3.5-4 5.5V21M16 3v3.5c0 2-4 3.5-4 5.5s4 3.5 4 5.5V21"/></svg><div><b>Supervisor time</b>Supervisors consumed by the complexity of shift handoffs.</div></li>
+    <li><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10" cy="8" r="3.5"/><path d="M3 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5M17 9h5"/></svg><div><b>Weekend turnover</b>Stubborn turnover in the departments that carried weekend coverage.</div></li>
+  </ul>
+  <p style="margin-top:22px">The schedule was the common thread in all three. No one had yet looked at it as a single system.</p>
+
+  <figure class="quote">
+    <blockquote>&ldquo;The schedule had been treated as a fixed cost of operating at this scale. When we mapped it precisely, the overlaps alone were costing nearly $4 million a year &mdash; and that was before we counted what the start-time complexity was taking out of productive capacity.&rdquo;</blockquote>
+    <figcaption class="quote-attr">
+      <img src="/images/ethan.jpg" alt="Ethan Franklin" width="52" height="52">
+      <div>
+        <div class="quote-name">Ethan Franklin</div>
+        <div class="quote-title">Senior Consultant, Shiftwork Solutions LLC</div>
+      </div>
+    </figcaption>
+  </figure>
+</div></section>
+
+<!-- FINDING THE COST -->
+<section class="sec sec-tint"><div class="wrap">
+  <div class="eyebrow">Finding the Cost</div>
+  <h2>Mapping the Schedule As It Actually Ran</h2>
+  <p class="lede">Our business assessment mapped the schedule as it actually ran &mdash; every overlap, every start time, department by department &mdash; not as it was assumed to run. Two hidden costs came out of it.</p>
+  <div class="cost-grid">
+    <div class="cost-card">
+      <span class="cost-tag">Cost #1</span>
+      <h3>Accidental Overlap</h3>
+      <div class="cost-num">$3.8M<small>midpoint / year</small></div>
+      <p>Across five departments, shifts were starting and stopping in ways that put people on the clock at the same time. They were doing handoff work that produced no additional output.</p>
+      <div class="cost-foot"><b>Measured range:</b> $3.4M to $4.2M a year against the real schedule.</div>
+    </div>
+    <div class="cost-card">
+      <span class="cost-tag warm">Cost #2</span>
+      <h3>Coordination Friction</h3>
+      <div class="cost-num">$1.6M<small>/ year</small></div>
+      <p>Departments were operating with two to five different start times at once. The friction quietly drained productive time from roughly 1,250 employees, every day.</p>
+      <div class="cost-foot"><b>Why it stayed hidden:</b> it was not a line item anywhere.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- THE REDESIGN -->
+<section class="sec"><div class="wrap center">
+  <div class="eyebrow">The Redesign</div>
+  <h2>Fixing the Root Cause, Not the Symptoms</h2>
+  <p class="lede">The work followed the four-phase methodology we use on every engagement: <b>business assessment, workforce assessment, solution design, and implementation.</b></p>
+  <div class="fix-grid">
+    <div class="fix-card">
+      <div class="fix-n">01</div>
+      <h3>Consolidated Overlap</h3>
+      <p>Reduced across the five departments to the minimum genuinely useful for clean handoffs &mdash; deliberate rather than accidental.</p>
+    </div>
+    <div class="fix-card">
+      <div class="fix-n">02</div>
+      <h3>Standardized Start Times</h3>
+      <p>One start time per shift in each department. Supervisors got a consistent reference point and less administrative friction.</p>
+    </div>
+    <div class="fix-card">
+      <div class="fix-n">03</div>
+      <h3>Dedicated Weekend Crew</h3>
+      <p>Weekend coverage rebuilt around a dedicated crew. Employees saw it as a better deal than five days with an unpredictable weekend day.</p>
+    </div>
+  </div>
+</div></section>
+
+<!-- RESULTS + MID-PAGE CTA -->
+<section class="results on-dark"><div class="wrap center">
+  <div class="eyebrow">Quantified Results</div>
+  <h2>Saving Money Without Sacrificing Your People</h2>
+  <p class="lede">Both root causes were addressed in a single redesign, recovering <b>more than $5 million in annual labor cost</b> without reducing headcount or operating hours.</p>
+  <div class="results-box">
+    <h3>Ready to find out what your schedule could recover in your facility?</h3>
+    <p>We help operations and HR leaders map their true labor costs and coverage logic before they make structural changes.</p>
+    <a href="#contact-form" class="btn btn-on-navy">Start a Conversation</a>
+  </div>
+</div></section>
+
+<!-- THE PATTERN UNDERNEATH -->
+<section class="sec"><div class="wrap narrow">
+  <div class="eyebrow">The Pattern Underneath</div>
+  <h2>Why Good Operations Carry Invisible Schedule Costs</h2>
+  <p>Overlap costs and start-time complexity are not fixed features of operating at scale. They are the accumulated result of scheduling decisions made one at a time &mdash; each sensible on its own day, never examined together as a system.</p>
+  <p>That is why the cost survives: it gets normalized into the budget, and no one ever adds it up. When someone finally does, the number is almost always larger than leadership expects.</p>
+  <p class="strong-line">And a good deal of it is recoverable, because it was never buying productivity in the first place.</p>
+  <div class="insight">
+    <h3><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.6 10.8c.6.5 1 1.3 1 2.2h5.2c0-.9.4-1.7 1-2.2A6 6 0 0 0 12 3z"/></svg>The key insight for leadership</h3>
+    <p>Most schedules are not designed from scratch &mdash; they accrete over time. Unearned overlap is labor cost you can remove without cutting capacity.</p>
+  </div>
+</div></section>
+
+<!-- FORM -->
+<section class="sec sec-tint" id="contact-form"><div class="wrap form-grid">
+  <div>
+    <div class="eyebrow">Take Action</div>
+    <h2>Is Your Schedule Hiding Unnecessary Labor Costs?</h2>
+    <p>If your schedule has grown by accretion &mdash; supervisors losing real time each week to handoffs, overtime running above benchmark, weekend turnover a standing item on the staffing agenda &mdash; the cost is most likely sitting in the schedule.</p>
+    <p>The one thing you can&rsquo;t do from the outside is know how large it is. Quantifying it precisely is where we start.</p>
+    <ul class="checks">
+      <li>A direct conversation with a senior consultant</li>
+      <li>A reply within one business day</li>
+      <li>No software to buy or install</li>
+    </ul>
+    <p class="trust-line">Shiftwork Solutions LLC brings decades of experience across hundreds of 24/7 operations.</p>
+  </div>
+  <div class="form-card">
+    <h3>Start a Conversation</h3>
+    <p class="form-sub">Tell us where to reach you. A senior consultant will follow up.</p>
+    <form id="leadForm" novalidate>
+      <!-- Honeypot: invisible to humans; bots that fill it are silently dropped server-side -->
+      <input type="text" id="hpField" name="_gotcha" value="" style="position:absolute;left:-9999px;top:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="firstName">First name *</label>
+          <input class="form-input" type="text" id="firstName" name="firstName" required autocomplete="given-name">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="lastName">Last name *</label>
+          <input class="form-input" type="text" id="lastName" name="lastName" required autocomplete="family-name">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="email">Email address *</label>
+        <input class="form-input" type="email" id="email" name="email" required autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="company">Company / facility *</label>
+        <input class="form-input" type="text" id="company" name="company" required autocomplete="organization">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="employeeCount">Approx. employee count</label>
+        <select class="form-select" id="employeeCount" name="employeeCount">
+          <option value="">Select one&hellip;</option>
+          <option value="Under 250">Under 250 employees</option>
+          <option value="250-500">250 &ndash; 500 employees</option>
+          <option value="500-1,000">500 &ndash; 1,000 employees</option>
+          <option value="1,000-2,500">1,000 &ndash; 2,500 employees</option>
+          <option value="2,500+">2,500+ employees</option>
+        </select>
+      </div>
+      <button type="submit" class="btn" id="submitBtn">Start a Conversation</button>
+      <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+      <p class="form-fine">We use your details only to respond to this request. See our <a href="/privacy-policy/">Privacy Policy</a>.</p>
+    </form>
+  </div>
+</div></section>
+
+</main>
+
+<footer class="site-footer"><div class="footer-inner">
+  <div>
+    <span class="fb-brand">Shiftwork Solutions LLC</span>
+    <span class="sep">&middot;</span><a href="tel:+14152651621">(415) 265-1621</a>
+    <span class="sep">&middot;</span><a href="mailto:Contact@shift-work.com">Contact@shift-work.com</a>
+    <span class="sep">&middot;</span><a href="/resources/case-studies/distribution-center-schedule-standardization/">Full Case Study</a>
+    <span class="sep">&middot;</span><a href="/privacy-policy/">Privacy Policy</a>
+    <span class="sep">&middot;</span><a href="/terms-of-use/">Terms of Use</a>
+  </div>
+  <div>&copy; 2026 Shiftwork Solutions LLC</div>
+</div></footer>
+
+<script>
+/* SCROLL REVEAL
+   Section headings, text blocks and cards fade up the first time they scroll into view.
+   Nothing is hidden unless the head script confirmed IntersectionObserver support, so the
+   page is fully visible with scripting off, for print, and for reduced-motion visitors. */
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (document.documentElement.className.indexOf('js-reveal') === -1) return;
+  var selector = [
+    '.sec .eyebrow', '.sec h2', '.sec .lede', '.narrow > p',
+    '.results .eyebrow', '.results h2', '.results .lede',
+    '.impact-card', '.issue-list li', '.quote', '.cost-card', '.fix-card',
+    '.results-box', '.insight', '.form-grid > div'
+  ].join(',');
+  var items = Array.prototype.slice.call(document.querySelectorAll(selector));
+  if (!items.length) return;
+
+  // Cards that sit side by side come in one after another.
+  var staggered = ['impact-card', 'cost-card', 'fix-card'];
+  items.forEach(function (el) {
+    el.classList.add('reveal');
+    for (var i = 0; i < staggered.length; i++) {
+      if (el.classList.contains(staggered[i])) {
+        var idx = Array.prototype.indexOf.call(el.parentNode.children, el);
+        el.style.setProperty('--reveal-delay', (idx * 90) + 'ms');
+      }
+    }
+  });
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  items.forEach(function (el) { observer.observe(el); });
+})();
+</script>
+
+<script>
+/* CONVERSATION REQUEST FORM
+   Same endpoint and payload shape as the /contact/ page form, so submissions arrive in the
+   same place. Only `source`, `topic` and the generated `message` differ. */
+(function () {
+  var SWARM_CONTACT = 'https://ai-swarm-orchestrator.onrender.com/api/contact/submit';
+  var SOURCE = 'landing-5m-schedule-savings';
+  // Anti-spam: page-load timestamp. The backend rejects submissions made in under
+  // 3 seconds (bots), so real visitors are never affected.
+  var PAGE_LOADED_AT = Date.now();
+  var BTN_LABEL = 'Start a Conversation';
+
+  var form = document.getElementById('leadForm');
+  if (!form) return;
+
+  function val(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+
+  // Campaign attribution: collect utm_* values from the page URL, if any.
+  function campaignNote() {
+    var out = [];
+    try {
+      var params = new URLSearchParams(window.location.search);
+      ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+        var v = params.get(k);
+        if (v) out.push(k + '=' + v.slice(0, 120));
+      });
+    } catch (e) { /* older browsers: skip attribution, never block the form */ }
+    return out.length ? ' Campaign: ' + out.join(', ') + '.' : '';
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var btn = document.getElementById('submitBtn');
+    var msg = document.getElementById('formMsg');
+    var firstName = val('firstName');
+    var lastName = val('lastName');
+    var email = val('email');
+    var company = val('company');
+    var employeeCount = val('employeeCount');
+
+    if (!firstName || !lastName || !email || !company) {
+      msg.className = 'form-msg err';
+      msg.textContent = 'Please fill in your name, email address and company.';
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      msg.className = 'form-msg err';
+      msg.textContent = 'Please enter a valid email address.';
+      return;
+    }
+
+    var data = {
+      name: (firstName + ' ' + lastName).trim(),
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      company: company,
+      topic: 'cost-analysis',
+      message: 'Conversation request from the $5M schedule savings landing page (/5m-schedule-savings/).'
+        + ' Approx. employee count: ' + (employeeCount || 'not given') + '.' + campaignNote(),
+      employeeCount: employeeCount,
+      source: SOURCE,
+      honeypot: document.getElementById('hpField').value,
+      timestamp: PAGE_LOADED_AT
+    };
+
+    btn.disabled = true; btn.textContent = 'Sending...';
+    msg.className = 'form-msg'; msg.textContent = '';
+
+    fetch(SWARM_CONTACT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (d.success) {
+          msg.className = 'form-msg ok';
+          msg.textContent = '✓ Request received. We’ll follow up within one business day.';
+          form.reset();
+          btn.textContent = 'Request Sent ✓';
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'lp_conversation_request', lp_source: SOURCE });
+        } else { throw new Error(d.error || 'Submission failed'); }
+      })
+      .catch(function (err) {
+        msg.className = 'form-msg err';
+        msg.textContent = (err && err.message && err.message !== 'Submission failed' && err.message.indexOf('fetch') === -1 && err.message.indexOf('JSON') === -1)
+          ? err.message
+          : 'Something went wrong. Please email us directly at Contact@shift-work.com.';
+        btn.disabled = false; btn.textContent = BTN_LABEL;
+      });
+  });
+})();
+</script>
+</body>
+</html>
+<!-- I did no harm, and this file is not truncated -->
