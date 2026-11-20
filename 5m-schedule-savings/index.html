@@ -25,6 +25,11 @@
                  coverage logic before they make structural changes.").
     2026-11-20 — Mid-page results box heading ("Ready to find out what your schedule could
                  recover in your facility?") changed from white to warm yellow (gold #EEAE26).
+    2026-11-20 — Added a consultant row to the form section, under the checklist: headshots,
+                 names and site-standard titles for Jim Dillingham (Founder & Senior Consultant),
+                 Dan Capshaw and Ethan Franklin (Senior Consultant), using /images/jim.jpg,
+                 dan.jpg and ethan.jpg. New CSS: .team-row, .team-lead, .team-list, .team-member,
+                 .team-name, .team-title. Stacks one per line on phones.
     2026-11-19 — Added a "Read the full article" link button (dark blue, white text) at the end of
                  "The Pattern Underneath" section, pointing to the full case study and opening in a
                  new tab so the landing page stays open. New CSS: .article-link-wrap, .btn-article.
@@ -255,6 +260,13 @@
     .checks li{position:relative;padding-left:46px;min-height:32px;display:flex;align-items:center;font-size:16px;line-height:1.5;color:var(--body-text)}
     .checks li::before{content:"";position:absolute;left:0;top:50%;width:32px;height:32px;margin-top:-16px;border-radius:50%;background:var(--white);border:1.5px solid var(--border-med)}
     .checks li::after{content:"";position:absolute;left:12px;top:50%;width:8px;height:15px;margin-top:-10px;border:solid var(--body-text);border-width:0 3px 3px 0;transform:rotate(45deg)}
+    .team-row{margin-top:28px}
+    .team-lead{font-size:14.5px;font-weight:700;color:var(--navy-dark);margin-bottom:14px}
+    .team-list{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .team-member{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+    .team-member img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--white);box-shadow:0 2px 8px rgba(13,31,60,.15)}
+    .team-name{font-size:14.5px;font-weight:700;color:var(--navy-dark);line-height:1.3}
+    .team-title{font-size:13px;color:var(--muted);line-height:1.4}
     .trust-line{margin-top:26px;padding-top:20px;border-top:1px solid #D3DEEA;font-size:14.5px;color:var(--muted)}
     .form-card{background:var(--white);border:1px solid var(--border-med);border-radius:var(--radius-lg);padding:38px 36px;box-shadow:0 10px 30px rgba(13,31,60,.08)}
     .form-card h3{font-size:24px;color:var(--navy-dark);line-height:1.25}
@@ -292,6 +304,8 @@
       .impact-v{white-space:normal}
       .impact-grid{grid-template-columns:1fr}
       .form-row{grid-template-columns:1fr;gap:0}
+      .team-list{grid-template-columns:1fr;gap:12px}
+      .team-member{flex-direction:row;align-items:center;gap:14px}
       .hero-stat{margin:-28px 12px 0;padding:18px}
       .hero-stat-num{font-size:42px}
       .btn{width:100%}
@@ -500,6 +514,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <li>A reply within one business day</li>
       <li>No software to buy or install</li>
     </ul>
+    <div class="team-row" aria-label="The consultants you will talk to">
+      <div class="team-lead">You&rsquo;ll talk to one of our senior consultants:</div>
+      <ul class="team-list">
+        <li class="team-member">
+          <img src="/images/jim.jpg" alt="Jim Dillingham" width="56" height="56" loading="lazy">
+          <div><div class="team-name">Jim Dillingham</div><div class="team-title">Founder &amp; Senior Consultant</div></div>
+        </li>
+        <li class="team-member">
+          <img src="/images/dan.jpg" alt="Dan Capshaw" width="56" height="56" loading="lazy">
+          <div><div class="team-name">Dan Capshaw</div><div class="team-title">Senior Consultant</div></div>
+        </li>
+        <li class="team-member">
+          <img src="/images/ethan.jpg" alt="Ethan Franklin" width="56" height="56" loading="lazy">
+          <div><div class="team-name">Ethan Franklin</div><div class="team-title">Senior Consultant</div></div>
+        </li>
+      </ul>
+    </div>
     <p class="trust-line">Shiftwork Solutions LLC brings decades of experience across hundreds of 24/7 operations.</p>
   </div>
   <div class="form-card">
