@@ -4,9 +4,21 @@
   Shiftwork Solutions LLC — LinkedIn ad landing page ($5M distribution center case study)
   Deploy as: /5m-schedule-savings/index.html  →  https://shift-work.com/5m-schedule-savings/
   Created:      2026-11-11
-  Last Updated: 2026-11-17
+  Last Updated: 2026-11-20
 
   CHANGE LOG:
+    2026-11-20 — Redesign card 03 retitled "Incentivized Weekend Coverage" with new text (was
+                 "Dedicated Weekend Crew"). Impact cards "Total annual value" and "Weekend
+                 retention" restyled as outcome cards (.impact-card.outcome): navy #1F4E79
+                 background, white label and text, gold headline figures, white icon tile with a
+                 black icon. Ethan quote: no italics, no inline quotation marks; one large orange
+                 opening quotation mark above the quote on the left.
+    2026-11-20 — Hero picture replaced with a licensed iStock photo (iStock-2259980585, warehouse
+                 associate in an orange vest), cropped to 4:3 and saved over
+                 /images/5m-schedule-savings-hero.jpg. Hero image alt text updated to match.
+    2026-11-20 — "Weekend retention" impact card text changed to "Weekend coverage now runs on
+                 volunteers who prefer the extra hours." (was "Coverage rebuilt around a dedicated
+                 weekend crew that employees preferred."), to match redesign card 03.
     2026-11-19 — Added a "Read the full article" link button (dark blue, white text) at the end of
                  "The Pattern Underneath" section, pointing to the full case study and opening in a
                  new tab so the landing page stays open. New CSS: .article-link-wrap, .btn-article.
@@ -42,9 +54,8 @@
       source = 'landing-5m-schedule-savings'. Employee count and any utm_* values from the
       page URL are appended to the message text so they arrive in the same inbox.
       On success a dataLayer event 'lp_conversation_request' is pushed for GTM / ad conversions.
-    IMAGE: /images/5m-schedule-savings-hero.jpg (1200px wide, web-optimized copy of
-      Gemini_Generated_Image_11.09.26.jpg, with the made-up company wordmark on the vest
-      removed). The only logo on the page is the site logo, /images/clear_bkgr_logo_2.png.
+    IMAGE: /images/5m-schedule-savings-hero.jpg (1200 x 900, web-optimized crop of the
+      licensed iStock photo iStock-2259980585). Earlier versions used an AI-generated image. The only logo on the page is the site logo, /images/clear_bkgr_logo_2.png.
     BRAND: navy #1F4E79, navy-dark #0D1F3C, mid-blue #85B7EB, light blue #EEF3F8,
       orange #E8610A (CTAs, icons, accents), orange tint #FDEEE3 (icon and number tiles), black #1A1A1A (Cost #2 tab, form checkmarks),
       gold #EEAE26 (accent text on dark navy only), Arial.
@@ -168,7 +179,10 @@
     /* impact cards */
     .impact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:36px}
     .impact-card{background:var(--white);border:1px solid var(--border-med);border-radius:var(--radius-lg);padding:30px 32px}
-    .impact-card.total{border-color:#F3C9A8;box-shadow:0 8px 24px rgba(232,97,10,.10)}
+    .impact-card.outcome{background:var(--navy);border-color:var(--navy);box-shadow:0 12px 30px rgba(13,31,60,.18)}
+    .impact-card.outcome .impact-k,.impact-card.outcome p{color:var(--white)}
+    .impact-card.outcome .impact-v{color:var(--gold)}
+    .impact-card.outcome .ico-tile{background:var(--white);color:var(--body-text)}
     .ico-tile{display:inline-flex;align-items:center;justify-content:center;width:50px;height:50px;border-radius:12px;background:var(--orange-tint);color:var(--orange);margin-bottom:18px}
     .impact-k{font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
     .impact-v{font-size:32px;font-weight:700;line-height:1.2;color:var(--navy-dark);margin:6px 0 8px;white-space:nowrap}
@@ -183,8 +197,8 @@
 
     /* quote */
     .quote{position:relative;margin-top:44px;background:var(--white);border:1px solid var(--border-med);border-radius:var(--radius-lg);padding:36px 40px 30px;box-shadow:0 16px 40px rgba(13,31,60,.10)}
-    .quote::before{content:"\201D";position:absolute;top:6px;right:28px;font-family:Georgia,'Times New Roman',serif;font-size:110px;line-height:1;color:var(--orange-tint);pointer-events:none}
-    .quote blockquote{position:relative;padding-right:56px;font-size:19px;font-style:italic;line-height:1.65;color:var(--navy-dark)}
+    .quote::before{content:"\201C";display:block;height:62px;margin:-6px 0 8px -4px;font-family:Georgia,'Times New Roman',serif;font-size:140px;line-height:1;color:var(--orange);pointer-events:none}
+    .quote blockquote{position:relative;font-size:19px;font-style:normal;line-height:1.65;color:var(--navy-dark)}
     .quote-attr{display:flex;align-items:center;gap:14px;margin-top:20px;padding-top:18px;border-top:1px solid var(--border-med)}
     .quote-attr img{width:52px;height:52px;flex-shrink:0;border-radius:50%;object-fit:cover}
     .quote-name{font-weight:700;color:var(--navy-dark);line-height:1.3}
@@ -276,8 +290,8 @@
       .hero-stat-num{font-size:42px}
       .btn{width:100%}
       .quote{padding:28px 22px 24px}
-      .quote blockquote{font-size:17px;padding-right:0}
-      .quote::before{font-size:72px;right:16px;top:2px}
+      .quote blockquote{font-size:17px}
+      .quote::before{font-size:110px;height:50px}
       .form-card,.fix-card,.impact-card{padding:24px 22px}
       .cost-card{padding:44px 22px 24px}
       .hero-stat-meta{grid-template-columns:1fr}
@@ -324,7 +338,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="hero-note">No software to buy. The fix is in the schedule itself.</p>
   </div>
   <div class="hero-visual">
-    <img src="/images/5m-schedule-savings-hero.jpg" alt="A supervisor and an associate talking on the floor of a distribution center" width="1200" height="900">
+    <img src="/images/5m-schedule-savings-hero.jpg" alt="A smiling warehouse associate in an orange safety vest filling in paperwork at a loading dock" width="1200" height="900">
     <div class="hero-stat">
       <div class="hero-stat-label">Annual labor cost recovered</div>
       <div class="hero-stat-num">$5M+</div>
@@ -354,17 +368,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="impact-v">$1.6M</div>
       <p>Annual cost of running 2&ndash;5 start times per department. Now one start time per shift.</p>
     </div>
-    <div class="impact-card total">
+    <div class="impact-card outcome">
       <div class="ico-tile"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18M16.5 7.5c0-1.7-2-3-4.5-3s-4.5 1.3-4.5 3 2 2.6 4.5 3 4.5 1.3 4.5 3-2 3-4.5 3-4.5-1.3-4.5-3"/></svg></div>
       <div class="impact-k">Total annual value</div>
       <div class="impact-v">$5.0M &ndash; $5.8M</div>
       <p>Identified opportunity, addressed without cutting headcount or operating hours.</p>
     </div>
-    <div class="impact-card">
+    <div class="impact-card outcome">
       <div class="ico-tile"><svg class="ico" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14.2c2.9.3 5 2.7 5 5.8"/></svg></div>
       <div class="impact-k">Weekend retention</div>
       <div class="impact-v">Improved</div>
-      <p>Coverage rebuilt around a dedicated weekend crew that employees preferred.</p>
+      <p>Weekend coverage now runs on volunteers who prefer the extra hours.</p>
     </div>
   </div>
 </div></section>
@@ -384,7 +398,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <p style="margin-top:22px">The schedule was the common thread in all three. No one had yet looked at it as a single system.</p>
 
   <figure class="quote">
-    <blockquote>&ldquo;The schedule had been treated as a fixed cost of operating at this scale. When we mapped it precisely, the overlaps alone were costing nearly $4 million a year &mdash; and that was before we counted what the start-time complexity was taking out of productive capacity.&rdquo;</blockquote>
+    <blockquote>The schedule had been treated as a fixed cost of operating at this scale. When we mapped it precisely, the overlaps alone were costing nearly $4 million a year &mdash; and that was before we counted what the start-time complexity was taking out of productive capacity.</blockquote>
     <figcaption class="quote-attr">
       <img src="/images/ethan.jpg" alt="Ethan Franklin" width="52" height="52">
       <div>
@@ -436,8 +450,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="fix-card">
       <div class="fix-n">03</div>
-      <h3>Dedicated Weekend Crew</h3>
-      <p>Weekend coverage rebuilt around a dedicated crew. Employees saw it as a better deal than five days with an unpredictable weekend day.</p>
+      <h3>Incentivized Weekend Coverage</h3>
+      <p>Employees at the site showed a strong preference for overtime. We used that insight to increase voluntary weekend coverage while reducing unnecessary overtime elsewhere.</p>
     </div>
   </div>
 </div></section>
